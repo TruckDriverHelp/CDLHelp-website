@@ -1,30 +1,23 @@
 import React from 'react'
-import NavbarStyleTwo from '@/components/_App/NavbarStyleTwo'
-import MainBanner from '@/components/HomeDemo8/MainBanner';
-import BestFeatures from '@/components/HomeDemo8/BestFeatures';
-import TopFeatures from '@/components/HomeDemo8/TopFeatures';
-import AboutContent from '@/components/HomeDemo8/AboutContent';
-import KeyFeatures from '../components/HomeDemo8/KeyFeatures';
-import AppScreenshots from '@/components/HomeDemo8/AppScreenshots';
-import AppIntroVideo from '@/components/HomeDemo8/AppIntroVideo';
-import Funfacts from '@/components/HomeDemo8/Funfacts';
-import AppDownload from '@/components/HomeDemo8/AppDownload';
-import ClientFeedback from '@/components/HomeDemo8/ClientFeedback';
-import PricingPlan from '@/components/HomeDemo8/PricingPlan';
-import BlogPost from '@/components/Common/BlogPost';
-import PartnerStyle2 from '@/components/Common/PartnerStyle2';
-import FooterStyleThree from '@/components/_App/FooterStyleThree';
+import Navbar from '@/components/_App/Navbar'
+import MainBanner from '@/components/Home/MainBanner';
+import BestFeatures from '@/components/Home/BestFeatures';
+import AppIntroVideo from '@/components/Home/AppIntroVideo';
+import Funfacts from '@/components/Home/Funfacts';
+import AppDownload from '@/components/Home/AppDownload';
+import ClientFeedback from '@/components/Home/ClientFeedback';
+import Footer from '@/components/_App/Footer';
 
 const IndexPage8 = () => {
     return (
         <>
-            <NavbarStyleTwo />
+            <Navbar />
 
             <MainBanner />
 
             <BestFeatures />
 
-            <ClientFeedback />
+            {/* <ClientFeedback /> */}
 
             {/* <TopFeatures /> */}
 
@@ -49,7 +42,7 @@ const IndexPage8 = () => {
 
             <BlogPost /> */}
  
-            <FooterStyleThree />
+            <Footer />
         </>
     )
 }

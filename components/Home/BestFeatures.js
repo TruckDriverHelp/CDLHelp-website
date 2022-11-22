@@ -4,7 +4,7 @@ import Link from 'next/link';
 const BestFeatures = () => {
     return (
 		<>
-			<div className="features-area pt-100 pb-75">
+			<div id="about" className="features-area pt-100 pb-75">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
@@ -14,8 +14,8 @@ const BestFeatures = () => {
                                 <div className="btn-box">
 																	
 																<a className="default-btn" href='https://academy.truckdriver.help/quiz'>Попробовать Онлайн</a>
-																<Link href="/pricing">
-																		<a className="link-btn">О Проекте</a>
+																<Link href="#truckdriverhelp">
+																		<a className="link-btn">TruckDriver.help</a>
 																</Link>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@ const BestFeatures = () => {
                                             <i className="ri-translate"></i>
                                             <h3>Текст с переводом</h3>
                                         </div>
-                                        <p>Возможность перевода вопросом нажатием на кнопку.</p>
+                                        <p>Возможность перевода вопросов нажатием на кнопку.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
@@ -52,10 +52,10 @@ const BestFeatures = () => {
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card">
                                         <div className="icon">
-                                            <i className="ri-leaf-line"></i>
-                                            <h3>Easy Editable Data</h3>
+                                            <i className="ri-folder-open-line"></i>
+                                            <h3>3 категории вопросов</h3>
                                         </div>
-                                        <p>Just log in with your mail account from play store and using whatever you want for your able business purpose.</p>
+                                        <p>Приложение содержит вопросы из трех категорий: General Knowedlge, Air Brakes, и Combination.</p>
                                     </div>
                                 </div>
                             </div>
