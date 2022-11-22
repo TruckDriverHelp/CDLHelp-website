@@ -53,7 +53,7 @@ const MainBanner = () => {
                                         <span>Apple Store</span>
                                     </a>
 
-                                    <a href="https://play.google.com/store/apps" className="playstore-btn" target="_blank">
+                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" className="playstore-btn" target="_blank">
                                         <img 
                                             src="/images/play-store.png" 
                                             alt="image" 

@@ -13,7 +13,7 @@ const AppIntroVideo = () => {
     }
     return (
 		<>
-			<div className="app-video-area ptb-100">
+			<div id="truckdriverhelp" className="app-video-area ptb-100">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
@@ -43,10 +43,7 @@ const AppIntroVideo = () => {
                                 <span className="sub-title">О ПРОЕКТЕ</span>
                                 <h2>Разработано при поддержке проекта TruckDriver.help</h2>
                                 <p>TruckDriver.help это уникальный онлайн проект нацеленный помочь иммигрантам работающим в траковой индустрии. На данный момент основная платформа состоит из объявлений логистических компаний. Желающие найти работу в индустрии, смогут воспользоваться расширенными фильтрами предоставленные на сайте, для поиска работы по указанным критериям.</p>
-
-                                <Link href="/contact">
-                                    <a className="default-btn">Get Started</a>
-                                </Link>
+                                    <a className="default-btn" href="https://www.truckdriver.help">Посетить</a>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ import React from 'react';
 const AppDownload = () => {
     return (
 		<>
-			<div className="new-app-download-wrap-area ptb-100">
+			<div id="download" className="new-app-download-wrap-area ptb-100">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
@@ -13,7 +13,7 @@ const AppDownload = () => {
                                 <p>Бесплатно скачать приложение CDL Help и опробовать вопросы.</p>
 
                                 <div className="btn-box color-wrap">
-                                    <a href="https://www.apple.com/store" className="playstore-btn" target="_blank">
+                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" className="playstore-btn" target="_blank">
                                         <img 
                                             src="/images/play-store.png" 
                                             alt="image" 

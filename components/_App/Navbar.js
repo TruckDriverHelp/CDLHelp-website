@@ -3,7 +3,7 @@
 import React from "react";
 import Link from '@/utils/ActiveLink';
 
-const NavbarStyleTwo = () => {
+const Navbar = () => {
     const [menu, setMenu] = React.useState(true)
  
     const toggleNavbar = () => {
@@ -61,9 +61,9 @@ const NavbarStyleTwo = () => {
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link href="/">
+                                        <Link href="#about">
                                             <a className="nav-link">
-                                                О Нас 
+                                                О Проекте
                                             </a>
                                         </Link>
                                     </li>
@@ -81,15 +81,13 @@ const NavbarStyleTwo = () => {
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link href="/contact" activeClassName="active">
-                                            <a onClick={toggleNavbar} className="nav-link">Обратная Связь</a>
-                                        </Link>
+																				<a href="https://www.t.me/TDHsupport" className="nav-link">Обратная Связь</a>
                                     </li>
                                 </ul>
                             </div>
 
                             <div className="others-options">
-                                <Link href="/contact">
+                                <Link href="#download">
                                     <a className="default-btn">
                                         Скачать
                                     </a>
@@ -103,4 +101,4 @@ const NavbarStyleTwo = () => {
     );
 }
 
-export default NavbarStyleTwo;
+export default Navbar;

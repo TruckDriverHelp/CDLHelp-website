@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const FooterStyleThree = () => {
+const Footer = () => {
     
     const currentYear = new Date().getFullYear();
 
@@ -47,19 +47,17 @@ const FooterStyleThree = () => {
                                 <h3>CDL Help</h3>
                                 <ul className="links-list">
                                     <li>
-                                        <Link href="/about-simple">
-                                            <a>О Нас</a>
+                                        <Link href="#about">
+                                            <a>О Проекте</a>
                                         </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link href="/features">
                                             <a>Отзывы</a>
                                         </Link>
-                                    </li>
+                                    </li> */}
                                     <li>
-                                        <Link href="/privacy-policy">
-                                            <a>Попробовать Бесплатно</a>
-                                        </Link>
+                                        <a href="https://academy.truckdriver.help/quiz">Попробовать Бесплатно</a>
                                     </li>
                                 </ul>
                             </div>
@@ -70,19 +68,17 @@ const FooterStyleThree = () => {
                                 <h3>Поддержка</h3>
                                 <ul className="links-list">
                                     <li>
-                                        <Link href="/services">
+                                        <Link href="/privacy-policy">
                                             <a>Конфиденциальность</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/contact">
+                                        <Link href="/terms-conditions">
                                             <a>Публичное Соглашение</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/privacy-policy">
-                                            <a>Обратная Связь</a>
-                                        </Link>
+																				<a href="https://www.t.me/TDHsupport">Обратная Связь</a>
                                     </li>
                                 </ul>
                             </div>
@@ -93,19 +89,13 @@ const FooterStyleThree = () => {
                                 <h3>Ресурсы</h3>
                                 <ul className="links-list">
                                     <li>
-                                        <Link href="/privacy-policy">
-                                            <a>TruckDriver.help</a>
-                                        </Link>
+																				<a href="https://www.truckdriver.help/">TruckDriver.help</a>
                                     </li>
                                     <li>
-                                        <Link href="/privacy-policy">
-                                            <a>Найти Работу</a>
-                                        </Link>
+																				<a href="https://www.truckdriver.help/">Найти Работу</a>
                                     </li>
                                     <li>
-                                        <Link href="/terms-conditions">
-                                            <a>Бесплатные Курсы Диспетчера</a>
-                                        </Link>
+																				<a href="https://academy.truckdriver.help/course/dispatch/0">Бесплатные Курсы Диспетчера</a>
                                     </li>
                                 </ul>
                             </div>
@@ -141,4 +131,4 @@ const FooterStyleThree = () => {
     );
 }
 
-export default FooterStyleThree;
+export default Footer;
