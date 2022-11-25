@@ -20,10 +20,8 @@ const TermsConditions = () => {
 					<div className="terms-conditions-content">
 						<p>
 							TruckDriver.help llc built the CDL Help app as
-							a Free app. This SERVICE is provided by
-							TruckDriver.help llc at no cost and is intended for use as
-							is.
-						</p> <p>
+							a Free to download app with paid subscription to restricted content. This SERVICE is provided by
+							TruckDriver.help llc.</p> <p>
 							This page is used to inform visitors regarding our
 							policies with the collection, use, and disclosure of Personal
 							Information if anyone decided to use our Service.
@@ -71,6 +69,22 @@ const TermsConditions = () => {
 							and know when a cookie is being sent to your device. If you
 							choose to refuse our cookies, you may not be able to use some
 							portions of this Service.
+							<p><strong>Subscription services</strong></p> <p>
+								Monthly Subscription: By purchasing a Monthly Subscription, you agree to an initial and recurring Monthly Subscription Fee at the then-current Monthy Subscription rate, and you accept responsibility for all recurring charges until you cancel your subscription. You may cancel your Monthly Subscription at any time, subject to the terms of our cancellation policy.
+							</p>
+							<p>Automatic Monthly Renewal Terms: Once you subscribe, you will be charge the then-current Monthly Subscription fee. You will be continuesly charged on monthly basis at the then-current Monthly Subscription rate, until you cancel your subscription.</p>
+							<p>
+								3 Month Subscription: By purchasing a 3 Month Subscription, you agree to an initial and recurring 3 Month Subscription Fee at the then-current Monthy Subscription rate, and you accept responsibility for all recurring charges until you cancel your subscription. You may cancel your 3 Month Subscription at any time, subject to the terms of our cancellation policy.
+							</p>
+							<p>Automatic 3 Month Renewal Terms: Once you subscribe, you will be charge the then-current 3 Month Subscription fee. You will be continuesly charged on 3 Month basis at the then-current 3 Month Subscription rate, until you cancel your subscription.</p>
+							<p>
+								6 Month Subscription: By purchasing a 6 Month Subscription, you agree to an initial and recurring 6 Month Subscription Fee at the then-current Monthy Subscription rate, and you accept responsibility for all recurring charges until you cancel your subscription. You may cancel your 6 Month Subscription at any time, subject to the terms of our cancellation policy.
+							</p>
+							<p>Automatic 6 Month Renewal Terms: Once you subscribe, you will be charge the then-current 6 Month Subscription fee. You will be continuesly charged on 6 Month basis at the then-current 6 Month Subscription rate, until you cancel your subscription.</p>
+							<p>
+								Annual Subscription: By purchasing a Annual Subscription, you agree to an initial and recurring Annual Subscription Fee at the then-current Monthy Subscription rate, and you accept responsibility for all recurring charges until you cancel your subscription. You may cancel your Annual Subscription at any time, subject to the terms of our cancellation policy.
+							</p>
+							<p>Automatic Annual Renewal Terms: Once you subscribe, you will be charge the then-current Annual Subscription fee. You will be continuesly charged on Annual basis at the then-current Annual Subscription rate, until you cancel your subscription.</p>
 						</p> <p><strong>Service Providers</strong></p> <p>
 							We may employ third-party companies and
 							individuals due to the following reasons:
