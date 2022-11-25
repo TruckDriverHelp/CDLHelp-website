@@ -51,7 +51,7 @@ const AppDownload = () => {
                     </div>
                 </div>
 
-                <div className="app-download-shape-1">
+                {/* <div className="app-download-shape-1">
                     <img 
                         src="/images/home-7-8-9/app-download/shape-1.png" 
                         alt="image" 
@@ -62,7 +62,7 @@ const AppDownload = () => {
                         src="/images/home-7-8-9/app-download/shape-2.png" 
                         alt="image" 
                     />
-                </div>
+                </div> */}
             </div>
 		</>
     );

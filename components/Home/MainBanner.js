@@ -11,7 +11,7 @@ const MainBanner = () => {
                             <div className="new-app-main-banner-wrap-content">
                                 <h1>CDL тесты с переводом на русский язык</h1>
                                 <p>Приложение CDL Help поможет вам подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США.</p>
-                                <ul className="user-info">
+                                {/* <ul className="user-info">
                                     <li>
                                         <img 
                                             src="/images/user/user1.jpg" 
@@ -39,9 +39,9 @@ const MainBanner = () => {
                                             className="rounded-circle" 
                                             alt="image" 
                                         />
-                                    </li>
+                                    </li> 
                                     <li className="title">2K+ пользователей ежемесячно</li>
-                                </ul>
+                                </ul> */}
 
                                 <div className="app-btn-box">
                                     <a href="https://www.apple.com/store" className="applestore-btn" target="_blank">
@@ -72,7 +72,7 @@ const MainBanner = () => {
                                         alt="image" 
                                     />
 
-                                    <div className="wrap-image-shape-1">
+                                    {/* <div className="wrap-image-shape-1">
                                         <img 
                                             src="/images/home-7-8-9/banner/shape-3.png" 
                                             alt="image" 
@@ -83,7 +83,7 @@ const MainBanner = () => {
                                             src="/images/home-7-8-9/banner/shape-4.png" 
                                             alt="image" 
                                         />
-                                    </div>
+                                    </div> */}
                                     <div className="banner-circle">
                                         <img 
                                             src="/images/home-7-8-9/banner/banner-circle.png" 
