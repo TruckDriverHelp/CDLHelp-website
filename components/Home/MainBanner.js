@@ -44,7 +44,7 @@ const MainBanner = () => {
                                 </ul> */}
 
                                 <div className="app-btn-box">
-                                    <a href="https://www.apple.com/store" className="applestore-btn" target="_blank">
+                                    <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
                                         <img 
                                             src="/images/apple-store.png" 
                                             alt="image" 
