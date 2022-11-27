@@ -21,7 +21,7 @@ const AppDownload = () => {
                                         Приложение Android
                                         <span>Google Play</span>
                                     </a>
-                                    <a href="https://play.google.com/store/apps" className="applestore-btn" target="_blank">
+                                    <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
                                         <img 
                                             src="/images/apple-store.png" 
                                             alt="image" 
