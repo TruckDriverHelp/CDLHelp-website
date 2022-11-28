@@ -13,15 +13,57 @@ import 'react-image-lightbox/style.css'
 import 'react-tabs/style/react-tabs.css'
 // Global CSS
 import '@/public/css/styles.css'
+import Script from "next/script";
 
 import Layout from '@/components/_App/Layout';
 
 const MyApp = ({ Component, pageProps }) => {
-    return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
-    )
+	useEffect(() => {
+		const handleRouteChange = url => {
+			window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+				page_path: url,
+				cookieFlags: 'SameSite=None; Secure'
+			})
+		}
+		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+		(function () {
+			var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+			s1.async = true;
+			s1.src = 'https://embed.tawk.to/6384bd8cdaff0e1306d9d545/1giv88r02';
+			s1.charset = 'UTF-8';
+			s1.setAttribute('crossorigin', '*');
+			s0.parentNode.insertBefore(s1, s0)
+		})();
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange)
+		}
+	}, [router.events])
+
+	return (
+		<Layout>
+			<Component {...pageProps} />
+			{/* Google analytics scripts */}
+			<Script
+				strategy="lazyOnload"
+				async
+				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+			/>
+			<Script
+				id="google-analytics"
+				strategy="lazyOnload"
+				dangerouslySetInnerHTML={{
+					__html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+				}}
+			/>
+		</Layout>
+	)
 }
 
 export default MyApp;
