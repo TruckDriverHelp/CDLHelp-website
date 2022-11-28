@@ -14,10 +14,14 @@ import 'react-tabs/style/react-tabs.css'
 // Global CSS
 import '@/public/css/styles.css'
 import Script from "next/script";
+import { useRouter } from 'next/router'
 
 import Layout from '@/components/_App/Layout';
+import { useEffect } from 'react'
 
 const MyApp = ({ Component, pageProps }) => {
+	const router = useRouter()
+
 	useEffect(() => {
 		const handleRouteChange = url => {
 			window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
