@@ -34,7 +34,7 @@ const BestFeatures = () => {
                                             <i className="ri-translate"></i>
                                             <h3>Текст с переводом</h3>
                                         </div>
-                                        <p>Возможность перевода вопросов нажатием на кнопку.</p>
+                                        <p>Помогает получить права CDL, а также учить английский язык.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">

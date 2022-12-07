@@ -9,8 +9,8 @@ const MainBanner = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="new-app-main-banner-wrap-content">
-                                <h1>CDL тесты с переводом на русский язык</h1>
-                                <p>Приложение CDL Help поможет вам подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США.</p>
+                                <h1>CDL на русском языке</h1>
+                                <p>Приложение CDL Help поможет Вам не только подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США, но с изучением английского языка.</p>
                                 {/* <ul className="user-info">
                                     <li>
                                         <img 
@@ -50,7 +50,7 @@ const MainBanner = () => {
                                             alt="image" 
                                         />
                                         Приложение iOS
-                                        <span>Apple Store</span>
+                                        <span>Скачать</span>
                                     </a>
 
                                     <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" className="playstore-btn" target="_blank">
@@ -59,7 +59,7 @@ const MainBanner = () => {
                                             alt="image" 
                                         />
                                         Приложение Android
-                                        <span>Google Play</span>
+                                        <span>Скачать</span>
                                     </a>
                                 </div>
                             </div>

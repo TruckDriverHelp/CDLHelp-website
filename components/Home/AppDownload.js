@@ -19,7 +19,7 @@ const AppDownload = () => {
                                             alt="image" 
                                         />
                                         Приложение Android
-                                        <span>Google Play</span>
+                                        <span>Скачать</span>
                                     </a>
                                     <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
                                         <img 
@@ -27,7 +27,7 @@ const AppDownload = () => {
                                             alt="image" 
                                         />
                                         Приложение iOS
-                                        <span>Apple Store</span>
+                                        <span>Скачать</span>
                                     </a>
                                 </div>
                             </div>

@@ -679,9 +679,8 @@
     right: 50px;
     top: 7px;
   }
-  .navbar-area .navbar .others-options .default-btn {
-    padding: 8px 20px;
-    font-size: 10px;
+  .nav-icon {
+		font-size: 30px;
   }
   .navbar-area.navbar-style-two {
     border-bottom-color: rgba(0, 0, 0, 0.04);
