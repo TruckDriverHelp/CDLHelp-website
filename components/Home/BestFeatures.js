@@ -43,7 +43,7 @@ const BestFeatures = () => {
                                             <i className="ri-database-2-line"></i>
                                             <h3>База вопросов</h3>
                                         </div>
-                                        <p>В нашей базе вопросов содержится более 90% возможных вопросов.</p>
+                                        <p>В нашей базе вопросов содержится более 370 вопросов.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
