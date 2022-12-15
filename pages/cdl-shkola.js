@@ -90,7 +90,7 @@ const BlogGrid = () => {
 								<div className="article-footer">
 									<div className="post-author-meta">
 										<div className="d-flex align-items-center">
-											<img src="/images/user/user6.jpg" alt="user" />
+											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
 													Автор <Link href="/blog-grid"><a>TruckDirver.help</a></Link>
