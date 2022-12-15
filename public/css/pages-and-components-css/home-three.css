@@ -519,7 +519,7 @@ Blog Area CSS
   }
   .banner-wrapper-content .sub-title {
     display: inline-block;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   .banner-wrapper-content h1 {
     font-size: 24px;
@@ -621,7 +621,7 @@ Blog Area CSS
   }
   .features-item {
     border: 1px solid #eee;
-    padding: 20px 14px;
+    padding: 20px 16px;
   }
   .features-item h3 {
     font-size: 16px;
@@ -632,7 +632,7 @@ Blog Area CSS
     font-size: 30px;
   }
   .features-item.with-border {
-    padding: 20px 14px;
+    padding: 20px 16px;
   }
   .app-download-inner.bg-gray {
     padding-right: 15px;
@@ -805,7 +805,7 @@ Blog Area CSS
     margin-bottom: 15px;
   }
   .banner-wrapper-content p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .banner-wrapper-content .default-btn {
     margin-top: 5px;

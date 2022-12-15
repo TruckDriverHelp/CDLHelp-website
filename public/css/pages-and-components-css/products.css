@@ -36,7 +36,7 @@ Products Area CSS
   color: var(--whiteColor);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .single-products-box .products-image .new-tag {
@@ -50,7 +50,7 @@ Products Area CSS
   text-transform: uppercase;
   background-color: green;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .single-products-box .products-image .default-btn {

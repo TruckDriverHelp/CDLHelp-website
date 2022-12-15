@@ -135,7 +135,7 @@
     margin-bottom: 20px;
   }
   .faq-accordion .accordion-item .accordion-button {
-    font-size: 14px;
+    font-size: 16px;
   }
   .faq-accordion .accordion-item .accordion-button::before {
     bottom: 8px;

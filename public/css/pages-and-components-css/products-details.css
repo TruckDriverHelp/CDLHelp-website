@@ -171,8 +171,8 @@ Products Details Area CSS
 .products-details-desc .products-add-to-cart .lc-default-btn {
   position: relative;
   top: -2px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .products-details-desc .products-share {
@@ -380,7 +380,7 @@ Products Details Area CSS
 }
 
 .products-details-tabs .tab-content .tab-pane .products-reviews .middle {
-  margin-top: 14px;
+  margin-top: 16px;
   float: left;
   width: 82%;
 }

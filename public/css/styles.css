@@ -37,7 +37,7 @@ This files table contents are outlined below >>>>>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 /* Global Variables */
 :root {
-  --fontSize: 14px;
+  --fontSize: 16px;
   --transition: .5s;
   --mainColor: #5a5886;
   --whiteColor: #ffffff;
@@ -971,7 +971,7 @@ textarea.form-control {
 }
 
 .new-app-main-banner-content .content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -1215,7 +1215,7 @@ textarea.form-control {
 }
 
 .new-app-main-banner-wrap-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -1257,7 +1257,7 @@ textarea.form-control {
 .new-app-main-banner-wrap-content .user-info li.title {
   margin-left: 30px;
   margin-right: 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   vertical-align: middle;
   color: var(--blackColor);
@@ -1540,7 +1540,7 @@ textarea.form-control {
   line-height: 30px;
   background: var(--gradientColor);
   color: var(--whiteColor);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   border-radius: 50px;
@@ -1559,7 +1559,7 @@ textarea.form-control {
 
 .features-card p {
   color: var(--whiteColor);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .features-card::before {
@@ -1649,7 +1649,7 @@ textarea.form-control {
 }
 
 .features-inner-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -1829,7 +1829,7 @@ textarea.form-control {
 }
 
 .app-about-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -2158,7 +2158,7 @@ textarea.form-control {
 }
 
 .new-app-progress-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -2653,7 +2653,7 @@ textarea.form-control {
 }
 
 .app-intro-video-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -2869,7 +2869,7 @@ textarea.form-control {
 
 .app-pricing-bottom-text a {
   color: var(--paragraphColor);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   border-bottom: 1px solid var(--paragraphColor);
   padding-bottom: 5px;
@@ -2887,7 +2887,7 @@ textarea.form-control {
 }
 
 .app-pricing-section-title .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -2904,7 +2904,7 @@ textarea.form-control {
 
 .app-pricing-section-title a {
   color: var(--paragraphColor);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   border-bottom: 1px solid var(--paragraphColor);
   padding-bottom: 5px;
@@ -2998,7 +2998,7 @@ textarea.form-control {
 }
 
 .new-app-download-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -3026,7 +3026,7 @@ textarea.form-control {
   background-color: var(--whiteColor);
   -webkit-box-shadow: 0 7px 18px 0 rgba(107, 124, 147, 0.15);
           box-shadow: 0 7px 18px 0 rgba(107, 124, 147, 0.15);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   padding-top: 12px;
   padding-left: 60px;
@@ -3071,7 +3071,7 @@ textarea.form-control {
   background-color: var(--whiteColor);
   -webkit-box-shadow: 0 7px 18px 0 rgba(107, 124, 147, 0.15);
           box-shadow: 0 7px 18px 0 rgba(107, 124, 147, 0.15);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   padding-top: 12px;
   padding-left: 65px;
@@ -3288,7 +3288,7 @@ textarea.form-control {
 }
 
 .new-software-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   background: var(--gradientColor);
   -webkit-background-clip: text;
@@ -3347,7 +3347,7 @@ textarea.form-control {
 
 .single-feedback-card .client-info .title span {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: #989EB0;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -3539,7 +3539,7 @@ textarea.form-control {
 
 .single-feedback-wrap-item .client-info .title span {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--paragraphColor);
 }
 
@@ -3662,7 +3662,7 @@ textarea.form-control {
 
 .single-feedback-wrap-card .client-info .title span {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: #989EB0;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -3808,7 +3808,7 @@ textarea.form-control {
 }
 
 .new-free-trial-content .sub-title {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   color: var(--whiteColor);
   margin-bottom: 15px;
@@ -3971,7 +3971,7 @@ textarea.form-control {
   padding: 5px 15px;
   left: 15px;
   top: 15px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -4287,7 +4287,7 @@ textarea.form-control {
   .pagination-area .page-numbers {
     width: 40px;
     height: 40px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 40px;
   }
   .left-sidebar {
@@ -4469,7 +4469,7 @@ textarea.form-control {
     margin-top: 25px;
   }
   .single-app-pricing-box .features-list li {
-    font-size: 14px;
+    font-size: 16px;
   }
   .app-pricing-section-title {
     padding-right: 0;
@@ -4567,14 +4567,14 @@ textarea.form-control {
     font-size: 13px;
   }
   .single-feedback-card p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-feedback-card .rating {
     margin-top: 18px;
     display: block !important;
   }
   .single-feedback-card .rating h5 {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 15px;
   }
   .new-feedback-shape {
@@ -4661,7 +4661,7 @@ textarea.form-control {
     padding: 20px;
   }
   .features-inner-card .icon {
-    margin: 14px 0 30px;
+    margin: 16px 0 30px;
     padding-left: 60px;
   }
   .features-inner-card .icon i {
@@ -4680,7 +4680,7 @@ textarea.form-control {
     font-size: 30px;
   }
   .features-box-card h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .app-intro-video-content {
     padding-left: 0;
@@ -4706,7 +4706,7 @@ textarea.form-control {
     padding: 30px 20px;
   }
   .single-feedback-wrap-item p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-feedback-wrap-item .client-info .title h3 {
     font-size: 16px;
@@ -4793,7 +4793,7 @@ textarea.form-control {
     padding: 30px 20px;
   }
   .single-feedback-wrap-card p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-feedback-wrap-card .client-info .title h3 {
     font-size: 16px;
@@ -4875,7 +4875,7 @@ textarea.form-control {
     font-size: 30px;
   }
   .section-title p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .page-title-area {
     padding-top: 150px;
@@ -4894,7 +4894,7 @@ textarea.form-control {
     margin-top: 10px;
   }
   .page-title-content ul li {
-    font-size: 14px;
+    font-size: 16px;
   }
   .divider {
     height: 50px;
@@ -5071,7 +5071,7 @@ textarea.form-control {
     margin-top: 25px;
   }
   .single-app-pricing-box .features-list li {
-    font-size: 14px;
+    font-size: 16px;
   }
   .app-pricing-section-title {
     top: 0;
@@ -5168,7 +5168,7 @@ textarea.form-control {
     padding: 20px;
   }
   .features-inner-card .icon {
-    margin: 14px 0 30px;
+    margin: 16px 0 30px;
     padding-left: 60px;
   }
   .features-inner-card .icon i {
@@ -5187,7 +5187,7 @@ textarea.form-control {
     font-size: 30px;
   }
   .features-box-card h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .app-intro-video-content {
     padding-left: 0;
@@ -5212,7 +5212,7 @@ textarea.form-control {
     padding: 30px 20px;
   }
   .single-feedback-wrap-item p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-feedback-wrap-item .client-info .title h3 {
     font-size: 16px;
@@ -5346,7 +5346,7 @@ textarea.form-control {
     padding: 30px 20px;
   }
   .single-feedback-wrap-card p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-feedback-wrap-card .client-info .title h3 {
     font-size: 16px;
@@ -5449,7 +5449,7 @@ textarea.form-control {
     padding: 25px;
   }
   .single-app-pricing-box .features-list li {
-    font-size: 14px;
+    font-size: 16px;
   }
   .new-app-download-content .big-text {
     font-size: 70px;
@@ -5632,7 +5632,7 @@ textarea.form-control {
     font-size: 15px;
   }
   .single-feedback-card .rating h5 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .new-free-trial-inner-box .new-free-trial-shape {
     left: 0;

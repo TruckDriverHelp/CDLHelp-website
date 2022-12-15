@@ -725,7 +725,7 @@ Widget Area CSS
 }
 
 .widget-area .widget_posts_thumb .item .info .title {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   margin-bottom: 7px;
 }
@@ -764,7 +764,7 @@ Widget Area CSS
 }
 
 .widget-area .widget_categories ul li {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .widget-area .widget_categories ul li a {
@@ -805,7 +805,7 @@ Widget Area CSS
 }
 
 .widget-area .widget_archive ul li {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .widget-area .widget_archive ul li a {
@@ -827,7 +827,7 @@ Widget Area CSS
     margin-top: 25px;
   }
   .blog-details-desc .article-content h6 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .blog-details-desc .article-content h5 {
     font-size: 15px;
@@ -851,7 +851,7 @@ Widget Area CSS
     max-width: 100%;
   }
   .blog-details-desc .article-footer .post-author-meta .title .name {
-    font-size: 14px;
+    font-size: 16px;
   }
   .blog-details-desc .article-footer .article-share {
     -webkit-box-flex: 0;
