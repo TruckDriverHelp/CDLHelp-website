@@ -12,7 +12,7 @@ const BlogSidebar = () => {
 					</Link>
 
 				</div>
-				<div className="widget widget_posts_thumb">
+				{/* <div className="widget widget_posts_thumb">
 					<h3 className="widget-title">Popular Posts</h3>
 
 					<article className="item">
@@ -86,7 +86,7 @@ const BlogSidebar = () => {
 							</span>
 						</div>
 					</article>
-				</div>
+				</div> */}
 			</div>
 		</>
 	)
