@@ -299,8 +299,8 @@ Feedback Area CSS
   z-index: 1;
   right: -8px;
   content: '';
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   position: absolute;
   border-radius: 50%;
   -webkit-transform: scale(0);
@@ -501,7 +501,7 @@ Free Trial Area CSS
   }
   .about-content .features-text h6 {
     margin-bottom: 11px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .about-content .btn-box {
     margin-top: 25px;
@@ -527,7 +527,7 @@ Free Trial Area CSS
     max-width: 100%;
   }
   .feedback-tabs .react-tabs__tab-panel p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .feedback-tabs .react-tabs__tab-panel p::before {
     font-size: 100px;
@@ -539,7 +539,7 @@ Free Trial Area CSS
   }
   .feedback-tabs .react-tabs__tab-panel h6 {
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .feedback-tabs .react-tabs__tab-list {
     margin-top: 10px;
@@ -671,7 +671,7 @@ Free Trial Area CSS
   }
   .feedback-tabs .react-tabs__tab-panel h6 {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .free-trial-inner {
     padding-top: 80px;

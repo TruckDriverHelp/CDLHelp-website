@@ -598,7 +598,7 @@ Feedback Area CSS
 
 .single-feedback-item .client-info .title span {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--paragraphColor);
 }
 
@@ -877,7 +877,7 @@ Partner Area CSS
     margin-bottom: 15px;
   }
   .features-box h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .features-box p {
     padding-left: 0;
@@ -1011,7 +1011,7 @@ Partner Area CSS
     margin-top: 20px;
   }
   .single-feedback-item .rating h5 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .feedback-swiper-slides {
     max-width: 100%;
@@ -1237,13 +1237,13 @@ Partner Area CSS
     font-size: 18px;
   }
   .single-feedback-item p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-feedback-item .rating {
     margin-top: 20px;
   }
   .single-feedback-item .rating h5 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-pricing-box {
     padding: 30px;
@@ -1262,7 +1262,7 @@ Partner Area CSS
     margin-left: -5px;
   }
   .single-pricing-box .features-list li {
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-pricing-box .features-list li i {
     font-size: 20px;
@@ -1339,7 +1339,7 @@ Partner Area CSS
   }
   .single-pricing-box .features-list li {
     padding-left: 25px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .single-pricing-box .features-list li i {
     font-size: 20px;

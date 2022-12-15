@@ -41,7 +41,7 @@ This files table contents are outlined below >>>>>
 
 /* Global Variables */
 :root {
-    --fontSize: 14px;
+    --fontSize: 16px;
     --transition: .5s;
     --mainColor: #5a5886;
     --whiteColor: #ffffff;
@@ -752,7 +752,7 @@ textarea.form-control {
             top: -88px;
         }
         .sub-title {
-            font-size: 14px;
+            font-size: 16px;
             display: inline-block;
             background: var(--gradientColor);
             -webkit-background-clip: text;
@@ -977,7 +977,7 @@ textarea.form-control {
     margin-top: -90px;
 
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -1013,7 +1013,7 @@ textarea.form-control {
             &.title {
                 margin-left: 30px;
                 margin-right: 0;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 500;
                 vertical-align: middle;
                 color: var(--blackColor);
@@ -1273,7 +1273,7 @@ textarea.form-control {
             line-height: 30px;
             background: var(--gradientColor);
             color: var(--whiteColor);
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             text-align: center;
             border-radius: 50px;
@@ -1290,7 +1290,7 @@ textarea.form-control {
     }
     p {
         color: var(--whiteColor);
-        font-size: 14px;
+        font-size: 16px;
     }
     &::before {
         position: absolute;
@@ -1367,7 +1367,7 @@ textarea.form-control {
     padding-right: 35px;
 
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -1540,7 +1540,7 @@ textarea.form-control {
         top: -55px;
     }
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -1844,7 +1844,7 @@ textarea.form-control {
         left: -5px;
     }
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -2302,7 +2302,7 @@ textarea.form-control {
     padding-left: 35px;
 
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -2509,7 +2509,7 @@ textarea.form-control {
 
     a {
         color: var(--paragraphColor);
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 500;
         border-bottom: 1px solid var(--paragraphColor);
         padding-bottom: 5px;
@@ -2526,7 +2526,7 @@ textarea.form-control {
     padding-right: 40px;
 
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -2541,7 +2541,7 @@ textarea.form-control {
     }
     a {
         color: var(--paragraphColor);
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 500;
         border-bottom: 1px solid var(--paragraphColor);
         padding-bottom: 5px;
@@ -2631,7 +2631,7 @@ textarea.form-control {
         left: -5px;
     }
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -2656,7 +2656,7 @@ textarea.form-control {
             background-color: var(--whiteColor);
             box-shadow: 0 7px 18px 0 rgba(107, 124, 147, .15);
             font: {
-                size: 14px;
+                size: 16px;
                 weight: 500;
             };
             padding: {
@@ -2699,7 +2699,7 @@ textarea.form-control {
             background-color: var(--whiteColor);
             box-shadow: 0 7px 18px 0 rgba(107, 124, 147, .15);
             font: {
-                size: 14px;
+                size: 16px;
                 weight: 500;
             };
             padding: {
@@ -2897,7 +2897,7 @@ textarea.form-control {
         left: -5px;
     }
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         background: var(--gradientColor);
         -webkit-background-clip: text;
@@ -2947,7 +2947,7 @@ textarea.form-control {
             }
             span {
                 display: block;
-                font-size: 14px;
+                font-size: 16px;
                 color: #989EB0;
                 transition: var(--transition);
             }
@@ -3131,7 +3131,7 @@ textarea.form-control {
             }
             span {
                 display: block;
-                font-size: 14px;
+                font-size: 16px;
                 color: var(--paragraphColor);
             }
         }
@@ -3245,7 +3245,7 @@ textarea.form-control {
             }
             span {
                 display: block;
-                font-size: 14px;
+                font-size: 16px;
                 color: #989EB0;
                 transition: var(--transition);
             }
@@ -3386,7 +3386,7 @@ textarea.form-control {
     max-width: 750px;
 
     .sub-title {
-        font-size: 14px;
+        font-size: 16px;
         display: inline-block;
         color: var(--whiteColor);
         margin-bottom: 15px;
@@ -3509,7 +3509,7 @@ textarea.form-control {
             left: 15px;
             top: 15px;
             font: {
-                size: 14px;
+                size: 16px;
                 weight: 500;
             };
         }
@@ -3851,7 +3851,7 @@ textarea.form-control {
         .page-numbers {
             width: 40px;
             height: 40px;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 40px;
         }
     }
@@ -4086,7 +4086,7 @@ textarea.form-control {
             margin-top: 25px;
 
             li {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
@@ -4201,14 +4201,14 @@ textarea.form-control {
             }
         }
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
         .rating {
             margin-top: 18px;
             display: block !important;
 
             h5 {
-                font-size: 14px;
+                font-size: 16px;
                 margin-bottom: 15px;
             }
         }
@@ -4320,7 +4320,7 @@ textarea.form-control {
         padding: 20px;
 
         .icon {
-            margin: 14px 0 30px;
+            margin: 16px 0 30px;
             padding-left: 60px;
 
             i {
@@ -4343,7 +4343,7 @@ textarea.form-control {
             }
         }
         h3 {
-            font-size: 14px;
+            font-size: 16px;
         }
     }
 
@@ -4378,7 +4378,7 @@ textarea.form-control {
         padding: 30px 20px;
 
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
         .client-info {
             .title {
@@ -4493,7 +4493,7 @@ textarea.form-control {
         padding: 30px 20px;
 
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
         .client-info {
             .title {
@@ -4598,7 +4598,7 @@ textarea.form-control {
             font-size: 30px;
         }
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
     }
 
@@ -4622,7 +4622,7 @@ textarea.form-control {
             margin-top: 10px;
 
             li {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
@@ -4850,7 +4850,7 @@ textarea.form-control {
             margin-top: 25px;
 
             li {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
@@ -4972,7 +4972,7 @@ textarea.form-control {
         padding: 20px;
 
         .icon {
-            margin: 14px 0 30px;
+            margin: 16px 0 30px;
             padding-left: 60px;
 
             i {
@@ -4995,7 +4995,7 @@ textarea.form-control {
             }
         }
         h3 {
-            font-size: 14px;
+            font-size: 16px;
         }
     }
 
@@ -5029,7 +5029,7 @@ textarea.form-control {
         padding: 30px 20px;
 
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
         .client-info {
             .title {
@@ -5187,7 +5187,7 @@ textarea.form-control {
         padding: 30px 20px;
 
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
         .client-info {
             .title {
@@ -5333,7 +5333,7 @@ textarea.form-control {
         
         .features-list {
             li {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
@@ -5596,7 +5596,7 @@ textarea.form-control {
         }
         .rating {
             h5 {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
