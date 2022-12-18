@@ -13,7 +13,7 @@ const IndexPage8 = () => {
     return (
         <>
 				<Head>
-					<link rel="canonical" href="/" />
+					<link rel="canonical" href="https://www.cdlhelp.app/" />
 				</Head>
             <Navbar />
 
