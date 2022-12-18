@@ -27,7 +27,7 @@ const Dalnoboishik = () => {
 									{/* <Link href="/blog-grid">
                                         <a className="tag">Branding</a>
                                     </Link> */}
-									<img src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
+									<img src="/images/blog/dalnoboishik.jpg" alt="blog-details" />
 								</div>
 
 								<div className="article-content">

@@ -31,7 +31,7 @@ const Permit = () => {
 									{/* <Link href="/blog-grid">
                                         <a className="tag">Branding</a>
                                     </Link> */}
-									<img src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
+									<img src="/images/blog/permit.jpg" alt="blog-details" />
 								</div>
 
 								<div className="article-content">
