@@ -7,7 +7,7 @@ import Footer from '@/components/_App/Footer'
 import Link from 'next/link'
 import Head from 'next/head'
 
-const BlogGrid = () => {
+const CdlShkola = () => {
 	return (
 		<>
 			<Head>
@@ -72,7 +72,7 @@ const BlogGrid = () => {
 										<li>Быть не моложе 18 лет (21 год для вождения по межштатной автомагистрали)</li>
 										<li>Иметь действующие водительские права</li>
 										<li>Пройти медицинский осмотр и соответствовать определенным физическим требованиям</li>
-										<li>Иметь Commercial Learners Permit (CLP) который вы получиле при сдаче тестов в DMV. Подготовиться к тестам можно при помощи <a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href='https://www.cdlhelp.app' alt="CDL Help - приложение с тестами CDL">приложения CDL Help</a> с помощью которого вы можете переводить тесты в режиме реального времени</li>
+										<li>Иметь Commercial Learners Permit (CLP) который вы получиле при сдаче тестов в DMV. Подготовиться к тестам можно при помощи <Link href='/' alt="CDL Help - приложение с тестами CDL"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} >приложения CDL Help</a></Link> с помощью которого вы можете переводить тесты в режиме реального времени</li>
 										<li>Уметь читать и говорить по-английски, чтобы общаться с широкой публикой, понимать дорожные знаки и сигналы, отвечать на официальные запросы и делать записи в отчетах</li>
 										<li><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href='https://www.fmcsa.dot.gov/registration/commercial-drivers-license/entry-level-driver-training-eldt' alt="Entry-Level Driver Training - FMCSA">Согласно новым правилам</a> с февраля 2022 года, необходимо пройти обучение водителей начального уровня прежде чем можно начать учебу в CDL школе. Многие CDL школы предоставляют возможность изучить и сдать тест в самой школе</li>
 									</ul>
@@ -152,4 +152,4 @@ const BlogGrid = () => {
 	)
 }
 
-export default BlogGrid;
+export default CdlShkola;

@@ -7,10 +7,14 @@ import Funfacts from '@/components/Home/Funfacts';
 import AppDownload from '@/components/Home/AppDownload';
 import ClientFeedback from '@/components/Home/ClientFeedback';
 import Footer from '@/components/_App/Footer';
+import Head from 'next/head';
 
 const IndexPage8 = () => {
     return (
         <>
+				<Head>
+					<link rel="canonical" href="/" />
+				</Head>
             <Navbar />
 
             <MainBanner />
