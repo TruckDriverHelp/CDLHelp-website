@@ -9,7 +9,7 @@ import ClientFeedback from '@/components/Home/ClientFeedback';
 import Footer from '@/components/_App/Footer';
 import Head from 'next/head';
 
-const IndexPage8 = () => {
+const IndexPage = () => {
     return (
         <>
 				<Head>
@@ -51,4 +51,4 @@ const IndexPage8 = () => {
     )
 }
 
-export default IndexPage8;
+export default IndexPage;

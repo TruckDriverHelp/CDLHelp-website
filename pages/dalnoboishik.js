@@ -9,6 +9,10 @@ import Link from 'next/link'
 const Dalnoboishik = () => {
 	return (
 		<>
+		
+			<Head>
+				<title>Как стать дальнобойщиком в США - CDL Help</title>
+			</Head>
 			<Navbar />
 
 			<PageBannerStyle1
