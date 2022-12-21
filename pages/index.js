@@ -14,6 +14,7 @@ const IndexPage = () => {
         <>
 				<Head>
 					<link rel="canonical" href="https://www.cdlhelp.app/" />
+					<title>Приложение CDL Help - Тесты CDL на русском языке</title>
 				</Head>
             <Navbar />
 
