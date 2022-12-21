@@ -5,6 +5,7 @@ import BlogSidebar from '@/components/Blog/BlogSidebar'
 import RelatedPost from '@/components/Blog/RelatedPost'
 import Footer from '@/components/_App/Footer'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const Dalnoboishik = () => {
 	return (
