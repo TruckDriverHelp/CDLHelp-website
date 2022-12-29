@@ -5,7 +5,6 @@ import BestFeatures from '@/components/Home/BestFeatures';
 import AppIntroVideo from '@/components/Home/AppIntroVideo';
 import Funfacts from '@/components/Home/Funfacts';
 import AppDownload from '@/components/Home/AppDownload';
-import ClientFeedback from '@/components/Home/ClientFeedback';
 import Footer from '@/components/_App/Footer';
 import Head from 'next/head';
 

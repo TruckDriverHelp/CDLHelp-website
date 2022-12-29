@@ -29,12 +29,6 @@ const AppIntroVideo = () => {
                                     <i className="ri-play-line"></i>
                                 </div>
 
-                                <div className="intro-video-shape">
-                                    <img 
-                                        src="/images/home-7-8-9/video/shape-3.png" 
-                                        alt="image" 
-                                    />
-                                </div>
                             </div>
                         </div>
 
