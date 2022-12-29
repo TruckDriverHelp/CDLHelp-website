@@ -12,7 +12,7 @@ const Funfacts = () => {
                                     <i className="ri-question-fill"></i>
                                 </div>
                                 <p>Количество Вопросов</p>
-                                <h3>400<span className="sign">+</span></h3>
+                                <h3>370<span className="sign">+</span></h3>
                             </div>
                         </div>
                         <div className="col-lg-3 col-sm-6 col-md-6">
