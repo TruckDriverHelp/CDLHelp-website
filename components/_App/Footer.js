@@ -34,7 +34,7 @@ const Footer = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="mailto:https://www.t.me/TruckDriverHelp" target="_blank">
+                                        <a href="mailto:contact@truckdriver.help" target="_blank">
                                             <i className="ri-mail-fill"></i>
                                         </a>
                                     </li>
@@ -89,7 +89,10 @@ const Footer = () => {
                                 <h3>Ресурсы</h3>
                                 <ul className="links-list">
                                     <li>
-																				<a href="https://www.truckdriver.help/">TruckDriver.help</a>
+																				<a href="/dalnoboishik">Как стать дальнобойщиком</a>
+                                    </li>
+																		<li>
+																				<a href="/cdl-shkola">Школа CDL на русском</a>
                                     </li>
                                     <li>
 																				<a href="https://www.truckdriver.help/">Найти Работу</a>

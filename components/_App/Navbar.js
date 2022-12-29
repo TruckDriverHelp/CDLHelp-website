@@ -61,7 +61,7 @@ const Navbar = () => {
 									</li>
 
 									<li className="nav-item">
-										<Link href="#about">
+										<Link href="/#about">
 											<a className="nav-link">
 												О Проекте
 											</a>
