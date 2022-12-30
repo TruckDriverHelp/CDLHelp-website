@@ -45,7 +45,7 @@ const MainBanner = () => {
 								</ul> */}
 
 								<div className="app-btn-box">
-									<a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
+									<a href="#download" className="applestore-btn" >
 										<i className="ri-download-fill main-banner-btn-icon"></i>
 										iOS / Android
 										<span>Скачать</span>
