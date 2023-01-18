@@ -48,24 +48,24 @@ const CdlShkola = () => {
 									<div style={{ maxWidth: 500 }}>
 										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 											<p>CDL школа в Лос Анджелесе</p>
-											<a href="tel:+18184644265" target="_blank">(818) 464-4265</a>
+											<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
 										</div>
 										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 											<p>CDL школа в Пенсильвании</p>
-											<a href="tel:+12674934111" target="_blank">(267) 493-4111</a>
+											<a href="tel:+12674934111" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(267) 493-4111</a>
 										</div>
 										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 											<p>CDL школа в Майами</p>
-											<a href="tel:+17863645113" target="_blank">(786) 364-5113</a>
+											<a href="tel:+17863645113" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(786) 364-5113</a>
 										</div>
 										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 											<p>CDL школа в Нью Йорке</p>
-											<a href="tel:+19295436611" target="_blank">(929) 543-6611</a>
+											<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(929) 543-6611</a>
 										</div>
 									</div>
 									<p style={{fontSize: 12, margin: 0}}><em>Хотите добавить свою школу CDL в наш список? Несколько методов связи:</em></p> 
 									<ul style={{ margin: 0}}>
-										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0}}><em>Напишите email - <strong><a href="mailto:contact@truckdriver.help" target="_blank">contact{`<собака>`}truckdriver.help</a></strong> с заголовком <strong>"Добавить CDL Школу в список CDL Help"</strong></em></p></li>
+										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0}}><em>Напишите email - <strong><a href="mailto:contact@truckdriver.help" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>contact{`<собака>`}truckdriver.help</a></strong> с заголовком <strong>"Добавить CDL Школу в список CDL Help"</strong></em></p></li>
 										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0, fontWeight: 'bold', textDecoration: 'underline'}}><a href="https://www.t.me/tdhsupport">Связаться через Телеграм</a></p></li>
 										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0, fontWeight: 'bold', textDecoration: 'underline'}}><a href="https://www.facebook.com/truckdriverhelp">Связаться на странице Facebook</a></p></li>
 									</ul>
