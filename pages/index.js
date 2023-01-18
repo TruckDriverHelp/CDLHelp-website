@@ -38,9 +38,9 @@ const IndexPage = () => {
             <AppDownload />
 
 
-            {/* <PricingPlan /> */}
-
-            {/* <div className="bg-f9f9f9">
+            {/* <PricingPlan /> 
+						
+						<div className="bg-f9f9f9">
                 <PartnerStyle2 />
             </div>
 
