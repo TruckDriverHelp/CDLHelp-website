@@ -65,7 +65,7 @@ const CdlShkola = () => {
 									</div>
 									<p style={{fontSize: 12, margin: 0}}><em>Хотите добавить свою школу CDL в наш список? Несколько методов связи:</em></p> 
 									<ul style={{ margin: 0}}>
-										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0}}><em>Напишите email - <strong><a href="mailto:contact@truckdriver.help">contact{`<собака>`}truckdriver.help</a></strong> с заголовком <strong>"Добавить CDL Школу в список CDL Help"</strong></em></p></li>
+										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0}}><em>Напишите email - <strong><a href="mailto:contact@truckdriver.help" target="_blank">contact{`<собака>`}truckdriver.help</a></strong> с заголовком <strong>"Добавить CDL Школу в список CDL Help"</strong></em></p></li>
 										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0, fontWeight: 'bold', textDecoration: 'underline'}}><a href="https://www.t.me/tdhsupport">Связаться через Телеграм</a></p></li>
 										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0, fontWeight: 'bold', textDecoration: 'underline'}}><a href="https://www.facebook.com/truckdriverhelp">Связаться на странице Facebook</a></p></li>
 									</ul>
