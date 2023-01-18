@@ -81,7 +81,7 @@ const CdlShkola = () => {
 												<span className="name">
 													Автор <Link href="/blog-grid"><a>TruckDirver.help</a></Link>
 												</span>
-												<span className="date">17 января, 2022</span>
+												<span className="date">17 января, 2023</span>
 											</div>
 										</div>
 									</div>
