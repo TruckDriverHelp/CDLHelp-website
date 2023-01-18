@@ -22,17 +22,17 @@ const CdlShkola = () => {
 				activePageText="CDL Школы в США"
 			/>
 
-			<div className="blog-details-area ptb-100">
+			<div className="blog-details-area pb-100">
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-8 col-md-12">
 							<div className="blog-details-desc">
-								<div className="article-image">
-									{/* <Link href="/blog-grid">
+								{/* <div className="article-image">
+									<Link href="/blog-grid">
                                         <a className="tag">Branding</a>
-                                    </Link> */}
+                                    </Link>
 									<img src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
-								</div>
+								</div> */}
 
 								<div className="article-content">
 									{/* <div className="entry-meta">
@@ -44,11 +44,33 @@ const CdlShkola = () => {
 										</ul>
 									</div> */}
 
-									<h4>Русско-язычные CDL Школы в США</h4>
-									<p>После того как вы сдали тест в DMV и получили Commercial Learner’s Permit, Вам необходимо пройти обучение в CDL школе. CDL Help сотрдуничает с русско-язычними CDL школами в штатах Калифорния, Нью-Йорк, Пенсильвания, Иллинойс, и Флорида. Мы также сотрудничаем с англо-язычными CDL школами в различных штатах.</p>
-									<p style={{ fontSize: 18 }}>Подробности по телефону: </p>
-									<p><strong>+1 (424) 209-8660</strong></p>
-
+									<h4>Справочник CDL Школ в США</h4>
+									<div style={{ maxWidth: 500 }}>
+										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+											<p>CDL школа в Лос Анджелесе</p>
+											<a href="tel:+18184644265">(818) 464-4265</a>
+										</div>
+										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+											<p>CDL школа в Пенсильвании</p>
+											<a href="tel:+12674934111">(267) 493-4111</a>
+										</div>
+										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+											<p>CDL школа в Майами</p>
+											<a href="tel:+17863645113">(786) 364-5113</a>
+										</div>
+										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+											<p>CDL школа в Нью Йорке</p>
+											<a href="tel:+19295436611">(929) 543-6611</a>
+										</div>
+									</div>
+									<p style={{fontSize: 12, margin: 0}}><em>Хотите добавить свою школу CDL в наш список? Несколько методов связи:</em></p> 
+									<ul style={{ margin: 0}}>
+										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0}}><em>Напишите email - <strong>contact{`<собака>`}truckdriver.help</strong> с заголовком <strong>"Добавить CDL Школу в список CDL Help"</strong></em></p></li>
+										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0, fontWeight: 'bold', textDecoration: 'underline'}}><a href="https://www.t.me/tdhsupport">Связаться через Телеграм</a></p></li>
+										<li style={{ margin: 0}}><p style={{fontSize: 12, margin: 0, fontWeight: 'bold', textDecoration: 'underline'}}><a href="https://www.facebook.com/truckdriverhelp">Связаться на странице Facebook</a></p></li>
+									</ul>
+									
+									
 									<h4>Чему обучают в CDL школах</h4>
 									<p>Школа CDL (коммерческое водительское удостоверение) - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта. В нижеследующем перечне некоторые навыки, которые вы можете изучить в школе CDL:</p>
 									<ul>

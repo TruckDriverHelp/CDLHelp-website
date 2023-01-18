@@ -89,16 +89,22 @@ const Footer = () => {
                                 <h3>Ресурсы</h3>
                                 <ul className="links-list">
                                     <li>
-																				<a href="/dalnoboishik">Как стать дальнобойщиком</a>
+																				<Link href="/dalnoboishik">
+																					<a>Как стать дальнобойщиком</a>
+																				</Link>
+                                    </li>
+                                    <li>
+																			<Link href="/permit">
+																				<a>Как получить пермит</a>
+																			</Link>
                                     </li>
 																		<li>
-																				<a href="/cdl-shkola">Школа CDL на русском</a>
+																			<Link href="/cdl-shkola">
+																				<a>Школа CDL на русском</a>
+																			</Link>
                                     </li>
                                     <li>
 																				<a href="https://www.truckdriver.help/">Найти Работу</a>
-                                    </li>
-                                    <li>
-																				<a href="https://academy.truckdriver.help/course/dispatch/0">Бесплатные Курсы Диспетчера</a>
                                     </li>
                                 </ul>
                             </div>

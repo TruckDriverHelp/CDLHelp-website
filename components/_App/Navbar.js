@@ -61,22 +61,23 @@ const Navbar = () => {
 									</li>
 
 									<li className="nav-item">
-										<Link href="/#about">
+										<Link href="/cdl-shkola">
 											<a className="nav-link">
-												О Проекте
+												CDL Школа
 											</a>
 										</Link>
 									</li>
-
-									<li className="nav-item">
-										<a className="nav-link" href="https://academy.truckdriver.help/quiz">
-											Попробовать Бесплатно
-										</a>
-									</li>
+									
 
 									<li className="nav-item">
 										<a className="nav-link" href="https://www.truckdriver.help/">
 											Найти Работу
+										</a>
+									</li>
+
+									<li className="nav-item">
+										<a className="nav-link" href="https://academy.truckdriver.help/quiz">
+											Попробовать Онлайн
 										</a>
 									</li>
 
