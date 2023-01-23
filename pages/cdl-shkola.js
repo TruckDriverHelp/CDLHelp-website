@@ -66,7 +66,7 @@ const CdlShkola = () => {
 											<p>CDL школа в Лос Анджелесе</p>
 											<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
 										</div>
-										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+										<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', marginBottom: 12  }}>
 											<p>CDL школа в Сакраменто</p>
 											<a href="tel:+19162993614" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(916) 299-3614</a>
 										</div>
