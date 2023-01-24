@@ -50,11 +50,11 @@ const MainBanner = () => {
 										iOS / Android
 										<span>Скачать</span>
 									</a>
-									<Link href="/dalnoboishik">
+									<Link href="/cdl-shkola">
 										<a className="playstore-btn">
 											<i className="ri-truck-fill main-banner-btn-icon"></i>
-											Как стать
-											<span>Дальнобойщиком</span>
+											CDL школы
+											<span>на русском</span>
 										</a>
 									</Link>
 								</div>
