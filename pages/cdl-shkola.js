@@ -76,6 +76,10 @@ const CdlShkola = () => {
 												<p>CDL школа в Майами</p>
 												<a href="tel:+17863645113" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(786) 364-5113</a>
 											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+												<p>CDL школа в Огайо</p>
+												<a href="tel:+19162993614" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(513) 613-4688</a>
+											</div>
 										</div>
 									</div>
 									<p style={{ fontSize: 12, margin: 0 }}><em>Хотите добавить свою школу CDL в наш список? Несколько методов связи:</em></p>
