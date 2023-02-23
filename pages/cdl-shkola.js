@@ -53,6 +53,14 @@ const CdlShkola = () => {
 												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(929) 543-6611</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+												<p>CDL школа в Сакраменто</p>
+												<a href="tel:+19162993614" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(916) 299-3614</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
+												<p>CDL школа в Лос Анджелесе</p>
+												<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 												<p >CDL школа в Чикаго</p>
 												<a href="tel:+17739856261" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(773) 985-6261</a>
 											</div>
@@ -63,14 +71,6 @@ const CdlShkola = () => {
 											<div style={{ display: 'flex', justifyContent: 'space-between', }}>
 												<p >CDL школа в Пенсильвании</p>
 												<a href="tel:+12674934111" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(267) 493-4111</a>
-											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
-												<p>CDL школа в Лос Анджелесе</p>
-												<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
-											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-												<p>CDL школа в Сакраменто</p>
-												<a href="tel:+19162993614" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(916) 299-3614</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
 												<p>CDL школа в Вашингтоне</p>
