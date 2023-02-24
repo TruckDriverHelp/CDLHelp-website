@@ -48,44 +48,81 @@ const CdlShkola = () => {
 									<div>
 										<p>Для того чтобы получить CDL, необходимо пройти обучение в CDL школе. После обучения, необходимо устно сдать Pre-Trip Inspection, а также тест на вождение. В нашем списке вы найдете CDL школы с русскоязычными инструкторами в различных штатах. В то время как обучение можно пройти на русском, экзамен необходимо сдавать на английском.</p>
 										<div style={{ maxWidth: 500 }}>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
-												<p>CDL школа в Нью Йорке</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10}}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Нью Йорке</p>
+													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>277 Brighton Beach Ave, Brooklyn, NY 11235</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1 Atlantic Highlands - Pier 11, Brooklyn, NY 11231</p>
+												</div>
 												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(929) 543-6611</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-												<p>CDL школа в Сакраменто</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Сакраменто</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>3555 Cincinnati Ave Suite 104, Rocklin, CA 95765</p>
+												</div>
 												<a href="tel:+19162993614" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(916) 299-3614</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
-												<p>CDL школа в Лос Анджелесе</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd, Sylmar, CA 91342</p>
+												</div>
+												<a href="tel:+18184084678" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 408-4678</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе #2</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd #113, Sylmar, CA 91342</p>
+												</div>
 												<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-												<p >CDL школа в Чикаго</p>
-												<a href="tel:+17739856261" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(773) 985-6261</a>
-											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
-												<p >CDL школа в Чикаго #2</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Чикаго</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>35 Old Skokie Rd, Park City, IL 60085</p>
+												</div>
 												<a href="tel:+18478921566" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(847) 892-1566</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', }}>
-												<p >CDL школа в Пенсильвании</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Чикаго #2</p>
+												</div>
+												<a href="tel:+17739856261" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(773) 985-6261</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Пенсильвании</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>10075 Sandmeyer Ln, Philadelphia, PA 191162</p>
+												</div>
 												<a href="tel:+12674934111" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(267) 493-4111</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
-												<p>CDL школа в Вашингтоне</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Вашингтоне</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1302 26th St NW, Auburn, WA 98001</p>
+												</div>
 												<a href="tel:+12534870644" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(253) 487-0644</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-												<p>CDL школа в Майами</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Майами</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>14420 NW 107th Ave Hialeah, FL  33018</p>
+												</div>
 												<a href="tel:+17863645113" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(786) 364-5113</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', }}>
-												<p>CDL школа в Огайо</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Огайо</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1602 Valley St, Dayton, OH 45404</p>
+												</div>
 												<a href="tel:+15136134688" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(513) 613-4688</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-												<p>CDL школа в Лас Вегасе</p>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Лас Вегасе</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>6149 S Rainbow Blvd, Las Vegas, NV 89118</p>
+												</div>
 												<a href="tel:+17252277275" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(725) 227-7275</a>
 											</div>
 										</div>
