@@ -13,7 +13,14 @@ class MyDocument extends Document {
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                 })(window,document,'script','dataLayer','GTM-KQW58WK');`}
                 </Script>
-                <Script>
+                    <link rel="icon" href="/images/favicon.ico"></link>
+										<meta
+											name="description"
+											content="CDL Help это уникальное приложение с переводом CDL на русский в режиме реального времени. Лучший способ подготовки к сдачи тестов и обучению языка."
+											key="desc"
+										/>
+
+                <Script strategy="afterInteractive">
                     {`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -27,22 +34,16 @@ class MyDocument extends Document {
                     fbq('track', 'PageView');
                     `}
                 </Script>
-                    <link rel="icon" href="/images/favicon.ico"></link>
-										<meta
-											name="description"
-											content="CDL Help это уникальное приложение с переводом CDL на русский в режиме реального времени. Лучший способ подготовки к сдачи тестов и обучению языка."
-											key="desc"
-										/>
-                </Head>
-                <body>
-                    <Main />
-                    <NextScript />
-                </body>
                 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQW58WK"
                 height="0" width="0" style={{display:"none", visibility:"hidden"}}></iframe></noscript>
                 <noscript><img height="1" width="1" style={{display : "none"}}
                 src="https://www.facebook.com/tr?id=766792617985084&ev=PageView&noscript=1"
                 /></noscript>
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
             </Html>
         )
     }
