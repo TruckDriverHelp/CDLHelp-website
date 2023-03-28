@@ -80,6 +80,11 @@ const Footer = () => {
                                     <li>
 																				<a href="https://www.t.me/TDHsupport">Обратная Связь</a>
                                     </li>
+                                    <li>
+                                        <Link href="/faq">
+                                            <a>ЧаВо</a>
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
