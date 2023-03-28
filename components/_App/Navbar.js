@@ -67,7 +67,6 @@ const Navbar = () => {
 											</a>
 										</Link>
 									</li>
-									
 
 									<li className="nav-item">
 										<a className="nav-link" href="https://www.truckdriver.help/">
@@ -79,6 +78,14 @@ const Navbar = () => {
 										<a className="nav-link" href="https://academy.truckdriver.help/quiz">
 											Попробовать Онлайн
 										</a>
+									</li>
+
+									<li className="nav-item">
+										<Link href="/faq">
+											<a className="nav-link">
+												ЧаВо
+											</a>
+										</Link>
 									</li>
 
 									<li className="nav-item">
