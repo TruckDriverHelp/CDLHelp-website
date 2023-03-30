@@ -48,7 +48,7 @@ const CdlShkola = () => {
 									<div>
 										<p>Для того чтобы получить CDL, необходимо пройти обучение в CDL школе. После обучения, необходимо устно сдать Pre-Trip Inspection, а также тест на вождение. В нашем списке вы найдете CDL школы с русскоязычными инструкторами в различных штатах. В то время как обучение можно пройти на русском, экзамен необходимо сдавать на английском.</p>
 										<div style={{ maxWidth: 500 }}>
-											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10}}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10}}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Нью-Йорке</p>
 													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>277 Brighton Beach Ave, Brooklyn, NY 11235</p>
@@ -56,26 +56,33 @@ const CdlShkola = () => {
 												</div>
 												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(929) 543-6611</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10}}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10}}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Нью-Джерси</p>
 													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>719 Mt Holly Rd, Beverly, NJ 08010</p>
 												</div>
 												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(848) 400-4217</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Сакраменто</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>3555 Cincinnati Ave Suite 104, Rocklin, CA 95765</p>
 												</div>
 												<a href="tel:+19162993614" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(916) 299-3614</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе</p>
+													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе - Red Zone CDL</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd, Sylmar, CA 91342</p>
 												</div>
 												<a href="tel:+18184084678" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 408-4678</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, backgroundColor: '#f1f1f1', paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе - Easy CDL</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd #113, Sylmar, CA 91342</p>
+												</div>
+												<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
