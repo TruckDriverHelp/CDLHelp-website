@@ -72,23 +72,10 @@ const CdlShkola = () => {
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе #2</p>
-													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd #113, Sylmar, CA 91342</p>
-												</div>
-												<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
-											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
-												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Чикаго</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>35 Old Skokie Rd, Park City, IL 60085</p>
 												</div>
 												<a href="tel:+18478921566" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(847) 892-1566</a>
-											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
-												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Чикаго #2</p>
-												</div>
-												<a href="tel:+17739856261" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(773) 985-6261</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
