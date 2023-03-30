@@ -48,13 +48,20 @@ const CdlShkola = () => {
 									<div>
 										<p>Для того чтобы получить CDL, необходимо пройти обучение в CDL школе. После обучения, необходимо устно сдать Pre-Trip Inspection, а также тест на вождение. В нашем списке вы найдете CDL школы с русскоязычными инструкторами в различных штатах. В то время как обучение можно пройти на русском, экзамен необходимо сдавать на английском.</p>
 										<div style={{ maxWidth: 500 }}>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10}}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10}}>
 												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Нью Йорке</p>
+													<p style={{marginBottom: 0}}>CDL школа в Нью-Йорке</p>
 													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>277 Brighton Beach Ave, Brooklyn, NY 11235</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1 Atlantic Highlands - Pier 11, Brooklyn, NY 11231</p>
 												</div>
 												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(929) 543-6611</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10}}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Нью-Джерси</p>
+													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>719 Mt Holly Rd, Beverly, NJ 08010</p>
+												</div>
+												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(848) 400-4217</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
@@ -79,6 +86,20 @@ const CdlShkola = () => {
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Северной Каролине</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>2379 Smokey Park Hwy, Candler, NC 28715</p>
+												</div>
+												<a href="tel:+12674934111" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(828) 882-2396</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Огайо</p>
+													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1602 Valley St, Dayton, OH 45404</p>
+												</div>
+												<a href="tel:+15136134688" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(513) 613-4688</a>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Пенсильвании</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>10075 Sandmeyer Ln, Philadelphia, PA 191162</p>
 												</div>
@@ -99,13 +120,6 @@ const CdlShkola = () => {
 												<a href="tel:+17863645113" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(786) 364-5113</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
-												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Огайо</p>
-													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1602 Valley St, Dayton, OH 45404</p>
-												</div>
-												<a href="tel:+15136134688" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(513) 613-4688</a>
-											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Лас Вегасе</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>6149 S Rainbow Blvd, Las Vegas, NV 89118</p>
