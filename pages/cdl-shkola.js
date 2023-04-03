@@ -48,9 +48,16 @@ const CdlShkola = () => {
 									<div>
 										<p>Для того чтобы получить CDL, необходимо пройти обучение в CDL школе. После обучения, необходимо устно сдать Pre-Trip Inspection, а также тест на вождение. В нашем списке вы найдете CDL школы с русскоязычными инструкторами в различных штатах. В то время как обучение можно пройти на русском, экзамен необходимо сдавать на английском.</p>
 										<div style={{ maxWidth: 500 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10}}>
+												<div>
+													<p style={{marginBottom: 0}}>CDL школа в Нью-Йорке (CDL Auto Club)</p>
+													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>4176 Victory Blvd, Staten Island, NY 10314</p>
+												</div>
+												<a href="tel:+19295436611" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(718) 304-0236</a>
+											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10}}>
 												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Нью-Йорке</p>
+													<p style={{marginBottom: 0}}>CDL школа в Нью-Йорке (US Mule CDL)</p>
 													<p style={{marginBottom: 0, fontSize: '0.7rem', color: '#262A37'}}>277 Brighton Beach Ave, Brooklyn, NY 11235</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1 Atlantic Highlands - Pier 11, Brooklyn, NY 11231</p>
 												</div>
