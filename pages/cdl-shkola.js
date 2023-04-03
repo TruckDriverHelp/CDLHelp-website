@@ -79,14 +79,14 @@ const CdlShkola = () => {
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе - Red Zone CDL</p>
+													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе (Red Zone CDL)</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd, Sylmar, CA 91342</p>
 												</div>
 												<a href="tel:+18184084678" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 408-4678</a>
 											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, backgroundColor: '#f1f1f1', paddingBottom: 10 }}>
 												<div>
-													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе - Easy CDL</p>
+													<p style={{marginBottom: 0}}>CDL школа в Лос Анджелесе (Easy CDL)</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>12087 Lopez Canyon Rd #113, Sylmar, CA 91342</p>
 												</div>
 												<a href="tel:+18184644265" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(818) 464-4265</a>
