@@ -112,28 +112,28 @@ const CdlShkola = () => {
 												</div>
 												<a href="tel:+15136134688" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(513) 613-4688</a>
 											</div>*/}
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between',  paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Пенсильвании</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>10075 Sandmeyer Ln, Philadelphia, PA 191162</p>
 												</div>
 												<a href="tel:+12674934111" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(267) 493-4111</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Вашингтоне</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1302 26th St NW, Auburn, WA 98001</p>
 												</div>
 												<a href="tel:+12534870644" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(253) 487-0644</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Майами</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>14420 NW 107th Ave Hialeah, FL  33018</p>
 												</div>
 												<a href="tel:+17863645113" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(786) 364-5113</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Лас Вегасе</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>6149 S Rainbow Blvd, Las Vegas, NV 89118</p>
