@@ -105,13 +105,13 @@ const CdlShkola = () => {
 												</div>
 												<a href="tel:+12674934111" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(828) 882-2396</a>
 											</div>
-											<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
+											{/*<div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Огайо</p>
 													<p style={{fontSize: '0.7rem', color: '#262A37'}}>1602 Valley St, Dayton, OH 45404</p>
 												</div>
 												<a href="tel:+15136134688" target="_blank" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>(513) 613-4688</a>
-											</div>
+											</div>*/}
 											<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#f1f1f1', paddingTop: 10, paddingBottom: 10 }}>
 												<div>
 													<p style={{marginBottom: 0}}>CDL школа в Пенсильвании</p>
