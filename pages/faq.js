@@ -76,7 +76,7 @@ const CdlShkola = () => {
 										<p>Combination - 20 вопросов</p>
 									</div>
 									<div id="mistakes-allowed">
-										<h4>Сколько вопросов на экзамене?</h4>
+										<h4>Сколько ошибок допущено на экзамене?</h4>
 										<p>General Knowledge - 10 ошибок</p>
 										<p>Air Brakes - 5 ошибок</p>
 										<p>Combination - 5 ошибок</p>
