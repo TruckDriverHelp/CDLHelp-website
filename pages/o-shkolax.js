@@ -12,6 +12,25 @@ const OShkolax = () => {
 		<>
 			<Head>
 				<title>Подробнее об учебе в CDL школе - CDL Help</title>
+				<meta name="description" content="CDL Help - подробная статья про обучение в школах CDL в США."/>
+
+				{/* Google / Search Engine Tags */}
+				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>
+				<meta itemprop="description" content="CDL Help - подробная статья про обучение в школах CDL в США."/>
+				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+
+				{/* Facebook Meta Tags */}
+				<meta property="og:url" content="https://www.cdlhelp.app"/>
+				<meta property="og:type" content="website"/>
+				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
+				<meta property="og:description" content="CDL Help - подробная статья про обучение в школах CDL в США."/>
+				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+
+				{/* Twitter Meta Tags */}
+				<meta name="twitter:card" content="summary_large_image"/>
+				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
+				<meta name="twitter:description" content="CDL Help - подробная статья про обучение в школах CDL в США."/>
+				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
 			</Head>
 			<Navbar />
 
@@ -28,9 +47,6 @@ const OShkolax = () => {
 						<div className="col-lg-8 col-md-12">
 							<div className="blog-details-desc">
 								{/* <div className="article-image">
-									<Link href="/blog-grid">
-                                        <a className="tag">Branding</a>
-                                    </Link>
 									<img src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
 								</div> */}
 
@@ -92,7 +108,7 @@ const OShkolax = () => {
 											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
-													Автор <Link href="/blog-grid"><a>TruckDirver.help</a></Link>
+													Автор TruckDirver.help
 												</span>
 												<span className="date">14 Декабря, 2022</span>
 											</div>
