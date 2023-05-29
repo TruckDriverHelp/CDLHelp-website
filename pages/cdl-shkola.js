@@ -47,9 +47,6 @@ const CdlShkola = () => {
 						<div className="col-lg-8 col-md-12">
 							<div className="blog-details-desc">
 								{/* <div className="article-image">
-									<Link href="/blog-grid">
-                                        <a className="tag">Branding</a>
-                                    </Link>
 									<img src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
 								</div> */}
 

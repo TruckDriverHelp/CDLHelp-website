@@ -47,9 +47,6 @@ const Permit = () => {
 						<div className="col-lg-8 col-md-12">
 							<div className="blog-details-desc">
 								<div className="article-image">
-									{/* <Link href="/blog-grid">
-                                        <a className="tag">Branding</a>
-                                    </Link> */}
 									<img src="/images/blog/permit.jpg" alt="blog-details" />
 								</div>
 
@@ -103,7 +100,7 @@ const Permit = () => {
 											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
-													Автор <Link href="/blog-grid"><a>TruckDirver.help</a></Link>
+													Автор TruckDirver.help
 												</span>
 												<span className="date">14 Декабря, 2022</span>
 											</div>

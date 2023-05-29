@@ -94,7 +94,7 @@ const Dalnoboishik = () => {
 										<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
-													Автор <Link href="/blog-grid"><a>TruckDirver.help</a></Link>
+													Автор TruckDirver.help
 												</span>
 												<span className="date">18 Декабря, 2022</span>
 											</div>
