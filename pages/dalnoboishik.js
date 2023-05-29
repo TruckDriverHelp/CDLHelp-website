@@ -13,6 +13,25 @@ const Dalnoboishik = () => {
 		
 			<Head>
 				<title>Как стать дальнобойщиком в США - CDL Help</title>
+				<meta name="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
+
+				{/* Google / Search Engine Tags */}
+				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>
+				<meta itemprop="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
+				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+
+				{/* Facebook Meta Tags */}
+				<meta property="og:url" content="https://www.cdlhelp.app"/>
+				<meta property="og:type" content="website"/>
+				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
+				<meta property="og:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
+				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+
+				{/* Twitter Meta Tags */}
+				<meta name="twitter:card" content="summary_large_image"/>
+				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
+				<meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
+				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
 			</Head>
 			<Navbar />
 
@@ -30,8 +49,8 @@ const Dalnoboishik = () => {
 							<div className="blog-details-desc">
 								<div className="article-image">
 									{/* <Link href="/blog-grid">
-                                        <a className="tag">Branding</a>
-                                    </Link> */}
+										<a className="tag">Branding</a>
+									</Link> */}
 									<img src="/images/blog/dalnoboishik.jpg" alt="blog-details" />
 								</div>
 
