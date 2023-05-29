@@ -89,13 +89,13 @@ const CdlShkola = () => {
 										<h4>Могу ли сдать экзамен без знания английского?</h4>
 										<p>Это очевидный вопрос, которым задаются многие люди плохо, или вовсе не говорящие на английском языке. По личному опыту получения CDL, и помощи другим людям, которые не знали языка, можем сказать что это возможно, но может занять дольше времени.</p>
 										<p>Экзамены также можно сдать без знаний английского. Многие заучивают ответы на вопросы. Не все сдают с первого раза, но серьезных ограничений на пересдачу нет - обычно можно пересдать на следующий день. В некоторых штатах дают несколько попыток.</p>
-										<p>Подробнее о процессе как получить CDL можно почитать у нас на сайте <a style={{textDecoration: "underline"}} href="www.CDLhelp.app/dalnoboishik">www.CDLhelp.app/dalnoboishik</a></p>
+										<p>Подробнее о процессе как получить CDL можно почитать у нас на сайте <a style={{textDecoration: "underline"}} href="https://www.CDLhelp.app/dalnoboishik">www.CDLhelp.app/dalnoboishik</a></p>
 									</div>
 									<div id="audio-issue">
 										<h4>Не работает аудио дорожка</h4>
 										<p>Аудио дорожка в приложении работает напрямую с системой читающей текст в вашем устройстве. Убедитесь что Siri (iOS) либо Google Assistant (Android) в рабочем режиме.</p>
 										<p>Также аудио дорожка не воспроизводится когда телефон включен на беззвучный режим.</p>
-										<p>Если вы не смогли устранить проблемы, свяжитесь с администрацией через email contact@truckdriver.help или Телеграм <a style={{textDecoration: "underline"}} href="www.t.me/tdhsupport">www.t.me/tdhsupport</a></p>
+										<p>Если вы не смогли устранить проблемы, свяжитесь с администрацией через email contact@truckdriver.help или Телеграм <a style={{textDecoration: "underline"}} href="https://www.t.me/tdhsupport">www.t.me/tdhsupport</a></p>
 									</div>
 									<div id="payment-issue">
 										<h4>Я оплатил подписку, но не получил доступ. Что делать?</h4>
@@ -105,12 +105,12 @@ const CdlShkola = () => {
 											<li>Ваш банк задержал средства, но оплата еще не осуществлена (статус Pending). Проверьте счет в банке, и убедитесь что оплата прошла успешна, и у оплаты не указан статус Pending. Если оплата в статусе Pending, доступ будет открыт после того как транзакция пройдет успешно.</li>
 											<li>Задержки и сложности могут быть если ваше устройство зарегистрировано в App store/Play store Российской Федерации. Легче всего можно решить эту проблему, изменив регион в настройках App store/Play store.</li>
 										</ul>
-										<p>Свяжитесь с администрацией если проблема не устранена. Email contact@truckdriver.help или Телеграм <a style={{textDecoration: "underline"}} href="www.t.me/tdhsupport">www.t.me/tdhsupport</a></p>
+										<p>Свяжитесь с администрацией если проблема не устранена. Email contact@truckdriver.help или Телеграм <a style={{textDecoration: "underline"}} href="https://www.t.me/tdhsupport">www.t.me/tdhsupport</a></p>
 									</div>
 									<div id="school-cost">
 										<h4>Сколько стоит обучение в школе?</h4>
 										<p>После того как сдадите экзамены, необходимо пройти обучение в школе по вождению. Средняя стоимость обучения в CDL школе с русскоязычными инструкторами в среднем состоявляет от $2500 до $5000.</p>
-										<p>В нашем списке школ вы можете найти школы в различных штатах. <a style={{textDecoration: "underline"}} href="www.CDLhelp.app/cdl-shkola">www.CDLhelp.app/cdl-shkola</a></p>
+										<p>В нашем списке школ вы можете найти школы в различных штатах. <a style={{textDecoration: "underline"}} href="https://www.CDLhelp.app/cdl-shkola">www.CDLhelp.app/cdl-shkola</a></p>
 									</div>
 									<div id="pretrip-russian">
 										<h4>Можно ли сдать экзамены по вождению (Pre-trip inspection) на русском языке?</h4>
@@ -128,7 +128,7 @@ const CdlShkola = () => {
 									<div id="contact">
 										<h4>У меня есть к вам предложение. Как с вами связаться?</h4>
 										<p>Напишите нам по email'у contact@truckdriver.help</p>
-										<p>Либо в Телераме <a style={{textDecoration: "underline"}} href="www.t.me/tdhsupport">www.t.me/tdhsupport</a></p>
+										<p>Либо в Телераме <a style={{textDecoration: "underline"}} href="https://www.t.me/tdhsupport">www.t.me/tdhsupport</a></p>
 									</div>
 								</div>
 

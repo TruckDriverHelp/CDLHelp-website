@@ -171,13 +171,13 @@ const CdlShkola = () => {
 									<p>Подробнее о школах CDL можно прочитать в статье <Link href="/o-shkolax"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>пройдя по ссылке.</a></Link></p>
 								</div>
 
-								<div className="article-footer">
+								{/*<div className="article-footer">
 									<div className="post-author-meta">
 										<div className="d-flex align-items-center">
 											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
-													Автор <Link href="/blog-grid"><a>TruckDirver.help</a></Link>
+													Автор TruckDirver.help
 												</span>
 												<span className="date">17 января, 2023</span>
 											</div>
@@ -207,8 +207,8 @@ const CdlShkola = () => {
 												</a>
 											</li>
 										</ul>
-									</div> */}
-								</div>
+									</div> 
+								</div>*/}
 
 								{/* Related Blog Post */}
 								{/* <RelatedPost /> */}
