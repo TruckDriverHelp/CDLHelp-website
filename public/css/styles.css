@@ -604,7 +604,7 @@ textarea.form-control {
   text-align: center;
 }
 
-.page-title-content h2 {
+.page-title-content h1 {
   color: var(--whiteColor);
   margin-bottom: 0;
   font-size: 40px;
@@ -4282,7 +4282,7 @@ textarea.form-control {
   .page-title-area.bg-color {
     padding-bottom: 75px;
   }
-  .page-title-content h2 {
+  .page-title-content h1 {
     font-size: 22px;
   }
   .page-title-content ul li {
@@ -4909,7 +4909,7 @@ textarea.form-control {
   .page-title-area .banner-shape1 {
     width: 100px;
   }
-  .page-title-content h2 {
+  .page-title-content h1 {
     font-size: 30px;
   }
   .page-title-content ul {
