@@ -11,7 +11,7 @@ const CdlShkola = () => {
 	return (
 		<>
 			<Head>
-				<title>CDL школы на русском - CDL Help</title>
+				<title>Часто Задаваемые Вопросы - CDL Help</title>
 			</Head>
 			<Navbar />
 
