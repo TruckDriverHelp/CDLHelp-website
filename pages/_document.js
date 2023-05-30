@@ -4,7 +4,7 @@ import Script from 'next/script'
 class MyDocument extends Document {
     render() {
         return (
-            <Html lang="eng">
+            <Html lang="ru">
                 <Head>
                     <link rel="icon" href="/images/favicon.ico"></link>
                     {/* HTML Meta Tags */}
