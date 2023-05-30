@@ -98,9 +98,11 @@ const MainBanner = () => {
 				</div>
 
 				<div className="new-app-main-banner-wrap-shape">
-					<img
+					<Image
 						src="/images/home-7-8-9/banner/shape-5.png"
 						alt="image"
+                                    width={584}
+                                    height={555}
 					/>
 				</div>
 			</div>
