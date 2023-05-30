@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from '@/components/_App/Navbar'
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
-import AppDownloadStyle2 from '@/components/Common/AppDownloadStyle2'
 import Footer from '@/components/_App/Footer'
 
 const TermsConditions = () => {

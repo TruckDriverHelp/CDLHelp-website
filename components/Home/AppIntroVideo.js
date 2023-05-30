@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
 });
@@ -18,9 +20,11 @@ const AppIntroVideo = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-box">
-                                <img 
+                                <Image 
                                     src="/images/home-7-8-9/video/video-2.jpg" 
-                                    alt="video-img" 
+                                    alt="video-img"
+                                    width={635}
+                                    height={420}
                                 />
                                 <div
                                     onClick={e => {e.preventDefault(); openModal()}}
