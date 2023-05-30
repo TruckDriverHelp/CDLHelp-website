@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const AppDownload = () => {
     return (
@@ -35,9 +36,11 @@ const AppDownload = () => {
 
                         <div className="col-lg-6 col-md-12">
                             <div className="new-app-download-image text-end" data-aos="fade-up">
-                                <img 
+                                <Image 
                                     src="/images/home-7-8-9/app-download/download-2.png" 
-                                    alt="app-img" 
+                                    alt="app-img"
+                                    width={634}
+                                    height={634}
                                 />
 
                                 <div className="download-circle">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import ScrollAnimation from 'react-animate-on-scroll'
+import Image from 'next/image';
 
 const MainBanner = () => {
 	return (
@@ -81,9 +82,11 @@ const MainBanner = () => {
 											/>
 									</div> */}
 									<div className="banner-circle">
-										<img
+										<Image
 											src="/images/home-7-8-9/banner/banner-circle.png"
 											alt="image"
+											width={815}
+											height={815}
 										/>
 									</div>
 								</div>
