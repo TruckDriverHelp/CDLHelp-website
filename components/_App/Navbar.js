@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from '@/utils/ActiveLink';
-
+import Image from "next/image";
 const Navbar = () => {
 	const [menu, setMenu] = React.useState(true)
 
@@ -32,7 +32,7 @@ const Navbar = () => {
 						<nav className="navbar navbar-expand-md navbar-light bg-light">
 							<Link href="/">
 								<a className="navbar-brand">
-									<img src="/images/black-logo.png" alt="logo" />
+									<Image src="/images/black-logo.png" alt="logo" width="138" height="44" />
 								</a>
 							</Link>
 
