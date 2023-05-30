@@ -64,9 +64,11 @@ const MainBanner = () => {
 						<div className="col-lg-6 col-md-12">
 							<ScrollAnimation animateIn='fadeInLeft' duration={2} animateOnce={true} initiallyVisible={true}>
 								<div className="new-app-main-banner-wrap-image">
-									<img
+									<Image
 										src="/images/home-7-8-9/banner/banner-2.png"
 										alt="image"
+										width={815}
+										height={708}
 									/>
 
 									{/* <div className="wrap-image-shape-1">
