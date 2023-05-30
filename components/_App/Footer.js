@@ -116,7 +116,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <div className="col-lg-3 col-md-6 col-sm-6">
+                        {/*<div className="col-lg-3 col-md-6 col-sm-6">
                             <div className="single-footer-widget">
                                 <h3>Рассылка</h3>
                                 <p>Подпишитесь на рассылку поектов TruckDriver.help и CDL Help.</p>
@@ -134,7 +134,7 @@ const Footer = () => {
                                     </button>
                                 </form>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                     
                     <div className="copyright-area">
