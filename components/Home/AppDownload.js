@@ -15,17 +15,21 @@ const AppDownload = () => {
 
                                 <div className="btn-box color-wrap">
                                     <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" className="playstore-btn" target="_blank">
-                                        <img 
+                                        <Image 
                                             src="/images/play-store.png" 
                                             alt="image" 
+                                            width={27}
+                                            height={30}
                                         />
                                         Приложение Android
                                         <span>Скачать</span>
                                     </a>
                                     <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
-                                        <img 
+                                        <Image 
                                             src="/images/apple-store.png" 
                                             alt="image" 
+                                            width={34}
+                                            height={35}
                                         />
                                         Приложение iOS
                                         <span>Скачать</span>
@@ -44,9 +48,11 @@ const AppDownload = () => {
                                 />
 
                                 <div className="download-circle">
-                                    <img 
+                                    <Image 
                                         src="/images/home-7-8-9/app-download/download-circle.png" 
                                         alt="image" 
+                                        width={634}
+                                        height={634}
                                     />
                                 </div>
                             </div>
