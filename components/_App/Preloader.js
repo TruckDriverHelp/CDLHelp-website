@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 
 const Preloader = () => {
     return (
@@ -6,7 +7,7 @@ const Preloader = () => {
             <div className="preloader-area">
                 <div className="d-table">
                     <div className="d-table-cell">
-                        <img src="/images/black-logo.png" alt="logo" />
+                        <Image src="/images/black-logo.png" alt="logo" width="138" height="44" />
                         <p>Загрузка...</p>
                     </div>
                 </div>
