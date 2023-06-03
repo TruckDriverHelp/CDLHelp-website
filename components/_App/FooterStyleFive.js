@@ -15,7 +15,7 @@ const FooterStyleFive = () => {
                             <div className="single-footer-widget">
                                 <Link href="/">
                                     <a className="logo">
-                                        <Image src="/images/logo.png" alt="logo" width="138" height="44" />
+                                        <Image src="/images/logo.png" alt="logo" width="101" height="44" />
                                     </a>
                                 </Link>
 
