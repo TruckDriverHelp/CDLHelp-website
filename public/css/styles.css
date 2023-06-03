@@ -541,8 +541,8 @@ textarea.form-control {
   z-index: 1;
   position: relative;
   background: linear-gradient(50.48deg, #5a5886 -2.06%, #9290bb 93.55%);
-  padding-bottom: 100px;
-  padding-top: 180px;
+  padding-bottom: 80px;
+  padding-top: 120px;
 }
 
 .page-title-area::before {
