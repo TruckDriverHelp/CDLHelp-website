@@ -7,7 +7,7 @@ const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}
     return (
         <>
             <Head>
-                <title>CDL школы на русском - CDL Help</title>
+                <title>{pageTitle}</title>
             </Head>
             <div className="page-title-area">
                 <div className="container">
