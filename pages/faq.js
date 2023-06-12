@@ -9,7 +9,7 @@ import Head from 'next/head'
 
 const CdlShkola = () => {
 	return (
-		<>lang="en"
+		<>
 			<Navbar />
 
 			<PageBannerStyle1
