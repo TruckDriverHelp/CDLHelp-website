@@ -21,7 +21,7 @@ const OShkolax = () => {
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.app"/>
-				<meta property="og:type" content="website"/>
+				<meta property="og:type" content="article"/>
 				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
 				<meta property="og:description" content="CDL Help - подробная статья про обучение в школах CDL в США."/>
 				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>

@@ -58,6 +58,11 @@ const Footer = () => {
                 <h3>CDL Help</h3>
                 <ul className="links-list">
                   <li>
+                    <Link href="/kak-ispolzovat-cdl-help">
+                      <a>Как пользоваться приложением</a>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="#about">
                       <a>О Проекте</a>
                     </Link>
@@ -95,7 +100,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/faq">
-                      <a>ЧаВо</a>
+                      <a>Часто Задаваемые Вопросы</a>
                     </Link>
                   </li>
                 </ul>
