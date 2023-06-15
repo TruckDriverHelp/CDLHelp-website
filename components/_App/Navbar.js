@@ -85,6 +85,11 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
+                        <Link href="/kak-ispolzovat-cdl-help">
+                          <a>Как пользоваться приложением</a>
+                        </Link>
+                      </li>
+                      <li>
                         <Link href="/permit">
                           <a>Как получить пермит</a>
                         </Link>
@@ -105,12 +110,12 @@ const Navbar = () => {
                       </li>
                     </ul>
                   </li>
-			<li className="nav-item">
+                  <li className="nav-item">
                     <Link href="/cdl-shkola">
                       <a className="nav-link">CDL Школа</a>
                     </Link>
                   </li>
-			<li className="nav-item">
+                  <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       DMV Help
                     </a>

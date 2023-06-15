@@ -22,7 +22,7 @@ const Dalnoboishik = () => {
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.app"/>
-				<meta property="og:type" content="website"/>
+				<meta property="og:type" content="article"/>
 				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
 				<meta property="og:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
 				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
@@ -42,7 +42,7 @@ const Dalnoboishik = () => {
 				activePageText="Как стать дальнобойщиком в США"
 			/>
 
-			<div className="blog-details-area ptb-100">
+			<div className="blog-details-area ptb-75">
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-8 col-md-12">

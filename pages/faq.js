@@ -37,19 +37,19 @@ const CdlShkola = () => {
 
 									<div className="faq-links">
 										<ul>
-											<li><a href="#russian-dmv" style={{textDecoration: "underline"}}>В каких штатах можно сдать экзамены в DMV на русском языке?</a></li>
-											<li><a href="#question-quantity" style={{textDecoration: "underline"}}>Сколько вопросов в приложении?</a></li>
-											<li><a href="#question-coverage" style={{textDecoration: "underline"}}>Ваши тесты покрывают все возможные вопросы?</a></li>
-											<li><a href="#full-access" style={{textDecoration: "underline"}}>Как получить доступ ко всем тестам? Приложение платное?</a></li>
-											<li><a href="#question-amount" style={{textDecoration: "underline"}}>Сколько вопросов на экзамене?</a></li>
-											<li><a href="#mistakes-allowed" style={{textDecoration: "underline"}}>Сколько ошибок допущено на экзамене?</a></li>
-											<li><a href="#without-english" style={{textDecoration: "underline"}}>Могу ли сдать экзамен без знания английского?</a></li>
-											<li><a href="#audio-issue" style={{textDecoration: "underline"}}>Не работает аудио дорожка</a></li>
-											<li><a href="#payment-issue" style={{textDecoration: "underline"}}>Я оплатил подписку, но не получил доступ. Что делать?</a></li>
-											<li><a href="#school-cost" style={{textDecoration: "underline"}}>Сколько стоит обучение в школе?</a></li>
-											<li><a href="#pretrip-russian" style={{textDecoration: "underline"}}>Можно ли сдать экзамены по вождению (Pre-trip inspection) на русском языке?</a></li>
-											<li><a href="#cancel-subscription" style={{textDecoration: "underline"}}>Как отменить подписку?</a></li>
-											<li><a href="#contact" style={{textDecoration: "underline"}}>У меня есть к вам предложение. Как с вами связаться?</a></li>
+											<li><a href="#russian-dmv" style={{textDecoration: "underline", color: "#5B5886" }}>В каких штатах можно сдать экзамены в DMV на русском языке?</a></li>
+											<li><a href="#question-quantity" style={{textDecoration: "underline", color: "#5B5886" }}>Сколько вопросов в приложении?</a></li>
+											<li><a href="#question-coverage" style={{textDecoration: "underline", color: "#5B5886" }}>Ваши тесты покрывают все возможные вопросы?</a></li>
+											<li><a href="#full-access" style={{textDecoration: "underline", color: "#5B5886" }}>Как получить доступ ко всем тестам? Приложение платное?</a></li>
+											<li><a href="#question-amount" style={{textDecoration: "underline", color: "#5B5886" }}>Сколько вопросов на экзамене?</a></li>
+											<li><a href="#mistakes-allowed" style={{textDecoration: "underline", color: "#5B5886" }}>Сколько ошибок допущено на экзамене?</a></li>
+											<li><a href="#without-english" style={{textDecoration: "underline", color: "#5B5886" }}>Могу ли сдать экзамен без знания английского?</a></li>
+											<li><a href="#audio-issue" style={{textDecoration: "underline", color: "#5B5886" }}>Не работает аудио дорожка</a></li>
+											<li><a href="#payment-issue" style={{textDecoration: "underline", color: "#5B5886" }}>Я оплатил подписку, но не получил доступ. Что делать?</a></li>
+											<li><a href="#school-cost" style={{textDecoration: "underline", color: "#5B5886" }}>Сколько стоит обучение в школе?</a></li>
+											<li><a href="#pretrip-russian" style={{textDecoration: "underline", color: "#5B5886" }}>Можно ли сдать экзамены по вождению (Pre-trip inspection) на русском языке?</a></li>
+											<li><a href="#cancel-subscription" style={{textDecoration: "underline", color: "#5B5886" }}>Как отменить подписку?</a></li>
+											<li><a href="#contact" style={{textDecoration: "underline", color: "#5B5886" }}>У меня есть к вам предложение. Как с вами связаться?</a></li>
 										</ul>
 									</div>
 									<div id="russian-dmv">

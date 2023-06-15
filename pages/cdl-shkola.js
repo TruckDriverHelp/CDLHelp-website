@@ -33,7 +33,7 @@ const CdlShkola = () => {
 
         {/* Facebook Meta Tags */}
         <meta property="og:url" content="https://www.cdlhelp.app" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta
           property="og:title"
           content="Приложение CDL Help - Тесты CDL на русском языке"
