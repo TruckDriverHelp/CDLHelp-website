@@ -235,7 +235,7 @@ const Permit = () => {
 											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">Автор TruckDirver.help</span>
-												<span className="date">14 Декабря, 2022</span>
+												<span className="date">15 Июнь, 2023</span>
 											</div>
 										</div>
 									</div>
