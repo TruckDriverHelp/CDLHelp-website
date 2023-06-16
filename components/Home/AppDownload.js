@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 const AppDownload = () => {
     return (
-		<>
-			<div id="download" className="new-app-download-wrap-area ptb-100">
+        <>
+            <div id="download" className="new-app-download-wrap-area ptb-100">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
@@ -15,22 +15,26 @@ const AppDownload = () => {
 
                                 <div className="btn-box color-wrap">
                                     <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" className="playstore-btn" target="_blank">
-                                        <Image 
-                                            src="/images/play-store.png" 
-                                            alt="image" 
-                                            width={27}
-                                            height={30}
-                                        />
+                                        <div>
+                                            <Image
+                                                src="/images/play-store.png"
+                                                alt="image"
+                                                width={27}
+                                                height={30}
+                                            />
+                                        </div>
                                         Приложение Android
                                         <span>Скачать</span>
                                     </a>
                                     <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
-                                        <Image 
-                                            src="/images/apple-store.png" 
-                                            alt="image" 
-                                            width={34}
-                                            height={35}
-                                        />
+                                        <div>
+                                            <Image
+                                                src="/images/apple-store.png"
+                                                alt="image"
+                                                width={34}
+                                                height={35}
+                                            />
+                                        </div>
                                         Приложение iOS
                                         <span>Скачать</span>
                                     </a>
@@ -40,17 +44,17 @@ const AppDownload = () => {
 
                         <div className="col-lg-6 col-md-12">
                             <div className="new-app-download-image text-end" data-aos="fade-up">
-                                <Image 
-                                    src="/images/home-7-8-9/app-download/download-2.png" 
+                                <Image
+                                    src="/images/home-7-8-9/app-download/download-2.png"
                                     alt="app-img"
                                     width={634}
                                     height={634}
                                 />
 
                                 <div className="download-circle">
-                                    <Image 
-                                        src="/images/home-7-8-9/app-download/download-circle.png" 
-                                        alt="image" 
+                                    <Image
+                                        src="/images/home-7-8-9/app-download/download-circle.png"
+                                        alt="image"
                                         width={634}
                                         height={634}
                                     />
@@ -73,7 +77,7 @@ const AppDownload = () => {
                     />
                 </div> */}
             </div>
-		</>
+        </>
     );
 }
 

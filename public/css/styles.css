@@ -3059,7 +3059,7 @@ textarea.form-control {
   font-weight: 700;
 }
 
-.new-app-download-content .btn-box .playstore-btn img {
+.new-app-download-content .btn-box .playstore-btn div {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   position: absolute;
@@ -3104,7 +3104,7 @@ textarea.form-control {
   font-weight: 700;
 }
 
-.new-app-download-content .btn-box .applestore-btn img {
+.new-app-download-content .btn-box .applestore-btn div {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   position: absolute;
