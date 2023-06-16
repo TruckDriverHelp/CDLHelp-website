@@ -4,6 +4,7 @@ import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
 import BlogSidebar from "@/components/Blog/BlogSidebar";
 import Footer from "@/components/_App/Footer";
 import Head from "next/head";
+import Image from "next/image";
 
 const Permit = () => {
 	return (
@@ -75,7 +76,7 @@ const Permit = () => {
 						<div className="col-lg-8 col-md-12">
 							<div className="blog-details-desc">
 								<div className="article-links">
-									<ul style={{display:'flex', flexDirection: 'column', gap:10}}>
+									<ul style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
 										<li><a href="#cdl-help-tests" style={{ textDecoration: "underline", color: "#5B5886" }}>Тесты в приложении CDL Help</a></li>
 										<li><a href="#shuffle-questions" style={{ textDecoration: "underline", color: "#5B5886" }}>Функция “Перемешать вопросы”</a></li>
 										<li><a href="#question-audio" style={{ textDecoration: "underline", color: "#5B5886" }}>Озвучка вопросов</a></li>
@@ -115,6 +116,9 @@ const Permit = () => {
 										Подготовительные тесты помогут вам получить профессиональные
 										права водителя коммерческого транспорта в США.
 									</p>
+									<div style={{ display: "flex", justifyContent: "center" }}>
+										<Image src="/images/version-screenshot.jpg" alt="cdlhelp-tests" width='308' height='600' />
+									</div>
 									<p>
 										Версия "Express" - это упрощенная версия, которая содержит
 										наиболее часто задаваемые вопросы в тестах. Для подавляющего
@@ -207,6 +211,9 @@ const Permit = () => {
 										подготовиться к реальной ситуации экзамена, где порядок
 										вопросов также будет разнообразным.
 									</p>
+									<div style={{ display: "flex", justifyContent: "center" }}>
+										<Image src="/images/shuffle-screenshot.jpg" alt="cdlhelp-tests" width='308' height='600' />
+									</div>
 									<p>
 										Однако, если вы отключите эту функцию, вопросы будут представлены вам в одном и том же порядке каждый раз, когда вы проходите тест. Это может быть особенно полезно в начале обучения, когда вы только начинаете знакомиться с материалами и нуждаетесь в более структурированном подходе. Такой режим поможет быстрее освоить и запомнить необходимый материал.
 									</p>
@@ -215,6 +222,9 @@ const Permit = () => {
 									</p>
 									<h3 id="question-audio">Озвучка вопросов</h3>
 									<p>Приложение CDL Help разработано с учетом различных стилей обучения и предлагает функцию озвучки вопросов, которая обеспечивает звуковое представление вопросов и ответов из тестов. </p>
+									<div style={{ display: "flex", justifyContent: "center" }}>
+										<Image src="/images/screenshot-audio.jpg" alt="cdlhelp-tests" width='308' height='600' />
+									</div>
 									<p>Прослушивание аудио дорожки вопросов и ответов может оказаться особенно полезным для тех, кто изучает английский язык. Это поможет вам лучше понять и привыкнуть к специфической терминологии, используемой на экзаменах CDL, а также подготовиться к устному экзамену в школе по вождению, который обычно предшествует получению Permit’a.</p>
 									<p>Стоит обратить внимание пользователей устройств на iOS на потенциальные проблемы со звуком. Если вы заметили, что аудио не воспроизводится при нажатии на кнопку воспроизведения, проверьте, включен ли на вашем устройстве беззвучный режим. Некоторые пользователи столкнулись с проблемами в воспроизведении звука, когда их устройство было переведено на беззвучный режим. Это важный нюанс использования функции озвучки на iOS-устройствах, о котором следует помнить, чтобы полностью использовать все возможности приложения.</p>
 									<h3 id="usage-suggestions">Советы по изучению тестов CDL</h3>
