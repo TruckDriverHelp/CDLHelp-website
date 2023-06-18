@@ -35,10 +35,10 @@ const OShkolax = () => {
 			<Navbar />
 
 			<PageBannerStyle1
-				pageTitle="CDL Школы в США"
+				pageTitle="Обучение в CDL школах"
 				homePageUrl="/"
 				homePageText="Главная Страница"
-				activePageText="CDL Школы в США"
+				activePageText="Обучение в CDL школах"
 			/>
 
 			<div className="blog-details-area pb-100">
