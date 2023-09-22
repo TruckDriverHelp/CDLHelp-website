@@ -15,6 +15,7 @@ import 'react-tabs/style/react-tabs.css'
 import '@/public/css/styles.css'
 import Script from "next/script";
 import { useRouter } from 'next/router'
+import Pixel from '../components/Pixel'
 
 import Layout from '@/components/_App/Layout';
 import { useEffect } from 'react'
@@ -45,6 +46,7 @@ const MyApp = ({ Component, pageProps }) => {
 
 	return (
 		<Layout>
+			<Pixel name='FACEBOOK_PIXEL_1' />
 			<Component {...pageProps} />
 			{/* Google analytics scripts */}
 			<Script
