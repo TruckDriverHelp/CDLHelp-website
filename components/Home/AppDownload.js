@@ -2,6 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 
 const AppDownload = () => {
+    const trackDownload = (platform) => {
+        if (window.fbq) {
+            window.fbq('trackCustom', `AppDownload_${platform}`, { platform: platform });
+        }
+    }
     return (
         <>
             <div id="download" className="new-app-download-wrap-area ptb-100">
@@ -14,7 +19,7 @@ const AppDownload = () => {
                                 <p>Бесплатно скачать приложение CDL Help и опробовать вопросы.</p>
 
                                 <div className="btn-box color-wrap">
-                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" className="playstore-btn" target="_blank">
+                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp"onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
                                         <div>
                                             <Image
                                                 src="/images/play-store.png"
@@ -26,7 +31,7 @@ const AppDownload = () => {
                                         Приложение Android
                                         <span>Скачать</span>
                                     </a>
-                                    <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" className="applestore-btn" target="_blank">
+                                    <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
                                         <div>
                                             <Image
                                                 src="/images/apple-store.png"
