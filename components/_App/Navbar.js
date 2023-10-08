@@ -126,7 +126,7 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="https://www.t.me/TDHsupport" className="nav-link">
+                    <a href="https://school.cdlhelp.app/contact/" className="nav-link">
                       Контакты
                     </a>
                   </li>

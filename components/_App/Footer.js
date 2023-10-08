@@ -96,7 +96,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.t.me/TDHsupport">Обратная Связь</a>
+                    <a href="https://school.cdlhelp.app/contact/">Обратная Связь</a>
                   </li>
                   <li>
                     <Link href="/faq">
