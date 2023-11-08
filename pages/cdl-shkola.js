@@ -226,14 +226,14 @@ const CdlShkola = () => {
                           </p>
                         </div>
                         <a
-                          href="tel:+18442272162"
+                          href="tel:+16402220330"
                           target="_blank"
                           style={{
                             fontWeight: "bold",
                             textDecoration: "underline",
                           }}
                         >
-                          (844) 227-2162
+                          (640) 222-0330
                         </a>
                       </div>
                       <div
