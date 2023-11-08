@@ -222,7 +222,7 @@ const CdlShkola = () => {
                               color: "#262A37",
                             }}
                           >
-                            2605 US-130, New Jersey 08077
+                            2605 US-130, Cinnaminson, NJ 08077
                           </p>
                         </div>
                         <a
