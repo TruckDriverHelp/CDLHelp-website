@@ -132,9 +132,11 @@ const CdlShkola = () => {
 
                     <div style={{ maxWidth: 500 }}>
                       <div
+                        
                         style={{
                           display: "flex",
                           justifyContent: "space-between",
+                          backgroundColor: "#f1f1f1",
                           paddingTop: 10,
                           paddingBottom: 10,
                         }}
@@ -168,7 +170,6 @@ const CdlShkola = () => {
                         style={{
                           display: "flex",
                           justifyContent: "space-between",
-                          backgroundColor: "#f1f1f1",
                           paddingTop: 10,
                           paddingBottom: 10,
                         }}
@@ -195,10 +196,44 @@ const CdlShkola = () => {
                           target="_blank"
                           style={{
                             fontWeight: "bold",
-                            textDecoration: "underline",
+                            textDecoration: "underline"
                           }}
                         >
                           (929) 543-6611
+                        </a>
+                      </div>
+		      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          backgroundColor: "#f1f1f1",
+                          paddingTop: 10,
+                          paddingBottom: 10,
+                        }}
+                      >
+                        <div>
+                          <p style={{ marginBottom: 0 }}>
+                            CDL школа в Нью-Джерси (Start CDL)
+                          </p>
+                          <p
+                            style={{
+                              marginBottom: 0,
+                              fontSize: "0.7rem",
+                              color: "#262A37",
+                            }}
+                          >
+                            2605 US-130, New Jersey 08077
+                          </p>
+                        </div>
+                        <a
+                          href="tel:+18442272162"
+                          target="_blank"
+                          style={{
+                            fontWeight: "bold",
+                            textDecoration: "underline",
+                          }}
+                        >
+                          (844) 227-2162
                         </a>
                       </div>
                       <div
@@ -211,7 +246,7 @@ const CdlShkola = () => {
                       >
                         <div>
                           <p style={{ marginBottom: 0 }}>
-                            CDL школа в Нью-Джерси
+                            CDL школа в Нью-Джерси (CDL Pro)
                           </p>
                           <p
                             style={{
