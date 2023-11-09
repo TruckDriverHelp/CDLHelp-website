@@ -1811,6 +1811,26 @@ textarea.form-control {
   border-radius: 0;
 }
 
+.tx-quiz-card {
+  background-color: #eeeff4;
+  display: grid;
+  grid-template-columns: 1fr 30px 1fr;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.tx-card-line {
+  border-left: 1px solid #686868; 
+  height: 100px;
+}
+
+.tx-quiz-card-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
 /* App About Area CSS */
 .app-about-area {
   position: relative;
