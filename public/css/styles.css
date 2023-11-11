@@ -1817,11 +1817,13 @@ textarea.form-control {
   grid-template-columns: 1fr 30px 1fr;
   padding: 20px;
   border-radius: 20px;
+  margin-bottom: 15px;
 }
 
 .tx-card-line {
   border-left: 1px solid #686868; 
-  height: 100px;
+  height: 100%;
+  margin: 0 15px;
 }
 
 .tx-quiz-card-column {
@@ -1829,6 +1831,12 @@ textarea.form-control {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  
+}
+
+.tx-quiz-card-column > :first-child {
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 /* App About Area CSS */
