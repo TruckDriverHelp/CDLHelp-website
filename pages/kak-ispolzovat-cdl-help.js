@@ -6,7 +6,7 @@ import Footer from "@/components/_App/Footer";
 import Head from "next/head";
 import Image from "next/image";
 
-const Permit = () => {
+const HowToUse = () => {
 	return (
 		<>
 			<Head>
@@ -268,4 +268,4 @@ const Permit = () => {
 	);
 };
 
-export default Permit;
+export default HowToUse;
