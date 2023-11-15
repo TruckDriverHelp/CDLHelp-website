@@ -1811,6 +1811,34 @@ textarea.form-control {
   border-radius: 0;
 }
 
+.tx-quiz-card {
+  background-color: #eeeff4;
+  display: grid;
+  grid-template-columns: 1fr 30px 1fr;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.tx-card-line {
+  border-left: 1px solid #686868; 
+  height: 100%;
+  margin: 0 15px;
+}
+
+.tx-quiz-card-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  
+}
+
+.tx-quiz-card-column > :first-child {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 /* App About Area CSS */
 .app-about-area {
   position: relative;
@@ -4216,6 +4244,52 @@ textarea.form-control {
   opacity: 50%;
 }
 
+.school_card {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.school_card_states {
+  text-align: start;
+}
+
+
+.school_register {
+  text-align: start;
+}
+
+.school_register > p {
+  margin-bottom: 10px;
+}
+
+.school_name {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  font-size: 16px !important;
+  color: #3c3d78;
+  font-weight: 600;
+}
+
+.school_location {
+  margin-bottom: 0px;
+  font-size: 0.7rem;
+  color: #262A37;
+}
+
+.school_location > p {
+  margin-bottom: 0px;
+  font-size: 0.7rem;
+  color: #262A37;
+}
+
+.school_contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
@@ -4475,6 +4549,7 @@ textarea.form-control {
   .app-video-box .shape .shape-1 {
     display: none;
   }
+
   .app-video-box .shape .shape-2 {
     display: none;
   }
@@ -4838,6 +4913,49 @@ textarea.form-control {
     right: 0;
     -webkit-transform: unset;
             transform: unset;
+  }
+
+  .school_card {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
+  }
+
+  .school_register {
+    text-align: center;
+  }
+
+  .school_card_states > div  {
+    text-align: center;
+  }
+
+  .school_name {
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  
+  .school_location {
+    margin-bottom: 0px;
+    font-size: 0.7rem;
+    color: #262A37;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .school_location > p {
+    margin-bottom: 0px;
+    font-size: 0.7rem;
+    color: #262A37;
+  }
+  
+  .school_contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
   }
   /* End Home Demo 7, 8 & 9 Responsive CSS */
 }
