@@ -19,6 +19,8 @@ const IndexPage = () => {
 
             <MainBanner />
 
+            <AppIntroVideo />
+
             <BestFeatures />
 
             {/* <ClientFeedback /> */}
@@ -31,7 +33,6 @@ const IndexPage = () => {
 
             {/* <AppScreenshots /> */}
 
-            <AppIntroVideo />
 
             <Funfacts />
 

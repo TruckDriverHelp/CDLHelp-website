@@ -268,4 +268,8 @@ const Permit = () => {
 	);
 };
 
+<<<<<<< Updated upstream
 export default Permit;
+=======
+export default Permit;
+>>>>>>> Stashed changes

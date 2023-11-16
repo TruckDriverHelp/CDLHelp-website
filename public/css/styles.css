@@ -2627,7 +2627,7 @@ textarea.form-control {
   border-radius: 30px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background: rgba(34, 36, 50, 0.52);
+  /* background: rgba(34, 36, 50, 0.52); */
 }
 
 .app-intro-video-box img {
