@@ -21,7 +21,7 @@ const AppIntroVideo = () => {
                         <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-box">
                                 <Image 
-                                    src="/images/home-7-8-9/video/video-2.jpg" 
+                                    src="/images/video/video-2.jpg" 
                                     alt="video-img"
                                     width={635}
                                     height={420}
@@ -38,10 +38,10 @@ const AppIntroVideo = () => {
 
                         <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-content">
-                                <span className="sub-title">О ПРОЕКТЕ</span>
-                                <h2>Разработано при поддержке проекта TruckDriver.help</h2>
-                                <p>TruckDriver.help это уникальный онлайн проект нацеленный помочь иммигрантам работающим в траковой индустрии. На данный момент основная платформа состоит из объявлений логистических компаний. Желающие найти работу в индустрии, смогут воспользоваться расширенными фильтрами предоставленные на сайте, для поиска работы по указанным критериям.</p>
-                                    <a className="default-btn" href="https://www.truckdriver.help">Посетить</a>
+                                <span className="sub-title">ПОШАГОВАЯ ИНСТРУКЦИЯ</span>
+                                <h2>Как получить CDL</h2>
+                                <p>В этом видео представлен подробный гид о том, как стать дальнобойщиком в США и получить CDL (коммерческие водительские права). Во-первых, объясняется процесс прохождения медицинского осмотра DOT, который необходим для всех кандидатов на получение CDL. Затем рассматривается процесс сдачи теоретических тестов в DMV для получения ученического разрешения (CLP), что позволяет практиковать вождение грузовика. Наконец, видео затрагивает обучение в школе CDL и процесс сдачи практического экзамена по вождению, включая ссылку на список школ с русскоязычными инструкторами для удобства подготовки.</p>
+                                <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">Начать просмотр</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ const AppIntroVideo = () => {
             <ModalVideo 
                 channel='youtube' 
                 isOpen={!isOpen} 
-                videoId='2TeHq1JdmK4' 
+                videoId='Ll4yVz7yBlQ' 
                 onClose={() => setIsOpen(!isOpen)} 
             />
 		</>
