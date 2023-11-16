@@ -11,6 +11,7 @@
     "author": "www.truckdriver.help",
     "license": "ISC",
     "dependencies": {
+        "@supabase/supabase-js": "^2.33.2",
         "axios": "^0.21.4",
         "next": "^12.1.4",
         "nodemailer": "^6.7.2",
