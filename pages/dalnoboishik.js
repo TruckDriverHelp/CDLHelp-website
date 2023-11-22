@@ -6,32 +6,51 @@ import RelatedPost from '@/components/Blog/RelatedPost'
 import Footer from '@/components/_App/Footer'
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const ModalVideo = dynamic(() => import('react-modal-video'), {
+    ssr: false
+});
+
 
 const Dalnoboishik = () => {
+	const [isOpen, setIsOpen] = React.useState(true);
+    const openModal = () => {
+        setIsOpen(!isOpen);
+    }
 	return (
 		<>
-		
+
 			<Head>
 				<title>Как стать дальнобойщиком в США - CDL Help</title>
-				<meta name="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
+				<meta name="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
 
 				{/* Google / Search Engine Tags */}
-				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>
-				<meta itemprop="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
-				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
-
+				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
+				<meta itemprop="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
+				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<div style="width: 100%; height: 100%;">
+    <iframe 
+        style="width: 100%; height: 100%; border: none;"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="video">
+    </iframe>
+</div>Ll4yVz7yBlQ
 				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://www.cdlhelp.app"/>
-				<meta property="og:type" content="article"/>
-				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
-				<meta property="og:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
-				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+				<meta property="og:url" content="https://www.cdlhelp.app" />
+				<meta property="og:type" content="article" />
+				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
+				<meta property="og:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
+				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
 
 				{/* Twitter Meta Tags */}
-				<meta name="twitter:card" content="summary_large_image"/>
-				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
-				<meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме."/>
-				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
+				<meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
+				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
 			</Head>
 			<Navbar />
 
@@ -51,7 +70,24 @@ const Dalnoboishik = () => {
 									{/* <Link href="/blog-grid">
 										<a className="tag">Branding</a>
 									</Link> */}
-									<img src="/images/blog/dalnoboishik.jpg" alt="blog-details" />
+									{/* <img src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
+								</div>
+								<div className="col-lg-8 col-md-12">
+									<div className="app-intro-video-box">
+										<Image
+											src="/images/video/video-2.jpg"
+											alt="video-img"
+											width={635}
+											height={420}
+										/>
+										<div
+											onClick={e => { e.preventDefault(); openModal() }}
+											className="video-btn popup-youtube"
+										>
+											<i className="ri-play-line"></i>
+										</div>
+
+									</div>
 								</div>
 
 								<div className="article-content">
@@ -81,7 +117,7 @@ const Dalnoboishik = () => {
 									<p>Разрешение на коммерческое обучение (CLP) — это документ, который позволяет человеку практиковаться в вождении коммерческого автомобиля (CMV) во время подготовки к получению коммерческих водительских прав (CDL). Подготовиться к тестам можно при помощи <Link href="/" alt="CDL Help - приложение с CDL тестами на русском языке"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>приложения CDL Help</a></Link>. Подробнее о CLP и как подготовится к тестам можно <Link href="/permit" alt="Как получить CLP"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>прочитать в статье "Как получить CLP"</a></Link>.</p>
 									<p>Чтобы иметь право на получение CLP, человек должен иметь действующие водительские права и соответствовать требованиям, установленным штатом, в котором он живет. Если у человека есть CLP, ему разрешается управлять коммерческим автомобилем на дорогах общего пользования под наблюдением лицензированного коммерческого водителя. Однако владельцу CLP не разрешается управлять CMV за компенсацию, например, перевозить пассажиров </p>
 									<h4 id="schools">3. Пройти учебу в CDL школе и сдать экзамен по вождению</h4>
-									<p>Школа CDL (коммерческое водительское удостоверение) - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта. Подробнее прочитать об учебе в школе можно <Link href="/cdl-shkola/" alt="Русско-язычные CDL школы"><a  style={{ fontWeight: 'bold', textDecoration: 'underline' }}>в статье "Русско-язычные CDL школы"</a></Link>.</p>
+									<p>Школа CDL (коммерческое водительское удостоверение) - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта. Подробнее прочитать об учебе в школе можно <Link href="/cdl-shkola/" alt="Русско-язычные CDL школы"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>в статье "Русско-язычные CDL школы"</a></Link>.</p>
 									<h4>Что ожидать от карьеры дальнобойщика</h4>
 									<p>Чтобы стать водителем-дальнобойщиком, вам необходимо получить коммерческое водительское удостоверение (CDL). Обычно для этого требуется пройти программу обучения и сдать письменный тест и экзамен по вождению. Вам также может потребоваться соответствовать определенным физическим и медицинским требованиям, таким как способность поднимать тяжелые предметы и проходить медосмотр.</p>
 									<p>Получив CDL, вы можете начать поиск работы в автотранспортных компаниях или в качестве независимого водителя купив свой трак. Важно иметь ввиду, что вождение трака на дальние расстояния может потребовать физических и умственных усилий, поскольку оно требует долгих часов вождения и времени вдали от дома. Также важно соблюдать все правила дорожного движения, а также вести отчет вождения.</p>
@@ -91,7 +127,7 @@ const Dalnoboishik = () => {
 								<div className="article-footer">
 									<div className="post-author-meta">
 										<div className="d-flex align-items-center">
-										<img src="/images/logo-adaptive.png" alt="user" />
+											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
 													Автор TruckDirver.help
@@ -142,6 +178,12 @@ const Dalnoboishik = () => {
 					</div>
 				</div>
 			</div>
+			<ModalVideo 
+                channel='youtube' 
+                isOpen={!isOpen} 
+                videoId='Ll4yVz7yBlQ' 
+                onClose={() => setIsOpen(!isOpen)} 
+            />
 
 			<Footer />
 		</>
