@@ -40,7 +40,7 @@ const MainBanner = () => {
                     ></i>
                   </a>
                   <a style={{ fontWeight: 600 }} href="https://www.t.me/truckdrivergroup">
-                    Лучшая Телеграм группа для начинающих дальнобойщиков
+                    Лучший Телеграм чат для начинающих дальнобойщиков
                   </a>
                 </div>
               </div>
