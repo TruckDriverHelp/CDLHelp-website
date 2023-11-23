@@ -30,15 +30,7 @@ const Dalnoboishik = () => {
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta itemprop="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
 				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
-				<div style="width: 100%; height: 100%;">
-    <iframe 
-        style="width: 100%; height: 100%; border: none;"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="video">
-    </iframe>
-</div>Ll4yVz7yBlQ
+				
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.app" />
 				<meta property="og:type" content="article" />

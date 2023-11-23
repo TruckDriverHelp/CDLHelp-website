@@ -32,11 +32,8 @@ const Footer = () => {
 
                 <ul className="social-links">
                   <li>
-                    <a
-                      href="https://www.facebook.com/TruckDriverHelp"
-                      target="_blank"
-                    >
-                      <i className="ri-facebook-fill"></i>
+                    <a href="https://www.youtube.com/@truckdriverdothelp" target="_blank">
+                      <i className="ri-youtube-fill"></i>
                     </a>
                   </li>
                   <li>
@@ -45,7 +42,15 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:contact@truckdriver.help" target="_blank">
+                    <a
+                      href="https://www.facebook.com/TruckDriverHelp"
+                      target="_blank"
+                    >
+                      <i className="ri-facebook-fill"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://school.cdlhelp.app/contact/" target="_blank">
                       <i className="ri-mail-fill"></i>
                     </a>
                   </li>
