@@ -134,16 +134,28 @@ const Navbar = () => {
               </div>
 
               <div className="others-options">
+                <a href="https://www.t.me/truckdriverhelp">
+                  <i
+                    className="ri-telegram-fill"
+                    style={{ color: "#3c9ff0", fontSize: 26, marginRight: 5 }}
+                  ></i>
+                </a>
+                <a href="https://www.youtube.com/@truckdriverdothelp">
+                  <i
+                    className="ri-youtube-fill"
+                    style={{ color: "#ff0000", fontSize: 26, marginRight: 5 }}
+                  ></i>
+                </a>
                 <a href="https://www.facebook.com/truckdriverhelp">
                   <i
                     className="ri-facebook-circle-fill"
                     style={{ color: "#1b74e4", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
-                <a href="https://www.t.me/truckdriverhelp">
+                <a href="https://www.facebook.com/truckdriverhelp">
                   <i
-                    className="ri-telegram-fill"
-                    style={{ color: "#3c9ff0", fontSize: 26 }}
+                    className="ri-mail-fill"
+                    style={{ color: "#3b3e78", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
               </div>
