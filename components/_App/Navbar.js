@@ -152,7 +152,7 @@ const Navbar = () => {
                     style={{ color: "#1b74e4", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
-                <a href="https://www.facebook.com/truckdriverhelp">
+                <a href="https://school.cdlhelp.app/contact/">
                   <i
                     className="ri-mail-fill"
                     style={{ color: "#3b3e78", fontSize: 26, marginRight: 5 }}
