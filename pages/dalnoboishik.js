@@ -10,15 +10,15 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 const ModalVideo = dynamic(() => import('react-modal-video'), {
-    ssr: false
+	ssr: false
 });
 
 
 const Dalnoboishik = () => {
 	const [isOpen, setIsOpen] = React.useState(true);
-    const openModal = () => {
-        setIsOpen(!isOpen);
-    }
+	const openModal = () => {
+		setIsOpen(!isOpen);
+	}
 	return (
 		<>
 
@@ -30,7 +30,7 @@ const Dalnoboishik = () => {
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta itemprop="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
 				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
-				
+
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.app" />
 				<meta property="og:type" content="article" />
@@ -53,7 +53,7 @@ const Dalnoboishik = () => {
 				activePageText="Как стать дальнобойщиком в США"
 			/>
 
-			<div className="blog-details-area ptb-75">
+			<div className="blog-details-area pb-75">
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-8 col-md-12">
@@ -64,70 +64,145 @@ const Dalnoboishik = () => {
 									</Link> */}
 									{/* <img src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
 								</div>
-								<div className="col-lg-8 col-md-12">
-									<div className="app-intro-video-box">
-										<Image
-											src="/images/video/video-2.jpg"
-											alt="video-img"
-											width={635}
-											height={420}
-										/>
-										<div
-											onClick={e => { e.preventDefault(); openModal() }}
-											className="video-btn popup-youtube"
-										>
-											<i className="ri-play-line"></i>
-										</div>
-
-									</div>
-								</div>
 
 								<div className="article-content">
-									<div className="entry-meta">
-										<ul>
-											<li>
-												<i className="ri-calendar-2-line"></i>
-												18 Декабря, 2022
-											</li>
-										</ul>
+
+									<div className="how-it-works-area pb-100">
+										<div className="container">
+											<div className="pb-75">
+												<p>На этой странице мы поделимся с вами процессом получения CDL, организовав информацию в удобные для вас разделы. Рассматривайте эту страницу как ваш личный пошаговый гид по пути к получению CDL. Здесь вы найдёте полезные ссылки на информационные статьи и множество других ресурсов, которые будут поддерживать вас на каждом этапе этого пути. Приступим!</p>
+											</div>
+											<div className="how-it-works-content">
+												<div className="number">1</div>
+
+												<div className="row m-0">
+													<div className="col-lg-3 col-md-12 p-0">
+														<div className="box">
+															<h3>Шаг 1</h3>
+															<span>Пошаговая Инструкция</span>
+														</div>
+													</div>
+
+													<div className="col-lg-9 col-md-12 p-0">
+														<div className="content">
+															<p>Для начала мы настоятельно рекомендуем вам тщательно ознакомиться с процессом получения CDL. Для этого у вас есть два варианта: вы можете посмотреть обучающее видео или <Link href="/kak-poluchit-cdl"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>изучить статью, которая детально описывает весь процесс</a></Link>. В видео или статье вы найдете информацию о том, как пройти медицинский осмотр DOT у сертифицированного специалиста, успешно сдать теоретические тесты в DMV для получения ученического разрешения (Commercial Learner's Permit), а также как пройти обучение в школе CDL и сдать экзамен по вождению. </p>
+															<div className="col-lg-12 col-md-12">
+																<div className="app-intro-video-box">
+																	<Image
+																		src="/images/video/video-2.jpg"
+																		alt="video-img"
+																		width={635}
+																		height={420}
+																	/><div
+																		onClick={e => { e.preventDefault(); openModal() }}
+																		className="video-btn popup-youtube"
+																	>
+																		<i className="ri-play-line"></i>
+																	</div>
+																</div>
+															</div>
+															{/* <img src="/images/how-it-works/create-account.jpg" alt="create-account" /> */}
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div className="how-it-works-content">
+												<div className="number">2</div>
+												<div className="row m-0">
+													<div className="col-lg-3 col-md-12 p-0">
+														<div className="box">
+															<h3>Шаг 2</h3>
+															<span>Как получить CDL Пермит</span>
+														</div>
+													</div>
+													<div className="col-lg-9 col-md-12 p-0">
+														<div className="content">
+															<p>Далее, мы настоятельно рекомендуем вам внимательно изучить процесс подготовки и сдачи теоретических тестов для получения ученического разрешения (Пермита). После успешной сдачи теоретического экзамена и получения CLP, вы сможете начать обучение в школе CDL.</p>
+															<p><Link href="/permit"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>В нашей статье вы найдете необходимые требования и ресурсы, которые помогут вам в подготовке к экзаменам.</a></Link></p>
+															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className="how-it-works-content">
+												<div className="number">3</div>
+												<div className="row m-0">
+													<div className="col-lg-3 col-md-12 p-0">
+														<div className="box">
+															<h3>Шаг 3</h3>
+															<span>Как пользоваться приложением CDL Help</span>
+														</div>
+													</div>
+													<div className="col-lg-9 col-md-12 p-0">
+														<div className="content">
+															<p>Приложение CDL Help - одно из самых надежных и эффективных инструментов для подготовки к CDL тестам в DMV для иммигрантов. Это приложение разработано с учетом потребностей всех пользователей, предлагающее не только всеобъемлющий контент для подготовки к тестам, но и дающий дополнительные возможности для практики английского языка, что является незаменимым навыком для успешной карьеры в сфере коммерческого вождения в США.</p>
+															<p><Link href="/permit"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Пройдя по ссылке, вы найдете подробное описание содержания тестов в приложении CDL Help, его функциональных особенностей, а также полезные советы и рекомендации по эффективному использованию приложения.</a></Link></p>
+															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className="how-it-works-content">
+												<div className="number">4</div>
+												<div className="row m-0">
+													<div className="col-lg-3 col-md-12 p-0">
+														<div className="box">
+															<h3>Шаг 4</h3>
+															<span>Чему обучают в школах CDL</span>
+														</div>
+													</div>
+													<div className="col-lg-9 col-md-12 p-0">
+														<div className="content">
+															<p>После успешной сдачи тестов на теоретические знания и получения пермита, вы получите возможность начать обучение в автошколе для подготовки к вождению. Школа CDL - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта.</p>
+															<p><Link href="/permit"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать подробнее о том чему обучают в школах</a></Link></p>
+															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className="how-it-works-content">
+												<div className="number">5</div>
+												<div className="row m-0">
+													<div className="col-lg-3 col-md-12 p-0">
+														<div className="box">
+															<h3>Шаг 5</h3>
+															<span>Список CDL школ</span>
+														</div>
+													</div>
+													<div className="col-lg-9 col-md-12 p-0">
+														<div className="content">
+															<p>После завершения курса обучения вождению в школе, вам предстоит сдать экзамен. Одним из этапов экзамена является устный тест, включающий в себя пересказ pre-trip inspection, который необходимо изучить и представить на английском языке. Несмотря на необходимость сдачи устного экзамена на английском, многие выбирают обучение с русскоязычными инструкторами.</p>
+															<p><Link href="/permit"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>На нашем сайте вы можете найти список школ, где предоставляются услуги русскоязычных инструкторов.</a></Link></p>
+															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className='pt-75'>
+												<p><strong>Не нашли ответа на свой вопрос?</strong></p>
+												<p><strong>Рекомендуем:</strong></p>
+												<ol>
+													<li><strong><Link href="/faq"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Почитать ответы на странице “Часто Задаваемые Вопросы”</a></Link></strong></li>
+													<li><strong><a href="https://www.t.me/truckdrivergroup" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
+												</ol>
+											</div>
+										</div>
 									</div>
-									<h4>Карьера дальнабойщика в США</h4>
-									<p>Логистическая отросль является одной из самых важных отраслей, которая поддерживает многие предприятия и повседневную деятельность. Начиная от еды, одежды, автомобилей, скота, топлива, мебели и многого другого, траки перевозят предметы, которые потребители используют. Почти 70 процентов всего тоннажа грузов, транспортируемых в США, перевозится на траках. Дальнобойщики ежегодно перевозят 9,2 миллиарда тонн грузов, <a href="https://www.ttnews.com/articles/americas-35-million-truck-drivers-be-recognized-salutes-gifts" alt="Дальнобойщики ежегодно перевозят 9,2 миллиарда тонн грузов" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>по данным Американской ассоциации грузоперевозок.</a></p>
-									<h4>Как получить CDL - пошаговая инструкция</h4>
-									<p>В этой серии статей мы рассмотрим карьеру водителя дальнобойщика в США, а также подробно разберём как получить CDL:</p>
-									<ol>
-										<li><a href="#medical" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Пройти медицинский осмотр DOT у сертифицированного специалиста</a></li>
-										<li><a href="#permit" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Сдать тесты на теоретические знания в DMV и получить разрешение (Commercial Learner's Permit)</a></li>
-										<li><a href="#schools" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Пройти учебу в CDL школе и сдать экзамен по вождению</a></li>
-									</ol>
-									<h4 id="medical">1. Пройти медицинский осмотр DOT у сертифицированного специалиста</h4>
-									<p>Федеральное управление по безопасности автомобильных перевозчиков (FMCSA) требует для всех желающих получить CDL пройти медицинский осмотр. Найти квалифицированную медицинскую организацию <a href="https://nationalregistry.fmcsa.dot.gov/home" alt="Найти квалифицированную медицинскую организацию на сайте FMCSA" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>можно на официальном сайте FMCSA.</a></p>
-									<p>Цель медицинского осмотра DOT — убедиться, что коммерческие водители физически пригодны для безопасного управления коммерческим автомобилем (CMV). Обследование включает в себя обзор истории болезни водителя и медицинский осмотр для проверки любых состояний, которые могут повлиять на способность водителя безопасно управлять коммерческим автомобилем, таких как проблемы со зрением и слухом, диабет, сердечно-сосудистые заболевания и другие заболевания.</p>
-									<p>Медицинский осмотр DOT должен проводиться лицензированным судмедэкспертом, внесенным в Национальный реестр сертифицированных медицинских экспертов. Судебно-медицинский эксперт заполнит справку судмедэксперта (MEC), которую водитель должен постоянно иметь при себе во время управления коммереским автомобилем. В справке MEC будет укажазано, имеет ли водитель физическую квалификацию для управления коммерческим автомобилем или применяются какие-либо ограничения или особые условия.
-									</p>
-									<h4 id="permit">2. Как сдать тесты в DMV и получить пермит (CLP)</h4>
-									<p>Разрешение на коммерческое обучение (CLP) — это документ, который позволяет человеку практиковаться в вождении коммерческого автомобиля (CMV) во время подготовки к получению коммерческих водительских прав (CDL). Подготовиться к тестам можно при помощи <Link href="/" alt="CDL Help - приложение с CDL тестами на русском языке"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>приложения CDL Help</a></Link>. Подробнее о CLP и как подготовится к тестам можно <Link href="/permit" alt="Как получить CLP"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>прочитать в статье "Как получить CLP"</a></Link>.</p>
-									<p>Чтобы иметь право на получение CLP, человек должен иметь действующие водительские права и соответствовать требованиям, установленным штатом, в котором он живет. Если у человека есть CLP, ему разрешается управлять коммерческим автомобилем на дорогах общего пользования под наблюдением лицензированного коммерческого водителя. Однако владельцу CLP не разрешается управлять CMV за компенсацию, например, перевозить пассажиров </p>
-									<h4 id="schools">3. Пройти учебу в CDL школе и сдать экзамен по вождению</h4>
-									<p>Школа CDL (коммерческое водительское удостоверение) - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта. Подробнее прочитать об учебе в школе можно <Link href="/cdl-shkola/" alt="Русско-язычные CDL школы"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>в статье "Русско-язычные CDL школы"</a></Link>.</p>
-									<h4>Что ожидать от карьеры дальнобойщика</h4>
-									<p>Чтобы стать водителем-дальнобойщиком, вам необходимо получить коммерческое водительское удостоверение (CDL). Обычно для этого требуется пройти программу обучения и сдать письменный тест и экзамен по вождению. Вам также может потребоваться соответствовать определенным физическим и медицинским требованиям, таким как способность поднимать тяжелые предметы и проходить медосмотр.</p>
-									<p>Получив CDL, вы можете начать поиск работы в автотранспортных компаниях или в качестве независимого водителя купив свой трак. Важно иметь ввиду, что вождение трака на дальние расстояния может потребовать физических и умственных усилий, поскольку оно требует долгих часов вождения и времени вдали от дома. Также важно соблюдать все правила дорожного движения, а также вести отчет вождения.</p>
-									<p>Чтобы преуспеть в этой карьере, полезно иметь хорошие навыки управления временем и организаторские способности, а также способность решать проблемы и принимать решения в дороге. Сильные коммуникативные навыки также важны для взаимодействия с диспетчерами, клиентами и другими профессионалами в сфере грузоперевозок.</p>
 								</div>
 
 								<div className="article-footer">
-									<div className="post-author-meta">
+									{/* <div className="post-author-meta">
 										<div className="d-flex align-items-center">
 											<img src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
 													Автор TruckDirver.help
 												</span>
-												<span className="date">18 Декабря, 2022</span>
+												<span className="date">24 Ноября, 2022</span>
 											</div>
 										</div>
-									</div>
+									</div> */}
 									{/* <div className="article-share">
 										<ul className="social">
 											<li><span>Share:</span></li>
@@ -170,12 +245,12 @@ const Dalnoboishik = () => {
 					</div>
 				</div>
 			</div>
-			<ModalVideo 
-                channel='youtube' 
-                isOpen={!isOpen} 
-                videoId='Ll4yVz7yBlQ' 
-                onClose={() => setIsOpen(!isOpen)} 
-            />
+			<ModalVideo
+				channel='youtube'
+				isOpen={!isOpen}
+				videoId='Ll4yVz7yBlQ'
+				onClose={() => setIsOpen(!isOpen)}
+			/>
 
 			<Footer />
 		</>
