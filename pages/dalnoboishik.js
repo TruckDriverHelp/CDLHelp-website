@@ -155,7 +155,7 @@ const Dalnoboishik = () => {
 													<div className="col-lg-9 col-md-12 p-0">
 														<div className="content">
 															<p>После успешной сдачи тестов на теоретические знания и получения пермита, вы получите возможность начать обучение в автошколе для подготовки к вождению. Школа CDL - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта.</p>
-															<p><Link href="/o-sholax"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать подробнее о том чему обучают в школах</a></Link></p>
+															<p><Link href="/o-shkolax"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать подробнее о том чему обучают в школах</a></Link></p>
 															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
 														</div>
 													</div>
