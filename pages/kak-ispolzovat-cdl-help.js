@@ -11,10 +11,10 @@ const HowToUse = () => {
 	return (
 		<>
 			<Head>
-				<title>Инструкция по применению приложения CDL Help</title>
+				<title>Как использовать приложение CDL Help</title>
 				<meta
 					name="description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content="CDL Help - Как использовать приложение CDL Help."
 				/>
 
 				{/* Google / Search Engine Tags */}
@@ -24,7 +24,7 @@ const HowToUse = () => {
 				/>
 				<meta
 					itemprop="description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content="CDL Help - Как использовать приложение CDL Help."
 				/>
 				<meta
 					itemprop="image"
@@ -40,7 +40,7 @@ const HowToUse = () => {
 				/>
 				<meta
 					property="og:description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content="CDL Help - Как использовать приложение CDL Help."
 				/>
 				<meta
 					property="og:image"
@@ -55,7 +55,7 @@ const HowToUse = () => {
 				/>
 				<meta
 					name="twitter:description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content="CDL Help - Как использовать приложение CDL Help."
 				/>
 				<meta
 					name="twitter:image"
@@ -65,10 +65,10 @@ const HowToUse = () => {
 			<Navbar />
 
 			<PageBannerStyle1
-				pageTitle="Инструкция по применению приложения CDL Help"
+				pageTitle="Как использовать приложение CDL Help"
 				homePageUrl="/"
 				homePageText="Главная Страница"
-				activePageText="Инструкция по применению приложения CDL Help"
+				activePageText="Как использовать приложение CDL Help"
 			/>
 
 			<div className="blog-details-area ptb-75">
