@@ -5,5 +5,11 @@ module.exports = {
         includePaths: [path.join(__dirname, 'styles')],
     },
     trailingSlash: true,
-    distDir: 'build'
+    distDir: 'build',
+    i18n: {
+    },
+    i18n: {
+        locales: ['ru', 'ua'],
+        defaultLocale: 'ru',
+    }
 }

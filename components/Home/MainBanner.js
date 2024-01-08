@@ -2,8 +2,40 @@ import Link from "next/link";
 import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+const localeContent = {
+  "ru": {
+    title: "CDL на русском языке",
+    content: [
+      {
+        title:
+          "Otter.ai’s new assistant can automatically transcribe your Zoom meetings",
+        synopsis:
+          "A.I.-powered voice transcription service Otter.ai wants to make it even easier for its business users to record their meetings. The company is today introducing a new feature, Otter Assistant, whic...",
+        imageUrl: "",
+      },
+      // ...
+    ],
+  },
+  "ua": {
+    title: "CDL на украинском языке",
+    content: [
+      {
+        title:
+          "Le nouvel assistant d'Otter.ai peut transcrire automatiquement vos réunions Zoom",
+        synopsis:
+          "Le service de transcription vocale alimenté par A.I. Otter.ai veut rendre encore plus facile pour ses utilisateurs professionnels l'enregistrement de leurs réunions. La société présente aujourd'hui une nouvelle fonctionnalité, Otter Assistant, qui ...",
+        imageUrl: "",
+      },
+      // ...
+    ],
+  }
+};
 
 const MainBanner = () => {
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { title, content } = localeContent[locale];
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -11,7 +43,7 @@ const MainBanner = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">
               <div className="new-app-main-banner-wrap-content">
-                <h1>CDL на русском языке</h1>
+                <h1>{title}</h1>
                 <p>
                   Приложение CDL Help поможет Вам не только подготовиться к
                   тестам CDL для того чтобы получить водительские права и стать
