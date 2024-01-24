@@ -28,11 +28,11 @@ const HowToUse = () => {
 				/>
 				<meta
 					itemprop="image"
-					content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 
 				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://www.cdlhelp.app" />
+				<meta property="og:url" content="https://www.cdlhelp.com" />
 				<meta property="og:type" content="article" />
 				<meta
 					property="og:title"
@@ -44,7 +44,7 @@ const HowToUse = () => {
 				/>
 				<meta
 					property="og:image"
-					content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 
 				{/* Twitter Meta Tags */}
@@ -59,7 +59,7 @@ const HowToUse = () => {
 				/>
 				<meta
 					name="twitter:image"
-					content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 			</Head>
 			<Navbar />
@@ -114,7 +114,7 @@ const HowToUse = () => {
 									<h4 id="-">Нью-Йорк:</h4>
 									<p>В Нью-Йорке для достижения максимальной эффективности в подготовке, рекомендуется изучение &quot;Full&quot; версии тестов в приложении CDL Help.</p>
 									<h4 id="-">Калифорния:</h4>
-									<p>В Калифорнии, в дополнение к основным тестам CDL, возможно вам потребуется сдать дополнительные тесты, в том случаи если ваши водительские права были получены не более года назад. Обычно просят сдать тесты с дорожными знаками (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.dmvhelp.app/dorojnie-znaki">перечень дорожных знаков США</a></strong>) и тесты с общими правилами дорожного движения (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.dmvhelp.app/">тесты для легковых автомобилей</a></strong>). В Калифорнии также рекомендуется изучать “Full” версию тестов.</p>
+									<p>В Калифорнии, в дополнение к основным тестам CDL, возможно вам потребуется сдать дополнительные тесты, в том случаи если ваши водительские права были получены не более года назад. Обычно просят сдать тесты с дорожными знаками (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.dmvhelp.com/dorojnie-znaki">перечень дорожных знаков США</a></strong>) и тесты с общими правилами дорожного движения (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.dmvhelp.com/">тесты для легковых автомобилей</a></strong>). В Калифорнии также рекомендуется изучать “Full” версию тестов.</p>
 									<h4 id="-">Остальные штаты:</h4>
 									<p>В отношении всех остальных штатов, согласно отзывам пользователей, версия “Express” была достаточна для успешной сдачи экзамена в DMV.</p>
 									<h3>На сколько хорошие шансы сдать тесты готовясь с помощью приложения CDL Help?</h3>

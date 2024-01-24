@@ -47,11 +47,11 @@ const CdlShkola = () => {
                 />
                 <meta
                     itemprop="image"
-                    content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+                    content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
                 />
 
                 {/* Facebook Meta Tags */}
-                <meta property="og:url" content="https://www.cdlhelp.app" />
+                <meta property="og:url" content="https://www.cdlhelp.com" />
                 <meta property="og:type" content="article" />
                 <meta
                     property="og:title"
@@ -63,7 +63,7 @@ const CdlShkola = () => {
                 />
                 <meta
                     property="og:image"
-                    content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+                    content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
                 />
 
                 {/* Twitter Meta Tags */}
@@ -78,7 +78,7 @@ const CdlShkola = () => {
                 />
                 <meta
                     name="twitter:image"
-                    content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+                    content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
                 />
             </Head>
             <Navbar />
@@ -125,7 +125,7 @@ const CdlShkola = () => {
                                             <div style={{ marginBottom: 20 }}>
                                                 <a
                                                     style={{ textDecoration: "underline" }}
-                                                    href="https://cdlhelp.app/dalnoboishik"
+                                                    href="https://cdlhelp.com/dalnoboishik"
                                                     target="_blank"
                                                 >
                                                     Подробнее о том, что необходимо прежде чем начать учёбу в

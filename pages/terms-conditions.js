@@ -14,20 +14,20 @@ const TermsConditions = () => {
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>
 				<meta itemprop="description" content="CDL Help - Условия пользования"/>
-				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 
 				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://www.cdlhelp.app"/>
+				<meta property="og:url" content="https://www.cdlhelp.com"/>
 				<meta property="og:type" content="website"/>
 				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
 				<meta property="og:description" content="CDL Help - Условия пользования"/>
-				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+				<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image"/>
 				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
 				<meta name="twitter:description" content="CDL Help - Условия пользования"/>
-				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
+				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 			</Head>
 			<Navbar />
 
