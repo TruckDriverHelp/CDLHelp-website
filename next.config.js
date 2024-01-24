@@ -5,5 +5,8 @@ module.exports = {
         includePaths: [path.join(__dirname, 'styles')],
     },
     trailingSlash: true,
-    distDir: 'build'
+    distDir: 'build',
+    images: {
+        domains: ['146.190.47.164'],
+      }
 }
