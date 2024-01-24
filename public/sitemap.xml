@@ -4,37 +4,60 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
-  <loc>https://www.cdlhelp.app/</loc>
-  <lastmod>2022-12-30T03:07:30+00:00</lastmod>
+  <loc>https://www.cdlhelp.com/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.cdlhelp.app/dalnoboishik/</loc>
-  <lastmod>2022-12-30T03:07:30+00:00</lastmod>
+  <loc>https://www.cdlhelp.com/dalnoboishik/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.cdlhelp.app/privacy-policy/</loc>
-  <lastmod>2022-12-30T03:07:30+00:00</lastmod>
+  <loc>https://www.cdlhelp.com/kak-ispolzovat-cdl-help/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.cdlhelp.app/terms-conditions/</loc>
-  <lastmod>2022-12-30T03:07:30+00:00</lastmod>
+  <loc>https://www.cdlhelp.com/permit/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.cdlhelp.app/cdl-shkola/</loc>
-  <lastmod>2022-12-30T03:07:30+00:00</lastmod>
+  <loc>https://www.cdlhelp.com/faq/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.cdlhelp.app/permit/</loc>
-  <lastmod>2022-12-30T03:07:30+00:00</lastmod>
+  <loc>https://www.cdlhelp.com/cdl-shkola/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cdlhelp.com/privacy-policy/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cdlhelp.com/terms-conditions/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cdlhelp.com/kak-poluchit-cdl/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.cdlhelp.com/o-shkolax/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.cdlhelp.com/cdl-texas/</loc>
+  <lastmod>2024-01-24T06:16:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
