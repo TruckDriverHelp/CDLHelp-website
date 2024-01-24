@@ -17,20 +17,20 @@ const Permit = () => {
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta itemprop="description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
-				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
 				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://www.cdlhelp.app" />
+				<meta property="og:url" content="https://www.cdlhelp.com" />
 				<meta property="og:type" content="article" />
 				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta property="og:description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
-				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta name="twitter:description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
-				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
 			<Navbar />
 
@@ -84,7 +84,7 @@ const Permit = () => {
 									<p>Этот тест оценивает ваше понимание и навыки, необходимые для безопасной и эффективной эксплуатации комбинированных транспортных средств, включая знание особенностей их управления, соединения и разъединения прицепов, а также особенностей безопасного маневрирования и транспортировки грузов.</p>
 									<p>В некоторых штатах, вас могут попросить сдать дополнительные тесты:</p>
 									<h4 id="-">Калифорния</h4>
-									<p>В Калифорнии, в дополнение к основным тестам CDL, возможно вам потребуется сдать дополнительные тесты, в том случаи если ваши водительские права были получены не более года назад. Обычно просят сдать тесты с дорожными знаками (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.dmvhelp.app/dorojnie-znaki">перечень дорожных знаков США</a></strong>) и тесты с общими правилами дорожного движения (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}a href="https://www.dmvhelp.app/">тесты для легковых автомобилей</a></strong>).</p>
+									<p>В Калифорнии, в дополнение к основным тестам CDL, возможно вам потребуется сдать дополнительные тесты, в том случаи если ваши водительские права были получены не более года назад. Обычно просят сдать тесты с дорожными знаками (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }} href="https://www.dmvhelp.com/dorojnie-znaki">перечень дорожных знаков США</a></strong>) и тесты с общими правилами дорожного движения (<strong><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}a href="https://www.dmvhelp.com/">тесты для легковых автомобилей</a></strong>).</p>
 									<p>Если вы планируете сдавать экзамен на русском языке, вероятность необходимости прохождения этих дополнительных тестов увеличивается.</p>
 									<h4 id="-">Техас</h4>
 									<p>При сдаче экзамена в Техасе, вам предстоит сдать дополнительный тест на знания в области управления коммерческими транспортными средствами. Этот экзамен оценивает ваше понимание правил дорожного движения, безопасности и специфических аспектов работы с коммерческим транспортом. Экзамен состоит из теоретических вопросов, которые покрывают широкий спектр тем, от базовых правил дорожного движения до более сложных вопросов, связанных с эксплуатацией и техническим обслуживанием коммерческих транспортных средств.</p>

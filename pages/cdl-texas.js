@@ -27,11 +27,11 @@ const CDLtexas = () => {
 				/>
 				<meta
 					itemprop="image"
-					content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 
 				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://www.cdlhelp.app" />
+				<meta property="og:url" content="https://www.cdlhelp.com" />
 				<meta property="og:type" content="article" />
 				<meta
 					property="og:title"
@@ -43,7 +43,7 @@ const CDLtexas = () => {
 				/>
 				<meta
 					property="og:image"
-					content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 
 				{/* Twitter Meta Tags */}
@@ -58,7 +58,7 @@ const CDLtexas = () => {
 				/>
 				<meta
 					name="twitter:image"
-					content="https://cdlhelp.app/images/cdlhelp-tag.jpg"
+					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 			</Head>
 			<Navbar />

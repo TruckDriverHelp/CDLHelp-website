@@ -116,7 +116,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="https://www.dmvhelp.app/">
+                    <a className="nav-link" href="https://www.dmvhelp.com/">
                       DMV Help
                     </a>
                   </li>
