@@ -38,7 +38,7 @@ const PostDetailView = ({ article }) => {
         <meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
         <meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
       </Head>
-      <Navbar />
+      <Navbar />  
       <PageBannerStyle1
         pageTitle={article.title}
         homePageUrl="/"
@@ -113,66 +113,68 @@ const PostDetailView = ({ article }) => {
   );
 }
 
-export async function getStaticProps(context) {
-  const { params } = context
-  const slug = params.slug
+export async function getStaticProps({params, locale}) {
+  const {slug} = params;
 
   const query = `
-    query articleBySlug($slug: String!) {
-      articles(filters: { slug: { eq: $slug } }) {
-        data {
-          attributes {
-            title
-            description
-            slug
-            blocks {
-              __typename
-              ... on ComponentSharedRichText {
-                body
-              }
-              ... on ComponentSharedMedia {
-                file {
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                      width
-                      height
-                    }
+  query articleBySlug($slug: String!, $locale: I18NLocaleCode) {
+    articles(filters: { slug: { eq: $slug } }, locale: $locale) {
+      data {
+        attributes {
+          title
+          description
+          slug
+          blocks {
+            __typename
+            ... on ComponentSharedRichText {
+              body
+            }
+            ... on ComponentSharedMedia {
+              file {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                    width
+                    height
                   }
                 }
               }
-              ...on ComponentSharedSlider{
-                files{
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                      width
-                      height
-                    }
+            }
+            ...on ComponentSharedSlider {
+              files {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                    width
+                    height
                   }
                 }
               }
-              ...on ComponentSharedQuote{
-                title
-                body
-              }
-              ...on ComponentSharedYouTube{
-                youtube
-              }
+            }
+            ...on ComponentSharedQuote {
+              title
+              body
+            }
+            ...on ComponentSharedYouTube {
+              youtube
             }
           }
         }
       }
     }
+  }
   `;
   const variables = {
-    slug
+    slug,
+    locale
   };
   try {
+    console.log("Ya yeti)))")
     const response = await axios.post('http://146.190.47.164:1337/graphql', {query, variables});
     const { data } = response.data;
+    console.log("\n\n\n\n\n\n\n", data, "\n\n\n\n\n\n\n\n\n");
     const { attributes } = data.articles.data[0];
 
     return {
@@ -182,19 +184,31 @@ export async function getStaticProps(context) {
       } 
     }
   } catch (error) {
-    // handle any errors here
+    return {
+      props: {
+        error: "hello_world"
+      }
   }
 }
+}
 
-export async function getStaticPaths() {
-  const { data } = await axios.get(`http://146.190.47.164:1337/api/articles`);
+export async function getStaticPaths({ locales }) {
+  const { data } = await axios.get(`http://146.190.47.164:1337/api/articles?populate[localizations]=*`);
   const slugs = data.data.map((article) => article.attributes.slug);
 
-  const pathsWithParams = slugs.map((slug) => ({ params: { slug } }))
+  const paths = [];
+  data.data.flatMap(post => {
+    paths.push({params: {slug: post.attributes.slug}, locale: post.attributes.locale});
+    return post.attributes.localizations.data.map(locale => {
+      const param = {params: {slug: locale.attributes.slug}, locale: locale.attributes.locale}
+      paths.push(param);
+    });
+  });
   return {
-      paths: pathsWithParams,
+      paths,
       fallback: false,
   }
 }
 
 export default PostDetailView;
+        
