@@ -2,13 +2,29 @@ import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { useRouter } from "next/router";
 
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
 });
 
+const localeContent = {
+    "ru": {
+        stepByStep: "ПОШАГОВАЯ ИНСТРУКЦИЯ",
+        howToGet: "Как получить CDL",
+        videoDescription: "В этом видео представлен подробный гид о том, как стать дальнобойщиком в США и получить CDL (коммерческие водительские права). Во-первых, объясняется процесс прохождения медицинского осмотра DOT, который необходим для всех кандидатов на получение CDL. Затем рассматривается процесс сдачи теоретических тестов в DMV для получения ученического разрешения (CLP), что позволяет практиковать вождение грузовика. Наконец, видео затрагивает обучение в школе CDL и процесс сдачи практического экзамена по вождению, включая ссылку на список школ с русскоязычными инструкторами для удобства подготовки.", 
+    },
+    "ua": {
+        stepByStep: "Покрокова інструкція",
+        howToGet: "Як отримати CDL",
+        videoDescription: "Изменить", 
+    }
+  };
+
 const AppIntroVideo = () => {
     // Popup Video
+    const { locale, locales, defaultLocale, asPath } = useRouter();
+    const { stepByStep, howToGet, videoDescription } = localeContent[locale];
 	const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
@@ -38,9 +54,9 @@ const AppIntroVideo = () => {
 
                         <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-content">
-                                <span className="sub-title">ПОШАГОВАЯ ИНСТРУКЦИЯ</span>
-                                <h2>Как получить CDL</h2>
-                                <p>В этом видео представлен подробный гид о том, как стать дальнобойщиком в США и получить CDL (коммерческие водительские права). Во-первых, объясняется процесс прохождения медицинского осмотра DOT, который необходим для всех кандидатов на получение CDL. Затем рассматривается процесс сдачи теоретических тестов в DMV для получения ученического разрешения (CLP), что позволяет практиковать вождение грузовика. Наконец, видео затрагивает обучение в школе CDL и процесс сдачи практического экзамена по вождению, включая ссылку на список школ с русскоязычными инструкторами для удобства подготовки.</p>
+                                <span className="sub-title">{stepByStep}</span>
+                                <h2>{howToGet}</h2>
+                                <p>{videoDescription}</p>
                                 <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">Начать просмотр</a>
                             </div>
                         </div>

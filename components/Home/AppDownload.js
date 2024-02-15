@@ -1,7 +1,29 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from "next/router";
+
+const localeContent = {
+    "ru": {
+        download: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
+        downloadCdlHelp: "Скачать CDL Help - тесты CDL с переводом",
+        freeDownload: "Бесплатно скачать приложение CDL Help и опробовать вопросы.",
+        application: "Приложение",
+        downloadButton: "Скачать",  
+
+    },
+    "ua": {
+        download: "Завантажити додаток",
+        downloadCdlHelp: "Завантажити CDL Help — тести CDL з перекладом",
+        freeDownload: "Безкоштовно завантажити додаток CDL Help і протестувати питання.",
+        application: "Додаток",
+        downloadButton: "Завантажити",  
+    }
+  };
+
 
 const AppDownload = () => {
+    const { locale, locales, defaultLocale, asPath } = useRouter();
+    const { download, downloadCdlHelp, downloadButton, application, freeDownload } = localeContent[locale];
     const trackDownload = (platform) => {
         if (window.fbq) {
             window.fbq('trackCustom', `AppDownload_${platform}`, { platform: platform });
@@ -14,9 +36,9 @@ const AppDownload = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="new-app-download-content">
-                                <span className="sub-title">СКАЧАТЬ ПРИЛОЖЕНИЕ</span>
-                                <h2>Скачать CDL Help - тесты CDL с переводом</h2>
-                                <p>Бесплатно скачать приложение CDL Help и опробовать вопросы.</p>
+                                <span className="sub-title">{download}</span>
+                                <h2>{downloadCdlHelp}</h2>
+                                <p>{freeDownload}</p>
 
                                 <div className="btn-box color-wrap">
                                     <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp"onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
@@ -28,8 +50,8 @@ const AppDownload = () => {
                                                 height={30}
                                             />
                                         </div>
-                                        Приложение Android
-                                        <span>Скачать</span>
+                                       {application} Android
+                                        <span>{downloadButton}</span>
                                     </a>
                                     <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
                                         <div>
@@ -40,8 +62,8 @@ const AppDownload = () => {
                                                 height={35}
                                             />
                                         </div>
-                                        Приложение iOS
-                                        <span>Скачать</span>
+                                        {application} iOS
+                                        <span>{downloadButton}</span>
                                     </a>
                                 </div>
                             </div>

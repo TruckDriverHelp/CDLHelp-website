@@ -8,6 +8,16 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { useRouter } from "next/router";
+
+const localeContent = {
+    "ru": {
+        
+    },
+    "ua": {
+
+    }
+  };
 
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
@@ -15,6 +25,8 @@ const ModalVideo = dynamic(() => import('react-modal-video'), {
 
 
 const KakPoluchitCdl = () => {
+    const { locale, locales, defaultLocale, asPath } = useRouter();
+    const {  } = localeContent[locale];
     const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);

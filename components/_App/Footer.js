@@ -3,10 +3,48 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+const localeContent = {
+  "ru": {
+    downloadApplication: "Приложение для мобильных устройств iOS и Android, с тестами CDL с возможностью перевода.",
+    howToUse: "Как пользоваться приложением",
+    aboutProject: "О Проекте",
+    tryOut: "Попробовать Бесплатно",
+    confidential: "Конфиденциальность",
+    publicAgreement: "Публичное Соглашение",
+    feedBack: "Обратная Связь",
+    faq: "Часто Задаваемые Вопросы",
+    resources: "Ресурсы",
+    howToBecome: "Как стать дальнобойщиком",
+    howToGetPermit: "Как получить пермит",
+    cdlSchool: "Школа CDL на русском",
+    findWork: "Найти работу",
+    support: "Поддержка", 
+
+  },
+  "ua": {
+    downloadApplication: "Додаток для мобільних пристроїв iOS та Android з тестами CDL з можливістю перекладу.",
+    howToUse: "Як користуватися програмою",
+    aboutProject: "Про проект",
+    tryOut: "Спробувати безкоштовно",
+    confidential: "Конфіденційність",
+    publicAgreement: "Публічний договір",
+    feedBack: "Зворотній зв'язок",
+    faq: "Поширені запитання",
+    resources: "Ресурси",
+    howToBecome: "Як стати далекобійником",
+    howToGetPermit: "Як отримати дозвіл",
+    cdlSchool: "Школа CDL українською мовою",
+    findWork: "Знайти роботу",
+    support: "Підтримка", 
+  }
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { downloadApplication, howToBecome, howToGetPermit, howToUse, aboutProject, tryOut, confidential, publicAgreement, feedBack, faq, resources, cdlSchool, findWork, support } = localeContent[locale];
   return (
     <>
       <div className="footer-area footer-style-two bg-black">
@@ -26,8 +64,7 @@ const Footer = () => {
                 </Link>
 
                 <p>
-                  Приложение для мобильных устройств iOS и Android, с тестами
-                  CDL с возможностью перевода.
+                  {downloadApplication}
                 </p>
 
                 <ul className="social-links">
@@ -64,12 +101,12 @@ const Footer = () => {
                 <ul className="links-list">
                   <li>
                     <Link href="/kak-ispolzovat-cdl-help">
-                      <a>Как пользоваться приложением</a>
+                      <a>{howToUse}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="#about">
-                      <a>О Проекте</a>
+                      <a>{aboutProject}</a>
                     </Link>
                   </li>
                   {/* <li>
@@ -79,7 +116,7 @@ const Footer = () => {
                                     </li> */}
                   <li>
                     <a href="https://academy.truckdriver.help/quiz">
-                      Попробовать Бесплатно
+                      {tryOut}
                     </a>
                   </li>
                 </ul>
@@ -88,24 +125,24 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>Поддержка</h3>
+                <h3>{support}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/privacy-policy">
-                      <a>Конфиденциальность</a>
+                      <a>{confidential}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms-conditions">
-                      <a>Публичное Соглашение</a>
+                      <a>{publicAgreement}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/">Обратная Связь</a>
+                    <a href="https://school.cdlhelp.app/contact/">{feedBack}</a>
                   </li>
                   <li>
                     <Link href="/faq">
-                      <a>Часто Задаваемые Вопросы</a>
+                      <a>{faq}</a>
                     </Link>
                   </li>
                 </ul>
@@ -114,25 +151,25 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>Ресурсы</h3>
+                <h3>{resources}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/dalnoboishik">
-                      <a>Как стать дальнобойщиком</a>
+                      <a>{howToBecome}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/permit">
-                      <a>Как получить пермит</a>
+                      <a>{howToGetPermit}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/cdl-shkola">
-                      <a>Школа CDL на русском</a>
+                      <a>{cdlSchool}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.truckdriver.help/">Найти Работу</a>
+                    <a href="https://www.truckdriver.help/">{findWork}</a>
                   </li>
                 </ul>
               </div>

@@ -7,35 +7,25 @@ import { useRouter } from "next/router";
 const localeContent = {
   "ru": {
     title: "CDL на русском языке",
-    content: [
-      {
-        title:
-          "Otter.ai’s new assistant can automatically transcribe your Zoom meetings",
-        synopsis:
-          "A.I.-powered voice transcription service Otter.ai wants to make it even easier for its business users to record their meetings. The company is today introducing a new feature, Otter Assistant, whic...",
-        imageUrl: "",
-      },
-      // ...
-    ],
+    description: "Приложение CDL Help поможет Вам не только подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США, но с изучением английского языка.",
+    download: "Скачать",
+    cdlSchools: "CDL школы",
+    language: "на русском",
+    bestTelegramChat: "Лучший Телеграм чат для начинающих дальнобойщиков",
   },
   "ua": {
-    title: "CDL на украинском языке",
-    content: [
-      {
-        title:
-          "Le nouvel assistant d'Otter.ai peut transcrire automatiquement vos réunions Zoom",
-        synopsis:
-          "Le service de transcription vocale alimenté par A.I. Otter.ai veut rendre encore plus facile pour ses utilisateurs professionnels l'enregistrement de leurs réunions. La société présente aujourd'hui une nouvelle fonctionnalité, Otter Assistant, qui ...",
-        imageUrl: "",
-      },
-      // ...
-    ],
+    title: "CDL українською мовою",
+    description: "Додаток CDL допоможе вам не тільки підготуватися до тестів CDL, щоб отримати посвідчення водія та стати далекобійником у США, але і вивчити українську мову.",
+    download: "Завантажити",
+    cdlSchools: "Школи CDL",
+    language: "українською мовою",
+    bestTelegramChat: "Найкраща група в Телеграмі для початківців",
   }
 };
 
 const MainBanner = () => {
   const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { title, content } = localeContent[locale];
+  const { title, description, download, cdlSchools, language, bestTelegramChat } = localeContent[locale];
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -44,27 +34,23 @@ const MainBanner = () => {
             <div className="col-lg-6 col-md-12">
               <div className="new-app-main-banner-wrap-content">
                 <h1>{title}</h1>
-                <p>
-                  Приложение CDL Help поможет Вам не только подготовиться к
-                  тестам CDL для того чтобы получить водительские права и стать
-                  дальнобойщиком в США, но с изучением английского языка.
-                </p>
+                <p>{description}</p>
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
                     <i className="ri-download-fill main-banner-btn-icon"></i>
                     iOS / Android
-                    <span>Скачать</span>
+                    <span>{download}</span>
                   </a>
                   <Link href="/cdl-shkola">
                     <a className="playstore-btn">
                       <i className="ri-truck-fill main-banner-btn-icon"></i>
-                      CDL школы
-                      <span>на русском</span>
+                      {cdlSchools}
+                      <span>{language}</span>
                     </a>
                   </Link>
                 </div>
-                <div style={{marginTop: 10, display: 'flex', alignItems: 'center', gap: 5}}>
+                <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 5 }}>
                   <a href="https://www.t.me/TruckDriverHelp" target="_blank">
                     <i
                       className="ri-telegram-fill"
@@ -72,7 +58,7 @@ const MainBanner = () => {
                     ></i>
                   </a>
                   <a style={{ fontWeight: 600 }} href="https://www.t.me/truckdrivergroup">
-                    Лучший Телеграм чат для начинающих дальнобойщиков
+                    {bestTelegramChat}
                   </a>
                 </div>
               </div>
