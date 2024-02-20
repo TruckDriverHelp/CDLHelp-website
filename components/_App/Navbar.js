@@ -126,9 +126,9 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="https://school.cdlhelp.app/contact/" className="nav-link">
-                      Контакты
-                    </a>
+                  <Link href="/contact">
+                    <a className="nav-link">Контакты</a>
+                    </Link>
                   </li>
                 </ul>
               </div>
