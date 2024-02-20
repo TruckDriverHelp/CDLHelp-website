@@ -35,20 +35,39 @@ const ContactForm = () => {
         // console.log(contact)
     }
 
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const url = `${baseUrl}/api/contact`;
-            const { name, email, number, subject, text } = contact;
-            const payload = { name, email, number, subject, text };
-            const response = await axios.post(url, payload);
-            console.log(response);
-            setContact(INITIAL_STATE);
-            alertContent();
-        } catch (error) {
-            console.log(error)
+      
+        const { name, email, number, subject, text } = contact;
+      
+        if (!name || !email || !number || !subject || !text) {
+          alert('Please fill all fields');
+          return;
         }
-    };
+      
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address');
+          return;
+        }
+      
+        const numberRegex = /^\+[0-9]+$/;
+        if (!numberRegex.test(number)) {
+          alert(`Please enter a valid number. Don't forget the + sign`);
+          return;
+        }
+      
+        try {
+          const url = `${baseUrl}/api/contact`;
+          const payload = { name, email, number, subject, text };
+          const response = await axios.post(url, payload);
+          console.log(response);
+          setContact(INITIAL_STATE);
+          alertContent();
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
     return (
         <>
