@@ -171,10 +171,8 @@ export async function getStaticProps({params, locale}) {
     locale
   };
   try {
-    console.log("Ya yeti)))")
     const response = await axios.post('http://146.190.47.164:1337/graphql', {query, variables});
     const { data } = response.data;
-    console.log("\n\n\n\n\n\n\n", data, "\n\n\n\n\n\n\n\n\n");
     const { attributes } = data.articles.data[0];
 
     return {

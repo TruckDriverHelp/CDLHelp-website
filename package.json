@@ -14,6 +14,7 @@
         "@supabase/supabase-js": "^2.33.2",
         "axios": "^0.21.4",
         "i18n-next": "^0.0.4",
+        "js-cookie": "^3.0.5",
         "next": "^12.1.4",
         "nodemailer": "^6.7.2",
         "nodemailer-sendgrid-transport": "^0.2.0",
