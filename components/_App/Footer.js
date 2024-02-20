@@ -50,9 +50,9 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/" target="_blank">
-                      <i className="ri-mail-fill"></i>
-                    </a>
+                    <Link href="/contact">
+                    <a target="_blank"><i className="ri-mail-fill"></i></a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -101,7 +101,9 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/">Обратная Связь</a>
+                  <Link href="/contact">
+                    <a>Обратная Связь</a>
+                    </Link>
                   </li>
                   <li>
                     <Link href="/faq">
