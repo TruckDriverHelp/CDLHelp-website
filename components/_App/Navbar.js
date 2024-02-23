@@ -3,6 +3,31 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+const localeContent = {
+  "ru": {
+    main: "Главная", 
+    resources: "Ресурсы",
+    dalnoboishik: "Как стать дальнобойщиком",
+    howToUseApp: "Как пользоваться приложением CDL help",
+    howToGetPermit: "Как получить пермит CLP (пермит)",
+    workForTruckers: "Работа для дальнобойщиков",
+    faq: "Часто Задаваемые Вопросы",
+    cdlSchool: "CDL школа",
+  },
+  "ua": {
+    main: "Головна",
+    resources: "Ресурси",
+    dalnoboishik: "Як стати далекобійником",
+    howToUseApp: "Як користуватися додатком CDL help",
+    howToGetPermit: "Як отримати дозвіл CLP (Перміт)",
+    workForTruckers: "Робота для далекобійників",
+    faq: "Поширені запитання",
+    cdlSchool: "CDL школа",
+  }
+};
+
 const Navbar = () => {
   const [menu, setMenu] = React.useState(true);
 
@@ -28,10 +53,13 @@ const Navbar = () => {
     ? "navbar-toggler navbar-toggler-right collapsed"
     : "navbar-toggler navbar-toggler-right";
 
+    // const { locale, locales, defaultLocale, asPath } = useRouter();
+    // const { main, resources, dalnoboishik, howToGetPermit, howToUseApp, workForTruckers, faq, cdlSchool } = localeContent[locale];
+
   return (
     <>
       <div id="navbar" className="navbar-area navbar-style-two">
-        <div className="texap-nav">
+        {/* <div className="texap-nav">
           <div className="container">
             <nav className="navbar navbar-expand-md navbar-light bg-light">
               <Link href="/">
@@ -64,7 +92,7 @@ const Navbar = () => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
-                      <a className="nav-link">Главная</a>
+                      <a className="nav-link">{main}</a>
                     </Link>
                   </li>
 
@@ -74,24 +102,24 @@ const Navbar = () => {
                         onClick={(e) => e.preventDefault()}
                         className="dropdown-toggle nav-link"
                       >
-                        Ресурсы
+                        {resources}
                       </a>
                     </Link>
 
                     <ul className="dropdown-menu">
                       <li>
                         <Link href="/dalnoboishik">
-                          <a>Как стать дальнобойщиком</a>
+                          <a>{dalnoboishik}</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/kak-ispolzovat-cdl-help">
-                          <a>Как пользоваться приложением</a>
+                          <a>{howToUseApp}</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/permit">
-                          <a>Как получить пермит</a>
+                          <a>{howToGetPermit}</a>
                         </Link>
                       </li>
                       <li className="nav-item">
@@ -99,20 +127,20 @@ const Navbar = () => {
                           className="nav-link"
                           href="https://www.truckdriver.help/"
                         >
-                          Работа для дальнобойщиков
+                          {workForTruckers}
                         </a>
                       </li>
 
                       <li className="nav-item">
                         <Link href="/faq">
-                          <a className="nav-link">Часто Задаваемые Вопросы</a>
+                          <a className="nav-link">{faq}</a>
                         </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
                     <Link href="/cdl-shkola">
-                      <a className="nav-link">CDL Школа</a>
+                      <a className="nav-link">{cdlSchool}</a>
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -161,7 +189,7 @@ const Navbar = () => {
               </div>
             </nav>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
