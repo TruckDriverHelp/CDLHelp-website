@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import cookie from "js-cookie";
+import { useRouter } from "next/router";
 
 const CookieConsentBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
+  const {locale} = useRouter();
 
   useEffect(() => {
     const consentCookie = cookie.get("cookieConsent");
+    var data = fetch(`http://146.190.47.164:1337/api/cookie-banner?locale=${locale}`);
+    const { text, accept, decline } = data;
 
-    if (!consentCookie) {
+    // if (!consentCookie) {
       setShowBanner(true);
-    }
+    // }
   }, []);
 
   const handleAccept = () => {
