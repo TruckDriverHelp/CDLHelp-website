@@ -1,10 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script'
+
 
 class MyDocument extends Document {
+    static async getInitialProps(ctx) {
+      const initialProps = await Document.getInitialProps(ctx);
+      return { ...initialProps, locale: ctx.locale || 'en' }; // Ensure a default locale is set
+    }
+  
     render() {
+        const { locale } = this.props;
+
         return (
-            <Html lang="ru">
+            <Html lang={locale}>
                 <Head>
                     <link rel="icon" href="/images/favicon.ico"></link>
                     {/* HTML Meta Tags */}
