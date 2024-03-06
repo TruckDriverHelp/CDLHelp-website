@@ -3,8 +3,85 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+const localeContent = {
+  "ru": {
+    downloadApp: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
+    downloadAppText: "Скачать CDL Help - тесты CDL с переводом",
+    downloadAndTry: "Бесплатно скачать приложение CDL Help и опробовать вопросы.",
+    androidApp: "Приложение Android",
+    downloadButton: "Скачать",
+    iosApp: "Приложение iOS",
+    mobileApp: "Приложение для мобильных устройств iOS и Android, с тестами CDL с возможностью перевода.",
+    howToUseAppArticle: "Как пользоваться приложением",
+    aboutProject: "О Проекте",
+    tryFree: "Попробовать Бесплатно",
+    support: "Поддержка",
+    privacy: "Конфиденциальность",
+    publicAgreement: "Публичное Соглашение",
+    feedback: "Обратная Связь",
+    faq: "Часто Задаваемые Вопросы",
+    resources: "Ресурсы",
+    howToBecomeTruckDriverArticle: "Как стать дальнобойщиком",
+    howToGetPermitArticle: "Как получить пермит",
+    cdlRussianSchool: "Школа CDL на русском",
+    jobs: "Найти Работу",
+    allRightsReserved: "Все права защищены",
+  },
+
+  "en": {
+    downloadApp: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
+    downloadAppText: "Скачать CDL Help - тесты CDL с переводом",
+    downloadAndTry: "Бесплатно скачать приложение CDL Help и опробовать вопросы.",
+    androidApp: "Приложение Android",
+    downloadButton: "Скачать",
+    iosApp: "Приложение iOS",
+    mobileApp: "Приложение для мобильных устройств iOS и Android, с тестами CDL с возможностью перевода.",
+    howToUseAppArticle: "Как пользоваться приложением",
+    aboutProject: "О Проекте",
+    tryFree: "Попробовать Бесплатно",
+    support: "Поддержка",
+    privacy: "Конфиденциальность",
+    publicAgreement: "Публичное Соглашение",
+    feedback: "Обратная Связь",
+    faq: "Часто Задаваемые Вопросы",
+    resources: "Ресурсы",
+    howToBecomeTruckDriverArticle: "Как стать дальнобойщиком",
+    howToGetPermitArticle: "Как получить пермит",
+    cdlRussianSchool: "Школа CDL на русском",
+    jobs: "Найти Работу",
+    allRightsReserved: "Все права защищены",
+  },
+
+  "ua": {
+    downloadApp: "Завантажити додаток",
+    downloadAppText: "Завантажити CDL Help — тести CDL з перекладом",
+    downloadAndTry: "Безкоштовно завантажити додаток CDL Help і протестувати питання.",
+    androidApp: "Додаток Android",
+    downloadButton: "Завантажити",
+    iosApp: "Додаток iOS",
+    mobileApp: "Додаток для мобільних пристроїв iOS та Android з тестами CDL з можливістю перекладу.",
+    howToUseAppArticle: "Як користуватися програмою",
+    aboutProject: "Про проект",
+    tryFree: "Спробувати безкоштовно",
+    support: "Підтримка",
+    privacy: "Конфіденційність",
+    publicAgreement: "Публічний договір",
+    feedback: "Зворотній зв'язок",
+    faq: "Поширені запитання",
+    resources: "Ресурси",
+    howToBecomeTruckDriverArticle: "Як стати далекобійником",
+    howToGetPermitArticle: "Як отримати дозвіл",
+    jobs: "Знайти роботу",
+    cdlRussianSchool: "Школа CDL українською мовою",
+    allRightsReserved: "Все права защищены",
+  }
+}
 
 const Footer = () => {
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { downloadApp, downloadAndTry, downloadAppText, downloadButton, iosApp, androidApp, jobs, mobileApp, howToBecomeTruckDriverArticle, howToGetPermitArticle, howToUseAppArticle, aboutProject, tryFree, support, privacy, publicAgreement, feedback, faq, resources, cdlRussianSchool, allRightsReserved } = localeContent[locale];
   const currentYear = new Date().getFullYear();
 
   return (
@@ -26,8 +103,7 @@ const Footer = () => {
                 </Link>
 
                 <p>
-                  Приложение для мобильных устройств iOS и Android, с тестами
-                  CDL с возможностью перевода.
+                  {mobileApp}
                 </p>
 
                 <ul className="social-links">
@@ -50,9 +126,9 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/" target="_blank">
-                      <i className="ri-mail-fill"></i>
-                    </a>
+                    <Link href="/contact">
+                    <a target="_blank"><i className="ri-mail-fill"></i></a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -64,12 +140,12 @@ const Footer = () => {
                 <ul className="links-list">
                   <li>
                     <Link href="/kak-ispolzovat-cdl-help">
-                      <a>Как пользоваться приложением</a>
+                      <a>{howToUseAppArticle}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="#about">
-                      <a>О Проекте</a>
+                      <a>{aboutProject}</a>
                     </Link>
                   </li>
                   {/* <li>
@@ -79,7 +155,7 @@ const Footer = () => {
                                     </li> */}
                   <li>
                     <a href="https://academy.truckdriver.help/quiz">
-                      Попробовать Бесплатно
+                      {tryFree}
                     </a>
                   </li>
                 </ul>
@@ -88,24 +164,24 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>Поддержка</h3>
+                <h3>{support}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/privacy-policy">
-                      <a>Конфиденциальность</a>
+                      <a>{privacy}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms-conditions">
-                      <a>Публичное Соглашение</a>
+                      <a>{publicAgreement}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/">Обратная Связь</a>
+                    <a href="https://school.cdlhelp.app/contact/">{feedback}</a>
                   </li>
                   <li>
                     <Link href="/faq">
-                      <a>Часто Задаваемые Вопросы</a>
+                      <a>{faq}</a>
                     </Link>
                   </li>
                 </ul>
@@ -114,25 +190,25 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>Ресурсы</h3>
+                <h3>{resources}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/dalnoboishik">
-                      <a>Как стать дальнобойщиком</a>
+                      <a>{howToBecomeTruckDriverArticle}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/permit">
-                      <a>Как получить пермит</a>
+                      <a>{howToGetPermitArticle}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/cdl-shkola">
-                      <a>Школа CDL на русском</a>
+                      <a>{cdlRussianSchool}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.truckdriver.help/">Найти Работу</a>
+                    <a href="https://www.truckdriver.help/">{jobs}</a>
                   </li>
                 </ul>
               </div>
@@ -161,7 +237,7 @@ const Footer = () => {
 
           <div className="copyright-area">
             <p>
-              {currentYear} &copy; <strong>CDL Help</strong>. Все права защищены{" "}
+              {currentYear} &copy; <strong>CDL Help</strong>. {allRightsReserved}{" "}
               <a href="https://www.truckdriver.help/" target="_blank">
                 TruckDriver.help llc
               </a>

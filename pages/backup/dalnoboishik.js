@@ -257,4 +257,16 @@ const Dalnoboishik = () => {
 	)
 }
 
+// export const getServerSideProps = async () => {
+// 	const { data } = await axios.get(`http://146.190.47.164:1337/api/articles/1`);
+//    console.log(data)
+// 	return {
+// 	  props: {
+// 		data,
+// 	  },
+// 	};
+//   };
+
+
+
 export default Dalnoboishik;
