@@ -5,11 +5,19 @@ import { useRouter } from "next/router";
 const CookieConsentBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
   const {locale} = useRouter();
+  const [texts, setTexts] = useState(null);
 
   useEffect(() => {
     const consentCookie = cookie.get("cookieConsent");
-    var data = fetch(`http://146.190.47.164:1337/api/cookie-banner?locale=${locale}`);
-    const { text, accept, decline } = data;
+
+    fetch(`http://146.190.47.164:1337/api/cookie-banner?locale=${locale}`)
+      .then(response => response.json())
+      .then(data => {
+        setTexts(data.data.attributes);
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
 
     // if (!consentCookie) {
       setShowBanner(true);
@@ -26,7 +34,7 @@ const CookieConsentBanner = () => {
     cookie.set("cookieConsent", "rejected", { expires: 365 });
   };
 
-  if (!showBanner) {
+  if (!showBanner || !texts) {
     return null;
   }
 
@@ -48,14 +56,14 @@ const CookieConsentBanner = () => {
       alignItems: "center",
       justifyContent: "center"
     }}>
-       <p style={{color: "#000000"}}>This website uses cookies to improve your browsing experience</p>
+       <p style={{color: "#000000"}}>{texts.Text}</p>
        
         <div style={{
           display: "flex",
           justifyContent: "space-between",
         }}>
-          <button onClick={handleAccept} className="default-btn" style={{marginRight: "20px"}}>Accept</button>
-          <button onClick={handleReject} className="default-btn">Reject</button>
+          <button onClick={handleAccept} className="default-btn" style={{marginRight: "20px"}}>{texts.Accept}</button>
+          <button onClick={handleReject} className="default-btn">{texts.Decline}</button>
         </div>
     </div>
   );
