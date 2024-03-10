@@ -7,7 +7,7 @@ module.exports = {
     trailingSlash: true,
     distDir: 'build',
     i18n: {
-        locales: ["en", "ru", "ua", "ar", "pt"],
+        locales: ["en", "ru", "uk", "ar", "pt"],
         defaultLocale: "en",
     },
     images: {
