@@ -159,7 +159,7 @@ const CdlShkola = () => {
                                                     <a style={{ textDecoration: 'underline' }} href="https://www.cdlshkola.com/shkola/new-york">CDL школы в Нью-Йорке</a>
                                                 </div>
                                             </div> */}
-                                            <div
+                                            {/* <div
                                                 className="school_card school_card_states"
                                                 style={{
                                                     backgroundColor: '#f1f1f1'
@@ -167,6 +167,16 @@ const CdlShkola = () => {
                                             >
                                                 <div>
                                                     <a style={{ textDecoration: 'underline' }} href="https://www.cdlshkola.com/shkola/new-jersey">CDL школы в Нью-Джерси</a>
+                                                </div>
+                                            </div> */}
+                                            <div
+                                                className="school_card school_card_states"
+                                                style={{
+                                                    backgroundColor: '#f1f1f1'
+                                                }}
+                                            >
+                                                <div>
+                                                    <a style={{ textDecoration: 'underline' }} href="https://www.cdlshkola.com/shkola/washington">CDL школы в Вашингтоне</a>
                                                 </div>
                                             </div>
                                             {/* <div
