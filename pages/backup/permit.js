@@ -145,7 +145,7 @@ const Permit = () => {
 									<ol>
 										<li><strong><Link href="/dalnoboishik"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать серию статей о том, как получить CDL</a></Link></strong></li>
 										<li><strong><Link href="/faq"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Почитать ответы на странице “Часто Задаваемые Вопросы”</a></Link></strong></li>
-										<li><strong><a href="https://www.t.me/truckdrivergroup" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
+										<li><strong><a href="https://t.me/TruckDriverGroup/13900/13904" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
 									</ol>
 
 
