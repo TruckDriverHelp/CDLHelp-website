@@ -65,7 +65,7 @@ const MainBanner = () => {
                       style={{ color: "#3c9ff0", fontSize: 26 }}
                     ></i>
                   </a>
-                  <a style={{ fontWeight: 600 }} href="https://www.t.me/truckdrivergroup">
+                  <a style={{ fontWeight: 600 }} href="https://t.me/TruckDriverGroup/13900/13904">
                     {bestTelegramChat}
                   </a>
                 </div>

@@ -64,7 +64,7 @@ const CdlShkola = () => {
 									</div>
 									<p>
 										<a
-											href="https://www.t.me/truckdrivergroup"
+											href="https://t.me/TruckDriverGroup/13900/13904"
 											style={{
 												fontWeight: "bold",
 												textDecoration: "underline",

@@ -184,7 +184,7 @@ const Dalnoboishik = () => {
 												<p><strong>Рекомендуем:</strong></p>
 												<ol>
 													<li><strong><Link href="/faq"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Почитать ответы на странице “Часто Задаваемые Вопросы”</a></Link></strong></li>
-													<li><strong><a href="https://www.t.me/truckdrivergroup" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
+													<li><strong><a href="https://t.me/TruckDriverGroup/13900/13904" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
 												</ol>
 											</div>
 										</div>
