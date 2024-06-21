@@ -48,7 +48,6 @@ const MyApp = ({ Component, pageProps }) => {
 
 	return (
 		<Layout>
-			<Pixel name='FACEBOOK_PIXEL_1' />
 			<CookieConsentBanner />
 			<Component {...pageProps} />
 			{/* Google analytics scripts */}

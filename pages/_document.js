@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import FACEBOOK_PIXEL_1 from "components/Pixel/facebook/pixel-1"
 
 
 class MyDocument extends Document {
@@ -35,6 +36,7 @@ class MyDocument extends Document {
                     <meta name="twitter:description" content="CDL Help - лучшее приложение с переводом CDL на русский в режиме реального времени. Лучший способ подготовки к сдачи тестов и обучению языка."/>
                     <meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg"/>
 
+                    <FACEBOOK_PIXEL_1 />
                 </Head>
                 <body>
                     <Main />
