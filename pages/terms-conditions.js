@@ -150,7 +150,7 @@ const TermsConditions = () => {
 							this page.
 						</p> <p>This policy is effective as of 2022-11-22</p> <p><strong>Contact Us</strong></p> <p>
 							If you have any questions or suggestions about our
-							Privacy Policy, do not hesitate to contact us at contact@truckdriver.help.
+							Privacy Policy, do not hesitate to contact us at contact@cdlhelp.com.
 						</p> 
 
 					</div>
