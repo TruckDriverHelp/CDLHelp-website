@@ -17,6 +17,8 @@ import Script from "next/script";
 import { useRouter } from 'next/router'
 import Pixel from '../components/Pixel'
 
+import CookieConsentBanner from "../components/_App/CookieConsentBanner.js"
+
 import Layout from '@/components/_App/Layout';
 import { useEffect } from 'react'
 
@@ -46,7 +48,7 @@ const MyApp = ({ Component, pageProps }) => {
 
 	return (
 		<Layout>
-			<Pixel name='FACEBOOK_PIXEL_1' />
+			<CookieConsentBanner />
 			<Component {...pageProps} />
 			{/* Google analytics scripts */}
 			<Script

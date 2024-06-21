@@ -1,6 +1,32 @@
 import React from 'react';
+import { useRouter } from "next/router";
+
+const localeContent = {
+  "ru": {
+    numberOfQuestions: "Количество Вопросов",
+    numberOfTests: "Количество Тестов",
+    numberOfCategories: "Количество Разделов",
+    users: "Пользователей",
+
+  },
+  "en": {
+    numberOfQuestions: "Количество Вопросов",
+    numberOfTests: "Количество Тестов",
+    numberOfCategories: "Количество Разделов",
+    users: "Пользователей",
+  },
+
+  "ua": {
+    numberOfQuestions: "Кількість питань",
+    numberOfTests: "Кількість тестів",
+    numberOfCategories: "Кількість розділів",
+    users: "Користувачів",
+  }
+};
 
 const Funfacts = () => {
+    const { locale, locales, defaultLocale, asPath } = useRouter();
+    const { numberOfCategories, numberOfQuestions, numberOfTests, users } = localeContent[locale];
     return (
 		<>
 			<div className="gradient-funfacts-area pt-100 pb-75">
@@ -11,7 +37,7 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-question-fill"></i>
                                 </div>
-                                <p>Количество Вопросов</p>
+                                <p>{numberOfQuestions}</p>
                                 <h3>370<span className="sign">+</span></h3>
                             </div>
                         </div>
@@ -20,7 +46,7 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-file-list-3-fill"></i>
                                 </div>
-                                <p>Количество Тестов</p>
+                                <p>{numberOfTests}</p>
                                 <h3>13</h3>
                             </div>
                         </div>
@@ -29,7 +55,7 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-book-open-fill"></i>
                                 </div>
-                                <p>Количество Разделов</p>
+                                <p>{numberOfCategories}</p>
                                 <h3>3</h3>
                             </div>
                         </div>
@@ -38,7 +64,7 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-user-3-fill"></i>
                                 </div>
-                                <p>Пользователей</p>
+                                <p>{users}</p>
                                 <h3>15<span className="sign">к</span></h3>
                             </div>
                         </div>
