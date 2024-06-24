@@ -22,37 +22,37 @@ const BestFeatures = () => {
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card">
                                         <div className="icon">
-                                            <i className="ri-hand-coin-line"></i>
+                                            <i><img src="images/icons/support-money-donation.svg" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>Бесплатные вопросы</h3>
                                         </div>
-                                        <p>Бесплатный доступ к 80+ вопросам.</p>
+                                        <p>Бесплатный доступ к более 100 вопросам</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
-                                            <i className="ri-translate"></i>
+                                            <i><img src="images/icons/translate.svg" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>Текст с переводом</h3>
                                         </div>
-                                        <p>Помогает получить права CDL, а также учить английский язык.</p>
+                                        <p>Помогает получить права CDL, а также учить английский язык</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
-                                            <i className="ri-database-2-line"></i>
+                                            <i><img src="images/icons/database.svg" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>База вопросов</h3>
                                         </div>
-                                        <p>В нашей базе вопросов содержится более 370 вопросов.</p>
+                                        <p>В нашей базе вопросов содержится более 1000 вопросов</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card">
                                         <div className="icon">
-                                            <i className="ri-folder-open-line"></i>
-                                            <h3>3 категории вопросов</h3>
+                                            <i><img src="images/icons/layout-grid-stack-left.svg" style={{color: "white", width: 25, height: 25}}></img></i>
+                                            <h3>6 категории вопросов</h3>
                                         </div>
-                                        <p>Приложение содержит вопросы из трех категорий: General Knowedlge, Air Brakes, и Combination.</p>
+                                        <p>Приложение содержит три основных, и три дополнительных теста</p>
                                     </div>
                                 </div>
                             </div>

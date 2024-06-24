@@ -34,7 +34,7 @@ const IndexPage = () => {
             {/* <AppScreenshots /> */}
 
 
-            <Funfacts />
+            {/* <Funfacts /> */}
 
             <AppDownload />
 

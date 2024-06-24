@@ -20,7 +20,7 @@ const MainBanner = () => {
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
-                    <i className="ri-download-fill main-banner-btn-icon"></i>
+                    <i><img src="images/icons/download-bar-down.svg" style={{color: "white", width: 30, height: 30}}></img></i>
                     iOS / Android
                     <span>Скачать</span>
                   </a>
