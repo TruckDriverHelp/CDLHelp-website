@@ -53,7 +53,7 @@ const AppDownload = () => {
                                     src="/images/banner/cdl-help-app-0.png"
                                     alt="app-img"
                                     width={430}
-                                    height={630}
+                                    height={680}
                                 />
 
                                 {/* <div className="download-circle">
