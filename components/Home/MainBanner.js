@@ -10,7 +10,7 @@ const MainBanner = () => {
         <div className="container-fluid">
           <div className="row align-items-center mb-5">
             <div className="col-xl-7 col-lg-8 col-md-12">
-              <div className="new-app-main-banner-wrap-content" style={{textAlign: 'center'}}>
+              <div className="new-app-main-banner-wrap-content" style={{ textAlign: 'center' }}>
                 <h1>CDL на русском языке</h1>
                 <p>
                   Приложение CDL Help поможет Вам не только подготовиться к
@@ -20,23 +20,48 @@ const MainBanner = () => {
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
-                    <i><img src="images/icons/download-bar-down.svg" style={{color: "white", width: 30, height: 30}}></img></i>
+                    <i><img src="images/icons/download-bar-down.svg" style={{ color: "white", width: 30, height: 30 }}></img></i>
                     iOS / Android
                     <span>Скачать</span>
                   </a>
-                    <a href="https://test.cdlhelp.com" className="playstore-btn">
-                      <i className="ri-play-fill main-banner-btn-icon"></i>
-                      Попробовать 
-                      <span>Бесплатно</span>
-                    </a>
+                  <a href="https://test.cdlhelp.com" className="playstore-btn">
+                    <i className="ri-play-fill main-banner-btn-icon"></i>
+                    Попробовать
+                    <span>Бесплатно</span>
+                  </a>
                 </div>
-                <div style={{display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center'}}>
-                  <img src="images/stars.png" style={{color: "white", width: 100, height: 20}}></img>
-                  <p>
-                    Более <strong>3000 отзывов</strong> на Google Play и App Store
-                  </p>
+                <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center', textAlign: 'center' }}>
+                  <div className="col-2 offset-2 offset-md-0" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <img src="images/stars.png" style={{ color: "white", width: 100, height: 20 }}></img>
+                  </div>
+
+                  <div style={{display:'flex', justifyContent:'flex-start', flexWrap: 'wrap', gap: 5}}>
+                    <div style={{display: 'flex', gap: 5}}>
+                      <span>Более</span>
+                      <strong>3000 отзывов</strong>
+                      <span>на</span>
+                    </div>
+                    <div style={{ display: 'flex', gap: 5 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                        <Image
+                          src="/images/apple-store.png"
+                          alt="image"
+                          width={20}
+                          height={20}
+                        />
+                        <span>App Store и</span></div>
+                      <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
+                        <Image
+                          src="/images/play-store.png"
+                          alt="image"
+                          width={18}
+                          height={18}
+                        />
+                        <span>Google Play</span></div>
+                    </div>
+                  </div>
                 </div>
-                <div style={{marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5}}>
+                <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
                   <a href="https://www.t.me/TruckDriverHelp" target="_blank">
                     <i
                       className="ri-telegram-fill"
