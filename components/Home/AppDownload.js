@@ -50,7 +50,7 @@ const AppDownload = () => {
                         <div className="col-lg-6 col-md-12">
                             <div className="new-app-download-image text-end" data-aos="fade-up">
                                 <Image
-                                    src="/images/banner/cdl-help-app.png"
+                                    src="/images/banner/cdl-help-app-0.png"
                                     alt="app-img"
                                     width={430}
                                     height={630}

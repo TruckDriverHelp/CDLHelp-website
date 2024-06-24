@@ -52,7 +52,7 @@ const MainBanner = () => {
               >
                 <div className="new-app-main-banner-wrap-image">
                   <Image
-                    src="/images/banner/cdl-help-app-0.png"
+                    src="/images/banner/cdl-help-app.png"
                     alt="image"
                     width={380}
                     height={600}
