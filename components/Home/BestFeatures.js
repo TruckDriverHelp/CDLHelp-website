@@ -20,7 +20,7 @@ const BestFeatures = () => {
                         <div className="col-lg-6 col-md-12 features-inner-list">
                             <div className="row justify-content-center">
                                 <div className="col-lg-6 col-sm-6">
-                                    <div className="features-inner-card">
+                                    <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i><img src="images/icons/support-money-donation.svg" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>Бесплатные вопросы</h3>
@@ -47,7 +47,7 @@ const BestFeatures = () => {
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
-                                    <div className="features-inner-card">
+                                    <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i><img src="images/icons/layout-grid-stack-left.svg" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>6 категории вопросов</h3>
