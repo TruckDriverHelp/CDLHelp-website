@@ -50,7 +50,7 @@ const AppDownload = () => {
 
                         <div className="col-lg-6 col-md-12" >
                             <ScrollAnimation
-                            animateIn="fadeInUp"
+                            animateIn="fadeInDown"
                             duration={2}
                             animateOnce={true}
                             initiallyVisible={false}

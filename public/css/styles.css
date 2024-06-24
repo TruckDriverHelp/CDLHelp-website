@@ -39,10 +39,10 @@ This files table contents are outlined below >>>>>
 :root {
   --fontSize: 16px;
   --transition: .5s;
-  --mainColor: #5a5886;
+  --mainColor: #3e3e77;
   --whiteColor: #ffffff;
   --blackColor: #262A37;
-  --gradientColor: linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%);
+  --gradientColor: linear-gradient(44.44deg, #3e3e77 7.79%, #7f7dab 94.18%);
   --paragraphColor: #716c80;
   --fontFamily: 'Inter', sans-serif;
   scroll-behavior: inherit;
@@ -1731,7 +1731,7 @@ textarea.form-control {
 }
 
 .features-inner-card.with-box-shadow .icon i {
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
 }
 
 .features-inner-card .icon {
@@ -1797,7 +1797,7 @@ textarea.form-control {
   transition: var(--transition);
   -webkit-box-shadow: 15px 20px 35px rgba(38, 42, 55, 0.08);
           box-shadow: 15px 20px 35px rgba(38, 42, 55, 0.08);
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
   color: var(--whiteColor);
   transition: var(--transition);
 }
@@ -2651,7 +2651,7 @@ textarea.form-control {
   z-index: 1;
   -webkit-transform: translateY(-50%) translateX(-50%);
           transform: translateY(-50%) translateX(-50%);
-  background: linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%);
+  background: var(--gradientColor);
   border-radius: 50%;
   color: var(--whiteColor);
   -webkit-box-shadow: 15px 25px 35px rgba(38, 42, 55, 0.2);
@@ -2963,7 +2963,7 @@ textarea.form-control {
 }
 
 .app-pricing-gradient-area {
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
 }
 
 .app-pricing-gradient-area .section-title .sub-title {
@@ -3156,7 +3156,7 @@ textarea.form-control {
 }
 
 .new-app-download-content .btn-box.color-wrap .playstore-btn {
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
   color: var(--whiteColor);
 }
 
@@ -3486,7 +3486,7 @@ textarea.form-control {
   content: '';
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
   opacity: 0.5;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -3506,7 +3506,7 @@ textarea.form-control {
   transition: var(--transition);
   -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
           transform: matrix(-1, 0, 0, 1, 0, 0);
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
 }
 
 .new-feedback-slides.owl-theme .owl-dots .owl-dot:hover span::before, .new-feedback-slides.owl-theme .owl-dots .owl-dot.active span::before {
@@ -3942,7 +3942,7 @@ textarea.form-control {
 
 /* Gradient Funfacts Area CSS */
 .gradient-funfacts-area {
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
 }
 
 .single-funfacts-card {
@@ -4011,7 +4011,7 @@ textarea.form-control {
 }
 
 .single-blog-wrap-post .image .tag {
-  background: linear-gradient(88.83deg, #5a5886 0%, #9290bb 100%);
+  background: var(--gradientColor);
   color: var(--whiteColor);
   position: absolute;
   border-radius: 5px;
