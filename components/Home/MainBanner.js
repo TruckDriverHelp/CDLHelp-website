@@ -54,7 +54,7 @@ const MainBanner = () => {
                 animateIn="fadeInLeft"
                 duration={2}
                 animateOnce={true}
-                initiallyVisible={true}
+                initiallyVisible={false}
               >
                 <div className="new-app-main-banner-wrap-image">
                   <Image
