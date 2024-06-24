@@ -50,20 +50,20 @@ const AppDownload = () => {
                         <div className="col-lg-6 col-md-12">
                             <div className="new-app-download-image text-end" data-aos="fade-up">
                                 <Image
-                                    src="/images/home-7-8-9/app-download/download-2.png"
+                                    src="/images/banner/cdl-help-app.png"
                                     alt="app-img"
-                                    width={634}
-                                    height={634}
+                                    width={430}
+                                    height={630}
                                 />
 
-                                <div className="download-circle">
+                                {/* <div className="download-circle">
                                     <Image
                                         src="/images/home-7-8-9/app-download/download-circle.png"
                                         alt="image"
                                         width={634}
                                         height={634}
                                     />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
