@@ -33,7 +33,7 @@ const MainBanner = () => {
                 <div style={{display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center'}}>
                   <img src="images/stars.png" style={{color: "white", width: 100, height: 20}}></img>
                   <p>
-                    Более 3000 отзывов на Google Play и App Store
+                    Более <strong>3000 отзывов</strong> на Google Play и App Store
                   </p>
                 </div>
                 <div style={{marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5}}>
