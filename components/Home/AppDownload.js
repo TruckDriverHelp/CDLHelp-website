@@ -12,7 +12,7 @@ const AppDownload = () => {
             <div id="download" className="new-app-download-wrap-area ptb-100">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-lg-6 col-md-12">
+                        <div className="col-lg-6 col-md-12" style={{textAlign:'center'}}>
                             <div className="new-app-download-content">
                                 <span className="sub-title">СКАЧАТЬ ПРИЛОЖЕНИЕ</span>
                                 <h2>Скачать CDL Help - тесты CDL с переводом</h2>

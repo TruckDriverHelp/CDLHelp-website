@@ -7,7 +7,7 @@ const BestFeatures = () => {
 			<div id="about" className="features-area pt-100 pb-75">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-lg-6 col-md-12">
+                        <div className="col-lg-6 col-md-12" style={{textAlign: 'center'}}>
                             <div className="features-inner-content">
                                 <h2>Приложение CDL Help</h2>
                                 <p>CDL Help это уникальное приложение для подготовки к сдаче тестов CDL-A. Приложение предоставляет возможность переводить тесты с английского в режиме реального времени. Используйте тесты для того чтобы проверить свои знания и подготовиться к экзаменам Class-A Commercial Driver’s License в США. Тесты имитируют типы вопросов, которые могут возникнуть при сдаче тестов в местном офисе DMV.</p>

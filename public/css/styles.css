@@ -112,6 +112,9 @@ p:last-child {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+.pt-150 {
+  padding-top: 150px;
+}
 
 .pt-100 {
   padding-top: 100px;
@@ -1419,7 +1422,7 @@ textarea.form-control {
   text-align: center;
   position: relative;
   z-index: 1;
-  margin-right: -150px;
+  margin-right: -120px;
 }
 
 .new-app-main-banner-wrap-image .wrap-image-shape-1 {

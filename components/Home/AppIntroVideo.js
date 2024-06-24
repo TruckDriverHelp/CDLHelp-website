@@ -15,7 +15,7 @@ const AppIntroVideo = () => {
     }
     return (
 		<>
-			<div id="truckdriverhelp" className="app-video-area ptb-100">
+			<div id="truckdriverhelp" className="app-video-area pt-150 pb-100">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
@@ -37,11 +37,16 @@ const AppIntroVideo = () => {
                         </div>
 
                         <div className="col-lg-6 col-md-12">
-                            <div className="app-intro-video-content">
+                            <div className="app-intro-video-content" style={{textAlign: 'justify'}}>
                                 <span className="sub-title">ПОШАГОВАЯ ИНСТРУКЦИЯ</span>
                                 <h2>Как получить CDL</h2>
                                 <p>В этом видео представлен подробный гид о том, как стать дальнобойщиком в США и получить CDL (коммерческие водительские права). Во-первых, объясняется процесс прохождения медицинского осмотра DOT, который необходим для всех кандидатов на получение CDL. Затем рассматривается процесс сдачи теоретических тестов в DMV для получения ученического разрешения (CLP), что позволяет практиковать вождение грузовика. Наконец, видео затрагивает обучение в школе CDL и процесс сдачи практического экзамена по вождению, включая ссылку на список школ с русскоязычными инструкторами для удобства подготовки.</p>
-                                <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">Начать просмотр</a>
+                                <div style={{display: 'flex', gap: 20, alignItems: 'center'}}>
+                                    <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">Начать просмотр</a>
+                                    <Link href="/dalnoboishik">
+                                    <a style={{ fontWeight: 600, textDecoration: 'underline' }} >Прочитать подробную инструкцию</a>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
