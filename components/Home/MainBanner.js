@@ -31,8 +31,8 @@ const MainBanner = () => {
                   </a>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center', textAlign: 'center' }}>
-                  <div className="col-2 offset-2 offset-md-0" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <img src="images/stars.png" style={{ color: "white", width: 100, height: 20 }}></img>
+                  <div className="col-sm-3 offset-2 offset-md-0" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <Image src="/images/stars.png" width={100} height={20} />
                   </div>
 
                   <div style={{display:'flex', justifyContent:'flex-start', flexWrap: 'wrap', gap: 5}}>
@@ -74,18 +74,18 @@ const MainBanner = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-5 col-lg-4 d-lg-block d-none">
+            <div className="col-xl-5 col-lg-4">
               <ScrollAnimation
                 animateIn="fadeInLeft"
                 duration={2}
                 animateOnce={true}
                 initiallyVisible={false}
               >
-                <div className="new-app-main-banner-wrap-image">
+                <div className="new-app-main-banner-wrap-image" style={{paddingRight:120}}>
                   <Image
                     src="/images/banner/cdl-help-app.png"
                     alt="image"
-                    width={380}
+                    width={260}
                     height={600}
                   />
 
