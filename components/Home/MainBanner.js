@@ -9,8 +9,8 @@ const MainBanner = () => {
       <div className="new-app-main-banner-wrap-area">
         <div className="container-fluid">
           <div className="row align-items-center mb-5">
-            <div className="col-lg-6 col-md-12">
-              <div className="new-app-main-banner-wrap-content">
+            <div className="col-xl-7 col-lg-8 col-md-12">
+              <div className="new-app-main-banner-wrap-content" style={{textAlign: 'center'}}>
                 <h1>CDL на русском языке</h1>
                 <p>
                   Приложение CDL Help поможет Вам не только подготовиться к
@@ -30,7 +30,13 @@ const MainBanner = () => {
                       <span>Бесплатно</span>
                     </a>
                 </div>
-                <div style={{marginTop: 10, display: 'flex', alignItems: 'center', gap: 5}}>
+                <div style={{display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center'}}>
+                  <img src="images/stars.png" style={{color: "white", width: 100, height: 20}}></img>
+                  <p>
+                    Более 3000 отзывов на Google Play и App Store
+                  </p>
+                </div>
+                <div style={{marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5}}>
                   <a href="https://www.t.me/TruckDriverHelp" target="_blank">
                     <i
                       className="ri-telegram-fill"
@@ -43,7 +49,7 @@ const MainBanner = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-12">
+            <div className="col-xl-5 col-lg-4 d-lg-block d-none">
               <ScrollAnimation
                 animateIn="fadeInLeft"
                 duration={2}

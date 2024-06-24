@@ -1233,7 +1233,7 @@ textarea.form-control {
 
 .new-app-main-banner-wrap-content h1 {
   color: var(--blackColor);
-  font-size: 62px;
+  font-size: 54px;
   line-height: 1.4;
   margin-bottom: 10px;
 }
@@ -1419,6 +1419,7 @@ textarea.form-control {
   text-align: center;
   position: relative;
   z-index: 1;
+  margin-right: -150px;
 }
 
 .new-app-main-banner-wrap-image .wrap-image-shape-1 {
