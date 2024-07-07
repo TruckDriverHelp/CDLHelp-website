@@ -11,7 +11,7 @@ const MainBanner = () => {
           <div className="row align-items-center mb-5">
             <div className="col-xl-7 col-lg-8 col-md-12">
               <div className="new-app-main-banner-wrap-content" style={{ textAlign: 'center' }}>
-                <h1>Тесты CDL для Трак Драйверов США</h1>
+                <h1>CDL Тесты для Трак Драйверов США</h1>
                 <p>
                   Лучший способ подготовиться к сдаче тестов CDL в США. Приложение CDL Help поможет вам успешно сдать тесты на CDL. Приложение содержит более 1000 вопросов, которые помогут вам успешно сдать тесты на CDL.
                 </p>
