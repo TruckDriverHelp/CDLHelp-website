@@ -37,7 +37,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.t.me/TruckDriverHelp" target="_blank">
+                    <a href="https://t.me/TruckDriverGroup/13900/13904" target="_blank">
                       <i className="ri-telegram-fill"></i>
                     </a>
                   </li>

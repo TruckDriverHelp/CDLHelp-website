@@ -134,7 +134,7 @@ const Navbar = () => {
               </div>
 
               <div className="others-options">
-                <a href="https://www.t.me/truckdriverhelp">
+                <a href="https://t.me/TruckDriverGroup/13900/13904">
                   <i
                     className="ri-telegram-fill"
                     style={{ color: "#3c9ff0", fontSize: 26, marginRight: 5 }}

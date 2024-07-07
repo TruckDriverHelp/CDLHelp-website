@@ -62,7 +62,7 @@ const MainBanner = () => {
                   </div>
                 </div>
                 <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
-                  <a href="https://www.t.me/TruckDriverHelp" target="_blank">
+                  <a href="https://t.me/TruckDriverGroup/13900/13904" target="_blank">
                     <i
                       className="ri-telegram-fill"
                       style={{ color: "#3c9ff0", fontSize: 26 }}
