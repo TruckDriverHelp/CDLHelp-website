@@ -18,7 +18,7 @@ const MainBanner = () => {
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
-                    <i><img src="images/icons/download-bar-down.svg" style={{ color: "white", width: 30, height: 30 }}></img></i>
+                    <i><img  src="/public/images/icons/download-bar-down.svg" alt="" style={{ color: "white", width: 30, height: 30 }}></img></i>
                     iOS / Android
                     <span>Скачать</span>
                   </a>
@@ -30,7 +30,7 @@ const MainBanner = () => {
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center', textAlign: 'center' }}>
                   <div className="col-sm-3 offset-2 offset-md-0" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Image src="/images/stars.png" width={100} height={20} />
+                    <img  src="/images/stars.png" alt="" width={100} height={20} />
                   </div>
 
                   <div style={{display:'flex', justifyContent:'flex-start', flexWrap: 'wrap', gap: 5}}>
@@ -41,7 +41,7 @@ const MainBanner = () => {
                     </div>
                     <div style={{ display: 'flex', gap: 5 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                        <Image
+                        <img 
                           src="/images/apple-store.png"
                           alt="image"
                           width={20}
@@ -49,7 +49,7 @@ const MainBanner = () => {
                         />
                         <span>App Store и</span></div>
                       <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
-                        <Image
+                        <img 
                           src="/images/play-store.png"
                           alt="image"
                           width={18}
@@ -80,7 +80,7 @@ const MainBanner = () => {
                 initiallyVisible={false}
               >
                 <div className="new-app-main-banner-wrap-image" style={{paddingRight:120}}>
-                  <Image
+                  <img 
                     src="/images/banner/cdl-help-app.png"
                     alt="image"
                     width={260}

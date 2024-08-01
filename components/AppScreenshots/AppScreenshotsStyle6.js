@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+
 import { 
     Tab, 
     Tabs, 
@@ -40,19 +42,19 @@ const AppScreenshotsStyle6 = () => {
                             </TabList>
 
                             <TabPanel>
-                                <img src="/images/screenshots/screen5.jpg" alt="screenshots" />
+                                <img  src="/images/screenshots/screen5.jpg" alt="screenshots" />
                             </TabPanel> 
 
                             <TabPanel>
-                                <img src="/images/screenshots/screen6.jpg" alt="screenshots" />
+                                <img  src="/images/screenshots/screen6.jpg" alt="screenshots" />
                             </TabPanel> 
 
                             <TabPanel>
-                                <img src="/images/screenshots/screen7.jpg" alt="screenshots" />
+                                <img  src="/images/screenshots/screen7.jpg" alt="screenshots" />
                             </TabPanel> 
 
                             <TabPanel>
-                                <img src="/images/screenshots/screen8.jpg" alt="screenshots" />
+                                <img  src="/images/screenshots/screen8.jpg" alt="screenshots" />
                             </TabPanel> 
                         </Tabs>
                     </div>

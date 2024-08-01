@@ -20,7 +20,7 @@ const AppIntroVideo = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-box">
-                                <Image 
+                                <img  
                                     src="/images/video/video-2.jpg" 
                                     alt="video-img"
                                     width={635}

@@ -560,7 +560,7 @@ const CDLtexas = () => {
 
 									<div className="tx-quiz-card">
 										<div className="tx-quiz-card-column">
-											<div>The maximum speed limit for a pickup truck with a manufacturer's rated carrying capacity of 2,000 lbs or less on U.S. or state highway in the daytime is:</div>
+											<div>The maximum speed limit for a pickup truck with a manufacturer&apos; rated carrying capacity of 2,000 lbs or less on U.S. or state highway in the daytime is:</div>
 											<div>70 mph</div>
 										</div>
 										<div className="tx-card-line"></div>
@@ -685,7 +685,7 @@ const CDLtexas = () => {
 										</div>
 										<div className="tx-card-line"></div>
 										<div className="tx-quiz-card-column">
-											<div>"Когда следует сливать воздушные баки?"</div>
+											<div>Когда следует сливать воздушные баки?</div>
 											<div>Каждый рабочий день.</div>
 										</div>
 									</div>
@@ -1100,7 +1100,7 @@ const CDLtexas = () => {
 								<div className="article-footer">
 									<div className="post-author-meta">
 										<div className="d-flex align-items-center">
-											<img src="/images/logo-adaptive.png" alt="user" />
+											<img  src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">Автор TruckDirver.help</span>
 												<span className="date">10 Ноябрь, 2023</span>

@@ -22,7 +22,7 @@ const AppDownload = () => {
                                 <div className="btn-box color-wrap">
                                     <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
                                         <div>
-                                            <Image
+                                            <img 
                                                 src="/images/play-store.png"
                                                 alt="image"
                                                 width={27}
@@ -34,7 +34,7 @@ const AppDownload = () => {
                                     </a>
                                     <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
                                         <div>
-                                            <Image
+                                            <img 
                                                 src="/images/apple-store.png"
                                                 alt="image"
                                                 width={34}
@@ -56,9 +56,9 @@ const AppDownload = () => {
                             initiallyVisible={false}
                         >
                             <div className="new-app-download-image text-center" data-aos="fade-up" >
-                                <Image
+                                <img 
                                     src="/images/banner/cdl-help-app-0.png"
-                                    alt="app-img"
+                                    alt="app-Image"
                                     width={336}
                                     height={680}
                                 />

@@ -62,7 +62,7 @@ const Dalnoboishik = () => {
 									{/* <Link href="/blog-grid">
 										<a className="tag">Branding</a>
 									</Link> */}
-									{/* <img src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
+									{/* <img  src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
 								</div>
 
 								<div className="article-content">
@@ -85,12 +85,12 @@ const Dalnoboishik = () => {
 
 													<div className="col-lg-9 col-md-12 p-0">
 														<div className="content">
-															<p>Для начала мы настоятельно рекомендуем вам тщательно ознакомиться с процессом получения CDL. Для этого у вас есть два варианта: вы можете посмотреть обучающее видео или <Link href="/kak-poluchit-cdl"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>изучить статью, которая детально описывает весь процесс</a></Link>. В видео или статье вы найдете информацию о том, как пройти медицинский осмотр DOT у сертифицированного специалиста, успешно сдать теоретические тесты в DMV для получения ученического разрешения (Commercial Learner's Permit), а также как пройти обучение в школе CDL и сдать экзамен по вождению. </p>
+															<p>Для начала мы настоятельно рекомендуем вам тщательно ознакомиться с процессом получения CDL. Для этого у вас есть два варианта: вы можете посмотреть обучающее видео или <Link href="/kak-poluchit-cdl"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>изучить статью, которая детально описывает весь процесс</a></Link>. В видео или статье вы найдете информацию о том, как пройти медицинский осмотр DOT у сертифицированного специалиста, успешно сдать теоретические тесты в DMV для получения ученического разрешения (Commercial Learner&apos; Permit), а также как пройти обучение в школе CDL и сдать экзамен по вождению. </p>
 															<div className="col-lg-12 col-md-12">
 																<div className="app-intro-video-box">
-																	<Image
+																	<img 
 																		src="/images/video/video-2.jpg"
-																		alt="video-img"
+																		alt="video-Image"
 																		width={635}
 																		height={420}
 																	/><div
@@ -101,7 +101,7 @@ const Dalnoboishik = () => {
 																	</div>
 																</div>
 															</div>
-															{/* <img src="/images/how-it-works/create-account.jpg" alt="create-account" /> */}
+															{/* <img  src="/images/how-it-works/create-account.jpg" alt="create-account" /> */}
 														</div>
 													</div>
 												</div>
@@ -120,7 +120,7 @@ const Dalnoboishik = () => {
 														<div className="content">
 															<p>Далее, мы настоятельно рекомендуем вам внимательно изучить процесс подготовки и сдачи теоретических тестов для получения ученического разрешения (Пермита). После успешной сдачи теоретического экзамена и получения CLP, вы сможете начать обучение в школе CDL.</p>
 															<p><Link href="/permit"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>В нашей статье вы найдете необходимые требования и ресурсы, которые помогут вам в подготовке к экзаменам.</a></Link></p>
-															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+															{/* <img  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
 														</div>
 													</div>
 												</div>
@@ -138,7 +138,7 @@ const Dalnoboishik = () => {
 														<div className="content">
 															<p>Приложение CDL Help - одно из самых надежных и эффективных инструментов для подготовки к CDL тестам в DMV для иммигрантов. Это приложение разработано с учетом потребностей всех пользователей, предлагающее не только всеобъемлющий контент для подготовки к тестам, но и дающий дополнительные возможности для практики английского языка, что является незаменимым навыком для успешной карьеры в сфере коммерческого вождения в США.</p>
 															<p><Link href="/kak-ispolzovat-cdl-help/"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Пройдя по ссылке, вы найдете подробное описание содержания тестов в приложении CDL Help, его функциональных особенностей, а также полезные советы и рекомендации по эффективному использованию приложения.</a></Link></p>
-															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+															{/* <img  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
 														</div>
 													</div>
 												</div>
@@ -156,7 +156,7 @@ const Dalnoboishik = () => {
 														<div className="content">
 															<p>После успешной сдачи тестов на теоретические знания и получения пермита, вы получите возможность начать обучение в автошколе для подготовки к вождению. Школа CDL - это тип программы обучения, которая помогает людям подготовиться к экзамену CDL и стать профессиональными водителями грузового транспорта. В школе CDL вы получаете ряд навыков и знаний, необходимых для безопасной и эффективной эксплуатации коммерческого грузового транспорта.</p>
 															<p><Link href="/o-shkolax"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать подробнее о том чему обучают в школах</a></Link></p>
-															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+															{/* <img  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
 														</div>
 													</div>
 												</div>
@@ -174,7 +174,7 @@ const Dalnoboishik = () => {
 														<div className="content">
 															<p>После завершения курса обучения вождению в школе, вам предстоит сдать экзамен. Одним из этапов экзамена является устный тест, включающий в себя пересказ pre-trip inspection, который необходимо изучить и представить на английском языке. Несмотря на необходимость сдачи устного экзамена на английском, многие выбирают обучение с русскоязычными инструкторами.</p>
 															<p><Link href="/cdl-shkola"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>На нашем сайте вы можете найти список школ, где предоставляются услуги русскоязычных инструкторов.</a></Link></p>
-															{/* <img src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+															{/* <img  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
 														</div>
 													</div>
 												</div>
@@ -194,7 +194,7 @@ const Dalnoboishik = () => {
 								<div className="article-footer">
 									{/* <div className="post-author-meta">
 										<div className="d-flex align-items-center">
-											<img src="/images/logo-adaptive.png" alt="user" />
+											<img  src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
 													Автор TruckDirver.help

@@ -8,7 +8,7 @@ const BlogSidebar = () => {
 			<div className="widget-area">
 				<div style={{ display: 'flex', justifyContent: 'center', cursor: 'pointer' }}>
 					<Link href="/">
-						<Image src="/images/cdl-app-banner.jpg" alt="user" width={300} height={500} />
+						<img  src="/images/cdl-app-banner.jpg" alt="user" width={300} height={500} />
 					</Link>
 
 				</div>
@@ -18,7 +18,7 @@ const BlogSidebar = () => {
 					<article className="item">
 						<Link href="/blog-details">
 							<a className="thumb">
-								<span className="fullimage cover bg1" role="img"></span>
+								<span className="fullimage cover bg1" role="Image"></span>
 							</a>
 						</Link>
 						<div className="info">
@@ -36,7 +36,7 @@ const BlogSidebar = () => {
 					<article className="item">
 						<Link href="/blog-details">
 							<a className="thumb">
-								<span className="fullimage cover bg2" role="img"></span>
+								<span className="fullimage cover bg2" role="Image"></span>
 							</a>
 						</Link>
 						<div className="info">
@@ -54,7 +54,7 @@ const BlogSidebar = () => {
 					<article className="item">
 						<Link href="/blog-details">
 							<a className="thumb">
-								<span className="fullimage cover bg3" role="img"></span>
+								<span className="fullimage cover bg3" role="Image"></span>
 							</a>
 						</Link>
 						<div className="info">
@@ -72,7 +72,7 @@ const BlogSidebar = () => {
 					<article className="item">
 						<Link href="/blog-details">
 							<a className="thumb">
-								<span className="fullimage cover bg4" role="img"></span>
+								<span className="fullimage cover bg4" role="Image"></span>
 							</a>
 						</Link>
 						<div className="info">
