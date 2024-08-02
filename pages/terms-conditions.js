@@ -10,6 +10,7 @@ const TermsConditions = () => {
 			 <Head>
 				<title>Условия пользования | CDL Help</title>
 				<meta name="description" content="CDL Help - Условия пользования"/>
+				<link rel="canonical" href="http://cdlhelp.com/terms-conditions"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>

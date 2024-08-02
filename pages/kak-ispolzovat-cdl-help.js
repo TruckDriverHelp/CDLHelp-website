@@ -12,6 +12,8 @@ const HowToUse = () => {
 		<>
 			<Head>
 				<title>Как использовать приложение CDL Help</title>
+				<link rel="canonical" href="http://cdlhelp.com/kak-ispolzovat-cdl-help"/>
+
 				<meta
 					name="description"
 					content="CDL Help - Как использовать приложение CDL Help."

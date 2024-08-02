@@ -10,6 +10,9 @@ import Head from 'next/head'
 const CdlShkola = () => {
 	return (
 		<>
+		<Head>
+			<link rel="canonical" href="http://cdlhelp.com/cdl-texas"/>
+		</Head>
 			<Navbar />
 
 			<PageBannerStyle1

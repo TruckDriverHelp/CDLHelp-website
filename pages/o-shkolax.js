@@ -14,6 +14,7 @@ const OShkolax = () => {
 			<Head>
 				<title>Подробнее об учебе в CDL школе - CDL Help</title>
 				<meta name="description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
+				<link rel="canonical" href="http://cdlhelp.com/o-shkolax"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />

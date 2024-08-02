@@ -14,6 +14,7 @@ const Permit = () => {
 			<Head>
 				<title>Сдать тесты на CLP пермит - CDL Help</title>
 				<meta name="description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
+				<link rel="canonical" href="http://cdlhelp.com/permit"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />

@@ -74,7 +74,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://academy.truckdriver.help/quiz">
+                    <a href="https://test.cdlhelp.com">
                       Попробовать Бесплатно
                     </a>
                   </li>

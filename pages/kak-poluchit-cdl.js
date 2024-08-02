@@ -25,6 +25,7 @@ const KakPoluchitCdl = () => {
             <Head>
                 <title>Как стать дальнобойщиком в США - CDL Help</title>
                 <meta name="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
+				<link rel="canonical" href="http://cdlhelp.com/kak-poluchit-cdl"/>
 
                 {/* Google / Search Engine Tags */}
                 <meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />

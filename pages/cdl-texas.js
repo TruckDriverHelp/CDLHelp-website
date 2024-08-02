@@ -15,6 +15,7 @@ const CDLtexas = () => {
 					name="description"
 					content="CDL Тесты - Техас CVO Knowledge тест"
 				/>
+				<link rel="canonical" href="http://cdlhelp.com/cdl-texas"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta

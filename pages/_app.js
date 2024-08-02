@@ -104,10 +104,12 @@ const MyApp = ({ Component, pageProps }) => {
 
 	return (
 		<Layout>
+      {/* Schema.org */}
 			<JsonLd jsonld={website} />
 			<JsonLd jsonld={videoObject} />
 			<JsonLd jsonld={softwareApplication} />
 			<JsonLd jsonld={organization} />
+
 			<Pixel name='FACEBOOK_PIXEL_1' />
 			<Component {...pageProps} />
 			{/* Google analytics scripts */}
