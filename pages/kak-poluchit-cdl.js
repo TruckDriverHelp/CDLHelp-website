@@ -25,6 +25,7 @@ const KakPoluchitCdl = () => {
             <Head>
                 <title>Как стать дальнобойщиком в США - CDL Help</title>
                 <meta name="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
+				<link rel="canonical" href="http://cdlhelp.com/kak-poluchit-cdl"/>
 
                 {/* Google / Search Engine Tags */}
                 <meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
@@ -62,7 +63,7 @@ const KakPoluchitCdl = () => {
                                     {/* <Link href="/blog-grid">
 										<a className="tag">Branding</a>
 									</Link> */}
-                                    {/* <img src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
+                                    {/* <img  src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
                                 </div>
 
                                 <div className="article-content">
@@ -115,7 +116,7 @@ const KakPoluchitCdl = () => {
                                 <div className="article-footer">
                                     <div className="post-author-meta">
                                         <div className="d-flex align-items-center">
-                                            <img src="/images/logo-adaptive.png" alt="user" />
+                                            <img  src="/images/logo-adaptive.png" alt="user" />
                                             <div className="title">
                                                 <span className="name">
                                                     Автор TruckDirver.help

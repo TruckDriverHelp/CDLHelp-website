@@ -8,13 +8,15 @@ import AppDownload from '@/components/Home/AppDownload';
 import Footer from '@/components/_App/Footer';
 import Head from 'next/head';
 
+
 const IndexPage = () => {
     return (
         <>
-				<Head>
-					<link rel="canonical" href="https://www.cdlhelp.com/" />
-					<title>Приложение CDL Help - CDL Тесты для Трак Драйверов США</title>
-				</Head>
+            <Head>
+                <link rel="canonical" href="https://www.cdlhelp.com/" />
+                <title>Приложение CDL Help - CDL Тесты для Трак Драйверов США</title>
+            </Head>
+
             <Navbar />
 
             <MainBanner />
@@ -38,7 +40,6 @@ const IndexPage = () => {
 
             <AppDownload />
 
-
             {/* <PricingPlan /> 
 						
 						<div className="bg-f9f9f9">
@@ -46,7 +47,7 @@ const IndexPage = () => {
             </div>
 
             <BlogPost /> */}
- 
+
             <Footer />
         </>
     )

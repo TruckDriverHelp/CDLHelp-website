@@ -6,6 +6,7 @@ import RelatedPost from '@/components/Blog/RelatedPost'
 import Footer from '@/components/_App/Footer'
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
 
 const OShkolax = () => {
 	return (
@@ -13,6 +14,7 @@ const OShkolax = () => {
 			<Head>
 				<title>Подробнее об учебе в CDL школе - CDL Help</title>
 				<meta name="description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
+				<link rel="canonical" href="http://cdlhelp.com/o-shkolax"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
@@ -47,7 +49,7 @@ const OShkolax = () => {
 						<div className="col-lg-8 col-md-12">
 							<div className="blog-details-desc">
 								{/* <div className="article-image">
-									<img src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
+									<img  src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
 								</div> */}
 
 								<div className="article-content">
@@ -124,7 +126,7 @@ const OShkolax = () => {
 								<div className="article-footer">
 									<div className="post-author-meta">
 										<div className="d-flex align-items-center">
-											<img src="/images/logo-adaptive.png" alt="user" />
+											<img  src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">
 													Автор TruckDirver.help

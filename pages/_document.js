@@ -13,7 +13,6 @@ class MyDocument extends Document {
                     <meta name="msapplication-TileColor" content="#da532c"/>
                     <meta name="theme-color" content="#ffffff"/>
                     {/* HTML Meta Tags */}
-                    <meta name="description" content="CDL Help - лучшее приложение с переводом CDL на русский в режиме реального времени. Лучший способ подготовки к сдачи тестов и обучению языка."/>
 
                     {/* Google / Search Engine Tags */}
                     <meta itemProp="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>

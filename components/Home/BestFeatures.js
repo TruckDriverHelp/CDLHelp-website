@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const BestFeatures = () => {
     return (
@@ -22,7 +23,7 @@ const BestFeatures = () => {
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
-                                            <i><img src="images/icons/support-money-donation.svg" style={{color: "white", width: 25, height: 25}}></img></i>
+                                            <i><img src="/images/icons/support-money-donation.svg" alt="" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>Бесплатные вопросы</h3>
                                         </div>
                                         <p>Бесплатный доступ к более 100 вопросам</p>
@@ -31,7 +32,7 @@ const BestFeatures = () => {
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
-                                            <i><img src="images/icons/translate.svg" style={{color: "white", width: 25, height: 25}}></img></i>
+                                            <i><img src="/images/icons/translate.svg" alt="" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>Текст с переводом</h3>
                                         </div>
                                         <p>Помогает получить права CDL, а также учить английский язык</p>
@@ -40,7 +41,7 @@ const BestFeatures = () => {
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
-                                            <i><img src="images/icons/database.svg" style={{color: "white", width: 25, height: 25}}></img></i>
+                                            <i><img src="/images/icons/database.svg" alt="" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>База вопросов</h3>
                                         </div>
                                         <p>В нашей базе вопросов содержится более 1000 вопросов</p>
@@ -49,7 +50,7 @@ const BestFeatures = () => {
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
-                                            <i><img src="images/icons/layout-grid-stack-left.svg" style={{color: "white", width: 25, height: 25}}></img></i>
+                                            <i><img src="/images/icons/layout-grid-stack-left.svg" alt="" style={{color: "white", width: 25, height: 25}}></img></i>
                                             <h3>6 категории вопросов</h3>
                                         </div>
                                         <p>Приложение содержит три основных, и три дополнительных теста</p>

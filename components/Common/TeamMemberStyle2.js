@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 
 const TeamMemberStyle2 = () => {
     return (
@@ -14,7 +15,7 @@ const TeamMemberStyle2 = () => {
                         <div className="col-lg-3 col-md-6 col-sm-6">
                             <div className="single-team-member">
                                 <div className="image">
-                                    <img src="/images/team/team1.jpg" alt="image" />
+                                    <img  src="/images/team/team1.jpg" alt="image" />
                                 </div>
 
                                 <div className="content">
@@ -50,7 +51,7 @@ const TeamMemberStyle2 = () => {
                         <div className="col-lg-3 col-md-6 col-sm-6">
                             <div className="single-team-member">
                                 <div className="image">
-                                    <img src="/images/team/team2.jpg" alt="image" />
+                                    <img  src="/images/team/team2.jpg" alt="image" />
                                 </div>
 
                                 <div className="content">
@@ -86,7 +87,7 @@ const TeamMemberStyle2 = () => {
                         <div className="col-lg-3 col-md-6 col-sm-6">
                             <div className="single-team-member">
                                 <div className="image">
-                                    <img src="/images/team/team3.jpg" alt="image" />
+                                    <img  src="/images/team/team3.jpg" alt="image" />
                                 </div>
 
                                 <div className="content">
@@ -122,7 +123,7 @@ const TeamMemberStyle2 = () => {
                         <div className="col-lg-3 col-md-6 col-sm-6">
                             <div className="single-team-member">
                                 <div className="image">
-                                    <img src="/images/team/team4.jpg" alt="image" />
+                                    <img  src="/images/team/team4.jpg" alt="image" />
                                 </div>
 
                                 <div className="content">

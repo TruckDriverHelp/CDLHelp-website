@@ -10,6 +10,7 @@ const TermsConditions = () => {
 			 <Head>
 				<title>Условия пользования | CDL Help</title>
 				<meta name="description" content="CDL Help - Условия пользования"/>
+				<link rel="canonical" href="http://cdlhelp.com/terms-conditions"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>
@@ -82,7 +83,7 @@ const TermsConditions = () => {
 							Cookies are files with a small amount of data that are
 							commonly used as anonymous unique identifiers. These are sent
 							to your browser from the websites that you visit and are
-							stored on your device's internal memory.
+							stored on your device&apos; internal memory.
 						</p> <p>
 							This Service does not use these “cookies” explicitly. However,
 							the app may use third-party code and libraries that use

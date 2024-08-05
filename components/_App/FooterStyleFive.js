@@ -1,5 +1,3 @@
-// Footer Component Style File Path: public/css/pages-and-components-css/footer.scss
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,7 +13,7 @@ const FooterStyleFive = () => {
                             <div className="single-footer-widget">
                                 <Link href="/">
                                     <a className="logo">
-                                        <Image src="/images/logo.png" alt="logo" width="101" height="44" />
+                                        <img  src="/images/logo.png" alt="logo" width="101" height="44" />
                                     </a>
                                 </Link>
 
@@ -72,7 +70,7 @@ const FooterStyleFive = () => {
                                     </li>
                                     <li>
                                         <Link href="/faq">
-                                            <a>FAQ's</a>
+                                            <a>FAQ</a>
                                         </Link>
                                     </li>
                                     <li>
@@ -105,7 +103,7 @@ const FooterStyleFive = () => {
                                     </li>
                                     <li>
                                         <Link href="/faq">
-                                            <a>FAQ's</a>
+                                            <a>FAQ</a>
                                         </Link>
                                     </li>
                                     <li>
@@ -177,7 +175,7 @@ const FooterStyleFive = () => {
                 </div>
 
                 <div className="footer-wrap-shape">
-                    <img 
+                    <img  
                         src="/images/home-7-8-9/footer/footer-shape-2.png" 
                         alt="image"
                     />

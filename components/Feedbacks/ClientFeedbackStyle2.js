@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,14 +38,14 @@ const ClientFeedbackStyle2 = () => {
                         <SwiperSlide>
                             <div className="single-feedback-item">
                                 <div className="client-info">
-                                    <img src="/images/user/user1.jpg" alt="user" />
+                                    <img  src="/images/user/user1.jpg" alt="user" />
                                     <div className="title">
                                         <h3>Deanna Hodges</h3>
                                         <span>Spotify Developer</span>
                                     </div>
                                 </div>
 
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
                                 
                                 <div className="rating">
                                     <h5>Theme Customization</h5>
@@ -62,13 +63,13 @@ const ClientFeedbackStyle2 = () => {
                         <SwiperSlide>
                             <div className="single-feedback-item">
                                 <div className="client-info">
-                                    <img src="/images/user/user2.jpg" alt="user" />
+                                    <img  src="/images/user/user2.jpg" alt="user" />
                                     <div className="title">
                                         <h3>Londynn Vargas</h3>
                                         <span>PHP Developer</span>
                                     </div>
                                 </div>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
                                 <div className="rating">
                                     <h5>Theme Customization</h5>
                                     <div>
@@ -85,13 +86,13 @@ const ClientFeedbackStyle2 = () => {
                         <SwiperSlide>
                             <div className="single-feedback-item">
                                 <div className="client-info">
-                                    <img src="/images/user/user3.jpg" alt="user" />
+                                    <img  src="/images/user/user3.jpg" alt="user" />
                                     <div className="title">
                                         <h3>James Andy</h3>
                                         <span>Moodle Developer</span>
                                     </div>
                                 </div>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
                                 <div className="rating">
                                     <h5>Theme Customization</h5>
                                     <div>

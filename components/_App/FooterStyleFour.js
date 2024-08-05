@@ -13,7 +13,7 @@ const FooterStyleFour = () => {
                             <div className="single-footer-widget">
                                 <Link href="/">
                                     <a className="logo">
-                                        <Image src="/images/logo.png" alt="logo" width="101" height="44" />
+                                        <img  src="/images/logo.png" alt="logo" width="101" height="44" />
                                     </a>
                                 </Link>
                                 <p>Best solution for your it startup business, consecteturadipiscing elit. Scelerisque amet odio velit,  auctor nam elit nulla.</p>
@@ -47,7 +47,7 @@ const FooterStyleFour = () => {
                                     </li>
                                     <li>
                                         <Link href="/faq">
-                                            <a>FAQ's</a>
+                                            <a>FAQ</a>
                                         </Link>
                                     </li>
                                     <li>
@@ -79,7 +79,7 @@ const FooterStyleFour = () => {
                                     </li>
                                     <li>
                                         <Link href="/faq">
-                                            <a>FAQ's</a>
+                                            <a>FAQ</a>
                                         </Link>
                                     </li>
                                     <li>
@@ -149,7 +149,7 @@ const FooterStyleFour = () => {
                 </div>
 
                 <div className="footer-white-shape">
-                    <img 
+                    <img  
                         src="/images/home-7-8-9/footer/footer-shape.png" 
                         alt="image" 
                     />

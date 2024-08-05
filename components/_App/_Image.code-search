@@ -1,0 +1,858 @@
+# Query: <Image
+# Including: *.js
+# Excluding: *.scss, *.css
+# ContextLines: 1
+
+217 results - 66 files
+
+components/_App/Footer.js:
+  19                    <a className="logo">
+  20:                     <Image layout="fill" 
+  21                        src="/images/logo.png"
+
+components/_App/FooterStyleFive.js:
+   15                                      <a className="logo">
+   16:                                         <Image layout="fill"  src="/images/logo.png" alt="logo" width="101" height="44" />
+   17                                      </a>
+
+  177                  <div className="footer-wrap-shape">
+  178:                     <Image layout="fill"  
+  179                          src="/images/home-7-8-9/footer/footer-shape-2.png" 
+
+components/_App/FooterStyleFour.js:
+   15                                      <a className="logo">
+   16:                                         <Image layout="fill"  src="/images/logo.png" alt="logo" width="101" height="44" />
+   17                                      </a>
+
+  151                  <div className="footer-white-shape">
+  152:                     <Image layout="fill"  
+  153                          src="/images/home-7-8-9/footer/footer-shape.png" 
+
+components/_App/FooterStyleOne.js:
+  13                              <a className="logo">
+  14:                                 <Image layout="fill"  src="/images/logo2.png" alt="logo" />
+  15                              </a>
+
+components/_App/FooterStyleTwo.js:
+  18                                      <a className="logo">
+  19:                                         <Image layout="fill"  src="/images/black-logo.png" alt="logo" width="101" height="44" />
+  20                                      </a>
+
+components/_App/Navbar.js:
+  38                  <a className="navbar-brand">
+  39:                   <Image layout="fill" 
+  40                      src="/images/black-logo.png"
+
+components/_App/Preloader.js:
+   9                      <div className="d-table-cell">
+  10:                         <Image layout="fill"  src="/images/black-logo.png" alt="logo" width="101" height="44" />
+  11                          <p>Загрузка...</p>
+
+components/AppScreenshots/AppScreenshotsStyle1.js:
+  58                          <div className="single-screenshot-item">
+  59:                             <Image layout="fill"  src="/images/screenshots/screenshots1.png" alt="screenshots" />
+  60                          </div>
+  61                          <div className="single-screenshot-item">
+  62:                             <Image layout="fill"  src="/images/screenshots/screenshots2.png" alt="screenshots" />
+  63                          </div>
+  64                          <div className="single-screenshot-item">
+  65:                             <Image layout="fill"  src="/images/screenshots/screenshots3.png" alt="screenshots" />
+  66                          </div>
+  67                          <div className="single-screenshot-item">
+  68:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  69                          </div>
+  70                          <div className="single-screenshot-item">
+  71:                             <Image layout="fill"  src="/images/screenshots/screenshots5.png" alt="screenshots" />
+  72                          </div>
+  73                          <div className="single-screenshot-item">
+  74:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  75                          </div>
+
+components/AppScreenshots/AppScreenshotsStyle2.js:
+  43                          <SwiperSlide>
+  44:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  45                          </SwiperSlide>
+  46                          <SwiperSlide>
+  47:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  48                          </SwiperSlide>
+  49                          <SwiperSlide>
+  50:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  51                          </SwiperSlide>
+  52                          <SwiperSlide>
+  53:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  54                          </SwiperSlide>
+  55                          <SwiperSlide>
+  56:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  57                          </SwiperSlide>
+  58                          <SwiperSlide>
+  59:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  60                          </SwiperSlide>
+  61                          <SwiperSlide>
+  62:                             <Image layout="fill"  src="/images/screenshots/screen1.png" alt="screenshots" />
+  63                          </SwiperSlide>
+
+components/AppScreenshots/AppScreenshotsStyle3.js:
+  58                          <div className="single-screenshot-item">
+  59:                             <Image layout="fill"  src="/images/screenshots/screenshots1.png" alt="screenshots" />
+  60                          </div>
+  61                          <div className="single-screenshot-item">
+  62:                             <Image layout="fill"  src="/images/screenshots/screenshots2.png" alt="screenshots" />
+  63                          </div>
+  64                          <div className="single-screenshot-item">
+  65:                             <Image layout="fill"  src="/images/screenshots/screenshots3.png" alt="screenshots" />
+  66                          </div>
+  67                          <div className="single-screenshot-item">
+  68:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  69                          </div>
+  70                          <div className="single-screenshot-item">
+  71:                             <Image layout="fill"  src="/images/screenshots/screenshots5.png" alt="screenshots" />
+  72                          </div>
+  73                          <div className="single-screenshot-item">
+  74:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  75                          </div>
+
+components/AppScreenshots/AppScreenshotsStyle4.js:
+  40                          <SwiperSlide>
+  41:                             <Image layout="fill"  src="/images/screenshots/screen2.jpg" alt="screen" />
+  42                          </SwiperSlide>
+  43                          <SwiperSlide>
+  44:                             <Image layout="fill"  src="/images/screenshots/screen3.jpg" alt="screen" />
+  45                          </SwiperSlide>
+  46                          <SwiperSlide>
+  47:                             <Image layout="fill"  src="/images/screenshots/screen4.jpg" alt="screen" />
+  48                          </SwiperSlide>
+
+components/AppScreenshots/AppScreenshotsStyle5.js:
+  58                          <div className="single-screenshot-item">
+  59:                             <Image layout="fill"  src="/images/screenshots/screenshots1.png" alt="screenshots" />
+  60                          </div>
+  61                          <div className="single-screenshot-item">
+  62:                             <Image layout="fill"  src="/images/screenshots/screenshots2.png" alt="screenshots" />
+  63                          </div>
+  64                          <div className="single-screenshot-item">
+  65:                             <Image layout="fill"  src="/images/screenshots/screenshots3.png" alt="screenshots" />
+  66                          </div>
+  67                          <div className="single-screenshot-item">
+  68:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  69                          </div>
+  70                          <div className="single-screenshot-item">
+  71:                             <Image layout="fill"  src="/images/screenshots/screenshots5.png" alt="screenshots" />
+  72                          </div>
+  73                          <div className="single-screenshot-item">
+  74:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  75                          </div>
+
+components/AppScreenshots/AppScreenshotsStyle6.js:
+  44                              <TabPanel>
+  45:                                 <Image layout="fill"  src="/images/screenshots/screen5.jpg" alt="screenshots" />
+  46                              </TabPanel> 
+
+  48                              <TabPanel>
+  49:                                 <Image layout="fill"  src="/images/screenshots/screen6.jpg" alt="screenshots" />
+  50                              </TabPanel> 
+
+  52                              <TabPanel>
+  53:                                 <Image layout="fill"  src="/images/screenshots/screen7.jpg" alt="screenshots" />
+  54                              </TabPanel> 
+
+  56                              <TabPanel>
+  57:                                 <Image layout="fill"  src="/images/screenshots/screen8.jpg" alt="screenshots" />
+  58                              </TabPanel> 
+
+components/Blog/BlogSidebar.js:
+  10  					<Link href="/">
+  11: 						<Image layout="fill"  src="/images/cdl-app-banner.jpg" alt="user" width={300} height={500} />
+  12  					</Link>
+
+components/Blog/RelatedPost.js:
+  17                                      <a className="d-block">
+  18:                                         <Image layout="fill"  src="/images/blog/blog2.jpg" alt="blog" />
+  19                                      </a>
+
+  49                                      <a className="d-block">
+  50:                                         <Image layout="fill"  src="/images/blog/blog3.jpg" alt="blog" />
+  51                                      </a>
+
+components/Common/AppDownloadStyle1.js:
+  19                                          <a href="https://play.google.com/store/apps" className="playstore-btn" target="_blank">
+  20:                                             <Image layout="fill"  src="/images/play-store.png" alt="image" />
+  21                                              Get It On
+
+  24                                          <a href="https://www.apple.com/app-store/" className="applestore-btn" target="_blank">
+  25:                                             <Image layout="fill"  src="/images/apple-store.png" alt="image" />
+  26                                              Download on the
+
+  35                                      <ScrollAnimation animateIn="fadeInUp">
+  36:                                         <Image layout="fill"  src="/images/app/app-img3.png" alt="app-Image layout="fill" " />
+  37                                      </ScrollAnimation>
+
+  42                          <div className="shape5">
+  43:                             <Image layout="fill"  src="/images/shape/shape4.png" alt="shape4" />
+  44                          </div>
+
+components/Common/AppDownloadStyle2.js:
+  19                                          <a href="https://play.google.com/store/apps" className="playstore-btn" target="_blank">
+  20:                                             <Image layout="fill"  src="/images/play-store.png" alt="image" />
+  21                                              Get It On
+
+  24                                          <a href="https://www.apple.com/app-store/" className="applestore-btn" target="_blank">
+  25:                                             <Image layout="fill"  src="/images/apple-store.png" alt="image" />
+  26                                              Download on the
+
+  35                                      <ScrollAnimation animateIn="fadeInUp">
+  36:                                         <Image layout="fill"  src="/images/app/app-img4.png" alt="app-Image layout="fill" " />
+  37                                      </ScrollAnimation>
+
+components/Common/AppDownloadStyle3.js:
+  18                                          <a href="https://play.google.com/store/apps" className="playstore-btn" target="_blank">
+  19:                                             <Image layout="fill"  src="/images/play-store.png" alt="image" />
+  20                                              Get It On
+
+  23                                          <a href="https://www.apple.com/app-store/" className="applestore-btn" target="_blank">
+  24:                                             <Image layout="fill"  src="/images/apple-store.png" alt="image" />
+  25                                              Download on the
+
+  34                                      <ScrollAnimation animateIn="fadeInUp">
+  35:                                         <Image layout="fill"  src="/images/app/app-img5.png" alt="app-Image layout="fill" " />
+  36                                      </ScrollAnimation>
+
+  41                          <div className="shape5">
+  42:                             <Image layout="fill"  src="/images/shape/shape4.png" alt="shape4" />
+  43                          </div>
+
+components/Common/AppProgressStyle1.js:
+  12                              <div className="app-progress-image text-center">
+  13:                                 <Image layout="fill"  src="/images/app/app-img2.png" alt="app-Image layout="fill" " />
+  14                              </div>
+
+components/Common/AppProgressStyle2.js:
+  15                                      <ScrollAnimation animateIn='fadeInDown' duration={2}>
+  16:                                         <Image layout="fill"  src="/images/app-progress/app-progress1.png" alt="app-progress" />
+  17                                      </ScrollAnimation>
+
+  21                                      <ScrollAnimation animateIn='fadeInRight' duration={2}>
+  22:                                         <Image layout="fill"  src="/images/app-progress/app-progress2.png" alt="app-progress" />
+  23                                      </ScrollAnimation>
+
+  27                                      <ScrollAnimation animateIn='fadeInLeft' duration={2}>
+  28:                                         <Image layout="fill"  src="/images/app-progress/app-progress3.png" alt="app-progress" />
+  29                                      </ScrollAnimation>
+
+  33                                      <ScrollAnimation animateIn='fadeInUp' duration={2}>
+  34:                                         <Image layout="fill"  src="/images/app-progress/app-progress4.png" alt="app-progress" />
+  35                                      </ScrollAnimation>
+
+  38                                  <div className="app-Image layout="fill"  main-image">
+  39:                                     <Image layout="fill"  src="/images/app-progress/progress-main.png" alt="app-progress" />
+  40                                  </div>
+
+components/Common/AppProgressStyle3.js:
+  15                                      <ScrollAnimation animateIn='fadeInDown' duration={2}>
+  16:                                         <Image layout="fill"  src="/images/app-progress/app-progress1.png" alt="app-progress" />
+  17                                      </ScrollAnimation>
+
+  21                                      <ScrollAnimation animateIn='fadeInRight' duration={2}>
+  22:                                         <Image layout="fill"  src="/images/app-progress/app-progress2.png" alt="app-progress" />
+  23                                      </ScrollAnimation>
+
+  27                                      <ScrollAnimation animateIn='fadeInLeft' duration={2}>
+  28:                                         <Image layout="fill"  src="/images/app-progress/app-progress3.png" alt="app-progress" />
+  29                                      </ScrollAnimation>
+
+  33                                      <ScrollAnimation animateIn='fadeInUp' duration={2}>
+  34:                                         <Image layout="fill"  src="/images/app-progress/app-progress4.png" alt="app-progress" />
+  35                                      </ScrollAnimation>
+
+  38                                  <div className="app-Image layout="fill"  main-image">
+  39:                                     <Image layout="fill"  src="/images/app-progress/progress-main.png" alt="app-progress" />
+  40                                  </div>
+
+components/Common/AppProgressStyle4.js:
+  12                              <div className="app-progress-image text-center">
+  13:                                 <Image layout="fill"  src="/images/app/app-img2.png" alt="app-Image layout="fill" " />
+  14                              </div>
+
+components/Common/BlogPost.js:
+  20                                          <a className="d-block">
+  21:                                             <Image layout="fill"  src="/images/blog/blog1.jpg" alt="blog" />
+  22                                          </a>
+
+  55                                          <a className="d-block">
+  56:                                             <Image layout="fill"  src="/images/blog/blog2.jpg" alt="blog" />
+  57                                          </a>
+
+  89                                          <a className="d-block">
+  90:                                             <Image layout="fill"  src="/images/blog/blog3.jpg" alt="blog" />
+  91                                          </a>
+
+components/Common/FreeTrialStyle1.js:
+  24                          <div className="shape8">
+  25:                             <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  26                          </div>
+  27                          <div className="shape9">
+  28:                             <Image layout="fill"  src="/images/shape/shape8.png" alt="shape" />
+  29                          </div>
+
+components/Common/FreeTrialStyle2.js:
+  24                          <div className="shape8">
+  25:                             <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  26                          </div>
+  27                          <div className="shape9">
+  28:                             <Image layout="fill"  src="/images/shape/shape8.png" alt="shape" />
+  29                          </div>
+
+components/Common/FreeTrialStyle3.js:
+  30                                  <div className="image">
+  31:                                     <Image layout="fill"  src="/images/app/app-img6.png" alt="free-trial" />
+  32                                  </div>
+
+  37                          <div className="shape8">
+  38:                             <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  39                          </div>
+  40                          <div className="shape9">
+  41:                             <Image layout="fill"  src="/images/shape/shape8.png" alt="shape" />
+  42                          </div>
+
+components/Common/IntroVideo.js:
+  21                      <div className="video-box">
+  22:                         <Image layout="fill"  src="/images/video/video-img2.jpg" alt="video-image" />
+  23   
+
+  31                          <div className="shape">
+  32:                             <Image layout="fill"  className="shape1" src="/images/shape/shape1.png" alt="shape1" />
+  33:                             <Image layout="fill"  className="shape2" src="/images/shape/shape2.png" alt="shape2" />
+  34                          </div>
+
+components/Common/PageBannerStyle1.js:
+  37                  <div className="banner-shape1">
+  38:                     <Image layout="fill"  src="/images/shape/shape9.png" alt="image" />
+  39                  </div>
+
+components/Common/PageBannerStyle2.js:
+  32                  <div className="banner-shape1">
+  33:                     <Image layout="fill"  src="/images/shape/shape9.png" alt="image" />
+  34                  </div>
+
+components/Common/PageBannerStyle3.js:
+  31                  <div className="banner-shape1">
+  32:                     <Image layout="fill"  src="/images/shape/shape9.png" alt="image" />
+  33                  </div>
+
+components/Common/PartnerStyle1.js:
+  50                          <div className="partner-item">
+  51:                             <Image layout="fill"  src="/images/partner/partner1.png" alt="partner" />
+  52                          </div>
+  53                          <div className="partner-item">
+  54:                             <Image layout="fill"  src="/images/partner/partner2.png" alt="partner" />
+  55                          </div> 
+  56                          <div className="partner-item">
+  57:                             <Image layout="fill"  src="/images/partner/partner3.png" alt="partner" />
+  58                          </div> 
+  59                          <div className="partner-item">
+  60:                             <Image layout="fill"  src="/images/partner/partner4.png" alt="partner" />
+  61                          </div> 
+  62                          <div className="partner-item">
+  63:                             <Image layout="fill"  src="/images/partner/partner5.png" alt="partner" />
+  64                          </div> 
+  65                          <div className="partner-item">
+  66:                             <Image layout="fill"  src="/images/partner/partner6.png" alt="partner" />
+  67                          </div> 
+  68                          <div className="partner-item">
+  69:                             <Image layout="fill"  src="/images/partner/partner7.png" alt="partner" />
+  70                          </div> 
+  71                          <div className="partner-item">
+  72:                             <Image layout="fill"  src="/images/partner/partner8.png" alt="partner" />
+  73                          </div> 
+
+components/Common/PartnerStyle2.js:
+  54                          <div className="partner-item">
+  55:                             <Image layout="fill"  src="/images/partner/partner3.png" alt="partner" />
+  56                          </div>
+  57                          <div className="partner-item">
+  58:                             <Image layout="fill"  src="/images/partner/partner4.png" alt="partner" />
+  59                          </div> 
+  60                          <div className="partner-item">
+  61:                             <Image layout="fill"  src="/images/partner/partner1.png" alt="partner" />
+  62                          </div> 
+  63                          <div className="partner-item">
+  64:                             <Image layout="fill"  src="/images/partner/partner2.png" alt="partner" />
+  65                          </div> 
+  66                          <div className="partner-item">
+  67:                             <Image layout="fill"  src="/images/partner/partner5.png" alt="partner" />
+  68                          </div> 
+  69                          <div className="partner-item">
+  70:                             <Image layout="fill"  src="/images/partner/partner6.png" alt="partner" />
+  71                          </div> 
+  72                          <div className="partner-item">
+  73:                             <Image layout="fill"  src="/images/partner/partner7.png" alt="partner" />
+  74                          </div> 
+  75                          <div className="partner-item">
+  76:                             <Image layout="fill"  src="/images/partner/partner8.png" alt="partner" />
+  77                          </div> 
+
+components/Common/PartnerStyle3.js:
+  54                          <div className="partner-item">
+  55:                             <Image layout="fill"  src="/images/partner/partner3.png" alt="partner" />
+  56                          </div>
+  57                          <div className="partner-item">
+  58:                             <Image layout="fill"  src="/images/partner/partner4.png" alt="partner" />
+  59                          </div> 
+  60                          <div className="partner-item">
+  61:                             <Image layout="fill"  src="/images/partner/partner1.png" alt="partner" />
+  62                          </div> 
+  63                          <div className="partner-item">
+  64:                             <Image layout="fill"  src="/images/partner/partner2.png" alt="partner" />
+  65                          </div> 
+  66                          <div className="partner-item">
+  67:                             <Image layout="fill"  src="/images/partner/partner5.png" alt="partner" />
+  68                          </div> 
+  69                          <div className="partner-item">
+  70:                             <Image layout="fill"  src="/images/partner/partner6.png" alt="partner" />
+  71                          </div> 
+  72                          <div className="partner-item">
+  73:                             <Image layout="fill"  src="/images/partner/partner7.png" alt="partner" />
+  74                          </div> 
+  75                          <div className="partner-item">
+  76:                             <Image layout="fill"  src="/images/partner/partner8.png" alt="partner" />
+  77                          </div> 
+
+components/Common/SoftwareIntegrations.js:
+  28                                  <div className="software-integrations-list">
+  29:                                     <Image layout="fill"  src="/images/shape/bg-shape2.png" alt="bg-shape" />
+  30  
+
+  32                                          <li>
+  33:                                             <Image layout="fill"  src="/images/software-integrations/atlassian.png" className="atlassian" alt="atlassian" />
+  34                                          </li>
+  35                                          <li> 
+  36:                                             <Image layout="fill"  src="/images/software-integrations/skype.png" className="skype" alt="skype" />
+  37                                          </li>
+  38                                          <li>
+  39:                                             <Image layout="fill"  src="/images/software-integrations/gdrive.png" className="gdrive" alt="gdrive" />
+  40                                          </li>
+  41                                          <li>
+  42:                                             <Image layout="fill"  src="/images/software-integrations/slack.png" className="slack" alt="slack" />
+  43                                          </li>
+  44                                          <li>
+  45:                                             <Image layout="fill"  src="/images/software-integrations/jira.png" className="jira" alt="jira" />
+  46                                          </li>
+  47                                          <li>
+  48:                                             <Image layout="fill"  src="/images/software-integrations/frame.png" className="frame" alt="frame" />
+  49                                          </li>
+
+  57                  <div className="shape6">
+  58:                     <Image layout="fill"  src="/images/shape/shape5.png" alt="shape" />
+  59                  </div>
+
+components/Common/SoftwareIntegrationsThree.js:
+  29                                      <div className="software-integrations-list">
+  30:                                         <Image layout="fill"  src="/images/shape/border.png" alt="border" />
+  31  
+
+  33                                              <li>
+  34:                                                 <Image layout="fill"  src="/images/software-integrations/atlassian.png" className="atlassian" alt="atlassian" />
+  35                                              </li>
+  36                                              <li> 
+  37:                                                 <Image layout="fill"  src="/images/software-integrations/skype.png" className="skype" alt="skype" />
+  38                                              </li>
+  39                                              <li>
+  40:                                                 <Image layout="fill"  src="/images/software-integrations/gdrive.png" className="gdrive" alt="gdrive" />
+  41                                              </li>
+  42                                              <li>
+  43:                                                 <Image layout="fill"  src="/images/software-integrations/slack.png" className="slack" alt="slack" />
+  44                                              </li>
+  45                                              <li>
+  46:                                                 <Image layout="fill"  src="/images/software-integrations/jira.png" className="jira" alt="jira" />
+  47                                              </li>
+  48                                              <li>
+  49:                                                 <Image layout="fill"  src="/images/software-integrations/frame.png" className="frame" alt="frame" />
+  50                                              </li>
+
+components/Common/SoftwareIntegrationsTwo.js:
+  28                                  <div className="software-integrations-list">
+  29:                                     <Image layout="fill"  src="/images/shape/border.png" alt="border" />
+  30  
+
+  32                                          <li>
+  33:                                             <Image layout="fill"  src="/images/software-integrations/atlassian.png" className="atlassian" alt="atlassian" />
+  34                                          </li>
+  35                                          <li> 
+  36:                                             <Image layout="fill"  src="/images/software-integrations/skype.png" className="skype" alt="skype" />
+  37                                          </li>
+  38                                          <li>
+  39:                                             <Image layout="fill"  src="/images/software-integrations/gdrive.png" className="gdrive" alt="gdrive" />
+  40                                          </li>
+  41                                          <li>
+  42:                                             <Image layout="fill"  src="/images/software-integrations/slack.png" className="slack" alt="slack" />
+  43                                          </li>
+  44                                          <li>
+  45:                                             <Image layout="fill"  src="/images/software-integrations/jira.png" className="jira" alt="jira" />
+  46                                          </li>
+  47                                          <li>
+  48:                                             <Image layout="fill"  src="/images/software-integrations/frame.png" className="frame" alt="frame" />
+  49                                          </li>
+
+  57                  <div className="shape8">
+  58:                     <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  59                  </div>
+
+components/Common/TeamMemberStyle2.js:
+   17                                  <div className="image">
+   18:                                     <Image layout="fill"  src="/images/team/team1.jpg" alt="image" />
+   19                                  </div>
+
+   53                                  <div className="image">
+   54:                                     <Image layout="fill"  src="/images/team/team2.jpg" alt="image" />
+   55                                  </div>
+
+   89                                  <div className="image">
+   90:                                     <Image layout="fill"  src="/images/team/team3.jpg" alt="image" />
+   91                                  </div>
+
+  125                                  <div className="image">
+  126:                                     <Image layout="fill"  src="/images/team/team4.jpg" alt="image" />
+  127                                  </div>
+
+components/Feedbacks/ClientFeedbackStyle1.js:
+   61                                  <div className="d-flex align-items-center">
+   62:                                     <Image layout="fill"  src="/images/user/user1.jpg" alt="user" />
+   63                                      <div className="title">
+
+   84                                  <div className="d-flex align-items-center">
+   85:                                     <Image layout="fill"  src="/images/user/user2.jpg" alt="user" />
+   86                                      <div className="title">
+
+  107                                  <div className="d-flex align-items-center">
+  108:                                     <Image layout="fill"  src="/images/user/user3.jpg" alt="user" />
+  109                                      <div className="title">
+
+  130                                  <div className="d-flex align-items-center">
+  131:                                     <Image layout="fill"  src="/images/user/user4.jpg" alt="user" />
+  132                                      <div className="title">
+
+components/Feedbacks/ClientFeedbackStyle2.js:
+  40                                  <div className="client-info">
+  41:                                     <Image layout="fill"  src="/images/user/user1.jpg" alt="user" />
+  42                                      <div className="title">
+
+  65                                  <div className="client-info">
+  66:                                     <Image layout="fill"  src="/images/user/user2.jpg" alt="user" />
+  67                                      <div className="title">
+
+  88                                  <div className="client-info">
+  89:                                     <Image layout="fill"  src="/images/user/user3.jpg" alt="user" />
+  90                                      <div className="title">
+
+components/Feedbacks/ClientFeedbackStyle3.js:
+   61                                  <div className="d-flex align-items-center">
+   62:                                     <Image layout="fill"  src="/images/user/user1.jpg" alt="user" />
+   63                                      <div className="title">
+
+   84                                  <div className="d-flex align-items-center">
+   85:                                     <Image layout="fill"  src="/images/user/user2.jpg" alt="user" />
+   86                                      <div className="title">
+
+  107                                  <div className="d-flex align-items-center">
+  108:                                     <Image layout="fill"  src="/images/user/user3.jpg" alt="user" />
+  109                                      <div className="title">
+
+  130                                  <div className="d-flex align-items-center">
+  131:                                     <Image layout="fill"  src="/images/user/user4.jpg" alt="user" />
+  132                                      <div className="title">
+
+components/Feedbacks/ClientFeedbackStyle4.js:
+   64                                          <div className="d-flex align-items-center">
+   65:                                             <Image layout="fill"  src="/images/user/user1.jpg" alt="user" />
+   66                                              <div className="title">
+
+   89                                          <div className="d-flex align-items-center">
+   90:                                             <Image layout="fill"  src="/images/user/user2.jpg" alt="user" />
+   91                                              <div className="title">
+
+  114                                          <div className="d-flex align-items-center">
+  115:                                             <Image layout="fill"  src="/images/user/user3.jpg" alt="user" />
+  116                                              <div className="title">
+
+  139                                          <div className="d-flex align-items-center">
+  140:                                             <Image layout="fill"  src="/images/user/user4.jpg" alt="user" />
+  141                                              <div className="title">
+
+components/Feedbacks/ClientFeedbackStyle5.js:
+  56                                  <Tab>
+  57:                                     <Image layout="fill"  src="/images/user/user1.jpg" alt="user" />
+  58                                  </Tab>
+  59                                  <Tab>
+  60:                                     <Image layout="fill"  src="/images/user/user2.jpg" alt="user" />
+  61                                  </Tab>
+  62                                  <Tab>
+  63:                                     <Image layout="fill"  src="/images/user/user3.jpg" alt="user" />
+  64                                  </Tab>
+  65                                  <Tab>
+  66:                                     <Image layout="fill"  src="/images/user/user4.jpg" alt="user" />
+  67                                  </Tab>
+  68                                  <Tab>
+  69:                                     <Image layout="fill"  src="/images/user/user5.jpg" alt="user" />
+  70                                  </Tab>
+  71                                  <Tab>
+  72:                                     <Image layout="fill"  src="/images/user/user6.jpg" alt="user" />
+  73                                  </Tab>
+  74                                  <Tab>
+  75:                                     <Image layout="fill"  src="/images/user/user7.jpg" alt="user" />
+  76                                  </Tab>
+
+components/Feedbacks/ClientFeedbackStyle6.js:
+  51                              <div className="testimonials-image">
+  52:                                 <Image layout="fill"  src="/images/woman.jpg" alt="testimonials" />
+  53                              </div>
+
+components/Home/AboutContent.js:
+  12                              <div className="app-about-image">
+  13:                                 <Image layout="fill"  
+  14                                      src="/images/home-7-8-9/about/about-2.png" 
+
+components/Home/AppDownload.js:
+  24                                          <div>
+  25:                                             <Image layout="fill" 
+  26                                                  src="/images/play-store.png"
+
+  36                                          <div>
+  37:                                             <Image layout="fill" 
+  38                                                  src="/images/apple-store.png"
+
+  58                              <div className="new-app-download-image text-center" data-aos="fade-up" >
+  59:                                 <Image layout="fill" 
+  60                                      src="/images/banner/cdl-help-app-0.png"
+
+components/Home/AppIntroVideo.js:
+  22                              <div className="app-intro-video-box">
+  23:                                 <Image layout="fill"  
+  24                                      src="/images/video/video-2.jpg" 
+
+components/Home/AppScreenshots.js:
+  58                          <div className="single-screenshot-item">
+  59:                             <Image layout="fill"  src="/images/screenshots/screenshots1.png" alt="screenshots" />
+  60                          </div>
+  61                          <div className="single-screenshot-item">
+  62:                             <Image layout="fill"  src="/images/screenshots/screenshots2.png" alt="screenshots" />
+  63                          </div>
+  64                          <div className="single-screenshot-item">
+  65:                             <Image layout="fill"  src="/images/screenshots/screenshots3.png" alt="screenshots" />
+  66                          </div>
+  67                          <div className="single-screenshot-item">
+  68:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  69                          </div>
+  70                          <div className="single-screenshot-item">
+  71:                             <Image layout="fill"  src="/images/screenshots/screenshots5.png" alt="screenshots" />
+  72                          </div>
+  73                          <div className="single-screenshot-item">
+  74:                             <Image layout="fill"  src="/images/screenshots/screenshots4.png" alt="screenshots" />
+  75                          </div>
+
+components/Home/BestFeatures.js:
+  25                                          <div className="icon">
+  26:                                             <i><Image layout="fill"  src="images/icons/support-money-donation.svg" alt='' style={{color: "white", width: 25, height: 25}}></img></i>
+  27                                              <h3>Бесплатные вопросы</h3>
+
+  34                                          <div className="icon">
+  35:                                             <i><Image layout="fill"  src="images/icons/translate.svg" alt='' style={{color: "white", width: 25, height: 25}}></img></i>
+  36                                              <h3>Текст с переводом</h3>
+
+  43                                          <div className="icon">
+  44:                                             <i><Image layout="fill"  src="images/icons/database.svg" alt='' style={{color: "white", width: 25, height: 25}}></img></i>
+  45                                              <h3>База вопросов</h3>
+
+  52                                          <div className="icon">
+  53:                                             <i><Image layout="fill"  src="images/icons/layout-grid-stack-left.svg" alt='' style={{color: "white", width: 25, height: 25}}></img></i>
+  54                                              <h3>6 категории вопросов</h3>
+
+components/Home/ClientFeedback.js:
+   52                                  <div className="client-info">
+   53:                                     <Image layout="fill"  src="/images/user/user1.jpg" alt="user" />
+   54                                      <div className="title">
+
+   77                                  <div className="client-info">
+   78:                                     <Image layout="fill"  src="/images/user/user2.jpg" alt="user" />
+   79                                      <div className="title">
+
+  102                                  <div className="client-info">
+  103:                                     <Image layout="fill"  src="/images/user/user3.jpg" alt="user" />
+  104                                      <div className="title">
+
+components/Home/MainBanner.js:
+  20                    <a href="#download" className="applestore-btn">
+  21:                     <i><Image layout="fill"  src="images/icons/download-bar-down.svg" alt="" style={{ color: "white", width: 30, height: 30 }}></img></i>
+  22                      iOS / Android
+
+  32                    <div className="col-sm-3 offset-2 offset-md-0" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+  33:                     <Image layout="fill"  src="/images/stars.png" alt="" width={100} height={20} />
+  34                    </div>
+
+  43                        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+  44:                         <Image layout="fill" 
+  45                            src="/images/apple-store.png"
+
+  51                        <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
+  52:                         <Image layout="fill" 
+  53                            src="/images/play-store.png"
+
+  82                  <div className="new-app-main-banner-wrap-image" style={{paddingRight:120}}>
+  83:                   <Image layout="fill" 
+  84                      src="/images/banner/cdl-help-app.png"
+
+components/Home/PricingPlan.js:
+  80                  <div className="shape7">
+  81:                     <Image layout="fill"  src="/images/shape/shape6.png" alt="shape" />
+  82                  </div>
+  83                  <div className="shape8">
+  84:                     <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  85                  </div>
+
+components/Pixel/facebook/pixel-1.js:
+  20        dangerouslySetInnerHTML={{
+  21:         __html: `<Image layout="fill"  height="1" width="1" style="display:none"
+  22            src="https://www.facebook.com/tr?id=766792617985084&ev=PageView&noscript=1" />`,
+
+components/PricingPlan/PricingPlanStyle1.js:
+  78                  <div className="shape7">
+  79:                     <Image layout="fill"  src="/images/shape/shape6.png" alt="shape" />
+  80                  </div>
+  81                  <div className="shape8">
+  82:                     <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  83                  </div>
+
+components/PricingPlan/PricingPlanStyle2.js:
+  95                  <div className="shape12">
+  96:                     <Image layout="fill"  src="/images/shape/shape11.png" alt="shape" />
+  97                  </div>
+  98                  <div className="shape13">
+  99:                     <Image layout="fill"  src="/images/shape/shape15.png" alt="shape" />
+  100                  </div>
+
+components/PricingPlan/PricingPlanStyle3.js:
+   96                  <div className="shape7">
+   97:                     <Image layout="fill"  src="/images/shape/shape6.png" alt="shape" />
+   98                  </div>
+   99                  <div className="shape8">
+  100:                     <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  101                  </div>
+
+components/PricingPlan/PricingPlanStyle4.js:
+  78                  <div className="shape7">
+  79:                     <Image layout="fill"  src="/images/shape/shape6.png" alt="shape" />
+  80                  </div>
+  81                  <div className="shape8">
+  82:                     <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  83                  </div>
+
+components/PricingPlan/PricingPlanStyle5.js:
+   96                  <div className="shape7">
+   97:                     <Image layout="fill"  src="/images/shape/shape6.png" alt="shape" />
+   98                  </div>
+   99                  <div className="shape8">
+  100:                     <Image layout="fill"  src="/images/shape/shape7.png" alt="shape" />
+  101                  </div>
+
+pages/404.js:
+  12  							<div className="error-content">
+  13: 								<Image layout="fill"  src="/images/error.png" alt="image" />
+  14  								<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+
+pages/cdl-texas.js:
+  1102  										<div className="d-flex align-items-center">
+  1103: 											<Image layout="fill"  src="/images/logo-adaptive.png" alt="user" />
+  1104  											<div className="title">
+
+pages/dalnoboishik.js:
+   64  									</Link> */}
+   65: 									{/* <Image layout="fill"  src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
+   66  								</div>
+
+   90  																<div className="app-intro-video-box">
+   91: 																	<Image layout="fill" 
+   92  																		src="/images/video/video-2.jpg"
+
+  103  															</div>
+  104: 															{/* <Image layout="fill"  src="/images/how-it-works/create-account.jpg" alt="create-account" /> */}
+  105  														</div>
+
+  122  															<p><Link href="/permit"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>В нашей статье вы найдете необходимые требования и ресурсы, которые помогут вам в подготовке к экзаменам.</a></Link></p>
+  123: 															{/* <Image layout="fill"  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+  124  														</div>
+
+  140  															<p><Link href="/kak-ispolzovat-cdl-help/"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Пройдя по ссылке, вы найдете подробное описание содержания тестов в приложении CDL Help, его функциональных особенностей, а также полезные советы и рекомендации по эффективному использованию приложения.</a></Link></p>
+  141: 															{/* <Image layout="fill"  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+  142  														</div>
+
+  158  															<p><Link href="/o-shkolax"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать подробнее о том чему обучают в школах</a></Link></p>
+  159: 															{/* <Image layout="fill"  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+  160  														</div>
+
+  176  															<p><Link href="/cdl-shkola"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>На нашем сайте вы можете найти список школ, где предоставляются услуги русскоязычных инструкторов.</a></Link></p>
+  177: 															{/* <Image layout="fill"  src="/images/how-it-works/select-coin.jpg" alt="select-coin" /> */}
+  178  														</div>
+
+  196  										<div className="d-flex align-items-center">
+  197: 											<Image layout="fill"  src="/images/logo-adaptive.png" alt="user" />
+  198  											<div className="title">
+
+pages/kak-ispolzovat-cdl-help.js:
+   91  								{/*<div className="article-image">
+   92: 									<Image layout="fill"  src="/images/blog/permit.jpg" alt="blog-details" />
+   93  								</div>*/}
+
+  109  									<div style={{ display: "flex", justifyContent: "center" }}>
+  110: 										<Image layout="fill"  src="/images/app/quiz-version.jpg" alt="cdlhelp-tests" width='370' height='800' />
+  111  									</div>
+
+  145  									<div style={{ display: "flex", justifyContent: "center" }}>
+  146: 										<Image layout="fill"  src="/images/app/shuffle-questions.jpg" alt="cdlhelp-tests" width='370' height='800' />
+  147  									</div>
+
+  158  									<div style={{ display: "flex", justifyContent: "center" }}>
+  159: 										<Image layout="fill"  src="/images/app/practice-mode.jpg" alt="cdlhelp-tests" width='370' height='800' />
+  160  									</div>
+
+  163  									<div style={{ display: "flex", justifyContent: "center" }}>
+  164: 										<Image layout="fill"  src="/images/screenshot-audio.jpg" alt="cdlhelp-tests" width='308' height='600' />
+  165  									</div>
+
+  189  										<div className="d-flex align-items-center">
+  190: 											<Image layout="fill"  src="/images/logo-adaptive.png" alt="user" />
+  191  											<div className="title">
+
+pages/kak-poluchit-cdl.js:
+   64  									</Link> */}
+   65:                                     {/* <Image layout="fill"  src="/images/blog/dalnoboishik.jpg" alt="blog-details" /> */}
+   66                                  </div>
+
+  117                                          <div className="d-flex align-items-center">
+  118:                                             <Image layout="fill"  src="/images/logo-adaptive.png" alt="user" />
+  119                                              <div className="title">
+
+pages/o-shkolax.js:
+   50  								{/* <div className="article-image">
+   51: 									<Image layout="fill"  src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
+   52  								</div> */}
+
+  127  										<div className="d-flex align-items-center">
+  128: 											<Image layout="fill"  src="/images/logo-adaptive.png" alt="user" />
+  129  											<div className="title">
+
+pages/permit.js:
+   50  								{/* <div className="article-image">
+   51: 									<Image layout="fill"  src="/images/blog/permit.jpg" alt="blog-details" />
+   52  								</div> */}
+
+  157  										<div className="d-flex align-items-center">
+  158: 											<Image layout="fill"  src="/images/logo-adaptive.png" alt="user" />
+  159  											<div className="title">
+
+pages/api/newsletter.js:
+  15      <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  16:       <Image layout="fill"  src="https://test.cdlhelp.com/images/logo_v1.png" alt="Logo" style="width: 143px; height: 57px margin: 0 auto;">
+  17        <h1 style="color: #333; margin-bottom: 20px;">${EMAIL_LETTER_HEADER}</h1>
+
+pages/cdl-shkola/index.js:
+   99                                  {/* <div className="article-image">
+  100: 									<Image layout="fill"  src="/images/blog/cdl-shkoly-v-usa.jpg" alt="blog-details" />
+  101  								</div> */}

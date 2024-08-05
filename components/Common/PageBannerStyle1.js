@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image'
+
 
 const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}) => {
 
@@ -33,7 +35,7 @@ const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}
                 </div>
 
                 <div className="banner-shape1">
-                    <img src="/images/shape/shape9.png" alt="image" />
+                    <img  src="/images/shape/shape9.png" alt="image" />
                 </div>
             </div>
         </>

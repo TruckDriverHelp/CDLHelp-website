@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+
 import { 
     Tab, 
     Tabs, 
@@ -52,25 +54,25 @@ const ClientFeedbackStyle5 = () => {
  
                             <TabList>
                                 <Tab>
-                                    <img src="/images/user/user1.jpg" alt="user" />
+                                    <img  src="/images/user/user1.jpg" alt="user" />
                                 </Tab>
                                 <Tab>
-                                    <img src="/images/user/user2.jpg" alt="user" />
+                                    <img  src="/images/user/user2.jpg" alt="user" />
                                 </Tab>
                                 <Tab>
-                                    <img src="/images/user/user3.jpg" alt="user" />
+                                    <img  src="/images/user/user3.jpg" alt="user" />
                                 </Tab>
                                 <Tab>
-                                    <img src="/images/user/user4.jpg" alt="user" />
+                                    <img  src="/images/user/user4.jpg" alt="user" />
                                 </Tab>
                                 <Tab>
-                                    <img src="/images/user/user5.jpg" alt="user" />
+                                    <img  src="/images/user/user5.jpg" alt="user" />
                                 </Tab>
                                 <Tab>
-                                    <img src="/images/user/user6.jpg" alt="user" />
+                                    <img  src="/images/user/user6.jpg" alt="user" />
                                 </Tab>
                                 <Tab>
-                                    <img src="/images/user/user7.jpg" alt="user" />
+                                    <img  src="/images/user/user7.jpg" alt="user" />
                                 </Tab>
                             </TabList>
                         </Tabs>
