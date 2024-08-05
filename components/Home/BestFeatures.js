@@ -14,7 +14,7 @@ const BestFeatures = () => {
                                 <p>CDL Help это уникальное приложение для подготовки к сдаче тестов CDL-A. Приложение предоставляет возможность переводить тесты с английского в режиме реального времени. Используйте тесты для того чтобы проверить свои знания и подготовиться к экзаменам Class-A Commercial Driver’s License в США. Тесты имитируют типы вопросов, которые могут возникнуть при сдаче тестов в местном офисе DMV.</p>
                                 <div className="btn-box">
                                     <a className="default-btn" href='#download'>Скачать</a>
-                                    <a className="link-btn" href="https://academy.truckdriver.help/quiz">Попробовать Онлайн</a>
+                                    <a className="link-btn" href="https://test.cdlhelp.com">Попробовать Онлайн</a>
                                 </div>
                             </div>
                         </div>

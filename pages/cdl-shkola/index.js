@@ -31,6 +31,8 @@ const CdlShkola = () => {
         <>
             <Head>
                 <title>CDL школы на русском - CDL Help</title>
+				<link rel="canonical" href="http://cdlhelp.com/cdl-shkola/"/>
+
                 <meta
                     name="description"
                     content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
