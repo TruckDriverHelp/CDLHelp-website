@@ -37,7 +37,7 @@ const videoObject = {
     "thumbnailUrl": "https://www.youtube.com/watch?v=Ll4yVz7yBlQ",
     "uploadDate": "2023-11-23T00:00:00.000Z",
     "contentUrl": "https://www.youtube.com/watch?v=Ll4yVz7yBlQ",
-    "duration": "33:19"
+    "duration": "PT00H33M19S"
   }
 
 const offer = {
