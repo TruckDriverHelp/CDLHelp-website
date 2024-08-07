@@ -40,9 +40,41 @@ const videoObject = {
     "duration": "33:19"
   }
 
-const softwareApplication = {
+const offer = {
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "url": "https://cdlhelp.com/#download",
+  "priceCurrency": "USD",
+  "price": "0.00",
+  "itemOffered": {
+    "@type": "MobileApplication",
+    "name": "CDL Help",
+    "operatingSystem": "iOS/Android",
+    "applicationCategory": "EducationApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "3241"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "0.00"
+    }
+  },
+  "seller": {
+    "@type": "Organization",
+    "name": "CDL Help",
+    "url": "https://cdlhelp.com"
+  },
+  "availability": "https://schema.org/InStock",
+  "validFrom": "2024-01-01"
+}
+
+
+const mobileApplication = {
     "@context": "https://schema.org/",
-    "@type": "SoftwareApplication",
+    "@type": "MobileApplication",
     "name": "CDL Help",
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -50,6 +82,7 @@ const softwareApplication = {
       "ratingCount": "3251"
     },
     "applicationCategory": "EducationalApplication",
+    "offers": offer,
     "operatingSystem": "Android, iOS"
   }
 
@@ -76,6 +109,79 @@ const organization = {
       "worstRating": "2"
     }
   }
+
+const breadcrumblist = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dev.cdlhelp.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "FAQ",
+      "item": "https://dev.cdlhelp.com/faq"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CDL школы",
+      "item": "https://dev.cdlhelp.com/cdl-shkola"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Получение пермита",
+      "item": "https://dev.cdlhelp.com/permit"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Как использовать приложение CDL Help",
+      "item": "https://dev.cdlhelp.com/kak-ispolzovat-cdl-help"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Политика конфиденциальности",
+      "item": "https://dev.cdlhelp.com/privacy-policy"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Как стать дальнобойщиков",
+      "item": "https://dev.cdlhelp.com/dalnoboishik"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "Условия пользования",
+      "item": "https://dev.cdlhelp.com/terms-conditions"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "CDL Техас",
+      "item": "https://dev.cdlhelp.com/cdl-texas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "Как получить CDL",
+      "item": "https://dev.cdlhelp.com/kak-poluchit-cdl"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "О CDL школах",
+      "item": "https://dev.cdlhelp.com/o-shkolax"
+    }
+  ]
+}
 
 
 const MyApp = ({ Component, pageProps }) => {
@@ -107,8 +213,9 @@ const MyApp = ({ Component, pageProps }) => {
       {/* Schema.org */}
 			<JsonLd jsonld={website} />
 			<JsonLd jsonld={videoObject} />
-			<JsonLd jsonld={softwareApplication} />
+			<JsonLd jsonld={mobileApplication} />
 			<JsonLd jsonld={organization} />
+			<JsonLd jsonld={breadcrumblist} />
 
 			<Pixel name='FACEBOOK_PIXEL_1' />
 			<Component {...pageProps} />
