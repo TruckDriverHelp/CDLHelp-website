@@ -9,29 +9,31 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 const OShkolax = () => {
+	const title = "Чему обучают в CDL школе в 2024 – CDL Help"
+	const description = "Узнайте, чему обучают в CDL школах в 2024 году. Подготовьтесь с CDL Help!"
 	return (
 		<>
 			<Head>
-				<title>Подробнее об учебе в CDL школе - CDL Help</title>
-				<meta name="description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
-				<link rel="canonical" href="http://cdlhelp.com/o-shkolax"/>
+				<title>{title}</title>
+				<meta name="description" content={description} />
+				<link rel="canonical" href="https://cdlhelp.com/o-shkolax"/>
 
 				{/* Google / Search Engine Tags */}
-				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta itemprop="description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
+				<meta itemprop="name" content={title} />
+				<meta itemprop="description" content={description} />
 				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.com" />
 				<meta property="og:type" content="article" />
-				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta property="og:description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
+				<meta property="og:title" content={title} />
+				<meta property="og:description" content={description} />
 				<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta name="twitter:description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
+				<meta name="twitter:title" content={title} />
+				<meta name="twitter:description" content={description} />
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
 			<Navbar />

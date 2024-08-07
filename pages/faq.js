@@ -8,10 +8,32 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 const CdlShkola = () => {
+	const title = "Часто Задаваемые Вопросы – CDL Help"
+	const description = "Найдите ответы на часто задаваемые вопросы о CDL Help. Узнайте больше и начните использовать приложение!"
 	return (
 		<>
 		<Head>
-			<link rel="canonical" href="http://cdlhelp.com/cdl-texas"/>
+			<title>{title}</title>
+			<meta name="description" content={description}/>
+			<link rel="canonical" href="https://cdlhelp.com/faq"/>
+
+			{/* Google / Search Engine Tags */}
+			<meta itemprop="name" content={title}/>
+			<meta itemprop="description" content={description}/>
+			<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
+
+			{/* Facebook Meta Tags */}
+			<meta property="og:url" content="https://www.cdlhelp.com"/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:title" content={title}/>
+			<meta property="og:description" content={description}/>
+			<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
+
+			{/* Twitter Meta Tags */}
+			<meta name="twitter:card" content="summary_large_image"/>
+			<meta name="twitter:title" content={title}/>
+			<meta name="twitter:description" content={description}/>
+			<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 		</Head>
 			<Navbar />
 
