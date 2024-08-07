@@ -33,8 +33,6 @@ export async function send_email(to, link) {
         text: link,
         html: html
     });
-
-    console.debug("\n\n" + result);
 }
 
 export default async function handler(req, res) {
@@ -51,8 +49,7 @@ export default async function handler(req, res) {
 
         try {
             const link = await generateVerificationLink(email);
-            console.debug(link)
-            // await send_email(email, link);
+            await send_email(email, link);
             return res.status(200).json({ message: 'Verification email sent' });
         } catch (error) {
             console.error('Error sending verification email:', error);
