@@ -27,25 +27,25 @@ const CdlShkola = () => {
 
         fetchData();
     }, []);
+
+    const title = "CDL школы с русскоговорящими инструкторами в США – CDL Help"
+    const description = "Актуальный список школ с русскоговорящими инструкторами в США. Найдите CDL школу в своем штате."
+
     return (
         <>
             <Head>
-                <title>CDL школы на русском - CDL Help</title>
-				<link rel="canonical" href="http://cdlhelp.com/cdl-shkola/"/>
+                <title>{title}</title>
+				<link rel="canonical" href="https://cdlhelp.com/cdl-shkola/"/>
 
                 <meta
-                    name="description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
+                        name="description"
+                        content={description}
                 />
 
                 {/* Google / Search Engine Tags */}
                 <meta
                     itemprop="name"
-                    content="Приложение CDL Help - Тесты CDL на русском языке"
-                />
-                <meta
-                    itemprop="description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
+                    content={title}
                 />
                 <meta
                     itemprop="image"
@@ -57,11 +57,11 @@ const CdlShkola = () => {
                 <meta property="og:type" content="article" />
                 <meta
                     property="og:title"
-                    content="Приложение CDL Help - Тесты CDL на русском языке"
+                    content={title}
                 />
                 <meta
                     property="og:description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
+                    content={description}
                 />
                 <meta
                     property="og:image"
@@ -72,11 +72,11 @@ const CdlShkola = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
                     name="twitter:title"
-                    content="Приложение CDL Help - Тесты CDL на русском языке"
+                    content={title}
                 />
                 <meta
                     name="twitter:description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
+                    content={description}
                 />
                 <meta
                     name="twitter:image"

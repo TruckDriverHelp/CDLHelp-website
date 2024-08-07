@@ -8,9 +8,6 @@ const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}
 
     return (
         <>
-            <Head>
-                <title>{pageTitle}</title>
-            </Head>
             <div className="page-title-area">
                 <div className="container">
                     <div className="page-title-content">

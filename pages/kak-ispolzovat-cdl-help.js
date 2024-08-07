@@ -8,25 +8,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HowToUse = () => {
+	const title = "CDL Help – как пользоваться приложением"
+	const description = "Узнайте, как пользоваться приложением CDL Help. Скачайте и начните подготовку к CDL сегодня!"
 	return (
 		<>
 			<Head>
-				<title>Как использовать приложение CDL Help</title>
-				<link rel="canonical" href="http://cdlhelp.com/kak-ispolzovat-cdl-help"/>
-
-				<meta
-					name="description"
-					content="CDL Help - Как использовать приложение CDL Help."
-				/>
+				<title>{title}</title>
+				<link rel="canonical" href="https://cdlhelp.com/kak-ispolzovat-cdl-help"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta
 					itemprop="name"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					itemprop="description"
-					content="CDL Help - Как использовать приложение CDL Help."
+					content={description}
 				/>
 				<meta
 					itemprop="image"
@@ -38,11 +35,11 @@ const HowToUse = () => {
 				<meta property="og:type" content="article" />
 				<meta
 					property="og:title"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					property="og:description"
-					content="CDL Help - Как использовать приложение CDL Help."
+					content={description}
 				/>
 				<meta
 					property="og:image"
@@ -53,11 +50,11 @@ const HowToUse = () => {
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
 					name="twitter:title"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					name="twitter:description"
-					content="CDL Help - Как использовать приложение CDL Help."
+					content={description}
 				/>
 				<meta
 					name="twitter:image"

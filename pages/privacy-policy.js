@@ -5,29 +5,31 @@ import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import Footer from '@/components/_App/Footer'
 
 const PrivacyPolicy = () => {
+	const title = "Политика конфиденциальности – CDL Help"
+	const description = "Узнайте, как CDL Help защищает вашу конфиденциальность. Ознакомьтесь с нашей политикой конфиденциальности"
+	
 	return (
 		<>
 			<Head>
-				<title>Политика конфиденциальности | CDL Help</title>
-				<meta name="description" content="CDL Help - политика конфиденциальности."/>
-				<link rel="canonical" href="http://cdlhelp.com/privacy-policy"/>
+				<title>{title}</title>
+				<meta name="description" content={description}/>
+				<link rel="canonical" href="https://cdlhelp.com/privacy-policy"/>
 
 				{/* Google / Search Engine Tags */}
-				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке"/>
-				<meta itemprop="description" content="CDL Help - политика конфиденциальности."/>
+				<meta itemprop="name" content={title}/>
 				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.com"/>
 				<meta property="og:type" content="website"/>
-				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
-				<meta property="og:description" content="CDL Help - политика конфиденциальности."/>
+				<meta property="og:title" content={title}/>
+				<meta property="og:description" content={description}/>
 				<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image"/>
-				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
-				<meta name="twitter:description" content="CDL Help - политика конфиденциальности."/>
+				<meta name="twitter:title" content={title}/>
+				<meta name="twitter:description" content={description}/>
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 			</Head>
 			<Navbar />

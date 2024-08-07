@@ -18,7 +18,7 @@ const MainBanner = () => {
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
-                    <i><img src="/public/images/icons/download-bar-down.svg" alt="" style={{ color: "white", width: 30, height: 30 }}></img></i>
+                    <i><img src="/images/icons/download-bar-down.svg" alt="Скачать" style={{color: "white", width: 30, height: 30 }}></img></i>
                     iOS / Android
                     <span>Скачать</span>
                   </a>
@@ -30,7 +30,7 @@ const MainBanner = () => {
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center', textAlign: 'center' }}>
                   <div className="col-sm-3 offset-2 offset-md-0" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <img src="/images/stars.png" alt="" width={100} height={20} />
+                    <img src="/images/stars.png" alt="Rating score" width={100} height={20} />
                   </div>
 
                   <div style={{display:'flex', justifyContent:'flex-start', flexWrap: 'wrap', gap: 5}}>

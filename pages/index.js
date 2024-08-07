@@ -10,11 +10,33 @@ import Head from 'next/head';
 
 
 const IndexPage = () => {
+    const title = "CDL Тесты с переводом 2024 – CDL Help"
+    const description = "Пройдите тесты CDL 2024 с переводом на русском. Начните сейчас с CDL Help!"
+    
     return (
         <>
             <Head>
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
-                <title>Приложение CDL Help - CDL Тесты для Трак Драйверов США</title>
+                <title>{title}</title>
+
+                {/* Google / Search Engine Tags */}
+                <meta itemprop="name" content={title} />
+                <meta itemprop="description" content={description} />
+                <meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+
+                {/* Facebook Meta Tags */}
+                <meta property="og:url" content="https://www.cdlhelp.com" />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+
+                {/* Twitter Meta Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={description} />
+                <meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+            
             </Head>
 
             <Navbar />

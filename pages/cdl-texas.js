@@ -7,24 +7,26 @@ import Head from "next/head";
 import Image from "next/image";
 
 const CDLtexas = () => {
+	const title = "Техас CVO Knowledge тест – перевод на русский язык"
+	const description = "Бесплатные материалы для подготовки к Texas CVO Knowledge тест. Вопросы с ответами для изучения"
 	return (
 		<>
 			<Head>
-				<title>CDL Тесты - Техас CVO Knowledge тест</title>
+				<title>{title}</title>
 				<meta
 					name="description"
-					content="CDL Тесты - Техас CVO Knowledge тест"
+					content={description}
 				/>
-				<link rel="canonical" href="http://cdlhelp.com/cdl-texas"/>
+				<link rel="canonical" href="https://cdlhelp.com/cdl-texas/"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta
 					itemprop="name"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					itemprop="description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content={description}
 				/>
 				<meta
 					itemprop="image"
@@ -36,11 +38,11 @@ const CDLtexas = () => {
 				<meta property="og:type" content="article" />
 				<meta
 					property="og:title"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					property="og:description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content={description}
 				/>
 				<meta
 					property="og:image"
@@ -51,11 +53,11 @@ const CDLtexas = () => {
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
 					name="twitter:title"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					name="twitter:description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content={description}
 				/>
 				<meta
 					name="twitter:image"
@@ -65,10 +67,10 @@ const CDLtexas = () => {
 			<Navbar />
 
 			<PageBannerStyle1
-				pageTitle="CDL Тесты - Техас CVO Knowledge тест"
+				pageTitle={title}
 				homePageUrl="/"
 				homePageText="Главная Страница"
-				activePageText="CDL Тесты - Техас CVO Knowledge тест"
+				activePageText={title}
 			/>
 
 			<div className="blog-details-area ptb-75">
