@@ -4,16 +4,16 @@ import { generateVerificationLink } from "@/utils/generateOTP.js";
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-const EMAIL_SUBJECT = "EMAIL_SUBJECT";
-const EMAIL_LETTER_HEADER = "EMAIL_LETTER_HEADER";
-const EMAIL_LETTER_TEXT = "EMAIL_LETTER_TEXT";
-const EMAIL_CONFIRM_BUTTON = "CONFIRM";
+const EMAIL_SUBJECT = "CDL Help | Подтверждение почты";
+const EMAIL_LETTER_HEADER = "Подтвердите адрес электронной почты";
+const EMAIL_LETTER_TEXT = "Здравствуйте. Вы только что подписались на уведомления с сайта CDL Help. Чтобы завершить подписку, подтвердите ссылку, нажав кнопку ниже";
+const EMAIL_CONFIRM_BUTTON = "Подтвердить";
 
 export async function send_email(to, link) {
 
     const html = `
     <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-      <img  src="https://test.cdlhelp.com/images/logo_v1.png" alt="Logo" style="width: 143px; height: 57px margin: 0 auto;">
+      <img src="https://test.cdlhelp.com/images/logo_v1.png" alt="Logo" width="143" height="57" style="margin: 0 auto;">
       <h1 style="color: #333; margin-bottom: 20px;">${EMAIL_LETTER_HEADER}</h1>
       <p style="color: #555; line-height: 1.5;">${EMAIL_LETTER_TEXT}</p>
       
@@ -34,7 +34,7 @@ export async function send_email(to, link) {
         html: html
     });
 
-    console.debug(result);
+    console.debug("\n\n" + result);
 }
 
 export default async function handler(req, res) {
@@ -51,7 +51,8 @@ export default async function handler(req, res) {
 
         try {
             const link = await generateVerificationLink(email);
-            await send_email(email, link);
+            console.debug(link)
+            // await send_email(email, link);
             return res.status(200).json({ message: 'Verification email sent' });
         } catch (error) {
             console.error('Error sending verification email:', error);

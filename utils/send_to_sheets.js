@@ -14,7 +14,7 @@ async function sheets_insert(email) {
         const sheets = google.sheets({ version: 'v4', auth: client });
 
         const spreadsheetId = process.env.SHEET_ID;
-        const range = `A1`;
+        const range = `Sheet1!A1`;
 
         await sheets.spreadsheets.values.append({
             spreadsheetId,
@@ -32,4 +32,4 @@ async function sheets_insert(email) {
     }
 }
 
-export default send;
+export default sheets_insert;

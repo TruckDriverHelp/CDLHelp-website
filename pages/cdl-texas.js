@@ -21,15 +21,15 @@ const CDLtexas = () => {
 
 				{/* Google / Search Engine Tags */}
 				<meta
-					itemprop="name"
+					itemProp="name"
 					content={title}
 				/>
 				<meta
-					itemprop="description"
+					itemProp="description"
 					content={description}
 				/>
 				<meta
-					itemprop="image"
+					itemProp="image"
 					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 

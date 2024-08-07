@@ -16,8 +16,8 @@ const PrivacyPolicy = () => {
 				<link rel="canonical" href="https://cdlhelp.com/privacy-policy"/>
 
 				{/* Google / Search Engine Tags */}
-				<meta itemprop="name" content={title}/>
-				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
+				<meta itemProp="name" content={title}/>
+				<meta itemProp="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.com"/>
