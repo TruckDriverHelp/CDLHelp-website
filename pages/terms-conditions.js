@@ -15,9 +15,9 @@ const TermsConditions = () => {
 				<link rel="canonical" href="https://cdlhelp.com/terms-conditions"/>
 
 				{/* Google / Search Engine Tags */}
-				<meta itemprop="name" content={title}/>
-				<meta itemprop="description" content={description}/>
-				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
+				<meta itemProp="name" content={title}/>
+				<meta itemProp="description" content={description}/>
+				<meta itemProp="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.com"/>
