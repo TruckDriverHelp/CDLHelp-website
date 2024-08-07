@@ -26,7 +26,7 @@ const website = {
     "@context": "https://schema.org/",
     "@type": "WebSite",
     "name": "CDL Help",
-    "url": "https://cdlhelp.com"
+    "url": "https://cdlhelp.com/"
 }
 
 const videoObject = {

@@ -25,6 +25,7 @@ class MyDocument extends Document {
                     <meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке"/>
                     <meta property="og:description" content="CDL Help - лучшее приложение с переводом CDL на русский в режиме реального времени. Лучший способ подготовки к сдачи тестов и обучению языка."/>
                     <meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg"/>
+                    <meta property='og:site_name' content="CDL Help" />
 
                     {/* Twitter Meta Tags */}
                     <meta name="twitter:card" content="summary_large_image"/>
