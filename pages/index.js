@@ -20,9 +20,9 @@ const IndexPage = () => {
                 <title>{title}</title>
 
                 {/* Google / Search Engine Tags */}
-                <meta itemProp="name" content={title} />
-                <meta itemProp="description" content={description} />
-                <meta itemProp="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+                <meta name="name" content={title} />
+                <meta name="description" content={description} />
+                <meta name="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
                 {/* Facebook Meta Tags */}
                 <meta property="og:url" content="https://www.cdlhelp.com" />

@@ -18,15 +18,15 @@ const HowToUse = () => {
 
 				{/* Google / Search Engine Tags */}
 				<meta
-					itemProp="name"
+					name="name"
 					content={title}
 				/>
 				<meta
-					itemProp="description"
+					name="description"
 					content={description}
 				/>
 				<meta
-					itemProp="image"
+					name="image"
 					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 
