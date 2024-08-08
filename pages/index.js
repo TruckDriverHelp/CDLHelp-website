@@ -11,7 +11,7 @@ import Head from 'next/head';
 
 const IndexPage = () => {
     const title = "CDL Тесты с переводом 2024 – CDL Help"
-    const description = "Пройдите тесты CDL 2024 с переводом на русском. Начните сейчас с CDL Help!"
+    const description = "Перевод CDL тестов на русский язык. Полезные статьи и материалы об экзамене. Изучайте Английский язык во время подготовки."
     
     return (
         <>

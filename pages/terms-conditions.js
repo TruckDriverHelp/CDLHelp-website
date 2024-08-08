@@ -6,7 +6,7 @@ import Footer from '@/components/_App/Footer'
 
 const TermsConditions = () => {
 	const title = "Условия пользования – CDL Help"
-	const description = "Список номеров CDL школ с русскими инструкторами в США"
+	const description = "Ознакомьтесь с условиями пользования CDL Help. Узнайте, как мы обеспечиваем ваш комфорт!"
 	return (
 		<>
 			 <Head>

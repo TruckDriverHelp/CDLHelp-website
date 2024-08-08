@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 const OShkolax = () => {
 	const title = "Чему обучают в CDL школе в 2024 – CDL Help"
-	const description = "Узнайте, чему обучают в CDL школах в 2024 году. Подготовьтесь с CDL Help!"
+	const description = "Чему научат в CDL школе. Pre-trip inspection (предрейсовый осмотр), incab inspection (осмотр кабины), парковочные манёвры"
 	return (
 		<>
 			<Head>
