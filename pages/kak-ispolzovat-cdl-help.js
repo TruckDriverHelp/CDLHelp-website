@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HowToUse = () => {
-	const title = "CDL Help – как пользоваться приложением"
-	const description = "Узнайте, как пользоваться приложением CDL Help. Скачайте и начните подготовку к CDL сегодня!"
+	const title = "Инструкция CDL Help – подготовка к CDL тесту на русском"
+	const description = "Как использовать приложение CDL Help. Подготовьтесь к теоретическому CDL тесту на русском, используя наше приложение"
 	return (
 		<>
 			<Head>
@@ -18,15 +18,15 @@ const HowToUse = () => {
 
 				{/* Google / Search Engine Tags */}
 				<meta
-					itemProp="name"
+					name="name"
 					content={title}
 				/>
 				<meta
-					itemProp="description"
+					name="description"
 					content={description}
 				/>
 				<meta
-					itemProp="image"
+					name="image"
 					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 

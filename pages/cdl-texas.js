@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const CDLtexas = () => {
 	const title = "Техас CVO Knowledge тест – перевод на русский язык"
-	const description = "Бесплатные материалы для подготовки к Texas CVO Knowledge тест. Вопросы с ответами для изучения"
+	const description = "Бесплатные материалы для подготовки к Texas CVO Knowledge тест. Вопросы и ответы для техасского CVO теста"
 	return (
 		<>
 			<Head>

@@ -11,7 +11,7 @@ import Head from 'next/head';
 
 const IndexPage = () => {
     const title = "CDL Тесты с переводом 2024 – CDL Help"
-    const description = "Пройдите тесты CDL 2024 с переводом на русском. Начните сейчас с CDL Help!"
+    const description = "Перевод CDL тестов на русский язык. Полезные статьи и материалы об экзамене. Изучайте Английский язык во время подготовки."
     
     return (
         <>
@@ -20,9 +20,9 @@ const IndexPage = () => {
                 <title>{title}</title>
 
                 {/* Google / Search Engine Tags */}
-                <meta itemProp="name" content={title} />
-                <meta itemProp="description" content={description} />
-                <meta itemProp="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+                <meta name="name" content={title} />
+                <meta name="description" content={description} />
+                <meta name="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
                 {/* Facebook Meta Tags */}
                 <meta property="og:url" content="https://www.cdlhelp.com" />

@@ -28,7 +28,7 @@ const CdlShkola = () => {
         fetchData();
     }, []);
 
-    const title = "CDL школы с русскоговорящими инструкторами в США – CDL Help"
+    const title = "CDL школы в США – обучение на русском | CDL Help "
     const description = "Актуальный список школ с русскоговорящими инструкторами в США. Найдите CDL школу в своем штате."
 
     return (

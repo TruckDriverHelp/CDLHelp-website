@@ -20,8 +20,8 @@ const KakPoluchitCdl = () => {
         setIsOpen(!isOpen);
     }
 
-    const title = "Инструкция как получить CDL - CDL Help"
-    const description = "Получите CDL пермит и станьте дальнобойщиком в США. Следуйте подробной инструкции от CDL Help!"
+    const title = "Подробная инструкция как получить CDL в 2024 - CDL Help"
+    const description = "Читайте, как пройти медосмотр DOT, как получить Пермит и найти CDL школу. Следуйте инструкции и начните работать тракдрайвером в США."
     return (
         <>
 

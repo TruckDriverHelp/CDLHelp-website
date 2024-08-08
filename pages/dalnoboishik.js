@@ -20,8 +20,8 @@ const Dalnoboishik = () => {
 		setIsOpen(!isOpen);
 	}
 
-	const title = "Инструкция как стать дальнобойщиком в США: 5 шагов - CDL Help"
-	const description = "Получите CDL с нашей пошаговой инструкцией. Начните свой путь к успеху с CDL Help!"
+	const title = "Как стать дальнобойщиком в США: 5 шагов - CDL Help"
+	const description = "Все про CDL и дальнобой в США. Читайте подробнее о том, как готовиться к CDL тесту, как найти CDL школу и сдать Road Skills тест"
 	return (
 		<>
 
