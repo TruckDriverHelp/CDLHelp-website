@@ -45,11 +45,10 @@ const MyApp = ({ Component, pageProps }) => {
 			router.events.off('routeChangeComplete', handleRouteChange)
 		}
 	}, [router.events])
-
 	return (
 		<Layout>
 			<Pixel name='FACEBOOK_PIXEL_1' />
-			<CookieConsentBanner />
+			{router.pathname != "/404" && <CookieConsentBanner />}
 			<Component {...pageProps} />
 			{/* Google analytics scripts */}
 			<Script
