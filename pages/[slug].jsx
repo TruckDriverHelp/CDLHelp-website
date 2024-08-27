@@ -8,12 +8,13 @@ import html from 'remark-html';
 import Image from "next/image";
 import YouTube from 'react-youtube';  
 
-const PostDetailView = ({ article }) => {
+const PostDetailView = ({ slug, article }) => {
   const [isOpen, setIsOpen] = useState(true);
   const openModal = () => {
     setIsOpen(!isOpen);
   }
-  const host = 'http://146.190.47.164:1337';
+  const host = process.env.STRAPI_HOST;
+
   return (
     <>
       <Head>
@@ -50,23 +51,23 @@ const PostDetailView = ({ article }) => {
           <h2>{article.title}</h2>
           <p>{article.description}</p>
           {article.blocks.map((block, index) => {
-            if (block.__typename === 'ComponentSharedRichText') {
-              const processedBody = remark().use(html).processSync(block.body).toString();
+            if (block.__typename === 'ComponentArticlePartsRichText') {
+              const processedBody = remark().use(html).processSync(block.Text).toString();
               return <div key={index} dangerouslySetInnerHTML={{ __html: processedBody }} />;
-            } else if (block.__typename === 'ComponentSharedMedia') {
+            } else if (block.__typename === 'ComponentArticlePartsMedia') {
               return (
                 <Image
                   key={index}
-                  src={host + block.file.data.attributes.url}
-                  alt={block.file.data.attributes.alternativeText}
-                  width={block.file.data.attributes.width}
-                  height={block.file.data.attributes.height}
+                  src={host + block.Media.data.attributes.url}
+                  alt={block.Media.data.attributes.alternativeText}
+                  width={block.Media.data.attributes.width}
+                  height={block.Media.data.attributes.height}
                 />
               );
-            } else if (block.__typename === 'ComponentSharedSlider') {
+            } else if (block.__typename === 'ComponentArticlePartsSlider') {
               return (
                 <div key={index}>
-                  {block.files.data.map((file, index) => (
+                  {block.Slider.data.map((file, index) => (
                     <Image
                       key={index}
                       src={host + file.attributes.url}
@@ -77,15 +78,14 @@ const PostDetailView = ({ article }) => {
                   ))}
                 </div>
               );
-            } else if (block.__typename === 'ComponentSharedQuote') {
+            } else if (block.__typename === 'ComponentArticlePartsQuote') {
               return (
                 <blockquote key={index}>
-                  <p>{block.body}</p>
-                  <footer>{block.title}</footer>
+                  <p>{block.Quote}</p>
                 </blockquote>
               );
-            } else if (block.__typename === 'ComponentSharedYouTube') {
-              const parsedYoutube = block.youtube ? JSON.parse(block.youtube) : console.log("Failed parsing oembed YouTube-link");
+            } else if (block.__typename === 'ComponentArticlePartsYouTube') {
+              const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
               const videoId = parsedYoutube.url.split('v=')[1];
               return (
                 <div key={index}>
@@ -126,11 +126,11 @@ export async function getStaticProps({params, locale}) {
           slug
           blocks {
             __typename
-            ... on ComponentSharedRichText {
-              body
+            ...on ComponentArticlePartsRichText {
+              Text
             }
-            ... on ComponentSharedMedia {
-              file {
+            ...on ComponentArticlePartsMedia {
+              Media {
                 data {
                   attributes {
                     url
@@ -141,8 +141,8 @@ export async function getStaticProps({params, locale}) {
                 }
               }
             }
-            ...on ComponentSharedSlider {
-              files {
+            ...on ComponentArticlePartsSlider {
+              Slider {
                 data {
                   attributes {
                     url
@@ -153,12 +153,11 @@ export async function getStaticProps({params, locale}) {
                 }
               }
             }
-            ...on ComponentSharedQuote {
-              title
-              body
+            ...on ComponentArticlePartsQuote {
+              Quote
             }
-            ...on ComponentSharedYouTube {
-              youtube
+            ...on ComponentArticlePartsYouTube {
+              YouTube
             }
           }
         }
@@ -171,7 +170,16 @@ export async function getStaticProps({params, locale}) {
     locale
   };
   try {
-    const response = await axios.post('http://146.190.47.164:1337/graphql', {query, variables});
+    const response = await axios.post(
+      `${process.env.STRAPI_HOST}/graphql`,
+      { query, variables },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
+        }
+      }
+    );
+
     const { data } = response.data;
     const { attributes } = data.articles.data[0];
 
@@ -182,16 +190,24 @@ export async function getStaticProps({params, locale}) {
       } 
     }
   } catch (error) {
+    console.error(error)
     return {
       props: {
-        error: "hello_world"
+        error: error
       }
   }
 }
 }
 
 export async function getStaticPaths({ locales }) {
-  const { data } = await axios.get(`http://146.190.47.164:1337/api/articles?populate[localizations]=*`);
+  const { data } = await axios.get(
+    `${process.env.STRAPI_HOST}/api/articles?populate[localizations]=*`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+      },
+    }
+  );
   const slugs = data.data.map((article) => article.attributes.slug);
 
   const paths = [];
@@ -202,6 +218,7 @@ export async function getStaticPaths({ locales }) {
       paths.push(param);
     });
   });
+
   return {
       paths,
       fallback: false,
