@@ -58,10 +58,10 @@ const PostDetailView = ({ slug, article }) => {
               return (
                 <Image
                   key={index}
-                  src={host + block.Media.data.attributes.url}
-                  alt={block.Media.data.attributes.alternativeText}
-                  width={block.Media.data.attributes.width}
-                  height={block.Media.data.attributes.height}
+                  src={host + block.Media.data[0].attributes.url}
+                  alt={block.Media.data[0].attributes.alternativeText}
+                  width={block.Media.data[0].attributes.width}
+                  height={block.Media.data[0].attributes.height}
                 />
               );
             } else if (block.__typename === 'ComponentArticlePartsSlider') {
