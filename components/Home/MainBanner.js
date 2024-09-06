@@ -3,7 +3,11 @@ import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "next/image";
 
-const MainBanner = () => {
+import { useTranslation } from "lib/useTranslation";
+
+const MainBanner = ({translations}) => {
+  const {t} = useTranslation(translations);
+
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -11,21 +15,21 @@ const MainBanner = () => {
           <div className="row align-items-center mb-5">
             <div className="col-xl-7 col-lg-8 col-md-12">
               <div className="new-app-main-banner-wrap-content" style={{ textAlign: 'center' }}>
-                <h1>CDL Тесты для Трак Драйверов США</h1>
+                <h1>{t("CDL Tests for Truck Drivers in the USA")}</h1>
                 <p>
-                Приложение CDL Help поможет вам успешно сдать тесты на CDL. Приложение содержит более 1000 вопросов, которые помогут вам стать дальнобойщиком.
+                {t("The CDL Help app is designed to assist you in preparing for and passing your CDL exams. Our database includes over 1,000 questions, that will help you to become a truck driver")} 
                 </p>
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
                     <i><img src="/images/icons/download-bar-down.svg" alt="Скачать" style={{color: "white", width: 30, height: 30 }}></img></i>
                     iOS / Android
-                    <span>Скачать</span>
+                    <span>{t("Download")}</span>
                   </a>
                   <a href="https://test.cdlhelp.com" className="playstore-btn">
                     <i className="ri-play-fill main-banner-btn-icon"></i>
-                    Попробовать
-                    <span>Бесплатно</span>
+                    {t("Try")}
+                    <span>{t("For free")}</span>
                   </a>
                 </div>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '20px 5px', justifyContent: 'center', textAlign: 'center' }}>
@@ -35,9 +39,7 @@ const MainBanner = () => {
 
                   <div style={{display:'flex', justifyContent:'flex-start', flexWrap: 'wrap', gap: 5}}>
                     <div style={{display: 'flex', gap: 5}}>
-                      <span>Более</span>
-                      <strong>3000 отзывов</strong>
-                      <span>на</span>
+                      {t("Over 3000 reviews on")}
                     </div>
                     <div style={{ display: 'flex', gap: 5 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
@@ -47,7 +49,7 @@ const MainBanner = () => {
                           width={20}
                           height={20}
                         />
-                        <span>App Store и</span></div>
+                        <span>App Store {t("and")}</span></div>
                       <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
                         <img 
                           src="/images/play-store.png"
@@ -67,7 +69,7 @@ const MainBanner = () => {
                     ></i>
                   </a>
                   <a style={{ fontWeight: 600 }} href="https://t.me/TruckDriverGroup/13900/13904">
-                    Телеграм чат для начинающих дальнобойщиков
+                    {t("Telegram community for beginners truck drivers")}
                   </a>
                 </div>
               </div>

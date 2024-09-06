@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image'
+import { useTranslation } from 'lib/useTranslation';
 
-const BestFeatures = () => {
+const BestFeatures = ({translations}) => {
+    const {t} = useTranslation(translations);
     return (
 		<>
 			<div id="about" className="features-area pt-100 pb-75">
@@ -10,11 +12,11 @@ const BestFeatures = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12" style={{textAlign: 'justify'}}>
                             <div className="features-inner-content">
-                                <h2>Приложение CDL Help</h2>
-                                <p>CDL Help это уникальное приложение для подготовки к сдаче тестов CDL-A. Приложение предоставляет возможность переводить тесты с английского в режиме реального времени. Используйте тесты для того чтобы проверить свои знания и подготовиться к экзаменам Class-A Commercial Driver’s License в США. Тесты имитируют типы вопросов, которые могут возникнуть при сдаче тестов в местном офисе DMV.</p>
+                                <h2>{t("CDL Help App")}</h2>
+                                <p>{t("CDL Help is a unique application for preparing for the CDL-A tests. The application provides the ability to translate texts from English in real time. Use the tests to test your knowledge and prepare for the Class-A Commercial Driver's License exams in the USA. The tests simulate the types of questions that may appear during exam at a local DMV office")}</p>
                                 <div className="btn-box">
-                                    <a className="default-btn" href='#download'>Скачать</a>
-                                    <a className="link-btn" href="https://test.cdlhelp.com">Попробовать Онлайн</a>
+                                    <a className="default-btn" href='#download'>{t("Download")}</a>
+                                    <a className="link-btn" href="https://test.cdlhelp.com">{t("Try It Online")}</a>
                                 </div>
                             </div>
                         </div>
@@ -24,36 +26,36 @@ const BestFeatures = () => {
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i><img src="/images/icons/support-money-donation.svg" alt="Бесплатные вопросы" style={{color: "white", width: 25, height: 25}}></img></i>
-                                            <h3>Бесплатные вопросы</h3>
+                                            <h3>{t("Free materials")}</h3>
                                         </div>
-                                        <p>Бесплатный доступ к более 100 вопросам</p>
+                                        <p>{t("Free access to over 100 questions")}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i><img src="/images/icons/translate.svg" alt="Текст с переводом" style={{color: "white", width: 25, height: 25}}></img></i>
-                                            <h3>Текст с переводом</h3>
+                                            <h3>{t("Real-time translation")}</h3>
                                         </div>
-                                        <p>Помогает получить права CDL, а также учить английский язык</p>
+                                        <p>{t("Helps to get a CDL while learning English at the same time")}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i><img src="/images/icons/database.svg" alt="База вопросов" style={{color: "white", width: 25, height: 25}}></img></i>
-                                            <h3>База вопросов</h3>
+                                            <h3>{t("Question Database")}</h3>
                                         </div>
-                                        <p>В нашей базе вопросов содержится более 1000 вопросов</p>
+                                        <p>{t("Our database contains more than 1000 questions")}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
                                     <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i><img src="/images/icons/layout-grid-stack-left.svg" alt="6 категории вопросов" style={{color: "white", width: 25, height: 25}}></img></i>
-                                            <h3>6 категории вопросов</h3>
+                                            <h3>{t("6 categories of questions")}</h3>
                                         </div>
-                                        <p>Приложение содержит три основных, и три дополнительных теста</p>
+                                        <p>{t("The application contains three main and three endorsement tests")}</p>
                                     </div>
                                 </div>
                             </div>

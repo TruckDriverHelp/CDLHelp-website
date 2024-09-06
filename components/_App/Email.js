@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from '../../public/css/pages-and-components-css/Email.module.css';
+import { useTranslation } from 'lib/useTranslation';
 
 const Email = ({ translation }) => {
   const router = useRouter();
   const [hideForm, setHideForm] = useState(false);
   const [email, setEmailAddress] = useState('');
   const [sending, setSending] = useState(false);
+  const {t} = useTranslation(translation);
 
   const handleNewsletterChange = (e) => {
     setEmailAddress(e.target.value);
@@ -39,7 +41,7 @@ const Email = ({ translation }) => {
 
   return !hideForm ? (
     <div>
-      <p>Хотите быть в курсе новостей? Подпишитесь на email-рассылку</p>
+      <p>{t("Want to stay updated with the news? Subscribe to our email newsletter")}</p>
       <div className={styles.inputContainer}>
         <input
           value={email}
@@ -53,7 +55,7 @@ const Email = ({ translation }) => {
           disabled={sending}
           onClick={handleSubscribeNewsletter}
         >
-          Подписаться
+          {t("Subscribe")}
         </button>
       </div>
     </div>
