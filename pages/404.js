@@ -2,26 +2,24 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/_App/Navbar';
+import Footer from '@/components/_App/Footer';
 
 const ErrorPage = () => {
     return (
 		<>
-			<div className="error-area ptb-100">
-				<div className="d-table">
-					<div className="d-table-cell">
-						<div className="container">
-							<div className="error-content">
-								<img src="/images/error.png" alt="image" />
-								<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-
-								<Link href="/">
-									<a className="default-btn">Back To Home</a>
-								</Link>
-							</div>
-						</div>
+			<Navbar />
+			<div className="d-flex flex-column min-vh-100">
+				<div className="container my-auto">
+					<div className="text-black text-center">
+					<h1 className='pb-4'>Страница не найдена</h1>
+					<Link href="/">
+						<a className="default-btn">Главная страница</a>
+					</Link>
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</>
     )
 }

@@ -17,20 +17,20 @@ const Permit = () => {
 				{/* Google / Search Engine Tags */}
 				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta itemprop="description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
-				<meta itemprop="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
 				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://www.cdlhelp.app" />
+				<meta property="og:url" content="https://www.cdlhelp.com" />
 				<meta property="og:type" content="article" />
 				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta property="og:description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
-				<meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta name="twitter:description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
-				<meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
 			<Navbar />
 
@@ -145,7 +145,7 @@ const Permit = () => {
 									<ol>
 										<li><strong><Link href="/dalnoboishik"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Прочитать серию статей о том, как получить CDL</a></Link></strong></li>
 										<li><strong><Link href="/faq"><a style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Почитать ответы на странице “Часто Задаваемые Вопросы”</a></Link></strong></li>
-										<li><strong><a href="https://www.t.me/truckdrivergroup" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
+										<li><strong><a href="https://t.me/TruckDriverGroup/13900/13904" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Спросить у пользователей в нашем Телеграм чате</a></strong></li>
 									</ol>
 
 

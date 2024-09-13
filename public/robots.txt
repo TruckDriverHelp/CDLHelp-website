@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://www.cdlhelp.app/sitemap.xml
+Sitemap: https://www.cdlhelp.com/sitemap.xml
