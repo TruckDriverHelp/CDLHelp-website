@@ -11,6 +11,10 @@ module.exports = {
         defaultLocale: "en",
     },
     images: {
-        domains: ['146.190.47.164'],
-      }
+        domains: [process.env.STRAPI_HOST],
+      },
+    env: {
+        STRAPI_API_KEY: process.env.STRAPI_API_KEY,
+        STRAPI_HOST: process.env.STRAPI_HOST
+    }
 }
