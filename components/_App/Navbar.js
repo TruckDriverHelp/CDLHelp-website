@@ -3,7 +3,11 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
-const Navbar = () => {
+import { useTranslation } from "lib/useTranslation";
+
+const Navbar = ({translations}) => {
+  const {t} = useTranslation(translations);
+
   const [menu, setMenu] = React.useState(true);
 
   const toggleNavbar = () => {
@@ -64,7 +68,7 @@ const Navbar = () => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
-                      <a className="nav-link">Главная</a>
+                      <a className="nav-link">{t("Home")}</a>
                     </Link>
                   </li>
 
@@ -74,24 +78,24 @@ const Navbar = () => {
                         onClick={(e) => e.preventDefault()}
                         className="dropdown-toggle nav-link"
                       >
-                        Ресурсы
+                        {t("Resources")}
                       </a>
                     </Link>
 
                     <ul className="dropdown-menu">
                       <li>
                         <Link href="/dalnoboishik">
-                          <a>Как стать дальнобойщиком</a>
+                          <a>{t("How to become a truck driver")}</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/kak-ispolzovat-cdl-help">
-                          <a>Как пользоваться приложением</a>
+                          <a>{t("How to use the app")}</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/permit">
-                          <a>Как получить пермит</a>
+                          <a>{t("How to get a permit")}</a>
                         </Link>
                       </li>
                       <li className="nav-item">
@@ -99,35 +103,35 @@ const Navbar = () => {
                           className="nav-link"
                           href="https://www.truckdriver.help/"
                         >
-                          Работа для дальнобойщиков
+                          {t("Jobs for truck drivers")}
                         </a>
                       </li>
 
                       <li className="nav-item">
                         <Link href="/faq">
-                          <a className="nav-link">Часто Задаваемые Вопросы</a>
+                          <a className="nav-link">{t("Frequently Asked Questions")}</a>
                         </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
                     <Link href="/cdl-shkola">
-                      <a className="nav-link">CDL Школа</a>
+                      <a className="nav-link">{t("CDL School")}</a>
                     </Link>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
-                      DMV Help
+                      {t("DMV Help")}
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="https://www.mir.chat/">
-                      Mir.chat
+                      {t("Mir.chat")}
                     </a>
                   </li>
                   <li className="nav-item">
                     <a href="https://school.cdlhelp.app/contact/" className="nav-link">
-                      Контакты
+                      {t("Contacts")}
                     </a>
                   </li>
                 </ul>

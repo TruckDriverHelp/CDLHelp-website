@@ -4,8 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Email from "./Email";
+import { useTranslation } from "lib/useTranslation";
 
-const Footer = () => {
+const Footer = ({translations}) => {
+  const {t} = useTranslation(translations);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -27,8 +29,7 @@ const Footer = () => {
                 </Link>
 
                 <p>
-                  Приложение для мобильных устройств iOS и Android, с тестами
-                  CDL с возможностью перевода.
+                  {t("Mobile app for iOS and Android devices with CDL tests and translation options")}.
                 </p>
 
                 <ul className="social-links">
@@ -65,17 +66,17 @@ const Footer = () => {
                 <ul className="links-list">
                   <li>
                     <Link href="/kak-ispolzovat-cdl-help">
-                      <a>Как пользоваться приложением</a>
+                      <a>{t("How to use the app")}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="#about">
-                      <a>О Проекте</a>
+                      <a>{t("About the Project")}</a>
                     </Link>
                   </li>
                   <li>
                     <a href="https://test.cdlhelp.com">
-                      Попробовать Бесплатно
+                      {t("Try for Free")}
                     </a>
                   </li>
                 </ul>
@@ -84,24 +85,24 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>Поддержка</h3>
+                <h3>{t("Support")}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/privacy-policy">
-                      <a>Конфиденциальность</a>
+                      <a>{t("Privacy")}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms-conditions">
-                      <a>Публичное Соглашение</a>
+                      <a>{t("Public Agreement")}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/">Обратная Связь</a>
+                    <a href="https://school.cdlhelp.app/contact/">{t("Feedback")}</a>
                   </li>
                   <li>
                     <Link href="/faq">
-                      <a>Часто Задаваемые Вопросы</a>
+                      <a>{t("Frequently Asked Questions")}</a>
                     </Link>
                   </li>
                 </ul>
@@ -110,25 +111,25 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>Ресурсы</h3>
+                <h3>{t("Resources")}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/dalnoboishik">
-                      <a>Как стать дальнобойщиком</a>
+                      <a>{t("How to become a truck driver")}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/permit">
-                      <a>Как получить пермит</a>
+                      <a>{t("How to get a permit")}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/cdl-shkola">
-                      <a>Школа CDL на русском</a>
+                      <a>{t("CDL school in Russian")}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.truckdriver.help/">Найти Работу</a>
+                    <a href="https://www.truckdriver.help/">{t("Find a job")}</a>
                   </li>
                 </ul>
               </div>
@@ -136,7 +137,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6 col-sm-6">
               <div className="single-footer-widget">
-                <Email />
+                <Email translation={translations}/>
               </div>
             </div>
           </div>
@@ -145,7 +146,7 @@ const Footer = () => {
             <p>
               {currentYear} &copy; <strong>CDL Help</strong>. Все права защищены{" "}
               <a href="https://www.truckdriver.help/" target="_blank">
-                TruckDriver.help llc
+                TruckDriver.help LLC
               </a>
             </p>
           </div>

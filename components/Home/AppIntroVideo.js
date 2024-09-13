@@ -2,13 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { useTranslation } from 'lib/useTranslation';
 
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
 });
 
-const AppIntroVideo = () => {
+const AppIntroVideo = ({translations}) => {
     // Popup Video
+    const {t} = useTranslation(translations);
 	const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
@@ -38,12 +40,12 @@ const AppIntroVideo = () => {
 
                         <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-content" style={{textAlign: 'justify'}}>
-                                <h2>Как получить CDL</h2>
-                                <p>В этом видео представлен подробный гид о том, как стать дальнобойщиком в США и получить CDL (коммерческие водительские права). Во-первых, объясняется процесс прохождения медицинского осмотра DOT, который необходим для всех кандидатов на получение CDL. Затем рассматривается процесс сдачи теоретических тестов в DMV для получения ученического разрешения (CLP), что позволяет практиковать вождение грузовика. Наконец, видео затрагивает обучение в школе CDL и процесс сдачи практического экзамена по вождению, включая ссылку на список школ с русскоязычными инструкторами для удобства подготовки.</p>
+                                <h2>{t("How to get a CDL")}</h2>
+                                <p>{t("This article provides a detailed guide on how to become a trucker in the USA and get a CDL (Commercial Driver's License). First, we explain the process of passing the DOT medical examination, which is necessary for all CDL candidates. Then, the process of taking theoretical tests at the DMV for obtaining a student permit (CLP) is considered, which allows you to practice driving a truck. Finally, the guide touches on CDL school curriculum and the process of passing the practical driving test")}</p>
                                 <div className='app-intro-buttons'>
-                                    <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">Начать просмотр</a>
+                                    <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">{t("Watch")}</a>
                                     <Link href="/dalnoboishik">
-                                    <a style={{ fontWeight: 600, textDecoration: 'underline' }} >Прочитать подробную инструкцию</a>
+                                    <a style={{ fontWeight: 600, textDecoration: 'underline' }} >{t("Read the full article by clicking the link")}</a>
                                     </Link>
                                 </div>
                             </div>

@@ -8,8 +8,9 @@ import AppDownload from '@/components/Home/AppDownload';
 import Footer from '@/components/_App/Footer';
 import Head from 'next/head';
 
+import { getTranslations } from 'lib/getTranslations';
 
-const IndexPage = () => {
+const IndexPage = ({translations}) => {
     const title = "CDL Тесты с переводом 2024 – CDL Help"
     const description = "Перевод CDL тестов на русский язык. Полезные статьи и материалы об экзамене. Изучайте Английский язык во время подготовки."
     
@@ -39,13 +40,13 @@ const IndexPage = () => {
             
             </Head>
 
-            <Navbar />
+            <Navbar translations={translations}/>
 
-            <MainBanner />
+            <MainBanner translations={translations}/>
 
-            <AppIntroVideo />
+            <AppIntroVideo translations={translations}/>
 
-            <BestFeatures />
+            <BestFeatures translations={translations}/>
 
             {/* <ClientFeedback /> */}
 
@@ -60,7 +61,7 @@ const IndexPage = () => {
 
             {/* <Funfacts /> */}
 
-            <AppDownload />
+            <AppDownload translations={translations}/>
 
             {/* <PricingPlan /> 
 						
@@ -70,9 +71,19 @@ const IndexPage = () => {
 
             <BlogPost /> */}
 
-            <Footer />
+            <Footer translations={translations}/>
         </>
     )
 }
 
 export default IndexPage;
+
+export async function getStaticProps({ locale }) {
+    const translations = getTranslations(locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  }
+  
