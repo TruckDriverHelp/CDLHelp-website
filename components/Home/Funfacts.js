@@ -16,7 +16,7 @@ const localeContent = {
     users: "Пользователей",
   },
 
-  "ua": {
+  "uk": {
     numberOfQuestions: "Кількість питань",
     numberOfTests: "Кількість тестів",
     numberOfCategories: "Кількість розділів",
