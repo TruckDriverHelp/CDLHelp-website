@@ -3,17 +3,17 @@ import Head from 'next/head';
 import Navbar from '@/components/_App/Navbar';
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
 import axios from "axios";
-import { remark } from 'remark';
-import html from 'remark-html';
 import Image from "next/image";
 import YouTube from 'react-youtube';  
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const PostDetailView = ({ slug, article }) => {
   const [isOpen, setIsOpen] = useState(true);
   const openModal = () => {
     setIsOpen(!isOpen);
   }
-  const host = process.env.STRAPI_HOST;
+  const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
   return (
     <>
@@ -51,10 +51,10 @@ const PostDetailView = ({ slug, article }) => {
           <h2>{article.title}</h2>
           <p>{article.description}</p>
           {article.blocks.map((block, index) => {
-            if (block.__typename === 'ComponentArticlePartsRichText') {
-              const processedBody = remark().use(html).processSync(block.Text).toString();
-              return <div key={index} dangerouslySetInnerHTML={{ __html: processedBody }} />;
-            } else if (block.__typename === 'ComponentArticlePartsMedia') {
+            if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
+              return <div id={block.idtag}><Markdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
+            }
+            else if (block.__typename === 'ComponentArticlePartsMedia') {
               return (
                 <Image
                   key={index}
@@ -105,8 +105,23 @@ const PostDetailView = ({ slug, article }) => {
                 </div>
               );
             }
+            if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
+              return <div>
+                {/* TODO: перевести */}
+                <p>Следующие статьи</p> 
+                <ul>
+                {block.articles.data.map((articleData, i) => {
+                  console.debug(articleData)
+                  const article = articleData.attributes;
+                  const url = "/" + article.locale + "/" + article.slug;
+                  return <li key={i}><a href={url}>{article.title}</a></li>
+                })}
+                </ul>
+              </div>
+            }
             return null;
           })}
+
         </div>
       </div>
     </>
@@ -126,8 +141,9 @@ export async function getStaticProps({params, locale}) {
           slug
           blocks {
             __typename
-            ...on ComponentArticlePartsRichText {
-              Text
+            ...on ComponentArticlePartsRichTextMarkdown {
+              richtext
+              idtag
             }
             ...on ComponentArticlePartsMedia {
               Media {
@@ -159,6 +175,17 @@ export async function getStaticProps({params, locale}) {
             ...on ComponentArticlePartsYouTube {
               YouTube
             }
+            ...on ComponentArticlePartsRelatedArticles{
+              articles{
+                data{
+                  attributes{
+                    title
+                    slug
+                    locale
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -171,7 +198,7 @@ export async function getStaticProps({params, locale}) {
   };
   try {
     const response = await axios.post(
-      `${process.env.STRAPI_HOST}/graphql`,
+      `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`,
       { query, variables },
       {
         headers: {
@@ -190,7 +217,6 @@ export async function getStaticProps({params, locale}) {
       } 
     }
   } catch (error) {
-    console.error(error)
     return {
       props: {
         error: error
@@ -201,7 +227,7 @@ export async function getStaticProps({params, locale}) {
 
 export async function getStaticPaths({ locales }) {
   const { data } = await axios.get(
-    `${process.env.STRAPI_HOST}/api/articles?populate[localizations]=*`,
+    `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*`,
     {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,

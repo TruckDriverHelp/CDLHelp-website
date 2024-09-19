@@ -15,6 +15,7 @@ module.exports = {
       },
     env: {
         STRAPI_API_KEY: process.env.STRAPI_API_KEY,
-        STRAPI_HOST: process.env.STRAPI_HOST
+        STRAPI_HOST: process.env.STRAPI_HOST,
+        STRAPI_PORT: process.env.STRAPI_PORT
     }
 }
