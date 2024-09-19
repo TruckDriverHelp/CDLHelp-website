@@ -21,7 +21,7 @@ const localeContent = {
         iosApp: "Приложение iOS",
     },
   
-    "ua": {
+    "uk": {
         downloadApp: "Завантажити додаток",
         downloadAppText: "Завантажити CDL Help — тести CDL з перекладом",
         downloadAndTry: "Безкоштовно завантажити додаток CDL Help і протестувати питання.",

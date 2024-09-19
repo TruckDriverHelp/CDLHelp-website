@@ -21,7 +21,7 @@ const localeContent = {
         videoDescription: "Изменить", 
         startWatching: "Почніть перегляд"
     },
-    "ua": {
+    "uk": {
         stepByStep: "Покрокова інструкція",
         howToGet: "Як отримати CDL",
         videoDescription: "Изменить", 
