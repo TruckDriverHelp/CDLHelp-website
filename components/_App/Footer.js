@@ -14,44 +14,36 @@ const localeContent = {
     downloadButton: "Скачать",
     iosApp: "Приложение iOS",
     mobileApp: "Приложение для мобильных устройств iOS и Android, с тестами CDL с возможностью перевода.",
-    howToUseAppArticle: "Как пользоваться приложением",
     aboutProject: "О Проекте",
     tryFree: "Попробовать Бесплатно",
     support: "Поддержка",
     privacy: "Конфиденциальность",
     publicAgreement: "Публичное Соглашение",
-    feedback: "Обратная Связь",
-    faq: "Часто Задаваемые Вопросы",
+    feedback: "Обратная связь",
     resources: "Ресурсы",
-    howToBecomeTruckDriverArticle: "Как стать дальнобойщиком",
-    howToGetPermitArticle: "Как получить пермит",
-    cdlRussianSchool: "Школа CDL на русском",
     jobs: "Найти Работу",
+    cdlRussianSchool: "Школа CDL на русском",
     allRightsReserved: "Все права защищены",
   },
 
   "en": {
-    downloadApp: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
-    downloadAppText: "Скачать CDL Help - тесты CDL с переводом",
-    downloadAndTry: "Бесплатно скачать приложение CDL Help и опробовать вопросы.",
-    androidApp: "Приложение Android",
-    downloadButton: "Скачать",
-    iosApp: "Приложение iOS",
-    mobileApp: "Приложение для мобильных устройств iOS и Android, с тестами CDL с возможностью перевода.",
-    howToUseAppArticle: "Как пользоваться приложением",
-    aboutProject: "О Проекте",
-    tryFree: "Попробовать Бесплатно",
-    support: "Поддержка",
-    privacy: "Конфиденциальность",
-    publicAgreement: "Публичное Соглашение",
-    feedback: "Обратная Связь",
-    faq: "Часто Задаваемые Вопросы",
-    resources: "Ресурсы",
-    howToBecomeTruckDriverArticle: "Как стать дальнобойщиком",
-    howToGetPermitArticle: "Как получить пермит",
-    cdlRussianSchool: "Школа CDL на русском",
-    jobs: "Найти Работу",
-    allRightsReserved: "Все права защищены",
+    downloadApp: "DOWNLOAD APP",
+    downloadAppText: "Download CDL Help - CDL tests with translation",
+    downloadAndTry: "Download the CDL Help app for free and try the questions",
+    androidApp: "Android",
+    downloadButton: "Download",
+    iosApp: "iOS",
+    mobileApp: "Mobile app for iOS and Android with CDL tests and translation capability",
+    aboutProject: "About",
+    tryFree: "Try",
+    support: "Support",
+    privacy: "Privacy Policy",
+    publicAgreement: "Terms & Conditions",
+    feedback: "Feedback",
+    resources: "Resources",
+    jobs: "Find a job",
+    cdlRussianSchool: "CDL school list",
+    allRightsReserved: "All rights reserved",
   },
 
   "uk": {
@@ -62,27 +54,81 @@ const localeContent = {
     downloadButton: "Завантажити",
     iosApp: "Додаток iOS",
     mobileApp: "Додаток для мобільних пристроїв iOS та Android з тестами CDL з можливістю перекладу.",
-    howToUseAppArticle: "Як користуватися програмою",
     aboutProject: "Про проект",
     tryFree: "Спробувати безкоштовно",
     support: "Підтримка",
     privacy: "Конфіденційність",
     publicAgreement: "Публічний договір",
     feedback: "Зворотній зв'язок",
-    faq: "Поширені запитання",
     resources: "Ресурси",
-    howToBecomeTruckDriverArticle: "Як стати далекобійником",
-    howToGetPermitArticle: "Як отримати дозвіл",
     jobs: "Знайти роботу",
     cdlRussianSchool: "Школа CDL українською мовою",
     allRightsReserved: "Все права защищены",
   }
 }
 
+const articleList = {
+  "en": {
+    howToUseAppArticle: {
+      title: "How to use the app",
+      slug: "/how-to-use-cdl-help"
+    },
+    howToBecomeTruckDriverArticle: {
+      title: "How to become a Truck Driver in USA",
+      slug: "/how-to-become-a-truck-driver-in-usa"
+    },
+    howToGetPermitArticle: {
+      title: "How to get a CDL Permit",
+      slug: "/how-to-get-clp-permit"
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      slug: "/frequently-asked-questions-cdl-help"
+    }
+  },
+  "ru": {
+    howToUseAppArticle: {
+      title: "Как использовать приложение CDL Help",
+      slug: "/kak-ispolzovat-cdl-help"
+    },
+    howToBecomeTruckDriverArticle: {
+      title: "Как стать дальнобойщиком в США",
+      slug: "/kak-stat-dalnoboishikom"
+    },
+    howToGetPermitArticle: {
+      title: "Как получить CLP пермит",
+      slug: "/kak-poluchit-clp-permit"
+    },
+    faq: {
+      title: "Часто задаваемые вопросы",
+      slug: "/chasto-zadavaemye-voprosy"
+    }
+  },
+  "uk": {
+    howToUseAppArticle: {
+      title: "Як використовувати додаток CDL Help",
+      slug: "/yak-vykorystovuvaty-dodatok-cdl-help"
+    },
+    howToBecomeTruckDriverArticle: {
+      title: "Як стати водієм вантажівки в США",
+      slug: "/yak-staty-vodiyem-vantazhivky-v-amerytsi"
+    },
+    howToGetPermitArticle: {
+      title: "Як отримати дозвіл CDL",
+      slug: "/yak-otrymaty-dozvil-cdl"
+    },
+    faq: {
+      title: "CDL Help – Часті запитання",
+      slug: "/chasti-zapytannya"
+    }
+  }
+}
+
 const Footer = () => {
   const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { downloadApp, downloadAndTry, downloadAppText, downloadButton, iosApp, androidApp, jobs, mobileApp, howToBecomeTruckDriverArticle, howToGetPermitArticle, howToUseAppArticle, aboutProject, tryFree, support, privacy, publicAgreement, feedback, faq, resources, cdlRussianSchool, allRightsReserved } = localeContent[locale];
+  const { downloadApp, downloadAndTry, downloadAppText, downloadButton, iosApp, androidApp, jobs, mobileApp, aboutProject, tryFree, support, privacy, publicAgreement, feedback, resources, cdlRussianSchool, allRightsReserved } = localeContent[locale];
   const currentYear = new Date().getFullYear();
+  const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle } = articleList[locale];
 
   return (
     <>
@@ -127,7 +173,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/contact">
-                    <a target="_blank"><i className="ri-mail-fill"></i></a>
+                      <a target="_blank"><i className="ri-mail-fill"></i></a>
                     </Link>
                   </li>
                 </ul>
@@ -139,8 +185,8 @@ const Footer = () => {
                 <h3>CDL Help</h3>
                 <ul className="links-list">
                   <li>
-                    <Link href="/kak-ispolzovat-cdl-help">
-                      <a>{howToUseAppArticle}</a>
+                    <Link href={howToUseAppArticle.slug} locale={locale}>
+                      <a>{howToUseAppArticle.title}</a>
                     </Link>
                   </li>
                   <li>
@@ -154,7 +200,7 @@ const Footer = () => {
                                         </Link>
                                     </li> */}
                   <li>
-                    <a href="https://academy.truckdriver.help/quiz">
+                    <a href="https://test.cdlhelp.com/">
                       {tryFree}
                     </a>
                   </li>
@@ -167,22 +213,23 @@ const Footer = () => {
                 <h3>{support}</h3>
                 <ul className="links-list">
                   <li>
-                    <Link href="/privacy-policy">
+                    <Link href="/privacy-policy" locale={false}>
                       <a>{privacy}</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms-conditions">
+                    <Link href="/terms-conditions" locale={false}>
                       <a>{publicAgreement}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://school.cdlhelp.app/contact/">{feedback}</a>
+                    <a href="/contact">{feedback}</a>
                   </li>
                   <li>
-                    <Link href="/faq">
-                      <a>{faq}</a>
+                    <Link href={faq.slug} locale={locale}>
+                      <a>{faq.title}</a>
                     </Link>
+
                   </li>
                 </ul>
               </div>
@@ -193,13 +240,13 @@ const Footer = () => {
                 <h3>{resources}</h3>
                 <ul className="links-list">
                   <li>
-                    <Link href="/dalnoboishik">
-                      <a>{howToBecomeTruckDriverArticle}</a>
+                    <Link href={howToBecomeTruckDriverArticle.slug} locale={locale}>
+                      <a>{howToBecomeTruckDriverArticle.title}</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/permit">
-                      <a>{howToGetPermitArticle}</a>
+                    <Link href={howToGetPermitArticle.slug} locale={locale}>
+                      <a>{howToGetPermitArticle.title}</a>
                     </Link>
                   </li>
                   <li>

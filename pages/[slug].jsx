@@ -39,7 +39,6 @@ const PostDetailView = ({ slug, article }) => {
         <meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
         <meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
       </Head>
-      <Navbar />  
       <PageBannerStyle1
         pageTitle={article.title}
         homePageUrl="/"
@@ -48,7 +47,6 @@ const PostDetailView = ({ slug, article }) => {
       />
       <div className="blog-details-area pb-75 w-50 mx-auto">
         <div>
-          <h2>{article.title}</h2>
           <p>{article.description}</p>
           {article.blocks.map((block, index) => {
             if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
@@ -111,7 +109,6 @@ const PostDetailView = ({ slug, article }) => {
                 <p>Следующие статьи</p> 
                 <ul>
                 {block.articles.data.map((articleData, i) => {
-                  console.debug(articleData)
                   const article = articleData.attributes;
                   const url = "/" + article.locale + "/" + article.slug;
                   return <li key={i}><a href={url}>{article.title}</a></li>
