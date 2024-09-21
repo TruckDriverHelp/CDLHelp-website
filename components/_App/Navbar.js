@@ -4,29 +4,89 @@ import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import LanguageSwitcher from "@/components/_App/LanguageSwitcher"
 
 const localeContent = {
   "ru": {
-    main: "Главная", 
+    main: "Главная",
     resources: "Ресурсы",
-    dalnoboishik: "Как стать дальнобойщиком",
-    howToUseApp: "Как пользоваться приложением CDL help",
-    howToGetPermit: "Как получить пермит CLP (пермит)",
     workForTruckers: "Работа для дальнобойщиков",
-    faq: "Часто Задаваемые Вопросы",
     cdlSchool: "CDL школа",
+    contacts: "Контакты"
   },
-  "ua": {
+  "en": {
+    main: "Home",
+    resources: "Resources",
+    workForTruckers: "Jobs",
+    cdlSchool: "CDL School",
+    contacts: "Contact"
+  },
+  "uk": {
     main: "Головна",
     resources: "Ресурси",
-    dalnoboishik: "Як стати далекобійником",
-    howToUseApp: "Як користуватися додатком CDL help",
-    howToGetPermit: "Як отримати дозвіл CLP (Перміт)",
     workForTruckers: "Робота для далекобійників",
-    faq: "Поширені запитання",
     cdlSchool: "CDL школа",
+    contacts: "Контакти"
   }
 };
+
+const articleList = {
+  "en": [
+    {
+      "title": "How to use the CDL Help App",
+      "slug": "how-to-use-cdl-help"
+    },
+    {
+      "title": "How to become a Truck Driver in USA",
+      "slug": "how-to-become-a-truck-driver-in-usa"
+    },
+    {
+      "title": "How to get a CDL Permit",
+      "slug": "how-to-get-clp-permit"
+    },
+    {
+      "title": "CDL – Frequently Asked Questions",
+      "slug": "frequently-asked-questions-cdl-help"
+    }
+  ],
+  "ru": [
+    {
+      "title": "Как стать дальнобойщиком в США",
+      "slug": "kak-stat-dalnoboishikom"
+    },
+    {
+      "title": "Как использовать приложение CDL Help",
+      "slug": "kak-ispolzovat-cdl-help"
+    },
+    {
+      "title": "Как получить CLP пермит",
+      "slug": "kak-poluchit-clp-permit"
+    },
+    {
+      "title": "Часто задаваемые вопросы",
+      "slug": "chasto-zadavaemye-voprosy"
+    }
+  ],
+  "uk": [
+    {
+      "title": "Як використовувати додаток CDL Help",
+      "slug": "yak-vykorystovuvaty-dodatok-cdl-help"
+    },
+    {
+      "title": "Як стати водієм вантажівки в США",
+      "slug": "yak-staty-vodiyem-vantazhivky-v-amerytsi"
+    },
+    {
+      "title": "Як отримати дозвіл CDL",
+      "slug": "yak-otrymaty-dozvil-cdl"
+    },
+    {
+      "title": "CDL Help – Часті запитання",
+      "slug": "chasti-zapytannya"
+    }
+  ]
+
+}
 
 const Navbar = () => {
   const [menu, setMenu] = React.useState(true);
@@ -53,13 +113,13 @@ const Navbar = () => {
     ? "navbar-toggler navbar-toggler-right collapsed"
     : "navbar-toggler navbar-toggler-right";
 
-    // const { locale, locales, defaultLocale, asPath } = useRouter();
-    // const { main, resources, dalnoboishik, howToGetPermit, howToUseApp, workForTruckers, faq, cdlSchool } = localeContent[locale];
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { main, resources, workForTruckers, cdlSchool, contacts } = localeContent[locale];
 
   return (
     <>
       <div id="navbar" className="navbar-area navbar-style-two">
-        {/* <div className="texap-nav">
+        <div className="texap-nav">
           <div className="container">
             <nav className="navbar navbar-expand-md navbar-light bg-light">
               <Link href="/">
@@ -107,21 +167,18 @@ const Navbar = () => {
                     </Link>
 
                     <ul className="dropdown-menu">
-                      <li>
-                        <Link href="/dalnoboishik">
-                          <a>{dalnoboishik}</a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/kak-ispolzovat-cdl-help">
-                          <a>{howToUseApp}</a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/permit">
-                          <a>{howToGetPermit}</a>
-                        </Link>
-                      </li>
+                      {
+                        articleList[locale].map((article, index) => {
+                          return (
+                            <li key={index}>
+                              <Link href={article.slug} locale={locale}>
+                                <a>{article.title}</a>
+                              </Link>
+                            </li>
+                          )
+                        })
+                      }
+
                       <li className="nav-item">
                         <a
                           className="nav-link"
@@ -131,11 +188,6 @@ const Navbar = () => {
                         </a>
                       </li>
 
-                      <li className="nav-item">
-                        <Link href="/faq">
-                          <a className="nav-link">{faq}</a>
-                        </Link>
-                      </li>
                     </ul>
                   </li>
                   <li className="nav-item">
@@ -154,14 +206,17 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                  <Link href="/contact">
-                    <a className="nav-link">Контакты</a>
+                    <Link href="/contact">
+                      <a className="nav-link">{contacts}</a>
                     </Link>
                   </li>
                 </ul>
               </div>
+              
 
               <div className="others-options">
+                <LanguageSwitcher />
+
                 <a href="https://www.t.me/truckdriverhelp">
                   <i
                     className="ri-telegram-fill"
@@ -180,7 +235,7 @@ const Navbar = () => {
                     style={{ color: "#1b74e4", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
-                <a href="https://school.cdlhelp.app/contact/">
+                <a href="/contact">
                   <i
                     className="ri-mail-fill"
                     style={{ color: "#3b3e78", fontSize: 26, marginRight: 5 }}
@@ -189,7 +244,7 @@ const Navbar = () => {
               </div>
             </nav>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );
