@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '@/components/_App/Navbar'
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import BlogSidebar from '@/components/Blog/BlogSidebar'
 import RelatedPost from '@/components/Blog/RelatedPost'
@@ -44,7 +43,6 @@ const KakPoluchitCdl = () => {
                 <meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
                 <meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
             </Head>
-            <Navbar />
 
             <PageBannerStyle1
                 pageTitle="Как стать дальнобойщиком в США"
@@ -172,8 +170,6 @@ const KakPoluchitCdl = () => {
                 videoId='Ll4yVz7yBlQ'
                 onClose={() => setIsOpen(!isOpen)}
             />
-
-            <Footer />
         </>
     )
 }

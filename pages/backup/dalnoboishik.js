@@ -44,7 +44,6 @@ const Dalnoboishik = () => {
 				<meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="Как стать дальнобойщиком в США"
@@ -251,8 +250,6 @@ const Dalnoboishik = () => {
 				videoId='Ll4yVz7yBlQ'
 				onClose={() => setIsOpen(!isOpen)}
 			/>
-
-			<Footer />
 		</>
 	)
 }

@@ -62,7 +62,6 @@ const HowToUse = () => {
 					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="Как использовать приложение CDL Help"
@@ -206,8 +205,6 @@ const HowToUse = () => {
 					</div>
 				</div>
 			</div>
-
-			<Footer />
 		</>
 	);
 };
