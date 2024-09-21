@@ -4290,6 +4290,34 @@ textarea.form-control {
   align-items: flex-end;
 }
 
+.blog-details-area a[href] {
+  text-decoration: underline;
+  color: rgb(91, 88, 134);
+  font-weight: 600;
+}
+
+#toc {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+#toc > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#toc > ul > li > a {
+  text-decoration: underline;
+  color: rgb(91, 88, 134);
+}
+
+.blog-details-area h2, .blog-details-area h3, .blog-details-area h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
