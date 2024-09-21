@@ -24,7 +24,6 @@ const localeContent = {
 
 const CookieConsentBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
-  const [texts, setTexts] = useState(null);
   const {locale} = useRouter();
 
   const {text, accept, deny} = localeContent[locale];
@@ -32,9 +31,10 @@ const CookieConsentBanner = () => {
   useEffect(() => {
     const consentCookie = cookie.get("cookieConsent");
 
-    setTexts()
-
     if (consentCookie) {
+      setShowBanner(false);
+    }
+    else{
       setShowBanner(true);
     }
 }, []);
