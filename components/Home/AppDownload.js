@@ -13,12 +13,12 @@ const localeContent = {
     },
 
     "en": {
-        downloadApp: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
-        downloadAppText: "Скачать CDL Help - тесты CDL с переводом",
-        downloadAndTry: "Бесплатно скачать приложение CDL Help и опробовать вопросы.",
-        androidApp: "Приложение Android",
-        downloadButton: "Скачать",
-        iosApp: "Приложение iOS",
+        downloadApp: "DOWNLOAD THE APP",
+        downloadAppText: "Download CDL Help - CDL tests with translation",
+        downloadAndTry: "Download CDL Help app for free and try the questions.",
+        androidApp: "Android",
+        downloadButton: "Download",
+        iosApp: "iOS"
     },
   
     "uk": {
@@ -29,8 +29,8 @@ const localeContent = {
         downloadButton: "Завантажити",
         iosApp: "Додаток iOS",
     }
-  };
-  
+};
+
 
 const AppDownload = () => {
     const { locale, locales, defaultLocale, asPath } = useRouter();
@@ -52,7 +52,7 @@ const AppDownload = () => {
                                 <p>{downloadAndTry}</p>
 
                                 <div className="btn-box color-wrap">
-                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp"onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
+                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
                                         <div>
                                             <Image
                                                 src="/images/play-store.png"

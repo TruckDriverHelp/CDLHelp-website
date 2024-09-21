@@ -10,10 +10,10 @@ const localeContent = {
 
   },
   "en": {
-    numberOfQuestions: "Количество Вопросов",
-    numberOfTests: "Количество Тестов",
-    numberOfCategories: "Количество Разделов",
-    users: "Пользователей",
+    numberOfQuestions: "Number of Questions",
+    numberOfTests: "Number of Tests",
+    numberOfCategories: "Number of Sections",
+    users: "Users"
   },
 
   "uk": {
@@ -65,7 +65,7 @@ const Funfacts = () => {
                                     <i className="ri-user-3-fill"></i>
                                 </div>
                                 <p>{users}</p>
-                                <h3>15<span className="sign">к</span></h3>
+                                <h3>15 000<span className="sign">+</span></h3>
                             </div>
                         </div>
                     </div>
