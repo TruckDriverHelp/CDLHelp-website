@@ -32,7 +32,6 @@ const Permit = () => {
 				<meta name="twitter:description" content="CDL Help - Сдать тесты на CLP пермит. Как стать дальнобойщиком: Подробная инструкция" />
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="Сдать тесты на CLP пермит"
@@ -205,8 +204,6 @@ const Permit = () => {
 					</div>
 				</div>
 			</div>
-
-			<Footer />
 		</>
 	)
 }

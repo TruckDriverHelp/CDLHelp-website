@@ -10,8 +10,6 @@ import Head from 'next/head'
 const CdlShkola = () => {
 	return (
 		<>
-			<Navbar />
-
 			<PageBannerStyle1
 				pageTitle="Часто Задаваемые Вопросы"
 				homePageUrl="/"
@@ -236,8 +234,6 @@ const CdlShkola = () => {
 					</div>
 				</div>
 			</div>
-
-			<Footer />
 		</>
 	)
 }

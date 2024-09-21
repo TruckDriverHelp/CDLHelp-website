@@ -29,7 +29,6 @@ const TermsConditions = () => {
 				<meta name="twitter:description" content="CDL Help - Условия пользования" />
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="Terms & Conditions"
@@ -182,8 +181,6 @@ const TermsConditions = () => {
 					</div>
 				</div>
 			</div>
-
-			<Footer />
 		</>
 	)
 }

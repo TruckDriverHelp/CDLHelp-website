@@ -32,7 +32,6 @@ const OShkolax = () => {
 				<meta name="twitter:description" content="CDL Help - подробная статья про обучение в школах CDL в США." />
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="Обучение в CDL школе"
@@ -175,8 +174,6 @@ const OShkolax = () => {
 					</div>
 				</div>
 			</div>
-
-			<Footer />
 		</>
 	)
 }

@@ -28,10 +28,7 @@ const PrivacyPolicy = () => {
 				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
 				<meta name="twitter:description" content="CDL Help - политика конфиденциальности." />
 				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
-
-
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="Privacy Policy"
@@ -566,9 +563,6 @@ const PrivacyPolicy = () => {
 					</div>
 				</div>
 			</div>
-
-
-			<Footer />
 		</>
 	)
 }

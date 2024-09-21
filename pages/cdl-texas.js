@@ -61,7 +61,6 @@ const CDLtexas = () => {
 					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 			</Head>
-			<Navbar />
 
 			<PageBannerStyle1
 				pageTitle="CDL Тесты - Техас CVO Knowledge тест"
@@ -1120,7 +1119,6 @@ const CDLtexas = () => {
 				</div>
 			</div>
 
-			<Footer />
 		</>
 	);
 };

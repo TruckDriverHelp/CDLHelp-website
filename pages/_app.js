@@ -16,13 +16,15 @@ import '@/public/css/styles.css'
 import Script from "next/script";
 import { useRouter } from 'next/router'
 import Pixel from '../components/Pixel'
+import Navbar from '@/components/_App/Navbar'
+import Footer from '@/components/_App/Footer'
 
 import CookieConsentBanner from "../components/_App/CookieConsentBanner.js"
 
 import Layout from '@/components/_App/Layout';
 import { useEffect } from 'react'
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, articles }) => {
 	const router = useRouter()
 
 	useEffect(() => {
@@ -47,6 +49,7 @@ const MyApp = ({ Component, pageProps }) => {
 	}, [router.events])
 	return (
 		<Layout>
+			<Navbar articles={articles} />
 			<Pixel name='FACEBOOK_PIXEL_1' />
 			{router.pathname != "/404" && <CookieConsentBanner />}
 			<Component {...pageProps} />
@@ -69,7 +72,9 @@ const MyApp = ({ Component, pageProps }) => {
                   });
                 `,
 				}}
+
 			/>
+			<Footer />
 		</Layout>
 	)
 }
