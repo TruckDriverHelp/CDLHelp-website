@@ -14,12 +14,12 @@ const localeContent = {
     bestTelegramChat: "Лучший Телеграм чат для начинающих дальнобойщиков",
   },
   "en": {
-    title: "CDL на русском языке",
-    description: "Приложение CDL Help поможет Вам не только подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США, но с изучением английского языка.",
-    download: "Скачать",
-    cdlSchools: "CDL школы",
-    language: "на русском",
-    bestTelegramChat: "Лучший Телеграм чат для начинающих дальнобойщиков",
+    title: "CDL Practice Tests with Translations",
+    description: "Prepare for your CDL exam with multilingual practice tests! Get instant feedback, detailed explanations, and boost your confidence in any language!",
+    download: "Download",
+    cdlSchools: "CDL Schools",
+    language: "in English",
+    bestTelegramChat: "Telegram chat for beginner truck drivers"
   },
   "uk": {
     title: "CDL українською мовою",

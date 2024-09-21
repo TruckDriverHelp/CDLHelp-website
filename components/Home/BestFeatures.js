@@ -5,49 +5,49 @@ import { useRouter } from "next/router";
 const localeContent = {
     "ru": {
         title: "Приложение CDL Help",
-        description: "CDL Help это уникальное приложение для подготовки к сдаче тестов CDL-A. Приложение предоставляет возможность переводить тесты с английского в режиме реального времени. Используйте тесты для того чтобы проверить свои знания и подготовиться к экзаменам Class-A Commercial Driver’s License в США. Тесты имитируют типы вопросов, которые могут возникнуть при сдаче тестов в местном офисе DMV.", 
-        download: "Скачать", 
-        try: "Попробовать Онлайн", 
+        description: "CDL Help это уникальное приложение для подготовки к сдаче тестов CDL-A. Приложение предоставляет возможность переводить тесты с английского в режиме реального времени. Используйте тесты для того чтобы проверить свои знания и подготовиться к экзаменам Class-A Commercial Driver’s License в США. Тесты имитируют типы вопросов, которые могут возникнуть при сдаче тестов в местном офисе DMV.",
+        download: "Скачать",
+        try: "Попробовать Онлайн",
         freeQuestions: "Бесплатные вопросы",
         freeAccess: "Бесплатный доступ к 80+ вопросам.",
         translation: "Текст с переводом",
-        helpsToGetCdl: "Помогает получить права CDL, а также учить английский язык.", 
+        helpsToGetCdl: "Помогает получить права CDL, а также учить английский язык.",
         questionsDataBase: "База вопросов",
-        numberOfQuestions: "В нашей базе вопросов содержится более 370 вопросов.", 
+        numberOfQuestions: "В нашей базе вопросов содержится более 370 вопросов.",
         questionsCategories: "3 категории вопросов",
         questionsCategories2: "Приложение содержит вопросы из трех категорий: General Knowedlge, Air Brakes, и Combination.",
     },
 
     "en": {
-        title: "Приложение CDL Help",
-        description: "CDL Help это уникальное приложение для подготовки к сдаче тестов CDL-A. Приложение предоставляет возможность переводить тесты с английского в режиме реального времени. Используйте тесты для того чтобы проверить свои знания и подготовиться к экзаменам Class-A Commercial Driver’s License в США. Тесты имитируют типы вопросов, которые могут возникнуть при сдаче тестов в местном офисе DMV.", 
-        download: "Скачать", 
-        try: "Попробовать Онлайн", 
-        freeQuestions: "Бесплатные вопросы",
-        freeAccess: "Бесплатный доступ к 80+ вопросам.",
-        translation: "Текст с переводом",
-        helpsToGetCdl: "Помогает получить права CDL, а также учить английский язык.", 
-        questionsDataBase: "База вопросов",
-        numberOfQuestions: "В нашей базе вопросов содержится более 370 вопросов.", 
-        questionsCategories: "3 категории вопросов",
-        questionsCategories2: "Приложение содержит вопросы из трех категорий: General Knowedlge, Air Brakes, и Combination.",
+        title: "CDL Help App",
+        description: "CDL Help is a unique app for preparing to take CDL-A tests. The app offers real-time translation of the tests from English. Use the tests to check your knowledge and prepare for the Class-A Commercial Driver's License exams in the USA. The tests simulate the types of questions you may encounter at your local DMV office.",
+        download: "Download",
+        try: "Try Online",
+        freeQuestions: "Free Questions",
+        freeAccess: "Free access to 80+ questions.",
+        translation: "Text with translation",
+        helpsToGetCdl: "Helps to get CDL license and also to learn English.",
+        questionsDataBase: "Questions Database",
+        numberOfQuestions: "Our question database contains more than 370 questions.",
+        questionsCategories: "3 categories of questions",
+        questionsCategories2: "The app contains questions from three categories: General Knowledge, Air Brakes, and Combination."
     },
-    
+
     "uk": {
         title: "Додаток CDL Help",
-        description: "CDL Help — це унікальна програма для підготовки до тестів CDL-A. Додаток надає можливість перекладати тести з англійської мови в режимі реального часу. Використовуйте тести, щоб перевірити свої знання та підготуватися до іспитів CDL класу A в США. Тести в додатку схожі на запитання, які вам трапляться під час проходження тестів у місцевому офісі DMV.", 
-        download: "Завантажити", 
-        tryOnline: "Спробувати онлайн", 
+        description: "CDL Help — це унікальна програма для підготовки до тестів CDL-A. Додаток надає можливість перекладати тести з англійської мови в режимі реального часу. Використовуйте тести, щоб перевірити свої знання та підготуватися до іспитів CDL класу A в США. Тести в додатку схожі на запитання, які вам трапляться під час проходження тестів у місцевому офісі DMV.",
+        download: "Завантажити",
+        tryOnline: "Спробувати онлайн",
         freeQuestions: "Безкоштовні запитання",
         freeAccess: "Безкоштовний доступ до 80+ запитань.",
         translation: "Текст з перекладом",
-        helpsToGetCdl: "Допомагає отримати права CDL, а також вивчити англійську мову", 
+        helpsToGetCdl: "Допомагає отримати права CDL, а також вивчити англійську мову",
         questionsDataBase: "База питань",
-        numberOfQuestions: "В нашій базі понад 370 питань.", 
+        numberOfQuestions: "В нашій базі понад 370 питань.",
         questionsCategories: "3 категорії питань",
         questionsCategories2: "Додаток містить питання з трьох категорій: Загальні знання, пневматичні гальма та комбінований транспорт.",
     }
-  };
+};
 
 
 const BestFeatures = () => {
