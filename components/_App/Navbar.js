@@ -190,11 +190,15 @@ const Navbar = () => {
 
                     </ul>
                   </li>
-                  <li className="nav-item">
-                    <Link href="/cdl-shkola">
-                      <a className="nav-link">{cdlSchool}</a>
-                    </Link>
-                  </li>
+
+                  {(locale === "ru" || locale === "uk") && (
+                    <li className="nav-item">
+                      <Link href="/cdl-shkola">
+                        <a className="nav-link">{cdlSchool}</a>
+                      </Link>
+                    </li>
+                  )}
+
                   <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       DMV Help
@@ -212,7 +216,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              
+
 
               <div className="others-options">
                 <LanguageSwitcher />
