@@ -4318,6 +4318,23 @@ textarea.form-control {
   margin-bottom: 20px;
 }
 
+.language-switcher {
+  font-size: 16px;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: small;
+}
+
+.language-switcher option {
+  padding: 10px;
+}
+
+.language-switcher:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {

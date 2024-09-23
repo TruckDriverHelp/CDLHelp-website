@@ -678,6 +678,7 @@
     position: absolute;
     right: 50px;
     top: 7px;
+    display: flex;
   }
   .nav-icon {
 		font-size: 30px;

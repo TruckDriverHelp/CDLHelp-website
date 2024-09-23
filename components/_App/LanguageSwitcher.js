@@ -1,23 +1,32 @@
 import { useRouter } from 'next/router';
 
-const LanguageSwitcher = ({alternateLinks}) => {
+const LanguageSwitcher = ({ alternateLinks }) => {
 
     const router = useRouter()
-    const { locales } = router;
+    const { locale } = router;
+
+    const languages = {
+        "none": "Language",
+        "uk": "Українська",
+        "ru": "Русский",
+        "en": "English"
+    }
 
     const handleLocaleChange = (event) => {
         const locale = event.target.value;
-        router.push("/", undefined, { locale });
+        router.push("/", null, { locale });
     };
 
     return (
-        <select onChange={handleLocaleChange}>
-            {locales.map((locale) => (
-                <option key={locale} value={locale}>
-                    {locale}
-                </option>
-            ))}
-        </select>
+        <div>
+            <select name="language" onChange={handleLocaleChange} className='language-switcher'>
+                {Object.entries(languages).map(([locale, language]) => (
+                    <option key={locale} value={locale}>
+                        {language}
+                    </option>
+                ))}
+            </select>
+        </div>
     );
 };
 
