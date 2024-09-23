@@ -5,6 +5,9 @@ import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import Footer from '@/components/_App/Footer'
 
 const PrivacyPolicy = () => {
+	const title = "Политика конфиденциальности – CDL Help"
+	const description = "Узнайте, как CDL Help защищает вашу конфиденциальность. Ознакомьтесь с нашей политикой конфиденциальности"
+	
 	return (
 		<>
 			<Head>

@@ -1,7 +1,6 @@
-// 404 Error Page Style File Path: public/css/pages-and-components-css/error.scss
-
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const ErrorPage = () => {
 	return (

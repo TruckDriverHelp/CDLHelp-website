@@ -124,7 +124,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-md navbar-light bg-light">
               <Link href="/">
                 <a className="navbar-brand">
-                  <Image
+                  <img 
                     src="/images/black-logo.png"
                     alt="logo"
                     width="101"

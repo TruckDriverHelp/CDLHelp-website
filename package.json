@@ -36,8 +36,13 @@
         "remark-gfm": "^4.0.0",
         "remark-html": "^16.0.1",
         "sass": "^1.43.5",
+        "sendgrid": "^5.2.3",
         "sweetalert2": "^11.2.1",
         "sweetalert2-react-content": "^4.2.0",
         "swiper": "^6.8.4"
+    },
+    "devDependencies": {
+        "eslint": "8.57.0",
+        "eslint-config-next": "14.2.5"
     }
 }

@@ -1,7 +1,6 @@
-// Footer Component Style File Path: public/css/pages-and-components-css/footer.scss
-
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const FooterStyleOne = () => {
     const currentYear = new Date().getFullYear();
@@ -12,7 +11,7 @@ const FooterStyleOne = () => {
                     <div className="footer-content">
                         <Link href="/">
                             <a className="logo">
-                                <img src="/images/logo2.png" alt="logo" />
+                                <img  src="/images/logo2.png" alt="logo" />
                             </a>
                         </Link>
 
@@ -62,7 +61,7 @@ const FooterStyleOne = () => {
                             </li>
                             <li className="nav-item">
                                 <Link href="/faq">
-                                    <a className="nav-link">FAQ's</a>
+                                    <a className="nav-link">FAQ</a>
                                 </Link>
                             </li>
                             <li className="nav-item">

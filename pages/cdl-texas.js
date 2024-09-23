@@ -7,26 +7,29 @@ import Head from "next/head";
 import Image from "next/image";
 
 const CDLtexas = () => {
+	const title = "Техас CVO Knowledge тест – перевод на русский язык"
+	const description = "Бесплатные материалы для подготовки к Texas CVO Knowledge тест. Вопросы и ответы для техасского CVO теста"
 	return (
 		<>
 			<Head>
-				<title>CDL Тесты - Техас CVO Knowledge тест</title>
+				<title>{title}</title>
 				<meta
 					name="description"
-					content="CDL Тесты - Техас CVO Knowledge тест"
+					content={description}
 				/>
+				<link rel="canonical" href="https://cdlhelp.com/cdl-texas/"/>
 
 				{/* Google / Search Engine Tags */}
 				<meta
-					itemprop="name"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					itemProp="name"
+					content={title}
 				/>
 				<meta
-					itemprop="description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					itemProp="description"
+					content={description}
 				/>
 				<meta
-					itemprop="image"
+					itemProp="image"
 					content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
 				/>
 
@@ -35,11 +38,11 @@ const CDLtexas = () => {
 				<meta property="og:type" content="article" />
 				<meta
 					property="og:title"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					property="og:description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content={description}
 				/>
 				<meta
 					property="og:image"
@@ -50,11 +53,11 @@ const CDLtexas = () => {
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
 					name="twitter:title"
-					content="Приложение CDL Help - Тесты CDL на русском языке"
+					content={title}
 				/>
 				<meta
 					name="twitter:description"
-					content="CDL Help - Инструкция по применению приложения CDL Help."
+					content={description}
 				/>
 				<meta
 					name="twitter:image"
@@ -63,10 +66,10 @@ const CDLtexas = () => {
 			</Head>
 
 			<PageBannerStyle1
-				pageTitle="CDL Тесты - Техас CVO Knowledge тест"
+				pageTitle={title}
 				homePageUrl="/"
 				homePageText="Главная Страница"
-				activePageText="CDL Тесты - Техас CVO Knowledge тест"
+				activePageText={title}
 			/>
 
 			<div className="blog-details-area ptb-75">
@@ -559,7 +562,7 @@ const CDLtexas = () => {
 
 									<div className="tx-quiz-card">
 										<div className="tx-quiz-card-column">
-											<div>The maximum speed limit for a pickup truck with a manufacturer's rated carrying capacity of 2,000 lbs or less on U.S. or state highway in the daytime is:</div>
+											<div>The maximum speed limit for a pickup truck with a manufacturer&apos; rated carrying capacity of 2,000 lbs or less on U.S. or state highway in the daytime is:</div>
 											<div>70 mph</div>
 										</div>
 										<div className="tx-card-line"></div>
@@ -684,7 +687,7 @@ const CDLtexas = () => {
 										</div>
 										<div className="tx-card-line"></div>
 										<div className="tx-quiz-card-column">
-											<div>"Когда следует сливать воздушные баки?"</div>
+											<div>Когда следует сливать воздушные баки?</div>
 											<div>Каждый рабочий день.</div>
 										</div>
 									</div>
@@ -1099,7 +1102,7 @@ const CDLtexas = () => {
 								<div className="article-footer">
 									<div className="post-author-meta">
 										<div className="d-flex align-items-center">
-											<img src="/images/logo-adaptive.png" alt="user" />
+											<img  src="/images/logo-adaptive.png" alt="user" />
 											<div className="title">
 												<span className="name">Автор TruckDirver.help</span>
 												<span className="date">10 Ноябрь, 2023</span>

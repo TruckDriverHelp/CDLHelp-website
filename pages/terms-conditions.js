@@ -5,6 +5,8 @@ import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import Footer from '@/components/_App/Footer'
 
 const TermsConditions = () => {
+	const title = "Условия пользования – CDL Help"
+	const description = "Ознакомьтесь с условиями пользования CDL Help. Узнайте, как мы обеспечиваем ваш комфорт!"
 	return (
 		<>
 			<Head>

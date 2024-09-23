@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
+import Email from "./Email";
 const localeContent = {
   "ru": {
     downloadApp: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
@@ -139,7 +139,7 @@ const Footer = () => {
               <div className="single-footer-widget">
                 <Link href="/">
                   <a className="logo">
-                    <Image
+                    <img 
                       src="/images/logo.png"
                       alt="logo"
                       width="101"
@@ -159,7 +159,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.t.me/TruckDriverHelp" target="_blank">
+                    <a href="https://t.me/TruckDriverGroup/13900/13904" target="_blank">
                       <i className="ri-telegram-fill"></i>
                     </a>
                   </li>
@@ -194,11 +194,6 @@ const Footer = () => {
                       <a>{aboutProject}</a>
                     </Link>
                   </li>
-                  {/* <li>
-                                        <Link href="/features">
-                                            <a>Отзывы</a>
-                                        </Link>
-                                    </li> */}
                   <li>
                     <a href={`https://test.cdlhelp.com/${locale}`}>
                       {tryFree}
@@ -261,25 +256,11 @@ const Footer = () => {
               </div>
             </div>
 
-            {/*<div className="col-lg-3 col-md-6 col-sm-6">
-                            <div className="single-footer-widget">
-                                <h3>Рассылка</h3>
-                                <p>Подпишитесь на рассылку поектов TruckDriver.help и CDL Help.</p>
-
-                                <form className="newsletter-form" onSubmit={e => e.preventDefault()}>
-                                    <input 
-                                        type="text" 
-                                        className="input-newsletter" 
-                                        placeholder="Ваш Email" 
-                                        name="EMAIL" 
-                                        required 
-                                    />
-                                    <button type="submit">
-                                        <i className="ri-send-plane-2-line"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>*/}
+            <div className="col-lg-3 col-md-6 col-sm-6">
+              <div className="single-footer-widget">
+                <Email />
+              </div>
+            </div>
           </div>
 
           <div className="copyright-area">
@@ -295,5 +276,6 @@ const Footer = () => {
     </>
   );
 };
+
 
 export default Footer;

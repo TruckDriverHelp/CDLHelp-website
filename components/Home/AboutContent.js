@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const AboutContent = () => {
     return (
@@ -9,7 +10,7 @@ const AboutContent = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="app-about-image">
-                                <img 
+                                <img  
                                     src="/images/home-7-8-9/about/about-2.png" 
                                     alt="image" 
                                 />

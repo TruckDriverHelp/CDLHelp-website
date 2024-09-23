@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,25 +41,25 @@ const AppScreenshotsStyle2 = () => {
                         className="mySwiper screenshots-swiper-slides"
                     >
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screen1.png" alt="screenshots" />
                         </SwiperSlide>
                     </Swiper>
                 </div>

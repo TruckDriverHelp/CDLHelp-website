@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image'
+
 
 const FreeTrialStyle3 = () => {
     return (
@@ -26,17 +28,17 @@ const FreeTrialStyle3 = () => {
 
                             <div className="col-lg-6 col-md-12">
                                 <div className="image">
-                                    <img src="/images/app/app-img6.png" alt="free-trial" />
+                                    <img  src="/images/app/app-img6.png" alt="free-trial" />
                                 </div>
                             </div>
                         </div>
 
                         {/* Shape Images */}
                         <div className="shape8">
-                            <img src="/images/shape/shape7.png" alt="shape" />
+                            <img  src="/images/shape/shape7.png" alt="shape" />
                         </div>
                         <div className="shape9">
-                            <img src="/images/shape/shape8.png" alt="shape" />
+                            <img  src="/images/shape/shape8.png" alt="shape" />
                         </div>
 
                         <div className="lines">

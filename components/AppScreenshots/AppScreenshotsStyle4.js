@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
+
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,13 +38,13 @@ const AppScreenshotsStyle4 = () => {
                         className="screen-swiper-slides mySwiper"
                     >
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen2.jpg" alt="screen" />
+                            <img  src="/images/screenshots/screen2.jpg" alt="screen" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen3.jpg" alt="screen" />
+                            <img  src="/images/screenshots/screen3.jpg" alt="screen" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="/images/screenshots/screen4.jpg" alt="screen" />
+                            <img  src="/images/screenshots/screen4.jpg" alt="screen" />
                         </SwiperSlide>
                     </Swiper>
 
