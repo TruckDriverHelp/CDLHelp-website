@@ -200,7 +200,7 @@ const Footer = () => {
                                         </Link>
                                     </li> */}
                   <li>
-                    <a href="https://test.cdlhelp.com/">
+                    <a href={`https://test.cdlhelp.com/${locale}`}>
                       {tryFree}
                     </a>
                   </li>
