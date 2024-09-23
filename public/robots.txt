@@ -1,5 +1,9 @@
+# *
 User-agent: *
-Disallow: /admin/
-Disallow: /private/
+Allow: /
 
+# Host
+Host: https://www.cdlhelp.com
+
+# Sitemaps
 Sitemap: https://www.cdlhelp.com/sitemap.xml
