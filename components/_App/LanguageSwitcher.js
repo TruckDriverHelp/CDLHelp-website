@@ -6,7 +6,7 @@ const LanguageSwitcher = ({ alternateLinks }) => {
     const { locale } = router;
 
     const languages = {
-        "none": "Language",
+        "": "Language",
         "uk": "Українська",
         "ru": "Русский",
         "en": "English"
