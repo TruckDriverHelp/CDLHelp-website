@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
 
             {children}
 
-            {loader ? <Preloader /> : null}
+            {/* {loader ? <Preloader /> : null} */}
  
             {/* <GoTop scrollStepInPx="100" delayInMs="10.50" /> */}
         </>
