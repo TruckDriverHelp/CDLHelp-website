@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/router";
-import ScrollAnimation from 'react-animate-on-scroll';import { useTranslation } from 'next-i18next';
+import ScrollAnimation from 'react-animate-on-scroll';
+import { useTranslation } from 'next-i18next';
 
 const AppDownload = () => {
     const {t} = useTranslation("index");

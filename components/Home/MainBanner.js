@@ -2,8 +2,6 @@ import Link from "next/link";
 import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "next/image";
-import { useContext } from "react";
-import { TranslationContext } from "lib/TranslationContext";
 import { useTranslation } from 'next-i18next';
 
 const MainBanner = () => {

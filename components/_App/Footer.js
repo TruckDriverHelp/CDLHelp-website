@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Email from "./Email";
 import { useTranslation } from "next-i18next";
 
 
@@ -199,7 +198,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6 col-sm-6">
               <div className="single-footer-widget">
-                <Email />
+                <Email translation={translations}/>
               </div>
             </div>
           </div>

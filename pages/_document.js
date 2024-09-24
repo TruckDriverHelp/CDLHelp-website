@@ -12,7 +12,7 @@ class MyDocument extends Document {
         const { locale } = this.props;
 
         return (
-            <Html lang={locale}>
+            <Html>
                 <Head>
                     <script
                         dangerouslySetInnerHTML={{

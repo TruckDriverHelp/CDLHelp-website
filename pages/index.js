@@ -17,9 +17,7 @@ const IndexPage = ({ articles }) => {
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
                 <title>Приложение CDL Help - Тесты CDL на русском языке</title>
             </Head>
-
             <Navbar articles={articles} />
-
 
             <MainBanner />
 
@@ -47,6 +45,7 @@ const IndexPage = ({ articles }) => {
                 </div>
 
                 <BlogPost /> */}
+
         </>
     )
 }

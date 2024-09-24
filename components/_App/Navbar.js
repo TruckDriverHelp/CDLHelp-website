@@ -164,7 +164,6 @@ const Navbar = () => {
                           {t("workForTruckers")}
                         </a>
                       </li>
-
                     </ul>
                   </li>
 
@@ -178,12 +177,12 @@ const Navbar = () => {
 
                   <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
-                      DMV Help
+                      {t("DMV Help")}
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="https://www.mir.chat/">
-                      Mir.chat
+                      {t("Mir.chat")}
                     </a>
                   </li>
                   <li className="nav-item">

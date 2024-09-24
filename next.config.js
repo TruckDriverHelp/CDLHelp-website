@@ -20,4 +20,3 @@ module.exports = {
         STRAPI_PORT: process.env.STRAPI_PORT
     },
 }
-
