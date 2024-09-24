@@ -1,19 +1,24 @@
 import { useState } from "react";
 import Head from 'next/head';
-import Navbar from '@/components/_App/Navbar';
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
 import YouTube from 'react-youtube';  
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const PostDetailView = ({ slug, article }) => {
+  const {t} = useTranslation("article");
   const [isOpen, setIsOpen] = useState(true);
   const openModal = () => {
     setIsOpen(!isOpen);
   }
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
+
+  const og_tags = article
+
 
   return (
     <>
@@ -105,8 +110,7 @@ const PostDetailView = ({ slug, article }) => {
             }
             if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
               return <div>
-                {/* TODO: перевести */}
-                <p>Следующие статьи</p> 
+                <p>{t("relatedArticles")}</p> 
                 <ul>
                 {block.articles.data.map((articleData, i) => {
                   const article = articleData.attributes;
@@ -210,7 +214,13 @@ export async function getStaticProps({params, locale}) {
     return {
       props: {
           slug,
-          article: attributes
+          article: attributes,
+          ...(await serverSideTranslations(locale ?? 'en', [
+            'navbar',
+            'footer',
+            'cookie',
+            'article'
+          ])),
       } 
     }
   } catch (error) {

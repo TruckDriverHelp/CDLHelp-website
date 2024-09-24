@@ -18,6 +18,7 @@ import { useRouter } from 'next/router'
 import Pixel from '../components/Pixel'
 import Navbar from '@/components/_App/Navbar'
 import Footer from '@/components/_App/Footer'
+import { appWithTranslation } from 'next-i18next'
 
 import CookieConsentBanner from "../components/_App/CookieConsentBanner.js"
 
@@ -79,4 +80,4 @@ const MyApp = ({ Component, pageProps, articles }) => {
 	)
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

@@ -3,32 +3,10 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import LanguageSwitcher from "@/components/_App/LanguageSwitcher"
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
-const localeContent = {
-  "ru": {
-    main: "Главная",
-    resources: "Ресурсы",
-    workForTruckers: "Работа для дальнобойщиков",
-    cdlSchool: "CDL школа",
-    contacts: "Контакты"
-  },
-  "en": {
-    main: "Home",
-    resources: "Resources",
-    workForTruckers: "Jobs",
-    cdlSchool: "CDL School",
-    contacts: "Contact"
-  },
-  "uk": {
-    main: "Головна",
-    resources: "Ресурси",
-    workForTruckers: "Робота для далекобійників",
-    cdlSchool: "CDL школа",
-    contacts: "Контакти"
-  }
-};
 
 const articleList = {
   "en": [
@@ -89,6 +67,8 @@ const articleList = {
 }
 
 const Navbar = () => {
+  const {t} = useTranslation("navbar");
+  const {locale} = useRouter();
   const [menu, setMenu] = React.useState(true);
 
   const toggleNavbar = () => {
@@ -112,9 +92,6 @@ const Navbar = () => {
   const classTwo = menu
     ? "navbar-toggler navbar-toggler-right collapsed"
     : "navbar-toggler navbar-toggler-right";
-
-  const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { main, resources, workForTruckers, cdlSchool, contacts } = localeContent[locale];
 
   return (
     <>
@@ -152,7 +129,7 @@ const Navbar = () => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
-                      <a className="nav-link">{main}</a>
+                      <a className="nav-link">{t("main")}</a>
                     </Link>
                   </li>
 
@@ -162,7 +139,7 @@ const Navbar = () => {
                         onClick={(e) => e.preventDefault()}
                         className="dropdown-toggle nav-link"
                       >
-                        {resources}
+                        {t("resources")}
                       </a>
                     </Link>
 
@@ -184,7 +161,7 @@ const Navbar = () => {
                           className="nav-link"
                           href="https://www.truckdriver.help/"
                         >
-                          {workForTruckers}
+                          {t("workForTruckers")}
                         </a>
                       </li>
 
@@ -194,7 +171,7 @@ const Navbar = () => {
                   {(locale === "ru" || locale === "uk") && (
                     <li className="nav-item">
                       <Link href="/cdl-shkola">
-                        <a className="nav-link">{cdlSchool}</a>
+                        <a className="nav-link">{t("cdlSchool")}</a>
                       </Link>
                     </li>
                   )}
@@ -211,7 +188,7 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item">
                     <Link href="/contact">
-                      <a className="nav-link">{contacts}</a>
+                      <a className="nav-link">{t("contacts")}</a>
                     </Link>
                   </li>
                 </ul>
@@ -227,12 +204,12 @@ const Navbar = () => {
                     style={{ color: "#3c9ff0", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
-                <a href="https://www.youtube.com/@truckdriverdothelp">
+                {(locale ==="ru" || locale === "uk") && <a href="https://www.youtube.com/@truckdriverdothelp">
                   <i
                     className="ri-youtube-fill"
                     style={{ color: "#ff0000", fontSize: 26, marginRight: 5 }}
                   ></i>
-                </a>
+                </a>}
                 <a href="https://www.facebook.com/truckdriverhelp">
                   <i
                     className="ri-facebook-circle-fill"
