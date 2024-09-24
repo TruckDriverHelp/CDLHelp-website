@@ -5,6 +5,8 @@ import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const TermsConditions = () => {
+	const title = "Условия пользования – CDL Help"
+	const description = "Ознакомьтесь с условиями пользования CDL Help. Узнайте, как мы обеспечиваем ваш комфорт!"
 	return (
 		<>
 			<Head>

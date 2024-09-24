@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link'
+import Image from 'next/image'
 
 const PricingPlanStyle2 = () => {
     return (
@@ -92,10 +93,10 @@ const PricingPlanStyle2 = () => {
 
                 {/* Shape Images */}
                 <div className="shape12">
-                    <img src="/images/shape/shape11.png" alt="shape" />
+                    <img  src="/images/shape/shape11.png" alt="shape" />
                 </div>
                 <div className="shape13">
-                    <img src="/images/shape/shape15.png" alt="shape" />
+                    <img  src="/images/shape/shape15.png" alt="shape" />
                 </div>
             </div>
         </>

@@ -11,7 +11,7 @@ const BestFeatures = () => {
             <div id="about" className="features-area pt-100 pb-75">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-lg-6 col-md-12">
+                        <div className="col-lg-6 col-md-12" style={{textAlign: 'justify'}}>
                             <div className="features-inner-content">
                                 <h2>{t("bestFeaturesTitle")}</h2>
                                 <p>{t("bestFeaturesDescription")}</p>
@@ -24,7 +24,7 @@ const BestFeatures = () => {
                         <div className="col-lg-6 col-md-12 features-inner-list">
                             <div className="row justify-content-center">
                                 <div className="col-lg-6 col-sm-6">
-                                    <div className="features-inner-card">
+                                    <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i className="ri-hand-coin-line"></i>
                                             <h3>{t("freeQuestions")}</h3>
@@ -51,7 +51,7 @@ const BestFeatures = () => {
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">
-                                    <div className="features-inner-card">
+                                    <div className="features-inner-card with-box-shadow">
                                         <div className="icon">
                                             <i className="ri-folder-open-line"></i>
                                             <h3>{t("questionsCategories")}</h3>

@@ -1,5 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image'
+
 const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
@@ -54,22 +56,22 @@ const AppScreenshotsStyle5 = () => {
                         {...options}
                     > 
                         <div className="single-screenshot-item">
-                            <img src="/images/screenshots/screenshots1.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screenshots1.png" alt="screenshots" />
                         </div>
                         <div className="single-screenshot-item">
-                            <img src="/images/screenshots/screenshots2.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screenshots2.png" alt="screenshots" />
                         </div>
                         <div className="single-screenshot-item">
-                            <img src="/images/screenshots/screenshots3.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screenshots3.png" alt="screenshots" />
                         </div>
                         <div className="single-screenshot-item">
-                            <img src="/images/screenshots/screenshots4.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screenshots4.png" alt="screenshots" />
                         </div>
                         <div className="single-screenshot-item">
-                            <img src="/images/screenshots/screenshots5.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screenshots5.png" alt="screenshots" />
                         </div>
                         <div className="single-screenshot-item">
-                            <img src="/images/screenshots/screenshots4.png" alt="screenshots" />
+                            <img  src="/images/screenshots/screenshots4.png" alt="screenshots" />
                         </div>
                     </OwlCarousel> : ''}
                 </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import ScrollAnimation from 'react-animate-on-scroll';
+import Image from 'next/image'
+
 
 const SoftwareIntegrations = () => {
     return (
@@ -24,26 +26,26 @@ const SoftwareIntegrations = () => {
                         <div className="col-lg-6 col-md-12">
                             <ScrollAnimation animateIn="fadeInUp">
                                 <div className="software-integrations-list">
-                                    <img src="/images/shape/bg-shape2.png" alt="bg-shape" />
+                                    <img  src="/images/shape/bg-shape2.png" alt="bg-shape" />
 
                                     <ul>
                                         <li>
-                                            <img src="/images/software-integrations/atlassian.png" className="atlassian" alt="atlassian" />
+                                            <img  src="/images/software-integrations/atlassian.png" className="atlassian" alt="atlassian" />
                                         </li>
                                         <li> 
-                                            <img src="/images/software-integrations/skype.png" className="skype" alt="skype" />
+                                            <img  src="/images/software-integrations/skype.png" className="skype" alt="skype" />
                                         </li>
                                         <li>
-                                            <img src="/images/software-integrations/gdrive.png" className="gdrive" alt="gdrive" />
+                                            <img  src="/images/software-integrations/gdrive.png" className="gdrive" alt="gdrive" />
                                         </li>
                                         <li>
-                                            <img src="/images/software-integrations/slack.png" className="slack" alt="slack" />
+                                            <img  src="/images/software-integrations/slack.png" className="slack" alt="slack" />
                                         </li>
                                         <li>
-                                            <img src="/images/software-integrations/jira.png" className="jira" alt="jira" />
+                                            <img  src="/images/software-integrations/jira.png" className="jira" alt="jira" />
                                         </li>
                                         <li>
-                                            <img src="/images/software-integrations/frame.png" className="frame" alt="frame" />
+                                            <img  src="/images/software-integrations/frame.png" className="frame" alt="frame" />
                                         </li>
                                     </ul>
                                 </div>
@@ -53,7 +55,7 @@ const SoftwareIntegrations = () => {
                 </div>
 
                 <div className="shape6">
-                    <img src="/images/shape/shape5.png" alt="shape" />
+                    <img  src="/images/shape/shape5.png" alt="shape" />
                 </div>
             </div>
         </>

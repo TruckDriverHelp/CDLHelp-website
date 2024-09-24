@@ -16,7 +16,7 @@ const FooterStyleTwo = () => {
                             <div className="single-footer-widget">
                                 <Link href="/">
                                     <a className="logo">
-                                        <Image src="/images/black-logo.png" alt="logo" width="101" height="44" />
+                                        <img  src="/images/black-logo.png" alt="logo" width="101" height="44" />
                                     </a>
                                 </Link>
 
@@ -73,7 +73,7 @@ const FooterStyleTwo = () => {
                                     </li>
                                     <li>
                                         <Link href="/faq">
-                                            <a>FAQ's</a>
+                                            <a>FAQ</a>
                                         </Link>
                                     </li>
                                     <li>
@@ -106,7 +106,7 @@ const FooterStyleTwo = () => {
                                     </li>
                                     <li>
                                         <Link href="/faq">
-                                            <a>FAQ's</a>
+                                            <a>FAQ</a>
                                         </Link>
                                     </li>
                                     <li>

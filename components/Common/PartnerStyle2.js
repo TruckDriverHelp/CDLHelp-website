@@ -1,5 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image'
+
 const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
@@ -50,28 +52,28 @@ const PartnerStyle2 = () => {
                         {...options}
                     >
                         <div className="partner-item">
-                            <img src="/images/partner/partner3.png" alt="partner" />
+                            <img  src="/images/partner/partner3.png" alt="partner" />
                         </div>
                         <div className="partner-item">
-                            <img src="/images/partner/partner4.png" alt="partner" />
+                            <img  src="/images/partner/partner4.png" alt="partner" />
                         </div> 
                         <div className="partner-item">
-                            <img src="/images/partner/partner1.png" alt="partner" />
+                            <img  src="/images/partner/partner1.png" alt="partner" />
                         </div> 
                         <div className="partner-item">
-                            <img src="/images/partner/partner2.png" alt="partner" />
+                            <img  src="/images/partner/partner2.png" alt="partner" />
                         </div> 
                         <div className="partner-item">
-                            <img src="/images/partner/partner5.png" alt="partner" />
+                            <img  src="/images/partner/partner5.png" alt="partner" />
                         </div> 
                         <div className="partner-item">
-                            <img src="/images/partner/partner6.png" alt="partner" />
+                            <img  src="/images/partner/partner6.png" alt="partner" />
                         </div> 
                         <div className="partner-item">
-                            <img src="/images/partner/partner7.png" alt="partner" />
+                            <img  src="/images/partner/partner7.png" alt="partner" />
                         </div> 
                         <div className="partner-item">
-                            <img src="/images/partner/partner8.png" alt="partner" />
+                            <img  src="/images/partner/partner8.png" alt="partner" />
                         </div> 
                     </OwlCarousel> : ''}
                 </div>

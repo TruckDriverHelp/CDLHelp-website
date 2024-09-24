@@ -1,5 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image'
+
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
 });
@@ -17,7 +19,7 @@ const IntroVideo = () => {
             <div className="video-area">
                 <div className="container">
                     <div className="video-box">
-                        <img src="/images/video/video-img2.jpg" alt="video-image" />
+                        <img  src="/images/video/video-img2.jpg" alt="video-image" />
  
                         <div
                             onClick={e => {e.preventDefault(); openModal()}}
@@ -27,8 +29,8 @@ const IntroVideo = () => {
                         </div>
 
                         <div className="shape">
-                            <img className="shape1" src="/images/shape/shape1.png" alt="shape1" />
-                            <img className="shape2" src="/images/shape/shape2.png" alt="shape2" />
+                            <img  className="shape1" src="/images/shape/shape1.png" alt="shape1" />
+                            <img  className="shape2" src="/images/shape/shape2.png" alt="shape2" />
                         </div>
                     </div>
                 </div>

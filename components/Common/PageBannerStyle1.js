@@ -1,14 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image'
+
 
 const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}) => {
 
     return (
         <>
-            <Head>
-                <title>{pageTitle}</title>
-            </Head>
             <div className="page-title-area">
                 <div className="container">
                     <div className="page-title-content">
@@ -33,7 +32,7 @@ const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}
                 </div>
 
                 <div className="banner-shape1">
-                    <img src="/images/shape/shape9.png" alt="image" />
+                    <img  src="/images/shape/shape9.png" alt="image" />
                 </div>
             </div>
         </>

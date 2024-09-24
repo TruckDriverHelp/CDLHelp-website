@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const BlogPost = () => {
     return (
@@ -17,7 +18,7 @@ const BlogPost = () => {
                                 <div className="image">
                                     <Link href="/blog-details">
                                         <a className="d-block">
-                                            <img src="/images/blog/blog1.jpg" alt="blog" />
+                                            <img  src="/images/blog/blog1.jpg" alt="blog" />
                                         </a>
                                     </Link>
 
@@ -52,7 +53,7 @@ const BlogPost = () => {
                                 <div className="image">
                                     <Link href="/blog-details">
                                         <a className="d-block">
-                                            <img src="/images/blog/blog2.jpg" alt="blog" />
+                                            <img  src="/images/blog/blog2.jpg" alt="blog" />
                                         </a>
                                     </Link>
                                     <Link href="/blog-grid">
@@ -86,7 +87,7 @@ const BlogPost = () => {
                                 <div className="image">
                                     <Link href="/blog-details">
                                         <a className="d-block">
-                                            <img src="/images/blog/blog3.jpg" alt="blog" />
+                                            <img  src="/images/blog/blog3.jpg" alt="blog" />
                                         </a>
                                     </Link>
                                     <Link href="/blog-grid">

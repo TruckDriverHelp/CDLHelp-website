@@ -40,7 +40,6 @@ const IndexPage = ({ articles }) => {
 
             <AppDownload />
 
-
             {/* <PricingPlan /> 
                             
                             <div className="bg-f9f9f9">

@@ -1,5 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic';
+import Image from 'next/image'
+
 const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
@@ -47,7 +49,7 @@ const ClientFeedbackStyle6 = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-4 col-md-12">
                             <div className="testimonials-image">
-                                <img src="/images/woman.jpg" alt="testimonials" />
+                                <img  src="/images/woman.jpg" alt="testimonials" />
                             </div>
                         </div>
                         

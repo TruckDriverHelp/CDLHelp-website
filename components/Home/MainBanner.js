@@ -20,7 +20,7 @@ const MainBanner = () => {
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
-                    <i className="ri-download-fill main-banner-btn-icon"></i>
+                    <i><img src="/images/icons/download-bar-down.svg" alt="Скачать" style={{color: "white", width: 30, height: 30 }}></img></i>
                     iOS / Android
                     <span>{t("download")}</span>
                   </a>
@@ -45,19 +45,19 @@ const MainBanner = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-12">
+            <div className="col-xl-5 col-lg-4">
               <ScrollAnimation
                 animateIn="fadeInLeft"
                 duration={2}
                 animateOnce={true}
-                initiallyVisible={true}
+                initiallyVisible={false}
               >
-                <div className="new-app-main-banner-wrap-image">
-                  <Image
-                    src="/images/home-7-8-9/banner/banner-2.png"
+                <div className="new-app-main-banner-wrap-image" style={{paddingRight:120}}>
+                  <img 
+                    src="/images/banner/cdl-help-app.png"
                     alt="image"
-                    width={815}
-                    height={708}
+                    width={260}
+                    height={600}
                   />
 
                   {/* <div className="wrap-image-shape-1">
@@ -86,14 +86,6 @@ const MainBanner = () => {
           </div>
         </div>
 
-        <div className="new-app-main-banner-wrap-shape">
-          <Image
-            src="/images/home-7-8-9/banner/shape-5.png"
-            alt="image"
-            width={584}
-            height={555}
-          />
-        </div>
       </div>
     </>
   );
