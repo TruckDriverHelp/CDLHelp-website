@@ -1,12 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import ScrollAnimation from "react-animate-on-scroll";
-import { useTranslation } from 'lib/useTranslation';
+import { useRouter } from "next/router";
+import { useTranslation } from 'next-i18next';
 
-
-const AppDownload = ({translations}) => {
-    const {t} = useTranslation(translations);
-    
+const AppDownload = () => {
+    const {t} = useTranslation("index");
+    const { locale } = useRouter();
     const trackDownload = (platform) => {
         if (window.fbq) {
             window.fbq('trackCustom', `AppDownload_${platform}`, { platform: platform });
@@ -19,9 +18,9 @@ const AppDownload = ({translations}) => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12" style={{ textAlign: 'center' }}>
                             <div className="new-app-download-content">
-                                <span className="sub-title">{t("DOWNLOAD THE APP")}</span>
-                                <h2>{t("Download CDL Help - CDL tests with translation")}</h2>
-                                <p>{t("for free download the CDL Help app and try out the questions")}</p>
+                                <span className="sub-title">{t("downloadApp")}</span>
+                                <h2>{t("downloadAppText")}</h2>
+                                <p>{t("downloadAndTry")}</p>
 
                                 <div className="btn-box color-wrap">
                                     <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
@@ -33,8 +32,8 @@ const AppDownload = ({translations}) => {
                                                 height={30}
                                             />
                                         </div>
-                                        {t("For Android")}
-                                        <span>{t("Download")}</span>
+                                        {t("androidApp")}
+                                        <span>{t("downloadButton")}</span>
                                     </a>
                                     <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
                                         <div>
@@ -45,8 +44,8 @@ const AppDownload = ({translations}) => {
                                                 height={35}
                                             />
                                         </div>
-                                        {t("For iOS")}
-                                        <span>{t("Download")}</span>
+                                        {t("iosApp")}
+                                        <span>{t("downloadButton")}</span>
                                     </a>
                                 </div>
                             </div>

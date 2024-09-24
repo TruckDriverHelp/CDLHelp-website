@@ -3,11 +3,72 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
-import { useTranslation } from "lib/useTranslation";
+import LanguageSwitcher from "@/components/_App/LanguageSwitcher"
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
-const Navbar = ({translations}) => {
-  const {t} = useTranslation(translations);
 
+const articleList = {
+  "en": [
+    {
+      "title": "How to use the CDL Help App",
+      "slug": "how-to-use-cdl-help"
+    },
+    {
+      "title": "How to become a Truck Driver in USA",
+      "slug": "how-to-become-a-truck-driver-in-usa"
+    },
+    {
+      "title": "How to get a CDL Permit",
+      "slug": "how-to-get-clp-permit"
+    },
+    {
+      "title": "CDL – Frequently Asked Questions",
+      "slug": "frequently-asked-questions-cdl-help"
+    }
+  ],
+  "ru": [
+    {
+      "title": "Как стать дальнобойщиком в США",
+      "slug": "kak-stat-dalnoboishikom"
+    },
+    {
+      "title": "Как использовать приложение CDL Help",
+      "slug": "kak-ispolzovat-cdl-help"
+    },
+    {
+      "title": "Как получить CLP пермит",
+      "slug": "kak-poluchit-clp-permit"
+    },
+    {
+      "title": "Часто задаваемые вопросы",
+      "slug": "chasto-zadavaemye-voprosy"
+    }
+  ],
+  "uk": [
+    {
+      "title": "Як використовувати додаток CDL Help",
+      "slug": "yak-vykorystovuvaty-dodatok-cdl-help"
+    },
+    {
+      "title": "Як стати водієм вантажівки в США",
+      "slug": "yak-staty-vodiyem-vantazhivky-v-amerytsi"
+    },
+    {
+      "title": "Як отримати дозвіл CDL",
+      "slug": "yak-otrymaty-dozvil-cdl"
+    },
+    {
+      "title": "CDL Help – Часті запитання",
+      "slug": "chasti-zapytannya"
+    }
+  ]
+
+}
+
+const Navbar = () => {
+  const {t} = useTranslation("navbar");
+  const {locale} = useRouter();
   const [menu, setMenu] = React.useState(true);
 
   const toggleNavbar = () => {
@@ -68,7 +129,7 @@ const Navbar = ({translations}) => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
-                      <a className="nav-link">{t("Home")}</a>
+                      <a className="nav-link">{t("main")}</a>
                     </Link>
                   </li>
 
@@ -78,7 +139,7 @@ const Navbar = ({translations}) => {
                         onClick={(e) => e.preventDefault()}
                         className="dropdown-toggle nav-link"
                       >
-                        {t("Resources")}
+                        {t("resources")}
                       </a>
                     </Link>
 
@@ -103,7 +164,7 @@ const Navbar = ({translations}) => {
                           className="nav-link"
                           href="https://www.truckdriver.help/"
                         >
-                          {t("Jobs for truck drivers")}
+                          {t("workForTruckers")}
                         </a>
                       </li>
 
@@ -114,11 +175,15 @@ const Navbar = ({translations}) => {
                       </li>
                     </ul>
                   </li>
-                  <li className="nav-item">
-                    <Link href="/cdl-shkola">
-                      <a className="nav-link">{t("CDL School")}</a>
-                    </Link>
-                  </li>
+
+                  {(locale === "ru" || locale === "uk") && (
+                    <li className="nav-item">
+                      <Link href="/cdl-shkola">
+                        <a className="nav-link">{t("cdlSchool")}</a>
+                      </Link>
+                    </li>
+                  )}
+
                   <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       {t("DMV Help")}
@@ -130,9 +195,9 @@ const Navbar = ({translations}) => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="https://school.cdlhelp.app/contact/" className="nav-link">
-                      {t("Contacts")}
-                    </a>
+                    <Link href="/contact">
+                      <a className="nav-link">{t("contacts")}</a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -144,12 +209,12 @@ const Navbar = ({translations}) => {
                     style={{ color: "#3c9ff0", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
-                <a href="https://www.youtube.com/@truckdriverdothelp">
+                {(locale ==="ru" || locale === "uk") && <a href="https://www.youtube.com/@truckdriverdothelp">
                   <i
                     className="ri-youtube-fill"
                     style={{ color: "#ff0000", fontSize: 26, marginRight: 5 }}
                   ></i>
-                </a>
+                </a>}
                 <a href="https://www.facebook.com/truckdriverhelp">
                   <i
                     className="ri-facebook-circle-fill"

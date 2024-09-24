@@ -1,10 +1,9 @@
 import React from "react";
-import Navbar from "@/components/_App/Navbar";
 import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
 import BlogSidebar from "@/components/Blog/BlogSidebar";
-import Footer from "@/components/_App/Footer";
 import Head from "next/head";
-import Image from "next/image";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 
 const CDLtexas = () => {
 	const title = "Техас CVO Knowledge тест – перевод на русский язык"
@@ -1129,3 +1128,15 @@ const CDLtexas = () => {
 };
 
 export default CDLtexas;
+
+export async function getStaticProps({ locale }) {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', [
+            'navbar',
+            'footer',
+            'cookie'
+          ])),
+      },
+    };
+  }

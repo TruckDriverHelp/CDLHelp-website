@@ -12,14 +12,14 @@ const PageBannerStyle1 = ({pageTitle, homePageUrl, homePageText, activePageText}
                 <div className="container">
                     <div className="page-title-content">
                         <h1>{pageTitle}</h1>
-                        <ul>
+                        {/* <ul>
                             <li>
                                 <Link href={homePageUrl}>
                                     <a>{homePageText}</a>
                                 </Link>
                             </li>
                             <li>{activePageText}</li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
 

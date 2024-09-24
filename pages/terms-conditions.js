@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Navbar from '@/components/_App/Navbar'
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
-import Footer from '@/components/_App/Footer'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const TermsConditions = () => {
 	const title = "Условия пользования – CDL Help"
@@ -166,3 +166,15 @@ const TermsConditions = () => {
 }
 
 export default TermsConditions;
+
+export async function getStaticProps({ locale }) {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', [
+            'navbar',
+            'footer',
+            'cookie'
+          ])),
+      },
+    };
+  }

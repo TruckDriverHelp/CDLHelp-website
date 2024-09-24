@@ -5,11 +5,12 @@ import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
 import baseUrl from '@/utils/baseUrl'
 import GoogleMap from './GoogleMap';
+import { useTranslation } from 'next-i18next';
 
-const alertContent = () => {
+const alertContent = (t) => {
     MySwal.fire({
-        title: 'Congratulations!',
-        text: 'Your message was successfully send and will back to you soon',
+        title: t("sentTitle"),
+        text: t("sentText"),
         icon: 'success',
         timer: 2000,
         timerProgressBar: true,
@@ -27,6 +28,7 @@ const INITIAL_STATE = {
 };
 
 const ContactForm = () => {
+    const {t} = useTranslation("contact");
 
     const [contact, setContact] = useState(INITIAL_STATE);
     const handleChange = e => {
@@ -37,14 +39,33 @@ const ContactForm = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
+      
+        const { name, email, number, subject, text } = contact;
+      
+        if (!name || !email || !number || !subject || !text) {
+          alert(t("error.allfields"));
+          return;
+        }
+      
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          alert((t("error.validemail")));
+          return;
+        }
+      
+        const numberRegex = /^\+[0-9]+$/;
+        if (!numberRegex.test(number)) {
+          alert(t("error.validnumber"));
+          return;
+        }
+      
         try {
-            const url = `${baseUrl}/api/contact`;
-            const { name, email, number, subject, text } = contact;
-            const payload = { name, email, number, subject, text };
-            const response = await axios.post(url, payload);
-            console.log(response);
-            setContact(INITIAL_STATE);
-            alertContent();
+          const url = `${baseUrl}/api/contact`;
+          const payload = { name, email, number, subject, text };
+          const response = await axios.post(url, payload);
+          console.log(response);
+          setContact(INITIAL_STATE);
+          alertContent(t);
         } catch (error) {
             console.log(error)
         }
@@ -55,8 +76,8 @@ const ContactForm = () => {
             <div className="contact-area ptb-100">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Get in Touch</h2>
-                        <p>The IT industry offers a sea of options, from platforms, programming languages methodologies, technologies, tools, and more.</p>
+                        <h2>{t("title")}</h2>
+                        <p>{t("heading")}</p>
                     </div>
 
                     <div className="contact-form">
@@ -67,7 +88,7 @@ const ContactForm = () => {
                                         <input 
                                             type="text" 
                                             name="name" 
-                                            placeholder="Your name" 
+                                            placeholder={t("placeholder.name")}
                                             className="form-control" 
                                             value={contact.name}
                                             onChange={handleChange} 
@@ -80,7 +101,7 @@ const ContactForm = () => {
                                         <input 
                                             type="text" 
                                             name="email" 
-                                            placeholder="Your email" 
+                                            placeholder={t("placeholder.email")}
                                             className="form-control" 
                                             value={contact.email}
                                             onChange={handleChange} 
@@ -93,7 +114,7 @@ const ContactForm = () => {
                                         <input 
                                             type="text" 
                                             name="number" 
-                                            placeholder="Phone number" 
+                                            placeholder={t("placeholder.phonenumber")}
                                             className="form-control" 
                                             value={contact.number}
                                             onChange={handleChange} 
@@ -106,7 +127,7 @@ const ContactForm = () => {
                                         <input 
                                             type="text" 
                                             name="subject" 
-                                            placeholder="Subject" 
+                                            placeholder={t("placeholder.emailsubject")}
                                             className="form-control" 
                                             value={contact.subject}
                                             onChange={handleChange} 
@@ -120,7 +141,7 @@ const ContactForm = () => {
                                             name="text" 
                                             cols="30" 
                                             rows="6" 
-                                            placeholder="Write your message..." 
+                                            placeholder={t("placeholder.text")}
                                             className="form-control" 
                                             value={contact.text}
                                             onChange={handleChange} 
@@ -130,7 +151,7 @@ const ContactForm = () => {
                                 </div>
                                 <div className="col-lg-12 col-md-12 col-sm-12">
                                     <button type="submit" className="default-btn">
-                                        Send Message
+                                        {t("send")}
                                     </button>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const ErrorPage = () => {
     return (
@@ -26,3 +26,15 @@ const ErrorPage = () => {
 }
 
 export default ErrorPage;
+
+export async function getStaticProps({ locale }) {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', [
+            'navbar',
+            'footer',
+            'cookie'
+          ])),
+      },
+    };
+  }

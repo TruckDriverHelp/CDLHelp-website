@@ -2,16 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useTranslation } from 'lib/useTranslation';
+import { useRouter } from "next/router";
+import { useTranslation } from 'next-i18next';
 
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
 });
 
-const AppIntroVideo = ({translations}) => {
+const AppIntroVideo = () => {
     // Popup Video
-    const {t} = useTranslation(translations);
-	const [isOpen, setIsOpen] = React.useState(true);
+    const {t} = useTranslation("index");
+    const { locale } = useRouter();
+    const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
     }
@@ -39,15 +41,11 @@ const AppIntroVideo = ({translations}) => {
                         </div>
 
                         <div className="col-lg-6 col-md-12">
-                            <div className="app-intro-video-content" style={{textAlign: 'justify'}}>
-                                <h2>{t("How to get a CDL")}</h2>
-                                <p>{t("This article provides a detailed guide on how to become a trucker in the USA and get a CDL (Commercial Driver's License). First, we explain the process of passing the DOT medical examination, which is necessary for all CDL candidates. Then, the process of taking theoretical tests at the DMV for obtaining a student permit (CLP) is considered, which allows you to practice driving a truck. Finally, the guide touches on CDL school curriculum and the process of passing the practical driving test")}</p>
-                                <div className='app-intro-buttons'>
-                                    <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">{t("Watch")}</a>
-                                    <Link href="/dalnoboishik">
-                                    <a style={{ fontWeight: 600, textDecoration: 'underline' }} >{t("Read the full article by clicking the link")}</a>
-                                    </Link>
-                                </div>
+                            <div className="app-intro-video-content">
+                                <span className="sub-title">{t("stepByStep")}</span>
+                                <h2>{t("howToGet")}</h2>
+                                <p>{t("videoDescription")}</p>
+                                <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">{t("startWatching")}</a>
                             </div>
                         </div>
                     </div>

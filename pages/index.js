@@ -5,15 +5,11 @@ import BestFeatures from '@/components/Home/BestFeatures';
 import AppIntroVideo from '@/components/Home/AppIntroVideo';
 import Funfacts from '@/components/Home/Funfacts';
 import AppDownload from '@/components/Home/AppDownload';
-import Footer from '@/components/_App/Footer';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { getTranslations } from 'lib/getTranslations';
-
-const IndexPage = ({translations}) => {
-    const title = "CDL Тесты с переводом 2024 – CDL Help"
-    const description = "Перевод CDL тестов на русский язык. Полезные статьи и материалы об экзамене. Изучайте Английский язык во время подготовки."
-    
+const IndexPage = ({ articles }) => {
     return (
         <>
             <Head>
@@ -39,14 +35,11 @@ const IndexPage = ({translations}) => {
                 <meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
             
             </Head>
+            <Navbar articles={articles} />
 
-            <Navbar translations={translations}/>
+            <AppIntroVideo />
 
-            <MainBanner translations={translations}/>
-
-            <AppIntroVideo translations={translations}/>
-
-            <BestFeatures translations={translations}/>
+            <BestFeatures />
 
             {/* <ClientFeedback /> */}
 
@@ -59,31 +52,19 @@ const IndexPage = ({translations}) => {
             {/* <AppScreenshots /> */}
 
 
-            {/* <Funfacts /> */}
+            <Funfacts />
 
-            <AppDownload translations={translations}/>
+            <AppDownload />
 
             {/* <PricingPlan /> 
-						
-						<div className="bg-f9f9f9">
-                <PartnerStyle2 />
-            </div>
+                            
+                            <div className="bg-f9f9f9">
+                    <PartnerStyle2 />
+                </div>
 
             <BlogPost /> */}
-
-            <Footer translations={translations}/>
         </>
     )
 }
 
 export default IndexPage;
-
-export async function getStaticProps({ locale }) {
-    const translations = getTranslations(locale);
-    return {
-      props: {
-        translations,
-      },
-    };
-  }
-  
