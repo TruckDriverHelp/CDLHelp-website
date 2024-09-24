@@ -18,6 +18,7 @@
         "i18n-next": "^0.0.4",
         "js-cookie": "^3.0.5",
         "next": "^12.1.4",
+        "next-i18next": "^15.3.1",
         "nodemailer": "^6.7.2",
         "nodemailer-sendgrid-transport": "^0.2.0",
         "react": "^18.3.1",

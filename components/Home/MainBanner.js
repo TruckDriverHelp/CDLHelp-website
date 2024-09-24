@@ -2,38 +2,12 @@ import Link from "next/link";
 import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "next/image";
-import { useRouter } from "next/router";
-
-const localeContent = {
-  "ru": {
-    title: "CDL на русском языке",
-    description: "Приложение CDL Help поможет Вам не только подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США, но с изучением английского языка.",
-    download: "Скачать",
-    cdlSchools: "CDL школы",
-    language: "на русском",
-    bestTelegramChat: "Лучший Телеграм чат для начинающих дальнобойщиков",
-  },
-  "en": {
-    title: "CDL Practice Tests with Translations",
-    description: "Prepare for your CDL exam with multilingual practice tests! Get instant feedback, detailed explanations, and boost your confidence in any language!",
-    download: "Download",
-    cdlSchools: "CDL Schools",
-    language: "in English",
-    bestTelegramChat: "Telegram chat for beginner truck drivers"
-  },
-  "uk": {
-    title: "CDL українською мовою",
-    description: "Додаток CDL допоможе вам не тільки підготуватися до тестів CDL, щоб отримати посвідчення водія та стати далекобійником у США, але і вивчити українську мову.",
-    download: "Завантажити",
-    cdlSchools: "Школи CDL",
-    language: "українською мовою",
-    bestTelegramChat: "Найкраща група в Телеграмі для початківців",
-  }
-};
+import { useContext } from "react";
+import { TranslationContext } from "lib/TranslationContext";
+import { useTranslation } from 'next-i18next';
 
 const MainBanner = () => {
-  const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { title, description, download, cdlSchools, language, bestTelegramChat } = localeContent[locale];
+  const { t } = useTranslation('index');
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -41,20 +15,20 @@ const MainBanner = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">
               <div className="new-app-main-banner-wrap-content">
-                <h1>{title}</h1>
-                <p>{description}</p>
+                <h1>{t("title")}</h1>
+                <p>{t("description")}</p>
 
                 <div className="app-btn-box">
                   <a href="#download" className="applestore-btn">
                     <i className="ri-download-fill main-banner-btn-icon"></i>
                     iOS / Android
-                    <span>{download}</span>
+                    <span>{t("download")}</span>
                   </a>
                   <Link href="/cdl-shkola">
                     <a className="playstore-btn">
                       <i className="ri-truck-fill main-banner-btn-icon"></i>
-                      {cdlSchools}
-                      <span>{language}</span>
+                      {t("cdlSchools")}
+                      <span>{t("language")}</span>
                     </a>
                   </Link>
                 </div>
@@ -66,7 +40,7 @@ const MainBanner = () => {
                     ></i>
                   </a>
                   <a style={{ fontWeight: 600 }} href="https://t.me/TruckDriverGroup/13900/13904">
-                    {bestTelegramChat}
+                    {t("bestTelegramChat")}
                   </a>
                 </div>
               </div>
