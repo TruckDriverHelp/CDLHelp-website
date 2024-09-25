@@ -7,9 +7,10 @@ const LanguageSwitcher = ({ alternateLinks }) => {
 
     const languages = {
         "": "Language",
-        "uk": "Українська",
+        "ar": "عربي",
+        "en": "English",
         "ru": "Русский",
-        "en": "English"
+        "uk": "Українська",
     }
 
     const handleLocaleChange = (event) => {
