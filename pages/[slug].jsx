@@ -3,14 +3,14 @@ import Head from 'next/head';
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
-import YouTube from 'react-youtube';  
+import YouTube from 'react-youtube';
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const PostDetailView = ({ slug, article }) => {
-  const {t} = useTranslation("article");
+  const { t } = useTranslation("article");
   const [isOpen, setIsOpen] = useState(true);
   const openModal = () => {
     setIsOpen(!isOpen);
@@ -25,19 +25,19 @@ const PostDetailView = ({ slug, article }) => {
       <Head>
         <title>{article.title}</title>
         <meta name="description" content={article.description} />
-  
+
         {/* Google / Search Engine Tags */}
         <meta itemProp="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
         <meta itemProp="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
         <meta itemProp="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
-  
+
         {/* Facebook Meta Tags */}
         <meta property="og:url" content="https://www.cdlhelp.app" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
         <meta property="og:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
         <meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
-  
+
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
@@ -104,19 +104,19 @@ const PostDetailView = ({ slug, article }) => {
                         showinfo: 0,
                       },
                     }}
-                    />
+                  />
                 </div>
               );
             }
             if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
               return <div>
-                <p>{t("relatedArticles")}</p> 
+                <p>{t("relatedArticles")}</p>
                 <ul>
-                {block.articles.data.map((articleData, i) => {
-                  const article = articleData.attributes;
-                  const url = "/" + article.locale + "/" + article.slug;
-                  return <li key={i}><a href={url}>{article.title}</a></li>
-                })}
+                  {block.articles.data.map((articleData, i) => {
+                    const article = articleData.attributes;
+                    const url = "/" + article.locale + "/" + article.slug;
+                    return <li key={i}><a href={url}>{article.title}</a></li>
+                  })}
                 </ul>
               </div>
             }
@@ -129,8 +129,8 @@ const PostDetailView = ({ slug, article }) => {
   );
 }
 
-export async function getStaticProps({params, locale}) {
-  const {slug} = params;
+export async function getStaticProps({ params, locale }) {
+  const { slug } = params;
 
   const query = `
   query articleBySlug($slug: String!, $locale: I18NLocaleCode) {
@@ -213,23 +213,23 @@ export async function getStaticProps({params, locale}) {
 
     return {
       props: {
-          slug,
-          article: attributes,
-          ...(await serverSideTranslations(locale ?? 'en', [
-            'navbar',
-            'footer',
-            'cookie',
-            'article'
-          ])),
-      } 
+        slug,
+        article: attributes,
+        ...(await serverSideTranslations(locale ?? 'en', [
+          'navbar',
+          'footer',
+          'cookie',
+          'article'
+        ])),
+      }
     }
   } catch (error) {
     return {
       props: {
         error: error
       }
+    }
   }
-}
 }
 
 export async function getStaticPaths({ locales }) {
@@ -245,18 +245,17 @@ export async function getStaticPaths({ locales }) {
 
   const paths = [];
   data.data.flatMap(post => {
-    paths.push({params: {slug: post.attributes.slug}, locale: post.attributes.locale});
+    paths.push({ params: { slug: post.attributes.slug }, locale: post.attributes.locale });
     return post.attributes.localizations.data.map(locale => {
-      const param = {params: {slug: locale.attributes.slug}, locale: locale.attributes.locale}
+      const param = { params: { slug: locale.attributes.slug }, locale: locale.attributes.locale }
       paths.push(param);
     });
   });
 
   return {
-      paths,
-      fallback: false,
+    paths,
+    fallback: false,
   }
 }
 
 export default PostDetailView;
-        

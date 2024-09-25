@@ -26,6 +26,7 @@ export default ErrorPage;
 export async function getStaticProps({ locale }) {
     return {
       props: {
+		locale: false,
         ...(await serverSideTranslations(locale ?? 'en', [
             'navbar',
             'footer',
