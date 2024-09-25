@@ -18,5 +18,14 @@ module.exports = {
         STRAPI_HOST: process.env.STRAPI_HOST,
         STRAPI_PORT: process.env.STRAPI_PORT
     },
+    async redirects() {
+        return [
+          {
+            source: '/dalnoboishik/',
+            destination: '/ru/kak-stat-dalnoboishikom',
+            permanent: true
+          },
+        ];
+      },
 }
 
