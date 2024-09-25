@@ -7,8 +7,9 @@ module.exports = {
     trailingSlash: true,
     distDir: 'build',
     i18n: {
-        locales: ["en", "ru", "uk"],
+        locales: ["en", "ru", "uk", "ar"],
         defaultLocale: "en",
+        // ns: ["index", "article", "cookie", "navbar", "footer", "contact"]
     },
     images: {
         domains: [process.env.STRAPI_HOST],

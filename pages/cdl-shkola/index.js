@@ -267,3 +267,12 @@ const CdlShkola = () => {
 };
 
 export default CdlShkola;
+
+
+export async function getStaticProps({ locale }) {
+    return {
+	    props: {
+            locale: false
+        }
+    };
+  }

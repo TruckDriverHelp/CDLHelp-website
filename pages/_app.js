@@ -18,6 +18,8 @@ import { useRouter } from 'next/router'
 import Pixel from '../components/Pixel'
 import Navbar from '@/components/_App/Navbar'
 import Footer from '@/components/_App/Footer'
+import { appWithTranslation } from 'next-i18next'
+import { getDirection } from 'lib/getDirection'
 
 import CookieConsentBanner from "../components/_App/CookieConsentBanner.js"
 
@@ -26,6 +28,7 @@ import { useEffect } from 'react'
 
 const MyApp = ({ Component, pageProps, articles }) => {
 	const router = useRouter()
+	const dir = getDirection(router.locale)
 
 	useEffect(() => {
 		const handleRouteChange = url => {
@@ -49,6 +52,7 @@ const MyApp = ({ Component, pageProps, articles }) => {
 	}, [router.events])
 	return (
 		<Layout>
+			<div dir={dir}>
 			<Navbar articles={articles} />
 			<Pixel name='FACEBOOK_PIXEL_1' />
 			{router.pathname != "/404" && <CookieConsentBanner />}
@@ -75,8 +79,9 @@ const MyApp = ({ Component, pageProps, articles }) => {
 
 			/>
 			<Footer />
+			</div>
 		</Layout>
 	)
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

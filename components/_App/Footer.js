@@ -4,68 +4,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
-const localeContent = {
-  "ru": {
-    downloadApp: "СКАЧАТЬ ПРИЛОЖЕНИЕ",
-    downloadAppText: "Скачать CDL Help - тесты CDL с переводом",
-    downloadAndTry: "Бесплатно скачать приложение CDL Help и опробовать вопросы.",
-    androidApp: "Приложение Android",
-    downloadButton: "Скачать",
-    iosApp: "Приложение iOS",
-    mobileApp: "Приложение для мобильных устройств iOS и Android, с тестами CDL с возможностью перевода.",
-    aboutProject: "О Проекте",
-    tryFree: "Попробовать Бесплатно",
-    support: "Поддержка",
-    privacy: "Конфиденциальность",
-    publicAgreement: "Публичное Соглашение",
-    feedback: "Обратная связь",
-    resources: "Ресурсы",
-    jobs: "Найти Работу",
-    cdlRussianSchool: "Школа CDL на русском",
-    allRightsReserved: "Все права защищены",
-  },
-
-  "en": {
-    downloadApp: "DOWNLOAD APP",
-    downloadAppText: "Download CDL Help - CDL tests with translation",
-    downloadAndTry: "Download the CDL Help app for free and try the questions",
-    androidApp: "Android",
-    downloadButton: "Download",
-    iosApp: "iOS",
-    mobileApp: "Mobile app for iOS and Android with CDL tests and translation capability",
-    aboutProject: "About",
-    tryFree: "Try",
-    support: "Support",
-    privacy: "Privacy Policy",
-    publicAgreement: "Terms & Conditions",
-    feedback: "Feedback",
-    resources: "Resources",
-    jobs: "Find a job",
-    cdlRussianSchool: "CDL school list",
-    allRightsReserved: "All rights reserved",
-  },
-
-  "uk": {
-    downloadApp: "Завантажити додаток",
-    downloadAppText: "Завантажити CDL Help — тести CDL з перекладом",
-    downloadAndTry: "Безкоштовно завантажити додаток CDL Help і протестувати питання.",
-    androidApp: "Додаток Android",
-    downloadButton: "Завантажити",
-    iosApp: "Додаток iOS",
-    mobileApp: "Додаток для мобільних пристроїв iOS та Android з тестами CDL з можливістю перекладу.",
-    aboutProject: "Про проект",
-    tryFree: "Спробувати безкоштовно",
-    support: "Підтримка",
-    privacy: "Конфіденційність",
-    publicAgreement: "Публічний договір",
-    feedback: "Зворотній зв'язок",
-    resources: "Ресурси",
-    jobs: "Знайти роботу",
-    cdlRussianSchool: "Школа CDL українською мовою",
-    allRightsReserved: "Все права защищены",
-  }
-}
 
 const articleList = {
   "en": {
@@ -121,12 +61,33 @@ const articleList = {
       title: "CDL Help – Часті запитання",
       slug: "/chasti-zapytannya"
     }
+  },
+  "ar": {
+    howToUseAppArticle: {
+      title: "الأسئلة الشائعة",
+      slug: "how-to-use-app"
+    },
+    howToBecomeTruckDriverArticle:
+    {
+      title: "كيف تصبح سائق شاحنة في الولايات المتحدة الأمريكية",
+      slug: "become-truck-driver"
+    },
+    howToGetPermitArticle:
+    {
+      title: "رخصة القيادة التجارية",
+      slug: "permit"
+    },
+    faq:
+    {
+      title: "الأسئلة الشائعة",
+      slug: "faq"
+    }
   }
 }
 
 const Footer = () => {
-  const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { downloadApp, downloadAndTry, downloadAppText, downloadButton, iosApp, androidApp, jobs, mobileApp, aboutProject, tryFree, support, privacy, publicAgreement, feedback, resources, cdlRussianSchool, allRightsReserved } = localeContent[locale];
+  const { t } = useTranslation("footer");
+  const { locale } = useRouter();
   const currentYear = new Date().getFullYear();
   const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle } = articleList[locale];
 
@@ -149,15 +110,15 @@ const Footer = () => {
                 </Link>
 
                 <p>
-                  {mobileApp}
+                  {t("mobileApp")}
                 </p>
 
                 <ul className="social-links">
-                  <li>
+                  {(locale === "ru" || locale === "uk") && <li>
                     <a href="https://www.youtube.com/@truckdriverdothelp" target="_blank">
                       <i className="ri-youtube-fill"></i>
                     </a>
-                  </li>
+                  </li>}
                   <li>
                     <a href="https://www.t.me/TruckDriverHelp" target="_blank">
                       <i className="ri-telegram-fill"></i>
@@ -191,7 +152,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/#about">
-                      <a>{aboutProject}</a>
+                      <a>{t("aboutProject")}</a>
                     </Link>
                   </li>
                   {/* <li>
@@ -201,7 +162,7 @@ const Footer = () => {
                                     </li> */}
                   <li>
                     <a href={`https://test.cdlhelp.com/${locale}`}>
-                      {tryFree}
+                      {t("tryFree")}
                     </a>
                   </li>
                 </ul>
@@ -210,20 +171,20 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>{support}</h3>
+                <h3>{t("support")}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/privacy-policy" locale={false}>
-                      <a>{privacy}</a>
+                      <a>{t("privacy")}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms-conditions" locale={false}>
-                      <a>{publicAgreement}</a>
+                      <a>{t("publicAgreement")}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="/contact">{feedback}</a>
+                    <a href="/contact">{t("feedback")}</a>
                   </li>
                   <li>
                     <Link href={faq.slug} locale={locale}>
@@ -237,7 +198,7 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>{resources}</h3>
+                <h3>{t("resources")}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href={howToBecomeTruckDriverArticle.slug} locale={locale}>
@@ -251,11 +212,11 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/cdl-shkola">
-                      <a>{cdlRussianSchool}</a>
+                      <a>{t("cdlRussianSchool")}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.truckdriver.help/">{jobs}</a>
+                    <a href="https://www.truckdriver.help/">{t("jobs")}</a>
                   </li>
                 </ul>
               </div>
@@ -284,9 +245,9 @@ const Footer = () => {
 
           <div className="copyright-area">
             <p>
-              {currentYear} &copy; <strong>CDL Help</strong>. {allRightsReserved}{" "}
+              {currentYear} &copy; <strong>CDL Help</strong>. {t("allRightsReserved")}{" "}
               <a href="https://www.truckdriver.help/" target="_blank">
-                TruckDriver.help llc
+                TruckDriver.help LLC
               </a>
             </p>
           </div>
