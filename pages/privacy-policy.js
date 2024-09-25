@@ -1,8 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import Navbar from '@/components/_App/Navbar'
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
-import Footer from '@/components/_App/Footer'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const PrivacyPolicy = () => {
 	return (
@@ -568,3 +567,16 @@ const PrivacyPolicy = () => {
 }
 
 export default PrivacyPolicy;
+
+export async function getStaticProps({ locale }) {
+    return {
+      props: {
+		locale: false,
+        ...(await serverSideTranslations(locale ?? 'en', [
+            'navbar',
+            'footer',
+            'cookie'
+          ])),
+      },
+    };
+  }

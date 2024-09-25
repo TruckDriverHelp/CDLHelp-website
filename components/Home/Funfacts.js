@@ -1,32 +1,10 @@
 import React from 'react';
 import { useRouter } from "next/router";
-
-const localeContent = {
-  "ru": {
-    numberOfQuestions: "Количество Вопросов",
-    numberOfTests: "Количество Тестов",
-    numberOfCategories: "Количество Разделов",
-    users: "Пользователей",
-
-  },
-  "en": {
-    numberOfQuestions: "Number of Questions",
-    numberOfTests: "Number of Tests",
-    numberOfCategories: "Number of Sections",
-    users: "Users"
-  },
-
-  "uk": {
-    numberOfQuestions: "Кількість питань",
-    numberOfTests: "Кількість тестів",
-    numberOfCategories: "Кількість розділів",
-    users: "Користувачів",
-  }
-};
+import { useTranslation } from 'next-i18next';
 
 const Funfacts = () => {
-    const { locale, locales, defaultLocale, asPath } = useRouter();
-    const { numberOfCategories, numberOfQuestions, numberOfTests, users } = localeContent[locale];
+    const {t} = useTranslation("index");
+    const { locale } = useRouter();
     return (
 		<>
 			<div className="gradient-funfacts-area pt-100 pb-75">
@@ -37,8 +15,8 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-question-fill"></i>
                                 </div>
-                                <p>{numberOfQuestions}</p>
-                                <h3>370<span className="sign">+</span></h3>
+                                <p>{t("funFactsNumberOfQuestions")}</p>
+                                <h3>1000<span className="sign">+</span></h3>
                             </div>
                         </div>
                         <div className="col-lg-3 col-sm-6 col-md-6">
@@ -46,7 +24,7 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-file-list-3-fill"></i>
                                 </div>
-                                <p>{numberOfTests}</p>
+                                <p>{t("numberOfTests")}</p>
                                 <h3>13</h3>
                             </div>
                         </div>
@@ -55,8 +33,8 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-book-open-fill"></i>
                                 </div>
-                                <p>{numberOfCategories}</p>
-                                <h3>3</h3>
+                                <p>{t("numberOfCategories")}</p>
+                                <h3>6</h3>
                             </div>
                         </div>
                         <div className="col-lg-3 col-sm-6 col-md-6">
@@ -64,7 +42,7 @@ const Funfacts = () => {
                                 <div className="icon">
                                     <i className="ri-user-3-fill"></i>
                                 </div>
-                                <p>{users}</p>
+                                <p>{t("users")}</p>
                                 <h3>15 000<span className="sign">+</span></h3>
                             </div>
                         </div>

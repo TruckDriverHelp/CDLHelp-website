@@ -1,32 +1,13 @@
 import React, { useEffect, useState } from "react";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
-const localeContent = {
-  "ru": {
-    text: "Мы используем файлы cookie для улучшения вашего опыта на нашем сайте. Продолжая использовать наш сайт, вы соглашаетесь с использованием файлов cookie",
-    accept: "Принять",
-    deny: "Отклонить"
-  },
-
-  "en": {
-    text: "We use cookies to enhance your experience on our website. By continuing to use our site, you agree to our use of cookies",
-    accept: "Accept",
-    deny: "Deny"
-  },
-
-  "uk": {
-    text: "Ми використовуємо файли cookie для покращення вашого досвіду на нашому вебсайті. Продовжуючи використовувати наш сайт, ви погоджуєтеся з використанням файлів cookie",
-    accept: "Прийняти",
-    deny: "Відхилити"
-  }
-}
 
 const CookieConsentBanner = () => {
+  const {t} = useTranslation("cookie");
   const [showBanner, setShowBanner] = useState(false);
   const {locale} = useRouter();
-
-  const {text, accept, deny} = localeContent[locale];
 
   useEffect(() => {
     const consentCookie = cookie.get("cookieConsent");
@@ -70,14 +51,15 @@ const CookieConsentBanner = () => {
       alignItems: "center",
       justifyContent: "center"
     }}>
-       <p style={{color: "#000000"}}>{text}</p>
+       <p style={{color: "#000000"}}>{t("text")}</p>
+       <p style={{color: "#000000"}}>{t("policy")}</p>
        
         <div style={{
           display: "flex",
           justifyContent: "space-between",
         }}>
-          <button onClick={handleAccept} className="default-btn" style={{marginRight: "20px"}}>{accept}</button>
-          <button onClick={handleReject} className="default-btn">{deny}</button>
+          <button onClick={handleAccept} className="default-btn" style={{marginRight: "20px"}}>{t("accept")}</button>
+          <button onClick={handleReject} className="default-btn">{t("deny")}</button>
         </div>
     </div>
   );
