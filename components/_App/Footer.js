@@ -61,11 +61,32 @@ const articleList = {
       title: "CDL Help – Часті запитання",
       slug: "/chasti-zapytannya"
     }
+  },
+  "ar": {
+    howToUseAppArticle: {
+      title: "الأسئلة الشائعة",
+      slug: "how-to-use-app"
+    },
+    howToBecomeTruckDriverArticle:
+    {
+      title: "كيف تصبح سائق شاحنة في الولايات المتحدة الأمريكية",
+      slug: "become-truck-driver"
+    },
+    howToGetPermitArticle:
+    {
+      title: "رخصة القيادة التجارية",
+      slug: "permit"
+    },
+    faq:
+    {
+      title: "الأسئلة الشائعة",
+      slug: "faq"
+    }
   }
 }
 
 const Footer = () => {
-  const {t} = useTranslation("footer");
+  const { t } = useTranslation("footer");
   const { locale } = useRouter();
   const currentYear = new Date().getFullYear();
   const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle } = articleList[locale];

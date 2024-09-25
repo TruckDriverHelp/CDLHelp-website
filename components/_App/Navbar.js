@@ -62,6 +62,25 @@ const articleList = {
       "title": "CDL Help – Часті запитання",
       "slug": "chasti-zapytannya"
     }
+  ],
+  "ar": [
+    {
+      "title": "الأسئلة الشائعة",
+      "slug": "how-to-use-app"
+    },
+    {
+      "title": "كيف تصبح سائق شاحنة في الولايات المتحدة الأمريكية",
+      "slug": "become-truck-driver"
+    },
+    {
+      "title": "رخصة القيادة التجارية",
+      "slug": "permit"
+    },
+    {
+      "title": "الأسئلة الشائعة",
+      "slug": "faq"
+    },
+    
   ]
 
 }
