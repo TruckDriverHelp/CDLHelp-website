@@ -60,7 +60,7 @@ const ContactForm = () => {
         }
       
         try {
-          const url = `${baseUrl}/api/contact`;
+          const url = `/api/contact`;
           const payload = { name, email, number, subject, text };
           const response = await axios.post(url, payload);
           console.log(response);
