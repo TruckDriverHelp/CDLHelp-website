@@ -1,10 +1,4 @@
-import { useRouter } from 'next/router';
-
-const LanguageSwitcher = ({ alternateLinks }) => {
-
-    const router = useRouter()
-    const { locale } = router;
-
+const LanguageSwitcher = () => {
     const languages = {
         "": "Language",
         "ar": "عربي",
@@ -15,7 +9,7 @@ const LanguageSwitcher = ({ alternateLinks }) => {
 
     const handleLocaleChange = (event) => {
         const locale = event.target.value;
-        router.push("/", null, { locale });
+        window.location.replace(`/${locale}`);
     };
 
     return (
