@@ -53,7 +53,8 @@ const MyApp = ({ Component, pageProps, articles }) => {
 	return (
 		<Layout>
 			<div dir={dir}>
-			<Navbar articles={articles} />
+            <Navbar />
+
 			<Pixel name='FACEBOOK_PIXEL_1' />
 			{router.pathname != "/404" && <CookieConsentBanner />}
 			<Component {...pageProps} />
@@ -78,7 +79,7 @@ const MyApp = ({ Component, pageProps, articles }) => {
 				}}
 
 			/>
-			<Footer />
+            <Footer />
 			</div>
 		</Layout>
 	)

@@ -8,8 +8,11 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { ARTICLE_BY_SLUG_QUERY } from '../lib/graphql/articleBySlug';
+import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
+import Layout from "@/components/_App/Layout";
 
-const PostDetailView = ({ slug, article }) => {
+const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
   const [isOpen, setIsOpen] = useState(true);
   const openModal = () => {
@@ -17,35 +20,62 @@ const PostDetailView = ({ slug, article }) => {
   }
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
-  const og_tags = article
-
+  const metaTags = article.meta_tag.data.attributes;
+  const metaImage = metaTags.image.data.attributes.url;
 
   return (
     <>
       <Head>
-        <title>{article.title}</title>
-        <meta name="description" content={article.description} />
+        <title>{metaTags.title}</title>
+        <meta name="description" content={metaTags.description} />
+        {alternateLinks.map((link, index) => (
+          <link
+            key={index}
+            rel="alternate"
+            href={link.href}
+            hrefLang={link.hrefLang}
+          />
+        ))}
 
         {/* Google / Search Engine Tags */}
-        <meta itemProp="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
-        <meta itemProp="description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
-        <meta itemProp="image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+        <meta itemProp="name" content={metaTags.title} />
+        <meta itemProp="description" content={metaTags.description} />
+        <meta itemProp="image" content={metaImage} />
 
         {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://www.cdlhelp.app" />
+        <meta property="og:url" content={metaTags.title} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-        <meta property="og:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
-        <meta property="og:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+        <meta property="og:title" content={metaTags.title} />
+        <meta property="og:description" content={metaTags.description} />
+        <meta property="og:image" content={metaImage} />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-        <meta name="twitter:description" content="CDL Help - как стать дальнобойщиком в США. Подробная инструкция, полезные ресурсы, и активное сообщество в Телеграме." />
-        <meta name="twitter:image" content="https://cdlhelp.app/images/cdlhelp-tag.jpg" />
+        <meta name="twitter:title" content={metaTags.title} />
+        <meta name="twitter:description" content={metaTags.description} />
+        <meta name="twitter:image" content={metaImage} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `${JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: metaTags.title,
+              image: metaImage,
+              author: {
+                "@type": "Organization",
+                name: "CDL Help",
+                url: "https://cdlhelp.com"
+              }
+            })}`
+          }}
+        />
+
       </Head>
-      <PageBannerStyle1
-        pageTitle={article.title}
+      <Layout alternateLinks={alternateLinks}/>
+        <PageBannerStyle1
+          pageTitle={article.title}
         homePageUrl="/"
         homePageText="Главная Страница"
         activePageText={article.title}
@@ -131,76 +161,12 @@ const PostDetailView = ({ slug, article }) => {
 
 export async function getStaticProps({ params, locale }) {
   const { slug } = params;
+  const variables = { slug, locale };
 
-  const query = `
-  query articleBySlug($slug: String!, $locale: I18NLocaleCode) {
-    articles(filters: { slug: { eq: $slug } }, locale: $locale) {
-      data {
-        attributes {
-          title
-          description
-          slug
-          blocks {
-            __typename
-            ...on ComponentArticlePartsRichTextMarkdown {
-              richtext
-              idtag
-            }
-            ...on ComponentArticlePartsMedia {
-              Media {
-                data {
-                  attributes {
-                    url
-                    alternativeText
-                    width
-                    height
-                  }
-                }
-              }
-            }
-            ...on ComponentArticlePartsSlider {
-              Slider {
-                data {
-                  attributes {
-                    url
-                    alternativeText
-                    width
-                    height
-                  }
-                }
-              }
-            }
-            ...on ComponentArticlePartsQuote {
-              Quote
-            }
-            ...on ComponentArticlePartsYouTube {
-              YouTube
-            }
-            ...on ComponentArticlePartsRelatedArticles{
-              articles{
-                data{
-                  attributes{
-                    title
-                    slug
-                    locale
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  `;
-  const variables = {
-    slug,
-    locale
-  };
   try {
-    const response = await axios.post(
+    const articleResponse = await axios.post(
       `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`,
-      { query, variables },
+      { query: ARTICLE_BY_SLUG_QUERY, variables },
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
@@ -208,13 +174,31 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    const { data } = response.data;
+    const alternateLinksResponse = await axios.post(
+      `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`,
+      { query: ALTERNATE_LINKS_QUERY, variables },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
+        }
+      }
+    );
+
+    const { data } = articleResponse.data;
     const { attributes } = data.articles.data[0];
+
+    const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
+    const alternateLinks = alternateLinksData.map((link) => ({
+      href: `/${link.attributes.locale}/${link.attributes.slug}`,
+      hrefLang: link.attributes.locale,
+    }));
 
     return {
       props: {
         slug,
         article: attributes,
+        locale: locale,
+        alternateLinks,
         ...(await serverSideTranslations(locale ?? 'en', [
           'navbar',
           'footer',
@@ -226,7 +210,7 @@ export async function getStaticProps({ params, locale }) {
   } catch (error) {
     return {
       props: {
-        error: error
+        error: error.message
       }
     }
   }

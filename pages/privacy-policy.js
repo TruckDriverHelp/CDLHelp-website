@@ -2,31 +2,34 @@ import React from 'react'
 import Head from 'next/head'
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
+import getMeta from "../lib/getMeta";
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy = ({meta}) => {
+	const {locale} = useRouter();
 	return (
 		<>
 			<Head>
-				<title>Политика конфиденциальности | CDL Help</title>
-				<meta name="description" content="CDL Help - политика конфиденциальности." />
+				<title>{meta.title}</title>
+				<meta name="description" content={meta.description} />
 
 				{/* Google / Search Engine Tags */}
-				<meta itemprop="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta itemprop="description" content="CDL Help - политика конфиденциальности." />
-				<meta itemprop="image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+				<meta itemprop="name" content={meta.title} />
+				<meta itemprop="description" content={meta.description} />
+				<meta itemprop="image" content={meta.image} />
 
 				{/* Facebook Meta Tags */}
 				<meta property="og:url" content="https://www.cdlhelp.com" />
 				<meta property="og:type" content="website" />
-				<meta property="og:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta property="og:description" content="CDL Help - политика конфиденциальности." />
-				<meta property="og:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+				<meta property="og:title" content={meta.title} />
+				<meta property="og:description" content={meta.description} />
+				<meta property="og:image" content={meta.image} />
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta name="twitter:description" content="CDL Help - политика конфиденциальности." />
-				<meta name="twitter:image" content="https://cdlhelp.com/images/cdlhelp-tag.jpg" />
+				<meta name="twitter:title" content={meta.title} />
+				<meta name="twitter:description" content={meta.description} />
+				<meta name="twitter:image" content={meta.image} />
 			</Head>
 
 			<PageBannerStyle1
@@ -569,9 +572,11 @@ const PrivacyPolicy = () => {
 export default PrivacyPolicy;
 
 export async function getStaticProps({ locale }) {
+	const meta = await getMeta(locale, "privacy-policy");
+
     return {
       props: {
-		locale: false,
+		meta: meta,
         ...(await serverSideTranslations(locale ?? 'en', [
             'navbar',
             'footer',
