@@ -85,7 +85,7 @@ const articleList = {
 
 }
 
-const Navbar = () => {
+const Navbar = ({ alternateLinks }) => {
   const {t} = useTranslation("navbar");
   const {locale} = useRouter();
   const [menu, setMenu] = React.useState(true);
