@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/_App/Navbar";
 import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
 import BlogSidebar from "@/components/Blog/BlogSidebar";
-import Footer from "@/components/_App/Footer";
 import Head from "next/head";
 import Link from "next/link";
 // import supabase from "../utils/supabase";
 import { createClient } from "@supabase/supabase-js";
+import { useRouter } from "next/router";
+import getMeta from "../../lib/getMeta";
 
-const CdlShkola = () => {
+const CdlShkola = ({meta}) => {
     const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,);
 
     const [schoolData, setSchoolData] = useState([]);
@@ -30,56 +30,26 @@ const CdlShkola = () => {
     return (
         <>
             <Head>
-                <title>CDL школы на русском - CDL Help</title>
-                <meta
-                    name="description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
-                />
+                <title>{meta.title}</title>
+                <meta name="description" content={meta.description} />
 
                 {/* Google / Search Engine Tags */}
-                <meta
-                    itemprop="name"
-                    content="Приложение CDL Help - Тесты CDL на русском языке"
-                />
-                <meta
-                    itemprop="description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
-                />
-                <meta
-                    itemprop="image"
-                    content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
-                />
+                <meta itemprop="name" content={meta.title}/>
+                <meta itemprop="description" content={meta.description}/>
+                <meta itemprop="image" content={meta.image}/>
 
                 {/* Facebook Meta Tags */}
                 <meta property="og:url" content="https://www.cdlhelp.com" />
                 <meta property="og:type" content="article" />
-                <meta
-                    property="og:title"
-                    content="Приложение CDL Help - Тесты CDL на русском языке"
-                />
-                <meta
-                    property="og:description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
-                />
-                <meta
-                    property="og:image"
-                    content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
-                />
+                <meta property="og:title" content={meta.title}/>
+                <meta property="og:description" content={meta.description}/>
+                <meta property="og:image" content={meta.image}/>
 
                 {/* Twitter Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta
-                    name="twitter:title"
-                    content="Приложение CDL Help - Тесты CDL на русском языке"
-                />
-                <meta
-                    name="twitter:description"
-                    content="Приложение CDL Help - справочник со школами CDL в различных штатах. "
-                />
-                <meta
-                    name="twitter:image"
-                    content="https://cdlhelp.com/images/cdlhelp-tag.jpg"
-                />
+                <meta name="twitter:title" content={meta.title} />
+                <meta name="twitter:description" content={meta.description} />
+                <meta name="twitter:image" content={meta.image} />
             </Head>
 
             <PageBannerStyle1
@@ -262,7 +232,7 @@ const CdlShkola = () => {
                     </div>
                 </div>
             </div>
-            </>
+        </>
     );
 };
 
@@ -270,9 +240,11 @@ export default CdlShkola;
 
 
 export async function getStaticProps({ locale }) {
+    const meta = await getMeta(locale, "cdl-school");
+
     return {
-	    props: {
-            locale: false
+        props: {
+            meta: meta,
         }
     };
-  }
+}
