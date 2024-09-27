@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "sitemap": "next-sitemap --config gen-sitemap.config.js",
+        "sitemap": "next-sitemap --config next-sitemap.config.js",
         "start": "next start"
     },
     "author": "www.truckdriver.help",
