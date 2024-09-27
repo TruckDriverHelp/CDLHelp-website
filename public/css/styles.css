@@ -4335,6 +4335,61 @@ textarea.form-control {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.articles {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.article-card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.article-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.article-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.article-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.article-card .posted {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.article-card .read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #a3597e;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.article-card .read-more:hover {
+  opacity: 0.8;
+}
+
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {

@@ -1,31 +1,16 @@
 import React from 'react'
 import Head from "next/head"
+import Navbar from "./Navbar"
+import Footer from "./Footer"
 // import GoTop from './GoTop'
-import Preloader from './Preloader'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, alternateLinks }) => {
 
-    // Preloader
-    const [loader, setLoader] = React.useState(true);
-    React.useEffect(() => {
-        setTimeout(() => setLoader(false), 1500);
-    }, [])
-
-    return(
+    return (
         <>
-            <Head>
-                {/* Required meta tags */}
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
-
             {children}
-
-            {/* {loader ? <Preloader /> : null} */}
- 
-            {/* <GoTop scrollStepInPx="100" delayInMs="10.50" /> */}
         </>
     );
-}
+};
 
 export default Layout;
