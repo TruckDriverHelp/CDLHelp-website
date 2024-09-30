@@ -174,37 +174,39 @@ const Navbar = ({ alternateLinks }) => {
                           )
                         })
                       }
-
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          href="https://www.truckdriver.help/"
-                        >
-                          {t("workForTruckers")}
-                        </a>
-                      </li>
-
+                      {(locale === "ru") && (
+                        <li className="nav-item">
+                          <a
+                            className="nav-link"
+                            href="https://www.truckdriver.help/"
+                          >
+                            {workForTruckers}
+                          </a>
+                        </li>
+                      )}
                     </ul>
                   </li>
 
-                  {(locale === "ru" || locale === "uk") && (
-                    <li className="nav-item">
-                      <Link href="/cdl-shkola">
-                        <a className="nav-link">{t("cdlSchool")}</a>
-                      </Link>
-                    </li>
-                  )}
+                  {(locale === "ru") && (
+                    <>
+                      <li className="nav-item">
+                        <Link href="/cdl-shkola">
+                          <a className="nav-link">{cdlSchool}</a>
+                        </Link>
+                      </li>
 
-                  <li className="nav-item">
-                    <a className="nav-link" href="https://www.dmvhelp.app/">
-                      DMV Help
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="https://www.mir.chat/">
-                      Mir.chat
-                    </a>
-                  </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="https://www.dmvhelp.app/">
+                          DMV Help
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="https://www.mir.chat/">
+                          Mir.chat
+                        </a>
+                      </li>
+                    </>
+                  )}
                   <li className="nav-item">
                     <Link href="/contact">
                       <a className="nav-link">{t("contacts")}</a>
