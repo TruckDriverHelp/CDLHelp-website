@@ -17,7 +17,7 @@ const BestFeatures = () => {
                                 <p>{t("bestFeaturesDescription")}</p>
                                 <div className="btn-box">
                                     <a className="default-btn" href='#download'>{t("bestFeaturesDownload")}</a>
-                                    <a className="link-btn" href="https://academy.truckdriver.help/quiz">{t("tryOnline")}</a>
+                                    <a className="link-btn" href={`https://test.cdlhelp.com/${locale}`}>{t("tryOnline")}</a>
                                 </div>
                             </div>
                         </div>

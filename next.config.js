@@ -27,6 +27,26 @@ module.exports = {
             destination: '/ru/kak-stat-dalnoboishikom',
             permanent: true
           },
+          {
+            source: '/permit/',
+            destination: '/ru/kak-poluchit-clp-permit',
+            permanent: true
+          },
+          {
+            source: '/kak-ispolzovat-cdl-help/',
+            destination: '/kak-ispolzovat-cdlhelp',
+            permanent: true,
+          },
+          {
+            source: '/faq/',
+            destination: '/ru/chasto-zadavaemye-voprosy',
+            permanent: true
+          },
+          {
+            source: '/cdl-shkola',
+            destination: '/ru/o-cdl-shkolakh',
+            permanent: true
+          } 
         ];
       },
 }
