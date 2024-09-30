@@ -34,7 +34,7 @@ module.exports = {
           },
           {
             source: '/kak-ispolzovat-cdl-help/',
-            destination: '/kak-ispolzovat-cdlhelp',
+            destination: '/ru/kak-ispolzovat-cdlhelp',
             permanent: true,
           },
           {
