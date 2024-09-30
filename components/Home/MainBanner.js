@@ -22,7 +22,7 @@ const MainBanner = () => {
                     iOS / Android
                     <span>{t("download")}</span>
                   </a>
-                  <Link href="/cdl-shkola">
+                  <Link href="/o-cdl-shkolakh">
                     <a className="playstore-btn">
                       <i className="ri-truck-fill main-banner-btn-icon"></i>
                       {t("cdlSchools")}
