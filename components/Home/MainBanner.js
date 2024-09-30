@@ -3,8 +3,10 @@ import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "next/image";
 import { useTranslation } from 'next-i18next';
+import { useRouter } from "next/router";
 
 const MainBanner = () => {
+  const { locale } = useRouter();
   const { t } = useTranslation('index');
   return (
     <>
@@ -22,15 +24,15 @@ const MainBanner = () => {
                     iOS / Android
                     <span>{t("download")}</span>
                   </a>
-                  <Link href="/o-cdl-shkolakh">
+                  {locale == "ru" && <Link href="/o-cdl-shkolakh">
                     <a className="playstore-btn">
                       <i className="ri-truck-fill main-banner-btn-icon"></i>
                       {t("cdlSchools")}
                       <span>{t("language")}</span>
                     </a>
-                  </Link>
+                  </Link>}
                 </div>
-                <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 5 }}>
+                {(locale == "ru" || locale == "uk") && <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 5 }}>
                   <a href="https://www.t.me/TruckDriverHelp" target="_blank">
                     <i
                       className="ri-telegram-fill"
@@ -40,7 +42,7 @@ const MainBanner = () => {
                   <a style={{ fontWeight: 600 }} href="https://t.me/TruckDriverGroup/13900/13904">
                     {t("bestTelegramChat")}
                   </a>
-                </div>
+                </div>}
               </div>
             </div>
             <div className="col-lg-6 col-md-12">
