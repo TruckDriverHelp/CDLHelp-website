@@ -34,7 +34,7 @@ const articleList = {
     },
     {
       "title": "Как использовать приложение CDL Help",
-      "slug": "kak-ispolzovat-cdl-help"
+      "slug": "kak-ispolzovat-cdlhelp"
     },
     {
       "title": "Как получить CLP пермит",
@@ -74,11 +74,11 @@ const articleList = {
     },
     {
       "title": "رخصة القيادة التجارية",
-      "slug": "permit"
+      "slug": "permit-ar"
     },
     {
       "title": "الأسئلة الشائعة",
-      "slug": "faq"
+      "slug": "faq-ar"
     },
     
   ]
@@ -180,7 +180,7 @@ const Navbar = ({ alternateLinks }) => {
                             className="nav-link"
                             href="https://www.truckdriver.help/"
                           >
-                            {workForTruckers}
+                            {t("workForTruckers")}
                           </a>
                         </li>
                       )}
@@ -190,8 +190,8 @@ const Navbar = ({ alternateLinks }) => {
                   {(locale === "ru") && (
                     <>
                       <li className="nav-item">
-                        <Link href="/cdl-shkola">
-                          <a className="nav-link">{cdlSchool}</a>
+                        <Link href="/ru/o-cdl-shkolakh">
+                          <a className="nav-link">{t("cdlSchool")}</a>
                         </Link>
                       </li>
 

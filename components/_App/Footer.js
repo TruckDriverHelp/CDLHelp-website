@@ -29,7 +29,7 @@ const articleList = {
   "ru": {
     howToUseAppArticle: {
       title: "Как использовать приложение CDL Help",
-      slug: "/kak-ispolzovat-cdl-help"
+      slug: "/kak-ispolzovat-cdlhelp"
     },
     howToBecomeTruckDriverArticle: {
       title: "Как стать дальнобойщиком в США",
@@ -75,12 +75,12 @@ const articleList = {
     howToGetPermitArticle:
     {
       title: "رخصة القيادة التجارية",
-      slug: "permit"
+      slug: "permit-ar"
     },
     faq:
     {
       title: "الأسئلة الشائعة",
-      slug: "faq"
+      slug: "faq-ar"
     }
   }
 }
@@ -210,11 +210,11 @@ const Footer = () => {
                       <a>{howToGetPermitArticle.title}</a>
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/cdl-shkola">
+                  {locale == "ru" && <li>
+                    <Link href="/o-cdl-shkolakh">
                       <a>{t("cdlRussianSchool")}</a>
                     </Link>
-                  </li>
+                  </li>}
                   <li>
                     <a href="https://www.truckdriver.help/">{t("jobs")}</a>
                   </li>
