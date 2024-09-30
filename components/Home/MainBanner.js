@@ -3,8 +3,10 @@ import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Image from "next/image";
 import { useTranslation } from 'next-i18next';
+import { useRouter } from "next/router";
 
 const MainBanner = () => {
+  const { locale } = useRouter();
   const { t } = useTranslation('index');
   return (
     <>
