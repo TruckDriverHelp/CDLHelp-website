@@ -274,7 +274,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   {locale == "ru" && <li>
-                    <Link href="/o-cdl-shkolakh">
+                    <Link href="/cdl-shkola">
                       <a>{t("cdlRussianSchool")}</a>
                     </Link>
                   </li>}
