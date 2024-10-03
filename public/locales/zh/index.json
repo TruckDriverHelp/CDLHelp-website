@@ -1,0 +1,38 @@
+{
+    "title": "美国卡车司机 CDL 测试",
+    "description": "CDL Help应用旨在帮助您准备并通过 CDL 考试。我们的数据库包含超过 1,000 道问题，助您成为卡车司机",
+    "download": "下载",
+    "cdlSchools": "CDL 学校",
+    "language": "",
+    "bestTelegramChat": "在 Telegram 社区中，初学者卡车司机聚集地",
+  
+    "stepByStep": "分步说明",
+    "howToGet": "如何获得 CDL",
+    "videoDescription": "本文提供了详细的指南，介绍如何在美国成为卡车司机并获得 CDL（商业驾驶执照）。首先，我们解释了通过 DOT 医学检查的过程，这是所有 CDL 候选人必须经历的。接着，我们介绍了在 DMV 进行理论测试以获得学员许可证（CLP）的过程，该许可证允许您练习驾驶卡车。最后，指南涉及 CDL 学校课程和通过实际驾驶测试的过程",
+    "startWatching": "观看",
+
+    "bestFeaturesTitle": "CDL Help应用",
+    "bestFeaturesDescription": "CDL Help是一款独特的 CDL-A 测试准备应用。该应用提供实时英文翻译功能。利用测试来检验您的知识，并为美国的 A 级商业驾驶执照考试做好准备。测试模拟了可能出现在当地 DMV 办公室考试中的问题类型",
+    "bestFeaturesDownload": "下载",
+    "tryOnline": "在线试用",
+    "freeQuestions": "免费材料",
+    "freeAccess": "免费访问超过 100 道问题",
+    "translation": "实时翻译",
+    "helpsToGetCdl": "帮助在学习英语的同时获得 CDL",
+    "questionsDataBase": "问题数据库",
+    "numberOfQuestions": "我们的数据库包含超过 1000 道问题",
+    "questionsCategories": "6 个问题类别",
+    "questionsCategories2": "应用中包含三个主要测试和三个附加测试",
+    
+    "funFactsNumberOfQuestions": "问题数量",
+    "numberOfTests": "测试次数",
+    "numberOfCategories": "节数",
+    "users": "用户",
+
+    "downloadApp": "下载应用",
+    "downloadAppText": "下载 CDL Help - 带翻译的 CDL 测试",
+    "downloadAndTry": "免费下载安装 CDL Help应用，试试问题",
+    "androidApp": "Android",
+    "downloadButton": "下载",
+    "iosApp": "iOS"
+}
