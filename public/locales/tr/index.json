@@ -1,0 +1,38 @@
+{
+    "title": "ABD'de Kamyon Sürücüleri için CDL Testleri",
+    "description": "CDL Help uygulaması, CDL sınavlarına hazırlanmanızda ve sınavları geçmenizde size yardımcı olmak için tasarlanmıştır. Veritabanımız, kamyon şoförü olmanıza yardımcı olacak 1.000'den fazla soru içermektedir",
+    "download": "İndir",
+    "cdlSchools": "CDL Okulu",
+    "language": "Turkce",
+    "bestTelegramChat": "Yeni başlayan kamyon sürücüleri için Telegram topluluğu",
+  
+    "stepByStep": "Adım adım talimatlar",
+    "howToGet": "CDL nasıl alınır",
+    "videoDescription": "Bu makale, ABD'de nasıl kamyon şoförü olunacağı ve CDL (Ticari Sürücü Belgesi) alınacağı konusunda ayrıntılı bir rehber sunmaktadır. İlk olarak, tüm CDL adayları için gerekli olan DOT tıbbi muayenesini geçme sürecini açıklıyoruz. Ardından, kamyon sürme pratiği yapmanıza olanak tanıyan öğrenci ruhsatı (CLP) almak için DMV'de teorik testlere girme süreci ele alınmaktadır. Son olarak, kılavuz CDL okul müfredatına ve pratik sürüş testini geçme sürecine değinmektedir",
+    "startWatching": "İzle",
+
+    "bestFeaturesTitle": "CDL Help Uygulaması",
+    "bestFeaturesDescription": "CDL Help, CDL-A testlerine hazırlanmak için benzersiz bir uygulamadır. Uygulama, metinleri İngilizce'den gerçek zamanlı olarak çevirme olanağı sağlar. Bilgilerinizi test etmek ve ABD'deki A Sınıfı Ticari Sürücü Belgesi sınavlarına hazırlanmak için testleri kullanın. Testler, yerel bir DMV ofisinde sınav sırasında çıkabilecek soru türlerini simüle eder",
+    "bestFeaturesDownload": "İndir",
+    "tryOnline": "Çevrimiçi Deneyin",
+    "freeQuestions": "Ücretsiz materyal",
+    "freeAccess": "100'den fazla soruya ücretsiz erişim",
+    "translation": "Gerçek zamanlı çeviri",
+    "helpsToGetCdl": "İngilizce öğrenirken aynı zamanda CDL almanıza yardımcı olur",
+    "questionsDataBase": "Soru Veritabanı",
+    "numberOfQuestions": "Veritabanımızda 1000'den fazla soru bulunmaktadır",
+    "questionsCategories": "6 soru kategorisi",
+    "questionsCategories2": "Uygulama üç ana ve üç destek testi içermektedir",
+    
+    "funFactsNumberOfQuestions": "Soru Sayısı",
+    "numberOfTests": "Test Sayısı",
+    "numberOfCategories": "Bölüm Sayısı",
+    "users": "Kullanıcılar",
+
+    "downloadApp": "UYGULAMAYI İNDİR",
+    "downloadAppText": "CDL Helpı İndirin - Çeviri ile CDL testleri",
+    "downloadAndTry": "CDL Help uygulamasını ücretsiz olarak indirin ve soruları deneyin",
+    "androidApp": "Android",
+    "downloadButton": "İndir",
+    "iosApp": "iOS"
+}
