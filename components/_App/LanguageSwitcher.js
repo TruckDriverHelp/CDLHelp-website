@@ -5,6 +5,10 @@ const LanguageSwitcher = () => {
         "en": "English",
         "ru": "Русский",
         "uk": "Українська",
+        "zh": "中文",
+        "ko": "한국어",
+        "tr": "Türkçe",
+        // "pt": "Português"
     }
 
     const handleLocaleChange = (event) => {
