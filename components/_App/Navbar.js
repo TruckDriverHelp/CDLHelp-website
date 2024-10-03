@@ -3,28 +3,31 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
-import LanguageSwitcher from "@/components/_App/LanguageSwitcher"
+import LanguageSwitcher from "@/components/_App/LanguageSwitcher";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
-
 const articleList = {
   "en": [
-    {
-      "title": "How to use the CDL Help App",
-      "slug": "how-to-use-cdl-help"
-    },
     {
       "title": "How to become a Truck Driver in USA",
       "slug": "how-to-become-a-truck-driver-in-usa"
     },
     {
-      "title": "How to get a CDL Permit",
-      "slug": "how-to-get-clp-permit"
+      "title": "How to use the CDL Help App",
+      "slug": "how-to-use-cdl-help"
     },
     {
-      "title": "CDL – Frequently Asked Questions",
+      "title": "How to get a CDL Permit",
+      "slug": "how-to-get-cip-permit"
+    },
+    {
+      "title": "Frequently Asked Questions CDL help",
       "slug": "frequently-asked-questions-cdl-help"
+    },
+    {
+      "title": "What is taught in CDL schools",
+      "slug": "what-is-taught-in-cdl-schools"
     }
   ],
   "ru": [
@@ -43,51 +46,114 @@ const articleList = {
     {
       "title": "Часто задаваемые вопросы",
       "slug": "chasto-zadavaemye-voprosy"
+    },
+    {
+      "title": "О CDL школе",
+      "slug": "o-cdl-shkolakh"
     }
   ],
   "uk": [
     {
-      "title": "Як використовувати додаток CDL Help",
-      "slug": "yak-vykorystovuvaty-dodatok-cdl-help"
-    },
-    {
       "title": "Як стати водієм вантажівки в США",
       "slug": "yak-staty-vodiyem-vantazhivky-v-amerytsi"
+    },
+    {
+      "title": "Як використовувати додаток CDL Help",
+      "slug": "yak-vykorystovuvaty-dodatok-cdl-help"
     },
     {
       "title": "Як отримати дозвіл CDL",
       "slug": "yak-otrymaty-dozvil-cdl"
     },
     {
-      "title": "CDL Help – Часті запитання",
+      "title": "CDL Help – Часті запитання",
       "slug": "chasti-zapytannya"
+    },
+    {
+      "title": "Про CDL школі",
+      "slug": "choho-navchayut-u-shkolakh-cdl"
     }
   ],
   "ar": [
     {
-      "title": "الأسئلة الشائعة",
-      "slug": "how-to-use-app"
+      "title": "كيف تصبح سائق شاحنة في الولايات المتحدة",
+      "slug": "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida"
     },
     {
-      "title": "كيف تصبح سائق شاحنة في الولايات المتحدة الأمريكية",
-      "slug": "become-truck-driver"
+      "title": "كيفية استخدام تطبيق CDL مساعدة",
+      "slug": "kayfiyat-astikhdam-tatbiq-cdl-musaeda"
     },
     {
-      "title": "رخصة القيادة التجارية",
-      "slug": "permit-ar"
+      "title": "كيفية الحصول على تصريح CDL",
+      "slug": "kayfiyat-alhusul-ala-tasrih-cdl"
     },
     {
-      "title": "الأسئلة الشائعة",
-      "slug": "faq-ar"
+      "title": "الأسئلة الشائعة مساعدة CDL",
+      "slug": "alas-ila-alshaeia-musaedat-cdl"
+    }
+  ],
+  "ko": [
+    {
+      "title": "미국에서 트럭 운전사가 되는 방법",
+      "slug": "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob"
     },
-    
-  ]
+    {
+      "title": "자주 묻는 질문 CDL 도움",
+      "slug": "jaju-mudneun-jilmun-cdl-doum"
+    },
 
-}
+    {
+      "title": "CDL 허가증을 받는 방법",
+      "slug": "cdl-heogajeungeul-badneun-bangbeob"
+    },
+    {
+      "title": "CDL 도움 앱 사용법",
+      "slug": "cdl-doum-aeb-sayongbeob"
+    }
+  ],
+  "zh": [
+    {
+      "title": "如何成为美国卡车司机",
+      "slug": "ruhe-chengwei-meiguo-kache-siji"
+    },
+    {
+      "title": "常见问题 CDL 帮助",
+      "slug": "changjian-wenti-cdl-bangzhu"
+    },
+    {
+      "title": "如何获得 CDL 许可证",
+      "slug": "ruhe-huode-cdl-xukezheng"
+    },
+    {
+      "title": "如何使用 CDL 帮助应用程序",
+      "slug": "ruhe-shiyong-cdl-bangzhu-yingyongchengxu"
+    }
+  ],
+  "tr": [
+    {
+      "title": "Nasıl kamyon şoförü olunur",
+      "slug": "nasil-kamyon-soforu-olunur"
+    },
+    {
+      "title": "CDL Yardım nasıl kullanılır",
+      "slug": "cdl-yardim-nasil-kullanilir"
+    },
+    {
+      "title": "CDL İzni Nasıl Alınır",
+      "slug": "cdl-izni-nasil-alinir"
+    },
+    {
+      "title": "Sıkça Sorulan Sorular CDL Help",
+      "slug": "sikca-sorulan-sorular"
+    },
+
+  ],
+  "pt": []
+};
 
 const Navbar = ({ alternateLinks }) => {
-  const {t} = useTranslation("navbar");
-  const {locale} = useRouter();
+  const { t } = useTranslation("navbar");
+  const { locale } = useRouter();
   const [menu, setMenu] = React.useState(true);
 
   const toggleNavbar = () => {
@@ -163,18 +229,16 @@ const Navbar = ({ alternateLinks }) => {
                     </Link>
 
                     <ul className="dropdown-menu">
-                      {
-                        articleList[locale].map((article, index) => {
-                          return (
-                            <li key={index}>
-                              <Link href={article.slug} locale={locale}>
-                                <a>{article.title}</a>
-                              </Link>
-                            </li>
-                          )
-                        })
-                      }
-                      {(locale === "ru") && (
+                      {articleList[locale].map((article, index) => {
+                        return (
+                          <li key={index}>
+                            <Link href={article.slug} locale={locale}>
+                              <a>{article.title}</a>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                      {locale === "ru" && (
                         <li className="nav-item">
                           <a
                             className="nav-link"
@@ -187,10 +251,10 @@ const Navbar = ({ alternateLinks }) => {
                     </ul>
                   </li>
 
-                  {(locale === "ru") && (
+                  {locale === "ru" && (
                     <>
                       <li className="nav-item">
-                        <Link href="/ru/o-cdl-shkolakh">
+                        <Link href="/cdl-shkola">
                           <a className="nav-link">{t("cdlSchool")}</a>
                         </Link>
                       </li>
@@ -215,7 +279,6 @@ const Navbar = ({ alternateLinks }) => {
                 </ul>
               </div>
 
-
               <div className="others-options">
                 <LanguageSwitcher />
 
@@ -225,12 +288,14 @@ const Navbar = ({ alternateLinks }) => {
                     style={{ color: "#3c9ff0", fontSize: 26, marginRight: 5 }}
                   ></i>
                 </a>
-                {(locale ==="ru" || locale === "uk") && <a href="https://www.youtube.com/@truckdriverdothelp">
-                  <i
-                    className="ri-youtube-fill"
-                    style={{ color: "#ff0000", fontSize: 26, marginRight: 5 }}
-                  ></i>
-                </a>}
+                {(locale === "ru" || locale === "uk") && (
+                  <a href="https://www.youtube.com/@truckdriverdothelp">
+                    <i
+                      className="ri-youtube-fill"
+                      style={{ color: "#ff0000", fontSize: 26, marginRight: 5 }}
+                    ></i>
+                  </a>
+                )}
                 <a href="https://www.facebook.com/truckdriverhelp">
                   <i
                     className="ri-facebook-circle-fill"
