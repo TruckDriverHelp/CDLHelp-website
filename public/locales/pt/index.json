@@ -1,0 +1,38 @@
+{
+    "title": "Provas de CDL para motoristas de caminhão nos EUA",
+    "description": "O aplicativo CDL Help foi desenvolvido para ajudá-lo a se preparar e passar nos exames de CDL. Nosso banco de dados inclui mais de 1.000 perguntas, que o ajudarão a se tornar um motorista de caminhão",
+    "download": "Download",
+    "cdlSchools": "Escola de CDL",
+    "language": "Portuguese",
+    "bestTelegramChat": "Escola de CDL",
+  
+    "stepByStep": "Instruções passo a passo",
+    "howToGet": "Como obter uma CDL",
+    "videoDescription": "Este artigo fornece um guia detalhado sobre como se tornar um caminhoneiro nos EUA e obter uma CDL (Commercial Driver's License). Primeiro, explicamos o processo de aprovação no exame médico do DOT, que é necessário para todos os candidatos à CDL. Em seguida, consideramos o processo de realização de testes teóricos no DMV para obter uma permissão de estudante (CLP), que lhe permite praticar a condução de um caminhão. Por fim, o guia aborda o currículo escolar da CDL e o processo de aprovação no teste prático de direção",
+    "startWatching": "Assistir",
+
+    "bestFeaturesTitle": "Aplicativo CDL Help",
+    "bestFeaturesDescription": "O CDL Help é um aplicativo exclusivo para preparar para os testes de CDL-A. O aplicativo oferece a possibilidade de traduzir textos do inglês em tempo real. Use os testes para testar seus conhecimentos e se preparar para os exames da Carteira de Motorista Comercial Classe A nos EUA. Os testes simulam os tipos de perguntas que podem aparecer durante o exame em um escritório local do DMV",
+    "bestFeaturesDownload": "Download",
+    "tryOnline": "Experimente On-line",
+    "freeQuestions": "Materiais gratuitos",
+    "freeAccess": "Acesso gratuito a mais de 100 perguntas",
+    "translation": "Tradução em tempo real",
+    "helpsToGetCdl": "Ajuda a obter uma CDL e, ao mesmo tempo, aprender inglês",
+    "questionsDataBase": "Banco de Dados de Questões",
+    "numberOfQuestions": "Nosso banco de dados contém mais de 1.000 questões",
+    "questionsCategories": "6 categorias de questões",
+    "questionsCategories2": "O aplicativo contém três testes principais e três testes de autorização",
+    
+    "funFactsNumberOfQuestions": "Number of Questions",
+    "numberOfTests": "Number of Tests",
+    "numberOfCategories": "Number of Sections",
+    "users": "Users",
+
+    "downloadApp": "DOWNLOAD DO APLICATIVO",
+    "downloadAppText": "Download do CDL Help - Testes de CDL com tradução",
+    "downloadAndTry": "Faça o download gratuito do aplicativo CDL Help e teste as perguntas",
+    "androidApp": "Android",
+    "downloadButton": "Download",
+    "iosApp": "iOS"
+}

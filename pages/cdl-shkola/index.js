@@ -7,6 +7,8 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/router";
 import getMeta from "../../lib/getMeta";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 
 const CdlShkola = ({meta}) => {
     const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,);
@@ -94,7 +96,7 @@ const CdlShkola = ({meta}) => {
                                             <div style={{ marginBottom: 20 }}>
                                                 <a
                                                     style={{ textDecoration: "underline" }}
-                                                    href="https://cdlhelp.com/dalnoboishik"
+                                                    href="/ru/kak-stat-dalnoboishikom"
                                                     target="_blank"
                                                 >
                                                     Подробнее о том, что необходимо прежде чем начать учёбу в
@@ -245,6 +247,11 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             meta: meta,
+            ...(await serverSideTranslations(locale ?? 'en', [
+                'navbar',
+                'footer',
+                'cookie'
+              ])),
         }
     };
 }
