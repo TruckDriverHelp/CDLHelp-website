@@ -17,13 +17,12 @@ export default async (req, res) => {
     const data = {
         to: "contact@cdlhelp.com",
         from: 'noreply@cdlhelp.app',
-        subject: 'Hi there',
+        subject: subject,
         text: text,
         html: `
             <b>Email:</b>${email} <br />
-            <b>From:</b> ${name} <br /> 
+            <b>Name:</b> ${name} <br /> 
             <b>Number:</b> ${number} <br /> 
-            <b>Subject:</b> ${subject} <br /> 
             <b>Message:</b> ${text} 
         ` 
     };

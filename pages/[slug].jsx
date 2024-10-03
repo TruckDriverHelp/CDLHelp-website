@@ -21,7 +21,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
   const metaTags = article.meta_tag.data.attributes;
-  const metaImage = metaTags.image.data.attributes.url;
+  const metaImage = host + metaTags.image.data.attributes.url;
 
   return (
     <>
@@ -32,7 +32,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           <link
             key={index}
             rel="alternate"
-            href={link.href}
+            href={process.env.BASE_URL + link.href}
             hrefLang={link.hrefLang}
           />
         ))}

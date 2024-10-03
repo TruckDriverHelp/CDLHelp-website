@@ -64,25 +64,88 @@ const articleList = {
   },
   "ar": {
     howToUseAppArticle: {
-      title: "الأسئلة الشائعة",
-      slug: "how-to-use-app"
+      title: "كيفية استخدام تطبيق CDL مساعدة",
+      slug: "/kayfiyat-astikhdam-tatbiq-cdl-musaeda"
     },
     howToBecomeTruckDriverArticle:
     {
-      title: "كيف تصبح سائق شاحنة في الولايات المتحدة الأمريكية",
-      slug: "become-truck-driver"
+      title: "كيف تصبح سائق شاحنة في الولايات المتحدة",
+      slug: "/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida"
     },
     howToGetPermitArticle:
     {
-      title: "رخصة القيادة التجارية",
-      slug: "permit-ar"
+      title: "كيفية الحصول على تصريح CDL",
+      slug: "/kayfiyat-alhusul-ala-tasrih-cdl"
     },
     faq:
     {
-      title: "الأسئلة الشائعة",
-      slug: "faq-ar"
+      title: "الأسئلة الشائعة مساعدة CDL",
+      slug: "/alas-ila-alshaeia-musaedat-cdl"
     }
-  }
+  },
+  "zh": {
+    howToUseAppArticle: {
+      title: "如何使用 CDL 帮助应用程序",
+      slug: "/ruhe-shiyong-cdl-bangzhu-yingyongchengxu"
+    },
+    howToBecomeTruckDriverArticle:
+    {
+      title: "如何成为美国卡车司机",
+      slug: "/ruhe-chengwei-meiguo-kache-siji"
+    },
+    howToGetPermitArticle:
+    {
+      title: "如何获得 CDL 许可证",
+      slug: "/ruhe-huode-cdl-xukezheng"
+    },
+    faq:
+    {
+      title: "常见问题 CDL 帮助",
+      slug: "/changjian-wenti-cdl-bangzhu"
+    }
+  },
+  "ko": {
+    howToUseAppArticle: {
+      title: "CDL 도움 앱 사용법",
+      slug: "/cdl-doum-aeb-sayongbeob"
+    },
+    howToBecomeTruckDriverArticle:
+    {
+      title: "미국에서 트럭 운전사가 되는 방법",
+      slug: "/migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob"
+    },
+    howToGetPermitArticle:
+    {
+      title: "CDL 허가증을 받는 방법",
+      slug: "/cdl-heogajeungeul-badneun-bangbeob"
+    },
+    faq:
+    {
+      title: "자주 묻는 질문 CDL 도움",
+      slug: "/jaju-mudneun-jilmun-cdl-doum"
+    }
+  },
+  "tr": {
+    howToUseAppArticle: {
+      title: "CDL Yardım nasıl kullanılır",
+      slug: "/cdl-yardim-nasil-kullanilir"
+    },
+    howToBecomeTruckDriverArticle:
+    {
+      title: "Nasıl kamyon şoförü olunur",
+      slug: "/nasil-kamyon-soforu-olunur"
+    },
+    howToGetPermitArticle:
+    {
+      title: "CDL İzni Nasıl Alınır",
+      slug: "/cdl-izni-nasil-alinir"
+    },
+    faq:
+    {
+      title: "Sıkça Sorulan Sorular CDL Help",
+      slug: "/sikca-sorulan-sorular"
+    }
+  },
 }
 
 const Footer = () => {
@@ -211,7 +274,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   {locale == "ru" && <li>
-                    <Link href="/o-cdl-shkolakh">
+                    <Link href="/cdl-shkola">
                       <a>{t("cdlRussianSchool")}</a>
                     </Link>
                   </li>}
