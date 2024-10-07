@@ -151,6 +151,11 @@ const articleList = {
   "pt": []
 };
 
+const internationalLinks = {
+  "fb": "https://www.facebook.com/profile.php?id=61566664868754&is_tour_dismissed",
+  "tg": "https://www.t.me/cdlhelpcom",
+}
+
 const Navbar = ({ alternateLinks }) => {
   const { t } = useTranslation("navbar");
   const { locale } = useRouter();
@@ -282,7 +287,7 @@ const Navbar = ({ alternateLinks }) => {
               <div className="others-options">
                 <LanguageSwitcher />
 
-                <a href="https://www.t.me/truckdriverhelp">
+                {/* <a href="https://www.t.me/truckdriverhelp">
                   <i
                     className="ri-telegram-fill"
                     style={{ color: "#3c9ff0", fontSize: 26, marginRight: 5 }}
@@ -301,13 +306,7 @@ const Navbar = ({ alternateLinks }) => {
                     className="ri-facebook-circle-fill"
                     style={{ color: "#1b74e4", fontSize: 26, marginRight: 5 }}
                   ></i>
-                </a>
-                <a href="/contact">
-                  <i
-                    className="ri-mail-fill"
-                    style={{ color: "#3b3e78", fontSize: 26, marginRight: 5 }}
-                  ></i>
-                </a>
+                </a> */}
               </div>
             </nav>
           </div>
