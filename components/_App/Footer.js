@@ -177,7 +177,7 @@ const Footer = () => {
                 </p>
 
                 <ul className="social-links">
-                  {(locale === "ru" || locale === "uk") && <li>
+                  {/* {(locale === "ru" || locale === "uk") && <li>
                     <a href="https://www.youtube.com/@truckdriverdothelp" target="_blank">
                       <i className="ri-youtube-fill"></i>
                     </a>
@@ -194,12 +194,7 @@ const Footer = () => {
                     >
                       <i className="ri-facebook-fill"></i>
                     </a>
-                  </li>
-                  <li>
-                    <Link href="/contact">
-                      <a target="_blank"><i className="ri-mail-fill"></i></a>
-                    </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
