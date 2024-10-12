@@ -8,8 +8,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import getMeta from '../lib/getMeta';
+import Navbar from "@/components/_App/Navbar";
+import Footer from "@/components/_App/Footer";
+import Layout from "@/components/_App/Layout";
 
-const IndexPage = ({ meta }) => {
+const IndexPage = ({ meta, alternateLinks }) => {
     const { locale } = useRouter();
     return (
         <>
@@ -28,6 +31,8 @@ const IndexPage = ({ meta }) => {
                 <meta property="og:title" content={meta.title} />
                 <meta property="og:description" content={meta.description} />
                 <meta property="og:image" content={meta.image} />
+                <meta property="og:locale" content={locale} />
+                <meta property="og:site_name" content="CDL Help" />
 
                 {/* Twitter Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -37,35 +42,40 @@ const IndexPage = ({ meta }) => {
 
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
 
+
             </Head>
 
-            <MainBanner />
+            <Layout>
+                <Navbar alternateLinks={alternateLinks} />
+                <MainBanner />
 
-            <AppIntroVideo />
+                <AppIntroVideo />
 
-            <BestFeatures />
-            {/* <ClientFeedback /> */}
+                <BestFeatures />
+                {/* <ClientFeedback /> */}
 
-            {/* <TopFeatures /> */}
+                {/* <TopFeatures /> */}
 
-            {/* <AboutContent /> */}
+                {/* <AboutContent /> */}
 
-            {/* <KeyFeatures /> */}
+                {/* <KeyFeatures /> */}
 
-            {/* <AppScreenshots /> */}
+                {/* <AppScreenshots /> */}
 
-            <Funfacts />
+                <Funfacts />
 
-            <AppDownload />
+                <AppDownload />
 
 
-            {/* <PricingPlan /> 
+                {/* <PricingPlan /> 
                             
                             <div className="bg-f9f9f9">
                     <PartnerStyle2 />
                 </div>
 
                 <BlogPost /> */}
+                <Footer />
+            </Layout>
         </>
     )
 }
@@ -73,17 +83,28 @@ const IndexPage = ({ meta }) => {
 export default IndexPage;
 
 export async function getStaticProps({ locale }) {
-	const meta = await getMeta(locale, "general");
+    const meta = await getMeta(locale, "general");
+
+    const alternateLinks = {
+		'en': '/',
+		'ar': '/ar',
+		'ru': '/ru',
+		'uk': '/uk',
+		'zh': '/zh',
+		'ko': '/ko',
+		'tr': '/tr',
+	};
 
     return {
-      props: {
-        meta: meta,
-        ...(await serverSideTranslations(locale ?? 'en', [
-            'index',
-            'navbar',
-            'footer',
-            'cookie'
-          ])),
-      },
+        props: {
+            meta: meta,
+            alternateLinks: alternateLinks,
+            ...(await serverSideTranslations(locale ?? 'en', [
+                'index',
+                'navbar',
+                'footer',
+                'cookie'
+            ])),
+        },
     };
-  }
+}

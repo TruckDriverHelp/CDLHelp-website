@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
-import LanguageSwitcher from "@/components/_App/LanguageSwitcher";
+import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
@@ -283,7 +283,7 @@ const Navbar = ({ alternateLinks }) => {
               </div>
 
               <div className="others-options">
-                <LanguageSwitcher />
+                <LanguageSwitcher alternateLinks={alternateLinks} />
 
                 {/* <a href="https://www.t.me/truckdriverhelp">
                   <i
