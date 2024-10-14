@@ -4,6 +4,9 @@ import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import getMeta from "../lib/getMeta";
+import Navbar from '@/components/_App/Navbar';
+import Footer from '@/components/_App/Footer';
+import Layout from '@/components/_App/Layout';
 
 const PrivacyPolicy = ({meta}) => {
 	const {locale} = useRouter();
@@ -24,6 +27,8 @@ const PrivacyPolicy = ({meta}) => {
 				<meta property="og:title" content={meta.title} />
 				<meta property="og:description" content={meta.description} />
 				<meta property="og:image" content={meta.image} />
+				<meta property="og:locale" content={locale} />
+                <meta property="og:site_name" content="CDL Help" />
 
 				{/* Twitter Meta Tags */}
 				<meta name="twitter:card" content="summary_large_image" />
@@ -32,8 +37,10 @@ const PrivacyPolicy = ({meta}) => {
 				<meta name="twitter:image" content={meta.image} />
 			</Head>
 
-			<PageBannerStyle1
-				pageTitle="Privacy Policy"
+			<Layout>
+				<Navbar />
+				<PageBannerStyle1
+					pageTitle="Privacy Policy"
 				homePageUrl="/"
 				homePageText="Home"
 				activePageText="Privacy Policy"
@@ -565,6 +572,8 @@ const PrivacyPolicy = ({meta}) => {
 					</div>
 				</div>
 			</div>
+			<Footer />
+			</Layout>
 		</>
 	)
 }
