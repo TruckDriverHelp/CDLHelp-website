@@ -28,6 +28,10 @@ const articleList = {
     {
       "title": "What is taught in CDL schools",
       "slug": "what-is-taught-in-cdl-schools"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "ru": [
@@ -50,6 +54,10 @@ const articleList = {
     {
       "title": "О CDL школе",
       "slug": "o-cdl-shkolakh"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "uk": [
@@ -72,6 +80,10 @@ const articleList = {
     {
       "title": "Про CDL школі",
       "slug": "choho-navchayut-u-shkolakh-cdl"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "ar": [
@@ -90,6 +102,10 @@ const articleList = {
     {
       "title": "الأسئلة الشائعة مساعدة CDL",
       "slug": "alas-ila-alshaeia-musaedat-cdl"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "ko": [
@@ -109,6 +125,10 @@ const articleList = {
     {
       "title": "CDL 도움 앱 사용법",
       "slug": "cdl-doum-aeb-sayongbeob"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "zh": [
@@ -127,6 +147,10 @@ const articleList = {
     {
       "title": "如何使用 CDL 帮助应用程序",
       "slug": "ruhe-shiyong-cdl-bangzhu-yingyongchengxu"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "tr": [
@@ -146,6 +170,10 @@ const articleList = {
       "title": "Sıkça Sorulan Sorular CDL Help",
       "slug": "sikca-sorulan-sorular"
     },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
+    }
 
   ],
   "pt": []
