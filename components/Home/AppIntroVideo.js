@@ -32,7 +32,7 @@ const AppIntroVideo = () => {
             <div id="truckdriverhelp" className="app-video-area ptb-100">
                 <div className="container">
                     <div className="row align-items-center">
-                        {(locale == "ru" || locale == "uk") && <div className="col-lg-6 col-md-12">
+                        <div className="col-lg-6 col-md-12">
                             <div className="app-intro-video-box">
                                 <Image
                                     src="/images/video/video-2.jpg"
@@ -40,15 +40,15 @@ const AppIntroVideo = () => {
                                     width={635}
                                     height={420}
                                 />
-                                <div
+                                {(locale === "ru" || locale === "uk") ? <div
                                     onClick={e => { e.preventDefault(); openModal() }}
                                     className="video-btn popup-youtube"
                                 >
                                     <i className="ri-play-line"></i>
-                                </div>
+                                </div> : null}
 
                             </div>
-                        </div>}
+                        </div>
 
                         {<div className="col-lg-6 col-md-12">
                             {(locale === "ru" || locale === "uk") ? (

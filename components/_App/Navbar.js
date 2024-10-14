@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "@/utils/ActiveLink";
 import Image from "next/image";
-import LanguageSwitcher from "@/components/_App/LanguageSwitcher";
+import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
@@ -28,6 +28,10 @@ const articleList = {
     {
       "title": "What is taught in CDL schools",
       "slug": "what-is-taught-in-cdl-schools"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "ru": [
@@ -50,6 +54,10 @@ const articleList = {
     {
       "title": "О CDL школе",
       "slug": "o-cdl-shkolakh"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "uk": [
@@ -72,6 +80,10 @@ const articleList = {
     {
       "title": "Про CDL школі",
       "slug": "choho-navchayut-u-shkolakh-cdl"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "ar": [
@@ -90,6 +102,10 @@ const articleList = {
     {
       "title": "الأسئلة الشائعة مساعدة CDL",
       "slug": "alas-ila-alshaeia-musaedat-cdl"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "ko": [
@@ -109,6 +125,10 @@ const articleList = {
     {
       "title": "CDL 도움 앱 사용법",
       "slug": "cdl-doum-aeb-sayongbeob"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "zh": [
@@ -127,6 +147,10 @@ const articleList = {
     {
       "title": "如何使用 CDL 帮助应用程序",
       "slug": "ruhe-shiyong-cdl-bangzhu-yingyongchengxu"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ],
   "tr": [
@@ -146,6 +170,10 @@ const articleList = {
       "title": "Sıkça Sorulan Sorular CDL Help",
       "slug": "sikca-sorulan-sorular"
     },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
+    }
 
   ],
   "pt": []
@@ -255,27 +283,25 @@ const Navbar = ({ alternateLinks }) => {
                       )}
                     </ul>
                   </li>
-
-                  {locale === "ru" && (
-                    <>
+                    {/* <>
                       <li className="nav-item">
                         <Link href="/cdl-shkola">
                           <a className="nav-link">{t("cdlSchool")}</a>
                         </Link>
                       </li>
-
-                      <li className="nav-item">
-                        <a className="nav-link" href="https://www.dmvhelp.app/">
-                          DMV Help
-                        </a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="https://www.mir.chat/">
                           Mir.chat
                         </a>
                       </li>
-                    </>
-                  )}
+                    </> */}
+                    {locale == "ru" && <li className="nav-item">
+                        <a className="nav-link" href="https://www.dmvhelp.app/">
+                          DMV Help
+                        </a>
+                      </li>
+                    }
                   <li className="nav-item">
                     <Link href="/contact">
                       <a className="nav-link">{t("contacts")}</a>
@@ -285,7 +311,7 @@ const Navbar = ({ alternateLinks }) => {
               </div>
 
               <div className="others-options">
-                <LanguageSwitcher />
+                <LanguageSwitcher alternateLinks={alternateLinks} />
 
                 {/* <a href="https://www.t.me/truckdriverhelp">
                   <i
