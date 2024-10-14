@@ -450,8 +450,17 @@
     </url>
     <url>
         <loc>https://cdlhelp.com/cdl-texas</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <lastmod>2024-10-03T00:25:29.039Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://cdlhelp.com/zh/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://cdlhelp.com/en/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://cdlhelp.com/ko/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/cdl-texas"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/cdl-texas"/>
     </url>
     <url>
         <loc>https://cdlhelp.com/privacy-policy</loc>
