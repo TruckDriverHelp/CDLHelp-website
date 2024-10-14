@@ -1,4 +1,4 @@
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ alternateLinks }) => {
     const languages = {
         "": "Language",
         "ar": "عربي",
@@ -8,12 +8,18 @@ const LanguageSwitcher = () => {
         "zh": "中文",
         "ko": "한국어",
         "tr": "Türkçe",
-        // "pt": "Português"
     }
 
     const handleLocaleChange = (event) => {
         const locale = event.target.value;
-        window.location.replace(`/${locale}`);
+        try{
+            const link = alternateLinks.find(link => link.hrefLang === locale);
+            window.location.replace(link.href)
+        }
+        catch (error) {
+            console.error(error);
+            window.location.replace(`/${locale}`);
+        }
     };
 
     return (
@@ -29,4 +35,4 @@ const LanguageSwitcher = () => {
     );
 };
 
-export default LanguageSwitcher
+export default LanguageSwitcher;
