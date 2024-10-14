@@ -4,11 +4,13 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 // import GoTop from './GoTop'
 
-const Layout = ({ children, alternateLinks }) => {
+const Layout = ({ children, alternateLinks, dir }) => {
 
     return (
         <>
-            {children}
+            <div dir={dir}>
+                {children}
+            </div>
         </>
     );
 };

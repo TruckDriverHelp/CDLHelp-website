@@ -11,6 +11,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ARTICLE_BY_SLUG_QUERY } from '../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from "@/components/_App/Layout";
+import Navbar from "@/components/_App/Navbar";
+import Footer from "@/components/_App/Footer";
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
@@ -48,6 +50,8 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
         <meta property="og:title" content={metaTags.title} />
         <meta property="og:description" content={metaTags.description} />
         <meta property="og:image" content={metaImage} />
+        <meta property="og:locale" content={locale} />
+        <meta property="og:site_name" content="CDL Help" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -73,88 +77,91 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
         />
 
       </Head>
-      <Layout alternateLinks={alternateLinks}/>
+      <Layout>
+        <Navbar alternateLinks={alternateLinks} />
         <PageBannerStyle1
           pageTitle={article.title}
-        homePageUrl="/"
-        homePageText="Главная Страница"
-        activePageText={article.title}
-      />
-      <div className="blog-details-area pb-75 w-50 mx-auto">
-        <div>
-          <p>{article.description}</p>
-          {article.blocks.map((block, index) => {
-            if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-              return <div id={block.idtag}><Markdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
-            }
-            else if (block.__typename === 'ComponentArticlePartsMedia') {
-              return (
-                <Image
-                  key={index}
-                  src={host + block.Media.data[0].attributes.url}
-                  alt={block.Media.data[0].attributes.alternativeText}
-                  width={block.Media.data[0].attributes.width}
-                  height={block.Media.data[0].attributes.height}
-                />
-              );
-            } else if (block.__typename === 'ComponentArticlePartsSlider') {
-              return (
-                <div key={index}>
-                  {block.Slider.data.map((file, index) => (
-                    <Image
-                      key={index}
-                      src={host + file.attributes.url}
-                      alt={file.attributes.alternativeText}
-                      width={file.attributes.width}
-                      height={file.attributes.height}
-                    />
-                  ))}
-                </div>
-              );
-            } else if (block.__typename === 'ComponentArticlePartsQuote') {
-              return (
-                <blockquote key={index}>
-                  <p>{block.Quote}</p>
-                </blockquote>
-              );
-            } else if (block.__typename === 'ComponentArticlePartsYouTube') {
-              const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
-              const videoId = parsedYoutube.url.split('v=')[1];
-              return (
-                <div key={index}>
-                  <YouTube
-                    videoId={videoId}
-                    opts={{
-                      height: '390',
-                      width: '640',
-                      playerVars: {
-                        autoplay: 0,
-                        controls: 1,
-                        rel: 0,
-                        showinfo: 0,
-                      },
-                    }}
+          homePageUrl="/"
+          homePageText="Главная Страница"
+          activePageText={article.title}
+        />
+        <div className="blog-details-area pb-75 w-50 mx-auto">
+          <div>
+            <p>{article.description}</p>
+            {article.blocks.map((block, index) => {
+              if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
+                return <div id={block.idtag}><Markdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
+              }
+              else if (block.__typename === 'ComponentArticlePartsMedia') {
+                return (
+                  <Image
+                    key={index}
+                    src={host + block.Media.data[0].attributes.url}
+                    alt={block.Media.data[0].attributes.alternativeText}
+                    width={block.Media.data[0].attributes.width}
+                    height={block.Media.data[0].attributes.height}
                   />
+                );
+              } else if (block.__typename === 'ComponentArticlePartsSlider') {
+                return (
+                  <div key={index}>
+                    {block.Slider.data.map((file, index) => (
+                      <Image
+                        key={index}
+                        src={host + file.attributes.url}
+                        alt={file.attributes.alternativeText}
+                        width={file.attributes.width}
+                        height={file.attributes.height}
+                      />
+                    ))}
+                  </div>
+                );
+              } else if (block.__typename === 'ComponentArticlePartsQuote') {
+                return (
+                  <blockquote key={index}>
+                    <p>{block.Quote}</p>
+                  </blockquote>
+                );
+              } else if (block.__typename === 'ComponentArticlePartsYouTube') {
+                const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
+                const videoId = parsedYoutube.url.split('v=')[1];
+                return (
+                  <div key={index}>
+                    <YouTube
+                      videoId={videoId}
+                      opts={{
+                        height: '390',
+                        width: '640',
+                        playerVars: {
+                          autoplay: 0,
+                          controls: 1,
+                          rel: 0,
+                          showinfo: 0,
+                        },
+                      }}
+                    />
+                  </div>
+                );
+              }
+              if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
+                return <div>
+                  <p>{t("relatedArticles")}</p>
+                  <ul>
+                    {block.articles.data.map((articleData, i) => {
+                      const article = articleData.attributes;
+                      const url = "/" + article.locale + "/" + article.slug;
+                      return <li key={i}><a href={url}>{article.title}</a></li>
+                    })}
+                  </ul>
                 </div>
-              );
-            }
-            if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
-              return <div>
-                <p>{t("relatedArticles")}</p>
-                <ul>
-                  {block.articles.data.map((articleData, i) => {
-                    const article = articleData.attributes;
-                    const url = "/" + article.locale + "/" + article.slug;
-                    return <li key={i}><a href={url}>{article.title}</a></li>
-                  })}
-                </ul>
-              </div>
-            }
-            return null;
-          })}
+              }
+              return null;
+            })}
 
+          </div>
         </div>
-      </div>
+        <Footer />
+      </Layout>
     </>
   );
 }
@@ -192,6 +199,11 @@ export async function getStaticProps({ params, locale }) {
       href: `/${link.attributes.locale}/${link.attributes.slug}`,
       hrefLang: link.attributes.locale,
     }));
+
+    alternateLinks.push({
+      href: `/${locale}/${slug}`,
+      hrefLang: locale,
+    });
 
     return {
       props: {
