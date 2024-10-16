@@ -35,15 +35,7 @@ const MyApp = ({ Component, pageProps, articles }) => {
 				cookieFlags: 'SameSite=None; Secure'
 			})
 		}
-		//var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-		//(function () {
-		//	var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-		//	s1.async = true;
-		//	s1.src = 'https://embed.tawk.to/6384bd8cdaff0e1306d9d545/1giv88r02';
-		//	s1.charset = 'UTF-8';
-		//	s1.setAttribute('crossorigin', '*');
-		//	s0.parentNode.insertBefore(s1, s0)
-		//})();
+
 		return () => {
 			router.events.off('routeChangeComplete', handleRouteChange)
 		}
@@ -72,7 +64,57 @@ const MyApp = ({ Component, pageProps, articles }) => {
                   });
                 `,
 				}}
+			/>
+			{/* Tawk.to Script */}
+			<Script
+				id="tawk-to"
+				strategy="lazyOnload"
+				dangerouslySetInnerHTML={{
+					__html: `
+						function getChatId() {
+						// function to retrieve the property/widget chat id;
+						// substitute 000000000001 to property id
+						var lang = navigator.language || navigator.userLanguage;
 
+						// return the default language if the lang variable is empty
+						if (!lang) {
+							return '000000000001/DEFAULT_WIDGET';
+						}
+
+						if (lang.match('en')) {
+							return '000000000001/WIDGET_FOR_EN';
+						} else if (lang.match('ru')) {
+							return '000000000001/WIDGET_FOR_RU';
+						} else if (lang.match('uk')) {
+						return '000000000001/WIDGET_FOR_UK';
+						} else if (lang.match('ar')) {
+						return '000000000001/WIDGET_FOR_AR';
+						} else if (lang.match('ko')) {
+						return '000000000001/WIDGET_FOR_KO';
+						} else if (lang.match('zh')) {
+						return '000000000001/WIDGET_FOR_ZH';
+						} else if (lang.match('tr')) {
+						return '000000000001/WIDGET_FOR_TR';
+						} else {
+							return '000000000001/DEFAULT_WIDGET';
+						}
+					}
+						(function () {
+						var chatId = getChatId();
+						if (!chatId) {
+							return;
+						}
+						var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+
+						var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+						s1.async=true;
+						s1.src = 'https://embed.tawk.to/' + chatId;
+						s1.charset='UTF-8';
+						s1.setAttribute('crossorigin','*');
+						s0.parentNode.insertBefore(s1,s0);
+					})();
+					`,
+				}}
 			/>
 		</Layout>
 	)
