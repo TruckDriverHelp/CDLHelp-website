@@ -27,15 +27,15 @@
     "questionsCategories": "6 categorias de questões",
     "questionsCategories2": "O aplicativo contém três testes principais e três testes de autorização",
     
-    "funFactsNumberOfQuestions": "Number of Questions",
-    "numberOfTests": "Number of Tests",
-    "numberOfCategories": "Number of Sections",
-    "users": "Users",
+    "funFactsNumberOfQuestions": "Número de questões",
+    "numberOfTests": "Número de testes",
+    "numberOfCategories": "Número de secções",
+    "users": "Usuários",
 
     "downloadApp": "DOWNLOAD DO APLICATIVO",
     "downloadAppText": "Download do CDL Help - Testes de CDL com tradução",
     "downloadAndTry": "Faça o download gratuito do aplicativo CDL Help e teste as perguntas",
     "androidApp": "Android",
-    "downloadButton": "Download",
+    "downloadButton": "Transferir",
     "iosApp": "iOS"
 }
