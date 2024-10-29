@@ -196,7 +196,7 @@ export async function getStaticProps({ params, locale }) {
 
     const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
     const alternateLinks = alternateLinksData.map((link) => ({
-      href: `/${link.attributes.locale}/${link.attributes.slug}`,
+      href: `/${link.attributes.locale}/${link.attributes.slug}/`,
       hrefLang: link.attributes.locale,
     }));
 
