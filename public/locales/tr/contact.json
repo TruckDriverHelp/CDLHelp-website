@@ -1,23 +1,23 @@
 {
-    "methods": "Вы также можете воспользоваться следующими методами",
-    "support": "Служба Поддержки",
-    "telegramGroup": "Группа Телеграм",
+    "methods": "Aşağıdaki yöntemleri de kullanabilirsiniz",
+    "support": "Destek Servisi",
+    "telegramGroup": "Telegram Sohbeti",
 
-    "error.allfieds": "Please fill all fields",
-    "error.validemail": "Please enter a valid email address",
-    "error.validnumber": "Please enter a valid number. Don't forget the + sign",
+    "error.allfieds": "Lütfen tüm alanları doldurun",
+    "error.validemail": "Lütfen geçerli bir e-posta adresi girin",
+    "error.validnumber": "Lütfen geçerli bir numara girin. + işaretini unutmayın",
 
-    "title": "Форма Обратной Связи",
-    "heading": "Для связи с нами вы можете воспользоваться формой обратной связи. Наша команда свяжется с вами в кратчайшие сроки",
+    "title": "Geri Bildirim Formu",
+    "heading": "Bizimle iletişime geçmek için geri bildirim formunu kullanabilirsiniz. Ekibimiz en kısa sürede sizinle iletişime geçecektir",
 
-    "placeholder.name": "Полное имя",
-    "placeholder.email": "Email",
-    "placeholder.phonenumber": "Номер телефона",
-    "placeholder.emailsubject": "Тема",
-    "placeholder.text": "Ваше сообщение",
+    "placeholder.name": "Ad Soyad",
+    "placeholder.email": "E-posta",
+    "placeholder.phonenumber": "Telefon Numarası",
+    "placeholder.emailsubject": "Konu",
+    "placeholder.text": "Mesajınız",
 
-    "send": "Отправить",
+    "send": "Gönder",
 
-    "sentTitle": "Спасибо!",
-    "sentText": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время"
+    "sentTitle": "Teşekkürler!",
+    "sentText": "Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz"
 }
