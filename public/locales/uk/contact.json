@@ -1,23 +1,23 @@
 {
-    "methods": "Вы также можете воспользоваться следующими методами",
-    "support": "Служба Поддержки",
-    "telegramGroup": "Группа Телеграм",
+    "methods": "Ви також можете скористатися такими способами",
+    "support": "Служба підтримки",
+    "telegramGroup": "Чат у Telegram",
 
-    "error.allfieds": "Please fill all fields",
-    "error.validemail": "Please enter a valid email address",
-    "error.validnumber": "Please enter a valid number. Don't forget the + sign",
+    "error.allfieds": "Будь ласка, заповніть усі поля",
+    "error.validemail": "Будь ласка, введіть дійсну адресу електронної пошти",
+    "error.validnumber": "Будь ласка, введіть дійсний номер. Не забудьте вказати +",
 
-    "title": "Форма Обратной Связи",
-    "heading": "Для связи с нами вы можете воспользоваться формой обратной связи. Наша команда свяжется с вами в кратчайшие сроки",
+    "title": "Форма зворотного зв'язку",
+    "heading": "Зв'яжіться з нами через форму зворотного зв'язку. Наші співробітники дадуть відповідь вам у найкоротші терміни",
 
-    "placeholder.name": "Полное имя",
-    "placeholder.email": "Email",
-    "placeholder.phonenumber": "Номер телефона",
+    "placeholder.name": "Повне ім'я",
+    "placeholder.email": "Електронна пошта",
+    "placeholder.phonenumber": "Номер телефону",
     "placeholder.emailsubject": "Тема",
-    "placeholder.text": "Ваше сообщение",
+    "placeholder.text": "Ваше повідомлення",
 
-    "send": "Отправить",
+    "send": "Відправити",
 
-    "sentTitle": "Спасибо!",
-    "sentText": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время"
+    "sentTitle": "Дякуємо!",
+    "sentText": "Ваше повідомлення відправлено! Постараємося зв'язатися з вами якомога швидше"
 }

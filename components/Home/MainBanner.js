@@ -24,7 +24,7 @@ const MainBanner = () => {
                     iOS / Android
                     <span>{t("download")}</span>
                   </a>
-                  {locale == "ru" && <Link href="/o-cdl-shkolakh">
+                  {locale == "ru" && <Link href="/o-cdl-shkolakh/">
                     <a className="playstore-btn">
                       <i className="ri-truck-fill main-banner-btn-icon"></i>
                       {t("cdlSchools")}
