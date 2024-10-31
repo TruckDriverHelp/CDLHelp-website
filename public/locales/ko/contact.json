@@ -1,23 +1,23 @@
 {
-    "methods": "Вы также можете воспользоваться следующими методами",
-    "support": "Служба Поддержки",
-    "telegramGroup": "Группа Телеграм",
+    "methods": "다음 방법을 이용하실 수도 있습니다",
+    "support": "고객 지원",
+    "telegramGroup": "텔레그램 채팅",
 
-    "error.allfieds": "Please fill all fields",
-    "error.validemail": "Please enter a valid email address",
-    "error.validnumber": "Please enter a valid number. Don't forget the + sign",
+    "error.allfieds": "모든 칸을 채워주세요",
+    "error.validemail": "유효한 이메일 주소를 입력해주세요",
+    "error.validnumber": "유효한 번호를 입력해주세요. + 기호를 잊지 마세요",
 
-    "title": "Форма Обратной Связи",
-    "heading": "Для связи с нами вы можете воспользоваться формой обратной связи. Наша команда свяжется с вами в кратчайшие сроки",
+    "title": "피드백 양식",
+    "heading": "저희에게 연락하시려면 피드백 양식을 이용하실 수 있습니다. 저희 팀에서 최대한 빨리 연락드리겠습니다",
 
-    "placeholder.name": "Полное имя",
-    "placeholder.email": "Email",
-    "placeholder.phonenumber": "Номер телефона",
-    "placeholder.emailsubject": "Тема",
-    "placeholder.text": "Ваше сообщение",
+    "placeholder.name": "이름",
+    "placeholder.email": "이메일",
+    "placeholder.phonenumber": "전화번호",
+    "placeholder.emailsubject": "제목",
+    "placeholder.text": "메시지",
 
-    "send": "Отправить",
+    "send": "보내기",
 
-    "sentTitle": "Спасибо!",
-    "sentText": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время"
+    "sentTitle": "감사합니다!",
+    "sentText": "메시지가 성공적으로 전송되었습니다! 최대한 빨리 연락드리겠습니다"
 }

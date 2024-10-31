@@ -65,7 +65,7 @@ const AppIntroVideo = () => {
                                     <span className="sub-title">{t("stepByStep")}</span>
                                     <h2>{t("howToGet")}</h2>    
                                     <p>{t("articleDescription")}</p>
-                                    <a className="default-btn" href={`/${locale}/${howToGetArticleSlug[locale]}`}>
+                                    <a className="default-btn" href={`/${locale}/${howToGetArticleSlug[locale]}/`}>
                                         {t("articleRead")}
                                     </a>
                                 </div>

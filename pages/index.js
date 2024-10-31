@@ -21,9 +21,9 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <meta name="description" content={meta.description} />
 
                 {/* Google / Search Engine Tags */}
-                <meta itemprop="name" content={meta.title} />
-                <meta itemprop="description" content={meta.description} />
-                <meta itemprop="image" content={meta.image} />
+                <meta itemProp="name" content={meta.title} />
+                <meta itemProp="description" content={meta.description} />
+                <meta itemProp="image" content={meta.image} />
 
                 {/* Facebook Meta Tags */}
                 <meta property="og:url" content="https://www.cdlhelp.com" />
@@ -87,12 +87,12 @@ export async function getStaticProps({ locale }) {
 
     const alternateLinks = {
 		'en': '/',
-		'ar': '/ar',
-		'ru': '/ru',
-		'uk': '/uk',
-		'zh': '/zh',
-		'ko': '/ko',
-		'tr': '/tr',
+		'ar': '/ar/',
+		'ru': '/ru/',
+		'uk': '/uk/',
+		'zh': '/zh/',
+		'ko': '/ko/',
+		'tr': '/tr/',
 	};
 
     return {
