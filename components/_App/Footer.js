@@ -219,7 +219,7 @@ const Footer = () => {
                                         </Link>
                                     </li> */}
                   <li>
-                    <a href={`https://test.cdlhelp.com/${locale}`}>
+                    <a href={`https://test.cdlhelp.com/${locale}/`}>
                       {t("tryFree")}
                     </a>
                   </li>
@@ -232,20 +232,20 @@ const Footer = () => {
                 <h3>{t("support")}</h3>
                 <ul className="links-list">
                   <li>
-                    <Link href="/privacy-policy" locale={false}>
+                    <Link href="/privacy-policy/" locale={false}>
                       <a>{t("privacy")}</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms-conditions" locale={false}>
+                    <Link href="/terms-conditions/" locale={false}>
                       <a>{t("publicAgreement")}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="/contact">{t("feedback")}</a>
+                    <a href={`/${locale}/contact/`}>{t("feedback")}</a>
                   </li>
                   <li>
-                    <Link href={faq.slug} locale={locale}>
+                    <Link href={faq.slug + '/'} locale={locale}>
                       <a>{faq.title}</a>
                     </Link>
 
@@ -269,7 +269,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   {locale == "ru" && <li>
-                    <Link href="/cdl-shkola">
+                    <Link href="/cdl-shkola/">
                       <a>{t("cdlRussianSchool")}</a>
                     </Link>
                   </li>}

@@ -34,7 +34,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           <link
             key={index}
             rel="alternate"
-            href={process.env.BASE_URL + link.href}
+            href={process.env.BASE_URL + link.href + "/"}
             hrefLang={link.hrefLang}
           />
         ))}
@@ -149,7 +149,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                   <ul>
                     {block.articles.data.map((articleData, i) => {
                       const article = articleData.attributes;
-                      const url = "/" + article.locale + "/" + article.slug;
+                      const url = "/" + article.locale + "/" + article.slug + "/";
                       return <li key={i}><a href={url}>{article.title}</a></li>
                     })}
                   </ul>
@@ -196,12 +196,12 @@ export async function getStaticProps({ params, locale }) {
 
     const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
     const alternateLinks = alternateLinksData.map((link) => ({
-      href: `/${link.attributes.locale}/${link.attributes.slug}`,
+      href: `/${link.attributes.locale}/${link.attributes.slug}/`,
       hrefLang: link.attributes.locale,
     }));
 
     alternateLinks.push({
-      href: `/${locale}/${slug}`,
+      href: `/${locale}/${slug}/`,
       hrefLang: locale,
     });
 

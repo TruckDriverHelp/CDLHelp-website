@@ -1,23 +1,23 @@
 {
-    "methods": "Вы также можете воспользоваться следующими методами",
-    "support": "Служба Поддержки",
-    "telegramGroup": "Группа Телеграм",
+    "methods": "Contact us via these methods",
+    "support": "Support",
+    "telegramGroup": "Telegram group",
 
     "error.allfieds": "Please fill all fields",
     "error.validemail": "Please enter a valid email address",
     "error.validnumber": "Please enter a valid number. Don't forget the + sign",
 
-    "title": "Форма Обратной Связи",
-    "heading": "Для связи с нами вы можете воспользоваться формой обратной связи. Наша команда свяжется с вами в кратчайшие сроки",
+    "title": "Feedback",
+    "heading": "To contact us, you can use the feedback form. Our team will contact you as soon as possible.",
 
-    "placeholder.name": "Полное имя",
+    "placeholder.name": "Full name",
     "placeholder.email": "Email",
-    "placeholder.phonenumber": "Номер телефона",
-    "placeholder.emailsubject": "Тема",
-    "placeholder.text": "Ваше сообщение",
+    "placeholder.phonenumber": "Phone number (optional)",
+    "placeholder.emailsubject": "Topic",
+    "placeholder.text": "Write a message...",
 
-    "send": "Отправить",
+    "send": "Send",
 
-    "sentTitle": "Спасибо!",
-    "sentText": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время"
+    "sentTitle": "Thank you!",
+    "sentText": "Your message was sent. Thank you for your feedback"
 }
