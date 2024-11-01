@@ -7,7 +7,7 @@ module.exports = {
     trailingSlash: true,
     distDir: 'build',
     i18n: {
-        locales: ["en", "ru", "uk", "ar", "ko", "zh", "tr"],
+        locales: ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
         defaultLocale: "en",
         // ns: ["index", "article", "cookie", "navbar", "footer", "contact"]
     },
@@ -25,22 +25,22 @@ module.exports = {
         return [
           {
             source: '/dalnoboishik/',
-            destination: '/ru/kak-stat-dalnoboishikom',
+            destination: '/ru/kak-stat-dalnoboishikom/',
             permanent: true
           },
           {
             source: '/permit/',
-            destination: '/ru/kak-poluchit-clp-permit',
+            destination: '/ru/kak-poluchit-clp-permit/',
             permanent: true
           },
           {
             source: '/kak-ispolzovat-cdl-help/',
-            destination: '/ru/kak-ispolzovat-cdlhelp',
+            destination: '/ru/kak-ispolzovat-cdlhelp/',
             permanent: true,
           },
           {
             source: '/faq/',
-            destination: '/ru/chasto-zadavaemye-voprosy',
+            destination: '/ru/chasto-zadavaemye-voprosy/',
             permanent: true
           }
         ];
