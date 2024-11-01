@@ -20,14 +20,15 @@ const ContactInfo = () => {
                                 </div>
                             </div>
 
-                            <div className="col-lg-4 col-md-6 col-sm-6">
+                            {["ru", "uk"].includes(locale) &&
+                                <div className="col-lg-4 col-md-6 col-sm-6">
                                 <div className="single-contact-info-box">
                                     <div className="icon">
                                         <i className="ri-telegram-line"></i>
                                     </div>
                                     <h3><a href="https://www.t.me/tdhsupport">{t("support")}</a></h3>
                                 </div>
-                            </div>
+                            </div>}
 
                             <div className="col-lg-4 col-md-6 col-sm-6">
                                 <div className="single-contact-info-box">
