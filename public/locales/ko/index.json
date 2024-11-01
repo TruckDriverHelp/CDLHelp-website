@@ -18,9 +18,10 @@
     "bestFeaturesDownload": "다운로드",
     "tryOnline": "체험해보세요",
     "freeQuestions": "무료 자료",
+    "freeQuestionsText": "실제 시험 경험과 매우 유사하게 진행되는 무료 데모 테스트를 사용해 보십시요.",
     "freeAccess": "100개 이상의 문제에 무료 접근",
     "translation": "실시간 번역",
-    "helpsToGetCdl": "영어를 배우면서 동시에 CDL 취득 지원",
+    "helpsToGetCdl": "다양한 언어로 제공: 한국어, 러시아어, 우크라이나어, 아랍어, 터키어, 중국어, 포르투갈어",
     "questionsDataBase": "문제 데이터베이스",
     "numberOfQuestions": "저희 데이터베이스에는 1000개 이상의 문제가 포함되어 있습니다.",
     "questionsCategories": "6개 범주의 문제",
@@ -33,7 +34,7 @@
 
     "downloadApp": "앱 다운로드",
     "downloadAppText": "CDL 도움 - 번역 기능이 있는 CDL 시험",
-    "downloadAndTry": "무료로 CDL 도움 앱을 다운로드하고 문제를 체험해 보세요.",
+    "downloadAndTry": "전문 트럭 운전사가 되기 위한 길을 열어보세요 - CDL 도움말 앱을 다운로드하고 무료로 테스트해 보세요! Knowledge Test, Hazmat, Doubles and Triples 및 Tanker에서 수백 가지 CDL 시험 문제를 살펴보세요. 우리 앱은 CDL 시험을 연습하고, 준비하고, 성공할 수 있도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
     "androidApp": "Android",
     "downloadButton": "다운로드",
     "iosApp": "iOS"
