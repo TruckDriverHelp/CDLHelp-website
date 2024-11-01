@@ -1,8 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 const ContactInfo = () => {
     const {t} = useTranslation("contact");
+    const router = useRouter();
+    const locale = router.locale;
+
     return (
         <>
             <div className="contact-info-area pb-100">
