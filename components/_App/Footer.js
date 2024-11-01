@@ -303,10 +303,8 @@ const Footer = () => {
 
           <div className="copyright-area">
             <p>
-              {currentYear} &copy; <strong>CDL Help</strong>. {t("allRightsReserved")}{" "}
-              <a href="https://www.truckdriver.help/" target="_blank">
-                TruckDriver.help LLC
-              </a>
+                {t("footerText")}<br />
+                {currentYear} &copy; <a href="https://www.truckdriver.help/" target="_blank">TruckDriver.help LLC </a>{t("allRightsReserved")}
             </p>
           </div>
         </div>
