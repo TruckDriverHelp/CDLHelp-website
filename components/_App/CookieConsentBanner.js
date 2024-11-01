@@ -52,7 +52,7 @@ const CookieConsentBanner = () => {
       justifyContent: "center"
     }}>
        <p style={{color: "#000000"}}>{t("text")}</p>
-       <p style={{color: "#000000"}}>{t("policy")}</p>
+       <p style={{color: "#000000"}}><a href="/cookies-policy">{t("policy")}</a></p>
        
         <div style={{
           display: "flex",
