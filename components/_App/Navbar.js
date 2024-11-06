@@ -196,6 +196,10 @@ const articleList = {
     {
       title: "Perguntas Frequentes",
       slug: "/perguntas-frequentes"
+    },
+    {
+      title: "Texas CVO Knowledge Test",
+      slug: "cdl-texas"
     }
   ]
 };
