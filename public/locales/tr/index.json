@@ -25,7 +25,7 @@
     "questionsDataBase": "Soru Veritabanı",
     "numberOfQuestions": "Veritabanımızda 1000'den fazla soru bulunmaktadır",
     "questionsCategories": "6 soru kategorisi",
-    "questionsCategories2": "Uygulama üç ana ve üç destek testi içermektedir",
+    "questionsCategories2": "Uygulama altı kategoriden sorular içeriyor: General Knowledge, Air Brakes, Combination, Hazmat, Double&Tripple and Tanker",
     
     "funFactsNumberOfQuestions": "Soru Sayısı",
     "numberOfTests": "Test Sayısı",
