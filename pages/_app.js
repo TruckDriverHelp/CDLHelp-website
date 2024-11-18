@@ -43,7 +43,7 @@ const MyApp = ({ Component, pageProps, articles }) => {
 	return (
 		<Layout dir={dir}>
 			<Pixel name='FACEBOOK_PIXEL_1' />
-			{router.pathname != "/404" && <CookieConsentBanner />}
+			{!["/404", "/cookies-policy"].includes(router.pathname) && <CookieConsentBanner />}
 			<Component {...pageProps} />
 			{/* Google analytics scripts */}
 			<Script

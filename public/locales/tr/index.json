@@ -18,13 +18,14 @@
     "bestFeaturesDownload": "İndir",
     "tryOnline": "Çevrimiçi Deneyin",
     "freeQuestions": "Ücretsiz materyal",
+    "freeQuestionsText": "Gerçek sınav deneyimini yakından taklit eden ücretsiz demo testimizi deneyin",
     "freeAccess": "100'den fazla soruya ücretsiz erişim",
     "translation": "Gerçek zamanlı çeviri",
-    "helpsToGetCdl": "İngilizce öğrenirken aynı zamanda CDL almanıza yardımcı olur",
+    "helpsToGetCdl": "Farklı dillerde mevcuttur: Türkçe, Rusça, Ukraynaca, Arapça, Korece, Çince, Portekizce",
     "questionsDataBase": "Soru Veritabanı",
     "numberOfQuestions": "Veritabanımızda 1000'den fazla soru bulunmaktadır",
     "questionsCategories": "6 soru kategorisi",
-    "questionsCategories2": "Uygulama üç ana ve üç destek testi içermektedir",
+    "questionsCategories2": "Uygulama altı kategoriden sorular içeriyor: General Knowledge, Air Brakes, Combination, Hazmat, Double&Tripple and Tanker",
     
     "funFactsNumberOfQuestions": "Soru Sayısı",
     "numberOfTests": "Test Sayısı",
@@ -33,7 +34,7 @@
 
     "downloadApp": "UYGULAMAYI İNDİR",
     "downloadAppText": "CDL Helpı İndirin - Çeviri ile CDL testleri",
-    "downloadAndTry": "CDL Help uygulamasını ücretsiz olarak indirin ve soruları deneyin",
+    "downloadAndTry": "Profesyonel bir kamyon sürücüsü olma yolunuzu açın - CDL Yardım uygulamasını indirin ve testleri ücretsiz deneyin! Bilgi Testi, Tehlikeli Madde (HazMat), İkili ve Üçlü Römork ve Tanker konularından yüzlerce CDL sınav sorusunu keşfedin. Uygulamamız, CDL testinde pratik yapmanıza, hazırlanmanıza ve başarılı olmanıza yardımcı olmak için tasarlanmış kapsamlı, kullanımı kolay bir platform sağlar.",
     "androidApp": "Android",
     "downloadButton": "İndir",
     "iosApp": "iOS"
