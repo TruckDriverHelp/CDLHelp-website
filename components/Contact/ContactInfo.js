@@ -1,8 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 const ContactInfo = () => {
     const {t} = useTranslation("contact");
+    const router = useRouter();
+    const locale = router.locale;
+
     return (
         <>
             <div className="contact-info-area pb-100">
@@ -20,14 +24,15 @@ const ContactInfo = () => {
                                 </div>
                             </div>
 
-                            <div className="col-lg-4 col-md-6 col-sm-6">
+                            {["ru", "uk"].includes(locale) &&
+                                <div className="col-lg-4 col-md-6 col-sm-6">
                                 <div className="single-contact-info-box">
                                     <div className="icon">
                                         <i className="ri-telegram-line"></i>
                                     </div>
                                     <h3><a href="https://www.t.me/tdhsupport">{t("support")}</a></h3>
                                 </div>
-                            </div>
+                            </div>}
 
                             <div className="col-lg-4 col-md-6 col-sm-6">
                                 <div className="single-contact-info-box">

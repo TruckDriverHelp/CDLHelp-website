@@ -18,13 +18,14 @@
     "bestFeaturesDownload": "Download",
     "tryOnline": "Try Online",
     "freeQuestions": "Free Questions",
+    "freeQuestionsText": "Try our free demo test, which closely mimics the real exam experience",
     "freeAccess": "Free access to 80+ questions.",
     "translation": "Text with translation",
-    "helpsToGetCdl": "Helps to get CDL license and also to learn English.",
+    "helpsToGetCdl": "Available in different languages: English, Arabic, Turkish, Korean, Chinese, Russian, Ukrainian, Portuguese",
     "questionsDataBase": "Questions Database",
     "numberOfQuestions": "Our question database contains more than 1000 questions.",
     "questionsCategories": "6 categories of questions",
-    "questionsCategories2": "The app contains questions from three categories: General Knowledge, Air Brakes, and Combination.",
+    "questionsCategories2": "The app contains questions from six categories: General Knowledge, Air Brakes, Combination, Hazmat, Double&Tripple and Tanker",
     
     "funFactsNumberOfQuestions": "Number of Questions",
     "numberOfTests": "Number of Tests",
@@ -33,7 +34,7 @@
 
     "downloadApp": "DOWNLOAD THE APP",
     "downloadAppText": "Download CDL Help - CDL tests with translation",
-    "downloadAndTry": "Download CDL Help app for free and try the questions.",
+    "downloadAndTry": "Unlock your path to becoming a professional truck driver – download the CDL Help app and try tests for free! Explore hundreds of CDL exam questions from Knowledge Test, Hazmat, Doubles and Triples, and Tanker. Our app provides a comprehensive, easy-to-use platform designed to help you practice, prepare, and succeed in CDL test.",
     "androidApp": "Android",
     "downloadButton": "Download",
     "iosApp": "iOS"
