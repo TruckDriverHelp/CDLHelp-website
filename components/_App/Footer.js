@@ -23,7 +23,7 @@ const articleList = {
     },
     faq: {
       title: "Frequently Asked Questions",
-      slug: "/frequently-asked-questions-cdl-help"
+      slug: "/frequently-asked-questions"
     },
     howToGetCDLArticle: {
       title: "How to get CDL",
