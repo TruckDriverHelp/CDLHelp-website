@@ -23,7 +23,7 @@ const articleList = {
     },
     {
       "title": "Frequently Asked Questions CDL help",
-      "slug": "frequently-asked-questions-cdl-help"
+      "slug": "frequently-asked-questions"
     },
     {
       "title": "What is taught in CDL schools",
