@@ -9,7 +9,6 @@ import { useTranslation } from 'next-i18next';
 
 const Contact = ({ alternateLinks }) => {
     const {t} = useTranslation("contact");
-    const title = t("support");
     return (
         <>
         <Head>

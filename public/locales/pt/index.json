@@ -19,13 +19,14 @@
     "bestFeaturesDownload": "Download",
     "tryOnline": "Experimente On-line",
     "freeQuestions": "Materiais gratuitos",
+    "freeQuestionsText": "Experimente nosso teste de demonstração gratuito, que imita a experiência do exame real",
     "freeAccess": "Acesso gratuito a mais de 100 perguntas",
     "translation": "Tradução em tempo real",
-    "helpsToGetCdl": "Ajuda a obter uma CDL e, ao mesmo tempo, aprender inglês",
+    "helpsToGetCdl": "Disponível em diferentes idiomas: Português, Russo, Ucraniano, Árabe, Turco, Coreano, Chinês",
     "questionsDataBase": "Banco de Dados de Questões",
     "numberOfQuestions": "Nosso banco de dados contém mais de 1.000 questões",
     "questionsCategories": "6 categorias de questões",
-    "questionsCategories2": "O aplicativo contém três testes principais e três testes de autorização",
+    "questionsCategories2": "O aplicativo contém perguntas de seis categorias: General Knowledge, Air Brakes, Combination, Hazmat, Double&Tripple and Tanker",
     
     "funFactsNumberOfQuestions": "Número de questões",
     "numberOfTests": "Número de testes",
@@ -34,7 +35,7 @@
 
     "downloadApp": "DOWNLOAD DO APLICATIVO",
     "downloadAppText": "Download do CDL Help - Testes de CDL com tradução",
-    "downloadAndTry": "Faça o download gratuito do aplicativo CDL Help e teste as perguntas",
+    "downloadAndTry": "Desbloqueie seu caminho para se tornar um motorista de caminhão profissional: faça o download do aplicativo CDL Help e faça exames gratuitamente! Explore centenas de perguntas para o exame da CDL, incluindo o Teste de Conhecimentos Gerais, de Materiais Perigosos, de Veículos Duplos e Triplos e de Caminhões-tanque. Nosso aplicativo proporciona uma plataforma abrangente e fácil de usar, projetada para ajudá-lo a praticar, preparar-se e ter sucesso no exame da CDL.",
     "androidApp": "Android",
     "downloadButton": "Transferir",
     "iosApp": "iOS"
