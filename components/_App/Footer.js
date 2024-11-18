@@ -23,7 +23,11 @@ const articleList = {
     },
     faq: {
       title: "Frequently Asked Questions",
-      slug: "/frequently-asked-questions-cdl-help"
+      slug: "/frequently-asked-questions"
+    },
+    howToGetCDLArticle: {
+      title: "How to get CDL",
+      slug: "/how-to-get-cdl"
     }
   },
   "ru": {
@@ -42,6 +46,10 @@ const articleList = {
     faq: {
       title: "Часто задаваемые вопросы",
       slug: "/chasto-zadavaemye-voprosy"
+    },
+    howToGetCDLArticle: {
+      title: "Как получить CDL",
+      slug: "/kak-poluchit-cdl"
     }
   },
   "uk": {
@@ -60,6 +68,10 @@ const articleList = {
     faq: {
       title: "CDL Help – Часті запитання",
       slug: "/chasti-zapytannya"
+    },
+    howToGetCDLArticle: {
+      title: "Як отримати CDL",
+      slug: "/yak-otrymaty-cdl"
     }
   },
   "ar": {
@@ -81,6 +93,10 @@ const articleList = {
     {
       title: "الأسئلة الشائعة مساعدة CDL",
       slug: "/alas-ila-alshaeia-musaedat-cdl"
+    },
+    howToGetCDLArticle: {
+      title: "كيفية الحصول على رخصة القيادة التجارية (CDL)",
+      slug: "/kayfa-tahsil-cdl"
     }
   },
   "zh": {
@@ -102,6 +118,10 @@ const articleList = {
     {
       title: "常见问题 CDL 帮助",
       slug: "/changjian-wenti-cdl-bangzhu"
+    },
+    howToGetCDLArticle: {
+      title: "如何获得CDL",
+      slug: "/ruhe-huode-cdl"
     }
   },
   "ko": {
@@ -123,6 +143,10 @@ const articleList = {
     {
       title: "자주 묻는 질문 CDL 도움",
       slug: "/jaju-mudneun-jilmun-cdl-doum"
+    },
+    howToGetCDLArticle: {
+      title: "CDL 취득 방법",
+      slug: "/cdl-eobtneun-bangbeob"
     }
   },
   "tr": {
@@ -144,15 +168,44 @@ const articleList = {
     {
       title: "Sıkça Sorulan Sorular CDL Help",
       slug: "/sikca-sorulan-sorular"
+    },
+    howToGetCDLArticle: {
+      title: "CDL nasıl alınır",
+      slug: "/cdl-nasil-alinir"
     }
   },
+  "pt": {
+    howToUseAppArticle: {
+      title: "Como Usar o CDL Help",
+      slug: "/como-usar-o-cdl-help"
+    },
+    howToBecomeTruckDriverArticle:
+    {
+      title: "Como se tornar um motorista de caminhãoo",
+      slug: "/como-se-tornar-motorista-de-caminhaoo"
+    },
+    howToGetPermitArticle:
+    {
+      title: "Como obter uma licença CDL",
+      slug: "/como-obter-uma-licenca-cdl"
+    },
+    faq:
+    {
+      title: "Perguntas Frequentes",
+      slug: "/perguntas-frequentes"
+    },
+    howToGetCDLArticle: {
+      title: "Como tirar a CDL",
+      slug: "/como-obter-cdl"
+    }
+  }
 }
 
 const Footer = () => {
   const { t } = useTranslation("footer");
   const { locale } = useRouter();
   const currentYear = new Date().getFullYear();
-  const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle } = articleList[locale];
+  const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle, howToGetCDLArticle } = articleList[locale];
 
   return (
     <>
@@ -248,12 +301,10 @@ const Footer = () => {
                     <Link href={faq.slug + '/'} locale={locale}>
                       <a>{faq.title}</a>
                     </Link>
-
                   </li>
                 </ul>
               </div>
             </div>
-
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
                 <h3>{t("resources")}</h3>
@@ -266,6 +317,11 @@ const Footer = () => {
                   <li>
                     <Link href={howToGetPermitArticle.slug} locale={locale}>
                       <a>{howToGetPermitArticle.title}</a>
+                    </Link>
+                  </li>
+                    <li>
+                    <Link href={howToGetCDLArticle.slug} locale={locale}>
+                      <a>{howToGetCDLArticle.title}</a>
                     </Link>
                   </li>
                   {locale == "ru" && <li>
@@ -303,10 +359,8 @@ const Footer = () => {
 
           <div className="copyright-area">
             <p>
-              {currentYear} &copy; <strong>CDL Help</strong>. {t("allRightsReserved")}{" "}
-              <a href="https://www.truckdriver.help/" target="_blank">
-                TruckDriver.help LLC
-              </a>
+                {t("footerText")}<br />
+                {currentYear} &copy; <a href="https://www.truckdriver.help/" target="_blank">TruckDriver.help LLC </a>{t("allRightsReserved")}
             </p>
           </div>
         </div>

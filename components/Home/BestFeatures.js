@@ -29,7 +29,7 @@ const BestFeatures = () => {
                                             <i className="ri-hand-coin-line"></i>
                                             <h3>{t("freeQuestions")}</h3>
                                         </div>
-                                        <p>{t("freeQuestions")}</p>
+                                        <p>{t("freeQuestionsText")}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-sm-6">

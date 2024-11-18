@@ -23,7 +23,7 @@ const articleList = {
     },
     {
       "title": "Frequently Asked Questions CDL help",
-      "slug": "frequently-asked-questions-cdl-help"
+      "slug": "frequently-asked-questions"
     },
     {
       "title": "What is taught in CDL schools",
@@ -176,7 +176,32 @@ const articleList = {
     }
 
   ],
-  "pt": []
+  "pt": [
+    {
+      title: "Como tirar a CDL",
+      slug: "/como-obter-cdl"
+    },
+    {
+      title: "Como se tornar um motorista de caminhãoo",
+      slug: "/como-se-tornar-motorista-de-caminhaoo"
+    },
+    {
+      title: "Como Usar o CDL Help",
+      slug: "/como-usar-o-cdl-help"
+    },
+    {
+      title: "Como obter uma licença CDL",
+      slug: "/como-obter-uma-licenca-cdl"
+    },
+    {
+      title: "Perguntas Frequentes",
+      slug: "/perguntas-frequentes"
+    },
+    {
+      title: "Texas CVO Knowledge Test",
+      slug: "cdl-texas"
+    }
+  ]
 };
 
 const internationalLinks = {
@@ -283,7 +308,7 @@ const Navbar = ({ alternateLinks }) => {
                       )}
                     </ul>
                   </li>
-                    {/* <>
+                  {/* <>
                       <li className="nav-item">
                         <Link href="/cdl-shkola">
                           <a className="nav-link">{t("cdlSchool")}</a>
@@ -296,12 +321,12 @@ const Navbar = ({ alternateLinks }) => {
                         </a>
                       </li>
                     </> */}
-                    {locale == "ru" && <li className="nav-item">
-                        <a className="nav-link" href="https://www.dmvhelp.app/">
-                          DMV Help
-                        </a>
-                      </li>
-                    }
+                  {locale == "ru" && <li className="nav-item">
+                    <a className="nav-link" href="https://www.dmvhelp.app/">
+                      DMV Help
+                    </a>
+                  </li>
+                  }
                   <li className="nav-item">
                     <Link href="/contact">
                       <a className="nav-link">{t("contacts")}</a>

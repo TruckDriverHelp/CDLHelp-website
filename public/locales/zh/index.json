@@ -17,13 +17,14 @@
     "bestFeaturesDownload": "下载",
     "tryOnline": "在线试用",
     "freeQuestions": "免费材料",
+    "freeQuestionsText": "试试我们的免费模拟测试，体验与真实考试非常接近的场景。",
     "freeAccess": "免费访问超过 100 道问题",
     "translation": "实时翻译",
-    "helpsToGetCdl": "帮助在学习英语的同时获得 CDL",
+    "helpsToGetCdl": "提供多種語言：中文、俄語、烏克蘭語、阿拉伯語、土耳其語、韓語、葡萄牙語",
     "questionsDataBase": "问题数据库",
     "numberOfQuestions": "我们的数据库包含超过 1000 道问题",
     "questionsCategories": "6 个问题类别",
-    "questionsCategories2": "应用中包含三个主要测试和三个附加测试",
+    "questionsCategories2": "该应用程序包含六个类别的问题：常识、空气刹车、组合、危险品、双/三拖车、和油罐车",
     
     "funFactsNumberOfQuestions": "问题数量",
     "numberOfTests": "测试次数",
@@ -32,7 +33,7 @@
 
     "downloadApp": "下载应用",
     "downloadAppText": "下载 CDL Help - 带翻译的 CDL 测试",
-    "downloadAndTry": "免费下载安装 CDL Help应用，试试问题",
+    "downloadAndTry": "开启您的职业卡车司机之路——下载 CDL Help 应用程序并免费试用测试！探索数百道 CDL 考试问题，包括知识测试、危险品、双联和三联挂车以及罐式车。我们的应用程序提供了一个全面、易于使用的平台，帮助您练习、准备并顺利通过 CDL 考试。",
     "androidApp": "Android",
     "downloadButton": "下载",
     "iosApp": "iOS"

@@ -15,26 +15,6 @@ import Footer from "@/components/_App/Footer";
 const CDLtexas = ({ text, cards, locale, alternateLinks }) => {
 	return (
 		<>
-			<Head>
-				<title>CDL Тесты - Техас CVO Knowledge тест</title>
-				<meta name="description" content="CDL Тесты - Техас CVO Knowledge тест" />
-				{/* Google / Search Engine Tags */}
-				<meta itemProp="name" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta itemProp="description" content="CDL Help - Инструкция по применению приложения CDL Help." />
-				<meta itemProp="image" content="/images/cdlhelp-tag.jpg" />
-				{/* Facebook Meta Tags */}
-				<meta property="og:url" content="https://cdlhelp.com/cdl-texas" />
-				<meta property="og:type" content="article" />
-				<meta property="og:title" content="Техас CVO Knowledge" />
-				<meta property="og:description" content="CDL Help - Инструкция по применению приложения CDL Help." />
-				<meta property="og:image" content="/images/cdlhelp-tag.jpg" />
-				<meta property="og:site_name" content="CDL Help" />
-				{/* Twitter Meta Tags */}
-				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:title" content="Приложение CDL Help - Тесты CDL на русском языке" />
-				<meta name="twitter:description" content="CDL Help - Инструкция по применению приложения CDL Help." />
-				<meta name="twitter:image" content="/images/cdlhelp-tag.jpg" />
-			</Head>
 			<Layout >
 				<Navbar alternateLinks={alternateLinks}/>
 
@@ -108,6 +88,7 @@ export async function getStaticProps({ locale }) {
 		{ href: '/zh/cdl-texas/', hrefLang: 'zh' },
 		{ href: '/ko/cdl-texas/', hrefLang: 'ko' },
 		{ href: '/tr/cdl-texas/', hrefLang: 'tr' },
+		{ href: '/pt/cdl-texas/', hrefLang: 'pt' },
 	];
 
 	return {

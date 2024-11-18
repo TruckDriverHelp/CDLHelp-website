@@ -93,6 +93,7 @@ export async function getStaticProps({ locale }) {
 		'zh': '/zh/',
 		'ko': '/ko/',
 		'tr': '/tr/',
+        'pt': '/pt/'
 	};
 
     return {
