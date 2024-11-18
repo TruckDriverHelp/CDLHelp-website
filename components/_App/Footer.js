@@ -15,7 +15,7 @@ const articleList = {
     },
     howToBecomeTruckDriverArticle: {
       title: "How to become a Truck Driver in USA",
-      slug: "/how-to-become-a-truck-driver-in-usa"
+      slug: "/how-to-become-a-truck-driver"
     },
     howToGetPermitArticle: {
       title: "How to get a CDL Permit",

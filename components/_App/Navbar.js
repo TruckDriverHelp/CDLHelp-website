@@ -11,7 +11,7 @@ const articleList = {
   "en": [
     {
       "title": "How to become a Truck Driver in USA",
-      "slug": "how-to-become-a-truck-driver-in-usa"
+      "slug": "how-to-become-a-truck-driver"
     },
     {
       "title": "How to use the CDL Help App",
