@@ -14,6 +14,10 @@ const articleList = {
       "slug": "how-to-become-a-truck-driver"
     },
     {
+      "title": "How to get CDL",
+      "slug": "how-to-get-cdl"
+    },
+    {
       "title": "How to use the CDL Help App",
       "slug": "how-to-use-cdl-help"
     },
@@ -38,6 +42,10 @@ const articleList = {
     {
       "title": "Как стать дальнобойщиком в США",
       "slug": "kak-stat-dalnoboishikom"
+    },
+    {
+      "title": "Как получить CDL",
+      "slug": "kak-poluchit-cdl"
     },
     {
       "title": "Как использовать приложение CDL Help",
@@ -66,6 +74,10 @@ const articleList = {
       "slug": "yak-staty-vodiyem-vantazhivky-v-amerytsi"
     },
     {
+      "title": "Як отримати CDL",
+      "slug": "yak-otrymaty-cdl"
+    },
+    {
       "title": "Як використовувати додаток CDL Help",
       "slug": "yak-vykorystovuvaty-dodatok-cdl-help"
     },
@@ -92,6 +104,10 @@ const articleList = {
       "slug": "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida"
     },
     {
+      "title": "كيفية الحصول على رخصة القيادة التجارية (CDL)",
+      "slug": "kayfa-tahsil-cdl"
+    },
+    {
       "title": "كيفية استخدام تطبيق CDL مساعدة",
       "slug": "kayfiyat-astikhdam-tatbiq-cdl-musaeda"
     },
@@ -112,6 +128,10 @@ const articleList = {
     {
       "title": "미국에서 트럭 운전사가 되는 방법",
       "slug": "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob"
+    },
+    {
+      "title": "CDL 취득 방법",
+      "slug": "cdl-eobtneun-bangbeob"
     },
     {
       "title": "자주 묻는 질문 CDL 도움",
@@ -137,6 +157,10 @@ const articleList = {
       "slug": "ruhe-chengwei-meiguo-kache-siji"
     },
     {
+      "title": "如何获得CDL",
+      "slug": "ruhe-huode-cdl"
+    },
+    {
       "title": "常见问题 CDL 帮助",
       "slug": "changjian-wenti-cdl-bangzhu"
     },
@@ -159,6 +183,10 @@ const articleList = {
       "slug": "nasil-kamyon-soforu-olunur"
     },
     {
+      "title": "CDL nasıl alınır",
+      "slug": "cdl-nasil-alinir"
+    },
+    {
       "title": "CDL Yardım nasıl kullanılır",
       "slug": "cdl-yardim-nasil-kullanilir"
     },
@@ -178,28 +206,32 @@ const articleList = {
   ],
   "pt": [
     {
-      title: "Como tirar a CDL",
-      slug: "/como-obter-cdl"
+      "title": "Como tirar a CDL",
+      "slug": "como-obter-cdl"
     },
     {
-      title: "Como se tornar um motorista de caminhãoo",
-      slug: "/como-se-tornar-motorista-de-caminhaoo"
+      "title": "Como tirar a CDL",
+      "slug": "como-obter-cdl"
     },
     {
-      title: "Como Usar o CDL Help",
-      slug: "/como-usar-o-cdl-help"
+      "title": "Como se tornar um motorista de caminhãoo",
+      "slug": "como-se-tornar-motorista-de-caminhaoo"
     },
     {
-      title: "Como obter uma licença CDL",
-      slug: "/como-obter-uma-licenca-cdl"
+      "title": "Como Usar o CDL Help",
+      "slug": "como-usar-o-cdl-help"
     },
     {
-      title: "Perguntas Frequentes",
-      slug: "/perguntas-frequentes"
+      "title": "Como obter uma licença CDL",
+      "slug": "como-obter-uma-licenca-cdl"
     },
     {
-      title: "Texas CVO Knowledge Test",
-      slug: "cdl-texas"
+      "title": "Perguntas Frequentes",
+      "slug": "perguntas-frequentes"
+    },
+    {
+      "title": "Texas CVO Knowledge Test",
+      "slug": "cdl-texas"
     }
   ]
 };

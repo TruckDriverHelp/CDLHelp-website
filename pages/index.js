@@ -41,8 +41,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <meta name="twitter:image" content={meta.image} />
 
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
-
-
+                
             </Head>
 
             <Layout>
