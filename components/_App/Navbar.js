@@ -23,7 +23,7 @@ const articleList = {
     },
     {
       "title": "How to get a CDL Permit",
-      "slug": "how-to-get-cip-permit"
+      "slug": "how-to-get-cdl-permit"
     },
     {
       "title": "Frequently Asked Questions CDL help",
@@ -52,8 +52,8 @@ const articleList = {
       "slug": "kak-ispolzovat-cdlhelp"
     },
     {
-      "title": "Как получить CLP пермит",
-      "slug": "kak-poluchit-clp-permit"
+      "title": "Как получить CDL пермит",
+      "slug": "kak-poluchit-cdl-permit"
     },
     {
       "title": "Часто задаваемые вопросы",
