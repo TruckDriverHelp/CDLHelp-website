@@ -19,7 +19,7 @@ const articleList = {
     },
     howToGetPermitArticle: {
       title: "How to get a CDL Permit",
-      slug: "/how-to-get-clp-permit"
+      slug: "/how-to-get-cdl-permit"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -40,8 +40,8 @@ const articleList = {
       slug: "/kak-stat-dalnoboishikom"
     },
     howToGetPermitArticle: {
-      title: "Как получить CLP пермит",
-      slug: "/kak-poluchit-clp-permit"
+      title: "Как получить CDL пермит",
+      slug: "/kak-poluchit-cdl-permit"
     },
     faq: {
       title: "Часто задаваемые вопросы",
