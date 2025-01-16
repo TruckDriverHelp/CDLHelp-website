@@ -16,6 +16,7 @@ class MyDocument extends Document {
                 <Head>
                     <link rel="icon" href="/images/favicon.ico"></link>
                     <FACEBOOK_PIXEL_1 />
+                    
                 </Head>
                 <body>
                     <Main />
