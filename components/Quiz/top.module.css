@@ -1,0 +1,53 @@
+.language {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language > button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.language > div {
+    display: flex;
+}
+
+.language > div > span {
+    margin-right: 5px;
+}
+
+.pulsate {
+    position: relative;
+}
+
+.pulsate::before, .pulsate::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    border: 1px solid #9290bb;
+    animation: ripple 2s linear infinite;
+}
+
+.pulsate::after {
+    animation: ripple 2s linear 1s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
