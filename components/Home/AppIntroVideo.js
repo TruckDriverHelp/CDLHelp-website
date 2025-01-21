@@ -29,7 +29,7 @@ const AppIntroVideo = () => {
 
     return (
         <>
-            <div id="truckdriverhelp" className="app-video-area ptb-100">
+            <div id="truckdriverhelp" className="app-video-area pb-100">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
@@ -49,6 +49,7 @@ const AppIntroVideo = () => {
 
                             </div>
                         </div>
+                        
 
                         {<div className="col-lg-6 col-md-12">
                             {(locale === "ru" || locale === "uk") ? (
@@ -63,11 +64,41 @@ const AppIntroVideo = () => {
                             ) : (
                                 <div className="app-intro-video-content">
                                     <span className="sub-title">{t("stepByStep")}</span>
-                                    <h2>{t("howToGet")}</h2>    
-                                    <p>{t("articleDescription")}</p>
-                                    <a className="default-btn" href={`/${locale}/${howToGetArticleSlug[locale]}/`}>
-                                        {t("articleRead")}
-                                    </a>
+                                    <h2>{t("howToGet")}</h2>
+
+                                    <ul className="article-links">
+                                        <li>
+                                            <a href={`/${locale}/how-to-become-truck-driver-usa/`} className="article-link">
+                                                How to become a truck driver in United States (Video)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href={`/${locale}/how-to-prepare-cdl-test/`} className="article-link">
+                                                How to prepare for theory CDL test at the DMV (Video)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href={`/${locale}/how-to-use-cdl-help-app/`} className="article-link">
+                                                How to use CDL Help app (Video)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href={`/${locale}/what-is-eldt/`} className="article-link">
+                                                What is ELDT?
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href={`/${locale}/cdl-driving-schools/`} className="article-link">
+                                                What is taught at CDL driving schools and how to find one
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href={`/${locale}/cdl-faq/`} className="article-link">
+                                                Frequently Asked Questions
+                                            </a>
+                                        </li>
+                                    </ul>
+
                                 </div>
                             )}
                         </div>}

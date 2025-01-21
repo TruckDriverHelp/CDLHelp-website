@@ -23,6 +23,7 @@ import CookieConsentBanner from "../components/_App/CookieConsentBanner.js"
 
 import Layout from '@/components/_App/Layout';
 import { useEffect } from 'react'
+import { QuizContextProvider } from '../store/quiz-context'
 
 const MyApp = ({ Component, pageProps, articles }) => {
 	const router = useRouter()
@@ -41,21 +42,22 @@ const MyApp = ({ Component, pageProps, articles }) => {
 		}
 	}, [router.events])
 	return (
-		<Layout dir={dir}>
-			<Pixel name='FACEBOOK_PIXEL_1' />
-			{!["/404", "/cookies-policy"].includes(router.pathname) && <CookieConsentBanner />}
-			<Component {...pageProps} />
-			{/* Google analytics scripts */}
-			<Script
-				strategy="lazyOnload"
-				async
-				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-			/>
-			<Script
-				id="google-analytics"
-				strategy="lazyOnload"
-				dangerouslySetInnerHTML={{
-					__html: `
+		<QuizContextProvider>
+			<Layout dir={dir}>
+				<Pixel name='FACEBOOK_PIXEL_1' />
+				{!["/404", "/cookies-policy"].includes(router.pathname) && <CookieConsentBanner />}
+				<Component {...pageProps} />
+				{/* Google analytics scripts */}
+				<Script
+					strategy="lazyOnload"
+					async
+					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+				/>
+				<Script
+					id="google-analytics"
+					strategy="lazyOnload"
+					dangerouslySetInnerHTML={{
+						__html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
@@ -63,10 +65,10 @@ const MyApp = ({ Component, pageProps, articles }) => {
                     page_path: window.location.pathname,
                   });
                 `,
-				}}
-			/>
-		</Layout>
-
+					}}
+				/>
+			</Layout>
+		</QuizContextProvider>
 	)
 }
 
