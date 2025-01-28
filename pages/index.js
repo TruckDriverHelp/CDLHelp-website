@@ -51,20 +51,9 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <AppIntroVideo />
 
                 <BestFeatures />
-                {/* <ClientFeedback /> */}
-
-                {/* <TopFeatures /> */}
-
-                {/* <AboutContent /> */}
-
-                {/* <KeyFeatures /> */}
-
-                {/* <AppScreenshots /> */}
 
                 <Funfacts />
-
                 <AppDownload />
-
 
                 {/* <PricingPlan /> 
                             
