@@ -19,7 +19,7 @@ const articleList = {
     },
     howToGetPermitArticle: {
       title: "How to get a CDL Permit",
-      slug: "/how-to-get-clp-permit"
+      slug: "/how-to-get-cdl-permit"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -40,8 +40,8 @@ const articleList = {
       slug: "/kak-stat-dalnoboishikom"
     },
     howToGetPermitArticle: {
-      title: "Как получить CLP пермит",
-      slug: "/kak-poluchit-clp-permit"
+      title: "Как получить CDL пермит",
+      slug: "/kak-poluchit-cdl-permit"
     },
     faq: {
       title: "Часто задаваемые вопросы",
@@ -59,11 +59,11 @@ const articleList = {
     },
     howToBecomeTruckDriverArticle: {
       title: "Як стати водієм вантажівки в США",
-      slug: "/yak-staty-vodiyem-vantazhivky-v-amerytsi"
+      slug: "/yak-staty-dalekobiinykom-v-Amerytsi"
     },
     howToGetPermitArticle: {
       title: "Як отримати дозвіл CDL",
-      slug: "/yak-otrymaty-dozvil-cdl"
+      slug: "/yak-otrymaty-permit-cdl"
     },
     faq: {
       title: "CDL Help – Часті запитання",
@@ -87,7 +87,7 @@ const articleList = {
     howToGetPermitArticle:
     {
       title: "كيفية الحصول على تصريح CDL",
-      slug: "/kayfiyat-alhusul-ala-tasrih-cdl"
+      slug: "/kayfiyat-alhusul-ala-rukhsa-cdl"
     },
     faq:
     {
@@ -127,7 +127,7 @@ const articleList = {
   "ko": {
     howToUseAppArticle: {
       title: "CDL 도움 앱 사용법",
-      slug: "/cdl-doum-aeb-sayongbeob"
+      slug: "/cdl-help-aeb-sayongbeob"
     },
     howToBecomeTruckDriverArticle:
     {
