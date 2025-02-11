@@ -23,7 +23,7 @@ const articleList = {
     },
     {
       "title": "How to get a CDL Permit",
-      "slug": "how-to-get-cip-permit"
+      "slug": "how-to-get-cdl-permit"
     },
     {
       "title": "Frequently Asked Questions CDL help",
@@ -52,8 +52,8 @@ const articleList = {
       "slug": "kak-ispolzovat-cdlhelp"
     },
     {
-      "title": "Как получить CLP пермит",
-      "slug": "kak-poluchit-clp-permit"
+      "title": "Как получить CDL пермит",
+      "slug": "kak-poluchit-cdl-permit"
     },
     {
       "title": "Часто задаваемые вопросы",
@@ -71,7 +71,7 @@ const articleList = {
   "uk": [
     {
       "title": "Як стати водієм вантажівки в США",
-      "slug": "yak-staty-vodiyem-vantazhivky-v-amerytsi"
+      "slug": "yak-staty-dalekobiinykom-v-Amerytsi"
     },
     {
       "title": "Як отримати CDL",
@@ -83,7 +83,7 @@ const articleList = {
     },
     {
       "title": "Як отримати дозвіл CDL",
-      "slug": "yak-otrymaty-dozvil-cdl"
+      "slug": "yak-otrymaty-permit-cdl"
     },
     {
       "title": "CDL Help – Часті запитання",
@@ -113,7 +113,7 @@ const articleList = {
     },
     {
       "title": "كيفية الحصول على تصريح CDL",
-      "slug": "kayfiyat-alhusul-ala-tasrih-cdl"
+      "slug": "kayfiyat-alhusul-ala-rukhsa-cdl"
     },
     {
       "title": "الأسئلة الشائعة مساعدة CDL",
@@ -144,7 +144,7 @@ const articleList = {
     },
     {
       "title": "CDL 도움 앱 사용법",
-      "slug": "cdl-doum-aeb-sayongbeob"
+      "slug": "cdl-help-aeb-sayongbeob"
     },
     {
       "title": "Texas CVO Knowledge Test",
@@ -205,10 +205,6 @@ const articleList = {
 
   ],
   "pt": [
-    {
-      "title": "Como tirar a CDL",
-      "slug": "como-obter-cdl"
-    },
     {
       "title": "Como tirar a CDL",
       "slug": "como-obter-cdl"
@@ -400,3 +396,4 @@ const Navbar = ({ alternateLinks }) => {
 };
 
 export default Navbar;
+
