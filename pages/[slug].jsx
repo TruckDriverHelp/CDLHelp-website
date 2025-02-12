@@ -85,8 +85,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           homePageText="Главная Страница"
           activePageText={article.title}
         />
-        <div className="blog-details-area pb-75 w-50 mx-auto">
-          <div>
+        <div className="blog-details-area pb-75 col-11 col-md-6 mx-auto">
             <p>{article.description}</p>
             {article.blocks.map((block, index) => {
               if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
@@ -159,7 +158,6 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
             })}
 
           </div>
-        </div>
         <Footer />
       </Layout>
     </>
