@@ -1,5 +1,5 @@
 import React from 'react'
-import MainBanner from '@/components/Home/MainBanner';
+import TopContainer from '@/components/Home/TopContainer';
 import BestFeatures from '@/components/Home/BestFeatures';
 import AppIntroVideo from '@/components/Home/AppIntroVideo';
 import Funfacts from '@/components/Home/Funfacts';
@@ -11,9 +11,14 @@ import getMeta from '../lib/getMeta';
 import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
 import Layout from "@/components/_App/Layout";
+import Quiz from '@/components/Quiz/quiz';
+import FaqSection from '@/components/Home/FaqSection';
+import { useTranslation } from 'next-i18next';
 
 const IndexPage = ({ meta, alternateLinks }) => {
     const { locale } = useRouter();
+
+    const { t } = useTranslation("index");
     return (
         <>
             <Head>
@@ -41,25 +46,21 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <meta name="twitter:image" content={meta.image} />
 
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
-                
+
             </Head>
 
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
-                <MainBanner />
+                <TopContainer />
+                <div style={{ maxWidth: '700px', margin: '80px auto 40px auto' }}>
+
+                    <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('trySampleQuestion')}</h2>
+                </div>
+                <Quiz />
 
                 <AppIntroVideo />
 
-                <BestFeatures />
-                {/* <ClientFeedback /> */}
-
-                {/* <TopFeatures /> */}
-
-                {/* <AboutContent /> */}
-
-                {/* <KeyFeatures /> */}
-
-                {/* <AppScreenshots /> */}
+                {/* <BestFeatures /> */}
 
                 <Funfacts />
 
@@ -70,9 +71,9 @@ const IndexPage = ({ meta, alternateLinks }) => {
                             
                             <div className="bg-f9f9f9">
                     <PartnerStyle2 />
-                </div>
+                </div>*/}
 
-                <BlogPost /> */}
+                <FaqSection />
                 <Footer />
             </Layout>
         </>
@@ -85,15 +86,15 @@ export async function getStaticProps({ locale }) {
     const meta = await getMeta(locale, "general");
 
     const alternateLinks = {
-		'en': '/',
-		'ar': '/ar/',
-		'ru': '/ru/',
-		'uk': '/uk/',
-		'zh': '/zh/',
-		'ko': '/ko/',
-		'tr': '/tr/',
+        'en': '/',
+        'ar': '/ar/',
+        'ru': '/ru/',
+        'uk': '/uk/',
+        'zh': '/zh/',
+        'ko': '/ko/',
+        'tr': '/tr/',
         'pt': '/pt/'
-	};
+    };
 
     return {
         props: {
@@ -108,3 +109,9 @@ export async function getStaticProps({ locale }) {
         },
     };
 }
+
+
+
+
+
+

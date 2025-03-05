@@ -9,7 +9,6 @@ module.exports = {
     i18n: {
         locales: ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
         defaultLocale: "en",
-        // ns: ["index", "article", "cookie", "navbar", "footer", "contact"]
     },
     images: {
         domains: [process.env.STRAPI_HOST],
@@ -44,6 +43,18 @@ module.exports = {
             permanent: true
           }
         ];
-      },
-}
-
+    },
+    async headers() {
+        return [
+            {
+                source: "/:path*.xml",
+                headers: [
+                    {
+                        key: "Content-Type",
+                        value: "application/xml",
+                    },
+                ],
+            },
+        ];
+    },
+};

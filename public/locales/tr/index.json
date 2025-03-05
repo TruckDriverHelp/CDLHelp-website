@@ -37,5 +37,49 @@
     "downloadAndTry": "Profesyonel bir kamyon sürücüsü olma yolunuzu açın - CDL Yardım uygulamasını indirin ve testleri ücretsiz deneyin! Bilgi Testi, Tehlikeli Madde (HazMat), İkili ve Üçlü Römork ve Tanker konularından yüzlerce CDL sınav sorusunu keşfedin. Uygulamamız, CDL testinde pratik yapmanıza, hazırlanmanıza ve başarılı olmanıza yardımcı olmak için tasarlanmış kapsamlı, kullanımı kolay bir platform sağlar.",
     "androidApp": "Android",
     "downloadButton": "İndir",
-    "iosApp": "iOS"
+    "iosApp": "iOS",
+
+    "practiceTestsTitle": "Türkçe CDL Alıştırma Testleri",
+    "practiceTestsDescription": "CDL Help uygulaması, ehliyetinizi alabilmeniz ve ABD'de kamyon şoförü olabilmeniz için CDL sınavlarına hazırlanmanıza yardımcı olmakla kalmaz, aynı zamanda İngilizce becerilerinizi de geliştirir.",
+    "tryTestsOnline": "Testleri çevrimiçi deneyin",
+    "trySampleQuestion": "Çeviriyi kullanarak örnek bir soruyu yanıtlamayı deneyin",
+    "questionLabel": "Soru:",
+    "languageLabel": "Dil:",
+    "translationLabel": "Çeviri",
+    
+    "videoTitles": {
+        "howToBecome": "ABD'de nasıl kamyon şoförü olunur (video)",
+        "howToPrepare": "DMV'de CDL teori sınavına nasıl hazırlanılır (video)",
+        "howToUseApp": "CDL Help uygulaması nasıl kullanılır (video)"
+    },
+    
+    "eldtTitle": "ELDT nedir?",
+    "cdlSchoolsInfo": "CDL sürücü okullarında ne öğretilir ve nasıl bulunur?",
+    "faq": {
+        "title": "Sıkça Sorulan Sorular",
+        "costQuestion": "CDL eğitimi ve sınav ücreti ne kadardır?",
+        "costAnswer": "Ortalama olarak, eğitimin maliyeti 3.000 ila 6.000 dolar arasındadır.",
+        "readMore": "Devamını okuyun...",
+        "russianQuestion": "CDL sınavına Rusça dilinde girebilir miyim?",
+        "russianAnswer": "Bazı eyaletlerde DMV resmi olarak teori testinin Rusça yapılabileceğini belirtmektedir. Örneğin:\n- New York (NY)\n- Kaliforniya (CA)\n- Wisconsin (WI)\n- Pensilvanya (PA)\n- Washington (WA)",
+        "questionsCountQuestion": "Sınavda kaç soru vardır?",
+        "questionsCountAnswer": "Ticari Sürücü Belgesi (CDL) sınavındaki soru sayısı, belirli bir sınava bağlı olarak değişebilir.\nGenel Bilgi: Tipik olarak 50 soru içerir.\nHavalı Frenler: Tipik olarak 25 soru içerir.\nKombinasyon: Tipik olarak 20 soru içerir.",
+        "mistakesQuestion": "Sınavda kaç hata yapıp geçebilirim?",
+        "mistakesAnswer": "Genel Bilgi: En fazla 10 hata.\nHavalı Frenler: 5 hataya kadar.\nKombinasyon: 5 hataya kadar."
+    },
+    
+    "downloadSection": {
+        "downloadApp": "Uygulamayı indir",
+        "downloadAppHeader": "UYGULAMAYI INDIR",
+        "downloadAppSubtitle": "CDL Help'i indirin - Çevirili CDL testleri",
+        "downloadAppDescription": "Profesyonel bir kamyon sürücüsü olma yolunuzu açın - CDL Help uygulamasını indirin ve testleri ücretsiz deneyin! Bilgi Testi, Hazmat, Çiftler ve Üçlüler ve Tanker'den yüzlerce CDL sınav sorusunu keşfedin. Uygulamamız, CDL testinde pratik yapmanıza, hazırlanmanıza ve başarılı olmanıza yardımcı olmak için tasarlanmış kapsamlı, kullanımı kolay bir platform sağlar.",
+        "androidDownload": "Android İndir",
+        "iosDownload": "iOS İndir"
+    },
+
+    "stepByStepInstructions": "Adım adım talimatlar",
+    "howToGetCdl": "CDL nasıl alınır",
+    "numberOfSections": "Bölüm Sayısı",
+    "roadSigns": "Yol İşaretleri",
+    "reviews": "Yorumlar"
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< Updated upstream
 <?xml-stylesheet type="text/xsl" href="xsl/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
@@ -13,7 +14,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/nasil-kamyon-soforu-olunur/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp</loc>
@@ -27,7 +28,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-yardim-nasil-kullanilir/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ru/kak-poluchit-clp-permit</loc>
@@ -41,7 +42,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-izni-nasil-alinir/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ru/chasto-zadavaemye-voprosy</loc>
@@ -55,7 +56,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/sikca-sorulan-sorular/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/chasti-zapytannya/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help</loc>
@@ -69,7 +70,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-yardim-nasil-kullanilir/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/en/how-to-use-cdl-help</loc>
@@ -83,7 +84,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa</loc>
@@ -97,7 +98,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-stat-dalnoboishikom/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi</loc>
@@ -111,7 +112,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/nasil-kamyon-soforu-olunur/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-stat-dalnoboishikom/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/en/how-to-get-cip-permit</loc>
@@ -125,7 +126,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-poluchit-clp-permit/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl</loc>
@@ -139,7 +140,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-izni-nasil-alinir/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-poluchit-clp-permit/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/en/frequently-asked-questions</loc>
@@ -153,7 +154,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/chasti-zapytannya/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/chasto-zadavaemye-voprosy/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/uk/chasti-zapytannya</loc>
@@ -167,7 +168,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/sikca-sorulan-sorular/"/>
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/chasto-zadavaemye-voprosy/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida</loc>
@@ -181,7 +182,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/nasil-kamyon-soforu-olunur/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-stat-dalnoboishikom/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda</loc>
@@ -195,7 +196,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-yardim-nasil-kullanilir/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl</loc>
@@ -209,7 +210,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/cdl-izni-nasil-alinir/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-poluchit-clp-permit/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl</loc>
@@ -223,7 +224,7 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://cdlhelp.com/tr/sikca-sorulan-sorular/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/chasti-zapytannya/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/chasto-zadavaemye-voprosy/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/en/what-is-taught-in-cdl-schools</loc>
@@ -233,7 +234,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/o-cdl-shkolakh/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/choho-navchayut-u-shkolakh-cdl/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/uk/choho-navchayut-u-shkolakh-cdl</loc>
@@ -243,7 +244,7 @@
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/choho-navchayut-u-shkolakh-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/o-cdl-shkolakh/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ru/o-cdl-shkolakh</loc>
@@ -253,7 +254,7 @@
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/o-cdl-shkolakh/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/choho-navchayut-u-shkolakh-cdl/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/what-is-taught-in-cdl-schools/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/tr/cdl-yardim-nasil-kullanilir</loc>
@@ -267,7 +268,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/tr/cdl-izni-nasil-alinir</loc>
@@ -281,7 +282,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-poluchit-clp-permit/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/tr/sikca-sorulan-sorular</loc>
@@ -295,7 +296,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/chasti-zapytannya/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/chasto-zadavaemye-voprosy/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/tr/nasil-kamyon-soforu-olunur</loc>
@@ -309,7 +310,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-stat-dalnoboishikom/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ko/jaju-mudneun-jilmun-cdl-doum</loc>
@@ -323,7 +324,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/chasti-zapytannya/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/chasto-zadavaemye-voprosy/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ko/migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob</loc>
@@ -337,7 +338,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-stat-dalnoboishikom/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ko/cdl-heogajeungeul-badneun-bangbeob</loc>
@@ -351,7 +352,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-poluchit-clp-permit/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/ko/cdl-doum-aeb-sayongbeob</loc>
@@ -365,7 +366,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/zh/changjian-wenti-cdl-bangzhu</loc>
@@ -379,7 +380,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/alas-ila-alshaeia-musaedat-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/chasti-zapytannya/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/chasto-zadavaemye-voprosy/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/frequently-asked-questions/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/zh/ruhe-chengwei-meiguo-kache-siji</loc>
@@ -393,7 +394,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-staty-vodiyem-vantazhivky-v-amerytsi/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-stat-dalnoboishikom/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-become-a-truck-driver-in-usa/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/zh/ruhe-huode-cdl-xukezheng</loc>
@@ -407,7 +408,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-alhusul-ala-tasrih-cdl/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-otrymaty-dozvil-cdl/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-poluchit-clp-permit/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-get-cip-permit/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/zh/ruhe-shiyong-cdl-bangzhu-yingyongchengxu</loc>
@@ -421,7 +422,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/kayfiyat-astikhdam-tatbiq-cdl-musaeda/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/kak-ispolzovat-cdlhelp/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/yak-vykorystovuvaty-dodatok-cdl-help/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/how-to-use-cdl-help/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/contact</loc>
@@ -460,7 +461,7 @@
         <xhtml:link rel="alternate" hreflang="ar" href="https://cdlhelp.com/ar/cdl-texas/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://cdlhelp.com/ru/cdl-texas/"/>
         <xhtml:link rel="alternate" hreflang="uk" href="https://cdlhelp.com/uk/cdl-texas/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/cdl-texas/"/>
+        <!-- <xhtml:link rel="alternate" hreflang="x-default" href="https://cdlhelp.com/en/cdl-texas/"/> -->
     </url>
     <url>
         <loc>https://cdlhelp.com/privacy-policy</loc>
@@ -478,3 +479,8 @@
         <priority>1.0</priority>
     </url>
 </urlset>
+=======
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	
+</urlset>
+>>>>>>> Stashed changes
