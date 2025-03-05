@@ -37,5 +37,50 @@
     "downloadAndTry": "전문 트럭 운전사가 되기 위한 길을 열어보세요 - CDL 도움말 앱을 다운로드하고 무료로 테스트해 보세요! Knowledge Test, Hazmat, Doubles and Triples 및 Tanker에서 수백 가지 CDL 시험 문제를 살펴보세요. 우리 앱은 CDL 시험을 연습하고, 준비하고, 성공할 수 있도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
     "androidApp": "Android",
     "downloadButton": "다운로드",
-    "iosApp": "iOS"
+    "iosApp": "iOS",
+    
+
+    "practiceTestsTitle": "CDL 연습 시험",
+    "practiceTestsDescription": "CDL Help 앱은 미국에서 운전면허를 취득하고 트럭 운전사가 될 수 있도록 CDL 시험을 준비하는 데 도움이 될 뿐만 아니라 영어 실력도 향상시킵니다.",
+    "tryTestsOnline": "온라인에서 시험을 시도해 보십시오",
+    "trySampleQuestion": "번역을 사용하여 샘플 질문에 답해 보십시오",
+    "questionLabel": "질문:",
+    "languageLabel": "언어:",
+    "translationLabel": "번역",
+    
+    "videoTitles": {
+        "howToBecome": "미국에서 트럭 운전사가 되는 방법(비디오)",
+        "howToPrepare": "DMV에서 CDL 이론 시험을 준비하는 방법(비디오)",
+        "howToUseApp": "CDL Help 앱을 사용하는 방법(비디오)"
+    },
+    
+    "eldtTitle": "ELDT란 무엇입니까?",
+    "cdlSchoolsInfo": "CDL 운전 학교에서 무엇을 가르치고, 어떻게 찾을 수 있습니까?",
+    "faq": {
+        "title": "자주 묻는 질문",
+        "costQuestion": "CDL 교육 및 시험 비용은 얼마입니까?",
+        "costAnswer": "평균적으로 교육 비용은 3,000달러에서 6,000달러 사이입니다.",
+        "readMore": "자세히 보기...",
+        "russianQuestion": "한국어로 CDL 시험을 볼 수 있습니까?",
+        "russianAnswer": "일부 주에서는 DMV에서 공식적으로 이론 시험을 러시아어로 볼 수 있다고 명시합니다. 예를 들어:\n- 뉴욕(NY)\n- 캘리포니아(CA)\n- 위스콘신(WI)\n- 펜실베이니아(PA)\n- 워싱턴(WA)",
+        "questionsCountQuestion": "시험에 몇 개의 문제가 있습니까?",
+        "questionsCountAnswer": "상업용 운전면허(CDL) 시험의 문제 수는 특정 시험에 따라 다를 수 있습니다.\n일반 지식: 일반적으로 50개의 질문이 포함됩니다.\n에어 브레이크: 일반적으로 25개의 질문이 포함됩니다.\n조합: 일반적으로 20개의 질문이 포함됩니다.",
+        "mistakesQuestion": "시험에서 몇 개의 실수를 하고 합격할 수 있습니까?",
+        "mistakesAnswer": "일반 지식: 최대 10개의 실수.\n에어 브레이크: 최대 5개의 실수.\n조합: 최대 5개의 실수."
+    },
+    
+    "downloadSection": {
+        "downloadApp": "앱 다운로드",
+        "downloadAppHeader": "앱 다운로드",
+        "downloadAppSubtitle": "CDL Help 다운로드 - 번역이 포함된 CDL 테스트",
+        "downloadAppDescription": "전문 트럭 운전사가 되는 길을 열어보십시오. CDL Help 앱을 다운로드하고 무료로 테스트를 시도해보십시오! Knowledge Test, Hazmat, Doubles and Triples, Tanker 등 수백 개의 CDL 시험 문제를 살펴보십시오. 당사 앱은 CDL 테스트에서 연습하고, 준비하고, 성공하는 데 도움이 되도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
+        "androidDownload": "안드로이드 다운로드",
+        "iosDownload": "iOS 다운로드"
+    },
+
+    "stepByStepInstructions": "단계별 지침",
+    "howToGetCdl": "CDL을 얻는 방법",
+    "numberOfSections": "섹션 수",
+    "roadSigns": "도로 표지판",
+    "reviews": "리뷰"
 }
