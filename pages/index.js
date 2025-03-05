@@ -12,9 +12,13 @@ import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
 import Layout from "@/components/_App/Layout";
 import Quiz from '@/components/Quiz/quiz';
+import FaqSection from '@/components/Home/FaqSection';
+import { useTranslation } from 'next-i18next';
 
 const IndexPage = ({ meta, alternateLinks }) => {
     const { locale } = useRouter();
+
+    const { t } = useTranslation("index");
     return (
         <>
             <Head>
@@ -50,21 +54,13 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <TopContainer />
                 <div style={{ maxWidth: '700px', margin: '80px auto 40px auto' }}>
 
-                    <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>Попробуйте ответить на пробный вопрос воспользовавшись переводом</h2>
+                    <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('trySampleQuestion')}</h2>
                 </div>
                 <Quiz />
+
                 <AppIntroVideo />
 
-                <BestFeatures />
-                {/* <ClientFeedback /> */}
-
-                {/* <TopFeatures /> */}
-
-                {/* <AboutContent /> */}
-
-                {/* <KeyFeatures /> */}
-
-                {/* <AppScreenshots /> */}
+                {/* <BestFeatures /> */}
 
                 <Funfacts />
 
@@ -75,9 +71,9 @@ const IndexPage = ({ meta, alternateLinks }) => {
                             
                             <div className="bg-f9f9f9">
                     <PartnerStyle2 />
-                </div>
+                </div>*/}
 
-                <BlogPost /> */}
+                <FaqSection />
                 <Footer />
             </Layout>
         </>
