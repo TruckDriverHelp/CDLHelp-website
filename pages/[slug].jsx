@@ -34,7 +34,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           <link
             key={index}
             rel="alternate"
-            href={process.env.BASE_URL + link.href + "/"}
+            href={process.env.BASE_URL + link.href}
             hrefLang={link.hrefLang}
           />
         ))}

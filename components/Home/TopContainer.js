@@ -1,7 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Quiz from "../Quiz/quiz";
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+
 const TopContainer = () => {
+  const { t } = useTranslation('index');
+  const router = useRouter();
+
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -20,14 +26,13 @@ const TopContainer = () => {
         <div className="container-fluid" style={{ marginBottom: '4rem' }}>
           <div className="row align-items-center justify-content-center">
             <div className="col-lg-6 col-md-6" style={{ maxWidth: '650px' }}>
-              <h1 style={{ textAlign: 'center', fontSize: '1.6rem' }}>Подготовительные CDL тесты на русском языке
-              </h1>
+              <h1 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('title')}</h1>
 
-              <p style={{ textAlign: 'center', margin: 0 }}>Приложение CDL Help поможет Вам не только подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США, но с изучением английского языка.</p>
+              <p style={{ textAlign: 'center', margin: 0 }}>{t('description')}</p>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '360px', margin: '0 auto' }}>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '30px 0 10px 0' }}>
-                  <a href="#" className="cta-btn cta-btn-primary" style={{
+                  <a href={`https://apps.apple.com/${router.locale == 'en' ? 'us' : router.locale}/app/cdl-help/id6444388755`} className="cta-btn cta-btn-primary" style={{
                     whiteSpace: 'nowrap',
                     background: 'transparent',
                     border: '3px solid #5a5886',
@@ -41,7 +46,7 @@ const TopContainer = () => {
                     <i className="ri-apple-fill" style={{ fontSize: '24px' }}></i>
                     App Store
                   </a>
-                  <a href="#" className="cta-btn cta-btn-secondary" style={{
+                  <a href={`https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp${router.locale == 'en' ? '' : `&hl=${router.locale}`}`} className="cta-btn cta-btn-secondary" style={{
                     whiteSpace: 'nowrap',
                     background: 'transparent',
                     border: '3px solid #5a5886',
@@ -70,17 +75,26 @@ const TopContainer = () => {
                   <i className="ri-star-half-fill" style={{ color: '#f4cc43', fontSize: '20px' }}></i>
                   <span style={{ marginLeft: '4px', color: '#5a5886', fontSize: '20px' }}>4.5+</span>
                 </div>
-                <a href="#" style={{
+                <a href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : `?lang=${router.locale}`}`} style={{
                   color: '#5a5886',
                   textDecoration: 'underline',
                   marginBottom: '30px'
                 }}>
-                  Попробовать тесты онлайн
+                  {t('tryOnline')}
                 </a>
               </div>
             </div>
-            <div className="col-lg-6 col-md-6">
-              <div className="app-intro-video-box">
+            {/* center div */}
+            <div className="col-lg-6 col-md-6" style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="image-container">
+                <Image
+                  src={`/images/quiz/cdl-help-app-quiz-${router.locale}-1.png`}
+                  alt="video-img"
+                  width={423}
+                  height={800}
+                />
+              </div>
+              {/* <div className="app-intro-video-box">
                 <Image
                   src="/images/video/video-3.jpg"
                   alt="video-img"
@@ -93,12 +107,11 @@ const TopContainer = () => {
                 >
                   <i className="ri-play-line"></i>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-
-      </div >
+      </div>
     </>
   );
 };

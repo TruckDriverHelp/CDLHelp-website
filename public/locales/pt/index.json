@@ -38,5 +38,49 @@
     "downloadAndTry": "Desbloqueie seu caminho para se tornar um motorista de caminhão profissional: faça o download do aplicativo CDL Help e faça exames gratuitamente! Explore centenas de perguntas para o exame da CDL, incluindo o Teste de Conhecimentos Gerais, de Materiais Perigosos, de Veículos Duplos e Triplos e de Caminhões-tanque. Nosso aplicativo proporciona uma plataforma abrangente e fácil de usar, projetada para ajudá-lo a praticar, preparar-se e ter sucesso no exame da CDL.",
     "androidApp": "Android",
     "downloadButton": "Transferir",
-    "iosApp": "iOS"
+    "iosApp": "iOS",
+    "practiceTestsTitle": "Testes Práticos para CDL",
+    "practiceTestsDescription": "O aplicativo CDL Help não só ajuda você a se preparar para os testes de CDL para que você possa obter sua carteira de motorista e se tornar um caminhoneiro nos EUA, mas também melhora suas habilidades em inglês.",
+    "tryTestsOnline": "Experimente os testes online.",
+    "trySampleQuestion": "Tente responder a uma pergunta de amostra usando a tradução.",
+    "questionLabel": "Pergunta:",
+    "languageLabel": "Linguagem:",
+    "translationLabel": "Tradução",
+    
+    "videoTitles": {
+        "howToBecome": "Como se tornar um motorista de caminhão nos EUA (vídeo)",
+        "howToPrepare": "Como se preparar para o teste teórico da carteira de motorista comercial no Detran (vídeo)",
+        "howToUseApp": "Como usar o aplicativo CDL Help (vídeo)"
+    },
+    
+    "eldtTitle": "O que é ELDT?",
+    "cdlSchoolsInfo": "O que é ensinado nas autoescolas para a CNH de motorista profissional e como encontrar uma.",
+    "faq": {
+        "title": "Perguntas Frequentes",
+        "costQuestion": "Quanto custa o treinamento e o exame para a licença CDL?",
+        "costAnswer": "Em média, o treinamento custa entre $3.000 e $6.000.",
+        "readMore": "Saiba mais...",
+        "russianQuestion": "Posso fazer o exame de CDL em russo?",
+        "russianAnswer": "Em alguns estados, o DMV afirma oficialmente que a prova teórica pode ser feita em russo. Por exemplo:\n- Nova Iorque (NY)\n- Califórnia (CA)\n- Wisconsin (WI)\n- Pensilvânia (PA)\n- Washington (WA)",
+        "questionsCountQuestion": "Quantas perguntas tem no exame?",
+        "questionsCountAnswer": "O número de perguntas no exame para a Carteira de Motorista Comercial (CDL) pode variar dependendo do teste específico.\nConhecimentos Gerais: Normalmente inclui 50 perguntas.\nFreios a ar: Normalmente inclui 25 perguntas.\nCombinação: Normalmente inclui 20 perguntas.",
+        "mistakesQuestion": "Quantos erros posso cometer no exame e ainda passar?",
+        "mistakesAnswer": "Conhecimento Geral: Até 10 erros.\nFreios a ar: Até 5 erros.\nCombinado: Até 5 erros."
+    },
+    
+    "downloadSection": {
+        "downloadApp": "Baixe o aplicativo.",
+        "downloadAppHeader": "BAIXE O APLICATIVO",
+        "downloadAppSubtitle": "Baixar Ajuda para CDL - Testes CDL com tradução",
+        "downloadAppDescription": "Desbloqueie seu caminho para se tornar um motorista de caminhão profissional – baixe o aplicativo CDL Help e experimente os testes gratuitamente! Explore centenas de perguntas do exame CDL, incluindo Teste de Conhecimento, Materiais Perigosos, Duplas e Triplas, e Tanque. Nosso aplicativo oferece uma plataforma completa e fácil de usar, criada para ajudá-lo a praticar, se preparar e ter sucesso no teste CDL.",
+        "androidDownload": "Download para Android",
+        "iosDownload": "iOS Baixar"
+    },
+
+    "stepByStepInstructions": "Instruções passo a passo",
+    "howToGetCdl": "Como obter a CDL",
+    "numberOfSections": "Número de Seções",
+    "roadSigns": "Placas de trânsito",
+    "reviews": "Revisões"
+    
 }

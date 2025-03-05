@@ -10,11 +10,11 @@
 }
 
 .quiz {
-
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 30px 0 #9290bb61;
     max-width: 1000px;
+    width: 100%;
     margin: 40px auto 120px auto ;
 }

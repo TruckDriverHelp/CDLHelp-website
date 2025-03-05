@@ -11,21 +11,66 @@ const ModalVideo = dynamic(() => import('react-modal-video'), {
 
 const AppIntroVideo = () => {
     // Popup Video
-    const {t} = useTranslation("index");
+    const { t } = useTranslation("index");
     const { locale } = useRouter();
     const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
     }
 
-    const howToGetArticleSlug = {
-        en: "how-to-become-a-truck-driver-in-usa",
-        ar: "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida",
-        tr: "nasil-kamyon-soforu-olunur",
-        pt: "",
-        ko: "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob",
-        zh: "ruhe-chengwei-meiguo-kache-siji"
-    }
+    // Define URL slugs for each locale
+    const articleSlugs = {
+        howToBecome: {
+            en: "how-to-become-truck-driver-usa",
+            ar: "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida",
+            ru: "kak-stat-dalnoboishikom",
+            uk: "yak-staty-dalekobiinykom-v-Amerytsi",
+            zh: "ruhe-chengwei-meiguo-kache-siji",
+            ko: "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob",
+            tr: "nasil-kamyon-soforu-olunur",
+            pt: "como-se-tornar-motorista-de-caminhaoo"
+        },
+        howToPrepare: {
+            en: "how-to-prepare-cdl-test",
+            ar: "kayfa-tahsil-cdl",
+            ru: "kak-poluchit-cdl",
+            uk: "yak-otrymaty-cdl",
+            zh: "ruhe-huode-cdl",
+            ko: "cdl-eobtneun-bangbeob",
+            tr: "cdl-nasil-alinir",
+            pt: "como-obter-cdl"
+        },
+        howToUseApp: {
+            en: "how-to-use-cdl-help",
+            ar: "kayfiyat-astikhdam-tatbiq-cdl-musaeda",
+            ru: "kak-ispolzovat-cdlhelp",
+            uk: "yak-vykorystovuvaty-dodatok-cdl-help",
+            zh: "ruhe-shiyong-cdl-bangzhu-yingyongchengxu",
+            ko: "cdl-help-aeb-sayongbeob",
+            tr: "cdl-yardim-nasil-kullanilir",
+            pt: "como-usar-o-cdl-help"
+        },
+        cdlSchools: {
+            en: "cdl-driving-schools",
+            ar: "ma-yatimmu-tadrisuh-fi-madaris-cdl",
+            ru: "o-cdl-shkolakh",
+            uk: "choho-navchayut-u-shkolakh-cdl",
+            zh: "guanyu-cdl-xuexiao",
+            ko: "cdl-haggyoeseoneun-mueos-eul-galeuchimniga",
+            tr: "cdl-okul",
+            pt: "sobre-as-escolas"
+        },
+        faq: {
+            en: "cdl-faq",
+            ar: "alas-ila-alshaeia-musaedat-cdl",
+            ru: "chasto-zadavaemye-voprosy",
+            uk: "chasti-zapytannya",
+            zh: "changjian-wenti-cdl-bangzhu",
+            ko: "jaju-mudneun-jilmun-cdl-doum",
+            tr: "sikca-sorulan-sorular",
+            pt: "perguntas-frequentes"
+        }
+    };
 
     return (
         <>
@@ -40,67 +85,115 @@ const AppIntroVideo = () => {
                                     width={635}
                                     height={420}
                                 />
-                                {(locale === "ru" || locale === "uk") ? <div
-                                    onClick={e => { e.preventDefault(); openModal() }}
-                                    className="video-btn popup-youtube"
-                                >
-                                    <i className="ri-play-line"></i>
-                                </div> : null}
+                                
 
                             </div>
                         </div>
                         
 
                         {<div className="col-lg-6 col-md-12">
-                            {(locale === "ru" || locale === "uk") ? (
+                            
                                 <div className="app-intro-video-content">
-                                    <span className="sub-title">{t("stepByStep")}</span>
-                                    <h2>{t("howToGet")}</h2>    
-                                    <p>{t("videoDescription")}</p>
-                                    <a className="default-btn" href="https://www.youtube.com/watch?v=Ll4yVz7yBlQp">
-                                        {t("startWatching")}
-                                    </a>
-                                </div>
-                            ) : (
-                                <div className="app-intro-video-content">
-                                    <span className="sub-title">{t("stepByStep")}</span>
-                                    <h2>{t("howToGet")}</h2>
+                                    <span className="sub-title">{t('stepByStep')}</span>
+                                    <h2>{t('howToGet')}</h2>
 
                                     <ul className="article-links">
                                         <li>
-                                            <a href={`/${locale}/how-to-become-truck-driver-usa/`} className="article-link">
-                                                How to become a truck driver in United States (Video)
-                                            </a>
+                                            <Link 
+                                                href={`/${locale}/${articleSlugs.howToBecome[locale] || articleSlugs.howToBecome.en}`}
+                                                
+                                            >
+                                                <a style={{ 
+                                    border: "none",
+                                    background: "none",
+                                    color: "#5a5886",
+                                    padding: "12px 0px",
+                                    cursor: "pointer",
+                                    fontSize: "16px",
+                                    textDecoration: "underline"
+                                }}>{t('videoTitles.howToBecome')}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href={`/${locale}/how-to-prepare-cdl-test/`} className="article-link">
-                                                How to prepare for theory CDL test at the DMV (Video)
-                                            </a>
+                                            <Link 
+                                                href={`/${locale}/${articleSlugs.howToPrepare[locale] || articleSlugs.howToPrepare.en}`}
+                                                
+                                            >
+                                                <a style={{ 
+                                    border: "none",
+                                    background: "none",
+                                    color: "#5a5886",
+                                    padding: "12px 0px",
+                                    cursor: "pointer",
+                                    fontSize: "16px",
+                                    textDecoration: "underline"
+                                }}>{t('videoTitles.howToPrepare')}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href={`/${locale}/how-to-use-cdl-help-app/`} className="article-link">
-                                                How to use CDL Help app (Video)
-                                            </a>
+                                            <Link 
+                                                href={`/${locale}/${articleSlugs.howToUseApp[locale] || articleSlugs.howToUseApp.en}`}
+                                                
+                                            >
+                                                <a style={{ 
+                                    border: "none",
+                                    background: "none",
+                                    color: "#5a5886",
+                                    padding: "12px 0px",
+                                    cursor: "pointer",
+                                    fontSize: "16px",
+                                    textDecoration: "underline"
+                                }}>{t('videoTitles.howToUseApp')}</a>
+                                            </Link>
+                                        </li>
+                                        {/* <li>
+                                            <a href={`/${locale}/what-is-eldt/`} >
+                                                {t('eldtTitle')}
+                                            </a><a style={{ 
+                                    border: "none",
+                                    background: "none",
+                                    color: "#5a5886",
+                                    padding: "12px 0px",
+                                    cursor: "pointer",
+                                    fontSize: "16px",
+                                    textDecoration: "underline"
+                                }}></a>
+                                        </li> */}
+                                        <li>
+                                            <Link 
+                                                href={`/${locale}/${articleSlugs.cdlSchools[locale] || articleSlugs.cdlSchools.en}`}
+                                                
+                                            >
+                                                <a style={{ 
+                                    border: "none",
+                                    background: "none",
+                                    color: "#5a5886",
+                                    padding: "12px 0px",
+                                    cursor: "pointer",
+                                    fontSize: "16px",
+                                    textDecoration: "underline"
+                                }}>{t('cdlSchoolsInfo')}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href={`/${locale}/what-is-eldt/`} className="article-link">
-                                                What is ELDT?
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href={`/${locale}/cdl-driving-schools/`} className="article-link">
-                                                What is taught at CDL driving schools and how to find one
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href={`/${locale}/cdl-faq/`} className="article-link">
-                                                Frequently Asked Questions
-                                            </a>
+                                            <Link 
+                                                href={`/${locale}/${articleSlugs.faq[locale] || articleSlugs.faq.en}`}
+                                                
+                                            >
+                                                <a style={{ 
+                                    border: "none",
+                                    background: "none",
+                                    color: "#5a5886",
+                                    padding: "12px 0px",
+                                    cursor: "pointer",
+                                    fontSize: "16px",
+                                    textDecoration: "underline"
+                                }}>{t('faq.title')}</a>
+                                            </Link>
                                         </li>
                                     </ul>
 
                                 </div>
-                            )}
                         </div>}
                     </div>
                 </div>

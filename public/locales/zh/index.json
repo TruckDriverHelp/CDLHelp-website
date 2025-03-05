@@ -36,5 +36,49 @@
     "downloadAndTry": "开启您的职业卡车司机之路——下载 CDL Help 应用程序并免费试用测试！探索数百道 CDL 考试问题，包括知识测试、危险品、双联和三联挂车以及罐式车。我们的应用程序提供了一个全面、易于使用的平台，帮助您练习、准备并顺利通过 CDL 考试。",
     "androidApp": "Android",
     "downloadButton": "下载",
-    "iosApp": "iOS"
+    "iosApp": "iOS",
+
+    "practiceTestsTitle": "中文预备 CDL 测试",
+    "practiceTestsDescription": "CDL Help 应用程序不仅可以帮助您准备 CDL 测试以便获得驾驶执照并成为美国的卡车司机，还可以帮助您学习英语。",
+    "tryTestsOnline": "在线尝试测试",
+    "trySampleQuestion": "尝试使用翻译来回答测试问题",
+    "questionLabel": "问题：",
+    "languageLabel": "语言：",
+    "translationLabel": "翻译",
+    
+    "videoTitles": {
+        "howToBecome": "如何在美国成为一名卡车司机（视频）",
+        "howToPrepare": "如何准备 CDL 理论考试（视频）",
+        "howToUseApp": "如何使用 CDL Help 应用程序（视频）"
+    },
+    
+    "eldtTitle": "什么是 ELDT？",
+    "cdlSchoolsInfo": "卡车驾驶学校教什么以及如何找到它们",
+    "faq": {
+        "title": "常问问题",
+        "costQuestion": "学习和参加 CDL 考试的费用是多少？",
+        "costAnswer": "平均而言，培训费用从 3,000 美元到 6,000 美元不等。",
+        "readMore": "阅读更多...",
+        "russianQuestion": "可以参加中文 CDL 考试吗？",
+        "russianAnswer": "在一些州，DMV 正式表示理论考试可以用俄语进行。例如：\n- 纽约 (NY)\n- 加利福尼亚州 (CA)\n- 威斯康星州 (WI)\n- 宾夕法尼亚州 (PA)\n- 华盛顿（西澳州）",
+        "questionsCountQuestion": "考试有多少道题？",
+        "questionsCountAnswer": "商业驾驶执照 (CDL) 考试的问题数量可能因具体考试而异。\n常识：通常包含 50 个问题。\n空气制动器(Air Brakes)：通常包括 25 个问题。\n组合：通常包括 20 个问题。",
+        "mistakesQuestion": "我在考试中犯多少错误仍能通过？",
+        "mistakesAnswer": "常识：最多 10 个错误。\n空气制动器：最多 5 个错误。\n组合：最多 5 个错误。"
+    },
+    
+    "downloadSection": {
+        "downloadApp": "下载应用程序",
+        "downloadAppHeader": "下载应用程序",
+        "downloadAppSubtitle": "下载 CDL Help – 带翻译的 CDL 测试",
+        "downloadAppDescription": "成为一名专业卡车司机 - 下载 CDL  Help 应用程序并免费尝试测试！该应用程序包含来自 CDL 考试的数百个问题：学习部分，例如\"知识测试\"、\"危险品\"、\"双/三拖车\"、\"罐车\"等。 CDL Help 是一个方便的平台，可帮助您有效准备并成功通过考试。",
+        "androidDownload": "下载安卓版",
+        "iosDownload": "下载 iOS 版"
+    },
+
+    "stepByStepInstructions": "分步说明",
+    "howToGetCdl": "如何获得 CDL",
+    "numberOfSections": "节数",
+    "roadSigns": "路标",
+    "reviews": "评论"
 }
