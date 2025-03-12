@@ -75,7 +75,7 @@ const TopContainer = () => {
                   <i className="ri-star-half-fill" style={{ color: '#f4cc43', fontSize: '20px' }}></i>
                   <span style={{ marginLeft: '4px', color: '#5a5886', fontSize: '20px' }}>4.5+</span>
                 </div>
-                <a href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : `?lang=${router.locale}`}`} style={{
+                <a href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : `${router.locale}`}`} style={{
                   color: '#5a5886',
                   textDecoration: 'underline',
                   marginBottom: '30px'
