@@ -285,6 +285,87 @@ textarea.form-control {
   height: auto;
 }
 
+
+.faq-item {
+    margin-bottom: -1px; /* Removes double borders between items */
+    border-top: 1px solid #e0e0e0;
+}
+
+.faq-item:first-child {
+    border-top: none;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-link {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.faq-link span {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+}
+
+.arrow-icon {
+    min-width: 24px;
+    margin-left: 16px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon.active {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    background-color: transparent;
+}
+
+.faq-answer-content {
+    padding: 0 0 20px 0;
+}
+
+/* Keep existing transition styles */
+.faq-answer:not(.show) {
+    transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+}
+
+.faq-answer.show {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-link {
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-link a {
+  background: var(--gradientColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #5a5886;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-answer ul {
+  list-style-type: none;
+}
+
+
 /* shape-css */
 .shape1 {
   bottom: 50px;
@@ -693,6 +774,12 @@ textarea.form-control {
   font-weight: 700;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.accordion {
+  margin: 0 auto;
+  border: 0px;
+  max-width: 800px;
 }
 
 .pagination-area .page-numbers.next {
@@ -2574,7 +2661,7 @@ textarea.form-control {
   bottom: 0;
   left: 0;
   border-radius: 50%;
-  border: 1px solid var(--whiteColor);
+  border: 1px solid #9290bb;
 }
 
 .app-video-box .video-btn::before {
@@ -2613,6 +2700,10 @@ textarea.form-control {
 .app-intro-video-box {
   position: relative;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-intro-video-box::before {
@@ -2665,7 +2756,7 @@ textarea.form-control {
   bottom: 0;
   left: 0;
   border-radius: 50%;
-  border: 1px solid var(--whiteColor);
+  border: 1px solid #9290bb;
 }
 
 .app-intro-video-box .video-btn::before {
@@ -4390,6 +4481,45 @@ textarea.form-control {
   opacity: 0.8;
 }
 
+.article-links {
+    padding-left: 0;
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.article-links li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.article-links li:last-child {
+    margin-bottom: 0;
+}
+
+.article-links li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--mainColor);
+    font-size: 20px;
+    line-height: 1;
+    top: 2px;
+}
+
+.article-links .article-link {
+    color: var(--paragraphColor);
+    font-size: var(--fontSize);
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.article-links .article-link:hover {
+    color: var(--mainColor);
+    transform: translateX(5px);
+}
+
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
@@ -5038,10 +5168,6 @@ textarea.form-control {
     margin-bottom: 0px;
     font-size: 0.7rem;
     color: #262A37;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   .school_location > p {
@@ -5960,5 +6086,46 @@ textarea.form-control {
     padding: 60px 80px;
   }
   /* End Home Demo 7, 8 & 9 Responsive CSS */
+}
+
+.translation-btn {
+    display: inline-block;
+    width: auto;
+    padding: 8px 20px;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%);
+    border-radius: 10px;
+    color: var(--whiteColor);
+    box-shadow: 15px 25px 35px rgba(38, 42, 55, 0.1);
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.translation-btn:hover {
+    transform: translateY(-3px);
+}
+
+.translation-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 10px;
+    background: linear-gradient(44.44deg, #9290bb 7.79%, #5a5886 94.18%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.translation-btn:hover::before {
+    opacity: 1;
+    visibility: visible;
 }
 /*# sourceMappingURL=styles.css.map */

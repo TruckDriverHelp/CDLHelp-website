@@ -59,19 +59,6 @@ const MainBanner = () => {
                     width={815}
                     height={708}
                   />
-
-                  {/* <div className="wrap-image-shape-1">
-                      <img 
-                          src="/images/home-7-8-9/banner/shape-3.png" 
-                          alt="image" 
-                      />
-                  </div>
-                  <div className="wrap-image-shape-2">
-                      <img 
-                          src="/images/home-7-8-9/banner/shape-4.png" 
-                          alt="image" 
-                      />
-                  </div> */}
                   <div className="banner-circle">
                     <Image
                       src="/images/home-7-8-9/banner/banner-circle.png"
