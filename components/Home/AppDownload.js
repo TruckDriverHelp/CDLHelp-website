@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 const AppDownload = () => {
     const {t} = useTranslation("index");
     const { locale } = useRouter();
+    
     const trackDownload = (platform) => {
         if (window.fbq) {
             window.fbq('trackCustom', `AppDownload_${platform}`, { platform: platform });
@@ -23,7 +24,7 @@ const AppDownload = () => {
                                 <p>{t("downloadAndTry")}</p>
 
                                 <div className="btn-box color-wrap">
-                                    <a href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp" onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
+                                    <a href={`https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp${locale == 'en' ? '' : `&hl=${locale}`}`} onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
                                         <div>
                                             <Image
                                                 src="/images/play-store.png"
@@ -35,7 +36,7 @@ const AppDownload = () => {
                                         {t("androidApp")}
                                         <span>{t("downloadButton")}</span>
                                     </a>
-                                    <a href="https://apps.apple.com/us/app/cdl-help/id6444388755?platform=iphone" onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
+                                    <a href={`https://apps.apple.com/${locale == 'en' ? 'us' : locale}/app/cdl-help/id6444388755`}  onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
                                         <div>
                                             <Image
                                                 src="/images/apple-store.png"
