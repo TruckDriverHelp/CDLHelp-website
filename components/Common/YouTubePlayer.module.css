@@ -1,0 +1,26 @@
+.youtube-player-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure responsive behavior on small screens */
+@media (max-width: 768px) {
+  .youtube-player-container {
+    margin: 15px auto;
+  }
+}
+
+/* Make player fully responsive */
+.youtube-player {
+  width: 100% !important;
+}
+
+/* Style for iframe to ensure it's fully responsive */
+.youtube-player iframe {
+  width: 100% !important;
+  border-radius: 8px;
+} 

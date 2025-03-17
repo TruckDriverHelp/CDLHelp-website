@@ -3,7 +3,6 @@ import Head from 'next/head';
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
-import YouTube from 'react-youtube';
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTranslation } from "next-i18next";
@@ -13,6 +12,7 @@ import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from "@/components/_App/Layout";
 import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
+import YouTubePlayer from "@/components/Common/YouTubePlayer";
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
@@ -126,19 +126,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 const videoId = parsedYoutube.url.split('v=')[1];
                 return (
                   <div key={index}>
-                    <YouTube
-                      videoId={videoId}
-                      opts={{
-                        height: '390',
-                        width: '640',
-                        playerVars: {
-                          autoplay: 0,
-                          controls: 1,
-                          rel: 0,
-                          showinfo: 0,
-                        },
-                      }}
-                    />
+                    <YouTubePlayer videoId={videoId} />
                   </div>
                 );
               }
