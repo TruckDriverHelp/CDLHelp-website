@@ -123,7 +123,9 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 );
               } else if (block.__typename === 'ComponentArticlePartsYouTube') {
                 const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
-                const videoId = parsedYoutube.url.split('v=')[1];
+                
+                const videoId = parsedYoutube.url.split('.be/')[1];
+                
                 return (
                   <div key={index}>
                     <YouTubePlayer videoId={videoId} />
