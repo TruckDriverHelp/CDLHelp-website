@@ -107,7 +107,7 @@ const TopContainer = () => {
               </div> */}
               <div className="app-intro-video-box">
                 <Image
-                  src="/images/video/video-3.jpg"
+                  src="/images/video/video-3-no-text.jpg"
                   alt="video-img"
                   width={550}
                   height={360}
