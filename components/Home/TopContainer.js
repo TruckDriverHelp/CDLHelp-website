@@ -3,11 +3,22 @@ import Image from "next/image";
 import Quiz from "../Quiz/quiz";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+
+// Dynamically import ModalVideo with ssr disabled
+const ModalVideo = dynamic(() => import('react-modal-video'), {
+  ssr: false
+});
 
 const TopContainer = () => {
   const { t } = useTranslation('index');
   const router = useRouter();
-
+  const [isOpen, setIsOpen] = React.useState(false);
+  
+  const openModal = () => {
+    setIsOpen(!isOpen);
+  }
+  
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -86,15 +97,15 @@ const TopContainer = () => {
             </div>
             {/* center div */}
             <div className="col-lg-6 col-md-6" style={{ display: 'flex', justifyContent: 'center' }}>
-              <div className="image-container">
+              {/* <div className="image-container">
                 <Image
                   src={`/images/quiz/cdl-help-app-quiz-${router.locale}-1.png`}
                   alt="video-img"
                   width={423}
                   height={800}
                 />
-              </div>
-              {/* <div className="app-intro-video-box">
+              </div> */}
+              <div className="app-intro-video-box">
                 <Image
                   src="/images/video/video-3.jpg"
                   alt="video-img"
@@ -107,10 +118,16 @@ const TopContainer = () => {
                 >
                   <i className="ri-play-line"></i>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
+        <ModalVideo 
+          channel='youtube' 
+          isOpen={isOpen} 
+          videoId={t('video.intro')} 
+          onClose={() => setIsOpen(false)} 
+        />
       </div>
     </>
   );
