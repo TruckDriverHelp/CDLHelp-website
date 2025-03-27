@@ -17,7 +17,7 @@ import { useTranslation } from 'next-i18next';
 
 const IndexPage = ({ meta, alternateLinks }) => {
     const { locale } = useRouter();
-
+    const router = useRouter()
     const { t } = useTranslation("index");
     return (
         <>
@@ -52,6 +52,17 @@ const IndexPage = ({ meta, alternateLinks }) => {
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
                 <TopContainer />
+                {/* thin container with our recommentation for CDL school with the phone number displayed */}
+                {router.locale === 'ru' || router.locale === 'uk' ? (
+                <div style={{ backgroundColor: '#d3d2e4', padding: '40px 0px' }}>
+                    <div style={{ maxWidth: '700px', margin: '0px auto 0px auto' }}>
+                        <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{router.locale === 'ru' ? "Рекомендованая нами школа" : "Рекомендована нами школа"}</h2>
+                        <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>Jacksonville, Florida</p>
+                        <div style={{ textAlign: 'center' }}>
+                            <a href="tel:+19046590005" style={{ textDecoration: 'none', color: '#000', fontSize: '1.2rem' }}>+1 (904) 659-0005</a>
+                        </div>
+                    </div>
+                </div>) : null}
                 <div style={{ maxWidth: '700px', margin: '80px auto 40px auto' }}>
 
                     <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('trySampleQuestion')}</h2>
