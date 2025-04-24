@@ -1,0 +1,197 @@
+[
+    {
+        "question": {
+            "en": "What might start a fire in a vehicle?",
+            "pt": "O que pode iniciar um incêndio em um veículo?",
+            "uk": "Що з переліченого нижче може стати причиною загоряння транспортного засобу?",
+            "tr": "Bir araçta yangına ne sebep olabilir?",
+            "ko": "차량에서 화재를 일으킬 수 있는 요인은 무엇입니까?",
+            "zh": "哪些因素可能引起车辆起火？",
+            "ar": "ما الذي قد يتسبب في انشعال حريق في المركبة؟",
+            "ru": "Что может стать причиной возгорания транспортного средства?"
+        },
+        "explanation": {
+            "en": "Short circuits and loose electrical connections can generate heat and sparks, which can ignite nearby flammable materials and cause a fire. Proper maintenance and regular inspections of the vehicle's electrical system are essential to prevent such hazards.",
+            "pt": "Uma razão pela qual um veículo pode pegar fogo é por causa de problemas com suas partes elétricas. Se os fios não estiverem conectados corretamente ou se houver um curto-circuito (eletricidade indo pelo caminho errado), isso pode criar faíscas ou calor, levando a um incêndio",
+            "uk": "Короткі замикання і нещільні з'єднання електричних компонентів можуть призвести до виділення тепла і утворення іскор, які можуть запалити легкозаймисті матеріали, що знаходяться поруч, та спричинити пожежу. Для запобігання подібних небезпечних ситуацій необхідні належне технічне обслуговування і регулярні перевірки електричної системи транспортного засобу.",
+            "tr": "Bir aracın yangın çıkarmasının bir nedeni, elektrik parçalarındaki sorunlar olabilir. Kablolar düzgün bağlanmamışsa veya kısa devre (elektriğin yanlış yöne gitmesi) varsa, kıvılcım veya ısı oluşturabilir ve bu da yangına yol açabilir.",
+            "ru": "Короткие замыкания и неплотные соединения электрических компонентов могут привести к выделению тепла и образованию искр, которые могут воспламенить находящиеся рядом легковоспламеняющиеся материалы и вызвать пожар. Для предотвращения подобных опасных ситуаций необходим надлежащее техническое обслуживание и регулярные проверки электрической системы транспортного средства.",
+            "zh": "短路和松动的电气连接会产生热量和火花，这可能点燃附近的易燃材料并引发火灾。为了防止这种危险，必须对车辆的电气系统进行适当的维护和定期检查。",
+            "ar": "يمكن أن تتسبب الدوائر القصيرة والوصلات الكهربائية غير المحكمة في توليد الحرارة والشرارات، مما قد يؤدي إلى اشتعال المواد القابلة للاشتعال القريبة والتسبب في نشوب حريق. تعتبر الصيانة المناسبة والفحوصات المنتظمة للنظام الكهربائي للسيارة ضرورية لمنع مثل هذه المخاطر.",
+            "ko": "전기 부품의 단락 및 느슨한 연결은 열과 불꽃을 발생시킬 수 있으며, 이는 근처의 가연성 물질에 불을 붙여 화재를 일으킬 수 있습니다. 차량의 전기 시스템을 적절히 유지 관리하고 정기적으로 검사하는 것은 이러한 위험을 예방하는 데 필수적입니다."
+        },
+        "answer": 2,
+        "answers": [
+            {
+                "en": "Smoking at a safe distance in a rest stop.",
+                "ru": "Курение на безопасном расстоянии на стоянке для отдыха.",
+                "pt": "Fumar a uma distância segura em uma parada de descanso",
+                "zh": "在休息站保持安全距离吸烟。",
+                "uk": "Куріння на безпечній відстані на місці відпочинку.",
+                "ar": "التدخين على مسافة آمنة في منطفة الاستراحة",
+                "tr": "Dinlenme yerinde güvenli mesafede sigara içmek.",
+                "ko": "휴게소에서 안전한 거리에서 흡연"
+            },
+            {
+                "en": "Short circuits and loose connections of electrical components.",
+                "ru": "Короткие замыкания и неплотные соединения электрических компонентов.",
+                "pt": "Curto-circuitos e conexões soltas de componentes elétricos",
+                "zh": "电气元件的短路和松动连接。",
+                "uk": "Короткі замикання і нещільні з'єднання електричних компонентів.",
+                "ar": "الدوائر القصيرة والتوصيلات الفضفاضة للمكونات الكهربائية",
+                "tr": "Elektrik bileşenlerinin kısa devreleri ve gevşek bağlantıları.",
+                "ko": "전기 부품의 단락 및 느슨한 연결"
+            },
+            {
+                "en": "Good ventilation for flammable cargo",
+                "ru": "Хорошая вентиляция легковоспламеняющихся грузов.",
+                "pt": "Usar água para apagar um incêndio de gordura",
+                "zh": "易燃货物需要良好的通风。",
+                "uk": "Хороша вентиляція легкозаймистих вантажів.",
+                "ar": "تهوية جيدة للبضائع القابلة للاشتعال",
+                "tr": "Yağ yangınını söndürmek için su kullanmak.",
+                "ko": "인화성 화물을 위한 좋은 환기"
+            },
+            {
+                "en": "Regularly changing the vehicle's oil",
+                "ru": "Регулярная замена масла в транспортном средстве.",
+                "pt": "Trocar regularmente o óleo do veículo",
+                "zh": "定期更换车辆的机油。",
+                "uk": "Регулярна заміна оливи в транспортному засобі.",
+                "ar": "تغيير زيت السيارة بانتظام",
+                "tr": "Araç yağını düzenli olarak değiştirmek.",
+                "ko": "차량의 오일을 정기적으로 교환"
+            }
+        ]
+    },
+    {
+        "question": {
+            "en": "How much liquid you should fill the tank with depends on...",
+            "ko": "탱크에 액체를 얼마나 채워야 하는지는 무엇에 따라 결정됩니까?",
+            "pt": "A quantidade de líquido com a qual você deve encher o tanque depende...",
+            "zh": "你应该往油箱里加多少液体取决于。。。",
+            "uk": "Кількість рідини, яку слід заливати в цистерну, залежить від ...",
+            "ru": "Количество жидкости, которое следует заливать в цистерну, зависит от ...",
+            "ar": "يعتمد مقدار السائل الذي يجب أن تملأ به الصهريج على...",
+            "tr": "Depoyu ne kadar sıvı ile doldurmanız gerektiği ... bağlıdır."
+        },
+        "explanation": {
+            "en": "When filling a tank for transport, consider how much the liquid grows when moving, its heaviness or thickness, and the legal weight rules. All these factors decide the right amount to load.",
+            "ko": "운송용 탱크를 채울 때는 액체가 이동 중에 얼마나 팽창하는지, 액체의 무게 또는 밀도, 법적 중량 규정을 고려해야 합니다. 이 모든 요소는 안전하게 적재할 수 있는 액체의 양을 결정합니다.",
+            "pt": "Ao encher um tanque para transporte, considere o quanto o líquido cresce ao se movimentar, seu peso ou espessura e as regras legais de peso. Todos esses fatores determinam a quantidade certa a ser carregada.",
+            "zh": "在装运油罐时，要考虑液体在移动时的膨胀程度、液体的重量或浓度，以及法律规定的重量限制。这些因素都会决定装载的适当数量。",
+            "ru": "Определяя количество жидкости, которое можно заливать в цистерну, нужно учесть следующие факторы: насколько жидкость расширится при движении, ее вес или плотность, а также установленные ограничения по весу.",
+            "ar": "عند تعبئة صهريج للنقل، فكر في مقدار تمدد السائل عند التحرك، وفي ثقل السائل وسمكه، والقوانين المتعلقة بالوزن. كل هذه العوامل تحدد الكمية المناسبة للتحميل.",
+            "tr": "Taşıma için bir tankı doldururken, sıvının hareket ederken ne kadar genişlediğini, ağırlığını veya kalınlığını ve yasal ağırlık kurallarını dikkate alın. Tüm bu faktörler, yüklemek için doğru miktarı belirler.",
+            "uk": "Визначаючи кількість рідини, яку можна заливати в цистерну, потрібно врахувати такі фактори: наскільки рідина розшириться під час руху, її вагу або щільність, а також встановлені обмеження щодо ваги."
+        },
+        "answer": 1,
+        "answers": [
+            {
+                "en": "All of the above",
+                "ru": "Все варианты правильные.",
+                "pt": "Todas as opções anteriores",
+                "zh": "以上所有。",
+                "uk": "Усі варіанти правильні.",
+                "ar": "كل ما سبق.",
+                "ko": "위 모든 것",
+                "tr": "Yukarıdakilerin hepsi."
+            },
+            {
+                "en": "The amount the liquid will expand in transit",
+                "ru": "Того, насколько жидкость расширится во время транспортировки.",
+                "pt": "Da quantidade que o líquido expandirá em trânsito",
+                "zh": "液体在运输过程中会膨胀的量。",
+                "uk": "Того, наскільки рідина розшириться під час транспортування.",
+                "ar": "مقدار تمدد السائل أثناء النقل.",
+                "ko": "운송 중 액체가 팽창하는 양",
+                "tr": "Sıvının taşıma sırasında ne kadar genişleyeceğini."
+            },
+            {
+                "en": "The weight or density of the liquid",
+                "ru": "Веса или плотности жидкости.",
+                "pt": "Do peso ou da densidade do líquido",
+                "zh": "液体的重量或密度。",
+                "uk": "Ваги або щільності рідини.",
+                "ar": "وزن أو كثافة السائل.",
+                "ko": "액체의 무게 또는 밀도",
+                "tr": "Sıvının ağırlığı veya yoğunluğu."
+            },
+            {
+                "en": "Legal weight limits",
+                "ru": "Установленных весовых ограничений.",
+                "pt": "Dos limites legais de peso",
+                "zh": "法律重量限制",
+                "uk": "Встановлених вагових обмежень.",
+                "ar": "حدود الوزن القانونية",
+                "ko": "법적 중량 제한",
+                "tr": "Yasal ağırlık sınırları."
+            }
+        ]
+    },
+    {
+        "question": {
+            "en": "What should you pay attention to when looking at your brakes and suspension during a pre-trip inspection?",
+            "pt": "Em que você deve prestar atenção ao examinar os freios e a suspensão durante uma inspeção pré-viagem?",
+            "zh": "在进行出发前检查时，您应注意刹车和悬挂系统的哪些方面？",
+            "uk": "Під час передрейсового огляду ви перевіряєте гальма та підвіску. Яке з наведених нижче тверджень є правильним?",
+            "ar": "ما الذي يجب الانتباه إليه عند فحص الفرامل والتعليق أثناء فحص ما قبل الرحلة؟",
+            "tr": "Yolculuk öncesi muayene sırasında frenlerinize ve süspansiyonunuza bakarken nelere dikkat etmelisiniz?",
+            "ko": "출발 전 점검 중 브레이크와 서스펜션을 볼 때 무엇에 주의해야 합니까?",
+            "ru": "Во время предрейсового осмотра вы проверяете тормоза и подвеску. Какое из приведенных ниже утверждений является правильным?"
+        },
+        "explanation": {
+            "en": "When you check your truck before driving, make sure there's no oil or grease on the brake pads. Also, check that the brakes are not too worn out or broken, as this can lead to accidents. The correct answer is to look for both these issues.",
+            "pt": "Ao verificar seu caminhão antes de dirigir, certifique-se de que não haja óleo ou graxa nas pastilhas de freio. Além disso, verifique se os freios não estão muito desgastados ou quebrados, pois isso pode causar acidentes. A resposta correta é procurar por esses dois problemas.",
+            "zh": "在您驾驶前检查卡车时，请确保刹车片上没有油或脂。还要检查刹车是否过度磨损或破损，因为这可能导致事故。正确的答案是要关注这两个问题。",
+            "uk": "Коли ви перевіряєте вантажівку перед поїздкою, переконайтеся, що на гальмівних колодках немає оливи або мастила. Також перевірте, щоб гальма не були занадто зношеними або зламаними, оскільки це може призвести до аварії. Правильна відповідь – виявляти обидві ці проблеми.",
+            "ar": "عند فحص شاحنتك قبل القيادة، تأكد من عدم وجود زيت أو شحم على وسادات الفرامل. أيضًا، تحقق من أن المكابح ليست مهترئة جدًا أو مكسورة، حيث يمكن أن يؤدي ذلك إلى وقوع حوادث. الإجابة الصحيحة هي البحث عن كلا المشكلتين.",
+            "tr": "Sürüşten önce kamyonunuzu kontrol ettiğinizde, fren balatalarında yağ veya gres olmadığından emin olun. Ayrıca, kazalara yol açabileceğinden, frenlerin çok yıpranmış veya bozuk olmadığını da kontrol edin. Doğru cevap, bu iki soruna da bakmaktır.",
+            "ko": "운전하기 전에 트럭을 점검할 때 브레이크 패드에 오일이나 그리스가 없는지 확인하십시오. 또한 브레이크가 너무 마모되거나 파손되지 않았는지 확인하십시오. 그렇지 않으면 사고로 이어질 수 있습니다. 정답은 이러한 문제를 모두 확인하는 것입니다.",
+            "ru": "Когда вы проверяете грузовик перед поездкой, убедитесь, что на тормозных колодках нет масла или смазки. Также проверьте, чтобы тормоза не были слишком изношенными или сломанными, поскольку это может привести к аварии. Правильный ответ – выявлять обе эти проблемы."
+        },
+        "answer": 4,
+        "answers": [
+            {
+                "en": "Oil, grease, or brake fluid should not be on brake pads.",
+                "ru": "На тормозных колодках не должно быть масла, смазки или тормозной жидкости.",
+                "pt": "Óleo, graxa ou fluido de freio não devem estar nas pastilhas de freio.",
+                "zh": "刹车片上不应有油、脂或刹车液。",
+                "uk": "На гальмівні колодки не повинно потрапляти масло, мастило або гальмівна рідина.",
+                "ar": "يجب ألا يكون هناك زيت أو شحم أو سائل فرامل على دوسات الفرامل.",
+                "ko": "브레이크 패드에 오일, 그리스 또는 브레이크액이 묻어 있으면 안 됩니다.",
+                "tr": "Fren balatalarında yağ, gres veya fren sıvısı olmamalıdır."
+            },
+            {
+                "en": "Brake shoes shouldn't be worn so thin or broken that they could cause a crash.",
+                "ru": "Тормозные колодки не должны быть слишком тонкими или сломанными.",
+                "pt": "As sapatas de freio não devem estar tão gastas ou danificadas que possam causar um acidente.",
+                "zh": "刹车鞋不应磨损得过薄或破损，以免导致事故。",
+                "uk": "Гальмівні колодки не повинні бути занадто тонкими або зламаними.",
+                "ar": "بطانات المكابح لا يجب أن تكون مهترئة أو مكسورة بشكل قد يؤدي إلى التسبب في حادث",
+                "ko": "브레이크 슈가 너무 얇거나 파손되어 충돌을 일으킬 수 있을 정도여서는 안 됩니다.",
+                "tr": "Fren balataları bir kazaya neden olabilecek kadar ince veya kırık olmamalıdır."
+            },
+            {
+                "en": "No dirty or debris on the brake pads.",
+                "ru": "На тормозных колодках не должно быть грязи и мусора.",
+                "pt": "Não há sujeira ou detritos nas pastilhas de freio.",
+                "zh": "刹车片上不得有污垢或杂物。",
+                "uk": "На гальмівних колодках не має бути бруду і сміття.",
+                "ar": "لا يجب أن يكون هناك أوساخ أو حطام على دوسات الفرامل",
+                "ko": "브레이크 패드에 먼지나 이물질이 없어야 합니다.",
+                "tr": "Fren balatalarında kir veya döküntü olmamalıdır."
+            },
+            {
+                "en": "All of the above",
+                "ko": "위의 모든 것입니다.",
+                "ru": "Все вышеперечисленное.",
+                "pt": "Todas as opções anteriores",
+                "zh": "以上所有",
+                "uk": "Усе перераховане вище.",
+                "ar": "جميع ما سبق",
+                "tr": "Yukarıdakilerin hepsi."
+            }
+        ]
+    }
+]

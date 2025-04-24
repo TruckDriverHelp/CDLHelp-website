@@ -7,7 +7,10 @@ const Answers = ({ data, handleCheck, handleSelect }) => {
     const quizCtx = useContext(QuizContext)
     const { selected, translate } = quizCtx
     const router = useRouter()
+    const locale = router.locale
     const abc = ["A", "B", "C", "D"]
+
+    console.log(data)
 
     return (
         <div className={styles.answers} style={{marginTop: "10px", marginBottom: "30px"}}>
@@ -17,7 +20,7 @@ const Answers = ({ data, handleCheck, handleSelect }) => {
 
                         <span className="noselect"><strong>{abc[i]}</strong></span>
                         <span className="noselect">
-                            {translate ? answer[router.locale].lang : answer[router.locale].eng}
+                            {translate ? answer[locale] : answer.en}
                         </span>
                     </div>
                 )

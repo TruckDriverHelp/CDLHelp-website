@@ -32,7 +32,7 @@ const Head = ({ translation }) => {
     }
 
     return (
-        <div style={{ display: "flex", alignItems: "center", margin: "20px 0" }}>
+        <div style={{ display: "flex" }}>
             {router.locale === 'en' ? (
                 <div className={styles.language} >
                     <button

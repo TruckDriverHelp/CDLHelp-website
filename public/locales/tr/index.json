@@ -46,6 +46,13 @@
     "questionLabel": "Soru:",
     "languageLabel": "Dil:",
     "translationLabel": "Çeviri",
+
+    "nextQuestion": "Sonraki Soru",
+    "seeResults": "Sonuçları Görüntüle",
+    "quizResults": "Quiz Sonuçları",
+    "yourScore": "Puanınız",
+    "retakeQuiz": "Quiz'i Tekrar Deneyin",
+    "explanation": "Açıklama",
     
     "videoTitles": {
         "howToBecome": "ABD'de nasıl kamyon şoförü olunur (video)",
