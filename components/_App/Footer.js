@@ -324,11 +324,6 @@ const Footer = () => {
                       <a>{howToGetCDLArticle.title}</a>
                     </Link>
                   </li>
-                  {locale == "ru" && <li>
-                    <Link href="/cdl-shkola/">
-                      <a>{t("cdlRussianSchool")}</a>
-                    </Link>
-                  </li>}
                   <li>
                     <a href="https://www.truckdriver.help/">{t("jobs")}</a>
                   </li>
