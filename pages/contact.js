@@ -60,8 +60,6 @@ export async function getStaticProps({ locale }) {
 
   const meta = await getMeta(locale, "contact");
 
-  console.log(meta);
-
   return {
     props: {
       alternateLinks,

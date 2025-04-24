@@ -34,7 +34,6 @@ const ContactForm = () => {
     const handleChange = e => {
         const { name, value } = e.target;
         setContact(prevState => ({ ...prevState, [name]: value }));
-        // console.log(contact)
     }
 
     const handleSubmit = async (e) => {
@@ -62,12 +61,11 @@ const ContactForm = () => {
         try {
           const url = `/api/contact`;
           const payload = { name, email, number, subject, text };
-          const response = await axios.post(url, payload);
-          console.log(response);
+          await axios.post(url, payload);
           setContact(INITIAL_STATE);
           alertContent(t);
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       };
 

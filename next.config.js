@@ -29,7 +29,7 @@ module.exports = {
           },
           {
             source: '/permit/',
-            destination: '/ru/kak-poluchit-clp-permit/',
+            destination: '/ru/kak-poluchit-cdl-permit/',
             permanent: true
           },
           {
@@ -40,6 +40,11 @@ module.exports = {
           {
             source: '/faq/',
             destination: '/ru/chasto-zadavaemye-voprosy/',
+            permanent: true
+          },
+          {
+            source: '/cdl-shkola/',
+            destination: '/ru/cdl-school/',
             permanent: true
           }
         ];
