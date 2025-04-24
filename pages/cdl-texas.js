@@ -1,7 +1,5 @@
 import React from "react";
 import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
-import BlogSidebar from "@/components/Blog/BlogSidebar";
-import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import CVOCard from "@/components/Article/texasCVOcard";
 import fetchCVOCards from "../lib/TexasCVO/fetchCVOCards";
@@ -11,15 +9,46 @@ import remarkGfm from "remark-gfm";
 import fetchText from "../lib/TexasCVO/fetchText";
 import Navbar from "@/components/_App/Navbar";
 import Footer from "@/components/_App/Footer";
+import getMeta from "../lib/getMeta";
+import Head from "next/head";
 
-const CDLtexas = ({ text, cards, locale, alternateLinks }) => {
+const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
+	console.log(meta);
 	return (
 		<>
 			<Layout >
+				<Head>
+					<meta name="description" content={meta.description} />
+					<meta itemProp="name" content={meta.title} />
+					<meta itemProp="description" content={meta.description} />
+					<meta itemProp="image" content={meta.image} />
+					<meta property="og:url" content="https://www.cdlhelp.com" />
+					<meta property="og:type" content="website" />
+					<meta property="og:title" content={meta.title} />
+					<meta property="og:description" content={meta.description} />
+					<meta property="og:image" content={meta.image} />
+					<meta property="og:locale" content={locale} />
+					<meta property="og:site_name" content="CDL Help" />
+					<meta name="twitter:card" content="summary_large_image" />
+					<meta name="twitter:title" content={meta.title} />
+					<meta name="twitter:description" content={meta.description} />
+					<meta name="twitter:image" content={meta.image} />
+					<link rel="canonical" href="https://www.cdlhelp.com/cdl-texas/" />
+					<link rel="alternate" href="https://www.cdlhelp.com/cdl-texas/" hrefLang="x-default" />
+					<link rel="alternate" href="https://www.cdlhelp.com/en/cdl-texas/" hrefLang="en" />
+					<link rel="alternate" href="https://www.cdlhelp.com/ru/cdl-texas/" hrefLang="ru" />
+					<link rel="alternate" href="https://www.cdlhelp.com/uk/cdl-texas/" hrefLang="uk" />
+					<link rel="alternate" href="https://www.cdlhelp.com/ar/cdl-texas/" hrefLang="ar" />
+					<link rel="alternate" href="https://www.cdlhelp.com/ko/cdl-texas/" hrefLang="ko" />
+					<link rel="alternate" href="https://www.cdlhelp.com/tr/cdl-texas/" hrefLang="tr" />
+					<link rel="alternate" href="https://www.cdlhelp.com/pt/cdl-texas/" hrefLang="pt" />
+					<link rel="alternate" href="https://www.cdlhelp.com/zh/cdl-texas/" hrefLang="zh" />
+					
+				</Head>
 				<Navbar alternateLinks={alternateLinks}/>
 
 				<PageBannerStyle1
-					pageTitle="Texas CVO Knowledge"
+					pageTitle={meta.title}
 					homePageUrl="/"
 					homePageText="Main Page"
 					activePageText="Texas CVO Knowledge"
@@ -91,12 +120,15 @@ export async function getStaticProps({ locale }) {
 		{ href: '/pt/cdl-texas/', hrefLang: 'pt' },
 	];
 
+	const meta = await getMeta(locale, "texas");
+
 	return {
 		props: {
 			text,
 			cards,
 			locale: locale,
 			alternateLinks: alternateLinks,
+			meta: meta,
 			...(await serverSideTranslations(locale ?? 'en', [
 				'navbar',
 				'footer',
