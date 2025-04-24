@@ -65,22 +65,11 @@ const Quiz = ({ title, id, name, translation }) => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelected(false);
         } else {
-            console.log(userScore, quizData.length)
             if (userScore === quizData.length) {
                 setIsExploding(true);
             }
             setShowResults(true);
         }
-    }
-
-    const restartQuiz = () => {
-        setCurrentQuestionIndex(0);
-        setUserScore(0);
-        setShowResults(false);
-        setAnsweredQuestions([]);
-        setSelected(false);
-        setWrong([]);
-        setIsExploding(false);
     }
 
     const renderResults = () => {
@@ -157,26 +146,6 @@ const Quiz = ({ title, id, name, translation }) => {
                                     {currentQuestionIndex < quizData.length - 1 ? t('nextQuestion') : t('seeResults')}
                                 </button>
                             )}
-                            
-                            {/* <button 
-                                onClick={() => {
-                                    document.getElementById('download').scrollIntoView({ 
-                                        behavior: 'smooth'
-                                    });
-                                }}
-                                style={{ 
-                                    border: "none",
-                                    background: "none",
-                                    color: "#5a5886",
-                                    padding: "12px 25px",
-                                    cursor: "pointer",
-                                    fontSize: "16px",
-                                    textDecoration: "underline"
-                                }}
-                            >
-                                {t('download')}
-                            </button> */}
-                            
                             <a className='translation-btn' href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : router.locale}`} style={{ 
                                 background: "linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%)",
                                 padding: "12px 25px",

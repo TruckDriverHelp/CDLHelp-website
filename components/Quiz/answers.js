@@ -10,8 +10,6 @@ const Answers = ({ data, handleCheck, handleSelect }) => {
     const locale = router.locale
     const abc = ["A", "B", "C", "D"]
 
-    console.log(data)
-
     return (
         <div className={styles.answers} style={{marginTop: "10px", marginBottom: "30px"}}>
             {data && data.answers.map((answer, i) => {

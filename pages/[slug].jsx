@@ -16,10 +16,6 @@ import YouTubePlayer from "@/components/Common/YouTubePlayer";
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
-  const [isOpen, setIsOpen] = useState(true);
-  const openModal = () => {
-    setIsOpen(!isOpen);
-  }
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
   const metaTags = article.meta_tag.data.attributes;
@@ -70,7 +66,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
               author: {
                 "@type": "Organization",
                 name: "CDL Help",
-                url: "https://cdlhelp.com"
+                url: "https://www.cdlhelp.com"
               }
             })}`
           }}
