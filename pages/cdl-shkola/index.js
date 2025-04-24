@@ -11,11 +11,20 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 
 const CdlShkola = ({meta}) => {
-    const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,);
-
+    // Add conditional check for Supabase URL and key
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    
     const [schoolData, setSchoolData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
+            // Only try to fetch data if we have both URL and key
+            if (!supabaseUrl || !supabaseKey) {
+                console.error('Supabase credentials are missing');
+                return;
+            }
+            
+            const supabase = createClient(supabaseUrl, supabaseKey);
             const { data, error } = await supabase
                 .from('phonenumbers')
                 .select('*, schools(school_name), locations(address_street, address_city, address_state, address_zip))');
@@ -28,7 +37,7 @@ const CdlShkola = ({meta}) => {
         };
 
         fetchData();
-    }, []);
+    }, [supabaseUrl, supabaseKey]);
     return (
         <>
             <Head>

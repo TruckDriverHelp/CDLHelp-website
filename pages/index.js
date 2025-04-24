@@ -21,6 +21,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
     const { t } = useTranslation("index");
     return (
         <>
+            
             <Head>
                 <title>{meta.title}</title>
                 <meta name="description" content={meta.description} />
@@ -46,7 +47,15 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <meta name="twitter:image" content={meta.image} />
 
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
-
+                <link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="x-default" />
+                <link rel="alternate" href="https://www.cdlhelp.com/en" hrefLang="en" />
+                <link rel="alternate" href="https://www.cdlhelp.com/ru" hrefLang="ru" />
+                <link rel="alternate" href="https://www.cdlhelp.com/uk" hrefLang="uk" />
+                <link rel="alternate" href="https://www.cdlhelp.com/ar" hrefLang="ar" />
+                <link rel="alternate" href="https://www.cdlhelp.com/ko" hrefLang="ko" />
+                <link rel="alternate" href="https://www.cdlhelp.com/tr" hrefLang="tr" />
+                <link rel="alternate" href="https://www.cdlhelp.com/pt" hrefLang="pt" />
+                <link rel="alternate" href="https://www.cdlhelp.com/zh" hrefLang="zh" />
             </Head>
 
             <Layout>
