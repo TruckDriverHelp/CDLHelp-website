@@ -13,7 +13,6 @@ import getMeta from "../lib/getMeta";
 import Head from "next/head";
 
 const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
-	console.log(meta);
 	return (
 		<>
 			<Layout >

@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
 import BlogSidebar from "@/components/Blog/BlogSidebar";
 import Head from "next/head";
-import Link from "next/link";
-// import supabase from "../utils/supabase";
 import { createClient } from "@supabase/supabase-js";
-import { useRouter } from "next/router";
 import getMeta from "../../lib/getMeta";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
+import Navbar from "@/components/_App/Navbar";
+import Footer from "@/components/_App/Footer";
 
 const CdlShkola = ({meta}) => {
     // Add conditional check for Supabase URL and key
@@ -28,7 +26,6 @@ const CdlShkola = ({meta}) => {
             const { data, error } = await supabase
                 .from('phonenumbers')
                 .select('*, schools(school_name), locations(address_street, address_city, address_state, address_zip))');
-            console.log(data, error);
             if (error) {
                 console.error('Data fetch error:', error);
             } else {
@@ -62,6 +59,8 @@ const CdlShkola = ({meta}) => {
                 <meta name="twitter:description" content={meta.description} />
                 <meta name="twitter:image" content={meta.image} />
             </Head>
+
+            <Navbar />
 
             <PageBannerStyle1
                 pageTitle="CDL Школы в США"
@@ -115,7 +114,7 @@ const CdlShkola = ({meta}) => {
                                             <p style={{ marginBottom: 0 }}>
                                                 Если Вы уже сдали экзамен на получение CDL пермита, то Вы можете приступить к поиску школы CDL в вашем штате.
                                             </p>
-                                            <h3>Выберите штат:</h3>
+                                            <h3>Выберите штат</h3>
                                         </div>
 
                                         <div style={{ maxWidth: 500, marginBottom: 20 }}>
@@ -228,7 +227,7 @@ const CdlShkola = ({meta}) => {
                                             </em>
                                         </p>
 
-                                        <a className="default-btn" href="https://school.cdlhelp.app">Зарегистрировать Школу</a>
+                                        <a className="default-btn" style={{ color: 'white' }} href="https://school.cdlhelp.app">Зарегистрировать Школу</a>
                                     </div>
                                 </div>
 
@@ -243,6 +242,7 @@ const CdlShkola = ({meta}) => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

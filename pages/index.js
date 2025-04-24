@@ -26,12 +26,10 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <title>{meta.title}</title>
                 <meta name="description" content={meta.description} />
 
-                {/* Google / Search Engine Tags */}
                 <meta itemProp="name" content={meta.title} />
                 <meta itemProp="description" content={meta.description} />
                 <meta itemProp="image" content={meta.image} />
 
-                {/* Facebook Meta Tags */}
                 <meta property="og:url" content="https://www.cdlhelp.com" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={meta.title} />
@@ -40,7 +38,6 @@ const IndexPage = ({ meta, alternateLinks }) => {
                 <meta property="og:locale" content={locale} />
                 <meta property="og:site_name" content="CDL Help" />
 
-                {/* Twitter Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={meta.title} />
                 <meta name="twitter:description" content={meta.description} />
@@ -61,7 +58,6 @@ const IndexPage = ({ meta, alternateLinks }) => {
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
                 <TopContainer />
-                {/* thin container with our recommentation for CDL school with the phone number displayed */}
                 {router.locale === 'ru' || router.locale === 'uk' ? (
                 <div style={{ backgroundColor: '#d3d2e4', padding: '40px 0px' }}>
                     <div style={{ maxWidth: '700px', margin: '0px auto 0px auto' }}>
