@@ -45,6 +45,13 @@
     "languageLabel": "Мова:",
     "translationLabel": "Переклад",
     
+    "nextQuestion": "Наступне питання",
+    "seeResults": "Переглянути результати",
+    "quizResults": "Результати тесту",
+    "yourScore": "Ваш результат",
+    "retakeQuiz": "Спробувати ще раз",
+    "explanation": "Пояснення",
+    
     "videoTitles": {
         "howToBecome": "Як стати далекобійником у США (відео)",
         "howToPrepare": "Як підготуватися до теоретичного тесту CDL у DMV (відео)",

@@ -45,6 +45,13 @@
     "questionLabel": "问题：",
     "languageLabel": "语言：",
     "translationLabel": "翻译",
+
+    "nextQuestion": "下一个问题",
+    "seeResults": "查看结果",
+    "quizResults": "测试结果",
+    "yourScore": "你的分数",
+    "retakeQuiz": "重做测试",
+    "explanation": "解释",
     
     "videoTitles": {
         "howToBecome": "如何在美国成为一名卡车司机（视频）",
