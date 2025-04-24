@@ -77,11 +77,11 @@ const CDLtexas = ({ text, cards, locale, alternateLinks }) => {
 export default CDLtexas;
 
 export async function getStaticProps({ locale }) {
-	const cards = await fetchCVOCards(locale);
-	const text = await fetchText(locale);
+	const cards = await fetchCVOCards(locale) || [];
+	const text = await fetchText(locale) || "";
 
 	const alternateLinks = [
-		{ href: '/cdl-texas/', hrefLang: 'en' },
+		{ href: '/en/cdl-texas/', hrefLang: 'en' },
 		{ href: '/ar/cdl-texas/', hrefLang: 'ar' },
 		{ href: '/ru/cdl-texas/', hrefLang: 'ru' },
 		{ href: '/uk/cdl-texas/', hrefLang: 'uk' },
@@ -93,8 +93,8 @@ export async function getStaticProps({ locale }) {
 
 	return {
 		props: {
-			text: text,
-			cards: cards,
+			text,
+			cards,
 			locale: locale,
 			alternateLinks: alternateLinks,
 			...(await serverSideTranslations(locale ?? 'en', [

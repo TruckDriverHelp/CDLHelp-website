@@ -66,7 +66,7 @@ const articleList = {
       slug: "/yak-otrymaty-permit-cdl"
     },
     faq: {
-      title: "CDL Help – Часті запитання",
+      title: "CDL Help – Часті запитання",
       slug: "/chasti-zapytannya"
     },
     howToGetCDLArticle: {
@@ -205,7 +205,10 @@ const Footer = () => {
   const { t } = useTranslation("footer");
   const { locale } = useRouter();
   const currentYear = new Date().getFullYear();
-  const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle, howToGetCDLArticle } = articleList[locale];
+  
+  // Add fallback using english locale if current locale isn't found
+  const articleForLocale = articleList[locale] || articleList["en"];
+  const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle, howToGetCDLArticle } = articleForLocale;
 
   return (
     <>
