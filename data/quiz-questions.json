@@ -51,16 +51,6 @@
                 "ar": "تهوية جيدة للبضائع القابلة للاشتعال",
                 "tr": "Yağ yangınını söndürmek için su kullanmak.",
                 "ko": "인화성 화물을 위한 좋은 환기"
-            },
-            {
-                "en": "Regularly changing the vehicle's oil",
-                "ru": "Регулярная замена масла в транспортном средстве.",
-                "pt": "Trocar regularmente o óleo do veículo",
-                "zh": "定期更换车辆的机油。",
-                "uk": "Регулярна заміна оливи в транспортному засобі.",
-                "ar": "تغيير زيت السيارة بانتظام",
-                "tr": "Araç yağını düzenli olarak değiştirmek.",
-                "ko": "차량의 오일을 정기적으로 교환"
             }
         ]
     },
@@ -96,16 +86,6 @@
                 "ar": "كل ما سبق.",
                 "ko": "위 모든 것",
                 "tr": "Yukarıdakilerin hepsi."
-            },
-            {
-                "en": "The amount the liquid will expand in transit",
-                "ru": "Того, насколько жидкость расширится во время транспортировки.",
-                "pt": "Da quantidade que o líquido expandirá em trânsito",
-                "zh": "液体在运输过程中会膨胀的量。",
-                "uk": "Того, наскільки рідина розшириться під час транспортування.",
-                "ar": "مقدار تمدد السائل أثناء النقل.",
-                "ko": "운송 중 액체가 팽창하는 양",
-                "tr": "Sıvının taşıma sırasında ne kadar genişleyeceğini."
             },
             {
                 "en": "The weight or density of the liquid",
@@ -171,16 +151,6 @@
                 "ar": "بطانات المكابح لا يجب أن تكون مهترئة أو مكسورة بشكل قد يؤدي إلى التسبب في حادث",
                 "ko": "브레이크 슈가 너무 얇거나 파손되어 충돌을 일으킬 수 있을 정도여서는 안 됩니다.",
                 "tr": "Fren balataları bir kazaya neden olabilecek kadar ince veya kırık olmamalıdır."
-            },
-            {
-                "en": "No dirty or debris on the brake pads.",
-                "ru": "На тормозных колодках не должно быть грязи и мусора.",
-                "pt": "Não há sujeira ou detritos nas pastilhas de freio.",
-                "zh": "刹车片上不得有污垢或杂物。",
-                "uk": "На гальмівних колодках не має бути бруду і сміття.",
-                "ar": "لا يجب أن يكون هناك أوساخ أو حطام على دوسات الفرامل",
-                "ko": "브레이크 패드에 먼지나 이물질이 없어야 합니다.",
-                "tr": "Fren balatalarında kir veya döküntü olmamalıdır."
             },
             {
                 "en": "All of the above",
