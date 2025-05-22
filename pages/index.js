@@ -58,7 +58,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
                 <TopContainer />
-                {router.locale === 'ru' || router.locale === 'uk' ? (
+                {/* {router.locale === 'ru' || router.locale === 'uk' ? (
                 <div style={{ backgroundColor: '#d3d2e4', padding: '40px 0px' }}>
                     <div style={{ maxWidth: '700px', margin: '0px auto 0px auto' }}>
                         <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{router.locale === 'ru' ? "Рекомендованная нами школа" : "Рекомендована нами школа"}</h2>
@@ -67,7 +67,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
                             <a href="tel:+19046590005" style={{ textDecoration: 'none', color: '#000', fontSize: '1.2rem' }}>+1 (904) 659-0005</a>
                         </div>
                     </div>
-                </div>) : null}
+                </div>) : null} */}
                 <div style={{ maxWidth: '700px', margin: '80px auto 40px auto' }}>
 
                     <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('trySampleQuestion')}</h2>
