@@ -17,8 +17,14 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
-  const metaTags = article.meta_tag.data.attributes;
-  const metaImage = host + metaTags.image.data.attributes.url;
+  const metaTags = article?.meta_tag?.data?.attributes || {
+    title: article?.title || 'CDL Help',
+    description: article?.description || '',
+    image: { data: { attributes: { url: '' } } }
+  };
+  const metaImage = metaTags.image?.data?.attributes?.url ? 
+    host + metaTags.image.data.attributes.url : 
+    '';
 
   return (
     <>
