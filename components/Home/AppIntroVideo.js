@@ -21,7 +21,7 @@ const AppIntroVideo = () => {
     // Define URL slugs for each locale
     const articleSlugs = {
         howToBecome: {
-            en: "how-to-become-truck-driver-usa",
+            en: "how-to-become-a-truck-driver",
             ar: "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida",
             ru: "kak-stat-dalnoboishikom",
             uk: "yak-staty-dalekobiinykom-v-Amerytsi",
@@ -61,7 +61,7 @@ const AppIntroVideo = () => {
             pt: "sobre-as-escolas"
         },
         faq: {
-            en: "cdl-faq",
+            en: "frequently-asked-questions",
             ar: "alas-ila-alshaeia-musaedat-cdl",
             ru: "chasto-zadavaemye-voprosy",
             uk: "chasti-zapytannya",

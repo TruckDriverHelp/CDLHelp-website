@@ -47,6 +47,13 @@
     "languageLabel": "Language:",
     "translationLabel": "Translation",
     
+    "nextQuestion": "Next Question",
+    "seeResults": "See Results",
+    "quizResults": "Quiz Results",
+    "yourScore": "Your Score",
+    "retakeQuiz": "Retake Quiz",
+    "explanation": "Explanation",
+    
     "videoTitles": {
         "howToBecome": "How to become a truck driver in the USA (video)",
         "howToPrepare": "How to prepare for the CDL theory test at the DMV (video)",

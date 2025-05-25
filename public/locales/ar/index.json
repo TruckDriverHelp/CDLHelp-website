@@ -46,7 +46,13 @@
     "questionLabel": "سؤال:",
     "languageLabel": "اللغة:",
     "translationLabel": "الترجمة",
-    
+
+    "nextQuestion": "السؤال التالي",
+    "seeResults": "عرض النتائج",
+    "quizResults": "نتائج الاختبار",
+    "yourScore": "نتيجتك",
+    "retakeQuiz": "اختبار مرة أخرى",
+    "explanation": "التفسير",
     "videoTitles": {
         "howToBecome": "كيف تصبح سائق الشاحنة في الولايات المتحدة (فيديو)",
         "howToPrepare": "كيفية الاستعداد لاختبار النظرية لرخصة القيادة التجارية (فيديو)",

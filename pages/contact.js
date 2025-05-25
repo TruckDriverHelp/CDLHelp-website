@@ -6,8 +6,9 @@ import Footer from '@/components/_App/Footer';
 import Navbar from '@/components/_App/Navbar';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
+import getMeta from '../lib/getMeta';
 
-const Contact = ({ alternateLinks }) => {
+const Contact = ({ alternateLinks, meta }) => {
   const { t } = useTranslation('contact');
   return (
     <>
@@ -20,6 +21,8 @@ const Contact = ({ alternateLinks }) => {
             hrefLang={link.hrefLang}
           />
         ))}
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
       </Head>
       <Navbar alternateLinks={alternateLinks} />
 
@@ -45,7 +48,7 @@ export default Contact;
 
 export async function getStaticProps({ locale }) {
   const alternateLinks = [
-    // { href: '/contact/', hrefLang: 'x-default' },
+    { href: '/en/contact/', hrefLang: 'x-default' },
     { href: '/ar/contact/', hrefLang: 'ar' },
     { href: '/ru/contact/', hrefLang: 'ru' },
     { href: '/uk/contact/', hrefLang: 'uk' },
@@ -55,9 +58,12 @@ export async function getStaticProps({ locale }) {
     { href: '/en/contact/', hrefLang: 'en' },
   ];
 
+  const meta = await getMeta(locale, "contact");
+
   return {
     props: {
       alternateLinks,
+      meta,
       ...(await serverSideTranslations(locale ?? 'en', [
         'navbar',
         'footer',
