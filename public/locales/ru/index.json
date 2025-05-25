@@ -40,11 +40,18 @@
 
     "practiceTestsTitle": "Подготовительные CDL тесты на русском языке",
     "practiceTestsDescription": "Приложение CDL Help поможет Вам не только подготовиться к тестам CDL для того чтобы получить водительские права и стать дальнобойщиком в США, но с изучением английского языка.",
-    "tryTestsOnline": "Попробовать тесты онлайн",
+    "tryTestsOnline": "Пройти ещё тест",
     "trySampleQuestion": "Попробуйте ответить на пробный вопрос воспользовавшись переводом",
     "questionLabel": "Вопрос:",
     "languageLabel": "Язык:",
     "translationLabel": "Перевод",
+    
+    "nextQuestion": "Следующий вопрос",
+    "seeResults": "Посмотреть результаты",
+    "quizResults": "Результаты теста",
+    "yourScore": "Ваш результат",
+    "retakeQuiz": "Пройти тест заново",
+    "explanation": "Объяснение",
     
     "videoTitles": {
         "howToBecome": "Как стать дальнобойщиком в США (видео)",

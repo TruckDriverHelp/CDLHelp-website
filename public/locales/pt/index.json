@@ -47,6 +47,13 @@
     "languageLabel": "Linguagem:",
     "translationLabel": "Tradução",
     
+    "nextQuestion": "Próxima pergunta",
+    "seeResults": "Ver resultados",
+    "quizResults": "Resultados do teste",
+    "yourScore": "Seu resultado",
+    "retakeQuiz": "Reiniciar teste",
+    "explanation": "Explicação",
+    
     "videoTitles": {
         "howToBecome": "Como se tornar um motorista de caminhão nos EUA (vídeo)",
         "howToPrepare": "Como se preparar para o teste teórico da carteira de motorista comercial no Detran (vídeo)",

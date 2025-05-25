@@ -315,7 +315,7 @@ const Navbar = ({ alternateLinks }) => {
                     </Link>
 
                     <ul className="dropdown-menu">
-                      {articleList[locale].map((article, index) => {
+                      {(articleList[locale] || articleList["en"]).map((article, index) => {
                         return (
                           <li key={index}>
                             <Link href={article.slug} locale={locale}>

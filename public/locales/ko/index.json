@@ -47,6 +47,13 @@
     "questionLabel": "질문:",
     "languageLabel": "언어:",
     "translationLabel": "번역",
+
+    "nextQuestion": "다음 질문",
+    "seeResults": "결과 보기",
+    "quizResults": "테스트 결과",
+    "yourScore": "당신의 점수",
+    "retakeQuiz": "테스트 다시 시도",
+    "explanation": "설명",
     
     "videoTitles": {
         "howToBecome": "미국에서 트럭 운전사가 되는 방법(비디오)",

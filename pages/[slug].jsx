@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Head from 'next/head';
 import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
 import axios from "axios";
@@ -16,10 +15,6 @@ import YouTubePlayer from "@/components/Common/YouTubePlayer";
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
-  const [isOpen, setIsOpen] = useState(true);
-  const openModal = () => {
-    setIsOpen(!isOpen);
-  }
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
   const metaTags = article.meta_tag.data.attributes;
@@ -70,7 +65,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
               author: {
                 "@type": "Organization",
                 name: "CDL Help",
-                url: "https://cdlhelp.com"
+                url: "https://www.cdlhelp.com"
               }
             })}`
           }}
