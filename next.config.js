@@ -3,11 +3,11 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    output: 'standalone',
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],
     },
     trailingSlash: true,
-    distDir: 'build',
     i18n: {
         locales: ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
         defaultLocale: "en",
