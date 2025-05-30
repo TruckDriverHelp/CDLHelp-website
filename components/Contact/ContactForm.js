@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
 import baseUrl from '../../utils/baseUrl'
 import GoogleMap from './GoogleMap';
 import { useTranslation } from 'next-i18next';
 
 const alertContent = (t) => {
-    MySwal.fire({
+    Swal.fire({
         title: t("sentTitle"),
         text: t("sentText"),
         icon: 'success',
