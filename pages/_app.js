@@ -9,7 +9,7 @@ import '../node_modules/swiper/components/pagination/pagination.min.css'
 import '../node_modules/swiper/components/navigation/navigation.min.css'
 import '../node_modules/react-modal-video/css/modal-video.min.css'
 import 'react-accessible-accordion/dist/fancy-example.css'
-import 'react-image-lightbox/style.css'
+import 'yet-another-react-lightbox/styles.css'
 import 'react-tabs/style/react-tabs.css'
 // Global CSS
 import '@/public/css/styles.css'
