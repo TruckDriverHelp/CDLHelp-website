@@ -1,0 +1,33 @@
+/* Bootstrap */
+@import 'bootstrap.min.css';
+
+/* Font Awesome */
+@import 'fontawesome.min.css';
+
+/* Remix Icon */
+@import 'remixicon.css';
+
+/* Animate */
+@import 'animate.min.css';
+
+/* Swiper */
+@import '../../node_modules/swiper/swiper.min.css';
+@import '../../node_modules/swiper/components/effect-cube/effect-cube.min.css';
+@import '../../node_modules/swiper/components/effect-coverflow/effect-coverflow.min.css';
+@import '../../node_modules/swiper/components/pagination/pagination.min.css';
+@import '../../node_modules/swiper/components/navigation/navigation.min.css';
+
+/* React Modal Video */
+@import '../../node_modules/react-modal-video/css/modal-video.min.css';
+
+/* React Accessible Accordion */
+@import 'react-accessible-accordion/dist/fancy-example.css';
+
+/* React Image Lightbox */
+@import 'react-image-lightbox/style.css';
+
+/* React Tabs */
+@import 'react-tabs/style/react-tabs.css';
+
+/* Global Styles */
+@import 'styles.css'; 

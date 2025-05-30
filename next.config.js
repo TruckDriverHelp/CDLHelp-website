@@ -1,6 +1,8 @@
 const path = require('path');
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],
     },
@@ -12,6 +14,8 @@ module.exports = {
     },
     images: {
         domains: [process.env.STRAPI_HOST],
+        deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     },
     env: {
         STRAPI_API_KEY: process.env.STRAPI_API_KEY,
@@ -62,4 +66,58 @@ module.exports = {
             },
         ];
     },
-};
+    compiler: {
+        removeConsole: process.env.NODE_ENV === 'production',
+    },
+    webpack: (config, { dev, isServer }) => {
+        // Optimize bundle size
+        if (!dev && !isServer) {
+            // Optimize chunks
+            config.optimization.splitChunks = {
+                chunks: 'all',
+                minSize: 20000,
+                maxSize: 244000,
+                minChunks: 1,
+                maxAsyncRequests: 30,
+                maxInitialRequests: 30,
+                cacheGroups: {
+                    defaultVendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        priority: -10,
+                        reuseExistingChunk: true,
+                        name(module) {
+                            // Get the name of the package
+                            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                            return `vendor.${packageName.replace('@', '')}`;
+                        },
+                    },
+                    common: {
+                        name: 'common',
+                        minChunks: 2,
+                        priority: -20,
+                        reuseExistingChunk: true,
+                        enforce: true
+                    },
+                    default: {
+                        minChunks: 2,
+                        priority: -30,
+                        reuseExistingChunk: true
+                    }
+                },
+            };
+
+            // Enable tree shaking
+            config.optimization.usedExports = true;
+            
+            // Minimize CSS
+            config.optimization.minimize = true;
+        }
+
+        // Add module concatenation
+        config.optimization.concatenateModules = true;
+
+        return config;
+    },
+}
+
+module.exports = nextConfig

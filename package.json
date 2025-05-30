@@ -15,6 +15,7 @@
         "@strapi/blocks-react-renderer": "^1.0.1",
         "@supabase/supabase-js": "^2.33.2",
         "axios": "^0.21.4",
+        "critters": "^0.0.25",
         "graphql": "^16.9.0",
         "graphql-request": "^7.1.0",
         "husky": "^9.1.6",
@@ -48,5 +49,8 @@
         "sweetalert2": "^11.2.1",
         "sweetalert2-react-content": "^4.2.0",
         "swiper": "^6.8.4"
+    },
+    "devDependencies": {
+        "typescript": "5.8.3"
     }
 }

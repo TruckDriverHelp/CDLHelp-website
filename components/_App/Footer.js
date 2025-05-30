@@ -205,10 +205,25 @@ const Footer = () => {
   const { t } = useTranslation("footer");
   const { locale } = useRouter();
   const currentYear = new Date().getFullYear();
+  const [mounted, setMounted] = React.useState(false);
+  
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
   
   // Add fallback using english locale if current locale isn't found
   const articleForLocale = articleList[locale] || articleList["en"];
   const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle, howToGetCDLArticle } = articleForLocale;
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return null;
+  }
+
+  // Get translations with fallback
+  const getTranslation = (key) => {
+    return t(key) || key;
+  };
 
   return (
     <>
@@ -229,7 +244,7 @@ const Footer = () => {
                 </Link>
 
                 <p>
-                  {t("mobileApp")}
+                  {getTranslation("mobileApp")}
                 </p>
 
                 <ul className="social-links">
@@ -266,7 +281,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/#about">
-                      <a>{t("aboutProject")}</a>
+                      <a>{getTranslation("aboutProject")}</a>
                     </Link>
                   </li>
                   {/* <li>
@@ -276,7 +291,7 @@ const Footer = () => {
                                     </li> */}
                   <li>
                     <a href={`https://test.cdlhelp.com/${locale}/`}>
-                      {t("tryFree")}
+                      {getTranslation("tryFree")}
                     </a>
                   </li>
                 </ul>
@@ -285,20 +300,20 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>{t("support")}</h3>
+                <h3>{getTranslation("support")}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/privacy-policy/" locale={false}>
-                      <a>{t("privacy")}</a>
+                      <a>{getTranslation("privacy")}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms-conditions/" locale={false}>
-                      <a>{t("publicAgreement")}</a>
+                      <a>{getTranslation("publicAgreement")}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href={`/${locale}/contact/`}>{t("feedback")}</a>
+                    <a href={`/${locale}/contact/`}>{getTranslation("feedback")}</a>
                   </li>
                   <li>
                     <Link href={faq.slug + '/'} locale={locale}>
@@ -310,7 +325,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>{t("resources")}</h3>
+                <h3>{getTranslation("resources")}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href={howToBecomeTruckDriverArticle.slug} locale={locale}>
@@ -328,7 +343,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.truckdriver.help/">{t("jobs")}</a>
+                    <a href="https://www.truckdriver.help/">{getTranslation("jobs")}</a>
                   </li>
                 </ul>
               </div>
@@ -357,8 +372,8 @@ const Footer = () => {
 
           <div className="copyright-area">
             <p>
-                {t("footerText")}<br />
-                {currentYear} &copy; <a href="https://www.truckdriver.help/" target="_blank">TruckDriver.help LLC </a>{t("allRightsReserved")}
+                {getTranslation("footerText")}<br />
+                {currentYear} &copy; <a href="https://www.truckdriver.help/" target="_blank">TruckDriver.help LLC </a>{getTranslation("allRightsReserved")}
             </p>
           </div>
         </div>

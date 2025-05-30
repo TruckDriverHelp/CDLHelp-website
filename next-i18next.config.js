@@ -8,7 +8,7 @@ module.exports = {
     debug: false,
     i18n: {
       defaultLocale: 'en',
-    locales: ['en', 'ru', 'uk', 'ar', 'ko', "zh", "tr", "pt"],
+      locales: ['en', 'ru', 'uk', 'ar', 'ko', "zh", "tr", "pt"],
     },
     /** To avoid issues when deploying to some paas (vercel...) */
     localePath:
@@ -21,8 +21,13 @@ module.exports = {
     /**
      * @link https://github.com/i18next/next-i18next#6-advanced-configuration
      */
-    // saveMissing: false,
-    // strictMode: true,
-    // serializeConfig: false,
-    // react: { useSuspense: false }
-  }
+    saveMissing: false,
+    strictMode: true,
+    serializeConfig: false,
+    react: { 
+      useSuspense: false,
+      transEmptyNodeValue: '',
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p']
+    }
+}
