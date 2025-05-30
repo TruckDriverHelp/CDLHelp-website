@@ -20,6 +20,7 @@ import { appWithTranslation } from 'next-i18next'
 import { getDirection } from 'lib/getDirection'
 import { useEffect, Suspense, lazy } from 'react'
 import { QuizContextProvider } from '../store/quiz-context'
+import nextI18NextConfig from '../next-i18next.config'
 
 // Lazy load non-critical components
 const Layout = lazy(() => import('@/components/_App/Layout'));
@@ -105,4 +106,4 @@ const MyApp = ({ Component, pageProps, articles }) => {
 	)
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);

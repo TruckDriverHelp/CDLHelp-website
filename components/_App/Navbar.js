@@ -1,7 +1,7 @@
 // Navbar Component Style File Path: public/css/pages-and-components-css/navbar.scss
 
 import React from "react";
-import Link from "@/utils/ActiveLink";
+import Link from "../../utils/ActiveLink";
 import Image from "next/image";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from "next-i18next";

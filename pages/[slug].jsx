@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
+import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
 import Markdown from "react-markdown";
@@ -8,10 +8,10 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ARTICLE_BY_SLUG_QUERY } from '../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
-import Layout from "@/components/_App/Layout";
-import Navbar from "@/components/_App/Navbar";
-import Footer from "@/components/_App/Footer";
-import YouTubePlayer from "@/components/Common/YouTubePlayer";
+import Layout from "../components/_App/Layout";
+import Navbar from "../components/_App/Navbar";
+import Footer from "../components/_App/Footer";
+import YouTubePlayer from "../components/Common/YouTubePlayer";
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
