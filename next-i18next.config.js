@@ -8,13 +8,11 @@ module.exports = {
     debug: false,
     i18n: {
       defaultLocale: 'en',
-      locales: ['en', 'ru', 'uk', 'ar', 'ko', "zh", "tr", "pt"],
+      locales: ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'],
     },
+    defaultNS: 'common',
     /** To avoid issues when deploying to some paas (vercel...) */
-    localePath:
-      typeof window === 'undefined'
-        ? require('path').resolve('./public/locales')
-        : '/locales',
+    localePath: './public/locales',
   
     reloadOnPrerender: process.env.NODE_ENV === 'development',
   

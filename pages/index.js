@@ -1,19 +1,20 @@
 import React from 'react'
-import TopContainer from '@/components/Home/TopContainer';
-import BestFeatures from '@/components/Home/BestFeatures';
-import AppIntroVideo from '@/components/Home/AppIntroVideo';
-import Funfacts from '@/components/Home/Funfacts';
-import AppDownload from '@/components/Home/AppDownload';
+import TopContainer from '../components/Home/TopContainer';
+import BestFeatures from '../components/Home/BestFeatures';
+import AppIntroVideo from '../components/Home/AppIntroVideo';
+import Funfacts from '../components/Home/Funfacts';
+import AppDownload from '../components/Home/AppDownload';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import getMeta from '../lib/getMeta';
-import Navbar from "@/components/_App/Navbar";
-import Footer from "@/components/_App/Footer";
-import Layout from "@/components/_App/Layout";
-import Quiz from '@/components/Quiz/quiz';
-import FaqSection from '@/components/Home/FaqSection';
+import Navbar from "../components/_App/Navbar";
+import Footer from "../components/_App/Footer";
+import Layout from "../components/_App/Layout";
+import Quiz from '../components/Quiz/quiz';
+import FaqSection from '../components/Home/FaqSection';
 import { useTranslation } from 'next-i18next';
+
 
 const IndexPage = ({ meta, alternateLinks }) => {
     const { locale } = useRouter();

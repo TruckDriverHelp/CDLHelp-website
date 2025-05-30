@@ -1,7 +1,7 @@
-import '@/public/css/bootstrap.min.css'
-import '@/public/css/fontawesome.min.css'
-import '@/public/css/remixicon.css'
-import '@/public/css/animate.min.css'
+import '/public/css/bootstrap.min.css'
+import '/public/css/fontawesome.min.css'
+import '/public/css/remixicon.css'
+import '/public/css/animate.min.css'
 import '../node_modules/swiper/swiper.min.css'
 import '../node_modules/swiper/components/effect-cube/effect-cube.min.css'
 import '../node_modules/swiper/components/effect-coverflow/effect-coverflow.min.css'
@@ -12,8 +12,8 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import 'yet-another-react-lightbox/styles.css'
 import 'react-tabs/style/react-tabs.css'
 // Global CSS
-import '@/public/css/styles.css'
-import '@/public/css/main.css'
+import '/public/css/styles.css'
+import '/public/css/main.css'
 import Script from "next/script";
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next'
@@ -23,7 +23,7 @@ import { QuizContextProvider } from '../store/quiz-context'
 import nextI18NextConfig from '../next-i18next.config'
 
 // Lazy load non-critical components
-const Layout = lazy(() => import('@/components/_App/Layout'));
+const Layout = lazy(() => import('../components/_App/Layout'));
 const Pixel = lazy(() => import('../components/Pixel'));
 const CookieConsentBanner = lazy(() => import("../components/_App/CookieConsentBanner.js"));
 const TawkTo = lazy(() => import("../components/_App/TawkTo.js"));

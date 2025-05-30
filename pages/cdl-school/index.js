@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
-import BlogSidebar from "@/components/Blog/BlogSidebar";
+import PageBannerStyle1 from "../../components/Common/PageBannerStyle1";
+import BlogSidebar from "../../components/Blog/BlogSidebar";
 import Head from "next/head";
 import { createClient } from "@supabase/supabase-js";
 import getMeta from "../../lib/getMeta";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Navbar from "@/components/_App/Navbar";
-import Footer from "@/components/_App/Footer";
+import Navbar from "../../components/_App/Navbar";
+import Footer from "../../components/_App/Footer";
 
 const CdlShkola = ({meta}) => {
     // Add conditional check for Supabase URL and key
