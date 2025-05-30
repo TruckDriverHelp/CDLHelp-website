@@ -70,6 +70,12 @@ const nextConfig = {
         removeConsole: process.env.NODE_ENV === 'production',
     },
     webpack: (config, { dev, isServer }) => {
+        // Add path aliases
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@': path.join(__dirname),
+        };
+
         // Optimize bundle size
         if (!dev && !isServer) {
             // Optimize chunks
