@@ -7,7 +7,6 @@ const nextConfig = {
         includePaths: [path.join(__dirname, 'styles')],
     },
     trailingSlash: true,
-    distDir: 'build',
     i18n: {
         locales: ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
         defaultLocale: "en",
