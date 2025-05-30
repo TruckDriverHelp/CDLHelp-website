@@ -13,23 +13,36 @@ import 'react-image-lightbox/style.css'
 import 'react-tabs/style/react-tabs.css'
 // Global CSS
 import '@/public/css/styles.css'
+import '@/public/css/main.css'
 import Script from "next/script";
 import { useRouter } from 'next/router'
-import Pixel from '../components/Pixel'
 import { appWithTranslation } from 'next-i18next'
 import { getDirection } from 'lib/getDirection'
-
-import CookieConsentBanner from "../components/_App/CookieConsentBanner.js"
-
-import Layout from '@/components/_App/Layout';
-import { useEffect } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
 import { QuizContextProvider } from '../store/quiz-context'
+
+// Lazy load non-critical components
+const Layout = lazy(() => import('@/components/_App/Layout'));
+const Pixel = lazy(() => import('../components/Pixel'));
+const CookieConsentBanner = lazy(() => import("../components/_App/CookieConsentBanner.js"));
+const TawkTo = lazy(() => import("../components/_App/TawkTo.js"));
 
 const MyApp = ({ Component, pageProps, articles }) => {
 	const router = useRouter()
 	const dir = getDirection(router.locale)
 
 	useEffect(() => {
+		// Register service worker
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js').then(registration => {
+					console.log('SW registered:', registration);
+				}).catch(error => {
+					console.log('SW registration failed:', error);
+				});
+			});
+		}
+
 		const handleRouteChange = url => {
 			window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
 				page_path: url,
@@ -37,55 +50,57 @@ const MyApp = ({ Component, pageProps, articles }) => {
 			})
 		}
 
+		router.events.on('routeChangeComplete', handleRouteChange)
 		return () => {
 			router.events.off('routeChangeComplete', handleRouteChange)
 		}
 	}, [router.events])
+
 	return (
 		<QuizContextProvider>
-			<Layout dir={dir}>
-				<Pixel name='FACEBOOK_PIXEL_1' />
-				{!["/404", "/cookies-policy"].includes(router.pathname) && <CookieConsentBanner />}
-				<Component {...pageProps} />
-				{/* Google analytics scripts */}
-				<Script
-					strategy="lazyOnload"
-					async
-					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-				/>
-				<Script
-					id="google-analytics"
-					strategy="lazyOnload"
-					dangerouslySetInnerHTML={{
-						__html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                    page_path: window.location.pathname,
-                  });
-                `,
-					}}
-				/>
-				<Script
-					id="tawkto"
-					strategy="lazyOnload"
-					dangerouslySetInnerHTML={{
-						__html: `
-						var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-						(function(){
-						var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-						s1.async=true;
-						s1.src='https://embed.tawk.to/670840f72480f5b4f58b9589/1i9s3rhun';
-						s1.charset='UTF-8';
-						s1.setAttribute('crossorigin','*');
-						s0.parentNode.insertBefore(s1,s0);
-						})();
-					`,
-					}}
-				/>
-				
-			</Layout>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Layout dir={dir}>
+					<Suspense fallback={null}>
+						<Pixel name='FACEBOOK_PIXEL_1' />
+					</Suspense>
+					{!["/404", "/cookies-policy"].includes(router.pathname) && (
+						<Suspense fallback={null}>
+							<CookieConsentBanner />
+						</Suspense>
+					)}
+					<Component {...pageProps} />
+					
+					{/* Analytics Scripts - Load after page becomes interactive */}
+					<Script
+						strategy="afterInteractive"
+						src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+					/>
+					<Script
+						id="google-analytics"
+						strategy="afterInteractive"
+						dangerouslySetInnerHTML={{
+							__html: `
+								window.dataLayer = window.dataLayer || [];
+								function gtag(){dataLayer.push(arguments);}
+								gtag('js', new Date());
+								gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+									page_path: window.location.pathname,
+								});
+							`,
+						}}
+					/>
+
+					{/* Tawk.to - Load on user interaction */}
+					<Suspense fallback={null}>
+						<TawkTo />
+					</Suspense>
+
+					{/* Preload critical assets */}
+					<link rel="preload" href="/css/main.css" as="style" />
+					<link rel="preload" href="/css/bootstrap.min.css" as="style" />
+					<link rel="preload" href="/css/fontawesome.min.css" as="style" />
+				</Layout>
+			</Suspense>
 		</QuizContextProvider>
 	)
 }

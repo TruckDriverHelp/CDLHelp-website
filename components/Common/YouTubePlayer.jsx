@@ -1,24 +1,73 @@
-import React, { useEffect, useState } from "react";
-import YouTube from 'react-youtube';
+import React, { useEffect, useRef, useState } from "react";
 import styles from './YouTubePlayer.module.css';
 
 const YouTubePlayer = ({ videoId }) => {
+  const playerRef = useRef(null);
+  const containerRef = useRef(null);
   const [playerDimensions, setPlayerDimensions] = useState({
     width: '100%',
     height: '390'
   });
 
-  // Update dimensions on window resize
+  // Load YouTube IFrame API
+  useEffect(() => {
+    // Load the IFrame Player API code asynchronously
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Initialize player when API is ready
+    window.onYouTubeIframeAPIReady = () => {
+      if (containerRef.current && videoId) {
+        playerRef.current = new window.YT.Player(containerRef.current, {
+          height: playerDimensions.height,
+          width: playerDimensions.width,
+          videoId: videoId,
+          playerVars: {
+            autoplay: 0,
+            controls: 1,
+            rel: 0,
+            showinfo: 0,
+          },
+          events: {
+            onReady: (event) => {
+              console.log('Player is ready');
+            },
+            onError: (event) => {
+              console.error('Player error:', event);
+            }
+          }
+        });
+      }
+    };
+
+    // Cleanup
+    return () => {
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
+      window.onYouTubeIframeAPIReady = null;
+    };
+  }, [videoId]);
+
+  // Handle responsive sizing
   useEffect(() => {
     const handleResize = () => {
-      // Calculate responsive height based on 16:9 aspect ratio
-      const containerWidth = document.querySelector(`.${styles['youtube-player-container']}`)?.clientWidth || 0;
-      const height = Math.floor(containerWidth * 0.5625); // 16:9 aspect ratio (9/16 = 0.5625)
-      
-      setPlayerDimensions({
-        width: '100%',
-        height: height.toString()
-      });
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.clientWidth;
+        const height = Math.floor(containerWidth * 0.5625); // 16:9 aspect ratio
+        
+        setPlayerDimensions({
+          width: '100%',
+          height: height.toString()
+        });
+
+        // Update player size if it exists
+        if (playerRef.current && playerRef.current.setSize) {
+          playerRef.current.setSize(containerWidth, height);
+        }
+      }
     };
 
     // Initial calculation
@@ -28,23 +77,15 @@ const YouTubePlayer = ({ videoId }) => {
     window.addEventListener('resize', handleResize);
 
     // Cleanup
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
     <div className={styles['youtube-player-container']}>
-      <YouTube
-        videoId={videoId}
-        opts={{
-          height: playerDimensions.height,
-          width: playerDimensions.width,
-          playerVars: {
-            autoplay: 0,
-            controls: 1,
-            rel: 0,
-            showinfo: 0,
-          },
-        }}
+      <div 
+        ref={containerRef}
         className={styles['youtube-player']}
       />
     </div>
