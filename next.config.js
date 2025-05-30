@@ -87,7 +87,8 @@ const nextConfig = {
                         reuseExistingChunk: true,
                         name(module) {
                             // Get the name of the package
-                            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                            const match = module.context?.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+                            const packageName = match ? match[1] : 'unknown';
                             return `vendor.${packageName.replace('@', '')}`;
                         },
                     },
