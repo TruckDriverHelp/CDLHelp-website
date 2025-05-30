@@ -2,9 +2,16 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
+            "@/*": ["./*"],
             "@/components/*": ["components/*"],
             "@/utils/*": ["utils/*"],
-            "@/public/*": ["public/*"]
+            "@/public/*": ["public/*"],
+            "@/styles/*": ["styles/*"],
+            "@/lib/*": ["lib/*"],
+            "@/store/*": ["store/*"],
+            "@/data/*": ["data/*"]
         }
-    }
+    },
+    "include": ["**/*.js", "**/*.jsx"],
+    "exclude": ["node_modules"]
 }
