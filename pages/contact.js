@@ -1,9 +1,9 @@
 import React from 'react';
-import ContactForm from '@/components/Contact/ContactForm';
-import ContactInfo from '@/components/Contact/ContactInfo';
+import ContactForm from '../components/Contact/ContactForm';
+import ContactInfo from '../components/Contact/ContactInfo';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Footer from '@/components/_App/Footer';
-import Navbar from '@/components/_App/Navbar';
+import Footer from '../components/_App/Footer';
+import Navbar from '../components/_App/Navbar';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import getMeta from '../lib/getMeta';

@@ -1,12 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
-import PageBannerStyle1 from '@/components/Common/PageBannerStyle1'
+import PageBannerStyle1 from '../components/Common/PageBannerStyle1'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import getMeta from "../lib/getMeta";
 import { useRouter } from "next/router";
-import Navbar from '@/components/_App/Navbar';
-import Footer from '@/components/_App/Footer';
-import Layout from '@/components/_App/Layout';
+import Navbar from '../components/_App/Navbar';
+import Footer from '../components/_App/Footer';
+import Layout from '../components/_App/Layout';
 
 const CookiesPolicy = ({ meta }) => {
     const { locale } = useRouter();

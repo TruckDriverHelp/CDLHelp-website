@@ -1,14 +1,14 @@
 import React from "react";
-import PageBannerStyle1 from "@/components/Common/PageBannerStyle1";
+import PageBannerStyle1 from "../components/Common/PageBannerStyle1";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import CVOCard from "@/components/Article/texasCVOcard";
+import CVOCard from "../components/Article/texasCVOcard";
 import fetchCVOCards from "../lib/TexasCVO/fetchCVOCards";
-import Layout from "@/components/_App/Layout";
+import Layout from "../components/_App/Layout";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import fetchText from "../lib/TexasCVO/fetchText";
-import Navbar from "@/components/_App/Navbar";
-import Footer from "@/components/_App/Footer";
+import Navbar from "../components/_App/Navbar";
+import Footer from "../components/_App/Footer";
 import getMeta from "../lib/getMeta";
 import Head from "next/head";
 
