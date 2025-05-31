@@ -7,37 +7,40 @@ import styles from '../../styles/PreTripInspection.module.css';
 import Head from 'next/head';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
-import getMeta from '../../lib/getMeta';
 
-export default function PreTripGuide({ sections, alternateLinks, meta }) {
+export default function PreTripGuide({ sections, alternateLinks }) {
     const router = useRouter();
-    const { t } = useTranslation('pre-trip');
+    const { t } = useTranslation(['pre-trip', 'common']);
+    const locale = router.locale;
+
+    const metaTitle = t('guide.title');
+    const metaDescription = t('guide.intro');
+    const metaImage = '/images/truckdriverhelp-og.jpg'; // You may want to move this to translations as well
 
     return (
         <>
-
             <Head>
-                {/* <title>{meta.title}</title>
-                <meta name="description" content={meta.description} />
+                <title>{metaTitle}</title>
+                <meta name="description" content={metaDescription} />
 
-                <meta itemProp="name" content={meta.title} />
-                <meta itemProp="description" content={meta.description} />
-                <meta itemProp="image" content={meta.image} />
+                <meta itemProp="name" content={metaTitle} />
+                <meta itemProp="description" content={metaDescription} />
+                <meta itemProp="image" content={metaImage} />
 
                 <meta property="og:url" content="https://www.cdlhelp.com" />
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content={meta.title} />
-                <meta property="og:description" content={meta.description} />
-                <meta property="og:image" content={meta.image} />
+                <meta property="og:title" content={metaTitle} />
+                <meta property="og:description" content={metaDescription} />
+                <meta property="og:image" content={metaImage} />
                 <meta property="og:locale" content={locale} />
                 <meta property="og:site_name" content="CDL Help" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={meta.title} />
-                <meta name="twitter:description" content={meta.description} />
-                <meta name="twitter:image" content={meta.image} /> */}
+                <meta name="twitter:title" content={metaTitle} />
+                <meta name="twitter:description" content={metaDescription} />
+                <meta name="twitter:image" content={metaImage} />
 
-                {/* <link rel="canonical" href="https://www.cdlhelp.com/" />
+                <link rel="canonical" href="https://www.cdlhelp.com/" />
                 <link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="x-default" />
                 <link rel="alternate" href="https://www.cdlhelp.com/en/" hrefLang="en" />
                 <link rel="alternate" href="https://www.cdlhelp.com/ru/" hrefLang="ru" />
@@ -46,7 +49,7 @@ export default function PreTripGuide({ sections, alternateLinks, meta }) {
                 <link rel="alternate" href="https://www.cdlhelp.com/ko/" hrefLang="ko" />
                 <link rel="alternate" href="https://www.cdlhelp.com/tr/" hrefLang="tr" />
                 <link rel="alternate" href="https://www.cdlhelp.com/pt/" hrefLang="pt" />
-                <link rel="alternate" href="https://www.cdlhelp.com/zh/" hrefLang="zh" /> */}
+                <link rel="alternate" href="https://www.cdlhelp.com/zh/" hrefLang="zh" />
             </Head>
 
             <Layout>
@@ -98,7 +101,6 @@ export async function getStaticProps({ locale }) {
         'tr': '/tr/',
         'pt': '/pt/'
     };
-    const meta = await getMeta(locale, "general");
 
     const sections = files.map(file => {
         const fileNumber = parseInt(file.split('-')[0]);
@@ -116,8 +118,7 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             alternateLinks: alternateLinks,
-            meta: meta,
-            ...(await serverSideTranslations(locale, ['pre-trip', 'navbar', 'footer'])),
+            ...(await serverSideTranslations(locale, ['pre-trip', 'navbar', 'footer', 'common'])),
             sections
         }
     };
