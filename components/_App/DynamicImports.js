@@ -6,14 +6,26 @@ export const DynamicQuiz = dynamic(() => import('../Quiz/quiz'), {
   ssr: false // Disable server-side rendering for the quiz
 });
 
-export const DynamicBlog = dynamic(() => import('../Blog/Blog'), {
-  loading: () => <div>Loading blog...</div>
+export const DynamicModalVideo = dynamic(() => import('react-modal-video'), {
+  ssr: false
 });
 
-export const DynamicFeedbacks = dynamic(() => import('../Feedbacks/Feedbacks'), {
-  loading: () => <div>Loading feedbacks...</div>
+export const DynamicYouTubePlayer = dynamic(() => import('../Common/YouTubePlayer'), {
+  loading: () => <div>Loading video player...</div>
 });
 
-export const DynamicAppScreenshots = dynamic(() => import('../AppScreenshots/AppScreenshots'), {
-  loading: () => <div>Loading screenshots...</div>
+export const DynamicMarkdown = dynamic(() => import('react-markdown'), {
+  loading: () => <div>Loading content...</div>
+});
+
+export const DynamicSwiper = dynamic(() => import('swiper/react'), {
+  loading: () => <div>Loading carousel...</div>
+});
+
+export const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'), {
+  ssr: false
+});
+
+export const DynamicFaqSection = dynamic(() => import('../Home/FaqSection'), {
+  loading: () => <div>Loading FAQ section...</div>
 }); 

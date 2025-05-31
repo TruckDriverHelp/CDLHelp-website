@@ -1,14 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Quiz from "../Quiz/quiz";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
-
-// Dynamically import ModalVideo with ssr disabled
-const ModalVideo = dynamic(() => import('react-modal-video'), {
-  ssr: false
-});
+import { DynamicModalVideo, DynamicQuiz } from '../_App/DynamicImports';
 
 const TopContainer = () => {
   const { t } = useTranslation('index');
@@ -97,24 +91,40 @@ const TopContainer = () => {
             </div>
             {/* center div */}
             <div className="col-lg-6 col-md-6" style={{ display: 'flex', justifyContent: 'center' }}>
-              {/* <div className="image-container">
+              <div className="app-intro-video-box" style={{ 
+                position: 'relative', 
+                width: '100%', 
+                maxWidth: '550px',
+                height: '360px'
+              }}>
                 <Image
-                  src={`/images/quiz/cdl-help-app-quiz-${router.locale}-1.png`}
-                  alt="video-img"
-                  width={423}
-                  height={800}
-                />
-              </div> */}
-              <div className="app-intro-video-box">
-                <Image
-                  src="/images/video/video-3-no-text.jpg"
+                  src="/images/video/video-3-no-text.webp"
                   alt="video-img"
                   width={550}
                   height={360}
+                  priority={true}
+                  loading="eager"
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjg0PjU1ODU4Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojr/2wBDAR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    position: 'relative',
+                    zIndex: 0
+                  }}
                 />
                 <div
                   onClick={e => { e.preventDefault(); openModal() }}
                   className="video-btn popup-youtube"
+                  style={{ 
+                    position: 'absolute', 
+                    top: '50%', 
+                    left: '50%', 
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 1
+                  }}
                 >
                   <i className="ri-play-line"></i>
                 </div>
@@ -122,13 +132,13 @@ const TopContainer = () => {
             </div>
           </div>
         </div>
-        <ModalVideo 
-          channel='youtube' 
-          isOpen={isOpen} 
-          videoId={t('video.intro')} 
-          onClose={() => setIsOpen(false)} 
-        />
       </div>
+      <DynamicModalVideo 
+        channel='youtube' 
+        isOpen={isOpen} 
+        videoId={t('video.intro')} 
+        onClose={() => setIsOpen(false)} 
+      />
     </>
   );
 };

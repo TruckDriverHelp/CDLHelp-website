@@ -15,8 +15,12 @@ const nextConfig = {
     },
     images: {
         domains: [process.env.STRAPI_HOST],
-        deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+        deviceSizes: [640, 750, 828, 1080, 1200],
         imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+        formats: ['image/webp'],
+        minimumCacheTTL: 60,
+        dangerouslyAllowSVG: true,
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     },
     env: {
         STRAPI_API_KEY: process.env.STRAPI_API_KEY,
@@ -73,21 +77,20 @@ const nextConfig = {
     webpack: (config, { dev, isServer }) => {
         // Optimize bundle size
         if (!dev && !isServer) {
-            // Optimize chunks
+            // Optimize chunks with more aggressive settings
             config.optimization.splitChunks = {
                 chunks: 'all',
-                minSize: 20000,
-                maxSize: 244000,
+                minSize: 10000, // Reduced from 20000
+                maxSize: 200000, // Reduced from 244000
                 minChunks: 1,
-                maxAsyncRequests: 30,
-                maxInitialRequests: 30,
+                maxAsyncRequests: 20, // Reduced from 30
+                maxInitialRequests: 20, // Reduced from 30
                 cacheGroups: {
                     defaultVendors: {
                         test: /[\\/]node_modules[\\/]/,
                         priority: -10,
                         reuseExistingChunk: true,
                         name(module) {
-                            // Get the name of the package
                             const match = module.context?.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
                             const packageName = match ? match[1] : 'unknown';
                             return `vendor.${packageName.replace('@', '')}`;
@@ -111,12 +114,36 @@ const nextConfig = {
             // Enable tree shaking
             config.optimization.usedExports = true;
             
-            // Minimize CSS
+            // Minimize CSS and JS
             config.optimization.minimize = true;
-        }
 
-        // Add module concatenation
-        config.optimization.concatenateModules = true;
+            // Add module concatenation
+            config.optimization.concatenateModules = true;
+
+            // Add scope hoisting
+            config.optimization.moduleIds = 'deterministic';
+
+            // Optimize runtime
+            config.optimization.runtimeChunk = 'single';
+
+            // Add compression
+            config.optimization.minimizer = [
+                ...config.optimization.minimizer || [],
+                new (require('terser-webpack-plugin'))({
+                    terserOptions: {
+                        compress: {
+                            drop_console: true,
+                            drop_debugger: true,
+                            pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+                        },
+                        mangle: true,
+                        output: {
+                            comments: false,
+                        },
+                    },
+                }),
+            ];
+        }
 
         return config;
     },

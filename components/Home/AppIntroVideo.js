@@ -1,13 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from "next/router";
 import { useTranslation } from 'next-i18next';
-
-const ModalVideo = dynamic(() => import('react-modal-video'), {
-    ssr: false
-});
+import { DynamicModalVideo } from '../_App/DynamicImports';
 
 const AppIntroVideo = () => {
     // Popup Video
@@ -200,7 +196,7 @@ const AppIntroVideo = () => {
             </div>
 
             {/* If you want to change the video need to update videoID */}
-            <ModalVideo
+            <DynamicModalVideo
                 channel='youtube'
                 isOpen={!isOpen}
                 videoId='Ll4yVz7yBlQ'

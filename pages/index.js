@@ -1,9 +1,4 @@
 import React from 'react'
-import TopContainer from '../components/Home/TopContainer';
-import BestFeatures from '../components/Home/BestFeatures';
-import AppIntroVideo from '../components/Home/AppIntroVideo';
-import Funfacts from '../components/Home/Funfacts';
-import AppDownload from '../components/Home/AppDownload';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -11,21 +6,56 @@ import getMeta from '../lib/getMeta';
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
 import Layout from "../components/_App/Layout";
-import Quiz from '../components/Quiz/quiz';
-import FaqSection from '../components/Home/FaqSection';
 import { useTranslation } from 'next-i18next';
+import { DynamicQuiz, DynamicFaqSection } from '../components/_App/DynamicImports';
+import dynamic from 'next/dynamic';
 
+// Dynamically import non-critical components
+const TopContainer = dynamic(() => import('../components/Home/TopContainer'), {
+  loading: () => <div style={{ minHeight: '400px', background: '#f5f5f5' }}>Loading...</div>,
+  ssr: true
+});
+
+// Preload critical components
+const BestFeatures = dynamic(() => import('../components/Home/BestFeatures'), {
+  loading: () => <div style={{ minHeight: '200px', background: '#f5f5f5' }}>Loading features...</div>,
+  ssr: false
+});
+
+// Lazy load non-critical components
+const AppIntroVideo = dynamic(() => import('../components/Home/AppIntroVideo'), {
+  loading: () => <div style={{ minHeight: '300px', background: '#f5f5f5' }}>Loading video...</div>,
+  ssr: false
+});
+
+const Funfacts = dynamic(() => import('../components/Home/Funfacts'), {
+  loading: () => <div style={{ minHeight: '150px', background: '#f5f5f5' }}>Loading fun facts...</div>,
+  ssr: false
+});
+
+const AppDownload = dynamic(() => import('../components/Home/AppDownload'), {
+  loading: () => <div style={{ minHeight: '200px', background: '#f5f5f5' }}>Loading download section...</div>,
+  ssr: false
+});
 
 const IndexPage = ({ meta, alternateLinks }) => {
     const { locale } = useRouter();
     const router = useRouter()
     const { t } = useTranslation("index");
+    
     return (
         <>
-            
             <Head>
                 <title>{meta.title}</title>
                 <meta name="description" content={meta.description} />
+
+                {/* Preload critical assets */}
+                <link 
+                    rel="preload" 
+                    href="/images/video/video-3-no-text.webp" 
+                    as="image" 
+                    type="image/webp"
+                />
 
                 <meta itemProp="name" content={meta.title} />
                 <meta itemProp="description" content={meta.description} />
@@ -70,27 +100,13 @@ const IndexPage = ({ meta, alternateLinks }) => {
                     </div>
                 </div>) : null} */}
                 <div style={{ maxWidth: '700px', margin: '80px auto 40px auto' }}>
-
                     <h2 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('trySampleQuestion')}</h2>
                 </div>
-                <Quiz />
-
+                <DynamicQuiz />
                 <AppIntroVideo />
-
-                {/* <BestFeatures /> */}
-
                 <Funfacts />
-
                 <AppDownload />
-
-
-                {/* <PricingPlan /> 
-                            
-                            <div className="bg-f9f9f9">
-                    <PartnerStyle2 />
-                </div>*/}
-
-                <FaqSection />
+                <DynamicFaqSection />
                 <Footer />
             </Layout>
         </>
