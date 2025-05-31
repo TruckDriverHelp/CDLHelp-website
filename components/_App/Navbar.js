@@ -449,4 +449,3 @@ const Navbar = ({ alternateLinks }) => {
 };
 
 export default Navbar;
-
