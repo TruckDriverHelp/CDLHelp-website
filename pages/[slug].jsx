@@ -2,7 +2,6 @@ import Head from 'next/head';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
-import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -11,7 +10,7 @@ import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from "../components/_App/Layout";
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
-import YouTubePlayer from "../components/Common/YouTubePlayer";
+import { DynamicMarkdown, DynamicYouTubePlayer } from '../components/_App/DynamicImports';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
@@ -90,7 +89,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
             <p>{article.description}</p>
             {article.blocks.map((block, index) => {
               if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-                return <div id={block.idtag}><Markdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
+                return <div id={block.idtag}><DynamicMarkdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
               }
               else if (block.__typename === 'ComponentArticlePartsMedia') {
                 return (
@@ -124,12 +123,11 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 );
               } else if (block.__typename === 'ComponentArticlePartsYouTube') {
                 const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
-                
                 const videoId = parsedYoutube.url.split('.be/')[1];
                 
                 return (
                   <div key={index}>
-                    <YouTubePlayer videoId={videoId} />
+                    <DynamicYouTubePlayer videoId={videoId} />
                   </div>
                 );
               }

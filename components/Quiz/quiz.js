@@ -17,6 +17,27 @@ const Quiz = ({ title, id, name, translation }) => {
     const [answeredQuestions, setAnsweredQuestions] = useState([]);
     const [isExploding, setIsExploding] = useState(false);
 
+    // Filter questions based on locale and test type
+    const filteredQuestions = quizData.filter(question => {
+        // Skip Tanker, Hazmat, and Double/Triple tests for locales with additional tests
+        if (["ru", "uk", "en"].includes(router.locale)) {
+            const questionText = question.question[router.locale] || question.question.en;
+            const isTanker = questionText.toLowerCase().includes('tanker') || 
+                           questionText.toLowerCase().includes('цистерн') || 
+                           questionText.toLowerCase().includes('цистерни');
+            const isHazmat = questionText.toLowerCase().includes('hazmat') || 
+                           questionText.toLowerCase().includes('опасн') || 
+                           questionText.toLowerCase().includes('небезпечн');
+            const isDoubleTriple = questionText.toLowerCase().includes('double') || 
+                                 questionText.toLowerCase().includes('triple') || 
+                                 questionText.toLowerCase().includes('двойн') || 
+                                 questionText.toLowerCase().includes('тройн');
+            
+            return !(isTanker || isHazmat || isDoubleTriple);
+        }
+        return true;
+    });
+
     useEffect(() => {
         setSelected(false)
         setWrong([])
@@ -32,7 +53,7 @@ const Quiz = ({ title, id, name, translation }) => {
         setWrong,
         setDisabled } = quizCtx
 
-    const currentQuestion = quizData[currentQuestionIndex];
+    const currentQuestion = filteredQuestions[currentQuestionIndex];
     const correct = currentQuestion.answer;
 
     const handleSelect = (i) => {
@@ -61,11 +82,11 @@ const Quiz = ({ title, id, name, translation }) => {
     }
 
     const goToNextQuestion = () => {
-        if (currentQuestionIndex < quizData.length - 1) {
+        if (currentQuestionIndex < filteredQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelected(false);
         } else {
-            if (userScore === quizData.length) {
+            if (userScore === filteredQuestions.length) {
                 setIsExploding(true);
             }
             setShowResults(true);
@@ -76,7 +97,7 @@ const Quiz = ({ title, id, name, translation }) => {
         return (
             <div className={styles.results}>
                 <h2>{t('quizResults')}</h2>
-                <p>{t('yourScore')}: {userScore} / {quizData.length}</p>
+                <p>{t('yourScore')}: {userScore} / {filteredQuestions.length}</p>
                 {isExploding && <ConfettiExplosion particleCount={100} duration={3000} force={0.6} width={1000} />}
                 <a 
                     href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : router.locale}`}
@@ -143,7 +164,7 @@ const Quiz = ({ title, id, name, translation }) => {
                                         cursor: "pointer"
                                     }}
                                 >
-                                    {currentQuestionIndex < quizData.length - 1 ? t('nextQuestion') : t('seeResults')}
+                                    {currentQuestionIndex < filteredQuestions.length - 1 ? t('nextQuestion') : t('seeResults')}
                                 </button>
                             )}
                             <a className='translation-btn' href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : router.locale}`} style={{ 
