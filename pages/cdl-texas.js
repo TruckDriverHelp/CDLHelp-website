@@ -20,18 +20,18 @@ const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
 					<meta name="description" content={meta.description} />
 					<meta itemProp="name" content={meta.title} />
 					<meta itemProp="description" content={meta.description} />
-					<meta itemProp="image" content={meta.image} />
+					<meta itemProp="image" content={"/images/truckdriverhelp-og.jpg"} />
 					<meta property="og:url" content="https://www.cdlhelp.com" />
 					<meta property="og:type" content="website" />
 					<meta property="og:title" content={meta.title} />
 					<meta property="og:description" content={meta.description} />
-					<meta property="og:image" content={meta.image} />
+					<meta property="og:image" content={"/images/truckdriverhelp-og.jpg"} />
 					<meta property="og:locale" content={locale} />
 					<meta property="og:site_name" content="CDL Help" />
 					<meta name="twitter:card" content="summary_large_image" />
 					<meta name="twitter:title" content={meta.title} />
 					<meta name="twitter:description" content={meta.description} />
-					<meta name="twitter:image" content={meta.image} />
+					<meta name="twitter:image" content={"/images/truckdriverhelp-og.jpg"} />
 					<link rel="canonical" href="https://www.cdlhelp.com/cdl-texas/" />
 					<link rel="alternate" href="https://www.cdlhelp.com/cdl-texas/" hrefLang="x-default" />
 					<link rel="alternate" href="https://www.cdlhelp.com/en/cdl-texas/" hrefLang="en" />
