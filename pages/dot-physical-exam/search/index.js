@@ -1,0 +1,194 @@
+import { useState, useEffect } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { Container, Typography, TextField, Button, Box, Paper, Alert } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
+const containerStyle = {
+  width: '100%',
+  height: '500px'
+};
+
+const defaultCenter = {
+  lat: 39.8283,
+  lng: -98.5795
+};
+
+export default function DotPhysicalExam() {
+  const [zipCode, setZipCode] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [mapCenter, setMapCenter] = useState(defaultCenter);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleSearch = async () => {
+    if (!zipCode) return;
+    
+    setIsLoading(true);
+    setError(null);
+    try {
+      // Convert zip code to coordinates using Google Geocoding API
+      const geocodeResponse = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${zipCode}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
+      );
+      const geocodeData = await geocodeResponse.json();
+      
+      if (geocodeData.results && geocodeData.results[0]) {
+        const { lat, lng } = geocodeData.results[0].geometry.location;
+        setMapCenter({ lat, lng });
+        
+        // Search for DOT physical locations near the zip code
+        const searchQuery = `medical examiner dot physical ${zipCode}`;
+        const placesResponse = await fetch(
+          `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&location=${lat},${lng}&radius=50000&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
+        );
+        const placesData = await placesResponse.json();
+        
+        console.log('Places API Response:', placesData); // Debug log
+        
+        if (placesData.status === 'OK' && placesData.results) {
+          setSearchResults(placesData.results);
+        } else if (placesData.status === 'ZERO_RESULTS') {
+          setError('No DOT physical locations found in this area. Try a different zip code.');
+          setSearchResults([]);
+        } else {
+          setError(`Error searching locations: ${placesData.status}`);
+          setSearchResults([]);
+        }
+      } else {
+        setError('Invalid zip code. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error searching locations:', error);
+      setError('An error occurred while searching. Please try again.');
+      setSearchResults([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  return (
+    <>
+      <Head>
+        <title>DOT Physical Exam Locations | CDL Help</title>
+        <meta name="description" content="Find DOT physical exam locations near you. Enter your zip code to locate certified medical examiners in your area." />
+      </Head>
+
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Typography variant="h2" component="h1" gutterBottom>
+          Find DOT Physical Exam Locations
+        </Typography>
+        
+        <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
+          <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+            <TextField
+              fullWidth
+              label="Enter Zip Code"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="e.g., 12345"
+              variant="outlined"
+            />
+            <Button
+              variant="contained"
+              onClick={handleSearch}
+              disabled={isLoading}
+              startIcon={<SearchIcon />}
+            >
+              {isLoading ? 'Searching...' : 'Search'}
+            </Button>
+          </Box>
+
+          {error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {error}
+            </Alert>
+          )}
+
+          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={mapCenter}
+              zoom={12}
+            >
+              {searchResults.map((place) => (
+                <Marker
+                  key={place.place_id}
+                  position={{
+                    lat: place.geometry.location.lat,
+                    lng: place.geometry.location.lng
+                  }}
+                  title={place.name}
+                  onClick={() => setSelectedPlace(place)}
+                />
+              ))}
+              
+              {selectedPlace && (
+                <InfoWindow
+                  position={{
+                    lat: selectedPlace.geometry.location.lat,
+                    lng: selectedPlace.geometry.location.lng
+                  }}
+                  onCloseClick={() => setSelectedPlace(null)}
+                >
+                  <Box sx={{ p: 1 }}>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      {selectedPlace.name}
+                    </Typography>
+                    <Typography variant="body2">
+                      {selectedPlace.formatted_address}
+                    </Typography>
+                    {selectedPlace.rating && (
+                      <Typography variant="body2" color="text.secondary">
+                        Rating: {selectedPlace.rating} ({selectedPlace.user_ratings_total} reviews)
+                      </Typography>
+                    )}
+                  </Box>
+                </InfoWindow>
+              )}
+            </GoogleMap>
+          </LoadScript>
+        </Paper>
+
+        {searchResults.length > 0 && (
+          <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h3" component="h2" gutterBottom>
+              Nearby Locations
+            </Typography>
+            {searchResults.map((place) => (
+              <Box 
+                key={place.place_id} 
+                sx={{ 
+                  mb: 2, 
+                  p: 2, 
+                  cursor: 'pointer',
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)'
+                  }
+                }}
+                onClick={() => setSelectedPlace(place)}
+              >
+                <Typography variant="h6">{place.name}</Typography>
+                <Typography variant="body1">{place.formatted_address}</Typography>
+                {place.rating && (
+                  <Typography variant="body2" color="text.secondary">
+                    Rating: {place.rating} ({place.user_ratings_total} reviews)
+                  </Typography>
+                )}
+              </Box>
+            ))}
+          </Paper>
+        )}
+      </Container>
+    </>
+  );
+} 
