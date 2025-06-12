@@ -1,1 +1,15 @@
-{}
+{
+  "dotPhysicalExam": {
+    "title": "Encontrar Locais de Exame Físico DOT",
+    "description": "Digite seu CEP abaixo para encontrar locais certificados de exame físico DOT próximos a você. Mostraremos os examinadores médicos mais próximos que podem realizar seu exame físico DOT necessário.",
+    "zipCodeLabel": "CEP",
+    "zipCodePlaceholder": "12345",
+    "searchButton": "Buscar",
+    "searchingButton": "Buscando...",
+    "nearbyLocations": "Locais Próximos",
+    "phone": "Telefone",
+    "rating": "Avaliação",
+    "reviews": "avaliações",
+    "error": "Ocorreu um erro durante a busca. Por favor, tente novamente."
+  }
+}

@@ -1,18 +1,12 @@
 import React from "react";
-import Image from "next/image";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { DynamicModalVideo, DynamicQuiz } from '../_App/DynamicImports';
+import { DynamicQuiz } from '../_App/DynamicImports';
 
 const TopContainer = () => {
   const { t } = useTranslation('index');
   const router = useRouter();
-  const [isOpen, setIsOpen] = React.useState(false);
-  
-  const openModal = () => {
-    setIsOpen(!isOpen);
-  }
-  
+
   return (
     <>
       <div className="new-app-main-banner-wrap-area">
@@ -30,10 +24,15 @@ const TopContainer = () => {
         </div>
         <div className="container-fluid" style={{ marginBottom: '4rem' }}>
           <div className="row align-items-center justify-content-center">
-            <div className="col-lg-6 col-md-6" style={{ maxWidth: '650px' }}>
-              <h1 style={{ textAlign: 'center', fontSize: '1.6rem' }}>{t('title')}</h1>
+            <div className="col-lg-8 col-md-10" style={{ maxWidth: '800px' }}>
+              <div style={{marginTop: '40px'}}>
+              <h1 style={{ textAlign: 'center', fontSize: '1.6rem', marginBottom: '20px' }}>{t('title')}</h1>
 
-              <p style={{ textAlign: 'center', margin: 0 }}>{t('description')}</p>
+              <p style={{ textAlign: 'center', margin: 0, marginBottom: '40px' }}>{t('description')}</p>
+              </div>
+              <div>
+                <DynamicQuiz />
+              </div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '360px', margin: '0 auto' }}>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '30px 0 10px 0' }}>
@@ -89,56 +88,9 @@ const TopContainer = () => {
                 </a>
               </div>
             </div>
-            {/* center div */}
-            <div className="col-lg-6 col-md-6" style={{ display: 'flex', justifyContent: 'center' }}>
-              <div className="app-intro-video-box" style={{ 
-                position: 'relative', 
-                width: '100%', 
-                maxWidth: '550px',
-                height: '360px'
-              }}>
-                <Image
-                  src="/images/video/video-3-no-text.webp"
-                  alt="video-img"
-                  width={550}
-                  height={360}
-                  priority={true}
-                  loading="eager"
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjg0PjU1ODU4Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojr/2wBDAR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    position: 'relative',
-                    zIndex: 0
-                  }}
-                />
-                <div
-                  onClick={e => { e.preventDefault(); openModal() }}
-                  className="video-btn popup-youtube"
-                  style={{ 
-                    position: 'absolute', 
-                    top: '50%', 
-                    left: '50%', 
-                    transform: 'translate(-50%, -50%)',
-                    zIndex: 1
-                  }}
-                >
-                  <i className="ri-play-line"></i>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <DynamicModalVideo 
-        channel='youtube' 
-        isOpen={isOpen} 
-        videoId={t('video.intro')} 
-        onClose={() => setIsOpen(false)} 
-      />
     </>
   );
 };

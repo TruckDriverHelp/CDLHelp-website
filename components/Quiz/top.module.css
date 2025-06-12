@@ -120,3 +120,7 @@
 .closeButton:hover {
     background-color: #e0e0e0;
 }
+
+.languageRight {
+    justify-content: flex-end;
+}
