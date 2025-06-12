@@ -1,1 +1,15 @@
-{}
+{
+  "dotPhysicalExam": {
+    "title": "查找DOT体检地点",
+    "description": "在下方输入您的邮政编码，查找附近的认证DOT体检地点。我们将为您显示可以执行所需DOT体检的最近医疗检查人员。",
+    "zipCodeLabel": "邮政编码",
+    "zipCodePlaceholder": "12345",
+    "searchButton": "搜索",
+    "searchingButton": "搜索中...",
+    "nearbyLocations": "附近地点",
+    "phone": "电话",
+    "rating": "评分",
+    "reviews": "条评价",
+    "error": "搜索时发生错误。请重试。"
+  }
+}

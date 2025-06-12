@@ -1,1 +1,15 @@
-{}
+{
+  "dotPhysicalExam": {
+    "title": "Find DOT Physical Exam Locations",
+    "description": "Enter your zip code below to find certified DOT physical exam locations near you. We'll show you the closest medical examiners who can perform your required DOT physical examination.",
+    "zipCodeLabel": "Zip Code",
+    "zipCodePlaceholder": "12345",
+    "searchButton": "Search",
+    "searchingButton": "Searching...",
+    "nearbyLocations": "Nearby Locations",
+    "phone": "Phone",
+    "rating": "Rating",
+    "reviews": "reviews",
+    "error": "An error occurred while searching. Please try again."
+  }
+}

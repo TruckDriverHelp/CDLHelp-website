@@ -34,7 +34,7 @@ const Head = ({ translation }) => {
     return (
         <div style={{ display: "flex" }}>
             {router.locale === 'en' ? (
-                <div className={styles.language} >
+                <div className={`${styles.language} ${styles.languageRight}`}>
                     <button
                         onClick={() => setShowLanguagePopup(true)}
                         style={{ 
@@ -44,9 +44,13 @@ const Head = ({ translation }) => {
                             boxShadow: "0px 12px 35px rgba(90, 88, 134, 0.25)",
                             textDecoration: "none",
                             color: "white",
-                            borderRadius: "10px"
+                            borderRadius: "10px",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px"
                         }}
                     >
+                        <i className="ri-translate-2" style={{ fontSize: '20px' }}></i>
                         Enable Translation
                     </button>
                     {showLanguagePopup && (
@@ -75,11 +79,7 @@ const Head = ({ translation }) => {
                     )}
                 </div>
             ) : (
-                <div className={styles.language} style={{ 
-                    display: "flex", 
-                    alignItems: "center",
-                    gap: "10px"
-                }}>
+                <div className={styles.language}>
                     <button
                         onClick={() => {
                             setTranslate(!translate)

@@ -365,6 +365,11 @@ const Navbar = ({ alternateLinks }) => {
                     </Link>
 
                     <ul className="dropdown-menu">
+                      <li>
+                        <Link href="/dot-physical-exam/search" locale={locale}>
+                          <a>{getTranslation("dotPhysicalLookup")}</a>
+                        </Link>
+                      </li>
                       {(articleList[locale] || articleList["en"]).map((article, index) => {
                         if (article.slug === "pre-trip-inspection/guide" && !["en", "ru"].includes(locale)) {
                           return null;
