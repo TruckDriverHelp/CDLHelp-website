@@ -11,5 +11,8 @@
     "rating": "Değerlendirme",
     "reviews": "değerlendirme",
     "error": "Arama sırasında bir hata oluştu. Lütfen tekrar deneyin."
-  }
+  },
+  "roadSignsQuiz": "Trafik İşaretleri Testi",
+  "roadSignsQuizDescription": "Bu interaktif test ile trafik işaretleri bilginizi ölçün.",
+  "roadSignsTest": "Trafik İşaretleri Testi"
 }

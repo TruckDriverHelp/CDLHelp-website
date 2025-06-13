@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, AdvancedMarkerElement } from '@react-google-maps/api';
 import { Container, Typography, TextField, Button, Box, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -36,14 +36,43 @@ export default function DotPhysicalExam() {
         const { lat, lng } = geocodeData.results[0].geometry.location;
         setMapCenter({ lat, lng });
         
-        // Search for DOT physical locations near the zip code
+        // Use the new Place API for searching
         const placesResponse = await fetch(
-          `https://maps.googleapis.com/maps/api/place/textsearch/json?query=dot+physical+${zipCode}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
+          `https://places.googleapis.com/v1/places:searchText`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Goog-Api-Key': process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+              'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount'
+            },
+            body: JSON.stringify({
+              textQuery: `dot physical ${zipCode}`,
+              locationBias: {
+                circle: {
+                  center: { latitude: lat, longitude: lng },
+                  radius: 50000 // 50km radius
+                }
+              }
+            })
+          }
         );
         const placesData = await placesResponse.json();
         
-        if (placesData.results) {
-          setSearchResults(placesData.results);
+        if (placesData.places) {
+          setSearchResults(placesData.places.map(place => ({
+            place_id: place.id,
+            name: place.displayName.text,
+            formatted_address: place.formattedAddress,
+            geometry: {
+              location: {
+                lat: place.location.latitude,
+                lng: place.location.longitude
+              }
+            },
+            rating: place.rating,
+            user_ratings_total: place.userRatingCount
+          })));
         }
       }
     } catch (error) {
@@ -92,7 +121,7 @@ export default function DotPhysicalExam() {
               zoom={12}
             >
               {searchResults.map((place) => (
-                <Marker
+                <AdvancedMarkerElement
                   key={place.place_id}
                   position={{
                     lat: place.geometry.location.lat,

@@ -11,5 +11,8 @@
     "rating": "Rating",
     "reviews": "reviews",
     "error": "An error occurred while searching. Please try again."
-  }
+  },
+  "roadSignsQuiz": "Road Signs Quiz",
+  "roadSignsQuizDescription": "Practice your knowledge of road signs with this interactive quiz.",
+  "roadSignsTest": "Road Signs Test"
 }

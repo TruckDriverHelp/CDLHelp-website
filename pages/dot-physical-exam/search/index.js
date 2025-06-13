@@ -162,7 +162,7 @@ export default function DotPhysicalExam() {
   return (
     <Layout>
       <Head>
-        <title>{t('dotPhysicalExam.title')} | CDL Help</title>
+        <title>{`${t('dotPhysicalExam.title')} | CDL Help`}</title>
         <meta name="description" content={t('dotPhysicalExam.description')} />
       </Head>
 
