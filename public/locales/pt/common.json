@@ -11,5 +11,8 @@
     "rating": "Avaliação",
     "reviews": "avaliações",
     "error": "Ocorreu um erro durante a busca. Por favor, tente novamente."
-  }
+  },
+  "roadSignsQuiz": "Quiz de Sinais de Trânsito",
+  "roadSignsQuizDescription": "Pratique seu conhecimento sobre sinais de trânsito com este quiz interativo.",
+  "roadSignsTest": "Teste de Sinais de Trânsito"
 }

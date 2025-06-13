@@ -11,5 +11,8 @@
     "rating": "평점",
     "reviews": "리뷰",
     "error": "검색 중 오류가 발생했습니다. 다시 시도해 주세요."
-  }
+  },
+  "roadSignsQuiz": "도로 표지판 퀴즈",
+  "roadSignsQuizDescription": "이 인터랙티브 퀴즈로 도로 표지판에 대한 지식을 연습하세요.",
+  "roadSignsTest": "도로 표지판 테스트"
 }

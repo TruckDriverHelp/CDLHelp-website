@@ -1,0 +1,9 @@
+<svg version="1.1" viewBox="-15 -15 30 30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <circle r="15" fill="#ffcd00"/>
+ <g fill="none" stroke="#000">
+  <circle r="14.3125" stroke-width=".625"/>
+  <path d="m10-10-20 20m0-20 20 20" stroke-width="3"/>
+ </g>
+ <path id="a" transform="matrix(0.02734375,0,0,0.02734375,-12.375,-3.5)" d="M0 0V256H44V156H122A78 78 0 0 0 122 0M44 44H122A 34 34 0 0 1 122 112H44M112 156 155.93945312 256H204L150.39453125 134"/>
+ <use x="19.5" xlink:href="#a"/>
+</svg>

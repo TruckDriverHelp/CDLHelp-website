@@ -11,5 +11,8 @@
     "rating": "评分",
     "reviews": "条评价",
     "error": "搜索时发生错误。请重试。"
-  }
+  },
+  "roadSignsQuiz": "道路标志测验",
+  "roadSignsQuizDescription": "通过这个互动测验来练习你的道路标志知识。",
+  "roadSignsTest": "道路标志测试"
 }
