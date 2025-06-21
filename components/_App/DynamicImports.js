@@ -1,7 +1,10 @@
 import dynamic from 'next/dynamic';
 
 // Dynamically import heavy components
-export const DynamicQuiz = dynamic(() => import('../Quiz/quiz'), {
+export const DynamicQuiz = dynamic(() => import('../Quiz/quiz').then(mod => ({ contained, ...props }) => {
+  const QuizComponent = mod.default;
+  return <QuizComponent contained={contained} {...props} />;
+}), {
   loading: () => <div>Loading quiz...</div>,
   ssr: false // Disable server-side rendering for the quiz
 });

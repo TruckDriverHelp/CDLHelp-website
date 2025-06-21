@@ -1,0 +1,12 @@
+{
+  "pageTitle": "{{city}}, {{state}}의 CDL 학교",
+  "description": "{{city}}, {{state}}에서 상업용 운전 면허(CDL) 교육 학교를 찾아보세요. 가까운 트럭 운전 학교에 대한 정보를 얻으세요.",
+  "homePageText": "CDL 학교",
+  "allSchoolTypes": "모든 학교 유형",
+  "sortByName": "이름순으로 정렬",
+  "advertisementAlt": "CDL Help 앱 광고",
+  "mapNotAvailable": "지도를 사용할 수 없습니다",
+  "addressLabel": "주소:",
+  "phoneLabel": "전화:",
+  "tryPermitQuiz": "퍼밋 퀴즈에 도전해보세요"
+} 

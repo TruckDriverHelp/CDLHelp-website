@@ -31,7 +31,7 @@ const TopContainer = () => {
               <p style={{ textAlign: 'center', margin: 0, marginBottom: '40px' }}>{t('description')}</p>
               </div>
               <div>
-                <DynamicQuiz />
+                <DynamicQuiz contained={true} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '360px', margin: '0 auto' }}>
 

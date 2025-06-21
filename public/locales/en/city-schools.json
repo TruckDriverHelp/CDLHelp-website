@@ -1,0 +1,12 @@
+{
+  "pageTitle": "CDL Schools in {{city}}, {{state}}",
+  "description": "Find Commercial Driver's License (CDL) training schools in {{city}}, {{state}}. Get information on truck driving schools near you.",
+  "homePageText": "CDL Schools",
+  "allSchoolTypes": "All School Types",
+  "sortByName": "Sort by Name",
+  "advertisementAlt": "CDL Help App Advertisement",
+  "mapNotAvailable": "Map not available",
+  "addressLabel": "Address:",
+  "phoneLabel": "Phone:",
+  "tryPermitQuiz": "Try permit quiz"
+} 

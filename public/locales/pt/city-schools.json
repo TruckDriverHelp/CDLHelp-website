@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Escolas de CDL em {{city}}, {{state}}",
+  "description": "Encontre escolas de treinamento para Carteira de Motorista Comercial (CDL) em {{city}}, {{state}}. Obtenha informações sobre escolas de condução de caminhões perto de você.",
+  "homePageText": "Escolas de CDL",
+  "allSchoolTypes": "Todos os tipos de escola",
+  "sortByName": "Ordernar por nome",
+  "advertisementAlt": "Anúncio do aplicativo CDL Help",
+  "mapNotAvailable": "Mapa não disponível",
+  "addressLabel": "Endereço:",
+  "phoneLabel": "Telefone:",
+  "tryPermitQuiz": "Faça o teste da licença"
+} 
