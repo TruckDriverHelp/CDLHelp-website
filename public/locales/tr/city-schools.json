@@ -1,0 +1,12 @@
+{
+  "pageTitle": "{{city}}, {{state}} bölgesindeki CDL Okulları",
+  "description": "{{city}}, {{state}} bölgesindeki Ticari Sürücü Belgesi (CDL) eğitim okullarını bulun. Yakınınızdaki kamyon sürüş okulları hakkında bilgi alın.",
+  "homePageText": "CDL Okulları",
+  "allSchoolTypes": "Tüm Okul Türleri",
+  "sortByName": "Ada Göre Sırala",
+  "advertisementAlt": "CDL Help Uygulaması Reklamı",
+  "mapNotAvailable": "Harita mevcut değil",
+  "addressLabel": "Adres:",
+  "phoneLabel": "Telefon:",
+  "tryPermitQuiz": "Ehliyet sınavını deneyin"
+} 

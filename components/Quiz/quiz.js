@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import quizData from '../../data/quiz-questions.json'
 import ConfettiExplosion from 'react-confetti-explosion';
 
-const Quiz = ({ title, id, name, translation }) => {
+const Quiz = ({ title, id, name, translation, contained }) => {
     const { t } = useTranslation('index');
     const router = useRouter();
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -119,14 +119,14 @@ const Quiz = ({ title, id, name, translation }) => {
 
     if (showResults) {
         return (
-            <div className={styles.quiz}>
+            <div className={contained ? styles.quiz : ''}>
                 {renderResults()}
             </div>
         );
     }
 
     return (
-        <div className={styles.quiz}>
+        <div className={contained ? styles.quiz : ''}>
             {["ru", "uk", "en"].includes(router.locale) ? <div style={{ gap: 0, textAlign: 'center', color: '#d45058' }}>
             </div> : null}
 
