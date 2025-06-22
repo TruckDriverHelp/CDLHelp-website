@@ -10,7 +10,7 @@ import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from "../components/_App/Layout";
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
-import { DynamicMarkdown } from '../components/_App/DynamicImports';
+import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
@@ -118,7 +118,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
             <p>{article.description}</p>
             {article.blocks.map((block, index) => {
               if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-                return <div id={block.idtag}><DynamicMarkdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
+                return <div key={index} id={block.idtag}><ReactMarkdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
               }
               else if (block.__typename === 'ComponentArticlePartsMedia') {
                 return (
@@ -152,16 +152,43 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 );
               } else if (block.__typename === 'ComponentArticlePartsYouTube') {
                 try {
-                  const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : null;
-                  if (!parsedYoutube || !parsedYoutube.url) {
-                    console.error('Invalid YouTube data:', block.YouTube);
-                    return <div key={index}>Error: Invalid YouTube data</div>;
+                  let videoId = null;
+                  let youtubeUrl = null;
+                  
+                  // Try different possible data structures
+                  if (block.YouTube) {
+                    try {
+                      const parsedYoutube = JSON.parse(block.YouTube);
+                      
+                      if (parsedYoutube.url) {
+                        youtubeUrl = parsedYoutube.url;
+                      } else if (parsedYoutube.embed_url) {
+                        youtubeUrl = parsedYoutube.embed_url;
+                      } else if (typeof parsedYoutube === 'string') {
+                        youtubeUrl = parsedYoutube;
+                      }
+                    } catch (parseError) {
+                      youtubeUrl = block.YouTube;
+                    }
                   }
                   
-                  const videoId = extractYouTubeVideoId(parsedYoutube.url);
+                  // If we have a URL, extract video ID
+                  if (youtubeUrl) {
+                    videoId = extractYouTubeVideoId(youtubeUrl);
+                  }
+                  
+                  // If still no video ID, try to extract from the raw data
+                  if (!videoId && block.YouTube) {
+                    // Try to find a YouTube URL pattern in the raw data
+                    const urlMatch = block.YouTube.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
+                    if (urlMatch) {
+                      videoId = urlMatch[1];
+                    }
+                  }
+                  
                   if (!videoId) {
-                    console.error('Could not extract video ID from URL:', parsedYoutube.url);
-                    return <div key={index}>Error: Could not extract video ID from {parsedYoutube.url}</div>;
+                    console.error('Could not extract video ID from YouTube data:', block.YouTube);
+                    return <div key={index}>Error: Could not extract video ID from YouTube data</div>;
                   }
                   
                   return (
@@ -175,7 +202,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 }
               }
               if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
-                return <div>
+                return <div key={index}>
                   <p>{t("relatedArticles")}</p>
                   <ul>
                     {block.articles.data.map((articleData, i) => {
