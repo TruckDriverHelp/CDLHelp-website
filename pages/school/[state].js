@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import axios from 'axios';
 import dynamic from 'next/dynamic';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -31,7 +30,7 @@ const SchoolCard = ({ schoolLocation }) => {
   const lat = coords?.latitude;
   const lon = coords?.longitude;
 
-  const stateUpper = state.toUpperCase();
+  const stateFormatted = state ? state.replace(/_/g, ' ') : '';
 
   return (
     <div className="school-card">
@@ -49,7 +48,7 @@ const SchoolCard = ({ schoolLocation }) => {
           <h3>{location?.data?.attributes?.Name || 'CDL School'}</h3>
         </div>
         <div className="school-card-body">
-            <p><strong>{t('addressLabel')}</strong> {Address}, {stateUpper}</p>
+            <p><strong>{t('addressLabel')}</strong> {Address}, {stateFormatted}</p>
             <p><strong>{t('phoneLabel')}</strong> {phone_number}</p>
         </div>
       </div>
@@ -97,16 +96,74 @@ const SchoolCard = ({ schoolLocation }) => {
   );
 };
 
+const stateNameMapping = {
+  'alabama': 'Alabama',
+  'alaska': 'Alaska',
+  'arizona': 'Arizona',
+  'arkansas': 'Arkansas',
+  'california': 'California',
+  'colorado': 'Colorado',
+  'connecticut': 'Connecticut',
+  'delaware': 'Delaware',
+  'florida': 'Florida',
+  'georgia': 'Georgia',
+  'hawaii': 'Hawaii',
+  'idaho': 'Idaho',
+  'illinois': 'Illinois',
+  'indiana': 'Indiana',
+  'iowa': 'Iowa',
+  'kansas': 'Kansas',
+  'kentucky': 'Kentucky',
+  'louisiana': 'Louisiana',
+  'maine': 'Maine',
+  'maryland': 'Maryland',
+  'massachusetts': 'Massachusetts',
+  'michigan': 'Michigan',
+  'minnesota': 'Minnesota',
+  'mississippi': 'Mississippi',
+  'missouri': 'Missouri',
+  'montana': 'Montana',
+  'nebraska': 'Nebraska',
+  'nevada': 'Nevada',
+  'new hampshire': 'New Hampshire',
+  'new jersey': 'New Jersey',
+  'new mexico': 'New Mexico',
+  'new york': 'New York',
+  'north carolina': 'North Carolina',
+  'north dakota': 'North Dakota',
+  'ohio': 'Ohio',
+  'oklahoma': 'Oklahoma',
+  'oregon': 'Oregon',
+  'pennsylvania': 'Pennsylvania',
+  'rhode island': 'Rhode Island',
+  'south carolina': 'South Carolina',
+  'south dakota': 'South Dakota',
+  'tennessee': 'Tennessee',
+  'texas': 'Texas',
+  'utah': 'Utah',
+  'vermont': 'Vermont',
+  'virginia': 'Virginia',
+  'washington': 'Washington',
+  'west virginia': 'West Virginia',
+  'wisconsin': 'Wisconsin',
+  'wyoming': 'Wyoming'
+};
+
+const formatStateName = (stateSlug) => {
+  const normalizedSlug = stateSlug.replace(/-/g, ' ').toLowerCase();
+  return stateNameMapping[normalizedSlug] || stateSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+};
+
 const capitalizeWords = (str) => str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
 const StateSchoolsPage = ({ schoolLocations, state }) => {
     const { t } = useTranslation(['city-schools', 'index']);
     const router = useRouter();
     const { locale } = router;
-    const stateUpper = state.toUpperCase();
+    const stateFormatted = formatStateName(state);
     
-    const pageTitle = t('pageTitle', { state: stateUpper });
-    const pageDescription = t('description', { state: stateUpper });
+    const pageTitle = t('pageTitle', { state: stateFormatted });
+    const pageDescription = t('description', { state: stateFormatted });
 
     const showQuiz = locale === 'ru' || locale === 'uk';
 
@@ -219,17 +276,35 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
   
   export async function getStaticPaths() {
       try {
-          const { data: schoolLocationsData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/school-locations?populate[location]=*`, {
-              headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` },
+          const query = `
+            query GetSchoolLocations {
+              schoolLocations {
+                data {
+                  attributes {
+                    state
+                  }
+                }
+              }
+            }
+          `;
+  
+          const response = await fetch(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${process.env.STRAPI_API_KEY}`,
+              },
+              body: JSON.stringify({ query }),
           });
   
-          const schoolLocations = schoolLocationsData.data;
+          const { data } = await response.json();
+          const schoolLocations = data.schoolLocations.data;
           const stateSet = new Set();
   
           schoolLocations.forEach(schoolLocation => {
               const attributes = schoolLocation.attributes;
               if (attributes && attributes.state) {
-                  const stateSlug = attributes.state.toLowerCase().replace(/\s+/g, '-');
+                  const stateSlug = attributes.state.toLowerCase().replace(/_/g, ' ').replace(/\s+/g, '-');
                   stateSet.add(stateSlug);
               }
           });
@@ -257,17 +332,48 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
       const originalState = state.replace(/-/g, ' ');
   
       try {
-          const { data: schoolLocationsData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/school-locations?populate[location]=*`, {
-              headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` },
+          const query = `
+            query GetSchoolLocationsByState {
+              schoolLocations {
+                data {
+                  id
+                  attributes {
+                    Address
+                    phone_number
+                    coords
+                    city
+                    state
+                    location {
+                      data {
+                        id
+                        attributes {
+                          Name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `;
+  
+          const response = await fetch(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${process.env.STRAPI_API_KEY}`,
+              },
+              body: JSON.stringify({ query }),
           });
-
-          const allSchoolLocations = schoolLocationsData.data;
+  
+          const { data } = await response.json();
+          const allSchoolLocations = data.schoolLocations.data;
 
           const schoolLocationsInState = allSchoolLocations.filter(schoolLocation => {
               const attributes = schoolLocation.attributes;
               return (
                   attributes &&
-                  attributes.state.toLowerCase() === originalState.toLowerCase()
+                  attributes.state.toLowerCase().replace(/_/g, ' ') === originalState.toLowerCase()
               );
           });
 
@@ -284,7 +390,7 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
               revalidate: 1,
           };
       } catch (error) {
-          console.error(`Error fetching and processing data for ${originalState}:`, error.response ? error.response.data : error.message);
+          console.error(`Error fetching and processing data for ${originalState}:`, error.message);
           return {
               notFound: true,
           };
