@@ -33,11 +33,14 @@
 /* Make player fully responsive */
 .youtube-player {
   width: 100% !important;
+  height: 100% !important;
+  min-height: 200px;
   transition: opacity 0.3s ease;
 }
 
 /* Style for iframe to ensure it's fully responsive */
 .youtube-player iframe {
   width: 100% !important;
+  height: 100% !important;
   border-radius: 8px;
 } 
