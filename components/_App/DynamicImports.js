@@ -13,9 +13,13 @@ export const DynamicModalVideo = dynamic(() => import('react-modal-video'), {
   ssr: false
 });
 
-export const DynamicYouTubePlayer = dynamic(() => import('../Common/YouTubePlayer'), {
-  loading: () => <div>Loading video player...</div>
-});
+export const DynamicYouTubePlayer = dynamic(
+  () => import('../Common/YouTubePlayer').then((mod) => mod.default || mod),
+  {
+    loading: () => <div style={{ padding: '20px', textAlign: 'center', color: '#666' }}>Loading video player...</div>,
+    ssr: false // Disable server-side rendering for YouTube player
+  }
+);
 
 export const DynamicMarkdown = dynamic(() => import('react-markdown'), {
   loading: () => <div>Loading content...</div>

@@ -10,11 +10,40 @@ import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from "../components/_App/Layout";
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
-import { DynamicMarkdown, DynamicYouTubePlayer } from '../components/_App/DynamicImports';
+import { DynamicMarkdown } from '../components/_App/DynamicImports';
+import YouTubePlayer from '../components/Common/YouTubePlayer';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
+
+  // Helper function to extract YouTube video ID from various URL formats
+  const extractYouTubeVideoId = (url) => {
+    if (!url) return null;
+    
+    // Handle youtu.be format
+    if (url.includes('youtu.be/')) {
+      return url.split('youtu.be/')[1]?.split('?')[0];
+    }
+    
+    // Handle youtube.com/watch format
+    if (url.includes('youtube.com/watch')) {
+      const urlParams = new URLSearchParams(url.split('?')[1]);
+      return urlParams.get('v');
+    }
+    
+    // Handle youtube.com/embed format
+    if (url.includes('youtube.com/embed/')) {
+      return url.split('youtube.com/embed/')[1]?.split('?')[0];
+    }
+    
+    // Handle youtube.com/v format
+    if (url.includes('youtube.com/v/')) {
+      return url.split('youtube.com/v/')[1]?.split('?')[0];
+    }
+    
+    return null;
+  };
 
   const metaTags = article?.meta_tag?.data?.attributes || {
     title: article?.title || 'CDL Help',
@@ -122,14 +151,28 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                   </blockquote>
                 );
               } else if (block.__typename === 'ComponentArticlePartsYouTube') {
-                const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
-                const videoId = parsedYoutube.url.split('.be/')[1];
-                
-                return (
-                  <div key={index}>
-                    <DynamicYouTubePlayer videoId={videoId} />
-                  </div>
-                );
+                try {
+                  const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : null;
+                  if (!parsedYoutube || !parsedYoutube.url) {
+                    console.error('Invalid YouTube data:', block.YouTube);
+                    return <div key={index}>Error: Invalid YouTube data</div>;
+                  }
+                  
+                  const videoId = extractYouTubeVideoId(parsedYoutube.url);
+                  if (!videoId) {
+                    console.error('Could not extract video ID from URL:', parsedYoutube.url);
+                    return <div key={index}>Error: Could not extract video ID from {parsedYoutube.url}</div>;
+                  }
+                  
+                  return (
+                    <div key={index}>
+                      <YouTubePlayer videoId={videoId} />
+                    </div>
+                  );
+                } catch (error) {
+                  console.error('Error processing YouTube block:', error);
+                  return <div key={index}>Error: Failed to load YouTube video</div>;
+                }
               }
               if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
                 return <div>
