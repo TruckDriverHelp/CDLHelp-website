@@ -6,9 +6,19 @@ const YouTubePlayer = ({ videoId }) => {
   const containerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [useFallback, setUseFallback] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Check if we're on the client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Load YouTube IFrame API
   useEffect(() => {
+    if (!isClient) {
+      return;
+    }
+    
     let isMounted = true;
     let timeoutId;
     
@@ -20,23 +30,34 @@ const YouTubePlayer = ({ videoId }) => {
       }
     }, 5000); // 5 second timeout
     
-    // Load the IFrame Player API code asynchronously
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    tag.async = true;
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // Initialize player when API is ready
-    window.onYouTubeIframeAPIReady = () => {
-      if (!isMounted) return;
+    // Check if API is already loaded
+    if (window.YT && window.YT.Player) {
       clearTimeout(timeoutId);
-      
+      createPlayer();
+    } else {
+      // Load the IFrame Player API code asynchronously
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      tag.async = true;
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      if (firstScriptTag) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      } else {
+        document.head.appendChild(tag);
+      }
+
+      // Initialize player when API is ready
+      window.onYouTubeIframeAPIReady = () => {
+        if (!isMounted) return;
+        clearTimeout(timeoutId);
+        createPlayer();
+      };
+    }
+
+    function createPlayer() {
       if (containerRef.current && videoId) {
         try {
           playerRef.current = new window.YT.Player(containerRef.current, {
-            height: '390',
-            width: '100%',
             videoId: videoId,
             playerVars: {
               autoplay: 0,
@@ -51,42 +72,55 @@ const YouTubePlayer = ({ videoId }) => {
                 setIsLoading(false);
               },
               onError: (event) => {
+                console.error('YouTubePlayer: Player error:', event);
                 if (!isMounted) return;
-                console.error('Player error:', event);
                 setUseFallback(true);
                 setIsLoading(false);
               }
             }
           });
         } catch (error) {
-          console.error('Error creating YouTube player:', error);
+          console.error('YouTubePlayer: Error creating player:', error);
           setUseFallback(true);
           setIsLoading(false);
         }
+      } else {
+        setUseFallback(true);
+        setIsLoading(false);
       }
-    };
+    }
 
     // Cleanup
     return () => {
       isMounted = false;
       clearTimeout(timeoutId);
-      if (playerRef.current) {
+      if (playerRef.current && typeof playerRef.current.destroy === 'function') {
         playerRef.current.destroy();
       }
-      window.onYouTubeIframeAPIReady = null;
+      if (window.onYouTubeIframeAPIReady) {
+        window.onYouTubeIframeAPIReady = null;
+      }
     };
-  }, [videoId, isLoading]);
+  }, [videoId, isLoading, isClient]);
+
+  // Show loading on server side
+  if (!isClient) {
+    return (
+      <div className={styles['youtube-player-wrapper']}>
+        <div className={styles['loading-placeholder']}>
+          Loading video...
+        </div>
+      </div>
+    );
+  }
 
   // Fallback iframe
   if (useFallback) {
     return (
-      <div className={styles['youtube-player-container']}>
+      <div className={styles['youtube-player-wrapper']}>
         <iframe
-          width="100%"
-          height="390"
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -95,13 +129,13 @@ const YouTubePlayer = ({ videoId }) => {
   }
 
   return (
-    <div className={styles['youtube-player-container']}>
+    <div className={styles['youtube-player-wrapper']}>
       {isLoading && (
         <div className={styles['loading-placeholder']}>
           Loading video...
         </div>
       )}
-      <div 
+      <div
         ref={containerRef}
         className={styles['youtube-player']}
         style={{ opacity: isLoading ? 0 : 1 }}
