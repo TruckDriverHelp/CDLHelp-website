@@ -1,6 +1,6 @@
 {
-  "pageTitle": "{{city}}, {{state}} 的 CDL 学校",
-  "description": "在 {{city}}, {{state}} 寻找商业驾驶执照 (CDL) 培训学校。获取您附近卡车驾驶学校的信息。",
+  "pageTitle": " {{state}} 的 CDL 学校",
+  "description": "在  {{state}} 寻找商业驾驶执照 (CDL) 培训学校。获取您附近卡车驾驶学校的信息。",
   "homePageText": "CDL 学校",
   "allSchoolTypes": "所有学校类型",
   "sortByName": "按名称排序",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
@@ -7,32 +7,37 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-import Layout from '../../../components/_App/Layout';
-import Navbar from '../../../components/_App/Navbar';
-import Footer from '../../../components/_App/Footer';
-import PageBannerStyle1 from '../../../components/Common/PageBannerStyle1';
-import { DynamicQuiz } from '../../../components/_App/DynamicImports';
+import Layout from '../../components/_App/Layout';
+import Navbar from '../../components/_App/Navbar';
+import Footer from '../../components/_App/Footer';
+import PageBannerStyle1 from '../../components/Common/PageBannerStyle1';
+import { DynamicQuiz } from '../../components/_App/DynamicImports';
 
-const SchoolMap = dynamic(() => import('../../../components/Common/SchoolMap'), {
+const SchoolMap = dynamic(() => import('../../components/Common/SchoolMap'), {
     ssr: false,
 });
 
-const SchoolCard = ({ school }) => {
+const SchoolCard = ({ schoolLocation }) => {
   const { t } = useTranslation('city-schools');
   const {
-    school_name,
-    phone_numbers,
+    Address,
+    phone_number,
+    coords,
+    city,
+    state,
     location,
-  } = school.attributes;
+  } = schoolLocation.attributes;
 
-  const lat = location.attributes.latitude;
-  const lon = location.attributes.longitude;
+  const lat = coords?.latitude;
+  const lon = coords?.longitude;
+
+  const stateUpper = state.toUpperCase();
 
   return (
     <div className="school-card">
       <div className="school-card-map">
         {lat && lon ? (
-            <SchoolMap lat={lat} lon={lon} />
+            <SchoolMap lat={parseFloat(lat)} lon={parseFloat(lon)} />
         ) : (
           <div className="map-placeholder">
             <p>{t('mapNotAvailable')}</p>
@@ -41,11 +46,11 @@ const SchoolCard = ({ school }) => {
       </div>
       <div className="school-card-content">
         <div className="school-card-header">
-          <h3>{school_name}</h3>
+          <h3>{location?.data?.attributes?.Name || 'CDL School'}</h3>
         </div>
         <div className="school-card-body">
-            <p><strong>{t('addressLabel')}</strong> {location.attributes.address_street}, {location.attributes.address_city}, {location.attributes.address_state} {location.attributes.address_zip}</p>
-            <p><strong>{t('phoneLabel')}</strong> {phone_numbers[0]?.attributes.phone_number}</p>
+            <p><strong>{t('addressLabel')}</strong> {Address}, {stateUpper}</p>
+            <p><strong>{t('phoneLabel')}</strong> {phone_number}</p>
         </div>
       </div>
       <style jsx>{`
@@ -94,16 +99,14 @@ const SchoolCard = ({ school }) => {
 
 const capitalizeWords = (str) => str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
-const CitySchoolsPage = ({ schools, city, state }) => {
+const StateSchoolsPage = ({ schoolLocations, state }) => {
     const { t } = useTranslation(['city-schools', 'index']);
     const router = useRouter();
     const { locale } = router;
+    const stateUpper = state.toUpperCase();
     
-    const formattedCity = capitalizeWords(city.replace(/-/g, ' '));
-    const formattedState = capitalizeWords(state.replace(/-/g, ' '));
-    
-    const pageTitle = t('pageTitle', { city: formattedCity, state: formattedState });
-    const pageDescription = t('description', { city: formattedCity, state: formattedState });
+    const pageTitle = t('pageTitle', { state: stateUpper });
+    const pageDescription = t('description', { state: stateUpper });
 
     const showQuiz = locale === 'ru' || locale === 'uk';
 
@@ -123,11 +126,11 @@ const CitySchoolsPage = ({ schools, city, state }) => {
           />
   
           <div className="container pb-100">
-            <div className="city-schools-layout">
+            <div className="state-schools-layout">
               <main className="main-content">
                 <div className="schools-list">
-                    {schools.map(school => (
-                        <SchoolCard key={school.id} school={school} />
+                    {schoolLocations.map(schoolLocation => (
+                        <SchoolCard key={schoolLocation.id} schoolLocation={schoolLocation} />
                     ))}
                 </div>
               </main>
@@ -183,7 +186,7 @@ const CitySchoolsPage = ({ schools, city, state }) => {
           <Footer />
         </Layout>
         <style jsx>{`
-          .city-schools-layout {
+          .state-schools-layout {
             display: flex;
             gap: 2rem;
             margin-top: 20px;
@@ -201,7 +204,7 @@ const CitySchoolsPage = ({ schools, city, state }) => {
             padding: 20px;
           }
           @media (max-width: 991px) {
-            .city-schools-layout {
+            .state-schools-layout {
               flex-direction: column;
             }
             .sidebar {
@@ -216,25 +219,23 @@ const CitySchoolsPage = ({ schools, city, state }) => {
   
   export async function getStaticPaths() {
       try {
-          const { data: locationsData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/locations`, {
+          const { data: schoolLocationsData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/school-locations?populate[location]=*`, {
               headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` },
           });
   
-          const locations = locationsData.data;
-          const locationSet = new Set();
+          const schoolLocations = schoolLocationsData.data;
+          const stateSet = new Set();
   
-          locations.forEach(location => {
-              const attributes = location.attributes;
-              if (attributes && attributes.address_city && attributes.address_state) {
-                  const citySlug = attributes.address_city.toLowerCase().replace(/\s+/g, '-');
-                  const stateSlug = attributes.address_state.toLowerCase().replace(/\s+/g, '-');
-                  locationSet.add(`${stateSlug}/${citySlug}`);
+          schoolLocations.forEach(schoolLocation => {
+              const attributes = schoolLocation.attributes;
+              if (attributes && attributes.state) {
+                  const stateSlug = attributes.state.toLowerCase().replace(/\s+/g, '-');
+                  stateSet.add(stateSlug);
               }
           });
   
-          const paths = Array.from(locationSet).map(slug => {
-              const [state, city] = slug.split('/');
-              return { params: { state, city } };
+          const paths = Array.from(stateSet).map(state => {
+              return { params: { state } };
           });
   
           return {
@@ -252,55 +253,42 @@ const CitySchoolsPage = ({ schools, city, state }) => {
   
   
   export async function getStaticProps({ params, locale }) {
-      const { city, state } = params;
-      const originalCity = city.replace(/-/g, ' ');
+      const { state } = params;
       const originalState = state.replace(/-/g, ' ');
   
       try {
-          const { data: schoolsData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/schools?populate[location]=*&populate[phone_numbers]=*`, {
+          const { data: schoolLocationsData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/school-locations?populate[location]=*`, {
               headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` },
           });
 
-          const allSchools = schoolsData.data;
+          const allSchoolLocations = schoolLocationsData.data;
 
-          const schoolsInCity = allSchools.filter(school => {
-              const locationAttrs = school.attributes.location?.data[0]?.attributes;
+          const schoolLocationsInState = allSchoolLocations.filter(schoolLocation => {
+              const attributes = schoolLocation.attributes;
               return (
-                  locationAttrs &&
-                  locationAttrs.address_city.toLowerCase() === originalCity.toLowerCase() &&
-                  locationAttrs.address_state.toLowerCase() === originalState.toLowerCase()
+                  attributes &&
+                  attributes.state.toLowerCase() === originalState.toLowerCase()
               );
-          }).map(school => {
-              return {
-                  id: school.id,
-                  attributes: {
-                      ...school.attributes,
-                      location: school.attributes.location.data[0],
-                      phone_numbers: school.attributes.phone_numbers.data,
-                  }
-              }
           });
 
-          if (!schoolsInCity || schoolsInCity.length === 0) {
+          if (!schoolLocationsInState || schoolLocationsInState.length === 0) {
               return { notFound: true };
           }
   
           return {
               props: {
-                  schools: schoolsInCity,
-                  city: params.city,
+                  schoolLocations: schoolLocationsInState,
                   state: params.state,
                   ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer', 'common', 'city-schools', 'index'])),
               },
               revalidate: 1,
           };
       } catch (error) {
-          console.error(`Error fetching and processing data for ${originalCity}, ${originalState}:`, error.response ? error.response.data : error.message);
+          console.error(`Error fetching and processing data for ${originalState}:`, error.response ? error.response.data : error.message);
           return {
               notFound: true,
           };
       }
   }
   
-  export default CitySchoolsPage;
-  
+  export default StateSchoolsPage; 
