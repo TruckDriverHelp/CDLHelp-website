@@ -1,23 +1,30 @@
 {
-    "methods": "Aşağıdaki yöntemleri de kullanabilirsiniz",
-    "support": "Destek Servisi",
-    "telegramGroup": "Telegram Sohbeti",
-
-    "error.allfieds": "Lütfen tüm alanları doldurun",
-    "error.validemail": "Lütfen geçerli bir e-posta adresi girin",
-    "error.validnumber": "Lütfen geçerli bir numara girin. + işaretini unutmayın",
-
-    "title": "Geri Bildirim Formu",
-    "heading": "Bizimle iletişime geçmek için geri bildirim formunu kullanabilirsiniz. Ekibimiz en kısa sürede sizinle iletişime geçecektir",
-
-    "placeholder.name": "Ad Soyad",
-    "placeholder.email": "E-posta",
-    "placeholder.phonenumber": "Telefon Numarası",
-    "placeholder.emailsubject": "Konu",
-    "placeholder.text": "Mesajınız",
-
-    "send": "Gönder",
-
-    "sentTitle": "Teşekkürler!",
-    "sentText": "Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz"
+  "methods": "Aşağıdaki yöntemleri de kullanabilirsiniz",
+  "support": "Destek Servisi",
+  "telegramGroup": "Telegram Sohbeti",
+  "error.allfieds": "Lütfen tüm alanları doldurun",
+  "error.validemail": "Lütfen geçerli bir e-posta adresi girin",
+  "error.validnumber": "Lütfen geçerli bir numara girin. + işaretini unutmayın",
+  "title": "Geri Bildirim Formu",
+  "heading": "Bizimle iletişime geçmek için geri bildirim formunu kullanabilirsiniz. Ekibimiz en kısa sürede sizinle iletişime geçecektir",
+  "placeholder.name": "Ad Soyad",
+  "placeholder.email": "E-posta",
+  "placeholder.phonenumber": "Telefon Numarası",
+  "placeholder.emailsubject": "Konu",
+  "placeholder.text": "Mesajınız",
+  "send": "Gönder",
+  "sentTitle": "Teşekkürler!",
+  "sentText": "Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }

@@ -1,23 +1,30 @@
 {
-    "methods": "Ви також можете скористатися такими способами",
-    "support": "Служба підтримки",
-    "telegramGroup": "Чат у Telegram",
-
-    "error.allfieds": "Будь ласка, заповніть усі поля",
-    "error.validemail": "Будь ласка, введіть дійсну адресу електронної пошти",
-    "error.validnumber": "Будь ласка, введіть дійсний номер. Не забудьте вказати +",
-
-    "title": "Форма зворотного зв'язку",
-    "heading": "Зв'яжіться з нами через форму зворотного зв'язку. Наші співробітники дадуть відповідь вам у найкоротші терміни",
-
-    "placeholder.name": "Повне ім'я",
-    "placeholder.email": "Електронна пошта",
-    "placeholder.phonenumber": "Номер телефону",
-    "placeholder.emailsubject": "Тема",
-    "placeholder.text": "Ваше повідомлення",
-
-    "send": "Відправити",
-
-    "sentTitle": "Дякуємо!",
-    "sentText": "Ваше повідомлення відправлено! Постараємося зв'язатися з вами якомога швидше"
+  "methods": "Ви також можете скористатися такими способами",
+  "support": "Служба підтримки",
+  "telegramGroup": "Чат у Telegram",
+  "error.allfieds": "Будь ласка, заповніть усі поля",
+  "error.validemail": "Будь ласка, введіть дійсну адресу електронної пошти",
+  "error.validnumber": "Будь ласка, введіть дійсний номер. Не забудьте вказати +",
+  "title": "Форма зворотного зв'язку",
+  "heading": "Зв'яжіться з нами через форму зворотного зв'язку. Наші співробітники дадуть відповідь вам у найкоротші терміни",
+  "placeholder.name": "Повне ім'я",
+  "placeholder.email": "Електронна пошта",
+  "placeholder.phonenumber": "Номер телефону",
+  "placeholder.emailsubject": "Тема",
+  "placeholder.text": "Ваше повідомлення",
+  "send": "Відправити",
+  "sentTitle": "Дякуємо!",
+  "sentText": "Ваше повідомлення відправлено! Постараємося зв'язатися з вами якомога швидше",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }

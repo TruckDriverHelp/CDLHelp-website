@@ -5,7 +5,10 @@
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "npm run check:translations && next build",
+        "build:force": "next build",
+        "check:translations": "node scripts/check-translations.js",
+        "fix:translations": "node scripts/fix-translations.js",
         "sitemap": "next-sitemap --config next-sitemap.config.js",
         "start": "next start"
     },

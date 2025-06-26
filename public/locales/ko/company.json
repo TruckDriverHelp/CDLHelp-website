@@ -1,0 +1,15 @@
+{
+  "pageTitle": "[KO] {{company}} - Trucking Company Details",
+  "description": "[KO] Learn more about {{company}} - find locations, pay rates, and job opportunities for CDL drivers.",
+  "homePageText": "[KO] Companies",
+  "payRate": "[KO] Pay Rate",
+  "driverTypes": "[KO] Driver Types",
+  "trailerTypes": "[KO] Trailer Types",
+  "truckTypes": "[KO] Truck Types",
+  "locationsTitle": "[KO] Locations ({{count}})",
+  "addressLabel": "[KO] Address:",
+  "zipLabel": "[KO] ZIP:",
+  "phoneLabel": "[KO] Phone:",
+  "mapNotAvailable": "[KO] Map not available",
+  "tryPermitQuiz": "[KO] Try Our CDL Permit Quiz"
+}

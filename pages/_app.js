@@ -26,6 +26,7 @@ import nextI18NextConfig from '../next-i18next.config'
 const Layout = lazy(() => import('../components/_App/Layout'));
 const Pixel = lazy(() => import('../components/Pixel'));
 const CookieConsentBanner = lazy(() => import("../components/_App/CookieConsentBanner.js"));
+const TawkTo = lazy(() => import("../components/_App/TawkTo.js"));
 
 const MyApp = ({ Component, pageProps, articles }) => {
 	const router = useRouter()
@@ -89,6 +90,11 @@ const MyApp = ({ Component, pageProps, articles }) => {
 							`,
 						}}
 					/>
+
+					{/* Tawk.to - Load on user interaction */}
+					<Suspense fallback={null}>
+						<TawkTo />
+					</Suspense>
 
 					{/* Preload critical assets */}
 					<link rel="preload" href="/css/main.css" as="style" />

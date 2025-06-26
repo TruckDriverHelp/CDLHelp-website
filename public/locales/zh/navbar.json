@@ -1,9 +1,13 @@
 {
     "main": "首页",
-    "resources": "首页",
-    "workForTruckers": "Jobs",
-    "cdlSchool": "CDL 学校",
-    "contacts": "联系方式",
+    "resources": "资源",
+    "workForTruckers": "招聘信息",
+    "cdlSchool": "CDL学校",
+    "cdlSchools": "CDL学校",
+    "companies": "公司",
+    "contacts": "联系我们",
+    "dotPhysicalLookup": "DOT体检查询",
+    "roadSignsTest": "道路标志测试",
     "dotPhysicalLookup": "DOT体检查询",
     "roadSignsTest": "道路标志测试"
 }

@@ -399,19 +399,19 @@ const Navbar = ({ alternateLinks }) => {
                       )}
                     </ul>
                   </li>
-                  {/* <>
-                      <li className="nav-item">
-                        <Link href="/cdl-shkola">
-                          <a className="nav-link">{t("cdlSchool")}</a>
-                        </Link>
-                      </li>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="https://www.mir.chat/">
-                          Mir.chat
-                        </a>
-                      </li>
-                    </> */}
+                  
+                  <li className="nav-item">
+                    <Link href="/cdl-schools" locale={locale}>
+                      <a className="nav-link">{getTranslation("cdlSchools")}</a>
+                    </Link>
+                  </li>
+{/* 
+                  <li className="nav-item">
+                    <Link href="/companies" locale={locale}>
+                      <a className="nav-link">{getTranslation("companies")}</a>
+                    </Link>
+                  </li> */}
+
                   {locale == "ru" && <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       DMV Help

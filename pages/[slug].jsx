@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
+import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
 import remarkGfm from "remark-gfm";
@@ -64,6 +65,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
             key={index}
             rel="alternate"
             href={process.env.BASE_URL + link.href}
+            href={process.env.BASE_URL + link.href}
             hrefLang={link.hrefLang}
           />
         ))}
@@ -100,6 +102,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 "@type": "Organization",
                 name: "CDL Help",
                 url: "https://www.cdlhelp.com"
+                url: "https://www.cdlhelp.com"
               }
             })}`
           }}
@@ -114,6 +117,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           homePageText="Главная Страница"
           activePageText={article.title}
         />
+        <div className="blog-details-area pb-75 col-11 col-md-6 mx-auto">
         <div className="blog-details-area pb-75 col-11 col-md-6 mx-auto">
             <p>{article.description}</p>
             {article.blocks.map((block, index) => {
@@ -216,6 +220,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
               return null;
             })}
 
+          </div>
           </div>
         <Footer />
       </Layout>
