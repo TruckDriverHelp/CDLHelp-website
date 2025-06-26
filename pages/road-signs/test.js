@@ -27,18 +27,15 @@ const SignsTest = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`,
+          `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
+              Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
             }
           }
         );
         const data = await response.json();
         console.log(data)
-        console.log(process.env.NEXT_PUBLIC_STRAPI_URL)
-        console.log(locale)
-        console.log(process.env.STRAPI_TOKEN)
         if (data.data && Array.isArray(data.data)) {
           setSigns(data.data);
         } else {
@@ -276,7 +273,7 @@ const SignsTest = () => {
                 }}>
                   {currentSign.attributes.Sign.data?.attributes.url && (
                     <img
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${currentSign.attributes.Sign.data.attributes.url}`}
+                      src={`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}${currentSign.attributes.Sign.data.attributes.url}`}
                       alt={currentSign.attributes.original_name}
                       style={{ 
                         maxWidth: '100%',
