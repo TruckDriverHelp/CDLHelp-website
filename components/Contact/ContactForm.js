@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
-import baseUrl from '@/utils/baseUrl'
+import baseUrl from '../../utils/baseUrl'
 import GoogleMap from './GoogleMap';
 import { useTranslation } from 'next-i18next';
 
 const alertContent = (t) => {
-    MySwal.fire({
+    Swal.fire({
         title: t("sentTitle"),
         text: t("sentText"),
         icon: 'success',
@@ -34,7 +32,6 @@ const ContactForm = () => {
     const handleChange = e => {
         const { name, value } = e.target;
         setContact(prevState => ({ ...prevState, [name]: value }));
-        // console.log(contact)
     }
 
     const handleSubmit = async (e) => {
@@ -62,12 +59,11 @@ const ContactForm = () => {
         try {
           const url = `/api/contact`;
           const payload = { name, email, number, subject, text };
-          const response = await axios.post(url, payload);
-          console.log(response);
+          await axios.post(url, payload);
           setContact(INITIAL_STATE);
           alertContent(t);
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       };
 

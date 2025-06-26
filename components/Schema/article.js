@@ -9,7 +9,7 @@ export default function ArticleSchema(slug, headline, images,) {
         "author": [{
             "@type": "Organization",
             "name": "CDL Help",
-            "url": "https://cdlhelp.com"
+            "url": "https://www.cdlhelp.com"
         }
         ]
     }

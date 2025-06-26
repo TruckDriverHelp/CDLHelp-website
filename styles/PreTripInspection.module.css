@@ -1,0 +1,228 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px; /* Add space for fixed navbar */
+  min-height: calc(100vh - 80px - 300px); /* Viewport height minus navbar and footer */
+}
+
+/* Guide page styles */
+.guideContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px;
+  min-height: calc(100vh - 80px - 300px);
+}
+
+.guideHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.guideTitle {
+  font-size: 2.5rem;
+  color: #3c3d78;
+  margin-bottom: 1.5rem;
+}
+
+.guideIntro {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.guideIntro p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.sectionsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sectionCard {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sectionCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #3c3d78;
+}
+
+.sectionCard:hover .sectionTitle,
+.sectionCard:hover .sectionSubtitle {
+  color: white;
+}
+
+.sectionNumber {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3c3d78;
+  margin-right: 1rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.sectionCard:hover .sectionNumber {
+  color: white;
+}
+
+.sectionContent {
+  flex: 1;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: #666;
+  transition: color 0.2s;
+}
+
+/* Existing styles */
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.fileList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.fileCard {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fileCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.fileTitle {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.fileSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.languageGroup {
+  margin-bottom: 1.5rem;
+}
+
+.itemTitle {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.pronunciation {
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.translation {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.notes {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.textList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.textList > div {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.text {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.navButton {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background-color: #3c3d78;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: #2d2e5a;
+}
+
+.navButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} 

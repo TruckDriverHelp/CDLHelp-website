@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Школы CDL в {{state}}",
+  "description": "Найдите школы для получения коммерческих водительских прав (CDL) в {{state}}. Получите информацию о школах вождения грузовиков рядом с вами.",
+  "homePageText": "Школы CDL",
+  "allSchoolTypes": "Все типы школ",
+  "sortByName": "Сортировать по имени",
+  "advertisementAlt": "Реклама приложения CDL Help",
+  "mapNotAvailable": "Карта недоступна",
+  "addressLabel": "Адрес:",
+  "phoneLabel": "Телефон:",
+  "tryPermitQuiz": "Попробуйте пройти тест",
+  "selectState": "Выберите штат",
+  "selectStateDescription": "Найдите CDL школы в вашем штате"
+} 

@@ -14,8 +14,15 @@ class MyDocument extends Document {
         return (
             <Html lang={locale}>
                 <Head>
-                    <link rel="icon" href="/images/favicon.ico"></link>
+                    <link rel="icon" href="/images/favicon.ico" />
+                    <link 
+                      rel="preload" 
+                      as="image" 
+                      href="/images/video/video-3-no-text.webp" 
+                      type="image/webp"
+                    />
                     <FACEBOOK_PIXEL_1 />
+                    
                 </Head>
                 <body>
                     <Main />

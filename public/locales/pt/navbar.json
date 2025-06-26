@@ -1,7 +1,11 @@
 {
     "main": "Início",
     "resources": "Recursos",
-    "workForTruckers": "Encontre um emprego",
-    "cdlSchool": "Escola de CDL",
-    "contacts": "Contato"
+    "workForTruckers": "Empregos",
+    "cdlSchool": "Escola CDL",
+    "cdlSchools": "Escolas CDL",
+    "companies": "Empresas",
+    "contacts": "Contato",
+    "dotPhysicalLookup": "Busca de Exame Físico DOT",
+    "roadSignsTest": "Teste de Sinais de Trânsito"
 }

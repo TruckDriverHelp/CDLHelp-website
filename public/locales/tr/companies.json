@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Nakliye Şirketleri - CDL Help",
+  "pageDescription": "CDL sürücüleri için en iyi nakliye şirketlerini bulun. İş fırsatlarını, maaşları ve şirket bilgilerini inceleyin.",
+  "companiesTitle": "Nakliye Şirketleri",
+  "companiesSubtitle": "CDL sürücü arayan {{count}} şirket bulundu",
+  "homePageText": "Ana Sayfa",
+  "payRate": "Ödeme Oranı",
+  "driverTypes": "Sürücü Türleri",
+  "trailerTypes": "Römork Türleri",
+  "truckTypes": "Kamyon Türleri",
+  "locations": "Konumlar",
+  "location": "konum",
+  "moreLocations": "daha fazla konum",
+  "viewDetails": "Detayları Görüntüle",
+  "callNow": "Şimdi Ara",
+  "noCompaniesTitle": "Şirket Bulunamadı",
+  "noCompaniesText": "Şu anda herhangi bir şirket bulamadık. Lütfen daha sonra tekrar kontrol edin.",
+  "tryPermitQuiz": "CDL Ruhsat Sınavımızı Deneyin"
+} 

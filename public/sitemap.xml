@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap><loc>https://www.cdlhelp.com/sitemap-0.xml</loc></sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-0.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-ko.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-ru.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-en.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-uk.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-zh.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-ar.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-tr.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-pt.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
+<sitemap>
+  <loc>https://www.cdlhelp.com/sitemap-static.xml</loc>
+  <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+</sitemap>
 </sitemapindex>

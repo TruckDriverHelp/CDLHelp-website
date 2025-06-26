@@ -3,5 +3,9 @@
     "resources": "Ресурси",
     "workForTruckers": "Робота для далекобійників",
     "cdlSchool": "CDL школа",
-    "contacts": "Контакти"
+    "cdlSchools": "CDL Школи",
+    "companies": "Компанії",
+    "contacts": "Контакти",
+    "dotPhysicalLookup": "Пошук DOT медогляду",
+    "roadSignsTest": "Тест по дорожніх знаках"
 }

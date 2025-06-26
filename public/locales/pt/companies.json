@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Empresas de Transporte - CDL Help",
+  "pageDescription": "Encontre as melhores empresas de transporte para motoristas CDL. Navegue por oportunidades de trabalho, salários e informações da empresa.",
+  "companiesTitle": "Empresas de Transporte",
+  "companiesSubtitle": "Encontradas {{count}} empresas contratando motoristas CDL",
+  "homePageText": "Início",
+  "payRate": "Taxa de Pagamento",
+  "driverTypes": "Tipos de Motorista",
+  "trailerTypes": "Tipos de Reboque",
+  "truckTypes": "Tipos de Caminhão",
+  "locations": "Localizações",
+  "location": "localização",
+  "moreLocations": "mais localizações",
+  "viewDetails": "Ver Detalhes",
+  "callNow": "Ligue Agora",
+  "noCompaniesTitle": "Nenhuma Empresa Encontrada",
+  "noCompaniesText": "Não conseguimos encontrar nenhuma empresa no momento. Verifique novamente mais tarde.",
+  "tryPermitQuiz": "Experimente nosso Teste de Licença CDL"
+} 

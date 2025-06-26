@@ -1,0 +1,19 @@
+{
+  "pageTitle": "运输公司 - CDL Help",
+  "pageDescription": "为CDL司机寻找最佳运输公司。浏览工作机会、薪资和公司信息。",
+  "companiesTitle": "运输公司",
+  "companiesSubtitle": "找到{{count}}家招聘CDL司机的公司",
+  "homePageText": "首页",
+  "payRate": "薪资",
+  "driverTypes": "司机类型",
+  "trailerTypes": "拖车类型",
+  "truckTypes": "卡车类型",
+  "locations": "地点",
+  "location": "地点",
+  "moreLocations": "更多地点",
+  "viewDetails": "查看详情",
+  "callNow": "立即致电",
+  "noCompaniesTitle": "未找到公司",
+  "noCompaniesText": "目前我们找不到任何公司。请稍后再试。",
+  "tryPermitQuiz": "试试我们的CDL许可证测试"
+} 

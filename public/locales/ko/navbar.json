@@ -1,7 +1,11 @@
 {
     "main": "홈",
     "resources": "자료",
-    "workForTruckers": "트럭 운전사 취업 정보",
-    "cdlSchool": "CDL 학원",
-    "contacts": "연락처"
+    "workForTruckers": "채용정보",
+    "cdlSchool": "CDL 학교",
+    "cdlSchools": "CDL 학교들",
+    "companies": "회사들",
+    "contacts": "연락처",
+    "dotPhysicalLookup": "DOT 신체검사 검색",
+    "roadSignsTest": "도로 표지판 테스트"
 }

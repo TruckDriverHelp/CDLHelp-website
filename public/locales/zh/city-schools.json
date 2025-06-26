@@ -1,0 +1,14 @@
+{
+  "pageTitle": "{{state}}的CDL学校",
+  "description": "在{{state}}寻找商业驾驶执照(CDL)培训学校。获取您附近卡车驾驶学校的信息。",
+  "homePageText": "CDL学校",
+  "allSchoolTypes": "所有学校类型",
+  "sortByName": "按名称排序",
+  "advertisementAlt": "CDL Help应用广告",
+  "mapNotAvailable": "地图不可用",
+  "addressLabel": "地址:",
+  "phoneLabel": "电话:",
+  "tryPermitQuiz": "尝试许可证测试",
+  "selectState": "选择州",
+  "selectStateDescription": "在您的州寻找CDL学校"
+} 

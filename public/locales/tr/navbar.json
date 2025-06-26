@@ -1,7 +1,11 @@
 {
-    "main": "Anasayfa",
+    "main": "Ana Sayfa",
     "resources": "Kaynaklar",
-    "workForTruckers": "Jobs",
+    "workForTruckers": "İş İlanları",
     "cdlSchool": "CDL Okulu",
-    "contacts": "İletişim"
+    "cdlSchools": "CDL Okulları",
+    "companies": "Şirketler",
+    "contacts": "İletişim",
+    "dotPhysicalLookup": "DOT Fizik Muayene Arama",
+    "roadSignsTest": "Trafik İşaretleri Testi"
 }
