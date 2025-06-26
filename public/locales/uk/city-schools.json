@@ -1,12 +1,14 @@
 {
-  "pageTitle": "Школи CDL у {{city}}, {{state}}",
-  "description": "Знайдіть школи для отримання комерційних водійських прав (CDL) у {{city}}, {{state}}. Отримайте інформацію про школи водіння вантажівок поруч з вами.",
+  "pageTitle": "Школи CDL в {{state}}",
+  "description": "Знайдіть школи для отримання комерційних водійських прав (CDL) в {{state}}. Отримайте інформацію про школи водіння вантажівок поруч з вами.",
   "homePageText": "Школи CDL",
-  "allSchoolTypes": "Усі типи шкіл",
+  "allSchoolTypes": "Всі типи шкіл",
   "sortByName": "Сортувати за назвою",
-  "advertisementAlt": "Реклама додатка CDL Help",
+  "advertisementAlt": "Реклама додатку CDL Help",
   "mapNotAvailable": "Карта недоступна",
   "addressLabel": "Адреса:",
   "phoneLabel": "Телефон:",
-  "tryPermitQuiz": "Спробуйте пройти тест"
+  "tryPermitQuiz": "Спробуйте пройти тест",
+  "selectState": "Виберіть штат",
+  "selectStateDescription": "Знайдіть CDL школи у вашому штаті"
 } 

@@ -1,12 +1,14 @@
 {
-  "pageTitle": "مدارس CDL في {{city}}، {{state}}",
-  "description": "ابحث عن مدارس تدريب رخصة القيادة التجارية (CDL) في {{city}}، {{state}}. احصل على معلومات حول مدارس قيادة الشاحنات بالقرب منك.",
+  "pageTitle": "مدارس CDL في {{state}}",
+  "description": "ابحث عن مدارس تدريب رخصة القيادة التجارية (CDL) في {{state}}. احصل على معلومات حول مدارس قيادة الشاحنات بالقرب منك.",
   "homePageText": "مدارس CDL",
   "allSchoolTypes": "جميع أنواع المدارس",
-  "sortByName": "فرز حسب الاسم",
+  "sortByName": "ترتيب حسب الاسم",
   "advertisementAlt": "إعلان تطبيق CDL Help",
-  "mapNotAvailable": "الخريطة غير متوفرة",
+  "mapNotAvailable": "الخريطة غير متاحة",
   "addressLabel": "العنوان:",
   "phoneLabel": "الهاتف:",
-  "tryPermitQuiz": "جرّب اختبار التصريح"
+  "tryPermitQuiz": "جرب اختبار الرخصة",
+  "selectState": "اختر الولاية",
+  "selectStateDescription": "ابحث عن مدارس CDL في ولايتك"
 } 

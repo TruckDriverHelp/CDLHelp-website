@@ -30,42 +30,6 @@ const TopContainer = () => {
 
               <p style={{ textAlign: 'center', margin: 0, marginBottom: '40px' }}>{t('description')}</p>
               </div>
-              
-              {/* Telegram Group Link - Only for RU and UK locales */}
-              {(router.locale === 'ru' || router.locale === 'uk') && (
-                <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'center', 
-                  alignItems: 'center', 
-                  gap: '8px',
-                  marginBottom: '20px'
-                }}>
-                  <a 
-                    href="https://www.t.me/truckdrivergroup" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      color: '#0088cc',
-                      textDecoration: 'none',
-                      fontSize: '16px',
-                      fontWeight: '500'
-                    }}
-                  >
-                    <i 
-                      className="ri-telegram-fill" 
-                      style={{ 
-                        fontSize: '20px',
-                        color: '#0088cc'
-                      }}
-                    ></i>
-                    Группа Телеграм
-                  </a>
-                </div>
-              )}
-              
               <div>
                 <DynamicQuiz contained={true} />
               </div>

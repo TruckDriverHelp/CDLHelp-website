@@ -1,0 +1,15 @@
+{
+  "pageTitle": "[ZH] {{company}} - Trucking Company Details",
+  "description": "[ZH] Learn more about {{company}} - find locations, pay rates, and job opportunities for CDL drivers.",
+  "homePageText": "[ZH] Companies",
+  "payRate": "[ZH] Pay Rate",
+  "driverTypes": "[ZH] Driver Types",
+  "trailerTypes": "[ZH] Trailer Types",
+  "truckTypes": "[ZH] Truck Types",
+  "locationsTitle": "[ZH] Locations ({{count}})",
+  "addressLabel": "[ZH] Address:",
+  "zipLabel": "[ZH] ZIP:",
+  "phoneLabel": "[ZH] Phone:",
+  "mapNotAvailable": "[ZH] Map not available",
+  "tryPermitQuiz": "[ZH] Try Our CDL Permit Quiz"
+}

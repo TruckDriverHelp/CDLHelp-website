@@ -8,7 +8,7 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],
     },
-    trailingSlash: true,
+    trailingSlash: false,
     i18n: {
         locales: ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
         defaultLocale: "en",

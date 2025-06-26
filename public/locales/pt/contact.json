@@ -1,23 +1,30 @@
 {
-    "methods": "Você também pode utilizar os seguintes métodos",
-    "support": "Suporte",
-    "telegramGroup": "Grupo do Telegram",
-
-    "error.allfields": "Por favor, preencha todos os campos",
-    "error.validemail": "Por favor, insira um endereço de e-mail válido",
-    "error.validnumber": "Por favor, insira um número válido. Não esqueça do sinal de +",
-
-    "title": "Formulário de Contato",
-    "heading": "Para entrar em contato conosco, você pode usar o formulário de contato. Nossa equipe entrará em contato com você em breve",
-
-    "placeholder.name": "Nome completo",
-    "placeholder.email": "Email",
-    "placeholder.phonenumber": "Número de telefone",
-    "placeholder.emailsubject": "Assunto",
-    "placeholder.text": "Sua mensagem",
-
-    "send": "Enviar",
-
-    "sentTitle": "Obrigado!",
-    "sentText": "Sua mensagem foi enviada com sucesso! Entraremos em contato em breve"
+  "methods": "Você também pode utilizar os seguintes métodos",
+  "support": "Suporte",
+  "telegramGroup": "Grupo do Telegram",
+  "error.allfields": "Por favor, preencha todos os campos",
+  "error.validemail": "Por favor, insira um endereço de e-mail válido",
+  "error.validnumber": "Por favor, insira um número válido. Não esqueça do sinal de +",
+  "title": "Formulário de Contato",
+  "heading": "Para entrar em contato conosco, você pode usar o formulário de contato. Nossa equipe entrará em contato com você em breve",
+  "placeholder.name": "Nome completo",
+  "placeholder.email": "Email",
+  "placeholder.phonenumber": "Número de telefone",
+  "placeholder.emailsubject": "Assunto",
+  "placeholder.text": "Sua mensagem",
+  "send": "Enviar",
+  "sentTitle": "Obrigado!",
+  "sentText": "Sua mensagem foi enviada com sucesso! Entraremos em contato em breve",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }

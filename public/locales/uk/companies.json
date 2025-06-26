@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Транспортні компанії - CDL Help",
+  "pageDescription": "Знайдіть найкращі транспортні компанії для водіїв CDL. Переглядайте вакансії, зарплати та інформацію про компанії.",
+  "companiesTitle": "Транспортні компанії",
+  "companiesSubtitle": "Знайдено {{count}} компаній, які наймають водіїв CDL",
+  "homePageText": "Головна",
+  "payRate": "Оплата",
+  "driverTypes": "Типи водіїв",
+  "trailerTypes": "Типи причепів",
+  "truckTypes": "Типи вантажівок",
+  "locations": "Локації",
+  "location": "локація",
+  "moreLocations": "ще локацій",
+  "viewDetails": "Детальніше",
+  "callNow": "Подзвонити",
+  "noCompaniesTitle": "Компанії не знайдені",
+  "noCompaniesText": "Ми не змогли знайти компанії на даний момент. Будь ласка, перевірте пізніше.",
+  "tryPermitQuiz": "Спробуйте наш тест на дозвіл CDL"
+} 

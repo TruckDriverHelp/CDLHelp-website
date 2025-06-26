@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Trucking Companies - CDL Help",
+  "pageDescription": "Find the best trucking companies for CDL drivers. Browse job opportunities, pay rates, and company information.",
+  "companiesTitle": "Trucking Companies",
+  "companiesSubtitle": "Found {{count}} companies hiring CDL drivers",
+  "homePageText": "Home",
+  "payRate": "Pay Rate",
+  "driverTypes": "Driver Types",
+  "trailerTypes": "Trailer Types",
+  "truckTypes": "Truck Types",
+  "locations": "Locations",
+  "location": "location",
+  "moreLocations": "more locations",
+  "viewDetails": "View Details",
+  "callNow": "Call Now",
+  "noCompaniesTitle": "No Companies Found",
+  "noCompaniesText": "We couldn't find any companies at the moment. Please check back later.",
+  "tryPermitQuiz": "Try Our CDL Permit Quiz"
+} 
