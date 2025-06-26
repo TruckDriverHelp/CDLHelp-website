@@ -1,0 +1,19 @@
+{
+  "pageTitle": "운송 회사 - CDL Help",
+  "pageDescription": "CDL 운전자를 위한 최고의 운송 회사를 찾아보세요. 구인 정보, 급여, 회사 정보를 확인하세요.",
+  "companiesTitle": "운송 회사",
+  "companiesSubtitle": "CDL 운전자를 채용하는 {{count}}개 회사를 찾았습니다",
+  "homePageText": "홈",
+  "payRate": "급여",
+  "driverTypes": "운전자 유형",
+  "trailerTypes": "트레일러 유형",
+  "truckTypes": "트럭 유형",
+  "locations": "위치",
+  "location": "위치",
+  "moreLocations": "더 많은 위치",
+  "viewDetails": "자세히 보기",
+  "callNow": "지금 전화",
+  "noCompaniesTitle": "회사를 찾을 수 없습니다",
+  "noCompaniesText": "현재 회사를 찾을 수 없습니다. 나중에 다시 확인해 주세요.",
+  "tryPermitQuiz": "CDL 허가증 퀴즈를 시도해보세요"
+} 

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 
 const PUBLIC_FILE = /\.(.*)$/
 
@@ -12,10 +12,10 @@ export async function middleware(req) {
     }
 
     if (req.nextUrl.locale === 'default') {
-        const locale = req.cookies.get('NEXT_LOCALE')?.value || 'ru'
-
+        const locale = req.cookies.get('NEXT_LOCALE')?.value || 'default'
         return NextResponse.redirect(
-            new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url)
+            new URL(`/en${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),
+            301
         )
     }
 }

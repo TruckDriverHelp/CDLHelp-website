@@ -1,0 +1,15 @@
+{
+  "pageTitle": "{{company}} - Детали транспортной компании",
+  "description": "Узнайте больше о {{company}} - найдите локации, зарплаты и возможности работы для водителей CDL.",
+  "homePageText": "Компании",
+  "payRate": "Оплата",
+  "driverTypes": "Типы водителей",
+  "trailerTypes": "Типы прицепов",
+  "truckTypes": "Типы грузовиков",
+  "locationsTitle": "Локации ({{count}})",
+  "addressLabel": "Адрес:",
+  "zipLabel": "Индекс:",
+  "phoneLabel": "Телефон:",
+  "mapNotAvailable": "Карта недоступна",
+  "tryPermitQuiz": "Попробуйте наш тест на разрешение CDL"
+} 

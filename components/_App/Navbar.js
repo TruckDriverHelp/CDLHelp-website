@@ -1,7 +1,7 @@
 // Navbar Component Style File Path: public/css/pages-and-components-css/navbar.scss
 
 import React from "react";
-import Link from "@/utils/ActiveLink";
+import Link from "../../utils/ActiveLink";
 import Image from "next/image";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from "next-i18next";
@@ -9,6 +9,10 @@ import { useRouter } from "next/router";
 
 const articleList = {
   "en": [
+    {
+      "title": "Pre-Trip Inspection Guide",
+      "slug": "pre-trip-inspection/guide"
+    },
     {
       "title": "How to become a Truck Driver in USA",
       "slug": "how-to-become-a-truck-driver"
@@ -23,7 +27,7 @@ const articleList = {
     },
     {
       "title": "How to get a CDL Permit",
-      "slug": "how-to-get-cip-permit"
+      "slug": "how-to-get-cdl-permit"
     },
     {
       "title": "Frequently Asked Questions CDL help",
@@ -40,6 +44,10 @@ const articleList = {
   ],
   "ru": [
     {
+      "title": "Руководство по Pre-Trip Inspection",
+      "slug": "pre-trip-inspection/guide"
+    },
+    {
       "title": "Как стать дальнобойщиком в США",
       "slug": "kak-stat-dalnoboishikom"
     },
@@ -52,8 +60,8 @@ const articleList = {
       "slug": "kak-ispolzovat-cdlhelp"
     },
     {
-      "title": "Как получить CLP пермит",
-      "slug": "kak-poluchit-clp-permit"
+      "title": "Как получить CDL пермит",
+      "slug": "kak-poluchit-cdl-permit"
     },
     {
       "title": "Часто задаваемые вопросы",
@@ -70,8 +78,12 @@ const articleList = {
   ],
   "uk": [
     {
+      "title": "Посібник з передрейсового огляду",
+      "slug": "pre-trip-inspection/guide"
+    },
+    {
       "title": "Як стати водієм вантажівки в США",
-      "slug": "yak-staty-vodiyem-vantazhivky-v-amerytsi"
+      "slug": "yak-staty-dalekobiinykom-v-Amerytsi"
     },
     {
       "title": "Як отримати CDL",
@@ -83,7 +95,7 @@ const articleList = {
     },
     {
       "title": "Як отримати дозвіл CDL",
-      "slug": "yak-otrymaty-dozvil-cdl"
+      "slug": "yak-otrymaty-permit-cdl"
     },
     {
       "title": "CDL Help – Часті запитання",
@@ -100,6 +112,10 @@ const articleList = {
   ],
   "ar": [
     {
+      "title": "دليل فحص ما قبل الرحلة",
+      "slug": "pre-trip-inspection/guide"
+    },
+    {
       "title": "كيف تصبح سائق شاحنة في الولايات المتحدة",
       "slug": "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida"
     },
@@ -113,7 +129,7 @@ const articleList = {
     },
     {
       "title": "كيفية الحصول على تصريح CDL",
-      "slug": "kayfiyat-alhusul-ala-tasrih-cdl"
+      "slug": "kayfiyat-alhusul-ala-rukhsa-cdl"
     },
     {
       "title": "الأسئلة الشائعة مساعدة CDL",
@@ -126,6 +142,10 @@ const articleList = {
   ],
   "ko": [
     {
+      "title": "사전 여행 점검 가이드",
+      "slug": "pre-trip-inspection/guide"
+    },
+    {
       "title": "미국에서 트럭 운전사가 되는 방법",
       "slug": "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob"
     },
@@ -137,14 +157,13 @@ const articleList = {
       "title": "자주 묻는 질문 CDL 도움",
       "slug": "jaju-mudneun-jilmun-cdl-doum"
     },
-
     {
       "title": "CDL 허가증을 받는 방법",
       "slug": "cdl-heogajeungeul-badneun-bangbeob"
     },
     {
       "title": "CDL 도움 앱 사용법",
-      "slug": "cdl-doum-aeb-sayongbeob"
+      "slug": "cdl-help-aeb-sayongbeob"
     },
     {
       "title": "Texas CVO Knowledge Test",
@@ -152,6 +171,10 @@ const articleList = {
     }
   ],
   "zh": [
+    {
+      "title": "行车前检查指南",
+      "slug": "pre-trip-inspection/guide"
+    },
     {
       "title": "如何成为美国卡车司机",
       "slug": "ruhe-chengwei-meiguo-kache-siji"
@@ -179,6 +202,10 @@ const articleList = {
   ],
   "tr": [
     {
+      "title": "Yolculuk Öncesi Kontrol Kılavuzu",
+      "slug": "pre-trip-inspection/guide"
+    },
+    {
       "title": "Nasıl kamyon şoförü olunur",
       "slug": "nasil-kamyon-soforu-olunur"
     },
@@ -202,12 +229,11 @@ const articleList = {
       "title": "Texas CVO Knowledge Test",
       "slug": "cdl-texas"
     }
-
   ],
   "pt": [
     {
-      "title": "Como tirar a CDL",
-      "slug": "como-obter-cdl"
+      "title": "Guia de Inspeção Pré-Viagem",
+      "slug": "pre-trip-inspection/guide"
     },
     {
       "title": "Como tirar a CDL",
@@ -242,24 +268,39 @@ const internationalLinks = {
 }
 
 const Navbar = ({ alternateLinks }) => {
-  const { t } = useTranslation("navbar");
+  const { t, i18n } = useTranslation("navbar");
   const { locale } = useRouter();
   const [menu, setMenu] = React.useState(true);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleNavbar = () => {
     setMenu(!menu);
   };
 
   React.useEffect(() => {
-    let elementId = document.getElementById("navbar");
-    document.addEventListener("scroll", () => {
+    const elementId = document.getElementById("navbar");
+    if (!elementId) return;
+
+    const handleScroll = () => {
       if (window.scrollY > 170) {
         elementId.classList.add("is-sticky");
       } else {
         elementId.classList.remove("is-sticky");
       }
-    });
-  });
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    return () => document.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   const classOne = menu
     ? "collapse navbar-collapse"
@@ -267,6 +308,11 @@ const Navbar = ({ alternateLinks }) => {
   const classTwo = menu
     ? "navbar-toggler navbar-toggler-right collapsed"
     : "navbar-toggler navbar-toggler-right";
+
+  // Get translations with fallback
+  const getTranslation = (key) => {
+    return t(key) || key;
+  };
 
   return (
     <>
@@ -304,7 +350,7 @@ const Navbar = ({ alternateLinks }) => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
-                      <a className="nav-link">{t("main")}</a>
+                      <a className="nav-link">{getTranslation("main")}</a>
                     </Link>
                   </li>
 
@@ -314,15 +360,28 @@ const Navbar = ({ alternateLinks }) => {
                         onClick={(e) => e.preventDefault()}
                         className="dropdown-toggle nav-link"
                       >
-                        {t("resources")}
+                        {getTranslation("resources")}
                       </a>
                     </Link>
 
                     <ul className="dropdown-menu">
-                      {articleList[locale].map((article, index) => {
+                      <li>
+                        <Link href="/dot-physical-exam/search" locale={locale}>
+                          <a>{getTranslation("dotPhysicalLookup")}</a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/road-signs/test" locale={locale}>
+                          <a>{getTranslation("roadSignsTest")}</a>
+                        </Link>
+                      </li>
+                      {(articleList[locale] || articleList["en"]).map((article, index) => {
+                        if (article.slug === "pre-trip-inspection/guide" && !["en", "ru"].includes(locale)) {
+                          return null;
+                        }
                         return (
                           <li key={index}>
-                            <Link href={article.slug} locale={locale}>
+                            <Link href={`/${article.slug}`} locale={locale}>
                               <a>{article.title}</a>
                             </Link>
                           </li>
@@ -334,25 +393,25 @@ const Navbar = ({ alternateLinks }) => {
                             className="nav-link"
                             href="https://www.truckdriver.help/"
                           >
-                            {t("workForTruckers")}
+                            {getTranslation("workForTruckers")}
                           </a>
                         </li>
                       )}
                     </ul>
                   </li>
-                  {/* <>
-                      <li className="nav-item">
-                        <Link href="/cdl-shkola">
-                          <a className="nav-link">{t("cdlSchool")}</a>
-                        </Link>
-                      </li>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="https://www.mir.chat/">
-                          Mir.chat
-                        </a>
-                      </li>
-                    </> */}
+                  
+                  <li className="nav-item">
+                    <Link href="/cdl-schools" locale={locale}>
+                      <a className="nav-link">{getTranslation("cdlSchools")}</a>
+                    </Link>
+                  </li>
+{/* 
+                  <li className="nav-item">
+                    <Link href="/companies" locale={locale}>
+                      <a className="nav-link">{getTranslation("companies")}</a>
+                    </Link>
+                  </li> */}
+
                   {locale == "ru" && <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       DMV Help
@@ -361,7 +420,7 @@ const Navbar = ({ alternateLinks }) => {
                   }
                   <li className="nav-item">
                     <Link href="/contact">
-                      <a className="nav-link">{t("contacts")}</a>
+                      <a className="nav-link">{getTranslation("contacts")}</a>
                     </Link>
                   </li>
                 </ul>

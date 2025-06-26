@@ -37,5 +37,59 @@
     "downloadAndTry": "Unlock your path to becoming a professional truck driver – download the CDL Help app and try tests for free! Explore hundreds of CDL exam questions from Knowledge Test, Hazmat, Doubles and Triples, and Tanker. Our app provides a comprehensive, easy-to-use platform designed to help you practice, prepare, and succeed in CDL test.",
     "androidApp": "Android",
     "downloadButton": "Download",
-    "iosApp": "iOS"
+    "iosApp": "iOS",
+
+    "practiceTestsTitle": "CDL Practice Tests",
+    "practiceTestsDescription": "The CDL Help app not only helps you prepare for the CDL tests so you can get your driver's license and become a truck driver in the USA, but also improves your English skills.",
+    "tryTestsOnline": "Try the tests online",
+    "trySampleQuestion": "Try answering a sample question using the translation",
+    "questionLabel": "Question:",
+    "languageLabel": "Language:",
+    "translationLabel": "Translation",
+    
+    "nextQuestion": "Next Question",
+    "seeResults": "See Results",
+    "quizResults": "Quiz Results",
+    "yourScore": "Your Score",
+    "retakeQuiz": "Retake Quiz",
+    "explanation": "Explanation",
+    
+    "videoTitles": {
+        "howToBecome": "How to become a truck driver in the USA (video)",
+        "howToPrepare": "How to prepare for the CDL theory test at the DMV (video)",
+        "howToUseApp": "How to use CDL Help app (video)"
+    },
+    
+    "eldtTitle": "What is ELDT?",
+    "cdlSchoolsInfo": "What is taught at CDL driving schools and how to find one",
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "costQuestion": "How much does CDL training and the exam cost?",
+        "costAnswer": "On average, training costs between $3,000 and $6,000.",
+        "readMore": "Read more...",
+        "russianQuestion": "Can I take the CDL exam in Russian?",
+        "russianAnswer": "In some states, the DMV officially states that the theory test can be taken in Russian. For example:\n- New York (NY)\n- California (CA)\n- Wisconsin (WI)\n- Pennsylvania (PA)\n- Washington (WA)",
+        "questionsCountQuestion": "How many questions are on the exam?",
+        "questionsCountAnswer": "The number of questions on the Commercial Driver's License (CDL) exam may vary depending on the specific test.\nGeneral Knowledge: Typically includes 50 questions.\nAir Brakes: Typically includes 25 questions.\nCombination: Typically includes 20 questions.",
+        "mistakesQuestion": "How many mistakes can I make on the exam and pass?",
+        "mistakesAnswer": "General Knowledge: Up to 10 mistakes.\nAir Brakes: Up to 5 mistakes.\nCombination: Up to 5 mistakes."
+    },
+    
+    "downloadSection": {
+        "downloadApp": "Download the app",
+        "downloadAppHeader": "DOWNLOAD THE APP",
+        "downloadAppSubtitle": "Download CDL Help - CDL tests with translation",
+        "downloadAppDescription": "Unlock your path to becoming a professional truck driver – download the CDL Help app and try tests for free! Explore hundreds of CDL exam questions from Knowledge Test, Hazmat, Doubles and Triples, and Tanker. Our app provides a comprehensive, easy-to-use platform designed to help you practice, prepare, and succeed in CDL test.",
+        "androidDownload": "Android Download",
+        "iosDownload": "iOS Download"
+    },
+
+    "stepByStepInstructions": "Step-by-step instructions",
+    "howToGetCdl": "How to get CDL",
+    "numberOfSections": "Number of Sections",
+    "roadSigns": "Road-signs",
+    "reviews": "Reviews",
+    "video": {
+        "intro": "q6hMVzMLhxg"
+    }
 }

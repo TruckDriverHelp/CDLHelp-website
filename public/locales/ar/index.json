@@ -37,5 +37,58 @@
     "downloadAndTry": "افتح طريقك لتصبح سائق شاحنة محترف - قم بتنزيل تطبيق CDL Help وجرِّب الاختبارات مجاناً! استكشف المئات من أسئلة اختبار CDL من اختبار المعرفة، واختبار المواد الخطرة، والاختبار المزدوج والثلاثي، واختبار الصهاريج. يوفر تطبيقنا منصة شاملة وسهلة الاستخدام مصممة لمساعدتك على التدرب والاستعداد والنجاح في اختبار CDL.",
     "androidApp": "Android",
     "downloadButton": "تحميل",
-    "iosApp": "iOS"
+    "iosApp": "iOS",
+    
+    "practiceTestsTitle": "اختبارات تحضيرية للحصول CDL باللغة العربية",
+    "practiceTestsDescription": "لن يساعدك تطبيق CDL Help في الاستعداد لاختبارات CDL للحصول على رخصة القيادة الخاصة بك وتصبح سائق شاحنة في الولايات المتحدة فحسب، بل سيساعدك أيضًا في تعلم اللغة الإنجليزية.",
+    "tryTestsOnline": "جرب الاختبارات اونلاين",
+    "trySampleQuestion": "حاول الإجابة على السؤال النموذجي باستخدام الترجمة",
+    "questionLabel": "سؤال:",
+    "languageLabel": "اللغة:",
+    "translationLabel": "الترجمة",
+
+    "nextQuestion": "السؤال التالي",
+    "seeResults": "عرض النتائج",
+    "quizResults": "نتائج الاختبار",
+    "yourScore": "نتيجتك",
+    "retakeQuiz": "اختبار مرة أخرى",
+    "explanation": "التفسير",
+    "videoTitles": {
+        "howToBecome": "كيف تصبح سائق الشاحنة في الولايات المتحدة (فيديو)",
+        "howToPrepare": "كيفية الاستعداد لاختبار النظرية لرخصة القيادة التجارية (فيديو)",
+        "howToUseApp": "كيفية استخدام تطبيق CDL Help (فيديو)"
+    },
+    
+    "eldtTitle": "ما هو ELDT؟",
+    "cdlSchoolsInfo": "ماذا تدرس مدارس تعليم قيادة الشاحنات وكيفية العثور عليها",
+    "faq": {
+        "title": "الاسئلة الشائعة",
+        "costQuestion": "كم تكلفة التدريب واجتياز اختبار CDL؟",
+        "costAnswer": "في المتوسط، تتراوح تكاليف التدريب بين 3000 إلى 6000 دولار.",
+        "readMore": "قراءة مزيد…",
+        "russianQuestion": "هل من الممكن إجراء امتحان CDL باللغة العربية؟",
+        "russianAnswer": "في بعض الولايات، تنص إدارة المركبات الآلية (DMV) رسميًا على أنه يمكن إجراء اختبار النظري باللغة الروسية. على سبيل المثال:\n- نيويورك (NY)\n-كاليفورنيا (CA)\n- ويسكونسن (WI)\n- بنسلفانيا (PA)\n-واشنطن (WA)",
+        "questionsCountQuestion": "كم عدد الاسئلة في الاختبار ؟",
+        "questionsCountAnswer": "قد يختلف عدد الأسئلة في اختبار رخصة القيادة التجارية (CDL) وفقًا للاختبار المحدد.\nالمعرفة العامة (General Knowledge): تتضمن عادةً 50 سؤالاً.\nنظام الفرامل (Air Brakes): يتضمن عادةً 25 سؤالاً\nالمركبات المركبة (Combination): تتضمن عادةً 20 سؤالاً",
+        "mistakesQuestion": "كم عدد الأخطاء التي يمكن ارتكابها في الامتحان؟",
+        "mistakesAnswer": "General Knowledge: إلى 10 اخطاء\nAir Brakes: إلى 5 اخطاء\nCombination: إلى 5 اخطاء"
+    },
+    
+    "downloadSection": {
+        "downloadApp": "تنزيل التطبيق",
+        "downloadAppHeader": "تنزيل التطبيق",
+        "downloadAppSubtitle": "تنزيل Help CDL - اختبارات CDL مع الترجمة",
+        "downloadAppDescription": "افتح طريقك لتصبح سائق الشاحنة المحترف - قم بتنزيل تطبيق CDL Help وجرب الاختبارات مجانًا! استكشف مئات أسئلة امتحان CDL من Knowledge Test وHazmat وDoubles and Triples وTanker. يوفر تطبيقنا منصة شاملة وسهلة الاستخدام مصممة لمساعدتك على التدرب والاستعداد والنجاح في اختبار CDL",
+        "androidDownload": "تنزيل أندرويد",
+        "iosDownload": "تنزيل iOS"
+    },
+
+    "stepByStepInstructions": "تعليمات خطوة بخطوة",
+    "howToGetCdl": "كيفية حصول CDL",
+    "numberOfSections": "عدد الأقسام",
+    "roadSigns": "علامات الطريق",
+    "reviews": "المراجعات",
+    "video": {
+        "intro": "FLaLRm1P5Fs"
+    }
 }

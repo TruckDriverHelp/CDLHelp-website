@@ -1,0 +1,53 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 400px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.head {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.quiz {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 0 #9290bb61;
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px auto 20px auto ;
+}
+
+.results {
+    padding: 30px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.results h2 {
+    color: #5a5886;
+    margin-bottom: 20px;
+}
+
+.results p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.explanation {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.explanation h4 {
+    margin-bottom: 10px;
+}

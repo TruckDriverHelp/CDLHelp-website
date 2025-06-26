@@ -1,23 +1,30 @@
 {
-    "methods": "يمكنك أيضًا استخدام الطرق التالية",
-    "support": "خدمة الدعم",
-    "telegramGroup": "دردشة تليجرام",
-
-    "error.allfieds": "يُرجى ملء جميع الحقول",
-    "error.validemail": "يُرجى إدخال عنوان بريد إلكتروني صالح",
-    "error.validnumber": "يرجى إدخال رقم صالح. لا تنسَ علامة +",
-
-    "title": "نموذج الملاحظات",
-    "heading": "للتواصل معنا، يمكنك استخدام نموذج الملاحظات. سيتواصل معك فريقنا في أقرب وقت ممكن",
-
-    "placeholder.name": "الاسم الكامل",
-    "placeholder.email": "البريد الإلكتروني",
-    "placeholder.phonenumber": "رقم الهاتف",
-    "placeholder.emailsubject": "الموضوع",
-    "placeholder.text": "رسالتك",
-
-    "send": "إرسال",
-
-    "sentTitle": "شكرًا لك!",
-    "sentText": "تم إرسال رسالتك بنجاح! سنتواصل معك في أقرب وقت ممكن"
+  "methods": "يمكنك أيضًا استخدام الطرق التالية",
+  "support": "خدمة الدعم",
+  "telegramGroup": "دردشة تليجرام",
+  "error.allfieds": "يُرجى ملء جميع الحقول",
+  "error.validemail": "يُرجى إدخال عنوان بريد إلكتروني صالح",
+  "error.validnumber": "يرجى إدخال رقم صالح. لا تنسَ علامة +",
+  "title": "نموذج الملاحظات",
+  "heading": "للتواصل معنا، يمكنك استخدام نموذج الملاحظات. سيتواصل معك فريقنا في أقرب وقت ممكن",
+  "placeholder.name": "الاسم الكامل",
+  "placeholder.email": "البريد الإلكتروني",
+  "placeholder.phonenumber": "رقم الهاتف",
+  "placeholder.emailsubject": "الموضوع",
+  "placeholder.text": "رسالتك",
+  "send": "إرسال",
+  "sentTitle": "شكرًا لك!",
+  "sentText": "تم إرسال رسالتك بنجاح! سنتواصل معك في أقرب وقت ممكن",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }

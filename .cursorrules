@@ -1,0 +1,38 @@
+При создании новых страниц всегда использовать хук useSEO для SEO метатегов вместо прямого использования SEOHead компонента.
+Стандартный паттерн для новых страниц:
+
+import { SEOHead } from '../src/shared/ui/SEO';
+import { useSEO } from '../src/shared/lib/hooks/useSEO';
+
+const NewPage = ({ meta }) => {
+  const seoData = useSEO({ 
+    meta, 
+    customUrl: "https://www.cdlhelp.com/new-page",
+    type: "article" // или "website"
+  });
+
+  return (
+    <>
+      <SEOHead {...seoData} />
+      {/* остальной контент страницы */}
+    </>
+  );
+};
+
+export async function getStaticProps({ locale }) {
+  const meta = await getMeta(locale || 'en', "page-key");
+  
+  return {
+    props: {
+      meta,
+      ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer'])),
+    },
+  };
+}
+
+Это обеспечит:
+Единообразие во всех новых страницах
+Правильную обработку данных из Strapi
+Автоматическую генерацию alternate links
+Корректные fallback значения
+

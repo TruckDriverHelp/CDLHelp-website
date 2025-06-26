@@ -16,7 +16,7 @@ const BestFeatures = () => {
                                 <h2>{t("bestFeaturesTitle")}</h2>
                                 <p>{t("bestFeaturesDescription")}</p>
                                 <div className="btn-box">
-                                    <a className="default-btn" href='#download'>{t("bestFeaturesDownload")}</a>
+                                    <a className="default-btn" href='#download'>Найти школу</a>
                                     <a className="link-btn" href={`https://test.cdlhelp.com/${locale}`}>{t("tryOnline")}</a>
                                 </div>
                             </div>

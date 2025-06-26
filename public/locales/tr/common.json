@@ -1,1 +1,18 @@
-{}
+{
+  "dotPhysicalExam": {
+    "title": "DOT Fiziksel Muayene Yerleri Bul",
+    "description": "Yakınınızdaki sertifikalı DOT fiziksel muayene yerlerini bulmak için posta kodunuzu girin. Gerekli DOT fiziksel muayenenizi yapabilecek en yakın tıbbi muayene uzmanlarını göstereceğiz.",
+    "zipCodeLabel": "Posta Kodu",
+    "zipCodePlaceholder": "12345",
+    "searchButton": "Ara",
+    "searchingButton": "Aranıyor...",
+    "nearbyLocations": "Yakındaki Yerler",
+    "phone": "Telefon",
+    "rating": "Değerlendirme",
+    "reviews": "değerlendirme",
+    "error": "Arama sırasında bir hata oluştu. Lütfen tekrar deneyin."
+  },
+  "roadSignsQuiz": "Trafik İşaretleri Testi",
+  "roadSignsQuizDescription": "Bu interaktif test ile trafik işaretleri bilginizi ölçün.",
+  "roadSignsTest": "Trafik İşaretleri Testi"
+}

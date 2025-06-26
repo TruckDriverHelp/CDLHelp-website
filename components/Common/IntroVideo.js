@@ -1,8 +1,5 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-const ModalVideo = dynamic(() => import('react-modal-video'), {
-    ssr: false
-});
+import { DynamicModalVideo } from '../_App/DynamicImports';
 
 const IntroVideo = () => {
 
@@ -35,7 +32,7 @@ const IntroVideo = () => {
             </div>
 
             {/* If you want to change the video need to update videoID */}
-            <ModalVideo 
+            <DynamicModalVideo 
                 channel='youtube' 
                 isOpen={!isOpen} 
                 videoId='bk7McNUjWgw' 

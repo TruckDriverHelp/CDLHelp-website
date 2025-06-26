@@ -1,23 +1,30 @@
 {
-    "methods": "다음 방법을 이용하실 수도 있습니다",
-    "support": "고객 지원",
-    "telegramGroup": "텔레그램 채팅",
-
-    "error.allfieds": "모든 칸을 채워주세요",
-    "error.validemail": "유효한 이메일 주소를 입력해주세요",
-    "error.validnumber": "유효한 번호를 입력해주세요. + 기호를 잊지 마세요",
-
-    "title": "피드백 양식",
-    "heading": "저희에게 연락하시려면 피드백 양식을 이용하실 수 있습니다. 저희 팀에서 최대한 빨리 연락드리겠습니다",
-
-    "placeholder.name": "이름",
-    "placeholder.email": "이메일",
-    "placeholder.phonenumber": "전화번호",
-    "placeholder.emailsubject": "제목",
-    "placeholder.text": "메시지",
-
-    "send": "보내기",
-
-    "sentTitle": "감사합니다!",
-    "sentText": "메시지가 성공적으로 전송되었습니다! 최대한 빨리 연락드리겠습니다"
+  "methods": "다음 방법을 이용하실 수도 있습니다",
+  "support": "고객 지원",
+  "telegramGroup": "텔레그램 채팅",
+  "error.allfieds": "모든 칸을 채워주세요",
+  "error.validemail": "유효한 이메일 주소를 입력해주세요",
+  "error.validnumber": "유효한 번호를 입력해주세요. + 기호를 잊지 마세요",
+  "title": "피드백 양식",
+  "heading": "저희에게 연락하시려면 피드백 양식을 이용하실 수 있습니다. 저희 팀에서 최대한 빨리 연락드리겠습니다",
+  "placeholder.name": "이름",
+  "placeholder.email": "이메일",
+  "placeholder.phonenumber": "전화번호",
+  "placeholder.emailsubject": "제목",
+  "placeholder.text": "메시지",
+  "send": "보내기",
+  "sentTitle": "감사합니다!",
+  "sentText": "메시지가 성공적으로 전송되었습니다! 최대한 빨리 연락드리겠습니다",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }

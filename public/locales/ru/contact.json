@@ -1,23 +1,30 @@
 {
-    "methods": "Вы также можете воспользоваться следующими методами",
-    "support": "Служба Поддержки",
-    "telegramGroup": "Группа Телеграм",
-
-    "error.allfieds": "Please fill all fields",
-    "error.validemail": "Please enter a valid email address",
-    "error.validnumber": "Please enter a valid number. Don't forget the + sign",
-
-    "title": "Форма Обратной Связи",
-    "heading": "Для связи с нами вы можете воспользоваться формой обратной связи. Наша команда свяжется с вами в кратчайшие сроки",
-
-    "placeholder.name": "Полное имя",
-    "placeholder.email": "Email",
-    "placeholder.phonenumber": "Номер телефона",
-    "placeholder.emailsubject": "Тема",
-    "placeholder.text": "Ваше сообщение",
-
-    "send": "Отправить",
-
-    "sentTitle": "Спасибо!",
-    "sentText": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время"
+  "methods": "Вы также можете воспользоваться следующими методами",
+  "support": "Служба Поддержки",
+  "telegramGroup": "Группа Телеграм",
+  "error.allfieds": "Please fill all fields",
+  "error.validemail": "Please enter a valid email address",
+  "error.validnumber": "Please enter a valid number. Don't forget the + sign",
+  "title": "Форма Обратной Связи",
+  "heading": "Для связи с нами вы можете воспользоваться формой обратной связи. Наша команда свяжется с вами в кратчайшие сроки",
+  "placeholder.name": "Полное имя",
+  "placeholder.email": "Email",
+  "placeholder.phonenumber": "Номер телефона",
+  "placeholder.emailsubject": "Тема",
+  "placeholder.text": "Ваше сообщение",
+  "send": "Отправить",
+  "sentTitle": "Спасибо!",
+  "sentText": "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }

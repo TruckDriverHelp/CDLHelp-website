@@ -1,29 +1,29 @@
-import { useState } from "react";
 import Head from 'next/head';
-import PageBannerStyle1 from '@/components/Common/PageBannerStyle1';
+import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import axios from "axios";
 import Image from "next/image";
-import YouTube from 'react-youtube';
-import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ARTICLE_BY_SLUG_QUERY } from '../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
-import Layout from "@/components/_App/Layout";
-import Navbar from "@/components/_App/Navbar";
-import Footer from "@/components/_App/Footer";
+import Layout from "../components/_App/Layout";
+import Navbar from "../components/_App/Navbar";
+import Footer from "../components/_App/Footer";
+import { DynamicMarkdown, DynamicYouTubePlayer } from '../components/_App/DynamicImports';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
-  const [isOpen, setIsOpen] = useState(true);
-  const openModal = () => {
-    setIsOpen(!isOpen);
-  }
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
-  const metaTags = article.meta_tag.data.attributes;
-  const metaImage = host + metaTags.image.data.attributes.url;
+  const metaTags = article?.meta_tag?.data?.attributes || {
+    title: article?.title || 'CDL Help',
+    description: article?.description || '',
+    image: { data: { attributes: { url: '' } } }
+  };
+  const metaImage = metaTags.image?.data?.attributes?.url ? 
+    host + metaTags.image.data.attributes.url : 
+    '';
 
   return (
     <>
@@ -34,7 +34,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           <link
             key={index}
             rel="alternate"
-            href={process.env.BASE_URL + link.href + "/"}
+            href={process.env.BASE_URL + link.href}
             hrefLang={link.hrefLang}
           />
         ))}
@@ -70,7 +70,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
               author: {
                 "@type": "Organization",
                 name: "CDL Help",
-                url: "https://cdlhelp.com"
+                url: "https://www.cdlhelp.com"
               }
             })}`
           }}
@@ -85,12 +85,11 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
           homePageText="Главная Страница"
           activePageText={article.title}
         />
-        <div className="blog-details-area pb-75 w-50 mx-auto">
-          <div>
+        <div className="blog-details-area pb-75 col-11 col-md-6 mx-auto">
             <p>{article.description}</p>
             {article.blocks.map((block, index) => {
               if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-                return <div id={block.idtag}><Markdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
+                return <div id={block.idtag}><DynamicMarkdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
               }
               else if (block.__typename === 'ComponentArticlePartsMedia') {
                 return (
@@ -124,22 +123,11 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
                 );
               } else if (block.__typename === 'ComponentArticlePartsYouTube') {
                 const parsedYoutube = block.YouTube ? JSON.parse(block.YouTube) : console.log("Failed parsing oembed YouTube-link");
-                const videoId = parsedYoutube.url.split('v=')[1];
+                const videoId = parsedYoutube.url.split('.be/')[1];
+                
                 return (
                   <div key={index}>
-                    <YouTube
-                      videoId={videoId}
-                      opts={{
-                        height: '390',
-                        width: '640',
-                        playerVars: {
-                          autoplay: 0,
-                          controls: 1,
-                          rel: 0,
-                          showinfo: 0,
-                        },
-                      }}
-                    />
+                    <DynamicYouTubePlayer videoId={videoId} />
                   </div>
                 );
               }
@@ -159,7 +147,6 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
             })}
 
           </div>
-        </div>
         <Footer />
       </Layout>
     </>
