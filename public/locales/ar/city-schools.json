@@ -10,5 +10,8 @@
   "phoneLabel": "الهاتف:",
   "tryPermitQuiz": "جرب اختبار الرخصة",
   "selectState": "اختر الولاية",
-  "selectStateDescription": "ابحث عن مدارس CDL في ولايتك"
+  "selectStateDescription": "ابحث عن مدارس CDL في ولايتك",
+  "noSchoolsTitle": "لم يتم العثور على مدارس",
+  "noSchoolsText": "لا توجد مدارس CDL متاحة حاليًا في {{state}}.",
+  "schoolsTitle": "مدارس CDL في الولايات المتحدة"
 } 

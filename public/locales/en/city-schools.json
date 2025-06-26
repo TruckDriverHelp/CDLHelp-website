@@ -10,5 +10,8 @@
   "phoneLabel": "Phone:",
   "tryPermitQuiz": "Try permit quiz",
   "selectState": "Select State",
-  "selectStateDescription": "Find CDL schools in your state"
+  "selectStateDescription": "Find CDL schools in your state",
+  "noSchoolsTitle": "No Schools Found",
+  "noSchoolsText": "No CDL schools are currently available in {{state}}.",
+  "schoolsTitle": "CDL Schools in USA"
 } 

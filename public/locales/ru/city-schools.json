@@ -10,5 +10,8 @@
   "phoneLabel": "Телефон:",
   "tryPermitQuiz": "Попробуйте пройти тест",
   "selectState": "Выберите штат",
-  "selectStateDescription": "Найдите CDL школы в вашем штате"
+  "selectStateDescription": "Найдите CDL школы в вашем штате",
+  "noSchoolsTitle": "Школы не найдены",
+  "noSchoolsText": "В штате {{state}} пока нет доступных CDL школ.",
+  "schoolsTitle": "CDL Школы в США"
 } 

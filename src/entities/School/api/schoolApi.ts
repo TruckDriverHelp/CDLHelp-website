@@ -154,7 +154,6 @@ export const fetchStatesWithSchoolCounts = async (): Promise<Array<{slug: string
 
     const { data } = await response.json();
     const schoolLocations = data?.schoolLocations?.data || [];
-    console.log('All school locations:', schoolLocations);
 
     // Группируем по штатам и считаем количество
     const stateMap = new Map<string, number>();
@@ -165,8 +164,6 @@ export const fetchStatesWithSchoolCounts = async (): Promise<Array<{slug: string
         stateMap.set(state, (stateMap.get(state) || 0) + 1);
       }
     });
-
-    console.log('State map:', Array.from(stateMap.entries()));
 
     // Преобразуем в нужный формат, используя оригинальные названия из Strapi
     const states = Array.from(stateMap.entries()).map(([state, count]) => ({
