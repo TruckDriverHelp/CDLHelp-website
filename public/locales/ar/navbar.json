@@ -1,9 +1,11 @@
 {
-    "main": "الصفحة الرئيسية",
+    "main": "الرئيسية",
     "resources": "الموارد",
-    "workForTruckers": "وظائف لسائقي الشاحنات",
+    "workForTruckers": "وظائف",
     "cdlSchool": "مدرسة CDL",
-    "contacts": "جهات الاتصال",
-    "dotPhysicalLookup": "البحث عن الفحص البدني DOT",
-    "roadSignsTest": "اختبار إشارات المرور"
+    "cdlSchools": "مدارس CDL",
+    "companies": "الشركات",
+    "contacts": "اتصل بنا",
+    "dotPhysicalLookup": "البحث عن الفحص الطبي DOT",
+    "roadSignsTest": "اختبار علامات الطريق"
 }

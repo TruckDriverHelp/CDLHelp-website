@@ -1,0 +1,19 @@
+{
+  "pageTitle": "شركات النقل - CDL Help",
+  "pageDescription": "ابحث عن أفضل شركات النقل لسائقي CDL. تصفح الوظائف والرواتب ومعلومات الشركات.",
+  "companiesTitle": "شركات النقل",
+  "companiesSubtitle": "تم العثور على {{count}} شركة تقوم بتوظيف سائقي CDL",
+  "homePageText": "الرئيسية",
+  "payRate": "معدل الأجر",
+  "driverTypes": "أنواع السائقين",
+  "trailerTypes": "أنواع المقطورات",
+  "truckTypes": "أنواع الشاحنات",
+  "locations": "المواقع",
+  "location": "موقع",
+  "moreLocations": "مواقع أخرى",
+  "viewDetails": "عرض التفاصيل",
+  "callNow": "اتصل الآن",
+  "noCompaniesTitle": "لم يتم العثور على شركات",
+  "noCompaniesText": "لم نتمكن من العثور على أي شركات في الوقت الحالي. يرجى المحاولة لاحقاً.",
+  "tryPermitQuiz": "جرب اختبار رخصة CDL الخاص بنا"
+} 

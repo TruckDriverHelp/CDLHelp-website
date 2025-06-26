@@ -8,6 +8,7 @@ import Footer from "../components/_App/Footer";
 import Layout from "../components/_App/Layout";
 import { useTranslation } from 'next-i18next';
 import { DynamicFaqSection } from '../components/_App/DynamicImports';
+import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
 
 // Dynamically import non-critical components
@@ -45,45 +46,22 @@ const IndexPage = ({ meta, alternateLinks }) => {
     
     return (
         <>
+            <SEOHead
+                title={meta.title}
+                description={meta.description}
+                url="https://www.cdlhelp.com"
+                type="website"
+                alternateLinks={alternateLinks}
+            />
+            
             <Head>
-                <title>{meta.title}</title>
-                <meta name="description" content={meta.description} />
-
-                {/* Preload critical assets */}
+                {/* Preload critical assets - специфичные для главной страницы */}
                 <link 
                     rel="preload" 
                     href="/images/video/video-3-no-text.webp" 
                     as="image" 
                     type="image/webp"
                 />
-
-                <meta itemProp="name" content={meta.title} />
-                <meta itemProp="description" content={meta.description} />
-                <meta itemProp="image" content={"/images/truckdriverhelp-og.jpg"}  />
-
-                <meta property="og:url" content="https://www.cdlhelp.com" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={meta.title} />
-                <meta property="og:description" content={meta.description} />
-                <meta property="og:image" content={"/images/truckdriverhelp-og.jpg"} />
-                <meta property="og:locale" content={locale} />
-                <meta property="og:site_name" content="CDL Help" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={meta.title} />
-                <meta name="twitter:description" content={meta.description} />
-                <meta name="twitter:image" content={"/images/truckdriverhelp-og.jpg"} />
-
-                <link rel="canonical" href="https://www.cdlhelp.com/" />
-                <link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="x-default" />
-                <link rel="alternate" href="https://www.cdlhelp.com/en/" hrefLang="en" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ru/" hrefLang="ru" />
-                <link rel="alternate" href="https://www.cdlhelp.com/uk/" hrefLang="uk" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ar/" hrefLang="ar" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ko/" hrefLang="ko" />
-                <link rel="alternate" href="https://www.cdlhelp.com/tr/" hrefLang="tr" />
-                <link rel="alternate" href="https://www.cdlhelp.com/pt/" hrefLang="pt" />
-                <link rel="alternate" href="https://www.cdlhelp.com/zh/" hrefLang="zh" />
             </Head>
 
             <Layout>

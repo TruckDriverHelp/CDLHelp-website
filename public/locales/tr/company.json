@@ -1,0 +1,15 @@
+{
+  "pageTitle": "[TR] {{company}} - Trucking Company Details",
+  "description": "[TR] Learn more about {{company}} - find locations, pay rates, and job opportunities for CDL drivers.",
+  "homePageText": "[TR] Companies",
+  "payRate": "[TR] Pay Rate",
+  "driverTypes": "[TR] Driver Types",
+  "trailerTypes": "[TR] Trailer Types",
+  "truckTypes": "[TR] Truck Types",
+  "locationsTitle": "[TR] Locations ({{count}})",
+  "addressLabel": "[TR] Address:",
+  "zipLabel": "[TR] ZIP:",
+  "phoneLabel": "[TR] Phone:",
+  "mapNotAvailable": "[TR] Map not available",
+  "tryPermitQuiz": "[TR] Try Our CDL Permit Quiz"
+}

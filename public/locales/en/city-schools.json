@@ -8,5 +8,7 @@
   "mapNotAvailable": "Map not available",
   "addressLabel": "Address:",
   "phoneLabel": "Phone:",
-  "tryPermitQuiz": "Try permit quiz"
+  "tryPermitQuiz": "Try permit quiz",
+  "selectState": "Select State",
+  "selectStateDescription": "Find CDL schools in your state"
 } 

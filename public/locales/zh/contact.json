@@ -1,23 +1,30 @@
 {
-    "methods": "您还可以使用以下方法",
-    "support": "支持服务",
-    "telegramGroup": "Telegram 聊天",
-
-    "error.allfieds": "请填写所有字段",
-    "error.validemail": "请输入有效的电子邮件地址",
-    "error.validnumber": "请输入有效的电话号码。别忘了加号",
-
-    "title": "反馈表",
-    "heading": "要与我们联系，您可以使用反馈表。我们的团队会尽快与您联系",
-
-    "placeholder.name": "全名",
-    "placeholder.email": "电子邮件",
-    "placeholder.phonenumber": "电话号码",
-    "placeholder.emailsubject": "主题",
-    "placeholder.text": "您的消息",
-
-    "send": "发送",
-
-    "sentTitle": "谢谢！",
-    "sentText": "您的消息已成功发送！我们会尽快与您联系"
+  "methods": "您还可以使用以下方法",
+  "support": "支持服务",
+  "telegramGroup": "Telegram 聊天",
+  "error.allfieds": "请填写所有字段",
+  "error.validemail": "请输入有效的电子邮件地址",
+  "error.validnumber": "请输入有效的电话号码。别忘了加号",
+  "title": "反馈表",
+  "heading": "要与我们联系，您可以使用反馈表。我们的团队会尽快与您联系",
+  "placeholder.name": "全名",
+  "placeholder.email": "电子邮件",
+  "placeholder.phonenumber": "电话号码",
+  "placeholder.emailsubject": "主题",
+  "placeholder.text": "您的消息",
+  "send": "发送",
+  "sentTitle": "谢谢！",
+  "sentText": "您的消息已成功发送！我们会尽快与您联系",
+  "error": {
+    "allfieds": null,
+    "validemail": null,
+    "validnumber": null
+  },
+  "placeholder": {
+    "name": null,
+    "email": null,
+    "phonenumber": null,
+    "emailsubject": null,
+    "text": null
+  }
 }
