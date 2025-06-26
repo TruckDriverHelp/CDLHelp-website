@@ -37,7 +37,7 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
         <PageBannerStyle1
           pageTitle={pageTitle}
           homePageUrl="/cdl-schools"
-          homePageText={t('homePageText')}
+          homePageText={t('homePageText', 'CDL Schools')}
           activePageText={pageTitle}
         />
 
@@ -86,13 +86,13 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
                   color: '#374151',
                   marginBottom: '12px'
                 }}>
-                  {t('noSchoolsTitle', 'Школы не найдены')}
+                  {t('noSchoolsTitle', 'No Schools Found')}
                 </h3>
                 <p style={{
                   color: '#6b7280',
                   fontSize: '1rem'
                 }}>
-                  {t('noSchoolsText', `В штате ${stateFormatted} пока нет доступных CDL школ.`)}
+                  {t('noSchoolsText', { state: stateFormatted, defaultValue: `No CDL schools are currently available in ${stateFormatted}.` })}
                 </p>
               </div>
             )}

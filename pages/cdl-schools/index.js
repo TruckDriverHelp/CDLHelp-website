@@ -27,10 +27,10 @@ const SchoolsPage = ({ meta, states }) => {
         <Navbar alternateLinks={{}} />
 
         <PageBannerStyle1
-          pageTitle={t('homePageText')}
+          pageTitle={t('schoolsTitle', 'CDL Schools in USA')}
           homePageUrl="/"
-          homePageText={t('common:home')}
-          activePageText={t('homePageText')}
+          homePageText={t('common:home', 'Home')}
+          activePageText={t('schoolsTitle', 'CDL Schools in USA')}
         />
 
         <div style={{ 

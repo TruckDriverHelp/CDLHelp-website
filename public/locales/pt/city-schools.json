@@ -10,5 +10,8 @@
   "phoneLabel": "Telefone:",
   "tryPermitQuiz": "Experimente o teste de licença",
   "selectState": "Selecionar Estado",
-  "selectStateDescription": "Encontre escolas CDL em seu estado"
+  "selectStateDescription": "Encontre escolas CDL em seu estado",
+  "noSchoolsTitle": "Nenhuma Escola Encontrada",
+  "noSchoolsText": "Nenhuma escola CDL está disponível atualmente em {{state}}.",
+  "schoolsTitle": "Escolas CDL nos EUA"
 } 

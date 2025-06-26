@@ -10,5 +10,8 @@
   "phoneLabel": "电话:",
   "tryPermitQuiz": "尝试许可证测试",
   "selectState": "选择州",
-  "selectStateDescription": "在您的州寻找CDL学校"
+  "selectStateDescription": "在您的州寻找CDL学校",
+  "noSchoolsTitle": "未找到学校",
+  "noSchoolsText": "{{state}}目前没有可用的CDL学校。",
+  "schoolsTitle": "美国CDL学校"
 }

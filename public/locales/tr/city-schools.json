@@ -10,5 +10,8 @@
   "phoneLabel": "Telefon:",
   "tryPermitQuiz": "Ruhsat testini deneyin",
   "selectState": "Eyalet Seçin",
-  "selectStateDescription": "Eyaletinizde CDL okullarını bulun"
+  "selectStateDescription": "Eyaletinizde CDL okullarını bulun",
+  "noSchoolsTitle": "Okul Bulunamadı",
+  "noSchoolsText": "{{state}}'de şu anda mevcut CDL okulu bulunmamaktadır.",
+  "schoolsTitle": "ABD'de CDL Okulları"
 } 
