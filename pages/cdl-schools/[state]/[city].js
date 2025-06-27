@@ -2,6 +2,7 @@ import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import Layout from '../../../components/_App/Layout';
 import Navbar from '../../../components/_App/Navbar';
@@ -60,13 +61,17 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
                 fontSize: '14px',
                 color: '#6b7280'
               }}>
-                <a href="/cdl-schools" style={{ color: '#3c3d78', textDecoration: 'none' }}>
-                  {t('schoolsTitle', 'CDL Schools')}
-                </a>
+                <Link href="/cdl-schools" locale={locale} legacyBehavior>
+                  <a style={{ color: '#3c3d78', textDecoration: 'none' }}>
+                    {t('schoolsTitle', 'CDL Schools')}
+                  </a>
+                </Link>
                 <span style={{ margin: '0 8px' }}>›</span>
-                <a href={`/cdl-schools/${state}`} style={{ color: '#3c3d78', textDecoration: 'none' }}>
-                  {stateFormatted}
-                </a>
+                <Link href={`/cdl-schools/${state}`} locale={locale} legacyBehavior>
+                  <a style={{ color: '#3c3d78', textDecoration: 'none' }}>
+                    {stateFormatted}
+                  </a>
+                </Link>
                 <span style={{ margin: '0 8px' }}>›</span>
                 <span>{cityFormatted}</span>
               </nav>
@@ -169,7 +174,6 @@ export async function getStaticPaths() {
       fallback: 'blocking'
     };
   } catch (error) {
-    console.error('Error in getStaticPaths for city pages:', error);
     return {
       paths: [],
       fallback: 'blocking'
@@ -215,8 +219,6 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    console.error('Error fetching schools for city:', city, 'state:', state, error);
-    
     const meta = await getMeta(locale || 'en', "general");
     
     return {
