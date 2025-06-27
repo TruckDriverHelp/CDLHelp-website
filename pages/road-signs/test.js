@@ -33,7 +33,7 @@ const SignsTest = () => {
         // Check if environment variables are available
         const strapiApiKey = process.env.STRAPI_API_KEY;
         
-        if (!strapiHost || !strapiPort || !strapiApiKey) {
+        if (!strapiApiKey) {
           setSigns([]);
           setIsLoaded(true);
           return;
