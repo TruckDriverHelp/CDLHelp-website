@@ -6,6 +6,11 @@ export interface State {
   slug: string;
   name: string;
   schoolCount?: number;
+  cities?: Array<{
+    name: string;
+    slug: string;
+    schoolCount: number;
+  }>;
 }
 
 export interface StateSelectorProps {
@@ -91,11 +96,9 @@ export const StateSelector: React.FC<StateSelectorProps> = ({ states, className 
               <span style={linkStyle}>
                 {state.name}
               </span>
-              {state.schoolCount && (
                 <span style={countStyle}>
                   {state.schoolCount}
                 </span>
-              )}
             </div>
           </Link>
         ))}

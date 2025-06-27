@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
@@ -8,37 +8,65 @@ import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
 import Footer from '../../components/_App/Footer';
 import PageBannerStyle1 from '../../components/Common/PageBannerStyle1';
-import { DynamicQuiz } from '../../components/_App/DynamicImports';
-import { SchoolList } from '../../src/widgets/SchoolList';
-import { fetchSchoolsByState } from '../../src/entities/School';
 import { formatStateName } from '../../src/shared/lib/utils/formatters';
 import { SEOHead } from '../../src/shared/ui/SEO';
+import { useSEO } from '../../src/shared/lib/hooks/useSEO';
+import getMeta from '../../lib/getMeta';
 
-const StateSchoolsPage = ({ schoolLocations, state }) => {
+const StateCitiesPage = ({ cities, state, meta }) => {
   const { t } = useTranslation(['city-schools', 'index']);
   const router = useRouter();
   const { locale } = router;
   const stateFormatted = formatStateName(state);
 
-  const pageTitle = t('pageTitle', { state: stateFormatted });
-  const pageDescription = t('description', { state: stateFormatted });
-  const showQuiz = locale === 'ru' || locale === 'uk';
+  const seoData = useSEO({ 
+    meta, 
+    customUrl: `https://www.cdlhelp.com/cdl-schools/${state}`,
+    type: "article" 
+  });
+
+  const cardStyle = {
+    backgroundColor: '#fff',
+    padding: '20px',
+    borderRadius: '12px',
+    border: '1px solid #e1e5e9',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+  };
+
+  const linkStyle = {
+    textDecoration: 'none',
+    textAlign: 'center',
+    color: '#1f2937',
+    fontWeight: '600',
+    fontSize: '16px'
+  };
+
+  const countStyle = {
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    padding: '6px 12px',
+    borderRadius: '20px',
+    fontSize: '13px',
+    fontWeight: '600'
+  };
 
   return (
     <>
-      <SEOHead
-        title={pageTitle}
-        description={pageDescription}
-        url={`https://www.cdlhelp.com/cdl-schools/${state}`}
-        type="article"
-      />
+      <SEOHead {...seoData} />
+      
       <Layout alternateLinks={{}} dir="ltr">
         <Navbar alternateLinks={{}} />
+        
         <PageBannerStyle1
-          pageTitle={pageTitle}
+          pageTitle={t('citiesInState', { state: stateFormatted, defaultValue: `CDL Schools in ${stateFormatted}` })}
           homePageUrl="/cdl-schools"
-          homePageText={t('homePageText', 'CDL Schools')}
-          activePageText={pageTitle}
+          homePageText={t('schoolsTitle', 'CDL Schools')}
+          activePageText={stateFormatted}
         />
 
         <div style={{ 
@@ -46,32 +74,63 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
           minHeight: 'calc(100vh - 200px)',
           paddingBottom: '100px'
         }}>
-          <div style={{ 
-            maxWidth: '100%',
-            padding: '0 20px'
-          }}>
+          <div className="container">
+            <div style={{
+              textAlign: 'center',
+              marginTop: '40px',
+              marginBottom: '40px'
+            }}>
+              <h2 style={{
+                fontSize: '2rem',
+                fontWeight: '600',
+                color: '#1a1a1a',
+                marginBottom: '12px'
+              }}>
+                {t('selectCity', { defaultValue: 'Select a City' })}
+              </h2>
+              <p style={{
+                color: '#6b7280',
+                fontSize: '1rem'
+              }}>
+                {t('selectCityDescription', { state: stateFormatted, defaultValue: `Choose a city in ${stateFormatted} to view CDL schools` })}
+              </p>
+            </div>
 
-            {/* Schools Grid */}
-            <div className="schools-grid" style={{
+            {/* Cities Grid */}
+            <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-              gap: '24px',
-              padding: '20px 0',
-              maxWidth: '1400px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '16px',
+              maxWidth: '900px',
               margin: '0 auto'
             }}>
-              {schoolLocations.map(school => (
-                <div key={school.id}>
-                  <SchoolList 
-                    schools={[school]}
-                    loading={false}
-                    error={null}
-                  />
-                </div>
+              {cities.map((city) => (
+                <Link key={city.slug} href={`/cdl-schools/${state}/${city.slug}`}>
+                  <div 
+                    style={cardStyle}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    }}
+                  >
+                    <span style={linkStyle}>
+                      {city.name}
+                    </span>
+                    {city.schoolCount && (
+                      <span style={countStyle}>
+                        {city.schoolCount}
+                      </span>
+                    )}
+                  </div>
+                </Link>
               ))}
             </div>
 
-            {schoolLocations.length === 0 && (
+            {cities.length === 0 && (
               <div style={{
                 textAlign: 'center',
                 padding: '60px 20px',
@@ -86,13 +145,13 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
                   color: '#374151',
                   marginBottom: '12px'
                 }}>
-                  {t('noSchoolsTitle', 'No Schools Found')}
+                  {t('noCitiesTitle', { defaultValue: 'No Cities Found' })}
                 </h3>
                 <p style={{
                   color: '#6b7280',
                   fontSize: '1rem'
                 }}>
-                  {t('noSchoolsText', { state: stateFormatted, defaultValue: `No CDL schools are currently available in ${stateFormatted}.` })}
+                  {t('noCitiesText', { state: stateFormatted, defaultValue: `No cities with CDL schools are currently available in ${stateFormatted}.` })}
                 </p>
               </div>
             )}
@@ -104,20 +163,10 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
 
       <style jsx>{`
         @media (max-width: 768px) {
-          .schools-grid {
+          .cities-grid {
             grid-template-columns: 1fr !important;
             gap: 16px !important;
             padding: 0 10px !important;
-          }
-          .header-section h1 {
-            font-size: 1.8rem !important;
-          }
-          .quiz-section {
-            padding: 20px !important;
-          }
-          .app-links {
-            flex-direction: column !important;
-            align-items: center !important;
           }
         }
       `}</style>
@@ -126,28 +175,33 @@ const StateSchoolsPage = ({ schoolLocations, state }) => {
 };
 
 export async function getStaticPaths() {
-  // Определяем поддерживаемые штаты
-  const supportedStates = [
-    'california',
-    'washington',
-    'texas',
-    'florida',
-    'new-york',
-    'new-jersey',
-    'illinois',
-    'pennsylvania'
-  ];
+  try {
+    // Получаем все штаты из новой API
+    const { fetchStatesWithCities } = await import("../../src/entities/School/api/schoolApi");
+    const states = await fetchStatesWithCities();
 
-  const paths = supportedStates.flatMap(state => [
-    { params: { state }, locale: 'en' },
-    { params: { state }, locale: 'ru' },
-    { params: { state }, locale: 'uk' }
-  ]);
+    const paths = states.flatMap(state => [
+      { params: { state: state.slug }, locale: 'en' },
+      { params: { state: state.slug }, locale: 'ru' },
+      { params: { state: state.slug }, locale: 'uk' },
+      { params: { state: state.slug }, locale: 'ar' },
+      { params: { state: state.slug }, locale: 'ko' },
+      { params: { state: state.slug }, locale: 'zh' },
+      { params: { state: state.slug }, locale: 'tr' },
+      { params: { state: state.slug }, locale: 'pt' }
+    ]);
 
-  return {
-    paths,
-    fallback: 'blocking'
-  };
+    return {
+      paths,
+      fallback: 'blocking'
+    };
+  } catch (error) {
+    console.error('Error in getStaticPaths:', error);
+    return {
+      paths: [],
+      fallback: 'blocking'
+    };
+  }
 }
 
 export async function getStaticProps({ params, locale }) {
@@ -160,53 +214,19 @@ export async function getStaticProps({ params, locale }) {
   }
 
   try {
-    const stateFormatted = formatStateName(state);
+    // Импортируем функцию динамически для server-side
+    const { fetchCitiesForState } = await import("../../src/entities/School/api/schoolApi");
     
-    const query = `
-      query GetSchoolLocationsByState($state: String!) {
-        schoolLocations(filters: { state: { eq: $state } }) {
-          data {
-            id
-            attributes {
-              Address
-              phone_number
-              coords
-              city
-              state
-              zip
-              locations {
-                data {
-                  id
-                  attributes {
-                    Name
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `;
-
-    const response = await fetch(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.STRAPI_API_KEY}`,
-      },
-      body: JSON.stringify({ 
-        query,
-        variables: { state: stateFormatted }
-      }),
-    });
-
-    const { data } = await response.json();
-    const schoolLocations = data?.schoolLocations?.data || [];
+    const [meta, cities] = await Promise.all([
+      getMeta(locale || 'en', "general"),
+      fetchCitiesForState(formatStateName(state))
+    ]);
 
     return {
       props: {
-        schoolLocations,
+        cities,
         state,
+        meta,
         ...(await serverSideTranslations(locale || 'en', [
           'navbar',
           'footer',
@@ -218,12 +238,15 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    console.error('Error fetching schools for state:', state, error);
+    console.error('Error fetching cities for state:', state, error);
+    
+    const meta = await getMeta(locale || 'en', "general");
     
     return {
       props: {
-        schoolLocations: [],
+        cities: [],
         state,
+        meta,
         ...(await serverSideTranslations(locale || 'en', [
           'navbar',
           'footer',
@@ -237,4 +260,4 @@ export async function getStaticProps({ params, locale }) {
   }
 }
 
-export default StateSchoolsPage; 
+export default StateCitiesPage; 
