@@ -11,4 +11,3 @@ Host: https://www.cdlhelp.com
 
 # Sitemaps
 Sitemap: https://www.cdlhelp.com/sitemap.xml
-Sitemap: https://www.cdlhelp.com/sitemap-index.xml

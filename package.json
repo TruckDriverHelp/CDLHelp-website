@@ -11,6 +11,7 @@
         "fix:translations": "node scripts/fix-translations.js",
         "sitemap": "next-sitemap --config next-sitemap.config.js",
         "sitemap:generate": "node scripts/generate-sitemap.js",
+    "sitemap:format": "node scripts/format-sitemap.js",
         "start": "next start"
     },
     "author": "www.truckdriver.help",
@@ -25,6 +26,7 @@
         "@supabase/supabase-js": "^2.33.2",
         "axios": "^0.21.4",
         "critters": "^0.0.25",
+        "dotenv": "^17.0.0",
         "graphql": "^16.9.0",
         "graphql-request": "^7.1.0",
         "husky": "^9.1.6",
