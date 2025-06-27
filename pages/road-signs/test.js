@@ -5,10 +5,9 @@ import Navbar from '../../components/_App/Navbar';
 import Footer from '../../components/_App/Footer';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Head from 'next/head';
+import { SEOHead } from '../../src/shared/ui/SEO';
+import { useSEO } from '../../src/shared/lib/hooks/useSEO';
 // import { Grid } from "react-loader-spinner";
-
-const SUPPORTED_LOCALES = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
 
 const SignsTest = () => {
   const [signs, setSigns] = useState([]);
@@ -23,22 +22,50 @@ const SignsTest = () => {
   const [showTranslated, setShowTranslated] = useState(false);
   const [optionPairs, setOptionPairs] = useState([]);
 
+  const seoData = useSEO({ 
+    customUrl: "https://www.cdlhelp.com/road-signs/test",
+    type: "website"
+  });
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
-            }
+        // Check if environment variables are available
+        const strapiHost = process.env.STRAPI_HOST;
+        const strapiPort = process.env.STRAPI_PORT;
+        const strapiApiKey = process.env.STRAPI_API_KEY;
+        
+        if (!strapiHost || !strapiPort || !strapiApiKey) {
+          console.error('Strapi configuration is missing:', {
+            STRAPI_HOST: strapiHost,
+            STRAPI_PORT: strapiPort,
+            STRAPI_API_KEY: strapiApiKey ? '***' : 'missing'
+          });
+          setSigns([]);
+          setIsLoaded(true);
+          return;
+        }
+
+        const url = `http://${strapiHost}:${strapiPort}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`;
+        console.log('Fetching from URL:', url);
+        
+        const response = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${strapiApiKey}`
           }
-        );
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        console.log(data)
+        console.log('API Response:', data);
+        
         if (data.data && Array.isArray(data.data)) {
           setSigns(data.data);
         } else {
+          console.warn('No data array in response:', data);
           setSigns([]);
         }
       } catch (error) {
@@ -126,34 +153,10 @@ const SignsTest = () => {
   //   );
   // }
 
-  // Localized meta tags
-  const metaTitle = t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' });
-  const metaDescription = t('roadSignsQuizDescription', { defaultValue: 'Practice your knowledge of road signs with this interactive quiz.' });
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://cdlhelp.com';
-
-  // Generate alternate links for all supported locales
-  const alternateLinks = SUPPORTED_LOCALES.map((lng) => {
-    return {
-      hrefLang: lng,
-      href: `${baseUrl}${lng === 'en' ? '' : '/' + lng}${asPath}`
-    };
-  });
-
   if (!isLoaded) {
     return (
       <Layout>
-        <Head>
-          <title>{metaTitle}</title>
-          <meta name="description" content={metaDescription} />
-          <meta property="og:title" content={metaTitle} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content={locale} />
-          {alternateLinks.map(link => (
-            <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
-          ))}
-          <link rel="canonical" href={`${baseUrl}${locale === 'en' ? '' : '/' + locale}${asPath}`} />
-        </Head>
+        <SEOHead {...seoData} />
         <Navbar />
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
@@ -170,23 +173,25 @@ const SignsTest = () => {
   if (!signs || signs.length === 0) {
     return (
       <Layout>
-        <Head>
-          <title>{metaTitle}</title>
-          <meta name="description" content={metaDescription} />
-          <meta property="og:title" content={metaTitle} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content={locale} />
-          {alternateLinks.map(link => (
-            <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
-          ))}
-          <link rel="canonical" href={`${baseUrl}${locale === 'en' ? '' : '/' + locale}${asPath}`} />
-        </Head>
+        <SEOHead {...seoData} />
         <Navbar />
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
             <div className="text-center">
               <h2>{t('noSignsAvailable', { defaultValue: 'No signs available' })}</h2>
+              <p className="text-muted">
+                {t('checkConsoleForDetails', { defaultValue: 'Please check the browser console for more details about the error.' })}
+              </p>
+              <p className="text-muted small">
+                {t('possibleIssues', { defaultValue: 'Possible issues: Strapi server not running, missing environment variables, or no road signs data in the database.' })}
+              </p>
+              {process.env.NODE_ENV === 'development' && (
+                <p className="text-muted small">
+                  <a href="/api/test-strapi" target="_blank" rel="noopener noreferrer">
+                    Test Strapi Connection
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -199,18 +204,7 @@ const SignsTest = () => {
   if (!currentSign) {
     return (
       <Layout>
-        <Head>
-          <title>{metaTitle}</title>
-          <meta name="description" content={metaDescription} />
-          <meta property="og:title" content={metaTitle} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content={locale} />
-          {alternateLinks.map(link => (
-            <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
-          ))}
-          <link rel="canonical" href={`${baseUrl}${locale === 'en' ? '' : '/' + locale}${asPath}`} />
-        </Head>
+        <SEOHead {...seoData} />
         <Navbar />
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
@@ -226,18 +220,7 @@ const SignsTest = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        <meta property="og:title" content={metaTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content={locale} />
-        {alternateLinks.map(link => (
-          <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
-        ))}
-        <link rel="canonical" href={`${baseUrl}${locale === 'en' ? '' : '/' + locale}${asPath}`} />
-      </Head>
+      <SEOHead {...seoData} />
       <Navbar />
       <div className="features-area ptb-100 bg-F7F7FF">
         <div className="container">
@@ -328,11 +311,20 @@ const SignsTest = () => {
 };
 
 export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common', 'navbar', 'footer'])),
-    },
-  };
+  try {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer'])),
+      },
+    };
+  } catch (error) {
+    console.error('Error in getStaticProps:', error);
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer'])),
+      },
+    };
+  }
 }
 
 export default SignsTest;
