@@ -804,4 +804,28 @@
     padding-right: 100px;
   }
 }
+
+/* Force navbar dropdown above everything, including maps */
+.navbar-area {
+  z-index: 10000 !important;
+  position: relative;
+}
+.navbar-area .dropdown-menu {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+/* Sticky navbar at the top */
+.navbar-area {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000 !important;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+body {
+  padding-top: 80px; /* Adjust if your navbar is taller/shorter */
+}
 /*# sourceMappingURL=navbar.css.map */

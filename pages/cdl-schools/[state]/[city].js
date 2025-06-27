@@ -60,11 +60,11 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
                 fontSize: '14px',
                 color: '#6b7280'
               }}>
-                <a href="/cdl-schools" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                <a href="/cdl-schools" style={{ color: '#3c3d78', textDecoration: 'none' }}>
                   {t('schoolsTitle', 'CDL Schools')}
                 </a>
                 <span style={{ margin: '0 8px' }}>›</span>
-                <a href={`/cdl-schools/${state}`} style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                <a href={`/cdl-schools/${state}`} style={{ color: '#3c3d78', textDecoration: 'none' }}>
                   {stateFormatted}
                 </a>
                 <span style={{ margin: '0 8px' }}>›</span>
