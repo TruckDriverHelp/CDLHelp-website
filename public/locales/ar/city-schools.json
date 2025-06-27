@@ -13,5 +13,12 @@
   "selectStateDescription": "ابحث عن مدارس CDL في ولايتك",
   "noSchoolsTitle": "لم يتم العثور على مدارس",
   "noSchoolsText": "لا توجد مدارس CDL متاحة حاليًا في {{state}}.",
-  "schoolsTitle": "مدارس CDL في الولايات المتحدة"
+  "schoolsTitle": "مدارس CDL في الولايات المتحدة",
+  "selectCity": "اختر مدينة",
+  "selectCityDescription": "اختر مدينة في {{state}} لعرض مدارس CDL",
+  "citiesInState": "مدارس CDL في {{state}}",
+  "schoolsInCity": "مدارس CDL في {{city}}، {{state}}",
+  "noCitiesTitle": "لم يتم العثور على مدن",
+  "noCitiesText": "لا توجد مدن بها مدارس CDL متاحة حالياً في {{state}}.",
+  "noSchoolsInCity": "لا توجد مدارس CDL متاحة حالياً في {{city}}، {{state}}."
 } 

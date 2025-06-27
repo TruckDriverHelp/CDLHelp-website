@@ -13,5 +13,12 @@
   "selectStateDescription": "Find CDL schools in your state",
   "noSchoolsTitle": "No Schools Found",
   "noSchoolsText": "No CDL schools are currently available in {{state}}.",
-  "schoolsTitle": "CDL Schools in USA"
+  "schoolsTitle": "CDL Schools in USA",
+  "selectCity": "Select a City",
+  "selectCityDescription": "Choose a city in {{state}} to view CDL schools",
+  "citiesInState": "CDL Schools in {{state}}",
+  "schoolsInCity": "CDL Schools in {{city}}, {{state}}",
+  "noCitiesTitle": "No Cities Found",
+  "noCitiesText": "No cities with CDL schools are currently available in {{state}}.",
+  "noSchoolsInCity": "No CDL schools are currently available in {{city}}, {{state}}."
 } 
