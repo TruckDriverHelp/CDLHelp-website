@@ -100,10 +100,6 @@
   color: var(--mainColor);
 }
 
-.navbar-area.navbar-style-two .texap-nav .navbar .navbar-nav .nav-item .dropdown-menu li.active a {
-  color: var(--mainColor);
-}
-
 .navbar-area.navbar-style-two .texap-nav .navbar .navbar-nav .nav-item.megamenu .dropdown-menu .megamenu-submenu li a {
   color: var(--blackColor);
 }
@@ -828,4 +824,92 @@
 body {
   padding-top: 80px; /* Adjust if your navbar is taller/shorter */
 }
+
+/* --- Secondary Navbar Styles --- */
+.secondary-navbar {
+  background: #fafafa;
+  border-bottom: 2px solid #bdbdbd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: fixed;
+  top: 80px; /* height of main navbar */
+  left: 0;
+  width: 100vw;
+  z-index: 9999;
+  padding: 0;
+}
+.secondary-navbar .container {
+  width: 100vw;
+  max-width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+.secondary-navbar .navbar {
+  padding: 0 16px;
+  min-height: 48px;
+}
+.secondary-navbar .navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+.secondary-navbar .nav-link {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  margin: 10px 0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.secondary-navbar .nav-link:hover,
+.secondary-navbar .nav-link.active {
+  color: #007bff;
+  background: rgba(0,123,255,0.08);
+}
+
+body {
+  padding-top: 140px !important; /* main navbar (80px) + secondary navbar (60px) */
+}
+
+@media only screen and (max-width: 991px) {
+  .secondary-navbar {
+    display: none !important;
+  }
+  .secondary-navbar .navbar {
+    min-height: 44px;
+  }
+  .secondary-navbar .navbar-nav {
+    gap: 10px;
+  }
+  .secondary-navbar .nav-link {
+    font-size: 12px;
+    padding: 3px 6px;
+    margin: 8px 0;
+  }
+  body {
+    padding-top: 114px !important; /* main navbar (70px) + secondary navbar (44px) */
+  }
+  .navbar-area .navbar .navbar-nav .dropdown-menu {
+    display: none;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    width: 100%;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar-area .navbar .navbar-nav .nav-item.open > .dropdown-menu {
+    display: block;
+  }
+}
+
 /*# sourceMappingURL=navbar.css.map */
