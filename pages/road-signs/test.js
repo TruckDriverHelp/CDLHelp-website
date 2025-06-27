@@ -232,7 +232,7 @@ const SignsTest = () => {
                 }}>
                   {currentSign.attributes.Sign.data?.attributes.url && (
                     <img
-                      src={`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}${currentSign.attributes.Sign.data.attributes.url}`}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}/${currentSign.attributes.Sign.data.attributes.url}`}
                       alt={currentSign.attributes.original_name}
                       style={{ 
                         maxWidth: '100%',
