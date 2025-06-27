@@ -1,4 +1,5 @@
 // @ts-check
+const path = require('path');
 
 /**
  * @type {import('next-i18next').UserConfig}
@@ -12,7 +13,9 @@ module.exports = {
     },
     defaultNS: 'common',
     /** To avoid issues when deploying to some paas (vercel...) */
-    localePath: './public/locales',
+    localePath: typeof window === 'undefined'
+      ? path.resolve('./public/locales')
+      : '/locales',
   
     reloadOnPrerender: process.env.NODE_ENV === 'development',
   
