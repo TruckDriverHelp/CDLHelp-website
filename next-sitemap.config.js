@@ -1,11 +1,15 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.cdlhelp.com',
+    siteUrl: 'https://www.cdlhelp.com',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   outDir: './public',
   sourceDir: './build',
   exclude: ['/api/*', '/_next/*', '/404', '/500', '*/404', '*/500'],
+  
+  // Добавляем красивое форматирование XML
+  trailingSlash: false,
+  sitemapSize: 5000,
   
 
   
@@ -22,6 +26,23 @@ module.exports = {
         STATIC_PAGES 
       } = require('./lib/sitemap-utils');
       
+      // Функция для создания hreflang ссылок
+      const createHreflangRefs = (basePath) => {
+        return LOCALES.map(lang => {
+          let href;
+          if (lang === 'en') {
+            href = `https://www.cdlhelp.com${basePath === '/' ? '' : basePath}`;
+          } else {
+            href = `https://www.cdlhelp.com/${lang}${basePath === '/' ? '' : basePath}`;
+          }
+          
+          return {
+            href: href,
+            hreflang: lang
+          };
+        });
+      };
+
       // Главные страницы с максимальным приоритетом
       LOCALES.forEach(locale => {
         if (locale === 'en') {
@@ -29,14 +50,16 @@ module.exports = {
             loc: '/',
             changefreq: 'daily',
             priority: 1.0,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            alternateRefs: createHreflangRefs('/')
           });
         } else {
           paths.push({
             loc: `/${locale}`,
             changefreq: 'daily',
             priority: 0.9,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            alternateRefs: createHreflangRefs('/')
           });
         }
       });
@@ -55,7 +78,8 @@ module.exports = {
               loc: `${basePath}/cdl-schools/${state.slug}`,
               changefreq: 'weekly',
               priority: 0.7,
-              lastmod: new Date().toISOString()
+              lastmod: new Date().toISOString(),
+              alternateRefs: createHreflangRefs(`/cdl-schools/${state.slug}`)
             });
           });
 
@@ -70,7 +94,8 @@ module.exports = {
                   loc: `${basePath}/cdl-schools/${state.slug}/${city.slug}`,
                   changefreq: 'monthly',
                   priority: priority,
-                  lastmod: new Date().toISOString()
+                  lastmod: new Date().toISOString(),
+                  alternateRefs: createHreflangRefs(`/cdl-schools/${state.slug}/${city.slug}`)
                 });
               });
             });
@@ -98,7 +123,8 @@ module.exports = {
               loc: `${basePath}/pre-trip-inspection/${file}/${section}`,
               changefreq: 'monthly',
               priority: Math.min(sectionPriority, 0.6),
-              lastmod: new Date().toISOString()
+              lastmod: new Date().toISOString(),
+              alternateRefs: createHreflangRefs(`/pre-trip-inspection/${file}/${section}`)
             });
           });
         }
@@ -113,7 +139,8 @@ module.exports = {
             loc: `${basePath}/${article.slug}`,
             changefreq: 'monthly',
             priority: 0.6,
-            lastmod: article.updatedAt || new Date().toISOString()
+            lastmod: article.updatedAt || new Date().toISOString(),
+            alternateRefs: createHreflangRefs(`/${article.slug}`)
           });
         });
       } catch (error) {
@@ -136,7 +163,7 @@ module.exports = {
       }
     ],
     additionalSitemaps: [
-      'https://www.cdlhelp.com/sitemap-index.xml',
+      'https://www.cdlhelp.com/sitemap.xml',
     ]
   },
 
@@ -157,26 +184,26 @@ module.exports = {
 
     // Функция для создания правильных hreflang ссылок
     const createAlternateRefs = (currentPath) => {
-      // Проверяем, является ли это локализованной версией страницы
-      const isLocalizedVersion = LOCALES.some(locale => 
-        locale !== 'en' && (currentPath.startsWith(`/${locale}/`) || currentPath === `/${locale}`)
-      );
+      // Определяем базовый путь без языкового префикса
+      let basePath = currentPath;
+      let currentLocale = 'en';
       
-      // Если это локализованная версия, не добавляем hreflang теги
-      // (они будут только у английской версии)
-      if (isLocalizedVersion) {
-        return [];
+      // Проверяем, есть ли языковой префикс
+      for (const locale of LOCALES) {
+        if (locale !== 'en' && (currentPath.startsWith(`/${locale}/`) || currentPath === `/${locale}`)) {
+          currentLocale = locale;
+          basePath = currentPath.replace(`/${locale}`, '') || '/';
+          break;
+        }
       }
       
-      // Для английских версий создаем hreflang теги для всех языков
+      // Создаем hreflang теги для всех языков
       return LOCALES.map(lang => {
         let href;
         if (lang === 'en') {
-          // Для английского языка: только базовый URL (next-sitemap добавит путь автоматически)
-          href = `https://www.cdlhelp.com`;
+          href = `https://www.cdlhelp.com${basePath === '/' ? '' : basePath}`;
         } else {
-          // Для других языков: только языковой префикс (next-sitemap добавит путь автоматически)
-          href = `https://www.cdlhelp.com/${lang}`;
+          href = `https://www.cdlhelp.com/${lang}${basePath === '/' ? '' : basePath}`;
         }
         
         return {

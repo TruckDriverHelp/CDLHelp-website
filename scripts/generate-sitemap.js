@@ -243,6 +243,17 @@ try {
   }
   
   console.log(`\n🎉 SEO-optimized sitemap generation completed!`);
+  
+  // Форматируем XML файлы для лучшей читаемости в браузерах
+  try {
+    console.log('\n🔧 Formatting XML files for better readability...');
+    const { main: formatSitemaps } = require('./format-sitemap');
+    formatSitemaps();
+    console.log('✅ XML formatting completed!');
+  } catch (error) {
+    console.warn('⚠️ Could not format XML files:', error.message);
+  }
+  
   console.log(`\n📍 Next steps:`);
   console.log(`   1. Submit sitemap to Google Search Console`);
   console.log(`   2. Submit sitemap to Bing Webmaster Tools`);
