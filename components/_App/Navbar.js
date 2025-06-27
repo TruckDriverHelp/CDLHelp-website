@@ -381,13 +381,6 @@ const Navbar = ({ alternateLinks }) => {
                             </li>
                           );
                         })}
-                        {secondaryLinks[locale]?.map((link, index) => (
-                          <li key={`secondary-${index}`}>
-                            <Link href={`/${link.slug}`} locale={locale}>
-                              <a>{link.title}</a>
-                            </Link>
-                          </li>
-                        ))}
                         {locale === "ru" && (
                           <li className="nav-item">
                             <a className="nav-link" href="https://www.truckdriver.help/">
