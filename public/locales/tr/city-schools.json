@@ -13,5 +13,12 @@
   "selectStateDescription": "Eyaletinizde CDL okullarını bulun",
   "noSchoolsTitle": "Okul Bulunamadı",
   "noSchoolsText": "{{state}}'de şu anda mevcut CDL okulu bulunmamaktadır.",
-  "schoolsTitle": "ABD'de CDL Okulları"
+  "schoolsTitle": "ABD'de CDL Okulları",
+  "selectCity": "Şehir Seçin",
+  "selectCityDescription": "CDL okullarını görmek için {{state}}'de bir şehir seçin",
+  "citiesInState": "{{state}}'deki CDL Okulları",
+  "schoolsInCity": "{{city}}, {{state}}'deki CDL Okulları",
+  "noCitiesTitle": "Şehir Bulunamadı",
+  "noCitiesText": "{{state}}'de şu anda CDL okulu olan şehir bulunmamaktadır.",
+  "noSchoolsInCity": "{{city}}, {{state}}'de şu anda CDL okulu bulunmamaktadır."
 } 

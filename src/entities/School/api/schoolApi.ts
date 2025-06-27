@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createClient } from '@supabase/supabase-js';
 import { SchoolLocation, SupabaseSchoolData } from '../model/types';
+const STRAPI_URL = 'http://' + process.env.STRAPI_HOST + ':' + process.env.STRAPI_PORT || 'http://localhost:1337';
+const GRAPHQL_ENDPOINT = `${STRAPI_URL}/graphql`;
 
 // Strapi GraphQL API для школ
 export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation[]> => {
@@ -44,6 +46,7 @@ export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation
     });
 
     const { data } = await response.json();
+    console.log(data)
     return data?.schoolLocations?.data || [];
   } catch (error) {
     console.error('Error fetching schools by state:', error);
@@ -177,4 +180,255 @@ export const fetchStatesWithSchoolCounts = async (): Promise<Array<{slug: string
     console.error('Error fetching states with school counts:', error);
     return [];
   }
-}; 
+};
+
+/**
+ * Fetch all states with their cities and school counts
+ */
+export async function fetchStatesWithCities() {
+  const query = `
+    query {
+      schoolCities(pagination: { limit: 100 }) {
+        data {
+          id
+          attributes {
+            city
+            state
+            schools {
+              data {
+                id
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log('Raw SchoolCities data:', data);
+
+    if (data.errors) {
+      console.error('GraphQL errors:', data.errors);
+      return [];
+    }
+
+    const schoolCities = data.data?.schoolCities?.data || [];
+    
+    // Group cities by state and calculate school counts
+    const statesMap = new Map();
+    
+    schoolCities.forEach(cityData => {
+      const { city, state, schools } = cityData.attributes;
+      const schoolCount = schools.data.length;
+      
+      if (!statesMap.has(state)) {
+        statesMap.set(state, {
+          name: state,
+          slug: state.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-'),
+          cities: [],
+          schoolCount: 0
+        });
+      }
+      
+      const stateData = statesMap.get(state);
+      stateData.cities.push({
+        name: city,
+        slug: city.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-'),
+        schoolCount
+      });
+      stateData.schoolCount += schoolCount;
+    });
+
+    return Array.from(statesMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+  } catch (error) {
+    console.error('Error fetching states with cities:', error);
+    return [];
+  }
+}
+
+/**
+ * Fetch cities for a specific state
+ */
+export async function fetchCitiesForState(state: string) {
+  const query = `
+    query {
+      schoolCities(
+        filters: { state: { eq: "${state}" } }
+        pagination: { limit: 100 }
+      ) {
+        data {
+          id
+          attributes {
+            city
+            state
+            schools {
+              data {
+                id
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(`Raw cities data for ${state}:`, data);
+
+    if (data.errors) {
+      console.error('GraphQL errors:', data.errors);
+      return [];
+    }
+
+    const schoolCities = data.data?.schoolCities?.data || [];
+    
+    return schoolCities.map(cityData => ({
+      name: cityData.attributes.city,
+      slug: cityData.attributes.city.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-'),
+      schoolCount: cityData.attributes.schools.data.length
+    })).sort((a, b) => a.name.localeCompare(b.name));
+  } catch (error) {
+    console.error(`Error fetching cities for state ${state}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Fetch schools for a specific city and state
+ */
+export async function fetchSchoolsForCity(state: string, city: string) {
+  const query = `
+    query {
+      schoolCities(
+        filters: { 
+          and: [
+            { state: { eq: "${state}" } }
+            { city: { eq: "${city}" } }
+          ]
+        }
+        pagination: { limit: 100 }
+      ) {
+        data {
+          id
+          attributes {
+            city
+            state
+            schools {
+              data {
+                id
+                attributes {
+                  Name
+                  school_locations {
+                    data {
+                      id
+                      attributes {
+                        Address
+                        phone_number
+                        city
+                        state
+                        zip
+                        coords
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.errors) {
+      console.error('GraphQL errors:', data.errors);
+      return [];
+    }
+
+    const schoolCities = data.data?.schoolCities?.data || [];
+    
+    // Extract all school locations from all matching city records
+    const allSchoolLocations = [];
+    schoolCities.forEach(cityData => {
+      cityData.attributes.schools.data.forEach(school => {
+        school.attributes.school_locations.data.forEach(location => {
+          allSchoolLocations.push({
+            id: location.id,
+            attributes: {
+              Address: location.attributes.Address,
+              phone_number: location.attributes.phone_number,
+              city: location.attributes.city,
+              state: location.attributes.state,
+              zip: location.attributes.zip,
+              coords: location.attributes.coords,
+              locations: {
+                data: [{
+                  id: school.id,
+                  attributes: {
+                    Name: school.attributes.Name
+                  }
+                }]
+              }
+            }
+          });
+        });
+      });
+    });
+
+    // Remove duplicates based on location ID
+    const uniqueSchoolLocations = allSchoolLocations.filter((location, index, self) => 
+      index === self.findIndex(l => l.id === location.id)
+    );
+
+    return uniqueSchoolLocations.sort((a, b) => 
+      a.attributes.locations.data[0].attributes.Name.localeCompare(
+        b.attributes.locations.data[0].attributes.Name
+      )
+    );
+  } catch (error) {
+    console.error(`Error fetching schools for city ${city}, state ${state}:`, error);
+    return [];
+  }
+} 

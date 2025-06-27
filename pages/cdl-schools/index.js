@@ -56,12 +56,14 @@ const SchoolsPage = ({ meta, states }) => {
 export async function getStaticProps({ locale }) {
   try {
     // Импортируем функцию динамически для server-side
-    const { fetchStatesWithSchoolCounts } = await import("../../src/entities/School/api/schoolApi");
+    const { fetchStatesWithCities } = await import("../../src/entities/School/api/schoolApi");
     
     const [meta, states] = await Promise.all([
       getMeta(locale || 'en', "general"),
-      fetchStatesWithSchoolCounts()
+      fetchStatesWithCities()
     ]);
+
+    console.log(states)
 
     return {
       props: {
