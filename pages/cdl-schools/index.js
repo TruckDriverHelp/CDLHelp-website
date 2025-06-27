@@ -63,8 +63,6 @@ export async function getStaticProps({ locale }) {
       fetchStatesWithCities()
     ]);
 
-    console.log(states)
-
     return {
       props: {
         meta,
