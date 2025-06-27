@@ -4,19 +4,12 @@ import React from "react";
 import Link from "../../utils/ActiveLink";
 import Image from "next/image";
 import LanguageSwitcher from './LanguageSwitcher';
+import SecondaryNavbar from './SecondaryNavbar';
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 const articleList = {
   "en": [
-    {
-      "title": "Pre-Trip Inspection Guide",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "How to become a Truck Driver in USA",
-      "slug": "how-to-become-a-truck-driver"
-    },
     {
       "title": "How to get CDL",
       "slug": "how-to-get-cdl"
@@ -30,10 +23,6 @@ const articleList = {
       "slug": "how-to-get-cdl-permit"
     },
     {
-      "title": "Frequently Asked Questions CDL help",
-      "slug": "frequently-asked-questions"
-    },
-    {
       "title": "What is taught in CDL schools",
       "slug": "what-is-taught-in-cdl-schools"
     },
@@ -43,14 +32,6 @@ const articleList = {
     }
   ],
   "ru": [
-    {
-      "title": "Руководство по Pre-Trip Inspection",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "Как стать дальнобойщиком в США",
-      "slug": "kak-stat-dalnoboishikom"
-    },
     {
       "title": "Как получить CDL",
       "slug": "kak-poluchit-cdl"
@@ -64,10 +45,6 @@ const articleList = {
       "slug": "kak-poluchit-cdl-permit"
     },
     {
-      "title": "Часто задаваемые вопросы",
-      "slug": "chasto-zadavaemye-voprosy"
-    },
-    {
       "title": "О CDL школе",
       "slug": "o-cdl-shkolakh"
     },
@@ -77,14 +54,6 @@ const articleList = {
     }
   ],
   "uk": [
-    {
-      "title": "Посібник з передрейсового огляду",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "Як стати водієм вантажівки в США",
-      "slug": "yak-staty-dalekobiinykom-v-Amerytsi"
-    },
     {
       "title": "Як отримати CDL",
       "slug": "yak-otrymaty-cdl"
@@ -98,10 +67,6 @@ const articleList = {
       "slug": "yak-otrymaty-permit-cdl"
     },
     {
-      "title": "CDL Help – Часті запитання",
-      "slug": "chasti-zapytannya"
-    },
-    {
       "title": "Про CDL школі",
       "slug": "choho-navchayut-u-shkolakh-cdl"
     },
@@ -111,14 +76,6 @@ const articleList = {
     }
   ],
   "ar": [
-    {
-      "title": "دليل فحص ما قبل الرحلة",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "كيف تصبح سائق شاحنة في الولايات المتحدة",
-      "slug": "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida"
-    },
     {
       "title": "كيفية الحصول على رخصة القيادة التجارية (CDL)",
       "slug": "kayfa-tahsil-cdl"
@@ -132,30 +89,14 @@ const articleList = {
       "slug": "kayfiyat-alhusul-ala-rukhsa-cdl"
     },
     {
-      "title": "الأسئلة الشائعة مساعدة CDL",
-      "slug": "alas-ila-alshaeia-musaedat-cdl"
-    },
-    {
       "title": "Texas CVO Knowledge Test",
       "slug": "cdl-texas"
     }
   ],
   "ko": [
     {
-      "title": "사전 여행 점검 가이드",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "미국에서 트럭 운전사가 되는 방법",
-      "slug": "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob"
-    },
-    {
       "title": "CDL 취득 방법",
       "slug": "cdl-eobtneun-bangbeob"
-    },
-    {
-      "title": "자주 묻는 질문 CDL 도움",
-      "slug": "jaju-mudneun-jilmun-cdl-doum"
     },
     {
       "title": "CDL 허가증을 받는 방법",
@@ -172,20 +113,8 @@ const articleList = {
   ],
   "zh": [
     {
-      "title": "行车前检查指南",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "如何成为美国卡车司机",
-      "slug": "ruhe-chengwei-meiguo-kache-siji"
-    },
-    {
       "title": "如何获得CDL",
       "slug": "ruhe-huode-cdl"
-    },
-    {
-      "title": "常见问题 CDL 帮助",
-      "slug": "changjian-wenti-cdl-bangzhu"
     },
     {
       "title": "如何获得 CDL 许可证",
@@ -202,14 +131,6 @@ const articleList = {
   ],
   "tr": [
     {
-      "title": "Yolculuk Öncesi Kontrol Kılavuzu",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
-      "title": "Nasıl kamyon şoförü olunur",
-      "slug": "nasil-kamyon-soforu-olunur"
-    },
-    {
       "title": "CDL nasıl alınır",
       "slug": "cdl-nasil-alinir"
     },
@@ -222,26 +143,14 @@ const articleList = {
       "slug": "cdl-izni-nasil-alinir"
     },
     {
-      "title": "Sıkça Sorulan Sorular CDL Help",
-      "slug": "sikca-sorulan-sorular"
-    },
-    {
       "title": "Texas CVO Knowledge Test",
       "slug": "cdl-texas"
     }
   ],
   "pt": [
     {
-      "title": "Guia de Inspeção Pré-Viagem",
-      "slug": "pre-trip-inspection/guide"
-    },
-    {
       "title": "Como tirar a CDL",
       "slug": "como-obter-cdl"
-    },
-    {
-      "title": "Como se tornar um motorista de caminhãoo",
-      "slug": "como-se-tornar-motorista-de-caminhaoo"
     },
     {
       "title": "Como Usar o CDL Help",
@@ -252,13 +161,68 @@ const articleList = {
       "slug": "como-obter-uma-licenca-cdl"
     },
     {
-      "title": "Perguntas Frequentes",
-      "slug": "perguntas-frequentes"
-    },
-    {
       "title": "Texas CVO Knowledge Test",
       "slug": "cdl-texas"
     }
+  ]
+};
+
+const secondaryLinks = {
+  "en": [
+    { "title": "How to become a Truck Driver in USA", "slug": "how-to-become-a-truck-driver" },
+    { "title": "DOT Physical Lookup", "slug": "dot-physical-exam/search" },
+    { "title": "Pre-Trip Inspection Guide", "slug": "pre-trip-inspection/guide" },
+    { "title": "Frequently Asked Questions CDL help", "slug": "frequently-asked-questions" },
+    { "title": "Road Signs Test", "slug": "road-signs/test" }
+  ],
+  "ru": [
+    { "title": "Как стать дальнобойщиком в США", "slug": "kak-stat-dalnoboishikom" },
+    { "title": "Поиск DOT Physical", "slug": "dot-physical-exam/search" },
+    { "title": "Руководство по Pre-Trip Inspection", "slug": "pre-trip-inspection/guide" },
+    { "title": "Часто задаваемые вопросы", "slug": "chasto-zadavaemye-voprosy" },
+    { "title": "Тест дорожных знаков", "slug": "road-signs/test" }
+  ],
+  "uk": [
+    { "title": "Як стати водієм вантажівки в США", "slug": "yak-staty-dalekobiinykom-v-Amerytsi" },
+    { "title": "Пошук DOT Physical", "slug": "dot-physical-exam/search" },
+    { "title": "Посібник з передрейсового огляду", "slug": "pre-trip-inspection/guide" },
+    { "title": "CDL Help – Часті запитання", "slug": "chasti-zapytannya" },
+    { "title": "Тест дорожніх знаків", "slug": "road-signs/test" }
+  ],
+  "ar": [
+    { "title": "كيف تصبح سائق شاحنة في الولايات المتحدة", "slug": "kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida" },
+    { "title": "البحث عن DOT Physical", "slug": "dot-physical-exam/search" },
+    { "title": "دليل فحص ما قبل الرحلة", "slug": "pre-trip-inspection/guide" },
+    { "title": "الأسئلة الشائعة مساعدة CDL", "slug": "alas-ila-alshaeia-musaedat-cdl" },
+    { "title": "اختبار علامات الطريق", "slug": "road-signs/test" }
+  ],
+  "ko": [
+    { "title": "미국에서 트럭 운전사가 되는 방법", "slug": "migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob" },
+    { "title": "DOT Physical 검색", "slug": "dot-physical-exam/search" },
+    { "title": "사전 여행 점검 가이드", "slug": "pre-trip-inspection/guide" },
+    { "title": "자주 묻는 질문 CDL 도움", "slug": "jaju-mudneun-jilmun-cdl-doum" },
+    { "title": "도로 표지판 테스트", "slug": "road-signs/test" }
+  ],
+  "zh": [
+    { "title": "如何成为美国卡车司机", "slug": "ruhe-chengwei-meiguo-kache-siji" },
+    { "title": "DOT体检查找", "slug": "dot-physical-exam/search" },
+    { "title": "行车前检查指南", "slug": "pre-trip-inspection/guide" },
+    { "title": "常见问题 CDL 帮助", "slug": "changjian-wenti-cdl-bangzhu" },
+    { "title": "道路标志测试", "slug": "road-signs/test" }
+  ],
+  "tr": [
+    { "title": "Nasıl kamyon şoförü olunur", "slug": "nasil-kamyon-soforu-olunur" },
+    { "title": "DOT Physical Arama", "slug": "dot-physical-exam/search" },
+    { "title": "Yolculuk Öncesi Kontrol Kılavuzu", "slug": "pre-trip-inspection/guide" },
+    { "title": "Sıkça Sorulan Sorular CDL Help", "slug": "sikca-sorulan-sorular" },
+    { "title": "Yol İşaretleri Testi", "slug": "road-signs/test" }
+  ],
+  "pt": [
+    { "title": "Como se tornar um motorista de caminhãoo", "slug": "como-se-tornar-motorista-de-caminhaoo" },
+    { "title": "Busca DOT Physical", "slug": "dot-physical-exam/search" },
+    { "title": "Guia de Inspeção Pré-Viagem", "slug": "pre-trip-inspection/guide" },
+    { "title": "Perguntas Frequentes", "slug": "perguntas-frequentes" },
+    { "title": "Teste de Sinais de Trânsito", "slug": "road-signs/test" }
   ]
 };
 
@@ -272,13 +236,26 @@ const Navbar = ({ alternateLinks }) => {
   const { locale } = useRouter();
   const [menu, setMenu] = React.useState(true);
   const [mounted, setMounted] = React.useState(false);
+  const [resourcesOpen, setResourcesOpen] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Close dropdown when resizing to desktop
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 991) {
+        setResourcesOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const toggleNavbar = () => {
     setMenu(!menu);
+    if (!menu === false) setResourcesOpen(false); // close dropdown when closing menu
   };
 
   React.useEffect(() => {
@@ -313,6 +290,9 @@ const Navbar = ({ alternateLinks }) => {
   const getTranslation = (key) => {
     return t(key) || key;
   };
+
+  // Helper to detect mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 991;
 
   return (
     <>
@@ -354,70 +334,74 @@ const Navbar = ({ alternateLinks }) => {
                     </Link>
                   </li>
 
-                  <li className="nav-item">
-                    <Link href="#" activeClassName="active">
-                      <a
-                        onClick={(e) => e.preventDefault()}
-                        className="dropdown-toggle nav-link"
-                      >
-                        {getTranslation("resources")}
-                      </a>
-                    </Link>
-
-                    <ul className="dropdown-menu">
-                      <li>
-                        <Link href="/dot-physical-exam/search" locale={locale}>
-                          <a>{getTranslation("dotPhysicalLookup")}</a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/road-signs/test" locale={locale}>
-                          <a>{getTranslation("roadSignsTest")}</a>
-                        </Link>
-                      </li>
-                      {(articleList[locale] || articleList["en"]).map((article, index) => {
-                        if (article.slug === "pre-trip-inspection/guide" && !["en", "ru"].includes(locale)) {
-                          return null;
-                        }
-                        return (
-                          <li key={index}>
-                            <Link href={`/${article.slug}`} locale={locale}>
-                              <a>{article.title}</a>
-                            </Link>
-                          </li>
-                        );
-                      })}
+                  {isMobile ? (
+                    <>
+                      {(articleList[locale] || articleList["en"]).map((article, index) => (
+                        <li className="nav-item" key={"article-"+index}>
+                          <Link href={`/${article.slug}`} locale={locale}>
+                            <a className="nav-link">{article.title}</a>
+                          </Link>
+                        </li>
+                      ))}
+                      {secondaryLinks[locale]?.map((link, index) => (
+                        <li className="nav-item" key={"secondary-"+index}>
+                          <Link href={`/${link.slug}`} locale={locale}>
+                            <a className="nav-link">{link.title}</a>
+                          </Link>
+                        </li>
+                      ))}
                       {locale === "ru" && (
                         <li className="nav-item">
-                          <a
-                            className="nav-link"
-                            href="https://www.truckdriver.help/"
-                          >
+                          <a className="nav-link" href="https://www.truckdriver.help/">
                             {getTranslation("workForTruckers")}
                           </a>
                         </li>
                       )}
-                    </ul>
-                  </li>
-                  
+                    </>
+                  ) : (
+                    <li className={`nav-item${resourcesOpen ? ' open' : ''}`}> 
+                      <Link href="#" activeClassName="active">
+                        <a
+                          onClick={e => {
+                            e.preventDefault();
+                            if (window.innerWidth <= 991) setResourcesOpen(v => !v);
+                          }}
+                          className="dropdown-toggle nav-link"
+                        >
+                          {getTranslation("resources")}
+                        </a>
+                      </Link>
+                      <ul className="dropdown-menu">
+                        {(articleList[locale] || articleList["en"]).map((article, index) => {
+                          return (
+                            <li key={index}>
+                              <Link href={`/${article.slug}`} locale={locale}>
+                                <a>{article.title}</a>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                        {locale === "ru" && (
+                          <li className="nav-item">
+                            <a className="nav-link" href="https://www.truckdriver.help/">
+                              {getTranslation("workForTruckers")}
+                            </a>
+                          </li>
+                        )}
+                      </ul>
+                    </li>
+                  )}
+
                   <li className="nav-item">
                     <Link href="/cdl-schools" locale={locale}>
                       <a className="nav-link">{getTranslation("cdlSchools")}</a>
                     </Link>
                   </li>
-{/* 
-                  <li className="nav-item">
-                    <Link href="/companies" locale={locale}>
-                      <a className="nav-link">{getTranslation("companies")}</a>
-                    </Link>
-                  </li> */}
-
                   {locale == "ru" && <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       DMV Help
                     </a>
-                  </li>
-                  }
+                  </li>}
                   <li className="nav-item">
                     <Link href="/contact">
                       <a className="nav-link">{getTranslation("contacts")}</a>
@@ -454,6 +438,7 @@ const Navbar = ({ alternateLinks }) => {
           </div>
         </div>
       </div>
+      <SecondaryNavbar />
     </>
   );
 };

@@ -219,7 +219,6 @@ export async function fetchStatesWithCities() {
     }
 
     const data = await response.json();
-    console.log('Raw SchoolCities data:', data);
 
     if (data.errors) {
       console.error('GraphQL errors:', data.errors);
