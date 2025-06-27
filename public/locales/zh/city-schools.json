@@ -13,5 +13,12 @@
   "selectStateDescription": "在您的州寻找CDL学校",
   "noSchoolsTitle": "未找到学校",
   "noSchoolsText": "{{state}}目前没有可用的CDL学校。",
-  "schoolsTitle": "美国CDL学校"
+  "schoolsTitle": "美国CDL学校",
+  "selectCity": "选择城市",
+  "selectCityDescription": "选择{{state}}的城市查看CDL学校",
+  "citiesInState": "{{state}}的CDL学校",
+  "schoolsInCity": "{{city}}, {{state}}的CDL学校",
+  "noCitiesTitle": "未找到城市",
+  "noCitiesText": "{{state}}目前没有有CDL学校的城市。",
+  "noSchoolsInCity": "{{city}}, {{state}}目前没有CDL学校。"
 }

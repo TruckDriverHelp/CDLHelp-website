@@ -13,5 +13,12 @@
   "selectStateDescription": "귀하의 주에서 CDL 학교를 찾으세요",
   "noSchoolsTitle": "학교를 찾을 수 없음",
   "noSchoolsText": "{{state}}에서 현재 이용 가능한 CDL 학교가 없습니다.",
-  "schoolsTitle": "미국의 CDL 학교"
+  "schoolsTitle": "미국의 CDL 학교",
+  "selectCity": "도시 선택",
+  "selectCityDescription": "{{state}}의 도시를 선택하여 CDL 학교를 확인하세요",
+  "citiesInState": "{{state}}의 CDL 학교",
+  "schoolsInCity": "{{city}}, {{state}}의 CDL 학교",
+  "noCitiesTitle": "도시를 찾을 수 없음",
+  "noCitiesText": "현재 {{state}}에는 CDL 학교가 있는 도시가 없습니다.",
+  "noSchoolsInCity": "현재 {{city}}, {{state}}에는 CDL 학교가 없습니다."
 } 
