@@ -36,18 +36,12 @@ const SignsTest = () => {
         const strapiApiKey = process.env.STRAPI_API_KEY;
         
         if (!strapiHost || !strapiPort || !strapiApiKey) {
-          console.error('Strapi configuration is missing:', {
-            STRAPI_HOST: strapiHost,
-            STRAPI_PORT: strapiPort,
-            STRAPI_API_KEY: strapiApiKey ? '***' : 'missing'
-          });
           setSigns([]);
           setIsLoaded(true);
           return;
         }
 
         const url = `http://${strapiHost}:${strapiPort}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`;
-        console.log('Fetching from URL:', url);
         
         const response = await fetch(url, {
           headers: {
@@ -60,16 +54,13 @@ const SignsTest = () => {
         }
         
         const data = await response.json();
-        console.log('API Response:', data);
         
         if (data.data && Array.isArray(data.data)) {
           setSigns(data.data);
         } else {
-          console.warn('No data array in response:', data);
           setSigns([]);
         }
       } catch (error) {
-        console.error('Error fetching signs:', error);
         setSigns([]);
       } finally {
         setIsLoaded(true);
@@ -179,19 +170,6 @@ const SignsTest = () => {
           <div className="container">
             <div className="text-center">
               <h2>{t('noSignsAvailable', { defaultValue: 'No signs available' })}</h2>
-              <p className="text-muted">
-                {t('checkConsoleForDetails', { defaultValue: 'Please check the browser console for more details about the error.' })}
-              </p>
-              <p className="text-muted small">
-                {t('possibleIssues', { defaultValue: 'Possible issues: Strapi server not running, missing environment variables, or no road signs data in the database.' })}
-              </p>
-              {process.env.NODE_ENV === 'development' && (
-                <p className="text-muted small">
-                  <a href="/api/test-strapi" target="_blank" rel="noopener noreferrer">
-                    Test Strapi Connection
-                  </a>
-                </p>
-              )}
             </div>
           </div>
         </div>
@@ -318,7 +296,6 @@ export async function getStaticProps({ locale }) {
       },
     };
   } catch (error) {
-    console.error('Error in getStaticProps:', error);
     return {
       props: {
         ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer'])),
