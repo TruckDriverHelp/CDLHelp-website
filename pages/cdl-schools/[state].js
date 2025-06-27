@@ -47,7 +47,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
   };
 
   const countStyle = {
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#3c3d78',
     color: 'white',
     padding: '6px 12px',
     borderRadius: '20px',

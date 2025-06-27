@@ -43,7 +43,7 @@ export const StateSelector: React.FC<StateSelectorProps> = ({ states, className 
   };
 
   const countStyle: React.CSSProperties = {
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#3c3d78',
     color: 'white',
     padding: '6px 12px',
     borderRadius: '20px',

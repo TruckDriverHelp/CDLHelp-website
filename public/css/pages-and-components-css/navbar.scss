@@ -16,7 +16,7 @@
         box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
         animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
         -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-}
+    }
     .bg-light {
         background-color: transparent !important;
     }
@@ -186,6 +186,8 @@
                         .dropdown-menu {
                             left: 50%;
                             transform: translateX(-50%);
+                            z-index: 2000 !important;
+                            position: absolute;
 
                             li {
                                 a {
@@ -201,6 +203,8 @@
                                 .dropdown-menu {
                                     left: -100%;
                                     transform: unset;
+                                    z-index: 2000 !important;
+                                    position: absolute;
 
                                     li {
                                         a {
@@ -263,12 +267,20 @@
                                         color: var(--mainColor);
                                     }
                                 }
+                                &:hover {
+                                    .dropdown-menu {
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
                             }
                         }
                         &.megamenu {
                             .dropdown-menu {
                                 left: 0;
                                 transform: unset;
+                                z-index: 2000 !important;
+                                position: absolute;
 
                                 .megamenu-submenu {
                                     li {
@@ -503,6 +515,7 @@
                                 &:hover {
                                     .dropdown-menu {
                                         opacity: 1;
+                                        margin-top: 0;
                                         visibility: visible;
                                     }
                                 }
@@ -936,4 +949,28 @@
         }
     }
 
+}
+
+/* Force navbar dropdown above everything, including maps */
+.navbar-area {
+  z-index: 10000 !important;
+  position: relative;
+}
+.navbar-area .dropdown-menu {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+/* Sticky navbar at the top */
+.navbar-area {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000 !important;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+body {
+  padding-top: 80px; /* Adjust if your navbar is taller/shorter */
 }
