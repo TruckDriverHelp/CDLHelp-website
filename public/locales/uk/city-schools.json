@@ -13,5 +13,12 @@
   "selectStateDescription": "Знайдіть CDL школи у вашому штаті",
   "noSchoolsTitle": "Школи не знайдені",
   "noSchoolsText": "У штаті {{state}} поки немає доступних CDL шкіл.",
-  "schoolsTitle": "CDL Школи в США"
+  "schoolsTitle": "CDL Школи в США",
+  "selectCity": "Оберіть місто",
+  "selectCityDescription": "Оберіть місто в {{state}} для перегляду CDL шкіл",
+  "citiesInState": "CDL Школи в {{state}}",
+  "schoolsInCity": "CDL Школи в {{city}}, {{state}}",
+  "noCitiesTitle": "Міста не знайдені",
+  "noCitiesText": "Наразі в {{state}} немає міст з CDL школами.",
+  "noSchoolsInCity": "Наразі в {{city}}, {{state}} немає CDL шкіл."
 } 
