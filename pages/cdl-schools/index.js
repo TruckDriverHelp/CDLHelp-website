@@ -71,7 +71,8 @@ export async function getStaticProps({ locale }) {
           'navbar',
           'footer',
           'common',
-          'city-schools'
+          'city-schools',
+          'index'
         ])),
       },
       revalidate: 300, // Revalidate every 5 minutes
@@ -90,7 +91,8 @@ export async function getStaticProps({ locale }) {
           'navbar',
           'footer',
           'common',
-          'city-schools'
+          'city-schools',
+          'index'
         ])),
       },
       revalidate: 300,
