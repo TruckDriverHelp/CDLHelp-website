@@ -196,7 +196,6 @@ export async function getStaticPaths() {
       fallback: 'blocking'
     };
   } catch (error) {
-    console.error('Error in getStaticPaths:', error);
     return {
       paths: [],
       fallback: 'blocking'
@@ -238,8 +237,6 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    console.error('Error fetching cities for state:', state, error);
-    
     const meta = await getMeta(locale || 'en', "general");
     
     return {
