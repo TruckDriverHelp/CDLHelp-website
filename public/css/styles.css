@@ -1301,7 +1301,6 @@ textarea.form-control {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding-top: 90px;
 }
 
 .new-app-main-banner-wrap-content {
@@ -4940,7 +4939,6 @@ textarea.form-control {
     padding-top: 330px;
   }
   .new-app-main-banner-wrap-area {
-    padding-top: 110px;
     padding-bottom: 50px;
   }
   .new-app-main-banner-wrap-content {
