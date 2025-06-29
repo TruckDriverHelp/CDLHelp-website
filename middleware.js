@@ -16,6 +16,10 @@ export async function middleware(req) {
     }
 
     // Handle legacy Russian URL redirects
+    // IMPORTANT: These are only for root-level Russian slugs without locale prefix
+    // The middleware runs AFTER Next.js i18n processing, so we need to check the full path
+    const fullPath = `${locale === 'en' ? '' : `/${locale}`}${pathname}`;
+    
     const legacyRedirects = {
         '/dalnoboishik': '/ru/kak-stat-dalnoboishikom',
         '/permit': '/ru/kak-poluchit-cdl-permit',
@@ -23,11 +27,13 @@ export async function middleware(req) {
         '/faq': '/ru/chasto-zadavaemye-voprosy',
         '/cdl-shkola': '/ru/o-cdl-shkolakh',
         '/o-shkolax': '/ru/o-cdl-shkolakh',
-        '/kak-poluchit-cdl': '/ru/kak-poluchit-cdl'
+        // Remove this redirect as it's causing the issue
+        // '/kak-poluchit-cdl': '/ru/kak-poluchit-cdl'
     };
 
-    // Check if current path matches a legacy URL
-    if (legacyRedirects[pathname]) {
+    // Only redirect if we're at the root level (no locale prefix in the original request)
+    // and the pathname matches a legacy Russian URL
+    if (locale === 'en' && legacyRedirects[pathname]) {
         url.pathname = legacyRedirects[pathname];
         return NextResponse.redirect(url, 301);
     }
