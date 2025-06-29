@@ -53,8 +53,13 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     }
   });
 
+  // Use provided alternateLinks but ensure current locale is included
   const finalAlternateLinks = Object.keys(alternateLinks).length > 0 
-    ? alternateLinks 
+    ? {
+        ...alternateLinks,
+        // Ensure self-referencing hreflang
+        [currentLocale]: alternateLinks[currentLocale] || (currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`)
+      }
     : generatedAlternateLinks;
 
   return (
