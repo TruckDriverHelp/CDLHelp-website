@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import fs from 'fs';
 import path from 'path';
 import styles from '../../styles/PreTripInspection.module.css';
-import Head from 'next/head';
+import { SEOHead } from '../../src/shared/ui/SEO';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
 
@@ -19,39 +19,12 @@ export default function PreTripGuide({ sections, alternateLinks }) {
 
     return (
         <>
-            <Head>
-                <title>{metaTitle}</title>
-                <meta name="description" content={metaDescription} />
-
-                <meta itemProp="name" content={metaTitle} />
-                <meta itemProp="description" content={metaDescription} />
-                <meta itemProp="image" content={metaImage} />
-
-                <meta property="og:url" content="https://www.cdlhelp.com" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={metaTitle} />
-                <meta property="og:description" content={metaDescription} />
-                <meta property="og:image" content={metaImage} />
-                <meta property="og:locale" content={locale} />
-                <meta property="og:site_name" content="CDL Help" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={metaTitle} />
-                <meta name="twitter:description" content={metaDescription} />
-                <meta name="twitter:image" content={metaImage} />
-
-                <link rel="canonical" href="https://www.cdlhelp.com/" />
-                <link rel="alternate" href="https://www.cdlhelp.com" hrefLang="x-default" />
-                <link rel="alternate" href="https://www.cdlhelp.com/en" hrefLang="en" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ru" hrefLang="ru" />
-                <link rel="alternate" href="https://www.cdlhelp.com/uk" hrefLang="uk" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ar" hrefLang="ar" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ko" hrefLang="ko" />
-                <link rel="alternate" href="https://www.cdlhelp.com/tr" hrefLang="tr" />
-                <link rel="alternate" href="https://www.cdlhelp.com/pt" hrefLang="pt" />
-                <link rel="alternate" href="https://www.cdlhelp.com/zh" hrefLang="zh" />
-            </Head>
-
+            <SEOHead
+                title={metaTitle}
+                description={metaDescription}
+                alternateLinks={alternateLinks}
+                image={metaImage}
+            />
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
 

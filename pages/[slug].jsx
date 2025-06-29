@@ -12,6 +12,7 @@ import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
 import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
+import { SEOHead } from '../src/shared/ui/SEO';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
@@ -54,39 +55,32 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
     host + metaTags.image.data.attributes.url : 
     '';
 
+  // Convert alternateLinks array to object format for SEOHead
+  const alternateLinksObj = {};
+  alternateLinks.forEach(link => {
+    // Extract locale from href
+    const match = link.href.match(/^\/([a-z]{2})\//);
+    const linkLocale = match ? match[1] : 'en';
+    alternateLinksObj[linkLocale] = link.href;
+  });
+  
+  // Ensure current locale is included
+  if (!alternateLinksObj[locale]) {
+    alternateLinksObj[locale] = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
+  }
+
   return (
     <>
+      <SEOHead
+        title={metaTags.title}
+        description={metaTags.description}
+        url={`${process.env.BASE_URL || 'https://www.cdlhelp.com'}${locale === 'en' ? '' : `/${locale}`}/${slug}`}
+        image={metaImage}
+        type="article"
+        locale={locale}
+        alternateLinks={alternateLinksObj}
+      />
       <Head>
-        <title>{metaTags.title}</title>
-        <meta name="description" content={metaTags.description} />
-        {alternateLinks.map((link, index) => (
-          <link
-            key={index}
-            rel="alternate"
-            href={process.env.BASE_URL + link.href}
-            hrefLang={link.hrefLang}
-          />
-        ))}
-
-        {/* Google / Search Engine Tags */}
-        <meta itemProp="name" content={metaTags.title} />
-        <meta itemProp="description" content={metaTags.description} />
-        <meta itemProp="image" content={metaImage} />
-
-        {/* Facebook Meta Tags */}
-        <meta property="og:url" content={metaTags.title} />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={metaTags.title} />
-        <meta property="og:description" content={metaTags.description} />
-        <meta property="og:image" content={metaImage} />
-        <meta property="og:locale" content={locale} />
-        <meta property="og:site_name" content="CDL Help" />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metaTags.title} />
-        <meta name="twitter:description" content={metaTags.description} />
-        <meta name="twitter:image" content={metaImage} />
 
         <script
           type="application/ld+json"
@@ -253,12 +247,13 @@ export async function getStaticProps({ params, locale }) {
 
     const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
     const alternateLinks = alternateLinksData.map((link) => ({
-      href: `/${link.attributes.locale}/${link.attributes.slug}`,
+      href: link.attributes.locale === 'en' ? `/${link.attributes.slug}` : `/${link.attributes.locale}/${link.attributes.slug}`,
       hrefLang: link.attributes.locale,
     }));
 
+    // Add current locale
     alternateLinks.push({
-      href: `/${locale}/${slug}`,
+      href: locale === 'en' ? `/${slug}` : `/${locale}/${slug}`,
       hrefLang: locale,
     });
 
