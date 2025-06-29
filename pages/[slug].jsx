@@ -58,13 +58,11 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   // Convert alternateLinks array to object format for SEOHead
   const alternateLinksObj = {};
   alternateLinks.forEach(link => {
-    // Extract locale from href
-    const match = link.href.match(/^\/([a-z]{2})\//);
-    const linkLocale = match ? match[1] : 'en';
-    alternateLinksObj[linkLocale] = link.href;
+    // Use the hrefLang property directly as it contains the correct locale
+    alternateLinksObj[link.hrefLang] = link.href;
   });
   
-  // Ensure current locale is included
+  // Ensure current locale is included if not already present
   if (!alternateLinksObj[locale]) {
     alternateLinksObj[locale] = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
   }
@@ -74,7 +72,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
       <SEOHead
         title={metaTags.title}
         description={metaTags.description}
-        url={`${process.env.BASE_URL || 'https://www.cdlhelp.com'}${locale === 'en' ? '' : `/${locale}`}/${slug}`}
+        url={`${process.env.BASE_URL || 'https://www.cdlhelp.com'}${locale === 'en' ? `/${slug}` : `/${locale}/${slug}`}`}
         image={metaImage}
         type="article"
         locale={locale}
