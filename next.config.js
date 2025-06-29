@@ -31,6 +31,18 @@ const nextConfig = {
     },
     async redirects() {
         return [
+          // Fix incorrect /en/ prefix for English URLs
+          {
+            source: '/en/:path*',
+            destination: '/:path*',
+            permanent: true
+          },
+          // Fix double locale prefix (/ru/ru/, /uk/uk/, etc.)
+          {
+            source: '/:locale/:locale/:path*',
+            destination: '/:locale/:path*',
+            permanent: true
+          },
           // Old Russian URLs without trailing slash
           {
             source: '/dalnoboishik',
