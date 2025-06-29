@@ -10,14 +10,15 @@ Disallow: /_next/
 Disallow: /admin/
 Disallow: /build/
 
-# Allow sitemap endpoint
-Allow: /api/sitemap.xml
+# Allow sitemap endpoints
+Allow: /sitemap.xml
+Allow: /api/sitemap
 
 # Host
 Host: https://www.cdlhelp.com
 
 # Sitemaps
-Sitemap: https://www.cdlhelp.com/api/sitemap.xml
+Sitemap: https://www.cdlhelp.com/sitemap.xml
 
 # Crawl delay for responsible crawling
 Crawl-delay: 1
