@@ -299,7 +299,7 @@ const Navbar = ({ alternateLinks }) => {
       <div id="navbar" className="navbar-area navbar-style-two">
         <div className="texap-nav">
           <div className="container">
-            <nav className="navbar navbar-expand-md navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <Link href="/">
                 <a className="navbar-brand">
                   <Image
