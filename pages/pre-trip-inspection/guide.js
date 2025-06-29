@@ -65,14 +65,14 @@ export async function getStaticProps({ locale }) {
     const preTripDir = path.join(process.cwd(), 'data/pre-trip');
     const files = fs.readdirSync(preTripDir);
     const alternateLinks = {
-        'en': '/',
-        'ar': '/ar',
-        'ru': '/ru',
-        'uk': '/uk',
-        'zh': '/zh',
-        'ko': '/ko',
-        'tr': '/tr',
-        'pt': '/pt'
+        'en': '/pre-trip-inspection/guide',
+        'ar': '/ar/pre-trip-inspection/guide',
+        'ru': '/ru/pre-trip-inspection/guide',
+        'uk': '/uk/pre-trip-inspection/guide',
+        'zh': '/zh/pre-trip-inspection/guide',
+        'ko': '/ko/pre-trip-inspection/guide',
+        'tr': '/tr/pre-trip-inspection/guide',
+        'pt': '/pt/pre-trip-inspection/guide'
     };
 
     const sections = files.map(file => {
