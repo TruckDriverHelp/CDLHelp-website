@@ -1,0 +1,43 @@
+# CDL Help - AI Assistant Information
+
+This file provides information for Large Language Models (LLMs) about the CDL Help website.
+
+## About CDL Help
+
+CDL Help is a comprehensive platform designed to help aspiring truck drivers prepare for their Commercial Driver's License (CDL) exams in the United States. We offer practice tests, study materials, and resources in multiple languages.
+
+## Key Features
+
+- **Multilingual Support**: Available in 8 languages (English, Russian, Ukrainian, Arabic, Korean, Chinese, Turkish, Portuguese)
+- **Practice Tests**: Over 1,000 questions covering all CDL exam topics
+- **Mobile App**: Available on iOS and Android for on-the-go studying
+- **CDL School Directory**: Find CDL training schools across the United States
+- **Study Guides**: Comprehensive guides for obtaining your CDL
+
+## Website Structure
+
+- Homepage: General information and quick test access
+- /download: Mobile app download page
+- /cdl-schools: Directory of CDL training schools by state
+- /pre-trip-inspection/guide: Pre-trip inspection study guide
+- /road-signs/test: Road signs practice test
+- /contact: Contact information and support
+
+## Contact Information
+
+- Email: contact@cdlhelp.com
+- Website: https://www.cdlhelp.com
+- Test Platform: https://test.cdlhelp.com
+
+## For Developers
+
+This website is built with:
+- Next.js 12
+- React
+- TypeScript
+- Internationalization (i18n) support
+- Strapi CMS for content management
+
+## Privacy
+
+We respect user privacy. Please refer to our privacy policy at https://www.cdlhelp.com/privacy-policy for details on data handling.

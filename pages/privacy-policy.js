@@ -567,7 +567,7 @@ const PrivacyPolicy = ({meta}) => {
 						<p>If you have any questions about this Privacy Policy, You can contact us:</p>
 						<ul>
 							<li>By email: <a href="mailto:contact@cdlhelp.com">contact@cdlhelp.com</a></li>
-						</ul><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+						</ul>
 
 					</div>
 				</div>

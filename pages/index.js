@@ -47,8 +47,8 @@ const IndexPage = ({ meta, alternateLinks }) => {
     return (
         <>
             <SEOHead
-                title={meta.title}
-                description={meta.description}
+                title={meta.title || `${t('title')} - CDL Help`}
+                description={meta.description || t('description')}
                 url="https://www.cdlhelp.com"
                 type="website"
                 alternateLinks={alternateLinks}
