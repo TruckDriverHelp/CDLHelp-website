@@ -313,7 +313,9 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href={`/${locale}/contact/`}>{getTranslation("feedback")}</a>
+                    <Link href="/contact">
+                      <a>{getTranslation("feedback")}</a>
+                    </Link>
                   </li>
                   <li>
                     <Link href={faq.slug + '/'} locale={locale}>
