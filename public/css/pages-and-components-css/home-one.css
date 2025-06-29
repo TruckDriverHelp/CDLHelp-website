@@ -1453,7 +1453,7 @@ Free Trial Area CSS
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
   .main-banner-area {
-    padding-top: 140px;
+    padding-top: 120px;
   }
   .main-banner-content {
     height: auto;
@@ -1678,175 +1678,86 @@ Free Trial Area CSS
     padding-right: 0;
   }
   .software-integrations-content .sub-title {
-    font-size: 12px;
+    font-size: 13px;
   }
   .software-integrations-content h2 {
-    font-size: 20px;
-    margin-bottom: 12px;
-  }
-  .software-integrations-content .default-btn {
-    margin-top: 5px;
+    font-size: 30px;
   }
   .software-integrations-list {
-    text-align: center;
     margin-left: 0;
-    margin-top: 25px;
-  }
-  .software-integrations-list img {
-    display: none;
-  }
-  .software-integrations-list ul {
-    position: relative;
-    width: auto;
-    height: auto;
-  }
-  .software-integrations-list ul li {
-    position: relative;
-    display: inline-block;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    top: 0 !important;
-    -webkit-transform: unset !important;
-            transform: unset !important;
-    width: 80px !important;
-    height: 80px !important;
-    margin-top: 15px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-  .software-integrations-list ul li img {
-    display: inline-block;
-    width: 40px;
+    margin-top: 30px;
   }
   .pricing-section-title {
     top: 0;
     padding-right: 0;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
   .pricing-section-title .sub-title {
-    font-size: 12px;
+    font-size: 13px;
   }
   .pricing-section-title h2 {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 30px;
   }
   .pricing-tabs .nav-tabs .nav-link {
-    padding: 10px 25px;
     font-size: 13px;
   }
   .single-pricing-table {
-    padding: 20px;
+    padding: 30px;
   }
   .single-pricing-table .title {
     margin-bottom: 20px;
   }
   .single-pricing-table .title h3 {
-    font-size: 16px;
-  }
-  .single-pricing-table .popular {
-    top: 22px;
-    right: 15px;
-    font-size: 12px;
-  }
-  .single-pricing-table .popular span {
-    margin-left: -4px;
-    font-size: 13px;
+    font-size: 18px;
   }
   .single-pricing-table .price {
     margin-bottom: 25px;
-    font-size: 30px;
+    font-size: 35px;
   }
   .single-pricing-table .price span {
     margin-left: -5px;
-    font-size: 13px;
-  }
-  .single-pricing-table .features-list {
-    margin-top: 30px;
   }
   .single-pricing-table .features-list li {
-    font-size: 13px;
-    padding-left: 23px;
+    font-size: 16px;
   }
   .single-pricing-table .features-list li i {
-    font-size: 19px;
-  }
-  .see-more-pricing {
-    margin-top: 5px;
+    font-size: 20px;
   }
   .single-feedback-box {
-    padding: 20px 15px;
-    text-align: center;
-  }
-  .single-feedback-box .client-info {
-    margin-bottom: 15px;
-  }
-  .single-feedback-box .client-info .d-flex {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .single-feedback-box .client-info .title {
-    text-align: start;
-    margin-left: 12px;
+    padding: 25px;
   }
   .single-feedback-box .client-info .title h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
   .single-feedback-box .client-info .title span {
     font-size: 13px;
   }
   .single-feedback-box p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .single-feedback-box .rating {
-    margin-top: 18px;
-    display: block !important;
+    margin-top: 20px;
   }
   .single-feedback-box .rating h5 {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  .owl-item.active.center .single-feedback-box {
-    background: #F4F8FC;
-    -webkit-box-shadow: unset;
-            box-shadow: unset;
-  }
-  .feedback-slides.owl-theme .owl-nav.disabled + .owl-dots {
-    margin-top: 0;
+    font-size: 13px;
   }
   .free-trial-content {
-    padding-top: 60px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 60px;
+    padding: 80px 50px;
   }
   .free-trial-content .sub-title {
-    font-size: 12px;
+    font-size: 13px;
   }
   .free-trial-content h2 {
     font-size: 20px;
     max-width: 100%;
-    margin-bottom: 12px;
   }
   .free-trial-content form {
     max-width: 100%;
-    margin-top: 30px;
   }
-  .free-trial-content form .input-newsletter {
-    height: 50px;
-    padding-left: 15px;
-    font-size: 13px;
-  }
-  .free-trial-content form .default-btn {
-    position: relative;
-    margin-top: 15px;
-    height: auto;
-    right: 0;
-    top: 0;
-    padding-top: 12.5px;
-    padding-bottom: 12.5px;
+  .footer-area {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
@@ -2102,13 +2013,13 @@ Free Trial Area CSS
     padding: 25px;
   }
   .single-feedback-box .client-info .title h3 {
-    font-size: 16px;
+    font-size: 17px;
   }
   .single-feedback-box .client-info .title span {
     font-size: 13px;
   }
   .single-feedback-box p {
-    font-size: 16px;
+    font-size: 15px;
   }
   .single-feedback-box .rating {
     margin-top: 20px;

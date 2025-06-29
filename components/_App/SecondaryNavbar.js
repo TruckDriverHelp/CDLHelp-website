@@ -198,17 +198,33 @@ const SecondaryNavbar = () => {
   };
 
   const currentLinks = secondaryLinks[locale] || secondaryLinks["en"];
+  
+  // Split links into two rows
+  const midPoint = Math.ceil(currentLinks.length / 2);
+  const topRowLinks = currentLinks.slice(0, midPoint);
+  const bottomRowLinks = currentLinks.slice(midPoint);
 
   return (
     <div className="secondary-navbar">
       <div className="container">
         <nav className="navbar navbar-expand-md navbar-light">
           <div className="navbar-nav mx-auto">
-            {currentLinks.map((link, index) => (
-              <Link key={index} href={`/${link.slug}`} locale={locale}>
-                <a className="nav-link">{link.title}</a>
-              </Link>
-            ))}
+            {/* Top row */}
+            <div className="nav-row top-row">
+              {topRowLinks.map((link, index) => (
+                <Link key={`top-${index}`} href={`/${link.slug}`} locale={locale}>
+                  <a className="nav-link">{link.title}</a>
+                </Link>
+              ))}
+            </div>
+            {/* Bottom row */}
+            <div className="nav-row bottom-row">
+              {bottomRowLinks.map((link, index) => (
+                <Link key={`bottom-${index}`} href={`/${link.slug}`} locale={locale}>
+                  <a className="nav-link">{link.title}</a>
+                </Link>
+              ))}
+            </div>
           </div>
         </nav>
       </div>
