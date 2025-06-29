@@ -1,6 +1,10 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /build/
 
 # Host
 Host: https://www.cdlhelp.com

@@ -31,17 +31,15 @@ const SignsTest = () => {
     const fetchData = async () => {
       try {
         // Check if environment variables are available
-        const strapiHost = process.env.STRAPI_HOST;
-        const strapiPort = process.env.STRAPI_PORT;
         const strapiApiKey = process.env.STRAPI_API_KEY;
         
-        if (!strapiHost || !strapiPort || !strapiApiKey) {
+        if (!strapiApiKey) {
           setSigns([]);
           setIsLoaded(true);
           return;
         }
 
-        const url = `http://${strapiHost}:${strapiPort}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`;
+        const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`;
         
         const response = await fetch(url, {
           headers: {
@@ -234,7 +232,7 @@ const SignsTest = () => {
                 }}>
                   {currentSign.attributes.Sign.data?.attributes.url && (
                     <img
-                      src={`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}${currentSign.attributes.Sign.data.attributes.url}`}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}/${currentSign.attributes.Sign.data.attributes.url}`}
                       alt={currentSign.attributes.original_name}
                       style={{ 
                         maxWidth: '100%',
