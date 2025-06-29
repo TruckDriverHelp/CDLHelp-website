@@ -156,8 +156,18 @@ export async function getStaticPaths() {
     // Создаем пути для каждого города в каждом штате
     states.forEach(state => {
       state.cities.forEach(city => {
-        const locales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
-        locales.forEach(locale => {
+        // English without locale prefix
+        paths.push({
+          params: { 
+            state: state.slug, 
+            city: city.slug 
+          },
+          locale: undefined
+        });
+        
+        // Other locales with prefix
+        const otherLocales = ['ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+        otherLocales.forEach(locale => {
           paths.push({
             params: { 
               state: state.slug, 

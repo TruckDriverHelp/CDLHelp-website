@@ -120,7 +120,7 @@ export async function getStaticPaths({ locales }) {
             file: fileSlug,
             section: (sectionIndex + 1).toString()
           },
-          locale
+          locale: locale === 'en' ? undefined : locale // English without /en/ prefix
         });
       });
     });

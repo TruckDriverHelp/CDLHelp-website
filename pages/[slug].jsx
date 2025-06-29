@@ -342,10 +342,21 @@ export async function getStaticPaths({ locales }) {
 
   const paths = [];
   data.data.flatMap(post => {
-    paths.push({ params: { slug: post.attributes.slug }, locale: post.attributes.locale });
+    // For English articles, we only want to generate paths without the /en/ prefix
+    // Next.js will handle the routing correctly when locale is undefined for default locale
+    if (post.attributes.locale === 'en') {
+      paths.push({ params: { slug: post.attributes.slug }, locale: undefined });
+    } else {
+      paths.push({ params: { slug: post.attributes.slug }, locale: post.attributes.locale });
+    }
+    
     return post.attributes.localizations.data.map(locale => {
-      const param = { params: { slug: locale.attributes.slug }, locale: locale.attributes.locale }
-      paths.push(param);
+      // Same logic for localizations
+      if (locale.attributes.locale === 'en') {
+        paths.push({ params: { slug: locale.attributes.slug }, locale: undefined });
+      } else {
+        paths.push({ params: { slug: locale.attributes.slug }, locale: locale.attributes.locale });
+      }
     });
   });
 

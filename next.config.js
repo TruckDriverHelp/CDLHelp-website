@@ -143,7 +143,13 @@ const nextConfig = {
             destination: '/ru/kak-ispolzovat-cdlhelp',
             permanent: true
           },
-          // Removed these redirects as they were causing conflicts with localized URLs
+          // Legacy Russian URLs - only redirect if no locale prefix
+          {
+            source: '/kak-poluchit-cdl',
+            destination: '/ru/kak-poluchit-cdl',
+            permanent: true,
+            locale: false
+          }
         ];
     },
     async headers() {
