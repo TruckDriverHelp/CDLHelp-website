@@ -15,6 +15,23 @@ export async function middleware(req) {
         return
     }
 
+    // Handle legacy Russian URL redirects
+    const legacyRedirects = {
+        '/dalnoboishik': '/ru/kak-stat-dalnoboishikom',
+        '/permit': '/ru/kak-poluchit-cdl-permit',
+        '/kak-ispolzovat-cdl-help': '/ru/kak-ispolzovat-cdlhelp',
+        '/faq': '/ru/chasto-zadavaemye-voprosy',
+        '/cdl-shkola': '/ru/o-cdl-shkolakh',
+        '/o-shkolax': '/ru/o-cdl-shkolakh',
+        '/kak-poluchit-cdl': '/ru/kak-poluchit-cdl'
+    };
+
+    // Check if current path matches a legacy URL
+    if (legacyRedirects[pathname]) {
+        url.pathname = legacyRedirects[pathname];
+        return NextResponse.redirect(url, 301);
+    }
+
     // Remove trailing slashes (except for homepage)
     if (pathname !== '/' && pathname.endsWith('/')) {
         url.pathname = pathname.slice(0, -1);
@@ -41,4 +58,14 @@ export async function middleware(req) {
             301
         )
     }
+}
+
+export const config = {
+    matcher: [
+        // Match all pathnames except for
+        // - api routes
+        // - _next (Next.js internals)
+        // - static files (e.g. *.ico, *.svg)
+        '/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)',
+    ]
 }

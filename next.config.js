@@ -85,13 +85,15 @@ const nextConfig = {
             destination: '/pt/:path*',
             permanent: true
           },
-          // Legacy Russian URL redirects - only redirect if no locale prefix
-          // These are old URLs that were used before i18n was implemented
+          // Legacy Russian URL redirects moved to middleware.js
+          // The locale: false option doesn't work properly with Next.js i18n
+          // See middleware.js for the implementation of these redirects
+          /*
           {
             source: '/dalnoboishik',
             destination: '/ru/kak-stat-dalnoboishikom',
             permanent: true,
-            locale: false // Only match URLs without locale prefix
+            locale: false
           },
           {
             source: '/permit',
@@ -129,6 +131,7 @@ const nextConfig = {
             permanent: true,
             locale: false
           },
+          */
           // Fix incorrect Russian URLs
           {
             source: '/ru/cdl-shkola',
@@ -153,18 +156,6 @@ const nextConfig = {
                         value: "application/xml",
                     },
                 ],
-            },
-        ];
-    },
-    async rewrites() {
-        return [
-            {
-                source: '/sitemap.xml',
-                destination: '/api/sitemap',
-            },
-            {
-                source: '/sitemap-index.xml',
-                destination: '/api/sitemap-index',
             },
         ];
     },

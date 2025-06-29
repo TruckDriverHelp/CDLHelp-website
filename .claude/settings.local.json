@@ -32,7 +32,8 @@
       "Bash(xmllint:*)",
       "Bash(kill:*)",
       "Bash(mv:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }
