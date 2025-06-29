@@ -49,83 +49,81 @@ const nextConfig = {
             destination: '/:path*',
             permanent: true
           },
-          // Fix double locale prefix (/ru/ru/, /uk/uk/, etc.)
+          // Fix double locale prefix - only for actual locale codes
           {
-            source: '/:locale/:locale/:path*',
-            destination: '/:locale/:path*',
+            source: '/ru/ru/:path*',
+            destination: '/ru/:path*',
             permanent: true
           },
-          // Old Russian URLs without trailing slash
+          {
+            source: '/uk/uk/:path*',
+            destination: '/uk/:path*',
+            permanent: true
+          },
+          {
+            source: '/ar/ar/:path*',
+            destination: '/ar/:path*',
+            permanent: true
+          },
+          {
+            source: '/ko/ko/:path*',
+            destination: '/ko/:path*',
+            permanent: true
+          },
+          {
+            source: '/zh/zh/:path*',
+            destination: '/zh/:path*',
+            permanent: true
+          },
+          {
+            source: '/tr/tr/:path*',
+            destination: '/tr/:path*',
+            permanent: true
+          },
+          {
+            source: '/pt/pt/:path*',
+            destination: '/pt/:path*',
+            permanent: true
+          },
+          // Legacy Russian URL redirects - only redirect if no locale prefix
+          // These are old URLs that were used before i18n was implemented
           {
             source: '/dalnoboishik',
             destination: '/ru/kak-stat-dalnoboishikom',
-            permanent: true
-          },
-          {
-            source: '/dalnoboishik/',
-            destination: '/ru/kak-stat-dalnoboishikom',
-            permanent: true
+            permanent: true,
+            locale: false // Only match URLs without locale prefix
           },
           {
             source: '/permit',
             destination: '/ru/kak-poluchit-cdl-permit',
-            permanent: true
-          },
-          {
-            source: '/permit/',
-            destination: '/ru/kak-poluchit-cdl-permit',
-            permanent: true
+            permanent: true,
+            locale: false
           },
           {
             source: '/kak-ispolzovat-cdl-help',
             destination: '/ru/kak-ispolzovat-cdlhelp',
             permanent: true,
-          },
-          {
-            source: '/kak-ispolzovat-cdl-help/',
-            destination: '/ru/kak-ispolzovat-cdlhelp',
-            permanent: true,
+            locale: false
           },
           {
             source: '/faq',
             destination: '/ru/chasto-zadavaemye-voprosy',
-            permanent: true
-          },
-          {
-            source: '/faq/',
-            destination: '/ru/chasto-zadavaemye-voprosy',
-            permanent: true
+            permanent: true,
+            locale: false
           },
           {
             source: '/cdl-shkola',
             destination: '/ru/o-cdl-shkolakh',
-            permanent: true
-          },
-          {
-            source: '/cdl-shkola/',
-            destination: '/ru/o-cdl-shkolakh',
-            permanent: true
+            permanent: true,
+            locale: false
           },
           {
             source: '/o-shkolax',
             destination: '/ru/o-cdl-shkolakh',
-            permanent: true
+            permanent: true,
+            locale: false
           },
-          {
-            source: '/o-shkolax/',
-            destination: '/ru/o-cdl-shkolakh',
-            permanent: true
-          },
-          {
-            source: '/kak-poluchit-cdl',
-            destination: '/ru/kak-poluchit-cdl',
-            permanent: true
-          },
-          {
-            source: '/kak-poluchit-cdl/',
-            destination: '/ru/kak-poluchit-cdl',
-            permanent: true
-          }
+          // Removed these redirects as they were causing conflicts with localized URLs
         ];
     },
     async headers() {
