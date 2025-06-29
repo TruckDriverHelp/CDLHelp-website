@@ -59,8 +59,8 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS=G-XXXXXXXXXX
 # AppsFlyer Configuration (required for attribution)
 NEXT_PUBLIC_APPSFLYER_DEV_KEY=your_dev_key_here
 NEXT_PUBLIC_APPSFLYER_APP_ID=help.truckdriver.cdlhelp
-NEXT_PUBLIC_APPSFLYER_ONELINK_ID=your_onelink_id
-NEXT_PUBLIC_APPSFLYER_ONELINK_URL=https://cdlhelp.onelink.me/xqJz/
+NEXT_PUBLIC_APPSFLYER_ONELINK_ID=mgvvp96d
+NEXT_PUBLIC_APPSFLYER_ONELINK_URL=https://cdlhelp.onelink.me/mHbW/mgvvp96d
 
 # Deep Linking Configuration
 NEXT_PUBLIC_IOS_TEAM_ID=your_ios_team_id

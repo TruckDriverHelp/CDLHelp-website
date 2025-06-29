@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "help.truckdriver.cdlhelp",
+        "appID": "4QBM8U99LC.help.truckdriver.cdlhelp",
         "paths": [
           "/",
           "/download",
@@ -16,6 +16,6 @@
     ]
   },
   "webcredentials": {
-    "apps": ["help.truckdriver.cdlhelp"]
+    "apps": ["4QBM8U99LC.help.truckdriver.cdlhelp"]
   }
 }

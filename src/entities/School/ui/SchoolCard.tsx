@@ -112,9 +112,6 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
         )}
       </div>
       <div style={contentStyle}>
-        <div>
-          <h3 style={headerStyle}>{schoolName}</h3>
-        </div>
         <div style={bodyStyle}>
             <p style={textStyle}>{cityFormatted}, {stateFormatted}</p>
             {phoneFormatted && (
