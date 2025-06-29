@@ -4,26 +4,19 @@ import ContactInfo from '../components/Contact/ContactInfo';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Footer from '../components/_App/Footer';
 import Navbar from '../components/_App/Navbar';
-import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
+import { SEOHead } from '../src/shared/ui/SEO';
 import getMeta from '../lib/getMeta';
 
 const Contact = ({ alternateLinks, meta }) => {
   const { t } = useTranslation('contact');
   return (
     <>
-      <Head>
-        {alternateLinks.map((link, index) => (
-          <link
-            key={index}
-            rel="alternate"
-            href={process.env.BASE_URL + link.href}
-            hrefLang={link.hrefLang}
-          />
-        ))}
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.description} />
-      </Head>
+      <SEOHead
+        title={meta.title || t('pageTitle', 'Contact Us - CDL Help')}
+        description={meta.description || t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.')}
+        alternateLinks={alternateLinks}
+      />
       <Navbar alternateLinks={alternateLinks} />
 
       <div className="page-title-area">
@@ -47,16 +40,16 @@ const Contact = ({ alternateLinks, meta }) => {
 export default Contact;
 
 export async function getStaticProps({ locale }) {
-  const alternateLinks = [
-    { href: '/en/contact', hrefLang: 'x-default' },
-    { href: '/ar/contact', hrefLang: 'ar' },
-    { href: '/ru/contact', hrefLang: 'ru' },
-    { href: '/uk/contact', hrefLang: 'uk' },
-    { href: '/zh/contact', hrefLang: 'zh' },
-    { href: '/ko/contact', hrefLang: 'ko' },
-    { href: '/tr/contact', hrefLang: 'tr' },
-    { href: '/en/contact', hrefLang: 'en' },
-  ];
+  const alternateLinks = {
+    'en': '/contact',
+    'ar': '/ar/contact',
+    'ru': '/ru/contact',
+    'uk': '/uk/contact',
+    'zh': '/zh/contact',
+    'ko': '/ko/contact',
+    'tr': '/tr/contact',
+    'pt': '/pt/contact'
+  };
 
   const meta = await getMeta(locale, "contact");
 

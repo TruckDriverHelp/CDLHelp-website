@@ -31,29 +31,75 @@ const nextConfig = {
     },
     async redirects() {
         return [
+          // Old Russian URLs without trailing slash
+          {
+            source: '/dalnoboishik',
+            destination: '/ru/kak-stat-dalnoboishikom',
+            permanent: true
+          },
           {
             source: '/dalnoboishik/',
-            destination: '/ru/kak-stat-dalnoboishikom/',
+            destination: '/ru/kak-stat-dalnoboishikom',
+            permanent: true
+          },
+          {
+            source: '/permit',
+            destination: '/ru/kak-poluchit-cdl-permit',
             permanent: true
           },
           {
             source: '/permit/',
-            destination: '/ru/kak-poluchit-cdl-permit/',
+            destination: '/ru/kak-poluchit-cdl-permit',
             permanent: true
           },
           {
-            source: '/kak-ispolzovat-cdl-help/',
-            destination: '/ru/kak-ispolzovat-cdlhelp/',
+            source: '/kak-ispolzovat-cdl-help',
+            destination: '/ru/kak-ispolzovat-cdlhelp',
             permanent: true,
           },
           {
+            source: '/kak-ispolzovat-cdl-help/',
+            destination: '/ru/kak-ispolzovat-cdlhelp',
+            permanent: true,
+          },
+          {
+            source: '/faq',
+            destination: '/ru/chasto-zadavaemye-voprosy',
+            permanent: true
+          },
+          {
             source: '/faq/',
-            destination: '/ru/chasto-zadavaemye-voprosy/',
+            destination: '/ru/chasto-zadavaemye-voprosy',
+            permanent: true
+          },
+          {
+            source: '/cdl-shkola',
+            destination: '/ru/o-cdl-shkolakh',
             permanent: true
           },
           {
             source: '/cdl-shkola/',
-            destination: '/ru/cdl-school/',
+            destination: '/ru/o-cdl-shkolakh',
+            permanent: true
+          },
+          {
+            source: '/o-shkolax',
+            destination: '/ru/o-cdl-shkolakh',
+            permanent: true
+          },
+          {
+            source: '/o-shkolax/',
+            destination: '/ru/o-cdl-shkolakh',
+            permanent: true
+          },
+          {
+            source: '/kak-poluchit-cdl',
+            destination: '/ru/kak-poluchit-cdl',
+            permanent: true
+          },
+          {
+            source: '/kak-poluchit-cdl/',
+            destination: '/ru/kak-poluchit-cdl',
             permanent: true
           }
         ];
