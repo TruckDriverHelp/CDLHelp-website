@@ -181,7 +181,7 @@ export async function getStaticPaths() {
     const states = await fetchStatesWithCities();
 
     const paths = states.flatMap(state => [
-      { params: { state: state.slug }, locale: 'en' },
+      { params: { state: state.slug }, locale: undefined }, // English without /en/ prefix
       { params: { state: state.slug }, locale: 'ru' },
       { params: { state: state.slug }, locale: 'uk' },
       { params: { state: state.slug }, locale: 'ar' },

@@ -211,13 +211,21 @@ export default async function handler(req, res) {
           const urlKey = `${SITE_URL}/${locale}`;
           if (!generatedUrls.has(urlKey)) {
             generatedUrls.add(urlKey);
+            const homeAlternates = LOCALES.map(loc => ({
+              lang: loc,
+              href: loc === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${loc}`
+            }));
+            homeAlternates.push({
+              lang: 'x-default',
+              href: `${SITE_URL}/`
+            });
             sitemap += generateUrlEntry(
               '',
               locale,
               page.lastmod,
               priority,
               changefreq,
-              alternates
+              homeAlternates
             );
           }
         });
