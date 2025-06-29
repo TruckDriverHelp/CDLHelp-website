@@ -6,7 +6,7 @@ export const DynamicQuiz = dynamic(() => import('../Quiz/quiz').then(mod => ({ c
   return <QuizComponent contained={contained} {...props} />;
 }), {
   loading: () => <div>Loading quiz...</div>,
-  ssr: false // Disable server-side rendering for the quiz
+  ssr: true // Enable server-side rendering for the quiz to ensure translations work
 });
 
 export const DynamicModalVideo = dynamic(() => import('react-modal-video'), {

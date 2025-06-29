@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import quizData from '../../data/quiz-questions.json'
 import ConfettiExplosion from 'react-confetti-explosion';
+import analytics from '../../lib/analytics';
 
 const Quiz = ({ title, id, name, translation, contained }) => {
     const { t } = useTranslation('index');
@@ -90,6 +91,9 @@ const Quiz = ({ title, id, name, translation, contained }) => {
                 setIsExploding(true);
             }
             setShowResults(true);
+            
+            // Track quiz completion
+            analytics.trackQuizCompletion(userScore, filteredQuestions.length, router.locale);
         }
     }
 
@@ -99,20 +103,52 @@ const Quiz = ({ title, id, name, translation, contained }) => {
                 <h2>{t('quizResults')}</h2>
                 <p>{t('yourScore')}: {userScore} / {filteredQuestions.length}</p>
                 {isExploding && <ConfettiExplosion particleCount={100} duration={3000} force={0.6} width={1000} />}
-                <a 
-                    href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : router.locale}`}
-                    className="translation-btn"
-                    style={{ 
-                        background: "linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%)",
-                        padding: "12px 25px",
-                        border: "none",
-                        boxShadow: "0px 12px 35px rgba(90, 88, 134, 0.25)",
-                        color: "white",
-                        cursor: "pointer",
-                    }}
-                >
-                    {t('tryTestsOnline')}
-                </a>
+                <div className={styles.nav} style={{ display: 'flex', gap: '15px', justifyContent: 'center', marginTop: '20px', flexWrap: 'wrap' }}>
+                    <a 
+                        href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : router.locale}`}
+                        className="translation-btn"
+                        style={{ 
+                            background: "transparent",
+                            padding: "12px 25px",
+                            border: "2px solid #5a5886",
+                            borderRadius: "10px",
+                            color: "#5a5886",
+                            cursor: "pointer",
+                            textDecoration: "none",
+                            transition: "all 0.3s ease"
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.background = "#5a5886";
+                            e.target.style.color = "white";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.background = "transparent";
+                            e.target.style.color = "#5a5886";
+                        }}
+                    >
+                        {t('tryTestsOnline')}
+                    </a>
+                    <a 
+                        href={`/${router.locale == 'en' ? '' : router.locale + '/'}download`}
+                        className="translation-btn"
+                        style={{ 
+                            background: "linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%)",
+                            padding: "12px 25px",
+                            border: "none",
+                            borderRadius: "10px",
+                            boxShadow: "0px 12px 35px rgba(90, 88, 134, 0.25)",
+                            color: "white",
+                            cursor: "pointer",
+                            textDecoration: "none",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "8px"
+                        }}
+                    >
+                        <i className="ri-smartphone-line" style={{ fontSize: '18px' }}></i>
+                        {t('downloadAppButton')}
+                    </a>
+                </div>
             </div>
         );
     }
@@ -150,7 +186,7 @@ const Quiz = ({ title, id, name, translation, contained }) => {
                                 <p>{translate ? currentQuestion.explanation[router.locale] : currentQuestion.explanation.en}</p>
                             </div>} 
                         </div>
-                        <div className={styles.nav} style={{ width: "100%", margin: "0 auto", display: "flex", gap: "15px", justifyContent: "center" }}>
+                        <div className={styles.nav} style={{ width: "100%", margin: "0 auto", display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap" }}>
                             {selected && (
                                 <button 
                                     onClick={goToNextQuestion}
@@ -159,6 +195,7 @@ const Quiz = ({ title, id, name, translation, contained }) => {
                                         background: "linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%)",
                                         padding: "12px 25px",
                                         border: "none",
+                                        borderRadius: "10px",
                                         boxShadow: "0px 12px 35px rgba(90, 88, 134, 0.25)",
                                         color: "white",
                                         cursor: "pointer"
@@ -168,13 +205,39 @@ const Quiz = ({ title, id, name, translation, contained }) => {
                                 </button>
                             )}
                             <a className='translation-btn' href={`https://test.cdlhelp.com/${router.locale == 'en' ? '' : router.locale}`} style={{ 
+                                background: "transparent",
+                                padding: "12px 25px",
+                                border: "2px solid #5a5886",
+                                borderRadius: "10px",
+                                textDecoration: "none",
+                                color: "#5a5886",
+                                transition: "all 0.3s ease",
+                                textAlign: "center"
+                            }}
+                            onMouseEnter={(e) => {
+                                e.target.style.background = "#5a5886";
+                                e.target.style.color = "white";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.background = "transparent";
+                                e.target.style.color = "#5a5886";
+                            }}>{t('tryTestsOnline')}</a>
+                            <a className='translation-btn' href={`/${router.locale == 'en' ? '' : router.locale + '/'}download`} style={{ 
                                 background: "linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%)",
                                 padding: "12px 25px",
                                 border: "none",
+                                borderRadius: "10px",
                                 boxShadow: "0px 12px 35px rgba(90, 88, 134, 0.25)",
                                 textDecoration: "none",
-                                color: "white"
-                            }}>{t('tryTestsOnline')}</a>
+                                color: "white",
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: "8px"
+                            }}>
+                                <i className="ri-smartphone-line" style={{ fontSize: '18px' }}></i>
+                                {t('downloadAppButton')}
+                            </a>
                         </div>
                     </>
                 }

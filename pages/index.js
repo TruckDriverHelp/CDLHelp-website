@@ -36,7 +36,7 @@ const Funfacts = dynamic(() => import('../components/Home/Funfacts'), {
 
 const AppDownload = dynamic(() => import('../components/Home/AppDownload'), {
   loading: () => <div style={{ minHeight: '200px', background: '#f5f5f5' }}>Loading download section...</div>,
-  ssr: false
+  ssr: true
 });
 
 const IndexPage = ({ meta, alternateLinks }) => {

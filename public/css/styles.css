@@ -60,7 +60,7 @@ body {
   color: var(--blackColor);
   font-size: var(--fontSize);
   font-family: var(--fontFamily);
-  padding-top: 60px; /* Increase this value to push content further down if needed */
+  padding-top: 120px; /* Increase this value to push content further down if needed */
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {

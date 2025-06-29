@@ -2,16 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/router";
 import { useTranslation } from 'next-i18next';
+import analytics from '../../lib/analytics';
 
 const AppDownload = () => {
     const {t} = useTranslation("index");
     const { locale } = useRouter();
     
-    const trackDownload = (platform) => {
-        if (window.fbq) {
-            window.fbq('trackCustom', `AppDownload_${platform}`, { platform: platform });
-        }
-    }
     return (
         <>
             <div id="download" className="new-app-download-wrap-area ptb-100">
@@ -23,30 +19,30 @@ const AppDownload = () => {
                                 <h2>{t("downloadAppText")}</h2>
                                 <p>{t("downloadAndTry")}</p>
 
-                                <div className="btn-box color-wrap">
-                                    <a href={`https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp${locale == 'en' ? '' : `&hl=${locale}`}`} onClick={() => trackDownload('Android')} className="playstore-btn" target="_blank">
-                                        <div>
-                                            <Image
-                                                src="/images/play-store.png"
-                                                alt="image"
-                                                width={27}
-                                                height={30}
-                                            />
-                                        </div>
-                                        {t("androidApp")}
-                                        <span>{t("downloadButton")}</span>
-                                    </a>
-                                    <a href={`https://apps.apple.com/${locale == 'en' ? 'us' : locale}/app/cdl-help/id6444388755`}  onClick={() => trackDownload('iOS')} className="applestore-btn" target="_blank">
-                                        <div>
-                                            <Image
-                                                src="/images/apple-store.png"
-                                                alt="image"
-                                                width={34}
-                                                height={35}
-                                            />
-                                        </div>
-                                        {t("iosApp")}
-                                        <span>{t("downloadButton")}</span>
+                                <div className="btn-box">
+                                    <a 
+                                        href={`/${locale == 'en' ? '' : locale + '/'}download`}
+                                        onClick={() => {
+                                            analytics.trackFeatureEngagement('app_download_section', 'click', 'home');
+                                            analytics.trackDownloadIntent('website', 'home_download_section');
+                                        }}
+                                        className="translation-btn"
+                                        style={{ 
+                                            background: "linear-gradient(44.44deg, #5a5886 7.79%, #9290bb 94.18%)",
+                                            padding: "12px 25px",
+                                            border: "none",
+                                            borderRadius: "10px",
+                                            boxShadow: "0px 12px 35px rgba(90, 88, 134, 0.25)",
+                                            textDecoration: "none",
+                                            color: "white",
+                                            display: "inline-flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            fontSize: "16px"
+                                        }}
+                                    >
+                                        <i className="ri-smartphone-line" style={{ fontSize: '18px' }}></i>
+                                        {t('downloadAppButton')}
                                     </a>
                                 </div>
                             </div>

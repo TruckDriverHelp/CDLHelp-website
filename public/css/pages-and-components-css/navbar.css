@@ -821,9 +821,7 @@
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
-body {
-  padding-top: 80px; /* Adjust if your navbar is taller/shorter */
-}
+/* Desktop body padding - moved to after secondary navbar styles */
 
 /* --- Secondary Navbar Styles --- */
 .secondary-navbar {
@@ -874,27 +872,166 @@ body {
   background: rgba(0,123,255,0.08);
 }
 
+/* Desktop styles (992px and up) */
 body {
-  padding-top: 140px !important; /* main navbar (80px) + secondary navbar (60px) */
+  padding-top: 140px; /* main navbar (80px) + secondary navbar (60px) */
 }
 
+/* Mobile and Tablet styles (991px and below) */
 @media only screen and (max-width: 991px) {
+  body {
+    padding-top: 70px !important; /* Only main navbar height */
+  }
+  
   .secondary-navbar {
+    display: none !important; /* Hide secondary navbar on mobile and tablets */
+  }
+}
+
+/* Mobile specific styles (767px and below) */
+@media only screen and (max-width: 767px) {
+  /* Keep all elements on same row */
+  .navbar-area .navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-area .navbar-brand {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+    order: 0;
+  }
+  
+  /* Center language dropdown and hamburger */
+  .navbar-area .others-options {
+    order: 1;
+    margin: 0;
+    flex: 0 0 auto;
+  }
+  
+  .navbar-area .navbar-toggler {
+    order: 2;
+    margin-left: 10px;
+    margin-right: 0;
+    flex: 0 0 auto;
+  }
+  
+  /* Adjust logo size for mobile */
+  .navbar-area .navbar-brand img {
+    max-width: 80px;
+    height: auto;
+  }
+}
+
+/* Fix navbar collapse behavior for tablets and mobile */
+@media only screen and (max-width: 991px) {
+  /* Override Bootstrap's lg breakpoint to ensure toggler is visible */
+  .navbar-expand-lg .navbar-toggler {
+    display: block !important;
+  }
+  
+  .navbar-expand-lg .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+  }
+  /* Force Bootstrap navbar collapse behavior */
+  .navbar-area .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  /* Hide collapsed navbar */
+  .navbar-area .navbar-collapse:not(.show) {
     display: none !important;
   }
-  .secondary-navbar .navbar {
-    min-height: 44px;
+  
+  /* Show expanded navbar */
+  .navbar-area .navbar-collapse.show {
+    display: block !important;
   }
-  .secondary-navbar .navbar-nav {
-    gap: 10px;
+  
+  /* Style navbar items for mobile/tablet */
+  .navbar-area .navbar-nav {
+    flex-direction: column !important;
+    width: 100%;
+    padding: 10px 0;
   }
-  .secondary-navbar .nav-link {
-    font-size: 12px;
-    padding: 3px 6px;
-    margin: 8px 0;
+  
+  .navbar-area .navbar-nav .nav-item {
+    width: 100%;
+    text-align: left;
+    margin: 0 !important;
+    padding: 0 15px;
   }
-  body {
-    padding-top: 114px !important; /* main navbar (70px) + secondary navbar (44px) */
+  
+  .navbar-area .navbar-nav .nav-item a {
+    padding: 10px 0 !important;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Ensure hamburger menu is visible and styled */
+  .navbar-area .navbar-toggler {
+    display: block !important;
+    border: none;
+    padding: 4px 12px;
+    margin-left: 10px; /* 10px space from language dropdown */
+    order: 999; /* Ensure it's the last element */
+  }
+  
+  .navbar-area .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Flex container for navbar brand and controls */
+  .navbar-area .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Group brand on left */
+  .navbar-area .navbar-brand {
+    margin-right: auto;
+  }
+  
+  /* Position others-options (language switcher) */
+  .navbar-area .others-options {
+    order: 1;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  /* Position hamburger toggler as last element */
+  .navbar-area .navbar-toggler {
+    order: 2;
+  }
+  
+  /* Fix hamburger menu icon color for visibility */
+  .navbar-area.navbar-style-two .navbar-toggler .icon-bar {
+    background: #333 !important;
+  }
+  
+  /* Ensure icon bars spacing */
+  .navbar-area .navbar-toggler .icon-bar {
+    margin-bottom: 4px;
+    width: 25px;
+    height: 3px;
+    display: block;
+    background-color: #333;
+  }
+  
+  .navbar-area .navbar-toggler .icon-bar:last-child {
+    margin-bottom: 0;
   }
   .navbar-area .navbar .navbar-nav .dropdown-menu {
     display: none;
