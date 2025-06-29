@@ -32,16 +32,16 @@ const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
 					<meta name="twitter:title" content={meta.title} />
 					<meta name="twitter:description" content={meta.description} />
 					<meta name="twitter:image" content={"/images/truckdriverhelp-og.jpg"} />
-					<link rel="canonical" href="https://www.cdlhelp.com/cdl-texas/" />
-					<link rel="alternate" href="https://www.cdlhelp.com/cdl-texas/" hrefLang="x-default" />
-					<link rel="alternate" href="https://www.cdlhelp.com/en/cdl-texas/" hrefLang="en" />
-					<link rel="alternate" href="https://www.cdlhelp.com/ru/cdl-texas/" hrefLang="ru" />
-					<link rel="alternate" href="https://www.cdlhelp.com/uk/cdl-texas/" hrefLang="uk" />
-					<link rel="alternate" href="https://www.cdlhelp.com/ar/cdl-texas/" hrefLang="ar" />
-					<link rel="alternate" href="https://www.cdlhelp.com/ko/cdl-texas/" hrefLang="ko" />
-					<link rel="alternate" href="https://www.cdlhelp.com/tr/cdl-texas/" hrefLang="tr" />
-					<link rel="alternate" href="https://www.cdlhelp.com/pt/cdl-texas/" hrefLang="pt" />
-					<link rel="alternate" href="https://www.cdlhelp.com/zh/cdl-texas/" hrefLang="zh" />
+					<link rel="canonical" href="https://www.cdlhelp.com/cdl-texas" />
+					<link rel="alternate" href="https://www.cdlhelp.com/cdl-texas" hrefLang="x-default" />
+					<link rel="alternate" href="https://www.cdlhelp.com/en/cdl-texas" hrefLang="en" />
+					<link rel="alternate" href="https://www.cdlhelp.com/ru/cdl-texas" hrefLang="ru" />
+					<link rel="alternate" href="https://www.cdlhelp.com/uk/cdl-texas" hrefLang="uk" />
+					<link rel="alternate" href="https://www.cdlhelp.com/ar/cdl-texas" hrefLang="ar" />
+					<link rel="alternate" href="https://www.cdlhelp.com/ko/cdl-texas" hrefLang="ko" />
+					<link rel="alternate" href="https://www.cdlhelp.com/tr/cdl-texas" hrefLang="tr" />
+					<link rel="alternate" href="https://www.cdlhelp.com/pt/cdl-texas" hrefLang="pt" />
+					<link rel="alternate" href="https://www.cdlhelp.com/zh/cdl-texas" hrefLang="zh" />
 					
 				</Head>
 				<Navbar alternateLinks={alternateLinks}/>
@@ -109,14 +109,14 @@ export async function getStaticProps({ locale }) {
 	const text = await fetchText(locale) || "";
 
 	const alternateLinks = [
-		{ href: '/en/cdl-texas/', hrefLang: 'en' },
-		{ href: '/ar/cdl-texas/', hrefLang: 'ar' },
-		{ href: '/ru/cdl-texas/', hrefLang: 'ru' },
-		{ href: '/uk/cdl-texas/', hrefLang: 'uk' },
-		{ href: '/zh/cdl-texas/', hrefLang: 'zh' },
-		{ href: '/ko/cdl-texas/', hrefLang: 'ko' },
-		{ href: '/tr/cdl-texas/', hrefLang: 'tr' },
-		{ href: '/pt/cdl-texas/', hrefLang: 'pt' },
+		{ href: '/en/cdl-texas', hrefLang: 'en' },
+		{ href: '/ar/cdl-texas', hrefLang: 'ar' },
+		{ href: '/ru/cdl-texas', hrefLang: 'ru' },
+		{ href: '/uk/cdl-texas', hrefLang: 'uk' },
+		{ href: '/zh/cdl-texas', hrefLang: 'zh' },
+		{ href: '/ko/cdl-texas', hrefLang: 'ko' },
+		{ href: '/tr/cdl-texas', hrefLang: 'tr' },
+		{ href: '/pt/cdl-texas', hrefLang: 'pt' },
 	];
 
 	const meta = await getMeta(locale, "texas");
