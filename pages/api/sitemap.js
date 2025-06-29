@@ -82,7 +82,13 @@ async function fetchArticlesFromStrapi() {
 }
 
 function generateUrlEntry(path, locale, lastmod, priority, changefreq, alternates = []) {
-  const loc = locale === 'en' ? `${SITE_URL}${path}` : `${SITE_URL}/${locale}${path}`;
+  let loc;
+  if (locale === 'en') {
+    loc = `${SITE_URL}${path}`;
+  } else {
+    // For non-English homepages, ensure trailing slash
+    loc = path === '' ? `${SITE_URL}/${locale}/` : `${SITE_URL}/${locale}${path}`;
+  }
   
   let entry = `  <url>\n`;
   entry += `    <loc>${loc}</loc>\n`;
@@ -191,7 +197,7 @@ export default async function handler(req, res) {
           generatedUrls.add(urlKey);
           const alternates = LOCALES.map(locale => ({
             lang: locale,
-            href: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}`
+            href: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}/`
           }));
           alternates.push({
             lang: 'x-default',
@@ -213,7 +219,7 @@ export default async function handler(req, res) {
             generatedUrls.add(urlKey);
             const homeAlternates = LOCALES.map(loc => ({
               lang: loc,
-              href: loc === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${loc}`
+              href: loc === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${loc}/`
             }));
             homeAlternates.push({
               lang: 'x-default',
