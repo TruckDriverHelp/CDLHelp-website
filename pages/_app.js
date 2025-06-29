@@ -21,18 +21,23 @@ import { getDirection } from 'lib/getDirection'
 import { useEffect, Suspense, lazy } from 'react'
 import { QuizContextProvider } from '../store/quiz-context'
 import nextI18NextConfig from '../next-i18next.config'
+import analytics from '../lib/analytics'
 
 // Lazy load non-critical components
 const Layout = lazy(() => import('../components/_App/Layout'));
 const Pixel = lazy(() => import('../components/Pixel'));
 const CookieConsentBanner = lazy(() => import("../components/_App/CookieConsentBanner.js"));
 const TawkTo = lazy(() => import("../components/_App/TawkTo.js"));
+const SmartAppBanner = lazy(() => import('../components/_App/SmartAppBanner'));
 
 const MyApp = ({ Component, pageProps, articles }) => {
 	const router = useRouter()
 	const dir = getDirection(router.locale)
 
 	useEffect(() => {
+		// Initialize unified analytics
+		analytics.init();
+		
 		// Register service worker
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', () => {
@@ -45,10 +50,14 @@ const MyApp = ({ Component, pageProps, articles }) => {
 		}
 
 		const handleRouteChange = url => {
+			// Legacy Google Analytics tracking
 			window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
 				page_path: url,
 				cookieFlags: 'SameSite=None; Secure'
 			})
+			
+			// Enhanced unified tracking
+			analytics.trackPageView(url, document.title);
 		}
 
 		router.events.on('routeChangeComplete', handleRouteChange)
@@ -69,6 +78,9 @@ const MyApp = ({ Component, pageProps, articles }) => {
 							<CookieConsentBanner />
 						</Suspense>
 					)}
+					<Suspense fallback={null}>
+						<SmartAppBanner />
+					</Suspense>
 					<Component {...pageProps} />
 					
 					{/* Analytics Scripts - Load after page becomes interactive */}
