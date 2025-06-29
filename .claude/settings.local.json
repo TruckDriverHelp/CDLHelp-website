@@ -28,7 +28,11 @@
       "Bash(for:*)",
       "Bash(do echo -n \"Testing $f: \")",
       "Bash(jq:*)",
-      "Bash(/dev/null)"
+      "Bash(/dev/null)",
+      "Bash(xmllint:*)",
+      "Bash(kill:*)",
+      "Bash(mv:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   }

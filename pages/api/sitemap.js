@@ -156,6 +156,9 @@ export default async function handler(req, res) {
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     sitemap += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
     
+    // Track generated URLs to avoid duplicates
+    const generatedUrls = new Set();
+    
     // Generate entries for static pages
     for (const page of staticPages) {
       const pageType = getPageType(page.path);
@@ -176,14 +179,18 @@ export default async function handler(req, res) {
       
       // Generate URL entry for each locale
       LOCALES.forEach(locale => {
-        sitemap += generateUrlEntry(
-          page.path,
-          locale,
-          page.lastmod,
-          priority,
-          changefreq,
-          alternates
-        );
+        const urlKey = locale === 'en' ? `${SITE_URL}${page.path}` : `${SITE_URL}/${locale}${page.path}`;
+        if (!generatedUrls.has(urlKey)) {
+          generatedUrls.add(urlKey);
+          sitemap += generateUrlEntry(
+            page.path,
+            locale,
+            page.lastmod,
+            priority,
+            changefreq,
+            alternates
+          );
+        }
       });
     }
     
@@ -208,14 +215,18 @@ export default async function handler(req, res) {
         });
       }
       
-      sitemap += generateUrlEntry(
-        articlePath,
-        article.locale,
-        lastmod,
-        PAGE_PRIORITIES.articles,
-        CHANGE_FREQUENCIES.articles,
-        alternates
-      );
+      const urlKey = article.locale === 'en' ? `${SITE_URL}/${article.slug}` : `${SITE_URL}/${article.locale}/${article.slug}`;
+      if (!generatedUrls.has(urlKey)) {
+        generatedUrls.add(urlKey);
+        sitemap += generateUrlEntry(
+          articlePath,
+          article.locale,
+          lastmod,
+          PAGE_PRIORITIES.articles,
+          CHANGE_FREQUENCIES.articles,
+          alternates
+        );
+      }
     }
     
     sitemap += `</urlset>`;

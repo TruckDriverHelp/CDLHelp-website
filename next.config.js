@@ -29,6 +29,18 @@ const nextConfig = {
         SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
         BASE_URL: process.env.BASE_URL
     },
+    async rewrites() {
+        return [
+            {
+                source: '/sitemap.xml',
+                destination: '/api/sitemap',
+            },
+            {
+                source: '/sitemap-index.xml',
+                destination: '/api/sitemap-index.xml',
+            },
+        ];
+    },
     async redirects() {
         return [
           // Fix incorrect /en/ prefix for English URLs
@@ -126,6 +138,18 @@ const nextConfig = {
                         value: "application/xml",
                     },
                 ],
+            },
+        ];
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/sitemap.xml',
+                destination: '/api/sitemap',
+            },
+            {
+                source: '/sitemap-index.xml',
+                destination: '/api/sitemap-index',
             },
         ];
     },
