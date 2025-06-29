@@ -165,6 +165,47 @@ export default async function handler(req, res) {
       const priority = PAGE_PRIORITIES[pageType] || PAGE_PRIORITIES.default;
       const changefreq = CHANGE_FREQUENCIES[pageType] || CHANGE_FREQUENCIES.default;
       
+      // Skip home page for non-English locales to avoid /ru/ redirect
+      if (page.path === '/' && LOCALES.length > 1) {
+        // Only add the English home page
+        const urlKey = `${SITE_URL}/`;
+        if (!generatedUrls.has(urlKey)) {
+          generatedUrls.add(urlKey);
+          const alternates = LOCALES.map(locale => ({
+            lang: locale,
+            href: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}`
+          }));
+          alternates.push({
+            lang: 'x-default',
+            href: `${SITE_URL}/`
+          });
+          sitemap += generateUrlEntry(
+            '/',
+            'en',
+            page.lastmod,
+            priority,
+            changefreq,
+            alternates
+          );
+        }
+        // Add non-English homepages separately
+        LOCALES.filter(locale => locale !== 'en').forEach(locale => {
+          const urlKey = `${SITE_URL}/${locale}`;
+          if (!generatedUrls.has(urlKey)) {
+            generatedUrls.add(urlKey);
+            sitemap += generateUrlEntry(
+              '',
+              locale,
+              page.lastmod,
+              priority,
+              changefreq,
+              alternates
+            );
+          }
+        });
+        continue;
+      }
+      
       // Generate alternates for each locale
       const alternates = LOCALES.map(locale => ({
         lang: locale,

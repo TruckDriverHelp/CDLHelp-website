@@ -19,6 +19,7 @@ const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
 				title={meta.title}
 				description={meta.description}
 				alternateLinks={alternateLinks}
+				url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-texas`}
 			/>
 			<Layout >
 				<Navbar alternateLinks={alternateLinks}/>

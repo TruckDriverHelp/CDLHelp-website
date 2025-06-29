@@ -30,7 +30,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const router = useRouter();
   const currentLocale = locale || router.locale || 'en';
   const baseUrl = "https://www.cdlhelp.com";
-  const fullUrl = url || `${baseUrl}${router.asPath}`;
+  // Remove query parameters from the path for canonical URL
+  const cleanPath = router.asPath.split('?')[0].split('#')[0];
+  const fullUrl = url || `${baseUrl}${cleanPath}`;
   const canonicalUrl = canonical || fullUrl;
 
   // Generate proper alternate links based on current path
