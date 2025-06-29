@@ -843,9 +843,17 @@
 }
 .secondary-navbar .navbar {
   padding: 0 16px;
-  min-height: 48px;
+  min-height: 40px; /* Reduced from 48px */
 }
 .secondary-navbar .navbar-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0; /* Remove gap between rows */
+}
+.secondary-navbar .nav-row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -854,13 +862,14 @@
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
+  padding: 2px 0; /* Minimal padding for each row */
 }
 .secondary-navbar .nav-link {
   color: #6c757d;
   font-size: 14px;
   font-weight: 500;
-  padding: 4px 8px;
-  margin: 10px 0;
+  padding: 2px 8px; /* Reduced vertical padding from 4px */
+  margin: 2px 0; /* Reduced margin from 10px */
   border-radius: 4px;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -874,7 +883,7 @@
 
 /* Desktop styles (992px and up) */
 body {
-  padding-top: 140px; /* main navbar (80px) + secondary navbar (60px) */
+  padding-top: 120px; /* main navbar (80px) + secondary navbar (40px) - reduced from 140px */
 }
 
 /* Mobile and Tablet styles (991px and below) */
