@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+// Ensure we're in a server environment
+if (typeof window !== 'undefined') {
+  throw new Error('This API route can only be run on the server');
+}
+
 // SEO Best Practices for Sitemaps:
 // 1. Include all important pages
 // 2. Use proper lastmod dates
@@ -35,6 +40,12 @@ const CHANGE_FREQUENCIES = {
 
 async function fetchArticlesFromStrapi() {
   try {
+    // Skip if Strapi is not configured
+    if (!process.env.STRAPI_HOST || !process.env.STRAPI_PORT || !process.env.STRAPI_API_KEY) {
+      console.log('Strapi not configured, skipping article fetch');
+      return [];
+    }
+    
     const { data } = await axios.get(
       `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*`,
       {
@@ -105,10 +116,17 @@ function getPageType(path) {
 }
 
 export default async function handler(req, res) {
-  res.setHeader('Content-Type', 'application/xml');
+  // Always set XML headers first
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
   res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
   
   try {
+    // Check if required environment variables are set
+    if (!process.env.STRAPI_HOST || !process.env.STRAPI_PORT || !process.env.STRAPI_API_KEY) {
+      console.error('Missing required environment variables for Strapi connection');
+      // Continue without articles if Strapi is not configured
+    }
+    
     // Fetch dynamic content
     const articles = await fetchArticlesFromStrapi();
     const today = new Date().toISOString().split('T')[0];
@@ -235,38 +253,40 @@ export default async function handler(req, res) {
       });
     }
     
-    // Generate entries for articles
-    for (const article of articles) {
-      const articlePath = `/${article.slug}`;
-      const lastmod = article.updatedAt ? article.updatedAt.split('T')[0] : today;
-      
-      // Find all alternate versions
-      const alternates = articles
-        .filter(a => a.slug === article.slug || articles.some(alt => alt.slug === article.slug))
-        .map(a => ({
-          lang: a.locale,
-          href: a.locale === 'en' ? `${SITE_URL}/${a.slug}` : `${SITE_URL}/${a.locale}/${a.slug}`
-        }));
-      
-      // Add x-default
-      if (article.locale === 'en') {
-        alternates.push({
-          lang: 'x-default',
-          href: `${SITE_URL}/${article.slug}`
-        });
-      }
-      
-      const urlKey = article.locale === 'en' ? `${SITE_URL}/${article.slug}` : `${SITE_URL}/${article.locale}/${article.slug}`;
-      if (!generatedUrls.has(urlKey)) {
-        generatedUrls.add(urlKey);
-        sitemap += generateUrlEntry(
-          articlePath,
-          article.locale,
-          lastmod,
-          PAGE_PRIORITIES.articles,
-          CHANGE_FREQUENCIES.articles,
-          alternates
-        );
+    // Generate entries for articles if available
+    if (articles && articles.length > 0) {
+      for (const article of articles) {
+        const articlePath = `/${article.slug}`;
+        const lastmod = article.updatedAt ? article.updatedAt.split('T')[0] : today;
+        
+        // Find all alternate versions
+        const alternates = articles
+          .filter(a => a.slug === article.slug || articles.some(alt => alt.slug === article.slug))
+          .map(a => ({
+            lang: a.locale,
+            href: a.locale === 'en' ? `${SITE_URL}/${a.slug}` : `${SITE_URL}/${a.locale}/${a.slug}`
+          }));
+        
+        // Add x-default
+        if (article.locale === 'en') {
+          alternates.push({
+            lang: 'x-default',
+            href: `${SITE_URL}/${article.slug}`
+          });
+        }
+        
+        const urlKey = article.locale === 'en' ? `${SITE_URL}/${article.slug}` : `${SITE_URL}/${article.locale}/${article.slug}`;
+        if (!generatedUrls.has(urlKey)) {
+          generatedUrls.add(urlKey);
+          sitemap += generateUrlEntry(
+            articlePath,
+            article.locale,
+            lastmod,
+            PAGE_PRIORITIES.articles,
+            CHANGE_FREQUENCIES.articles,
+            alternates
+          );
+        }
       }
     }
     
@@ -275,6 +295,21 @@ export default async function handler(req, res) {
     res.status(200).send(sitemap);
   } catch (error) {
     console.error('Error generating sitemap:', error);
-    res.status(500).send('Error generating sitemap');
+    console.error('Error details:', error.message);
+    console.error('Stack trace:', error.stack);
+    
+    // Send a valid XML error response
+    const errorXml = `<?xml version="1.0" encoding="UTF-8"?>
+<!-- Error generating sitemap: ${error.message} -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>${SITE_URL}/</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>`;
+    
+    res.status(500).send(errorXml);
   }
 }

@@ -58,14 +58,36 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
 
   // Convert alternateLinks array to object format for SEOHead
   const alternateLinksObj = {};
+  
+  // First, add the current page to ensure self-referencing
+  alternateLinksObj[locale] = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
+  
+  // Process alternate links from Strapi
   alternateLinks.forEach(link => {
-    // Use the hrefLang property directly as it contains the correct locale
-    alternateLinksObj[link.hrefLang] = link.href;
+    // Validate that the href matches the expected pattern for the locale
+    const expectedPrefix = link.hrefLang === 'en' ? '/' : `/${link.hrefLang}/`;
+    
+    // Only add the link if it starts with the correct locale prefix
+    if (link.href && link.href.startsWith(expectedPrefix)) {
+      alternateLinksObj[link.hrefLang] = link.href;
+    } else {
+      // Log the issue for debugging
+      console.warn(`Invalid hreflang: locale ${link.hrefLang} has href ${link.href}`);
+    }
   });
   
-  // Ensure current locale is included if not already present
-  if (!alternateLinksObj[locale]) {
-    alternateLinksObj[locale] = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
+  // If we only have the current locale, something is wrong with the data
+  // Generate expected URLs for all locales as a fallback
+  if (Object.keys(alternateLinksObj).length === 1) {
+    console.warn(`Only current locale found for ${slug}, generating fallback hreflang URLs`);
+    const locales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+    locales.forEach(loc => {
+      if (!alternateLinksObj[loc]) {
+        // This assumes the slug is the same across locales, which may not be true
+        // But it's better than pointing all to Russian
+        alternateLinksObj[loc] = loc === 'en' ? `/${slug}` : `/${loc}/${slug}`;
+      }
+    });
   }
 
   return (
