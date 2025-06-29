@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "help.truckdriver.cdlhelp",
+        "paths": [
+          "/",
+          "/download",
+          "/*/download",
+          "/quiz/*",
+          "/test/*",
+          "/onboarding/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["help.truckdriver.cdlhelp"]
+  }
+}
