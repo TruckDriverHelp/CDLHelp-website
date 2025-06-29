@@ -85,16 +85,16 @@ export async function getStaticProps({ locale }) {
 	const cards = await fetchCVOCards(locale) || [];
 	const text = await fetchText(locale) || "";
 
-	const alternateLinks = [
-		{ href: '/en/cdl-texas', hrefLang: 'en' },
-		{ href: '/ar/cdl-texas', hrefLang: 'ar' },
-		{ href: '/ru/cdl-texas', hrefLang: 'ru' },
-		{ href: '/uk/cdl-texas', hrefLang: 'uk' },
-		{ href: '/zh/cdl-texas', hrefLang: 'zh' },
-		{ href: '/ko/cdl-texas', hrefLang: 'ko' },
-		{ href: '/tr/cdl-texas', hrefLang: 'tr' },
-		{ href: '/pt/cdl-texas', hrefLang: 'pt' },
-	];
+	const alternateLinks = {
+		'en': '/cdl-texas',
+		'ar': '/ar/cdl-texas',
+		'ru': '/ru/cdl-texas',
+		'uk': '/uk/cdl-texas',
+		'zh': '/zh/cdl-texas',
+		'ko': '/ko/cdl-texas',
+		'tr': '/tr/cdl-texas',
+		'pt': '/pt/cdl-texas'
+	};
 
 	const meta = await getMeta(locale, "texas");
 
