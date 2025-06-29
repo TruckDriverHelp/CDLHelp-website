@@ -5,13 +5,10 @@
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
-        "build": "npm run check:translations && next build && npm run sitemap:generate",
+        "build": "npm run check:translations && next build",
         "build:force": "next build",
         "check:translations": "node scripts/check-translations.js",
         "fix:translations": "node scripts/fix-translations.js",
-        "sitemap": "next-sitemap --config next-sitemap.config.js",
-        "sitemap:generate": "node scripts/generate-sitemap.js",
-    "sitemap:format": "node scripts/format-sitemap.js",
         "start": "next start"
     },
     "author": "www.truckdriver.help",
