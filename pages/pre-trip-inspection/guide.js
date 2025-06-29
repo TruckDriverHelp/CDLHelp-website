@@ -41,15 +41,15 @@ export default function PreTripGuide({ sections, alternateLinks }) {
                 <meta name="twitter:image" content={metaImage} />
 
                 <link rel="canonical" href="https://www.cdlhelp.com/" />
-                <link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="x-default" />
-                <link rel="alternate" href="https://www.cdlhelp.com/en/" hrefLang="en" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ru/" hrefLang="ru" />
-                <link rel="alternate" href="https://www.cdlhelp.com/uk/" hrefLang="uk" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ar/" hrefLang="ar" />
-                <link rel="alternate" href="https://www.cdlhelp.com/ko/" hrefLang="ko" />
-                <link rel="alternate" href="https://www.cdlhelp.com/tr/" hrefLang="tr" />
-                <link rel="alternate" href="https://www.cdlhelp.com/pt/" hrefLang="pt" />
-                <link rel="alternate" href="https://www.cdlhelp.com/zh/" hrefLang="zh" />
+                <link rel="alternate" href="https://www.cdlhelp.com" hrefLang="x-default" />
+                <link rel="alternate" href="https://www.cdlhelp.com/en" hrefLang="en" />
+                <link rel="alternate" href="https://www.cdlhelp.com/ru" hrefLang="ru" />
+                <link rel="alternate" href="https://www.cdlhelp.com/uk" hrefLang="uk" />
+                <link rel="alternate" href="https://www.cdlhelp.com/ar" hrefLang="ar" />
+                <link rel="alternate" href="https://www.cdlhelp.com/ko" hrefLang="ko" />
+                <link rel="alternate" href="https://www.cdlhelp.com/tr" hrefLang="tr" />
+                <link rel="alternate" href="https://www.cdlhelp.com/pt" hrefLang="pt" />
+                <link rel="alternate" href="https://www.cdlhelp.com/zh" hrefLang="zh" />
             </Head>
 
             <Layout>
@@ -93,13 +93,13 @@ export async function getStaticProps({ locale }) {
     const files = fs.readdirSync(preTripDir);
     const alternateLinks = {
         'en': '/',
-        'ar': '/ar/',
-        'ru': '/ru/',
-        'uk': '/uk/',
-        'zh': '/zh/',
-        'ko': '/ko/',
-        'tr': '/tr/',
-        'pt': '/pt/'
+        'ar': '/ar',
+        'ru': '/ru',
+        'uk': '/uk',
+        'zh': '/zh',
+        'ko': '/ko',
+        'tr': '/tr',
+        'pt': '/pt'
     };
 
     const sections = files.map(file => {

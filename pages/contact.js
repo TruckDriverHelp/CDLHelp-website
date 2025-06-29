@@ -48,14 +48,14 @@ export default Contact;
 
 export async function getStaticProps({ locale }) {
   const alternateLinks = [
-    { href: '/en/contact/', hrefLang: 'x-default' },
-    { href: '/ar/contact/', hrefLang: 'ar' },
-    { href: '/ru/contact/', hrefLang: 'ru' },
-    { href: '/uk/contact/', hrefLang: 'uk' },
-    { href: '/zh/contact/', hrefLang: 'zh' },
-    { href: '/ko/contact/', hrefLang: 'ko' },
-    { href: '/tr/contact/', hrefLang: 'tr' },
-    { href: '/en/contact/', hrefLang: 'en' },
+    { href: '/en/contact', hrefLang: 'x-default' },
+    { href: '/ar/contact', hrefLang: 'ar' },
+    { href: '/ru/contact', hrefLang: 'ru' },
+    { href: '/uk/contact', hrefLang: 'uk' },
+    { href: '/zh/contact', hrefLang: 'zh' },
+    { href: '/ko/contact', hrefLang: 'ko' },
+    { href: '/tr/contact', hrefLang: 'tr' },
+    { href: '/en/contact', hrefLang: 'en' },
   ];
 
   const meta = await getMeta(locale, "contact");

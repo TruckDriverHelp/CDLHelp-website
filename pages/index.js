@@ -84,13 +84,13 @@ export async function getStaticProps({ locale }) {
 
     const alternateLinks = {
         'en': '/',
-        'ar': '/ar/',
-        'ru': '/ru/',
-        'uk': '/uk/',
-        'zh': '/zh/',
-        'ko': '/ko/',
-        'tr': '/tr/',
-        'pt': '/pt/'
+        'ar': '/ar',
+        'ru': '/ru',
+        'uk': '/uk',
+        'zh': '/zh',
+        'ko': '/ko',
+        'tr': '/tr',
+        'pt': '/pt'
     };
 
     return {
