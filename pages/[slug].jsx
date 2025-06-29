@@ -13,6 +13,7 @@ import Footer from "../components/_App/Footer";
 import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
 import { SEOHead } from '../src/shared/ui/SEO';
+import { LinkRenderer } from '../lib/markdown-utils';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
@@ -110,7 +111,17 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
             <p>{article.description}</p>
             {article.blocks.map((block, index) => {
               if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-                return <div key={index} id={block.idtag}><ReactMarkdown children={block.richtext} remarkPlugins={[remarkGfm]} /></div>;
+                return (
+                  <div key={index} id={block.idtag}>
+                    <ReactMarkdown 
+                      children={block.richtext} 
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        a: LinkRenderer
+                      }}
+                    />
+                  </div>
+                );
               }
               else if (block.__typename === 'ComponentArticlePartsMedia') {
                 return (

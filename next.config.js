@@ -123,6 +123,23 @@ const nextConfig = {
             permanent: true,
             locale: false
           },
+          {
+            source: '/kak-poluchit-cdl',
+            destination: '/ru/kak-poluchit-cdl',
+            permanent: true,
+            locale: false
+          },
+          // Fix incorrect Russian URLs
+          {
+            source: '/ru/cdl-shkola',
+            destination: '/ru/o-cdl-shkolakh',
+            permanent: true
+          },
+          {
+            source: '/ru/kak-ispolzovat-cdl-help',
+            destination: '/ru/kak-ispolzovat-cdlhelp',
+            permanent: true
+          },
           // Removed these redirects as they were causing conflicts with localized URLs
         ];
     },
