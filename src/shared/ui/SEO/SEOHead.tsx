@@ -33,21 +33,29 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const fullUrl = url || `${baseUrl}${router.asPath}`;
   const canonicalUrl = canonical || fullUrl;
 
-  // Генерируем alternate links для всех поддерживаемых языков
-  const defaultAlternateLinks = {
-    'en': '/',
-    'ru': '/ru/',
-    'uk': '/uk/',
-    'ar': '/ar/',
-    'ko': '/ko/',
-    'zh': '/zh/',
-    'tr': '/tr/',
-    'pt': '/pt/'
-  };
+  // Generate proper alternate links based on current path
+  const currentPath = router.asPath;
+  const pathWithoutLocale = currentPath.replace(/^\/(ru|uk|ar|ko|zh|tr|pt)(\/|$)/, '/');
+  
+  // Generate alternate links for all supported languages
+  const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+  const generatedAlternateLinks: Record<string, string> = {};
+  
+  supportedLocales.forEach(lang => {
+    if (lang === 'en') {
+      // English URLs don't have locale prefix
+      generatedAlternateLinks[lang] = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+    } else {
+      // Other languages have locale prefix
+      generatedAlternateLinks[lang] = pathWithoutLocale === '/' 
+        ? `/${lang}` 
+        : `/${lang}${pathWithoutLocale}`;
+    }
+  });
 
   const finalAlternateLinks = Object.keys(alternateLinks).length > 0 
     ? alternateLinks 
-    : defaultAlternateLinks;
+    : generatedAlternateLinks;
 
   return (
     <Head>
@@ -82,7 +90,11 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:image" content={image} />
 
       {/* Alternate Language Links */}
-      <link rel="alternate" href={`${baseUrl}/`} hrefLang="x-default" />
+      <link 
+        rel="alternate" 
+        href={`${baseUrl}${finalAlternateLinks['en'] || '/'}`} 
+        hrefLang="x-default" 
+      />
       {Object.entries(finalAlternateLinks).map(([lang, path]) => (
         <link 
           key={lang}
