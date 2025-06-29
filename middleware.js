@@ -14,6 +14,14 @@ export async function middleware(req) {
     ) {
         return
     }
+    
+    // Handle /en/* URLs - redirect to root path without /en/
+    if (pathname.startsWith('/en/') || pathname === '/en') {
+        const newPath = pathname === '/en' ? '/' : pathname.replace(/^\/en/, '');
+        url.pathname = newPath;
+        url.locale = 'en';
+        return NextResponse.redirect(url, 301);
+    }
 
     // Handle legacy Russian URL redirects
     // IMPORTANT: These are only for root-level Russian slugs without locale prefix
@@ -27,8 +35,7 @@ export async function middleware(req) {
         '/faq': '/ru/chasto-zadavaemye-voprosy',
         '/cdl-shkola': '/ru/o-cdl-shkolakh',
         '/o-shkolax': '/ru/o-cdl-shkolakh',
-        // Remove this redirect as it's causing the issue
-        // '/kak-poluchit-cdl': '/ru/kak-poluchit-cdl'
+        '/kak-poluchit-cdl': '/ru/kak-poluchit-cdl'
     };
 
     // Only redirect if we're at the root level (no locale prefix in the original request)
