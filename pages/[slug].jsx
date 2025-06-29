@@ -239,21 +239,39 @@ export async function getStaticProps({ params, locale }) {
         }
       }
     );
+    
+    // Check if we got valid data
+    if (!alternateLinksResponse.data?.data?.articles?.data?.[0]) {
+      console.error(`No article found for slug: ${slug}, locale: ${locale}`);
+      return {
+        notFound: true
+      };
+    }
 
     const { data } = articleResponse.data;
     const { attributes } = data.articles.data[0];
 
     const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
-    const alternateLinks = alternateLinksData.map((link) => ({
-      href: link.attributes.locale === 'en' ? `/${link.attributes.slug}` : `/${link.attributes.locale}/${link.attributes.slug}`,
-      hrefLang: link.attributes.locale,
-    }));
-
-    // Add current locale
-    alternateLinks.push({
+    
+    // Create a map to ensure we have unique entries per locale
+    const alternateLinksMap = new Map();
+    
+    // Add current article first
+    alternateLinksMap.set(locale, {
       href: locale === 'en' ? `/${slug}` : `/${locale}/${slug}`,
       hrefLang: locale,
     });
+    
+    // Add localizations
+    alternateLinksData.forEach((link) => {
+      alternateLinksMap.set(link.attributes.locale, {
+        href: link.attributes.locale === 'en' ? `/${link.attributes.slug}` : `/${link.attributes.locale}/${link.attributes.slug}`,
+        hrefLang: link.attributes.locale,
+      });
+    });
+    
+    // Convert map to array
+    const alternateLinks = Array.from(alternateLinksMap.values());
 
     return {
       props: {
