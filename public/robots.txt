@@ -1,13 +1,33 @@
-# *
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Disallow: /api/
+
+# Disallow admin and API routes (except sitemap)
+Disallow: /api/contact
+Disallow: /api/places-search
+Disallow: /api/test-strapi
 Disallow: /_next/
 Disallow: /admin/
 Disallow: /build/
+
+# Allow sitemap endpoint
+Allow: /api/sitemap.xml
 
 # Host
 Host: https://www.cdlhelp.com
 
 # Sitemaps
-Sitemap: https://www.cdlhelp.com/sitemap.xml
+Sitemap: https://www.cdlhelp.com/api/sitemap.xml
+
+# Crawl delay for responsible crawling
+Crawl-delay: 1
+
+# Manage aggressive bots
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10

@@ -18,7 +18,17 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(npm run lint:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(rm:*)",
+      "Bash(for file in /Users/al/Developer/CDLHelp/CDLHelp-website/data/pre-trip/*.json)",
+      "Bash(do echo \"Checking $file\")",
+      "Bash(python3:*)",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(for:*)",
+      "Bash(do echo -n \"Testing $f: \")",
+      "Bash(jq:*)",
+      "Bash(/dev/null)"
     ],
     "deny": []
   }
