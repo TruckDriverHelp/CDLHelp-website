@@ -6,9 +6,13 @@ Allow: /
 Disallow: /api/contact
 Disallow: /api/places-search
 Disallow: /api/test-strapi
-Disallow: /_next/
 Disallow: /admin/
 Disallow: /build/
+
+# Allow Next.js static assets but block internal files
+Allow: /_next/static/
+Allow: /_next/image/
+Disallow: /_next/
 
 # Disallow /en/ prefix URLs (English is default, no prefix needed)
 Disallow: /en/
