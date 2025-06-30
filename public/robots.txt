@@ -10,6 +10,9 @@ Disallow: /_next/
 Disallow: /admin/
 Disallow: /build/
 
+# Disallow /en/ prefix URLs (English is default, no prefix needed)
+Disallow: /en/
+
 # Allow sitemap endpoints
 Allow: /sitemap.xml
 Allow: /api/sitemap
