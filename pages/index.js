@@ -49,7 +49,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
             <SEOHead
                 title={meta.title || `${t('title')} - CDL Help`}
                 description={meta.description || t('description')}
-                url="https://www.cdlhelp.com"
+                url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
                 type="website"
                 alternateLinks={alternateLinks}
             />
