@@ -47,8 +47,8 @@ const IndexPage = ({ meta, alternateLinks }) => {
     return (
         <>
             <SEOHead
-                title={meta.title || `${t('title')} - CDL Help`}
-                description={meta.description || t('description')}
+                title={locale === 'en' ? t('title') : (meta.title || t('title'))}
+                description={locale === 'en' ? t('description') : (meta.description || t('description'))}
                 url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
                 canonical={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
                 type="website"
