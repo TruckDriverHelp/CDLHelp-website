@@ -6,6 +6,7 @@ Allow: /
 Allow: /_next/static/
 Allow: /_next/image
 Allow: /_next/
+Allow: /_next/data/
 
 # Allow all static resources
 Allow: /css/
@@ -27,13 +28,11 @@ Allow: /*.eot
 
 # Only disallow specific sensitive paths
 Disallow: /_next/server/
-Disallow: /_next/data/
 Disallow: /api/contact
 Disallow: /api/places-search  
 Disallow: /api/test-strapi
 Disallow: /admin/
 Disallow: /build/
-Disallow: /en/
 
 # Allow sitemap endpoints
 Allow: /sitemap.xml
