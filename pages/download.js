@@ -18,7 +18,10 @@ const DownloadPage = ({ meta, alternateLinks }) => {
     const { locale } = router;
     
     const seoData = useSEO({ 
-        meta, 
+        meta: {
+            title: t('pageTitle'),
+            description: t('pageDescription')
+        }, 
         customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`,
         type: "website",
         image: "/images/cdlhelp-tag.jpg"
