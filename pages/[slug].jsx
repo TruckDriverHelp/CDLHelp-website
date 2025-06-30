@@ -14,6 +14,7 @@ import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
 import { SEOHead } from '../src/shared/ui/SEO';
 import { LinkRenderer } from '../lib/markdown-utils';
+import { generateArticleHreflangUrls } from '../lib/article-utils';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   const { t } = useTranslation("article");
@@ -59,11 +60,16 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
   // Convert alternateLinks array to object format for SEOHead
   const alternateLinksObj = {};
   
-  // First, add the current page to ensure self-referencing
+  // Always ensure self-referencing hreflang is included first
   alternateLinksObj[locale] = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
   
   // Process alternate links from Strapi
   alternateLinks.forEach(link => {
+    // Skip if this is the current locale (we already added it above)
+    if (link.hrefLang === locale) {
+      return;
+    }
+    
     // Validate that the href matches the expected pattern for the locale
     const expectedPrefix = link.hrefLang === 'en' ? '/' : `/${link.hrefLang}/`;
     
@@ -76,19 +82,17 @@ const PostDetailView = ({ slug, article, locale, alternateLinks }) => {
     }
   });
   
-  // If we only have the current locale, something is wrong with the data
-  // Generate expected URLs for all locales as a fallback
-  if (Object.keys(alternateLinksObj).length === 1) {
-    console.warn(`Only current locale found for ${slug}, generating fallback hreflang URLs`);
-    const locales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
-    locales.forEach(loc => {
-      if (!alternateLinksObj[loc]) {
-        // This assumes the slug is the same across locales, which may not be true
-        // But it's better than pointing all to Russian
-        alternateLinksObj[loc] = loc === 'en' ? `/${slug}` : `/${loc}/${slug}`;
-      }
-    });
-  }
+  // Generate fallback hreflang URLs using the article-utils function
+  const fallbackHreflangUrls = generateArticleHreflangUrls(slug, locale);
+  
+  // Ensure we have all supported locales covered
+  const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+  supportedLocales.forEach(loc => {
+    if (!alternateLinksObj[loc]) {
+      // Use fallback URL from article-utils
+      alternateLinksObj[loc] = fallbackHreflangUrls[loc];
+    }
+  });
 
   return (
     <>

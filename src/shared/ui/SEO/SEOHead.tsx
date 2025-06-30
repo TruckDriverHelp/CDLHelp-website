@@ -64,6 +64,11 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       }
     : generatedAlternateLinks;
 
+  // Always ensure self-referencing hreflang is present
+  if (!finalAlternateLinks[currentLocale]) {
+    finalAlternateLinks[currentLocale] = currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`;
+  }
+
   return (
     <Head>
       {/* Basic Meta Tags */}

@@ -7,6 +7,7 @@ import Layout from "../components/_App/Layout";
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
 import { SEOHead } from '../src/shared/ui/SEO';
+import { useSEO } from '../src/shared/lib/hooks/useSEO';
 import getMeta from '../lib/getMeta';
 import analytics from '../lib/analytics';
 import attribution from '../lib/attribution';
@@ -15,6 +16,13 @@ const DownloadPage = ({ meta, alternateLinks }) => {
     const { t } = useTranslation("download");
     const router = useRouter();
     const { locale } = router;
+    
+    const seoData = useSEO({ 
+        meta, 
+        customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`,
+        type: "website",
+        image: "/images/cdlhelp-tag.jpg"
+    });
     
     useEffect(() => {
         // Initialize analytics
@@ -70,14 +78,7 @@ const DownloadPage = ({ meta, alternateLinks }) => {
 
     return (
         <>
-            <SEOHead
-                title={meta.title || t('pageTitle')}
-                description={meta.description || t('pageDescription')}
-                url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`}
-                type="website"
-                alternateLinks={alternateLinks}
-                image="/images/cdlhelp-tag.jpg"
-            />
+            <SEOHead {...seoData} alternateLinks={alternateLinks} />
             
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
