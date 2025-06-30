@@ -2,7 +2,12 @@
 User-agent: *
 Allow: /
 
-# Allow all static resources explicitly
+# Explicitly allow ALL Next.js paths except server internals
+Allow: /_next/static/
+Allow: /_next/image
+Allow: /_next/
+
+# Allow all static resources
 Allow: /css/
 Allow: /js/
 Allow: /images/
@@ -20,20 +25,14 @@ Allow: /*.woff2
 Allow: /*.ttf
 Allow: /*.eot
 
-# Allow Next.js static assets
-Allow: /_next/static/
-Allow: /_next/image/
-
-# Disallow only specific internal paths
+# Only disallow specific sensitive paths
 Disallow: /_next/server/
 Disallow: /_next/data/
 Disallow: /api/contact
-Disallow: /api/places-search
+Disallow: /api/places-search  
 Disallow: /api/test-strapi
 Disallow: /admin/
 Disallow: /build/
-
-# Disallow /en/ prefix URLs (English is default, no prefix needed)
 Disallow: /en/
 
 # Allow sitemap endpoints
