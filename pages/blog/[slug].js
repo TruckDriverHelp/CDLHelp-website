@@ -17,7 +17,7 @@ import { LinkRenderer } from '../../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../../lib/article-utils';
 import fetchArticles from '../../lib/fetchArticles';
 
-const BlogPostDetailView = ({ slug, article, locale, alternateLinks }) => {
+const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
   const { t } = useTranslation("article");
   const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
 
