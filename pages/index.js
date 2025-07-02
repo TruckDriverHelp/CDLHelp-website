@@ -47,7 +47,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
     return (
         <>
             <SEOHead
-                title={locale === 'en' ? t('title') : (meta.title || t('title'))}
+                title={ (meta.title || t('title'))}
                 description={locale === 'en' ? t('description') : (meta.description || t('description'))}
                 url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
                 canonical={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
@@ -81,7 +81,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
 export default IndexPage;
 
 export async function getStaticProps({ locale }) {
-    const meta = await getMeta(locale, "general");
+    const meta = await getMeta(locale, "home-title");
 
     const alternateLinks = {
         'en': '/',
