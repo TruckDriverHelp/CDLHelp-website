@@ -33,7 +33,11 @@
       "Bash(kill:*)",
       "Bash(mv:*)",
       "Bash(cat:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(NODE_ENV=production npm run build)"
     ],
     "deny": []
   }
