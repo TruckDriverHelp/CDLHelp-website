@@ -286,7 +286,15 @@ export async function getStaticProps({ params, locale }) {
     }
 
     const { data } = articleResponse.data;
-    const { attributes } = data.articles.data[0];
+    const article = data.articles.data[0];
+    const { attributes } = article;
+    
+    // If this is a blog post, return not found (it should be handled by /blog/[slug])
+    if (attributes.blog_page === true) {
+      return {
+        notFound: true
+      };
+    }
 
     const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
     
@@ -335,7 +343,7 @@ export async function getStaticProps({ params, locale }) {
 
 export async function getStaticPaths({ locales }) {
   const { data } = await axios.get(
-    `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*`,
+    `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*&filters[blog_page][$ne]=true`,
     {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,

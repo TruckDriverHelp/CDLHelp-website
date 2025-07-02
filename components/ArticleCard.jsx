@@ -24,7 +24,11 @@ const ArticleCard = ({ article }) => {
   const authorName = author?.data?.attributes?.name;
   const authorAvatar = author?.data?.attributes?.avatar?.data?.attributes?.url;
   
-  const articleUrl = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
+  // Check if this is a blog post
+  const isBlogPost = article.attributes.blog_page === true;
+  const articleUrl = locale === 'en' 
+    ? `${isBlogPost ? '/blog' : ''}/${slug}` 
+    : `/${locale}${isBlogPost ? '/blog' : ''}/${slug}`;
   const formattedDate = formatDate(publishedAt, locale);
   
   // Get Strapi host from environment or use a default
