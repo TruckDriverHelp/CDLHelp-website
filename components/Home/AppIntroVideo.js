@@ -27,7 +27,7 @@ const AppIntroVideo = () => {
             pt: "como-se-tornar-motorista-de-caminhaoo"
         },
         howToPrepare: {
-            en: "how-to-prepare-cdl-test",
+            en: "how-to-get-cdl-permit",
             ar: "kayfa-tahsil-cdl",
             ru: "kak-poluchit-cdl",
             uk: "yak-otrymaty-cdl",
@@ -47,7 +47,7 @@ const AppIntroVideo = () => {
             pt: "como-usar-o-cdl-help"
         },
         cdlSchools: {
-            en: "cdl-driving-schools",
+            en: "what-is-taught-in-cdl-schools",
             ar: "ma-yatimmu-tadrisuh-fi-madaris-cdl",
             ru: "o-cdl-shkolakh",
             uk: "choho-navchayut-u-shkolakh-cdl",

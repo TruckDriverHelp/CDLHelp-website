@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const { slug = 'how-to-prepare-cdl-test' } = req.query;
+  const { slug = 'how-to-get-cdl-permit' } = req.query;
   
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' });
