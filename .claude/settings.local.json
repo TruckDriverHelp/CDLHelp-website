@@ -42,7 +42,8 @@
       "Bash(if [ -z \"$STRAPI_API_KEY\" ])",
       "Bash(then echo \"STRAPI_API_KEY not set\")",
       "Bash(else echo \"STRAPI_API_KEY is set\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Bash(git rm:*)"
     ],
     "deny": []
   }
