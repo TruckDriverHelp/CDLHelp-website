@@ -37,7 +37,12 @@
       "Bash(npm cache clean:*)",
       "Bash(cp:*)",
       "Bash(mkdir:*)",
-      "Bash(NODE_ENV=production npm run build)"
+      "Bash(NODE_ENV=production npm run build)",
+      "Bash(npx eslint:*)",
+      "Bash(if [ -z \"$STRAPI_API_KEY\" ])",
+      "Bash(then echo \"STRAPI_API_KEY not set\")",
+      "Bash(else echo \"STRAPI_API_KEY is set\")",
+      "Bash(fi)"
     ],
     "deny": []
   }
