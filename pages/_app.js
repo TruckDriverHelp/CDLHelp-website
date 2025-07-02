@@ -27,7 +27,6 @@ import analytics from '../lib/analytics'
 const Layout = lazy(() => import('../components/_App/Layout'));
 const Pixel = lazy(() => import('../components/Pixel'));
 const CookieConsentBanner = lazy(() => import("../components/_App/CookieConsentBanner.js"));
-const TawkTo = lazy(() => import("../components/_App/TawkTo.js"));
 const SmartAppBanner = lazy(() => import('../components/_App/SmartAppBanner'));
 
 const MyApp = ({ Component, pageProps, articles }) => {
@@ -103,10 +102,6 @@ const MyApp = ({ Component, pageProps, articles }) => {
 						}}
 					/>
 
-					{/* Tawk.to - Load on user interaction */}
-					<Suspense fallback={null}>
-						<TawkTo />
-					</Suspense>
 
 					{/* Preload critical assets */}
 					<link rel="preload" href="/css/main.css" as="style" />
