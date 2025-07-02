@@ -397,6 +397,11 @@ const Navbar = ({ alternateLinks }) => {
                       <a className="nav-link">{getTranslation("cdlSchools")}</a>
                     </Link>
                   </li>
+                  <li className="nav-item">
+                    <Link href="/blog" locale={locale}>
+                      <a className="nav-link">{getTranslation("blog")}</a>
+                    </Link>
+                  </li>
                   {locale == "ru" && <li className="nav-item">
                     <a className="nav-link" href="https://www.dmvhelp.app/">
                       DMV Help

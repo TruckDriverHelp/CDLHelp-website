@@ -27,7 +27,8 @@ const nextConfig = {
         STRAPI_HOST: process.env.STRAPI_HOST,
         STRAPI_PORT: process.env.STRAPI_PORT,
         SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-        BASE_URL: process.env.BASE_URL
+        BASE_URL: process.env.BASE_URL,
+        NEXT_PUBLIC_STRAPI_HOST: `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}`
     },
     async rewrites() {
         return [
