@@ -247,6 +247,7 @@ img {
 
 /* LCP Critical Styles for TopContainer */
 .new-app-main-banner-wrap-area {
+  padding-top: 150px;
   background-color: #f8fafc;
   position: relative;
   overflow: hidden;
