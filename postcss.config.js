@@ -1,8 +1,8 @@
 module.exports = {
   plugins: [
-    'postcss-flexbugs-fixes',
+    require('postcss-flexbugs-fixes'),
     [
-      'postcss-preset-env',
+      require('postcss-preset-env'),
       {
         autoprefixer: {
           flexbox: 'no-2009',
@@ -17,7 +17,7 @@ module.exports = {
     ...(process.env.NODE_ENV === 'production'
       ? [
           [
-            '@fullhuman/postcss-purgecss',
+            require('@fullhuman/postcss-purgecss'),
             {
               content: [
                 './pages/**/*.{js,jsx,ts,tsx}',
