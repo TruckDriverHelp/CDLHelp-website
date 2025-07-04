@@ -1,19 +1,34 @@
-import '/public/css/bootstrap.min.css';
-import '/public/css/fontawesome.min.css';
-import '/public/css/remixicon.css';
-import '/public/css/animate.min.css';
-import '../node_modules/swiper/swiper.min.css';
-import '../node_modules/swiper/components/effect-cube/effect-cube.min.css';
-import '../node_modules/swiper/components/effect-coverflow/effect-coverflow.min.css';
-import '../node_modules/swiper/components/pagination/pagination.min.css';
-import '../node_modules/swiper/components/navigation/navigation.min.css';
-import '../node_modules/react-modal-video/css/modal-video.min.css';
-import 'react-accessible-accordion/dist/fancy-example.css';
-import 'yet-another-react-lightbox/styles.css';
-import 'react-tabs/style/react-tabs.css';
-// Global CSS
+// Critical CSS - loaded immediately
+import '/public/css/bootstrap.min.css'; // Keep Bootstrap as it's critical for layout
 import '/public/css/styles.css';
 import '/public/css/main.css';
+
+// Component-specific CSS - loaded with components
+
+// Dynamically import CSS for components that aren't always used
+const loadSwiperStyles = () => {
+  import('../node_modules/swiper/swiper.min.css');
+  import('../node_modules/swiper/components/effect-cube/effect-cube.min.css');
+  import('../node_modules/swiper/components/effect-coverflow/effect-coverflow.min.css');
+  import('../node_modules/swiper/components/pagination/pagination.min.css');
+  import('../node_modules/swiper/components/navigation/navigation.min.css');
+};
+
+const loadModalStyles = () => {
+  import('../node_modules/react-modal-video/css/modal-video.min.css');
+};
+
+const loadAccordionStyles = () => {
+  import('react-accessible-accordion/dist/fancy-example.css');
+};
+
+const loadLightboxStyles = () => {
+  import('yet-another-react-lightbox/styles.css');
+};
+
+const loadTabStyles = () => {
+  import('react-tabs/style/react-tabs.css');
+};
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
@@ -30,6 +45,8 @@ const Layout = lazy(() => import('../components/_App/Layout'));
 const Pixel = lazy(() => import('../components/Pixel'));
 const CookieConsentBanner = lazy(() => import('../components/_App/CookieConsentBanner.js'));
 const SmartAppBanner = lazy(() => import('../components/_App/SmartAppBanner'));
+const CriticalStyles = lazy(() => import('../components/_App/CriticalStyles'));
+const AsyncStyles = lazy(() => import('../components/_App/AsyncStyles'));
 
 const MyApp = ({ Component, pageProps, articles }) => {
   const router = useRouter();
@@ -38,6 +55,23 @@ const MyApp = ({ Component, pageProps, articles }) => {
   useEffect(() => {
     // Load Inter font asynchronously
     loadInterFont();
+
+    // Load component styles on demand
+    if (router.pathname.includes('swiper') || router.pathname === '/') {
+      loadSwiperStyles();
+    }
+    if (router.pathname.includes('modal')) {
+      loadModalStyles();
+    }
+    if (router.pathname.includes('accordion')) {
+      loadAccordionStyles();
+    }
+    if (router.pathname.includes('gallery')) {
+      loadLightboxStyles();
+    }
+    if (router.pathname.includes('tab')) {
+      loadTabStyles();
+    }
 
     // Initialize consent manager
     consentManager.init();
@@ -81,12 +115,16 @@ const MyApp = ({ Component, pageProps, articles }) => {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events, router.pathname]);
 
   return (
     <QuizContextProvider>
+      <Suspense fallback={null}>
+        <CriticalStyles />
+      </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
         <Layout dir={dir}>
+          <AsyncStyles />
           {consentManager.hasConsent('marketing') && (
             <Suspense fallback={null}>
               <Pixel name="FACEBOOK_PIXEL_1" />
