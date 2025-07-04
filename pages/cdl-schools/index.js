@@ -1,6 +1,7 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
 
 import Layout from "../../components/_App/Layout";
 import Navbar from "../../components/_App/Navbar";
@@ -19,9 +20,27 @@ const SchoolsPage = ({ meta, states }) => {
     type: "article" 
   });
 
+  // ItemList Schema for CDL Schools
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": t('schoolsTitle', 'CDL Schools in USA'),
+    "description": "Directory of CDL truck driving schools across the United States",
+    "url": "https://www.cdlhelp.com/cdl-schools",
+    "numberOfItems": states.length
+  };
+
   return (
     <>
       <SEOHead {...seoData} />
+      
+      <Head>
+        {/* ItemList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+        />
+      </Head>
 
       <Layout alternateLinks={{}} dir="ltr">
         <Navbar alternateLinks={{}} />
