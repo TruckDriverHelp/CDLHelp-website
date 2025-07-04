@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import consentManager from '../../lib/consent-manager';
+import styles from '../../styles/CookieConsent.module.css';
 
 const CookieConsentBanner = () => {
   const { t } = useTranslation('cookie');
@@ -48,57 +49,22 @@ const CookieConsentBanner = () => {
   }
 
   return (
-    <div
-      className="bg-light"
-      style={{
-        bottom: '0',
-        right: '10%',
-        position: 'fixed',
-        zIndex: '99',
-        padding: '20px',
-        width: '80%',
-        maxWidth: '600px',
-        margin: '0 auto',
-        borderTop: '2px solid #75759E',
-        borderRight: '2px solid #75759E',
-        borderLeft: '2px solid #75759E',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
-      }}
-    >
-      <p style={{ color: '#000000', marginBottom: '10px', textAlign: 'center' }}>{t('text')}</p>
-      <p style={{ color: '#000000', marginBottom: '20px', textAlign: 'center' }}>
+    <div className={styles.cookieBanner}>
+      <p className={styles.cookieText}>{t('text')}</p>
+      <p className={styles.cookiePolicy}>
         <Link href="/cookies-policy">
-          <a style={{ textDecoration: 'underline' }}>{t('policy')}</a>
+          <a>{t('policy')}</a>
         </Link>
       </p>
 
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '10px',
-        }}
-      >
-        <button onClick={handleAccept} className="default-btn">
+      <div className={styles.buttonContainer}>
+        <button onClick={handleAccept} className={styles.cookieButtonAccept}>
           {t('accept') || 'Accept All'}
         </button>
-        <button
-          onClick={handleCustomize}
-          className="default-btn"
-          style={{ backgroundColor: '#f0f0f0', color: '#333' }}
-        >
+        <button onClick={handleCustomize} className={styles.cookieButtonCustomize}>
           {t('customize') || 'Only Essential'}
         </button>
-        <button
-          onClick={handleReject}
-          className="default-btn"
-          style={{ backgroundColor: 'transparent', border: '1px solid #333', color: '#333' }}
-        >
+        <button onClick={handleReject} className={styles.cookieButtonReject}>
           {t('deny') || 'Reject All'}
         </button>
       </div>
