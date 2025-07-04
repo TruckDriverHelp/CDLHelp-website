@@ -23,6 +23,7 @@ import { QuizContextProvider } from '../store/quiz-context';
 import nextI18NextConfig from '../next-i18next.config';
 import analytics from '../lib/analytics';
 import consentManager from '../lib/consent-manager';
+import { loadInterFont } from '../lib/fontLoader';
 
 // Lazy load non-critical components
 const Layout = lazy(() => import('../components/_App/Layout'));
@@ -35,6 +36,9 @@ const MyApp = ({ Component, pageProps, articles }) => {
   const dir = getDirection(router.locale);
 
   useEffect(() => {
+    // Load Inter font asynchronously
+    loadInterFont();
+
     // Initialize consent manager
     consentManager.init();
 
