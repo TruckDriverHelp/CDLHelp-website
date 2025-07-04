@@ -22,6 +22,7 @@ import { useEffect, Suspense, lazy } from 'react';
 import { QuizContextProvider } from '../store/quiz-context';
 import nextI18NextConfig from '../next-i18next.config';
 import analytics from '../lib/analytics';
+import consentManager from '../lib/consent-manager';
 
 // Lazy load non-critical components
 const Layout = lazy(() => import('../components/_App/Layout'));
@@ -34,8 +35,13 @@ const MyApp = ({ Component, pageProps, articles }) => {
   const dir = getDirection(router.locale);
 
   useEffect(() => {
-    // Initialize unified analytics
-    analytics.init();
+    // Initialize consent manager
+    consentManager.init();
+
+    // Initialize unified analytics only if consent given
+    if (consentManager.hasConsent('analytics')) {
+      analytics.init();
+    }
 
     // Register service worker
     if ('serviceWorker' in navigator) {
@@ -52,14 +58,19 @@ const MyApp = ({ Component, pageProps, articles }) => {
     }
 
     const handleRouteChange = url => {
-      // Legacy Google Analytics tracking
-      window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
-        page_path: url,
-        cookieFlags: 'SameSite=None; Secure',
-      });
+      // Only track if we have consent
+      if (consentManager.hasConsent('analytics')) {
+        // Legacy Google Analytics tracking
+        if (window.gtag) {
+          window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+            page_path: url,
+            cookieFlags: 'SameSite=None; Secure',
+          });
+        }
 
-      // Enhanced unified tracking
-      analytics.trackPageView(url, document.title);
+        // Enhanced unified tracking
+        analytics.trackPageView(url, document.title);
+      }
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -72,9 +83,11 @@ const MyApp = ({ Component, pageProps, articles }) => {
     <QuizContextProvider>
       <Suspense fallback={<div>Loading...</div>}>
         <Layout dir={dir}>
-          <Suspense fallback={null}>
-            <Pixel name="FACEBOOK_PIXEL_1" />
-          </Suspense>
+          {consentManager.hasConsent('marketing') && (
+            <Suspense fallback={null}>
+              <Pixel name="FACEBOOK_PIXEL_1" />
+            </Suspense>
+          )}
           {!['/404', '/cookies-policy'].includes(router.pathname) && (
             <Suspense fallback={null}>
               <CookieConsentBanner />
@@ -85,42 +98,57 @@ const MyApp = ({ Component, pageProps, articles }) => {
           </Suspense>
           <Component {...pageProps} />
 
-          {/* Google Tag Manager - Load after page becomes interactive */}
-          {process.env.NEXT_PUBLIC_GTM_ID && (
-            <Script
-              id="google-tag-manager"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
+          {/* Google Tag Manager - Load only with consent */}
+          {process.env.NEXT_PUBLIC_GTM_ID && consentManager.hasConsent('analytics') && (
+            <>
+              <Script
+                id="google-tag-manager"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
 									(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 									new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 									j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 									})(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
 								`,
-              }}
-            />
+                }}
+              />
+              {/* GTM noscript fallback */}
+              <noscript>
+                <iframe
+                  src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+                  height="0"
+                  width="0"
+                  style={{ display: 'none', visibility: 'hidden' }}
+                />
+              </noscript>
+            </>
           )}
 
-          {/* Analytics Scripts - Load after page becomes interactive */}
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-          />
-          <Script
-            id="google-analytics"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-								window.dataLayer = window.dataLayer || [];
-								function gtag(){dataLayer.push(arguments);}
-								gtag('js', new Date());
-								gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-									page_path: window.location.pathname,
-								});
-							`,
-            }}
-          />
+          {/* Analytics Scripts - Load only with consent */}
+          {consentManager.hasConsent('analytics') && (
+            <>
+              <Script
+                strategy="afterInteractive"
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+              />
+              <Script
+                id="google-analytics"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
+									window.dataLayer = window.dataLayer || [];
+									function gtag(){dataLayer.push(arguments);}
+									gtag('js', new Date());
+									gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+										page_path: window.location.pathname,
+									});
+								`,
+                }}
+              />
+            </>
+          )}
 
           {/* Preload critical assets */}
           <link rel="preload" href="/css/main.css" as="style" />
