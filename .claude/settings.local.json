@@ -43,7 +43,9 @@
       "Bash(then echo \"STRAPI_API_KEY not set\")",
       "Bash(else echo \"STRAPI_API_KEY is set\")",
       "Bash(fi)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(npx husky:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }
