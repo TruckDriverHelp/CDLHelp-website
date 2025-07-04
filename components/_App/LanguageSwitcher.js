@@ -23,8 +23,17 @@ const LanguageSwitcher = ({ alternateLinks }) => {
   };
 
   return (
-    <div>
-      <select name="language" onChange={handleLocaleChange} className="language-switcher">
+    <div className="language-switcher-container">
+      <label htmlFor="language-select" className="visually-hidden">
+        Select Language
+      </label>
+      <select
+        id="language-select"
+        name="language"
+        onChange={handleLocaleChange}
+        className="language-switcher"
+        aria-label="Select Language"
+      >
         {Object.entries(languages).map(([locale, language]) => (
           <option key={locale} value={locale}>
             {language}
