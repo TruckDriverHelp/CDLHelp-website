@@ -1,5 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
+import {
+  getLocalizedOrganizationName,
+  getLocalizedAlternateName,
+  getLocalizedUrl,
+  getLocalizedSocialLinks,
+  getAvailableLanguages,
+} from '../../../lib/schemaLocalization';
 
 interface BaseStructuredData {
   '@context': string;
@@ -24,82 +31,96 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ data }) => {
   );
 };
 
-// Organization schema
-export const organizationSchema: BaseStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'CDL Help',
-  alternateName: 'Truck Driver Help',
-  url: 'https://www.cdlhelp.com',
-  logo: 'https://www.cdlhelp.com/images/black-logo.png',
-  sameAs: [
-    'https://www.facebook.com/cdlhelp',
-    'https://twitter.com/cdlhelp',
-    'https://www.youtube.com/cdlhelp',
-  ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+1-800-CDL-HELP',
-    contactType: 'customer service',
-    areaServed: 'US',
-    availableLanguage: [
-      'English',
-      'Spanish',
-      'Russian',
-      'Ukrainian',
-      'Arabic',
-      'Korean',
-      'Chinese',
-      'Turkish',
-      'Portuguese',
-    ],
-  },
-};
-
-// WebSite schema with search action
-export const websiteSchema: BaseStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  url: 'https://www.cdlhelp.com',
-  name: 'CDL Help',
-  description: 'CDL practice tests, trucking resources, and career guidance for truck drivers',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://www.cdlhelp.com/search?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
-};
-
-// Education/Course schema for CDL tests
-export const courseSchema: BaseStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  name: 'CDL Practice Test',
-  description: "Free CDL practice tests to help you pass your Commercial Driver's License exam",
-  provider: {
+// Organization schema with localization
+export const generateOrganizationSchema = (locale = 'en'): BaseStructuredData => {
+  return {
+    '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'CDL Help',
-    url: 'https://www.cdlhelp.com',
-  },
-  educationalLevel: 'Professional Certification',
-  teaches: [
-    'CDL General Knowledge',
-    'Air Brakes',
-    'Combination Vehicles',
-    'Hazmat',
-    'Doubles/Triples',
-    'Tanker',
-    'Passenger',
-  ],
-  hasCourseInstance: {
-    '@type': 'CourseInstance',
-    courseMode: 'Online',
-    inLanguage: ['en', 'es', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'],
-  },
+    name: getLocalizedOrganizationName(locale),
+    alternateName: getLocalizedAlternateName(locale),
+    url: getLocalizedUrl(locale),
+    logo: 'https://www.cdlhelp.com/images/black-logo.png',
+    sameAs: getLocalizedSocialLinks(locale),
+  };
 };
+
+// Legacy export for backward compatibility
+export const organizationSchema: BaseStructuredData = generateOrganizationSchema();
+
+// WebSite schema with search action (localized)
+export const generateWebsiteSchema = (locale = 'en', description?: string): BaseStructuredData => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: getLocalizedUrl(locale),
+    name: getLocalizedOrganizationName(locale),
+    description:
+      description ||
+      'CDL practice tests, trucking resources, and career guidance for truck drivers',
+    inLanguage: locale,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${getLocalizedUrl(locale)}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: getLocalizedOrganizationName(locale),
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.cdlhelp.com/images/black-logo.png',
+      },
+    },
+  };
+};
+
+// Legacy export for backward compatibility
+export const websiteSchema: BaseStructuredData = generateWebsiteSchema();
+
+// Education/Course schema for CDL tests (localized, excluding 'teaches')
+export const generateCourseSchema = (
+  locale = 'en',
+  name?: string,
+  description?: string
+): BaseStructuredData => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: name || 'CDL Practice Test',
+    description:
+      description ||
+      "Free CDL practice tests to help you pass your Commercial Driver's License exam",
+    provider: {
+      '@type': 'Organization',
+      name: getLocalizedOrganizationName(locale),
+      url: getLocalizedUrl(locale),
+    },
+    educationalLevel: 'Professional Certification',
+    // 'teaches' property kept in English as requested
+    teaches: [
+      'CDL General Knowledge',
+      'Air Brakes',
+      'Combination Vehicles',
+      'Hazmat',
+      'Doubles/Triples',
+      'Tanker',
+      'Passenger',
+    ],
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'Online',
+      inLanguage: locale,
+    },
+    inLanguage: locale,
+    url: getLocalizedUrl(locale),
+  };
+};
+
+// Legacy export for backward compatibility
+export const courseSchema: BaseStructuredData = generateCourseSchema();
 
 // FAQ schema generator
 export const generateFAQSchema = (
@@ -119,7 +140,7 @@ export const generateFAQSchema = (
   };
 };
 
-// Article schema generator
+// Article schema generator with localization
 export const generateArticleSchema = (article: {
   title: string;
   description: string;
@@ -128,7 +149,10 @@ export const generateArticleSchema = (article: {
   dateModified?: string;
   image?: string;
   url: string;
+  locale?: string;
 }): BaseStructuredData => {
+  const locale = article.locale || 'en';
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -142,9 +166,15 @@ export const generateArticleSchema = (article: {
     dateModified: article.dateModified || new Date().toISOString(),
     image: article.image || 'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg',
     url: article.url,
+    inLanguage: locale,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': article.url,
+    },
     publisher: {
       '@type': 'Organization',
-      name: 'CDL Help',
+      name: getLocalizedOrganizationName(locale),
+      url: getLocalizedUrl(locale),
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.cdlhelp.com/images/black-logo.png',

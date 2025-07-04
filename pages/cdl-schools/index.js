@@ -12,6 +12,7 @@ import { StateSelector } from '../../src/widgets/StateSelector';
 import { SEOHead } from '../../src/shared/ui/SEO';
 import { useSEO } from '../../src/shared/lib/hooks/useSEO';
 import getMeta from '../../lib/getMeta';
+import { getLocalizedOrganizationName, getLocalizedUrl } from '../../lib/schemaLocalization';
 
 const SchoolsPage = ({ meta, states }) => {
   const { t } = useTranslation(['city-schools', 'common']);
@@ -24,7 +25,7 @@ const SchoolsPage = ({ meta, states }) => {
     type: 'article',
   });
 
-  // ItemList Schema for CDL Schools with locale support
+  // ItemList Schema for CDL Schools with localization
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -33,9 +34,18 @@ const SchoolsPage = ({ meta, states }) => {
       'pageDescription',
       'Directory of CDL truck driving schools across the United States'
     ),
-    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-schools`,
+    url: getLocalizedUrl(locale, '/cdl-schools'),
     numberOfItems: states.length,
     inLanguage: locale,
+    publisher: {
+      '@type': 'Organization',
+      name: getLocalizedOrganizationName(locale),
+      url: getLocalizedUrl(locale),
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.cdlhelp.com/images/black-logo.png',
+      },
+    },
   };
 
   return (
