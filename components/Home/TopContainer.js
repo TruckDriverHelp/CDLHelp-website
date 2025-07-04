@@ -11,7 +11,6 @@ const DynamicQuiz = dynamic(() => import('../_App/DynamicImports').then(mod => m
 
 const TopContainer = () => {
   const { t } = useTranslation('index');
-  // const router = useRouter();
 
   return (
     <>
