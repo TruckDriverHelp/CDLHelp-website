@@ -3,8 +3,13 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  output: 'standalone',
-  distDir: 'build',
+  // Vercel doesn't support custom distDir with standalone output
+  ...(process.env.VERCEL
+    ? {}
+    : {
+        output: 'standalone',
+        distDir: 'build',
+      }),
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
