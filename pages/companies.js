@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import { SEOHead } from '../src/shared/ui/SEO';
 
 import Layout from '../components/_App/Layout';
@@ -264,6 +265,26 @@ const CompaniesPage = ({ companies }) => {
   const pageDescription = t('pageDescription');
   const showQuiz = locale === 'ru' || locale === 'uk';
 
+  // ItemList Schema for Companies
+  const companiesListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": pageTitle,
+    "description": pageDescription,
+    "url": "https://www.cdlhelp.com/companies",
+    "numberOfItems": companies.length,
+    "itemListElement": companies.slice(0, 10).map((company, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Organization",
+        "name": company.attributes.name,
+        "url": `https://www.cdlhelp.com/${locale === 'en' ? '' : locale + '/'}company/${company.attributes.slug}`,
+        "description": company.attributes.description || `${company.attributes.name} trucking company`
+      }
+    }))
+  };
+
   return (
     <>
       <SEOHead
@@ -272,6 +293,15 @@ const CompaniesPage = ({ companies }) => {
         url="https://www.cdlhelp.com/companies"
         type="article"
       />
+      
+      <Head>
+        {/* Companies List Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(companiesListSchema) }}
+        />
+      </Head>
+      
       <Layout>
         <Navbar />
         <PageBannerStyle1

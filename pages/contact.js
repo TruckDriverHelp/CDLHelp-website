@@ -5,7 +5,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Footer from '../components/_App/Footer';
 import Navbar from '../components/_App/Navbar';
 import { useTranslation } from 'next-i18next';
-import { SEOHead, StructuredData } from '../src/shared/ui/SEO';
+import { SEOHead } from '../src/shared/ui/SEO';
+import Head from 'next/head';
 import getMeta from '../lib/getMeta';
 
 const Contact = ({ alternateLinks, meta }) => {
@@ -38,7 +39,15 @@ const Contact = ({ alternateLinks, meta }) => {
         description={meta.description || t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.')}
         alternateLinks={alternateLinks}
       />
-      <StructuredData data={contactPageSchema} />
+      
+      <Head>
+        {/* ContactPage Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+        />
+      </Head>
+      
       <Navbar alternateLinks={alternateLinks} />
 
       <div className="page-title-area">

@@ -10,6 +10,19 @@ import Layout from '../components/_App/Layout';
 
 const CookiesPolicy = ({ meta }) => {
     const { locale } = useRouter();
+    
+    const pageSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": meta.title,
+        "description": meta.description,
+        "url": "https://www.cdlhelp.com/cookies-policy",
+        "publisher": {
+            "@type": "Organization",
+            "name": "CDL Help",
+            "url": "https://www.cdlhelp.com"
+        }
+    };
 
     return (
         <>
@@ -36,6 +49,12 @@ const CookiesPolicy = ({ meta }) => {
                 <meta name="twitter:title" content={meta.title} />
                 <meta name="twitter:description" content={meta.description} />
                 <meta name="twitter:image" content={"/images/truckdriverhelp-og.jpg"} />
+                
+                {/* JSON-LD structured data */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+                />
             </Head>
             <Layout>
                 <Navbar />

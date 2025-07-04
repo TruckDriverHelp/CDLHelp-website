@@ -10,6 +10,20 @@ import Layout from '../components/_App/Layout';
 
 const PrivacyPolicy = ({meta}) => {
 	const {locale} = useRouter();
+	
+	const pageSchema = {
+		"@context": "https://schema.org",
+		"@type": "PrivacyPolicy",
+		"name": meta.title,
+		"description": meta.description,
+		"url": "https://www.cdlhelp.com/privacy-policy",
+		"publisher": {
+			"@type": "Organization",
+			"name": "CDL Help",
+			"url": "https://www.cdlhelp.com"
+		}
+	};
+	
 	return (
 		<>
 			<Head>
@@ -35,6 +49,12 @@ const PrivacyPolicy = ({meta}) => {
 				<meta name="twitter:title" content={meta.title} />
 				<meta name="twitter:description" content={meta.description} />
 				<meta name="twitter:image" content={"/images/truckdriverhelp-og.jpg"} />
+				
+				{/* JSON-LD structured data */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+				/>
 			</Head>
 
 			<Layout>

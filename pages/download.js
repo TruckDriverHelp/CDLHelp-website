@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import { useRouter } from "next/router";
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from "../components/_App/Layout";
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
-import { SEOHead, StructuredData, courseSchema } from '../src/shared/ui/SEO';
+import { SEOHead } from '../src/shared/ui/SEO';
 import { useSEO } from '../src/shared/lib/hooks/useSEO';
 import getMeta from '../lib/getMeta';
 import analytics from '../lib/analytics';
@@ -79,10 +80,67 @@ const DownloadPage = ({ meta, alternateLinks }) => {
         }
     ];
 
+    // Course/Application Schema
+    const applicationSchema = {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "CDL Help - CDL Practice Test",
+        "description": t('heroDescription'),
+        "applicationCategory": "EducationApplication",
+        "operatingSystem": "Android, iOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "12500"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "CDL Help",
+            "url": "https://www.cdlhelp.com"
+        }
+    };
+
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "CDL Practice Test",
+        "description": t('pageDescription'),
+        "provider": {
+            "@type": "Organization",
+            "name": "CDL Help",
+            "url": "https://www.cdlhelp.com"
+        },
+        "educationalLevel": "Professional Certification",
+        "teaches": ["CDL General Knowledge", "Air Brakes", "Combination Vehicles", "Hazmat", "Doubles/Triples", "Tanker", "Passenger"],
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Online",
+            "inLanguage": ["en", "es", "ru", "uk", "ar", "ko", "zh", "tr", "pt"]
+        }
+    };
+
     return (
         <>
             <SEOHead {...seoData} alternateLinks={alternateLinks} />
-            <StructuredData data={courseSchema} />
+            
+            <Head>
+                {/* Mobile Application Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(applicationSchema) }}
+                />
+                
+                {/* Course Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+                />
+            </Head>
             
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />

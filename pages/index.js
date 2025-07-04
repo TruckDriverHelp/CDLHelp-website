@@ -10,6 +10,7 @@ import { useTranslation } from 'next-i18next';
 import { DynamicFaqSection } from '../components/_App/DynamicImports';
 import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
+import Script from 'next/script';
 
 // Dynamically import non-critical components
 const TopContainer = dynamic(() => import('../components/Home/TopContainer'), {
@@ -44,6 +45,45 @@ const IndexPage = ({ meta, alternateLinks }) => {
     const router = useRouter()
     const { t } = useTranslation("index");
     
+    // Organization Schema
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CDL Help",
+        "alternateName": "Truck Driver Help",
+        "url": "https://www.cdlhelp.com",
+        "logo": "https://www.cdlhelp.com/images/black-logo.png",
+        "sameAs": [
+            "https://www.facebook.com/cdlhelp",
+            "https://twitter.com/cdlhelp",
+            "https://www.youtube.com/cdlhelp"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-800-CDL-HELP",
+            "contactType": "customer service",
+            "areaServed": "US",
+            "availableLanguage": ["English", "Spanish", "Russian", "Ukrainian", "Arabic", "Korean", "Chinese", "Turkish", "Portuguese"]
+        }
+    };
+
+    // WebSite Schema
+    const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.cdlhelp.com",
+        "name": "CDL Help",
+        "description": t('description'),
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://www.cdlhelp.com/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    };
+    
     return (
         <>
             <SEOHead
@@ -62,6 +102,18 @@ const IndexPage = ({ meta, alternateLinks }) => {
                     href="/images/video/video-3-no-text.webp" 
                     as="image" 
                     type="image/webp"
+                />
+                
+                {/* Organization Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+                />
+                
+                {/* WebSite Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
                 />
             </Head>
 
