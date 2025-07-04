@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import cookie from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import consentManager from '../../lib/consent-manager';
 
 const CookieConsentBanner = () => {
   const { t } = useTranslation('cookie');
@@ -10,23 +10,37 @@ const CookieConsentBanner = () => {
   const { locale } = useRouter();
 
   useEffect(() => {
-    const consentCookie = cookie.get('cookieConsent');
+    consentManager.init();
+    const consent = consentManager.getConsent();
 
-    if (consentCookie) {
-      setShowBanner(false);
-    } else {
+    if (consent === null) {
       setShowBanner(true);
+    } else {
+      setShowBanner(false);
     }
   }, []);
 
   const handleAccept = () => {
     setShowBanner(false);
-    cookie.set('cookieConsent', 'accepted', { expires: 365 });
+    consentManager.acceptAll();
+    // Reload page to load previously blocked scripts
+    window.location.reload();
   };
 
   const handleReject = () => {
     setShowBanner(false);
-    cookie.set('cookieConsent', 'rejected', { expires: 365 });
+    consentManager.rejectAll();
+  };
+
+  const handleCustomize = () => {
+    // For now, we'll implement simple accept/reject
+    // Could expand to show checkboxes for different consent types
+    setShowBanner(false);
+    consentManager.setConsent({
+      analytics: true,
+      marketing: false,
+    });
+    window.location.reload();
   };
 
   if (!showBanner) {
@@ -38,11 +52,12 @@ const CookieConsentBanner = () => {
       className="bg-light"
       style={{
         bottom: '0',
-        right: '10%', // sorry
+        right: '10%',
         position: 'fixed',
         zIndex: '99',
-        padding: '10px 10px',
+        padding: '20px',
         width: '80%',
+        maxWidth: '600px',
         margin: '0 auto',
         borderTop: '2px solid #75759E',
         borderRight: '2px solid #75759E',
@@ -51,26 +66,40 @@ const CookieConsentBanner = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
       }}
     >
-      <p style={{ color: '#000000' }}>{t('text')}</p>
-      <p style={{ color: '#000000' }}>
+      <p style={{ color: '#000000', marginBottom: '10px', textAlign: 'center' }}>{t('text')}</p>
+      <p style={{ color: '#000000', marginBottom: '20px', textAlign: 'center' }}>
         <Link href="/cookies-policy">
-          <a>{t('policy')}</a>
+          <a style={{ textDecoration: 'underline' }}>{t('policy')}</a>
         </Link>
       </p>
 
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: '10px',
         }}
       >
-        <button onClick={handleAccept} className="default-btn" style={{ marginRight: '20px' }}>
-          {t('accept')}
+        <button onClick={handleAccept} className="default-btn">
+          {t('accept') || 'Accept All'}
         </button>
-        <button onClick={handleReject} className="default-btn">
-          {t('deny')}
+        <button
+          onClick={handleCustomize}
+          className="default-btn"
+          style={{ backgroundColor: '#f0f0f0', color: '#333' }}
+        >
+          {t('customize') || 'Only Essential'}
+        </button>
+        <button
+          onClick={handleReject}
+          className="default-btn"
+          style={{ backgroundColor: 'transparent', border: '1px solid #333', color: '#333' }}
+        >
+          {t('deny') || 'Reject All'}
         </button>
       </div>
     </div>

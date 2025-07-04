@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import FACEBOOK_PIXEL_1 from 'components/Pixel/facebook/pixel-1';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -20,7 +19,6 @@ class MyDocument extends Document {
             href="/images/video/video-3-no-text.webp"
             type="image/webp"
           />
-          <FACEBOOK_PIXEL_1 />
         </Head>
         <body>
           {/* Google Tag Manager (noscript) */}
