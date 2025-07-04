@@ -4595,6 +4595,9 @@ textarea.form-control {
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
+  .new-app-main-banner-wrap-area {
+    padding-top: 50px;
+  }
   body {
     font-size: 13px;
   }
@@ -5283,6 +5286,9 @@ textarea.form-control {
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .new-app-main-banner-wrap-area {
+    padding-top: 50px;
+  }
   .ptb-100 {
     padding-top: 80px;
     padding-bottom: 80px;
