@@ -9,7 +9,7 @@ const transporter = {
 
 const mailer = nodemailer.createTransport(sgTransport(transporter));
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   const { name, email, number, subject, text } = req.body;
 
   const data = {
@@ -33,3 +33,5 @@ export default async (req, res) => {
     res.status(500).send('Error proccessing charge');
   }
 };
+
+export default handler;

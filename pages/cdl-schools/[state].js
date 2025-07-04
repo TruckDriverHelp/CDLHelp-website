@@ -16,7 +16,7 @@ import getMeta from '../../lib/getMeta';
 const StateCitiesPage = ({ cities, state, meta }) => {
   const { t } = useTranslation(['city-schools', 'index']);
   const router = useRouter();
-  const { locale } = router;
+  // const { locale } = router;
   const stateFormatted = formatStateName(state);
 
   const seoData = useSEO({

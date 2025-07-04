@@ -13,7 +13,7 @@ import getMeta from '../lib/getMeta';
 import analytics from '../lib/analytics';
 import attribution from '../lib/attribution';
 
-const DownloadPage = ({ meta, alternateLinks }) => {
+const DownloadPage = ({ alternateLinks }) => {
   const { t } = useTranslation('download');
   const router = useRouter();
   const { locale } = router;

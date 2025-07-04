@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import baseUrl from '../../utils/baseUrl';
-import GoogleMap from './GoogleMap';
 import { useTranslation } from 'next-i18next';
 
 const alertContent = t => {

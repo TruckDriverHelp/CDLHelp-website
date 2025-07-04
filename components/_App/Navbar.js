@@ -235,13 +235,13 @@ const secondaryLinks = {
   ],
 };
 
-const internationalLinks = {
-  fb: 'https://www.facebook.com/profile.php?id=61566664868754&is_tour_dismissed',
-  tg: 'https://www.t.me/cdlhelpcom',
-};
+// const internationalLinks = {
+//   fb: 'https://www.facebook.com/profile.php?id=61566664868754&is_tour_dismissed',
+//   tg: 'https://www.t.me/cdlhelpcom',
+// };
 
 const Navbar = ({ alternateLinks }) => {
-  const { t, i18n } = useTranslation('navbar');
+  const { t } = useTranslation('navbar');
   const { locale } = useRouter();
   const [menu, setMenu] = React.useState(true);
   const [mounted, setMounted] = React.useState(false);

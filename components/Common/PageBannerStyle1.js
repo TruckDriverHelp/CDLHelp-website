@@ -1,8 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 
-const PageBannerStyle1 = ({ pageTitle, homePageUrl, homePageText, activePageText }) => {
+const PageBannerStyle1 = ({ pageTitle }) => {
   return (
     <>
       <Head>

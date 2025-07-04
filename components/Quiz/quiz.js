@@ -9,7 +9,7 @@ import quizData from '../../data/quiz-questions.json';
 import ConfettiExplosion from 'react-confetti-explosion';
 import analytics from '../../lib/analytics';
 
-const Quiz = ({ title, id, name, translation, contained }) => {
+const Quiz = ({ translation, contained }) => {
   const { t } = useTranslation('index');
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -42,14 +42,14 @@ const Quiz = ({ title, id, name, translation, contained }) => {
     return true;
   });
 
+  const quizCtx = useContext(QuizContext);
+  const { translate, selected, setSelected, wrong, setWrong, setDisabled } = quizCtx;
+
   useEffect(() => {
     setSelected(false);
     setWrong([]);
     setDisabled(true);
-  }, []);
-
-  const quizCtx = useContext(QuizContext);
-  const { translate, selected, setSelected, wrong, setWrong, setDisabled } = quizCtx;
+  }, [setSelected, setWrong, setDisabled]);
 
   const currentQuestion = filteredQuestions[currentQuestionIndex];
   const correct = currentQuestion.answer;

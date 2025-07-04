@@ -19,7 +19,7 @@ export default function PreTripSection({
   prevFileSlug,
 }) {
   const router = useRouter();
-  const { t, i18n } = useTranslation('pre-trip');
+  const { t } = useTranslation('pre-trip');
   const locale = router.locale || 'en';
 
   const handleNavigation = direction => {
@@ -119,7 +119,7 @@ export async function getStaticPaths({ locales }) {
   // Generate paths for each locale
   locales.forEach(locale => {
     files.forEach(file => {
-      const fileNumber = parseInt(file.split('-')[0]);
+      // const fileNumber = parseInt(file.split('-')[0]);
       const fileSlug = file.split('-').slice(1).join('-').replace('.json', '');
       const fileContents = fs.readFileSync(path.join(preTripDir, file), 'utf8');
       const fileData = JSON.parse(fileContents);

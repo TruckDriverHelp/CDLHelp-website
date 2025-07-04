@@ -11,7 +11,7 @@ const SchoolMap = dynamic(() => import('../../../shared/ui/Map/SchoolMap'), {
 export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, className = '' }) => {
   const { t } = useTranslation('city-schools');
 
-  const { Address, phone_number, coords, city, state, locations } = schoolLocation.attributes;
+  const { phone_number, coords, city, state, locations } = schoolLocation.attributes;
 
   const lat = coords?.latitude;
   const lon = coords?.longitude;
@@ -21,7 +21,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
   const phoneFormatted = formatPhoneNumber(phone_number);
 
   // Получаем имя школы из массива locations
-  const schoolName = locations?.data?.[0]?.attributes?.Name || 'CDL School';
+  // const schoolName = locations?.data?.[0]?.attributes?.Name || 'CDL School';
 
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -61,13 +61,13 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     flexGrow: 1,
   };
 
-  const headerStyle: React.CSSProperties = {
-    margin: 0,
-    fontSize: '18px',
-    color: '#1a1a1a',
-    fontWeight: 600,
-    lineHeight: '1.3',
-  };
+  // const headerStyle: React.CSSProperties = {
+  //   margin: 0,
+  //   fontSize: '18px',
+  //   color: '#1a1a1a',
+  //   fontWeight: 600,
+  //   lineHeight: '1.3',
+  // };
 
   const bodyStyle: React.CSSProperties = {
     margin: 0,

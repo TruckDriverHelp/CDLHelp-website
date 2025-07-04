@@ -11,7 +11,7 @@ import Navbar from '../../components/_App/Navbar';
 export default function PreTripGuide({ sections, alternateLinks }) {
   const router = useRouter();
   const { t } = useTranslation(['pre-trip', 'common']);
-  const locale = router.locale;
+  // const locale = router.locale;
 
   const metaTitle = t('guide.title');
   const metaDescription = t('guide.intro');

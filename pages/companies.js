@@ -16,11 +16,9 @@ import { DynamicQuiz } from '../components/_App/DynamicImports';
 
 const CompanyCard = ({ company }) => {
   const { t } = useTranslation('companies');
-  const router = useRouter();
-  const { locale } = router;
+  const { locale } = useRouter();
 
-  const { name, slug, pay_rate, driver_type, trailer_type, truck_type, company_locations } =
-    company.attributes;
+  const { name, slug, pay_rate, driver_type, trailer_type, company_locations } = company.attributes;
 
   const locations = company_locations?.data || [];
   const locationCount = locations.length;
@@ -264,8 +262,7 @@ const CompanyCard = ({ company }) => {
 
 const CompaniesPage = ({ companies }) => {
   const { t } = useTranslation(['companies', 'index']);
-  const router = useRouter();
-  const { locale } = router;
+  const { locale } = useRouter();
 
   const pageTitle = t('pageTitle');
   const pageDescription = t('pageDescription');
