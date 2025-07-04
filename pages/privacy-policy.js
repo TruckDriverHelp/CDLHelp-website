@@ -16,7 +16,8 @@ const PrivacyPolicy = ({meta}) => {
 		"@type": "PrivacyPolicy",
 		"name": meta.title,
 		"description": meta.description,
-		"url": "https://www.cdlhelp.com/privacy-policy",
+		"url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/privacy-policy`,
+		"inLanguage": locale,
 		"publisher": {
 			"@type": "Organization",
 			"name": "CDL Help",

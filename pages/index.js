@@ -67,21 +67,22 @@ const IndexPage = ({ meta, alternateLinks }) => {
         }
     };
 
-    // WebSite Schema
+    // WebSite Schema with locale-specific URL
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "url": "https://www.cdlhelp.com",
+        "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`,
         "name": "CDL Help",
         "description": t('description'),
         "potentialAction": {
             "@type": "SearchAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://www.cdlhelp.com/search?q={search_term_string}"
+                "urlTemplate": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/search?q={search_term_string}`
             },
             "query-input": "required name=search_term_string"
-        }
+        },
+        "inLanguage": locale
     };
     
     return (

@@ -271,7 +271,8 @@ const CompaniesPage = ({ companies }) => {
     "@type": "ItemList",
     "name": pageTitle,
     "description": pageDescription,
-    "url": "https://www.cdlhelp.com/companies",
+    "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/companies`,
+    "inLanguage": locale,
     "numberOfItems": companies.length,
     "itemListElement": companies.slice(0, 10).map((company, index) => ({
       "@type": "ListItem",
@@ -279,7 +280,7 @@ const CompaniesPage = ({ companies }) => {
       "item": {
         "@type": "Organization",
         "name": company.attributes.name,
-        "url": `https://www.cdlhelp.com/${locale === 'en' ? '' : locale + '/'}company/${company.attributes.slug}`,
+        "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/company/${company.attributes.slug}`,
         "description": company.attributes.description || `${company.attributes.name} trucking company`
       }
     }))

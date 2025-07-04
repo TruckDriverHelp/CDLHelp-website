@@ -5,19 +5,23 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Footer from '../components/_App/Footer';
 import Navbar from '../components/_App/Navbar';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { SEOHead } from '../src/shared/ui/SEO';
 import Head from 'next/head';
 import getMeta from '../lib/getMeta';
 
 const Contact = ({ alternateLinks, meta }) => {
   const { t } = useTranslation('contact');
+  const router = useRouter();
+  const { locale } = router;
   
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact CDL Help",
+    "name": t('pageTitle', 'Contact CDL Help'),
     "description": t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.'),
-    "url": "https://www.cdlhelp.com/contact",
+    "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/contact`,
+    "inLanguage": locale,
     "mainEntity": {
       "@type": "Organization",
       "name": "CDL Help",
