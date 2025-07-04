@@ -15,17 +15,17 @@ const TestAttributionPage = () => {
     // Generate attribution URLs for both platforms
     const iosUrl = attribution.generateAttributionLink('ios');
     const androidUrl = attribution.generateAttributionLink('android');
-    
+
     setAttributionUrl({
       ios: iosUrl,
-      android: androidUrl
+      android: androidUrl,
     });
   }, [router.query]);
 
   return (
     <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
       <h1>Attribution Test Page</h1>
-      
+
       <div style={{ marginBottom: '30px' }}>
         <h2>Current URL Parameters:</h2>
         <pre style={{ background: '#f5f5f5', padding: '15px', borderRadius: '5px' }}>
@@ -35,19 +35,21 @@ const TestAttributionPage = () => {
 
       <div style={{ marginBottom: '30px' }}>
         <h2>Generated Attribution URLs:</h2>
-        
+
         <div style={{ marginBottom: '20px' }}>
           <h3>iOS OneLink URL:</h3>
-          <code style={{ 
-            display: 'block', 
-            background: '#f5f5f5', 
-            padding: '15px', 
-            borderRadius: '5px',
-            wordBreak: 'break-all'
-          }}>
+          <code
+            style={{
+              display: 'block',
+              background: '#f5f5f5',
+              padding: '15px',
+              borderRadius: '5px',
+              wordBreak: 'break-all',
+            }}
+          >
             {attributionUrl.ios}
           </code>
-          <button 
+          <button
             onClick={() => window.open(attributionUrl.ios, '_blank')}
             style={{
               marginTop: '10px',
@@ -56,7 +58,7 @@ const TestAttributionPage = () => {
               color: 'white',
               border: 'none',
               borderRadius: '5px',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
           >
             Test iOS Link
@@ -65,16 +67,18 @@ const TestAttributionPage = () => {
 
         <div>
           <h3>Android OneLink URL:</h3>
-          <code style={{ 
-            display: 'block', 
-            background: '#f5f5f5', 
-            padding: '15px', 
-            borderRadius: '5px',
-            wordBreak: 'break-all'
-          }}>
+          <code
+            style={{
+              display: 'block',
+              background: '#f5f5f5',
+              padding: '15px',
+              borderRadius: '5px',
+              wordBreak: 'break-all',
+            }}
+          >
             {attributionUrl.android}
           </code>
-          <button 
+          <button
             onClick={() => window.open(attributionUrl.android, '_blank')}
             style={{
               marginTop: '10px',
@@ -83,7 +87,7 @@ const TestAttributionPage = () => {
               color: 'white',
               border: 'none',
               borderRadius: '5px',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
           >
             Test Android Link
@@ -91,15 +95,17 @@ const TestAttributionPage = () => {
         </div>
       </div>
 
-      <div style={{ marginTop: '40px', background: '#e8f4f8', padding: '20px', borderRadius: '5px' }}>
+      <div
+        style={{ marginTop: '40px', background: '#e8f4f8', padding: '20px', borderRadius: '5px' }}
+      >
         <h3>Test with UTM Parameters:</h3>
         <p>Try adding these parameters to the URL:</p>
-        <code>
-          ?utm_source=facebook&utm_medium=cpc&utm_campaign=summer_sale
-        </code>
-        <button 
+        <code>?utm_source=facebook&utm_medium=cpc&utm_campaign=summer_sale</code>
+        <button
           onClick={() => {
-            router.push('/test-attribution?utm_source=facebook&utm_medium=cpc&utm_campaign=summer_sale');
+            router.push(
+              '/test-attribution?utm_source=facebook&utm_medium=cpc&utm_campaign=summer_sale'
+            );
           }}
           style={{
             display: 'block',
@@ -109,7 +115,7 @@ const TestAttributionPage = () => {
             color: 'white',
             border: 'none',
             borderRadius: '5px',
-            cursor: 'pointer'
+            cursor: 'pointer',
           }}
         >
           Add Test Parameters

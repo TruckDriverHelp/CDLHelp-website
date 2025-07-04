@@ -1,219 +1,209 @@
 // Footer Component Style File Path: public/css/pages-and-components-css/footer.scss
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 const articleList = {
-  "en": {
+  en: {
     howToUseAppArticle: {
-      title: "How to use the app",
-      slug: "/how-to-use-cdl-help"
+      title: 'How to use the app',
+      slug: '/how-to-use-cdl-help',
     },
     howToBecomeTruckDriverArticle: {
-      title: "How to become a Truck Driver in USA",
-      slug: "/how-to-become-a-truck-driver"
+      title: 'How to become a Truck Driver in USA',
+      slug: '/how-to-become-a-truck-driver',
     },
     howToGetPermitArticle: {
-      title: "How to get a CDL Permit",
-      slug: "/how-to-get-cdl-permit"
+      title: 'How to get a CDL Permit',
+      slug: '/how-to-get-cdl-permit',
     },
     faq: {
-      title: "Frequently Asked Questions",
-      slug: "/frequently-asked-questions"
+      title: 'Frequently Asked Questions',
+      slug: '/frequently-asked-questions',
     },
     howToGetCDLArticle: {
-      title: "How to get CDL",
-      slug: "/how-to-get-cdl"
-    }
+      title: 'How to get CDL',
+      slug: '/how-to-get-cdl',
+    },
   },
-  "ru": {
+  ru: {
     howToUseAppArticle: {
-      title: "Как использовать приложение CDL Help",
-      slug: "/kak-ispolzovat-cdlhelp"
+      title: 'Как использовать приложение CDL Help',
+      slug: '/kak-ispolzovat-cdlhelp',
     },
     howToBecomeTruckDriverArticle: {
-      title: "Как стать дальнобойщиком в США",
-      slug: "/kak-stat-dalnoboishikom"
+      title: 'Как стать дальнобойщиком в США',
+      slug: '/kak-stat-dalnoboishikom',
     },
     howToGetPermitArticle: {
-      title: "Как получить CDL пермит",
-      slug: "/kak-poluchit-cdl-permit"
+      title: 'Как получить CDL пермит',
+      slug: '/kak-poluchit-cdl-permit',
     },
     faq: {
-      title: "Часто задаваемые вопросы",
-      slug: "/chasto-zadavaemye-voprosy"
+      title: 'Часто задаваемые вопросы',
+      slug: '/chasto-zadavaemye-voprosy',
     },
     howToGetCDLArticle: {
-      title: "Как получить CDL",
-      slug: "/kak-poluchit-cdl"
-    }
+      title: 'Как получить CDL',
+      slug: '/kak-poluchit-cdl',
+    },
   },
-  "uk": {
+  uk: {
     howToUseAppArticle: {
-      title: "Як використовувати додаток CDL Help",
-      slug: "/yak-vykorystovuvaty-dodatok-cdl-help"
+      title: 'Як використовувати додаток CDL Help',
+      slug: '/yak-vykorystovuvaty-dodatok-cdl-help',
     },
     howToBecomeTruckDriverArticle: {
-      title: "Як стати водієм вантажівки в США",
-      slug: "/yak-staty-dalekobiinykom-v-Amerytsi"
+      title: 'Як стати водієм вантажівки в США',
+      slug: '/yak-staty-dalekobiinykom-v-Amerytsi',
     },
     howToGetPermitArticle: {
-      title: "Як отримати дозвіл CDL",
-      slug: "/yak-otrymaty-permit-cdl"
+      title: 'Як отримати дозвіл CDL',
+      slug: '/yak-otrymaty-permit-cdl',
     },
     faq: {
-      title: "CDL Help – Часті запитання",
-      slug: "/chasti-zapytannya"
+      title: 'CDL Help – Часті запитання',
+      slug: '/chasti-zapytannya',
     },
     howToGetCDLArticle: {
-      title: "Як отримати CDL",
-      slug: "/yak-otrymaty-cdl"
-    }
+      title: 'Як отримати CDL',
+      slug: '/yak-otrymaty-cdl',
+    },
   },
-  "ar": {
+  ar: {
     howToUseAppArticle: {
-      title: "كيفية استخدام تطبيق CDL مساعدة",
-      slug: "/kayfiyat-astikhdam-tatbiq-cdl-musaeda"
+      title: 'كيفية استخدام تطبيق CDL مساعدة',
+      slug: '/kayfiyat-astikhdam-tatbiq-cdl-musaeda',
     },
-    howToBecomeTruckDriverArticle:
-    {
-      title: "كيف تصبح سائق شاحنة في الولايات المتحدة",
-      slug: "/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida"
+    howToBecomeTruckDriverArticle: {
+      title: 'كيف تصبح سائق شاحنة في الولايات المتحدة',
+      slug: '/kayfa-tusbih-sayiq-shahinat-fi-alwilayat-almutahida',
     },
-    howToGetPermitArticle:
-    {
-      title: "كيفية الحصول على تصريح CDL",
-      slug: "/kayfiyat-alhusul-ala-rukhsa-cdl"
+    howToGetPermitArticle: {
+      title: 'كيفية الحصول على تصريح CDL',
+      slug: '/kayfiyat-alhusul-ala-rukhsa-cdl',
     },
-    faq:
-    {
-      title: "الأسئلة الشائعة مساعدة CDL",
-      slug: "/alas-ila-alshaeia-musaedat-cdl"
+    faq: {
+      title: 'الأسئلة الشائعة مساعدة CDL',
+      slug: '/alas-ila-alshaeia-musaedat-cdl',
     },
     howToGetCDLArticle: {
-      title: "كيفية الحصول على رخصة القيادة التجارية (CDL)",
-      slug: "/kayfa-tahsil-cdl"
-    }
+      title: 'كيفية الحصول على رخصة القيادة التجارية (CDL)',
+      slug: '/kayfa-tahsil-cdl',
+    },
   },
-  "zh": {
+  zh: {
     howToUseAppArticle: {
-      title: "如何使用 CDL 帮助应用程序",
-      slug: "/ruhe-shiyong-cdl-bangzhu-yingyongchengxu"
+      title: '如何使用 CDL 帮助应用程序',
+      slug: '/ruhe-shiyong-cdl-bangzhu-yingyongchengxu',
     },
-    howToBecomeTruckDriverArticle:
-    {
-      title: "如何成为美国卡车司机",
-      slug: "/ruhe-chengwei-meiguo-kache-siji"
+    howToBecomeTruckDriverArticle: {
+      title: '如何成为美国卡车司机',
+      slug: '/ruhe-chengwei-meiguo-kache-siji',
     },
-    howToGetPermitArticle:
-    {
-      title: "如何获得 CDL 许可证",
-      slug: "/ruhe-huode-cdl-xukezheng"
+    howToGetPermitArticle: {
+      title: '如何获得 CDL 许可证',
+      slug: '/ruhe-huode-cdl-xukezheng',
     },
-    faq:
-    {
-      title: "常见问题 CDL 帮助",
-      slug: "/changjian-wenti-cdl-bangzhu"
+    faq: {
+      title: '常见问题 CDL 帮助',
+      slug: '/changjian-wenti-cdl-bangzhu',
     },
     howToGetCDLArticle: {
-      title: "如何获得CDL",
-      slug: "/ruhe-huode-cdl"
-    }
+      title: '如何获得CDL',
+      slug: '/ruhe-huode-cdl',
+    },
   },
-  "ko": {
+  ko: {
     howToUseAppArticle: {
-      title: "CDL 도움 앱 사용법",
-      slug: "/cdl-help-aeb-sayongbeob"
+      title: 'CDL 도움 앱 사용법',
+      slug: '/cdl-help-aeb-sayongbeob',
     },
-    howToBecomeTruckDriverArticle:
-    {
-      title: "미국에서 트럭 운전사가 되는 방법",
-      slug: "/migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob"
+    howToBecomeTruckDriverArticle: {
+      title: '미국에서 트럭 운전사가 되는 방법',
+      slug: '/migug-eseo-teureog-unjeonsa-ga-doeneun-bangbeob',
     },
-    howToGetPermitArticle:
-    {
-      title: "CDL 허가증을 받는 방법",
-      slug: "/cdl-heogajeungeul-badneun-bangbeob"
+    howToGetPermitArticle: {
+      title: 'CDL 허가증을 받는 방법',
+      slug: '/cdl-heogajeungeul-badneun-bangbeob',
     },
-    faq:
-    {
-      title: "자주 묻는 질문 CDL 도움",
-      slug: "/jaju-mudneun-jilmun-cdl-doum"
+    faq: {
+      title: '자주 묻는 질문 CDL 도움',
+      slug: '/jaju-mudneun-jilmun-cdl-doum',
     },
     howToGetCDLArticle: {
-      title: "CDL 취득 방법",
-      slug: "/cdl-eobtneun-bangbeob"
-    }
+      title: 'CDL 취득 방법',
+      slug: '/cdl-eobtneun-bangbeob',
+    },
   },
-  "tr": {
+  tr: {
     howToUseAppArticle: {
-      title: "CDL Yardım nasıl kullanılır",
-      slug: "/cdl-yardim-nasil-kullanilir"
+      title: 'CDL Yardım nasıl kullanılır',
+      slug: '/cdl-yardim-nasil-kullanilir',
     },
-    howToBecomeTruckDriverArticle:
-    {
-      title: "Nasıl kamyon şoförü olunur",
-      slug: "/nasil-kamyon-soforu-olunur"
+    howToBecomeTruckDriverArticle: {
+      title: 'Nasıl kamyon şoförü olunur',
+      slug: '/nasil-kamyon-soforu-olunur',
     },
-    howToGetPermitArticle:
-    {
-      title: "CDL İzni Nasıl Alınır",
-      slug: "/cdl-izni-nasil-alinir"
+    howToGetPermitArticle: {
+      title: 'CDL İzni Nasıl Alınır',
+      slug: '/cdl-izni-nasil-alinir',
     },
-    faq:
-    {
-      title: "Sıkça Sorulan Sorular CDL Help",
-      slug: "/sikca-sorulan-sorular"
+    faq: {
+      title: 'Sıkça Sorulan Sorular CDL Help',
+      slug: '/sikca-sorulan-sorular',
     },
     howToGetCDLArticle: {
-      title: "CDL nasıl alınır",
-      slug: "/cdl-nasil-alinir"
-    }
+      title: 'CDL nasıl alınır',
+      slug: '/cdl-nasil-alinir',
+    },
   },
-  "pt": {
+  pt: {
     howToUseAppArticle: {
-      title: "Como Usar o CDL Help",
-      slug: "/como-usar-o-cdl-help"
+      title: 'Como Usar o CDL Help',
+      slug: '/como-usar-o-cdl-help',
     },
-    howToBecomeTruckDriverArticle:
-    {
-      title: "Como se tornar um motorista de caminhãoo",
-      slug: "/como-se-tornar-motorista-de-caminhaoo"
+    howToBecomeTruckDriverArticle: {
+      title: 'Como se tornar um motorista de caminhãoo',
+      slug: '/como-se-tornar-motorista-de-caminhaoo',
     },
-    howToGetPermitArticle:
-    {
-      title: "Como obter uma licença CDL",
-      slug: "/como-obter-uma-licenca-cdl"
+    howToGetPermitArticle: {
+      title: 'Como obter uma licença CDL',
+      slug: '/como-obter-uma-licenca-cdl',
     },
-    faq:
-    {
-      title: "Perguntas Frequentes",
-      slug: "/perguntas-frequentes"
+    faq: {
+      title: 'Perguntas Frequentes',
+      slug: '/perguntas-frequentes',
     },
     howToGetCDLArticle: {
-      title: "Como tirar a CDL",
-      slug: "/como-obter-cdl"
-    }
-  }
-}
+      title: 'Como tirar a CDL',
+      slug: '/como-obter-cdl',
+    },
+  },
+};
 
 const Footer = () => {
-  const { t } = useTranslation("footer");
+  const { t } = useTranslation('footer');
   const { locale } = useRouter();
   const currentYear = new Date().getFullYear();
   const [mounted, setMounted] = React.useState(false);
-  
+
   React.useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   // Add fallback using english locale if current locale isn't found
-  const articleForLocale = articleList[locale] || articleList["en"];
-  const { howToUseAppArticle, howToBecomeTruckDriverArticle, faq, howToGetPermitArticle, howToGetCDLArticle } = articleForLocale;
+  const articleForLocale = articleList[locale] || articleList['en'];
+  const {
+    howToUseAppArticle,
+    howToBecomeTruckDriverArticle,
+    faq,
+    howToGetPermitArticle,
+    howToGetCDLArticle,
+  } = articleForLocale;
 
   // Don't render until mounted to avoid hydration mismatch
   if (!mounted) {
@@ -221,7 +211,7 @@ const Footer = () => {
   }
 
   // Get translations with fallback
-  const getTranslation = (key) => {
+  const getTranslation = key => {
     return t(key) || key;
   };
 
@@ -234,18 +224,11 @@ const Footer = () => {
               <div className="single-footer-widget">
                 <Link href="/">
                   <a className="logo">
-                    <Image
-                      src="/images/logo.png"
-                      alt="logo"
-                      width="101"
-                      height="44"
-                    />
+                    <Image src="/images/logo.png" alt="logo" width="101" height="44" />
                   </a>
                 </Link>
 
-                <p>
-                  {getTranslation("mobileApp")}
-                </p>
+                <p>{getTranslation('mobileApp')}</p>
 
                 <ul className="social-links">
                   {/* {(locale === "ru" || locale === "uk") && <li>
@@ -281,7 +264,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/#about">
-                      <a>{getTranslation("aboutProject")}</a>
+                      <a>{getTranslation('aboutProject')}</a>
                     </Link>
                   </li>
                   {/* <li>
@@ -290,9 +273,7 @@ const Footer = () => {
                                         </Link>
                                     </li> */}
                   <li>
-                    <a href={`https://test.cdlhelp.com/${locale}/`}>
-                      {getTranslation("tryFree")}
-                    </a>
+                    <a href={`https://test.cdlhelp.com/${locale}/`}>{getTranslation('tryFree')}</a>
                   </li>
                 </ul>
               </div>
@@ -300,21 +281,21 @@ const Footer = () => {
 
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>{getTranslation("support")}</h3>
+                <h3>{getTranslation('support')}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href="/privacy-policy/" locale={false}>
-                      <a>{getTranslation("privacy")}</a>
+                      <a>{getTranslation('privacy')}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms-conditions/" locale={false}>
-                      <a>{getTranslation("publicAgreement")}</a>
+                      <a>{getTranslation('publicAgreement')}</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/contact">
-                      <a>{getTranslation("feedback")}</a>
+                      <a>{getTranslation('feedback')}</a>
                     </Link>
                   </li>
                   <li>
@@ -327,7 +308,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="single-footer-widget">
-                <h3>{getTranslation("resources")}</h3>
+                <h3>{getTranslation('resources')}</h3>
                 <ul className="links-list">
                   <li>
                     <Link href={howToBecomeTruckDriverArticle.slug} locale={locale}>
@@ -339,13 +320,13 @@ const Footer = () => {
                       <a>{howToGetPermitArticle.title}</a>
                     </Link>
                   </li>
-                    <li>
+                  <li>
                     <Link href={howToGetCDLArticle.slug} locale={locale}>
                       <a>{howToGetCDLArticle.title}</a>
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.truckdriver.help/">{getTranslation("jobs")}</a>
+                    <a href="https://www.truckdriver.help/">{getTranslation('jobs')}</a>
                   </li>
                 </ul>
               </div>
@@ -374,8 +355,13 @@ const Footer = () => {
 
           <div className="copyright-area">
             <p>
-                {getTranslation("footerText")}<br />
-                {currentYear} &copy; <a href="https://www.truckdriver.help/" target="_blank">TruckDriver.help LLC </a>{getTranslation("allRightsReserved")}
+              {getTranslation('footerText')}
+              <br />
+              {currentYear} &copy;{' '}
+              <a href="https://www.truckdriver.help/" target="_blank" rel="noreferrer">
+                TruckDriver.help LLC{' '}
+              </a>
+              {getTranslation('allRightsReserved')}
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 # Google Tag Manager Implementation
 
 ## Overview
+
 Google Tag Manager (GTM) has been implemented in the CDLHelp website to provide a centralized way to manage marketing and analytics tags.
 
 ## Implementation Details
@@ -8,45 +9,58 @@ Google Tag Manager (GTM) has been implemented in the CDLHelp website to provide 
 ### 1. Files Modified
 
 #### `/pages/_app.js`
+
 Added the GTM script that loads after the page becomes interactive:
+
 ```javascript
-{/* Google Tag Manager - Load after page becomes interactive */}
-{process.env.NEXT_PUBLIC_GTM_ID && (
-  <Script
-    id="google-tag-manager"
-    strategy="afterInteractive"
-    dangerouslySetInnerHTML={{
-      __html: `
+{
+  /* Google Tag Manager - Load after page becomes interactive */
+}
+{
+  process.env.NEXT_PUBLIC_GTM_ID && (
+    <Script
+      id="google-tag-manager"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
       `,
-    }}
-  />
-)}
+      }}
+    />
+  );
+}
 ```
 
 #### `/pages/_document.js`
+
 Added the GTM noscript fallback for users with JavaScript disabled:
+
 ```javascript
-{/* Google Tag Manager (noscript) */}
-{process.env.NEXT_PUBLIC_GTM_ID && (
-  <noscript>
-    <iframe 
-      src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
-      height="0" 
-      width="0" 
-      style={{ display: 'none', visibility: 'hidden' }}
-    />
-  </noscript>
-)}
+{
+  /* Google Tag Manager (noscript) */
+}
+{
+  process.env.NEXT_PUBLIC_GTM_ID && (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+        height="0"
+        width="0"
+        style={{ display: 'none', visibility: 'hidden' }}
+      />
+    </noscript>
+  );
+}
 ```
 
 ### 2. Environment Variable
 
 Add the following to your `.env.local` file:
+
 ```
 NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
 ```

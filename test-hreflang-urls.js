@@ -8,26 +8,27 @@ function removeTrailingSlash(path) {
   return path.replace(/\/$/, '');
 }
 
-function generateHreflangUrls(currentPath, supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt']) {
+function generateHreflangUrls(
+  currentPath,
+  supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt']
+) {
   // Remove any existing locale prefix and trailing slashes
   const cleanPath = removeTrailingSlash(
     currentPath.replace(/^\/(ru|uk|ar|ko|zh|tr|pt)(\/|$)/, '/')
   );
-  
+
   const hreflangUrls = {};
-  
+
   supportedLocales.forEach(locale => {
     if (locale === 'en') {
       // English doesn't use locale prefix
       hreflangUrls[locale] = cleanPath;
     } else {
       // Other languages use locale prefix
-      hreflangUrls[locale] = cleanPath === '/' 
-        ? `/${locale}` 
-        : `/${locale}${cleanPath}`;
+      hreflangUrls[locale] = cleanPath === '/' ? `/${locale}` : `/${locale}${cleanPath}`;
     }
   });
-  
+
   return hreflangUrls;
 }
 
@@ -41,8 +42,8 @@ const testPaths = [
   '/cdl-schools',
   '/ru/download',
   '/ar/cdl-schools',
-  '/contact/',  // with trailing slash
-  '/ru/contact/',  // with trailing slash
+  '/contact/', // with trailing slash
+  '/ru/contact/', // with trailing slash
 ];
 
 const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
@@ -50,14 +51,14 @@ const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
 testPaths.forEach(path => {
   console.log(`Testing path: "${path}"`);
   console.log(`Clean path: "${removeTrailingSlash(path)}"`);
-  
+
   const hreflangUrls = generateHreflangUrls(path, supportedLocales);
-  
+
   console.log('Generated hreflang URLs:');
   Object.entries(hreflangUrls).forEach(([lang, url]) => {
     console.log(`  ${lang}: https://www.cdlhelp.com${url}`);
   });
-  
+
   console.log('\n');
 });
 
@@ -66,14 +67,14 @@ console.log('Homepage Alternates Test\n');
 console.log('========================\n');
 
 const homepageAlternates = {
-  'en': '/',
-  'ar': '/ar',
-  'ru': '/ru',
-  'uk': '/uk',
-  'zh': '/zh',
-  'ko': '/ko',
-  'tr': '/tr',
-  'pt': '/pt'
+  en: '/',
+  ar: '/ar',
+  ru: '/ru',
+  uk: '/uk',
+  zh: '/zh',
+  ko: '/ko',
+  tr: '/tr',
+  pt: '/pt',
 };
 
 console.log('Homepage alternate links (from index.js):');

@@ -12,12 +12,12 @@ import Footer from '../../../components/_App/Footer';
 
 const containerStyle = {
   width: '100%',
-  height: '500px'
+  height: '500px',
 };
 
 const defaultCenter = {
   lat: 39.8283,
-  lng: -98.5795
+  lng: -98.5795,
 };
 
 const libraries = ['places'];
@@ -33,14 +33,14 @@ export default function DotPhysicalExam() {
   const [map, setMap] = useState(null);
   const markerRefs = useRef({});
 
-  const onMapLoad = useCallback((map) => {
+  const onMapLoad = useCallback(map => {
     setMap(map);
   }, []);
 
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        async (position) => {
+        async position => {
           const { latitude, longitude } = position.coords;
           setMapCenter({ lat: latitude, lng: longitude });
           if (map) {
@@ -48,7 +48,7 @@ export default function DotPhysicalExam() {
             await searchNearbyLocations(latitude, longitude);
           }
         },
-        (error) => {
+        error => {
           console.log('Location permission denied or error:', error);
         }
       );
@@ -57,16 +57,16 @@ export default function DotPhysicalExam() {
 
   const searchNearbyLocations = async (lat, lng) => {
     if (!map) return;
-    
+
     setIsLoading(true);
     setError(null);
     try {
       const service = new window.google.maps.places.PlacesService(map);
-      
+
       const request = {
         location: new window.google.maps.LatLng(lat, lng),
         radius: '50000',
-        query: 'medical examiner dot physical'
+        query: 'medical examiner dot physical',
       };
 
       const placesResult = await new Promise((resolve, reject) => {
@@ -81,22 +81,30 @@ export default function DotPhysicalExam() {
 
       // Fetch detailed information for each place
       const detailedResults = await Promise.all(
-        placesResult.map(place => 
-          new Promise((resolve) => {
-            service.getDetails(
-              {
-                placeId: place.place_id,
-                fields: ['name', 'formatted_address', 'geometry', 'rating', 'user_ratings_total', 'formatted_phone_number']
-              },
-              (result, status) => {
-                if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-                  resolve(result);
-                } else {
-                  resolve(place); // Fallback to original place data if details request fails
+        placesResult.map(
+          place =>
+            new Promise(resolve => {
+              service.getDetails(
+                {
+                  placeId: place.place_id,
+                  fields: [
+                    'name',
+                    'formatted_address',
+                    'geometry',
+                    'rating',
+                    'user_ratings_total',
+                    'formatted_phone_number',
+                  ],
+                },
+                (result, status) => {
+                  if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+                    resolve(result);
+                  } else {
+                    resolve(place); // Fallback to original place data if details request fails
+                  }
                 }
-              }
-            );
-          })
+              );
+            })
         )
       );
 
@@ -112,12 +120,12 @@ export default function DotPhysicalExam() {
 
   const handleSearch = async () => {
     if (!zipCode || !map) return;
-    
+
     setIsLoading(true);
     setError(null);
     try {
       const geocoder = new window.google.maps.Geocoder();
-      
+
       const geocodeResult = await new Promise((resolve, reject) => {
         geocoder.geocode({ address: zipCode }, (results, status) => {
           if (status === 'OK') {
@@ -131,7 +139,7 @@ export default function DotPhysicalExam() {
       const location = geocodeResult.geometry.location;
       const lat = location.lat();
       const lng = location.lng();
-      
+
       setMapCenter({ lat, lng });
       map.setCenter({ lat, lng });
 
@@ -145,7 +153,7 @@ export default function DotPhysicalExam() {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = e => {
     if (e.key === 'Enter') {
       handleSearch();
     }
@@ -167,12 +175,18 @@ export default function DotPhysicalExam() {
       </Head>
 
       <Navbar />
-      
+
       <Container maxWidth="lg" sx={{ py: 4, paddingTop: '80px' }}>
-        <Typography sx={{ margin: '60px 0' }} variant="h4" component="h1" align="center" gutterBottom>
+        <Typography
+          sx={{ margin: '60px 0' }}
+          variant="h4"
+          component="h1"
+          align="center"
+          gutterBottom
+        >
           {t('dotPhysicalExam.title')}
         </Typography>
-        
+
         <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
           <Typography variant="body1" align="center" sx={{ mb: 2 }}>
             {t('dotPhysicalExam.description')}
@@ -182,7 +196,7 @@ export default function DotPhysicalExam() {
               sx={{ width: '150px' }}
               label={t('dotPhysicalExam.zipCodeLabel')}
               value={zipCode}
-              onChange={(e) => setZipCode(e.target.value)}
+              onChange={e => setZipCode(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder={t('dotPhysicalExam.zipCodePlaceholder')}
               variant="outlined"
@@ -215,37 +229,35 @@ export default function DotPhysicalExam() {
               onLoad={onMapLoad}
               disableDefaultUI={true}
             >
-              {searchResults.map((place) => (
+              {searchResults.map(place => (
                 <Marker
                   key={place.place_id}
                   position={{
                     lat: place.geometry.location.lat(),
-                    lng: place.geometry.location.lng()
+                    lng: place.geometry.location.lng(),
                   }}
                   title={place.name}
                   onLoad={marker => handleMarkerLoad(marker, place.place_id, place)}
                   options={{ clickable: true }}
                 />
               ))}
-              
+
               {selectedPlace && (
                 <InfoWindow
                   position={{
                     lat: selectedPlace.geometry.location.lat(),
-                    lng: selectedPlace.geometry.location.lng()
+                    lng: selectedPlace.geometry.location.lng(),
                   }}
                   onCloseClick={() => setSelectedPlace(null)}
                   options={{
-                    pixelOffset: new window.google.maps.Size(0, -30)
+                    pixelOffset: new window.google.maps.Size(0, -30),
                   }}
                 >
                   <Box sx={{ p: 1, maxWidth: 300 }}>
                     <Typography variant="subtitle1" fontWeight="bold">
                       {selectedPlace.name}
                     </Typography>
-                    <Typography variant="body2">
-                      {selectedPlace.formatted_address}
-                    </Typography>
+                    <Typography variant="body2">{selectedPlace.formatted_address}</Typography>
                     {selectedPlace.formatted_phone_number && (
                       <Typography variant="body2">
                         {t('dotPhysicalExam.phone')}: {selectedPlace.formatted_phone_number}
@@ -253,7 +265,8 @@ export default function DotPhysicalExam() {
                     )}
                     {selectedPlace.rating && (
                       <Typography variant="body2" color="text.secondary">
-                        {t('dotPhysicalExam.rating')}: {selectedPlace.rating} ({selectedPlace.user_ratings_total} {t('dotPhysicalExam.reviews')})
+                        {t('dotPhysicalExam.rating')}: {selectedPlace.rating} (
+                        {selectedPlace.user_ratings_total} {t('dotPhysicalExam.reviews')})
                       </Typography>
                     )}
                   </Box>
@@ -268,27 +281,30 @@ export default function DotPhysicalExam() {
             <Typography variant="h3" component="h2" gutterBottom>
               {t('dotPhysicalExam.nearbyLocations')}
             </Typography>
-            {searchResults.map((place) => (
-              <Box 
-                key={place.place_id} 
-                sx={{ 
-                  mb: 2, 
-                  p: 2, 
+            {searchResults.map(place => (
+              <Box
+                key={place.place_id}
+                sx={{
+                  mb: 2,
+                  p: 2,
                   cursor: 'pointer',
                   '&:hover': {
-                    backgroundColor: 'rgba(0, 0, 0, 0.04)'
-                  }
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                  },
                 }}
                 onClick={() => setSelectedPlace(place)}
               >
                 <Typography variant="h6">{place.name}</Typography>
                 <Typography variant="body1">{place.formatted_address}</Typography>
                 {place.formatted_phone_number && (
-                  <Typography variant="body1">{t('dotPhysicalExam.phone')}: {place.formatted_phone_number}</Typography>
+                  <Typography variant="body1">
+                    {t('dotPhysicalExam.phone')}: {place.formatted_phone_number}
+                  </Typography>
                 )}
                 {place.rating && (
                   <Typography variant="body2" color="text.secondary">
-                    {t('dotPhysicalExam.rating')}: {place.rating} ({place.user_ratings_total} {t('dotPhysicalExam.reviews')})
+                    {t('dotPhysicalExam.rating')}: {place.rating} ({place.user_ratings_total}{' '}
+                    {t('dotPhysicalExam.reviews')})
                   </Typography>
                 )}
               </Box>
@@ -308,4 +324,4 @@ export async function getStaticProps({ locale }) {
       ...(await serverSideTranslations(locale, ['common', 'navbar', 'footer'])),
     },
   };
-} 
+}

@@ -1,12 +1,12 @@
 {
-    "main": "الرئيسية",
-    "resources": "الموارد",
-    "workForTruckers": "وظائف",
-    "cdlSchool": "مدرسة CDL",
-    "cdlSchools": "مدارس CDL",
-    "companies": "الشركات",
-    "contacts": "اتصل بنا",
-    "blog": "المدونة",
-    "dotPhysicalLookup": "البحث عن الفحص الطبي DOT",
-    "roadSignsTest": "اختبار علامات الطريق"
+  "main": "الرئيسية",
+  "resources": "الموارد",
+  "workForTruckers": "وظائف",
+  "cdlSchool": "مدرسة CDL",
+  "cdlSchools": "مدارس CDL",
+  "companies": "الشركات",
+  "contacts": "اتصل بنا",
+  "blog": "المدونة",
+  "dotPhysicalLookup": "البحث عن الفحص الطبي DOT",
+  "roadSignsTest": "اختبار علامات الطريق"
 }

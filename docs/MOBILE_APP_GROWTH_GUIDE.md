@@ -9,11 +9,13 @@ This guide documents the mobile app growth optimization implementation for CDLHe
 ### 1. Unified Analytics Module (`/lib/analytics.js`)
 
 A centralized analytics system that integrates:
+
 - **Google Analytics 4** - Enhanced ecommerce and custom events
 - **Meta/Facebook Pixel** - Standard and custom conversion events
 - **AppsFlyer** - Mobile attribution and deep linking
 
 Key tracking capabilities:
+
 - Page views with enhanced parameters
 - Download intent tracking with attribution
 - Quiz completions and engagement metrics
@@ -23,6 +25,7 @@ Key tracking capabilities:
 ### 2. Attribution System (`/lib/attribution.js`)
 
 Advanced attribution handling with:
+
 - **AppsFlyer OneLink** integration for seamless app store redirects
 - **UTM parameter** capture and persistence
 - **Device detection** for optimized user flows
@@ -32,6 +35,7 @@ Advanced attribution handling with:
 ### 3. Smart App Banner (`/components/_App/SmartAppBanner.js`)
 
 Mobile-optimized banner that:
+
 - Detects iOS/Android devices automatically
 - Shows native-like app install prompt
 - Tracks impressions, clicks, and dismissals
@@ -41,6 +45,7 @@ Mobile-optimized banner that:
 ### 4. Enhanced Download Page
 
 Improved download page with:
+
 - Attribution-aware download buttons
 - Enhanced tracking for conversion optimization
 - Dynamic app store links based on locale
@@ -70,11 +75,15 @@ NEXT_PUBLIC_ANDROID_SHA256_CERT=your_android_sha256_cert
 ### 2. Update App Association Files
 
 #### iOS (apple-app-site-association)
+
 Update `/public/.well-known/apple-app-site-association`:
+
 - Replace `TEAM_ID` with your Apple Developer Team ID
 
 #### Android (assetlinks.json)
+
 Update `/public/.well-known/assetlinks.json`:
+
 - Replace `SHA256_CERT_FINGERPRINT` with your app's SHA256 certificate fingerprint
 
 ### 3. Configure AppsFlyer
@@ -87,25 +96,33 @@ Update `/public/.well-known/assetlinks.json`:
 ## Tracking Implementation
 
 ### Page Views
+
 Automatically tracked on route changes with enhanced parameters:
+
 ```javascript
 analytics.trackPageView(url, title);
 ```
 
 ### Download Intent
+
 Track when users show intent to download:
+
 ```javascript
 analytics.trackDownloadIntent(platform, source, campaign);
 ```
 
 ### Quiz Completions
+
 Track quiz completions for engagement optimization:
+
 ```javascript
 analytics.trackQuizCompletion(score, totalQuestions, locale);
 ```
 
 ### Custom Events
+
 Track any custom engagement:
+
 ```javascript
 analytics.trackFeatureEngagement(feature, action, value);
 ```
@@ -121,17 +138,21 @@ analytics.trackFeatureEngagement(feature, action, value);
 ## Conversion Optimization Best Practices
 
 ### 1. Landing Page Optimization
+
 - Show Smart App Banner on mobile devices
 - Track scroll depth and engagement time
 - A/B test different CTAs and layouts
 
 ### 2. Attribution Windows
+
 - Default: 7-day click, 1-day view
 - Adjust based on your user journey data
 - Consider longer windows for educational apps
 
 ### 3. Campaign Tracking
+
 Always use UTM parameters:
+
 - `utm_source` - Traffic source (google, facebook)
 - `utm_medium` - Medium (cpc, social, email)
 - `utm_campaign` - Campaign name
@@ -139,7 +160,9 @@ Always use UTM parameters:
 - `utm_content` - Ad/content variant
 
 ### 4. Deep Linking Strategy
+
 Configure deep links for:
+
 - Onboarding flows
 - Specific quiz categories
 - Premium feature trials
@@ -148,6 +171,7 @@ Configure deep links for:
 ## Testing Your Implementation
 
 ### 1. Attribution Testing
+
 ```bash
 # Test with UTM parameters
 https://cdlhelp.com/download?utm_source=test&utm_medium=test&utm_campaign=test
@@ -157,12 +181,15 @@ localStorage.getItem('attribution_params')
 ```
 
 ### 2. Analytics Testing
+
 Open browser console and look for `[Analytics]` logs when:
+
 - Navigating between pages
 - Clicking download buttons
 - Completing quizzes
 
 ### 3. Deep Link Testing
+
 - iOS: Use Safari on device, navigate to deep link URL
 - Android: Use Chrome on device, navigate to deep link URL
 
@@ -241,6 +268,7 @@ Open browser console and look for `[Analytics]` logs when:
 ## Support
 
 For questions or issues:
+
 1. Check AppsFlyer documentation
 2. Review Google Analytics 4 guides
 3. Consult Meta Business Help Center

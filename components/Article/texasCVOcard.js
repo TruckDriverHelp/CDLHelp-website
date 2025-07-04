@@ -2,13 +2,16 @@ import React from 'react';
 
 const CVOCard = ({ locale, questionEn, answerEn, questionLang, answerLang }) => {
   return (
-    <div className="tx-quiz-card" style={{ gridTemplateColumns: locale == "en" ? "auto" : "1fr 30px 1fr" }}>
+    <div
+      className="tx-quiz-card"
+      style={{ gridTemplateColumns: locale == 'en' ? 'auto' : '1fr 30px 1fr' }}
+    >
       <div className="tx-quiz-card-column">
         <div>{questionEn}</div>
         <div>{answerEn}</div>
       </div>
 
-      {!(locale == "en") &&
+      {!(locale == 'en') && (
         <>
           <div className="tx-card-line"></div>
 
@@ -17,7 +20,7 @@ const CVOCard = ({ locale, questionEn, answerEn, questionLang, answerLang }) => 
             <div>{answerLang}</div>
           </div>
         </>
-      }
+      )}
     </div>
   );
 };

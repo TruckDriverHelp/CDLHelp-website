@@ -7,12 +7,22 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../../../components/_App/Layout';
 
-export default function PreTripSection({ sectionData, currentFile, currentSection, totalSections, totalFiles, prevFileSections, fileSlug, nextFileSlug, prevFileSlug }) {
+export default function PreTripSection({
+  sectionData,
+  currentFile,
+  currentSection,
+  totalSections,
+  totalFiles,
+  prevFileSections,
+  fileSlug,
+  nextFileSlug,
+  prevFileSlug,
+}) {
   const router = useRouter();
   const { t, i18n } = useTranslation('pre-trip');
   const locale = router.locale || 'en';
 
-  const handleNavigation = (direction) => {
+  const handleNavigation = direction => {
     let nextSlug = fileSlug;
     let nextSection = currentSection;
 
@@ -40,7 +50,7 @@ export default function PreTripSection({ sectionData, currentFile, currentSectio
       <Navbar />
       <div className={styles.container}>
         <h1 className={styles.title}>{sectionData.name.en}</h1>
-        
+
         <div className={styles.section}>
           <div className={styles.languageGroup}>
             <h2 className={styles.itemTitle}>{sectionData.title.en}</h2>
@@ -80,14 +90,14 @@ export default function PreTripSection({ sectionData, currentFile, currentSectio
         </div>
 
         <div className={styles.navigation}>
-          <button 
+          <button
             onClick={() => handleNavigation('back')}
             disabled={currentFile === 1 && currentSection === 1}
             className={styles.navButton}
           >
             {t('navigation.back')}
           </button>
-          <button 
+          <button
             onClick={() => handleNavigation('next')}
             disabled={currentFile === totalFiles && currentSection === totalSections}
             className={styles.navButton}
@@ -103,24 +113,24 @@ export default function PreTripSection({ sectionData, currentFile, currentSectio
 export async function getStaticPaths({ locales }) {
   const preTripDir = path.join(process.cwd(), 'data/pre-trip');
   const files = fs.readdirSync(preTripDir);
-  
+
   const paths = [];
-  
+
   // Generate paths for each locale
   locales.forEach(locale => {
-    files.forEach((file) => {
+    files.forEach(file => {
       const fileNumber = parseInt(file.split('-')[0]);
       const fileSlug = file.split('-').slice(1).join('-').replace('.json', '');
       const fileContents = fs.readFileSync(path.join(preTripDir, file), 'utf8');
       const fileData = JSON.parse(fileContents);
-      
+
       fileData.section.forEach((_, sectionIndex) => {
         paths.push({
-          params: { 
+          params: {
             file: fileSlug,
-            section: (sectionIndex + 1).toString()
+            section: (sectionIndex + 1).toString(),
           },
-          locale: locale === 'en' ? undefined : locale // English without /en/ prefix
+          locale: locale === 'en' ? undefined : locale, // English without /en/ prefix
         });
       });
     });
@@ -128,7 +138,7 @@ export async function getStaticPaths({ locales }) {
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 }
 
@@ -136,22 +146,22 @@ export async function getStaticProps({ params, locale }) {
   const preTripDir = path.join(process.cwd(), 'data/pre-trip');
   const files = fs.readdirSync(preTripDir);
   const totalFiles = files.length;
-  
+
   // Find the file that matches the slug
   const fileName = files.find(file => {
     const fileSlug = file.split('-').slice(1).join('-').replace('.json', '');
     return fileSlug === params.file;
   });
-  
+
   if (!fileName) {
     return {
-      notFound: true
+      notFound: true,
     };
   }
 
   const currentFile = parseInt(fileName.split('-')[0]);
   const currentSection = parseInt(params.section);
-  
+
   // Get current file data
   const filePath = path.join(preTripDir, fileName);
   const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -160,17 +170,17 @@ export async function getStaticProps({ params, locale }) {
   // Get next and previous file slugs
   let nextFileSlug = '';
   let prevFileSlug = '';
-  
+
   if (currentFile < totalFiles) {
     const nextFileName = files.find(file => file.startsWith(`${currentFile + 1}-`));
     nextFileSlug = nextFileName.split('-').slice(1).join('-').replace('.json', '');
   }
-  
+
   if (currentFile > 1) {
     const prevFileName = files.find(file => file.startsWith(`${currentFile - 1}-`));
     prevFileSlug = prevFileName.split('-').slice(1).join('-').replace('.json', '');
   }
-  
+
   // Get previous file's section count if needed
   let prevFileSections = 0;
   if (currentFile > 1) {
@@ -180,10 +190,10 @@ export async function getStaticProps({ params, locale }) {
     const prevFileData = JSON.parse(prevFileContents);
     prevFileSections = prevFileData.section.length;
   }
-  
+
   const sectionData = {
     name: fileData.name,
-    ...fileData.section[currentSection - 1]
+    ...fileData.section[currentSection - 1],
   };
 
   return {
@@ -197,7 +207,7 @@ export async function getStaticProps({ params, locale }) {
       fileSlug: params.file,
       nextFileSlug,
       prevFileSlug,
-      ...(await serverSideTranslations(locale, ['pre-trip', 'navbar']))
-    }
+      ...(await serverSideTranslations(locale, ['pre-trip', 'navbar'])),
+    },
   };
-} 
+}

@@ -20,17 +20,17 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
   url,
-  image = "/images/truckdriverhelp-og.jpg",
-  type = "website",
-  siteName = "CDL Help",
+  image = '/images/truckdriverhelp-og.jpg',
+  type = 'website',
+  siteName = 'CDL Help',
   locale,
   alternateLinks = {},
   noindex = false,
-  canonical
+  canonical,
 }) => {
   const router = useRouter();
   const currentLocale = locale || router.locale || 'en';
-  const baseUrl = "https://www.cdlhelp.com";
+  const baseUrl = 'https://www.cdlhelp.com';
   // Remove query parameters from the path for canonical URL
   const cleanPath = router.asPath.split('?')[0].split('#')[0];
   const fullUrl = url || `${baseUrl}${cleanPath}`;
@@ -39,35 +39,38 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   // Generate proper alternate links based on current path
   const currentPath = router.asPath;
   const pathWithoutLocale = currentPath.replace(/^\/(ru|uk|ar|ko|zh|tr|pt)(\/|$)/, '/');
-  
+
   // Generate alternate links for all supported languages
   const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
   const generatedAlternateLinks: Record<string, string> = {};
-  
+
   supportedLocales.forEach(lang => {
     if (lang === 'en') {
       // English URLs don't have locale prefix
       generatedAlternateLinks[lang] = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
     } else {
       // Other languages have locale prefix
-      generatedAlternateLinks[lang] = pathWithoutLocale === '/' 
-        ? `/${lang}` 
-        : `/${lang}${pathWithoutLocale}`;
+      generatedAlternateLinks[lang] =
+        pathWithoutLocale === '/' ? `/${lang}` : `/${lang}${pathWithoutLocale}`;
     }
   });
 
   // Use provided alternateLinks but ensure current locale is included
-  const finalAlternateLinks = Object.keys(alternateLinks).length > 0 
-    ? {
-        ...alternateLinks,
-        // Ensure self-referencing hreflang
-        [currentLocale]: alternateLinks[currentLocale] || (currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`)
-      }
-    : generatedAlternateLinks;
+  const finalAlternateLinks =
+    Object.keys(alternateLinks).length > 0
+      ? {
+          ...alternateLinks,
+          // Ensure self-referencing hreflang
+          [currentLocale]:
+            alternateLinks[currentLocale] ||
+            (currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`),
+        }
+      : generatedAlternateLinks;
 
   // Always ensure self-referencing hreflang is present
   if (!finalAlternateLinks[currentLocale]) {
-    finalAlternateLinks[currentLocale] = currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`;
+    finalAlternateLinks[currentLocale] =
+      currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`;
   }
 
   return (
@@ -75,10 +78,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Basic Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      
+
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
 
@@ -103,18 +106,13 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:image" content={image} />
 
       {/* Alternate Language Links */}
-      <link 
-        rel="alternate" 
-        href={`${baseUrl}${finalAlternateLinks['en'] || '/'}`} 
-        hrefLang="x-default" 
+      <link
+        rel="alternate"
+        href={`${baseUrl}${finalAlternateLinks['en'] || '/'}`}
+        hrefLang="x-default"
       />
       {Object.entries(finalAlternateLinks).map(([lang, path]) => (
-        <link 
-          key={lang}
-          rel="alternate" 
-          href={`${baseUrl}${path}`} 
-          hrefLang={lang} 
-        />
+        <link key={lang} rel="alternate" href={`${baseUrl}${path}`} hrefLang={lang} />
       ))}
 
       {/* Organization and Website structured data (on homepage only) */}
@@ -131,24 +129,24 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "headline": title,
-              "description": description,
-              "image": image,
-              "url": fullUrl,
-              "publisher": {
-                "@type": "Organization",
-                "name": siteName,
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": `${baseUrl}/images/black-logo.png`
-                }
-              }
-            })
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: title,
+              description: description,
+              image: image,
+              url: fullUrl,
+              publisher: {
+                '@type': 'Organization',
+                name: siteName,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${baseUrl}/images/black-logo.png`,
+                },
+              },
+            }),
           }}
         />
       )}
     </Head>
   );
-}; 
+};

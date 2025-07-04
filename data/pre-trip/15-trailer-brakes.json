@@ -1,7 +1,7 @@
 {
   "name": {
-    "en":"Trailer Brakes",
-    "ru":"Тормоза Трейлра"
+    "en": "Trailer Brakes",
+    "ru": "Тормоза Трейлра"
   },
   "section": [
     {
@@ -180,7 +180,7 @@
           "en": "Not less than 1/4 inch in thickness",
           "cir": "Нот лэс зэн ван квартэр инч ин сикнесс",
           "ru": "Толщина не менее 1/4 дюйма",
-          "uk": "", 
+          "uk": "",
           "uzb": ""
         }
       ]

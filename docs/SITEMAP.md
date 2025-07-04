@@ -20,6 +20,7 @@ This website uses a dynamic sitemap generation system that follows SEO best prac
 ## Implementation Details
 
 ### Page Priorities
+
 - Home: 1.0
 - Download: 0.9
 - CDL Schools: 0.8
@@ -28,6 +29,7 @@ This website uses a dynamic sitemap generation system that follows SEO best prac
 - Legal pages: 0.3
 
 ### Change Frequencies
+
 - Home: daily
 - Download: weekly
 - CDL Schools: monthly
@@ -38,6 +40,7 @@ This website uses a dynamic sitemap generation system that follows SEO best prac
 ### Hreflang Implementation
 
 Each URL entry includes hreflang alternatives for all supported languages:
+
 - en (English)
 - ru (Russian)
 - uk (Ukrainian)
@@ -50,6 +53,7 @@ Each URL entry includes hreflang alternatives for all supported languages:
 ## Testing
 
 To test the sitemap locally:
+
 1. Run `npm run dev`
 2. Visit `http://localhost:3000/api/sitemap.xml`
 3. Validate using Google's sitemap testing tool
@@ -57,9 +61,11 @@ To test the sitemap locally:
 ## Production
 
 The sitemap is automatically available at:
+
 - https://www.cdlhelp.com/api/sitemap.xml
 
 It's referenced in:
+
 - `/public/robots.txt`
 - Google Search Console (needs to be submitted)
 

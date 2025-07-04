@@ -1,99 +1,98 @@
 {
-    "title": "미국 트럭 운전사 CDL 시험",
-    "description": "CDL 도움 앱은 CDL 시험 준비와 합격을 지원하기 위해 만들어졌습니다. 저희 데이터베이스에는 트럭 운전사가 되는 데 도움이 될 1,000개 이상의 문제가 포함되어 있습니다.",
-    "download": "다운로드",
-    "cdlSchools": "CDL Schools",
-    "language": "in English",
-    "bestTelegramChat": "Telegram chat for beginner truck drivers",
-  
-    "stepByStep": "단계별 지침",
-    "howToGet": "CDL 취득 방법",
-    "videoDescription": "이 글은 미국에서 트럭 운전사가 되고 CDL(상업용 운전 면허)를 취득하는 방법에 대한 자세한 가이드를 제공합니다. 먼저, 모든 CDL 응시자에게 필요한 DOT 건강 검진 통과 절차를 설명합니다. 그런 다음, 트럭 운전 연습을 허용하는 학생 허가증(CLP)을 얻기 위해 DMV에서 이론 시험을 치르는 과정을 살펴봅니다. 마지막으로, 이 가이드는 CDL 학원 커리큘럼 및 실제 운전 시험 합격 과정에 대해 다룹니다.",
-    "articleDescription": "이 글은 미국에서 트럭 운전사가 되고 CDL(상업용 운전 면허)를 취득하는 방법에 대한 자세한 가이드를 제공합니다. 먼저, 모든 CDL 응시자에게 필요한 DOT 건강 검진 통과 절차를 설명합니다. 그런 다음, 트럭 운전 연습을 허용하는 학생 허가증(CLP)을 얻기 위해 DMV에서 이론 시험을 치르는 과정을 살펴봅니다. 마지막으로, 이 가이드는 CDL 학원 커리큘럼 및 실제 운전 시험 합격 과정에 대해 다룹니다.",
-    "startWatching": "동영상 시청",
-    "articleRead": "링크를 클릭하여 전체 기사 읽기",
+  "title": "미국 트럭 운전사 CDL 시험",
+  "description": "CDL 도움 앱은 CDL 시험 준비와 합격을 지원하기 위해 만들어졌습니다. 저희 데이터베이스에는 트럭 운전사가 되는 데 도움이 될 1,000개 이상의 문제가 포함되어 있습니다.",
+  "download": "다운로드",
+  "cdlSchools": "CDL Schools",
+  "language": "in English",
+  "bestTelegramChat": "Telegram chat for beginner truck drivers",
 
-    "bestFeaturesTitle": "CDL 도움 앱",
-    "bestFeaturesDescription": "CDL 도움은 CDL-A 시험 준비를 위한 특별한 애플리케이션입니다. 이 앱은 영어 텍스트를 실시간으로 번역하는 기능을 제공합니다. 시험을 통해 지식을 테스트하고 미국 A등급 상업용 운전 면허 시험을 준비하세요. 시험은 지역 DMV 사무소에서 시험 중 나타날 수 있는 질문 유형을 시뮬레이션합니다.",
-    "bestFeaturesDownload": "다운로드",
-    "tryOnline": "체험해보세요",
-    "freeQuestions": "무료 자료",
-    "freeQuestionsText": "실제 시험 경험과 매우 유사하게 진행되는 무료 데모 테스트를 사용해 보십시요.",
-    "freeAccess": "100개 이상의 문제에 무료 접근",
-    "translation": "실시간 번역",
-    "helpsToGetCdl": "다양한 언어로 제공: 한국어, 러시아어, 우크라이나어, 아랍어, 터키어, 중국어, 포르투갈어",
-    "questionsDataBase": "문제 데이터베이스",
-    "numberOfQuestions": "저희 데이터베이스에는 1000개 이상의 문제가 포함되어 있습니다.",
-    "questionsCategories": "6개 범주의 문제",
-    "questionsCategories2": "앱에는 일반 지식, 에어 브레이크, 조합 등 3가지 종류의 질문이 포함되어 있습니다",
-    
-    "funFactsNumberOfQuestions": "질문의 수",
-    "numberOfTests": "테스트 횟수",
-    "numberOfCategories": "섹션 수",
-    "users": "사용자",
+  "stepByStep": "단계별 지침",
+  "howToGet": "CDL 취득 방법",
+  "videoDescription": "이 글은 미국에서 트럭 운전사가 되고 CDL(상업용 운전 면허)를 취득하는 방법에 대한 자세한 가이드를 제공합니다. 먼저, 모든 CDL 응시자에게 필요한 DOT 건강 검진 통과 절차를 설명합니다. 그런 다음, 트럭 운전 연습을 허용하는 학생 허가증(CLP)을 얻기 위해 DMV에서 이론 시험을 치르는 과정을 살펴봅니다. 마지막으로, 이 가이드는 CDL 학원 커리큘럼 및 실제 운전 시험 합격 과정에 대해 다룹니다.",
+  "articleDescription": "이 글은 미국에서 트럭 운전사가 되고 CDL(상업용 운전 면허)를 취득하는 방법에 대한 자세한 가이드를 제공합니다. 먼저, 모든 CDL 응시자에게 필요한 DOT 건강 검진 통과 절차를 설명합니다. 그런 다음, 트럭 운전 연습을 허용하는 학생 허가증(CLP)을 얻기 위해 DMV에서 이론 시험을 치르는 과정을 살펴봅니다. 마지막으로, 이 가이드는 CDL 학원 커리큘럼 및 실제 운전 시험 합격 과정에 대해 다룹니다.",
+  "startWatching": "동영상 시청",
+  "articleRead": "링크를 클릭하여 전체 기사 읽기",
 
+  "bestFeaturesTitle": "CDL 도움 앱",
+  "bestFeaturesDescription": "CDL 도움은 CDL-A 시험 준비를 위한 특별한 애플리케이션입니다. 이 앱은 영어 텍스트를 실시간으로 번역하는 기능을 제공합니다. 시험을 통해 지식을 테스트하고 미국 A등급 상업용 운전 면허 시험을 준비하세요. 시험은 지역 DMV 사무소에서 시험 중 나타날 수 있는 질문 유형을 시뮬레이션합니다.",
+  "bestFeaturesDownload": "다운로드",
+  "tryOnline": "체험해보세요",
+  "freeQuestions": "무료 자료",
+  "freeQuestionsText": "실제 시험 경험과 매우 유사하게 진행되는 무료 데모 테스트를 사용해 보십시요.",
+  "freeAccess": "100개 이상의 문제에 무료 접근",
+  "translation": "실시간 번역",
+  "helpsToGetCdl": "다양한 언어로 제공: 한국어, 러시아어, 우크라이나어, 아랍어, 터키어, 중국어, 포르투갈어",
+  "questionsDataBase": "문제 데이터베이스",
+  "numberOfQuestions": "저희 데이터베이스에는 1000개 이상의 문제가 포함되어 있습니다.",
+  "questionsCategories": "6개 범주의 문제",
+  "questionsCategories2": "앱에는 일반 지식, 에어 브레이크, 조합 등 3가지 종류의 질문이 포함되어 있습니다",
+
+  "funFactsNumberOfQuestions": "질문의 수",
+  "numberOfTests": "테스트 횟수",
+  "numberOfCategories": "섹션 수",
+  "users": "사용자",
+
+  "downloadApp": "앱 다운로드",
+  "downloadAppButton": "앱 다운로드",
+  "downloadAppText": "CDL 도움 - 번역 기능이 있는 CDL 시험",
+  "downloadAndTry": "전문 트럭 운전사가 되기 위한 길을 열어보세요 - CDL 도움말 앱을 다운로드하고 무료로 테스트해 보세요! Knowledge Test, Hazmat, Doubles and Triples 및 Tanker에서 수백 가지 CDL 시험 문제를 살펴보세요. 우리 앱은 CDL 시험을 연습하고, 준비하고, 성공할 수 있도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
+  "androidApp": "Android",
+  "downloadButton": "다운로드",
+  "iosApp": "iOS",
+
+  "practiceTestsTitle": "CDL 연습 시험",
+  "practiceTestsDescription": "CDL Help 앱은 미국에서 운전면허를 취득하고 트럭 운전사가 될 수 있도록 CDL 시험을 준비하는 데 도움이 될 뿐만 아니라 영어 실력도 향상시킵니다.",
+  "tryTestsOnline": "온라인에서 시험을 시도해 보십시오",
+  "trySampleQuestion": "번역을 사용하여 샘플 질문에 답해 보십시오",
+  "questionLabel": "질문:",
+  "languageLabel": "언어:",
+  "translationLabel": "번역",
+
+  "nextQuestion": "다음 질문",
+  "seeResults": "결과 보기",
+  "quizResults": "테스트 결과",
+  "yourScore": "당신의 점수",
+  "retakeQuiz": "테스트 다시 시도",
+  "explanation": "설명",
+
+  "videoTitles": {
+    "howToBecome": "미국에서 트럭 운전사가 되는 방법(비디오)",
+    "howToPrepare": "DMV에서 CDL 이론 시험을 준비하는 방법(비디오)",
+    "howToUseApp": "CDL Help 앱을 사용하는 방법(비디오)"
+  },
+
+  "eldtTitle": "ELDT란 무엇입니까?",
+  "cdlSchoolsInfo": "CDL 운전 학교에서 무엇을 가르치고, 어떻게 찾을 수 있습니까?",
+  "faq": {
+    "title": "자주 묻는 질문",
+    "costQuestion": "CDL 교육 및 시험 비용은 얼마입니까?",
+    "costAnswer": "평균적으로 교육 비용은 3,000달러에서 6,000달러 사이입니다.",
+    "readMore": "자세히 보기...",
+    "russianQuestion": "한국어로 CDL 시험을 볼 수 있습니까?",
+    "russianAnswer": "일부 주에서는 DMV에서 공식적으로 이론 시험을 러시아어로 볼 수 있다고 명시합니다. 예를 들어:\n- 뉴욕(NY)\n- 캘리포니아(CA)\n- 위스콘신(WI)\n- 펜실베이니아(PA)\n- 워싱턴(WA)",
+    "questionsCountQuestion": "시험에 몇 개의 문제가 있습니까?",
+    "questionsCountAnswer": "상업용 운전면허(CDL) 시험의 문제 수는 특정 시험에 따라 다를 수 있습니다.\n일반 지식: 일반적으로 50개의 질문이 포함됩니다.\n에어 브레이크: 일반적으로 25개의 질문이 포함됩니다.\n조합: 일반적으로 20개의 질문이 포함됩니다.",
+    "mistakesQuestion": "시험에서 몇 개의 실수를 하고 합격할 수 있습니까?",
+    "mistakesAnswer": "일반 지식: 최대 10개의 실수.\n에어 브레이크: 최대 5개의 실수.\n조합: 최대 5개의 실수."
+  },
+
+  "downloadSection": {
     "downloadApp": "앱 다운로드",
-    "downloadAppButton": "앱 다운로드",
-    "downloadAppText": "CDL 도움 - 번역 기능이 있는 CDL 시험",
-    "downloadAndTry": "전문 트럭 운전사가 되기 위한 길을 열어보세요 - CDL 도움말 앱을 다운로드하고 무료로 테스트해 보세요! Knowledge Test, Hazmat, Doubles and Triples 및 Tanker에서 수백 가지 CDL 시험 문제를 살펴보세요. 우리 앱은 CDL 시험을 연습하고, 준비하고, 성공할 수 있도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
-    "androidApp": "Android",
-    "downloadButton": "다운로드",
-    "iosApp": "iOS",
-    
+    "downloadAppHeader": "앱 다운로드",
+    "downloadAppSubtitle": "CDL Help 다운로드 - 번역이 포함된 CDL 테스트",
+    "downloadAppDescription": "전문 트럭 운전사가 되는 길을 열어보십시오. CDL Help 앱을 다운로드하고 무료로 테스트를 시도해보십시오! Knowledge Test, Hazmat, Doubles and Triples, Tanker 등 수백 개의 CDL 시험 문제를 살펴보십시오. 당사 앱은 CDL 테스트에서 연습하고, 준비하고, 성공하는 데 도움이 되도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
+    "androidDownload": "안드로이드 다운로드",
+    "iosDownload": "iOS 다운로드"
+  },
 
-    "practiceTestsTitle": "CDL 연습 시험",
-    "practiceTestsDescription": "CDL Help 앱은 미국에서 운전면허를 취득하고 트럭 운전사가 될 수 있도록 CDL 시험을 준비하는 데 도움이 될 뿐만 아니라 영어 실력도 향상시킵니다.",
-    "tryTestsOnline": "온라인에서 시험을 시도해 보십시오",
-    "trySampleQuestion": "번역을 사용하여 샘플 질문에 답해 보십시오",
-    "questionLabel": "질문:",
-    "languageLabel": "언어:",
-    "translationLabel": "번역",
-
-    "nextQuestion": "다음 질문",
-    "seeResults": "결과 보기",
-    "quizResults": "테스트 결과",
-    "yourScore": "당신의 점수",
-    "retakeQuiz": "테스트 다시 시도",
-    "explanation": "설명",
-    
-    "videoTitles": {
-        "howToBecome": "미국에서 트럭 운전사가 되는 방법(비디오)",
-        "howToPrepare": "DMV에서 CDL 이론 시험을 준비하는 방법(비디오)",
-        "howToUseApp": "CDL Help 앱을 사용하는 방법(비디오)"
-    },
-    
-    "eldtTitle": "ELDT란 무엇입니까?",
-    "cdlSchoolsInfo": "CDL 운전 학교에서 무엇을 가르치고, 어떻게 찾을 수 있습니까?",
-    "faq": {
-        "title": "자주 묻는 질문",
-        "costQuestion": "CDL 교육 및 시험 비용은 얼마입니까?",
-        "costAnswer": "평균적으로 교육 비용은 3,000달러에서 6,000달러 사이입니다.",
-        "readMore": "자세히 보기...",
-        "russianQuestion": "한국어로 CDL 시험을 볼 수 있습니까?",
-        "russianAnswer": "일부 주에서는 DMV에서 공식적으로 이론 시험을 러시아어로 볼 수 있다고 명시합니다. 예를 들어:\n- 뉴욕(NY)\n- 캘리포니아(CA)\n- 위스콘신(WI)\n- 펜실베이니아(PA)\n- 워싱턴(WA)",
-        "questionsCountQuestion": "시험에 몇 개의 문제가 있습니까?",
-        "questionsCountAnswer": "상업용 운전면허(CDL) 시험의 문제 수는 특정 시험에 따라 다를 수 있습니다.\n일반 지식: 일반적으로 50개의 질문이 포함됩니다.\n에어 브레이크: 일반적으로 25개의 질문이 포함됩니다.\n조합: 일반적으로 20개의 질문이 포함됩니다.",
-        "mistakesQuestion": "시험에서 몇 개의 실수를 하고 합격할 수 있습니까?",
-        "mistakesAnswer": "일반 지식: 최대 10개의 실수.\n에어 브레이크: 최대 5개의 실수.\n조합: 최대 5개의 실수."
-    },
-    
-    "downloadSection": {
-        "downloadApp": "앱 다운로드",
-        "downloadAppHeader": "앱 다운로드",
-        "downloadAppSubtitle": "CDL Help 다운로드 - 번역이 포함된 CDL 테스트",
-        "downloadAppDescription": "전문 트럭 운전사가 되는 길을 열어보십시오. CDL Help 앱을 다운로드하고 무료로 테스트를 시도해보십시오! Knowledge Test, Hazmat, Doubles and Triples, Tanker 등 수백 개의 CDL 시험 문제를 살펴보십시오. 당사 앱은 CDL 테스트에서 연습하고, 준비하고, 성공하는 데 도움이 되도록 설계된 포괄적이고 사용하기 쉬운 플랫폼을 제공합니다.",
-        "androidDownload": "안드로이드 다운로드",
-        "iosDownload": "iOS 다운로드"
-    },
-
-    "stepByStepInstructions": "단계별 지침",
-    "howToGetCdl": "CDL을 얻는 방법",
-    "numberOfSections": "섹션 수",
-    "roadSigns": "도로 표지판",
-    "reviews": "리뷰",
-    "video": {
-        "intro": "9c-oGHqX6BU"
-    },
-    "articleDescription": "이 비디오는 미국에서 트럭 운전사가 되고 CDL(상업용 운전 면허)를 취득하는 방법에 대한 자세한 가이드를 제공합니다. 먼저, 모든 CDL 응시자에게 필요한 DOT 건강 검진 통과 절차를 설명합니다. 그런 다음, 트럭 운전 연습을 허용하는 학생 허가증(CLP)을 얻기 위해 DMV에서 이론 시험을 치르는 과정을 살펴봅니다. 마지막으로, 이 가이드는 CDL 학원 커리큘럼 및 실제 운전 시험 합격 과정에 대해 다룹니다.",
-    "articleRead": "더 읽기..."
+  "stepByStepInstructions": "단계별 지침",
+  "howToGetCdl": "CDL을 얻는 방법",
+  "numberOfSections": "섹션 수",
+  "roadSigns": "도로 표지판",
+  "reviews": "리뷰",
+  "video": {
+    "intro": "9c-oGHqX6BU"
+  },
+  "articleDescription": "이 비디오는 미국에서 트럭 운전사가 되고 CDL(상업용 운전 면허)를 취득하는 방법에 대한 자세한 가이드를 제공합니다. 먼저, 모든 CDL 응시자에게 필요한 DOT 건강 검진 통과 절차를 설명합니다. 그런 다음, 트럭 운전 연습을 허용하는 학생 허가증(CLP)을 얻기 위해 DMV에서 이론 시험을 치르는 과정을 살펴봅니다. 마지막으로, 이 가이드는 CDL 학원 커리큘럼 및 실제 운전 시험 합격 과정에 대해 다룹니다.",
+  "articleRead": "더 읽기..."
 }

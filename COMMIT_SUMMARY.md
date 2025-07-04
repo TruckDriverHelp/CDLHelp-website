@@ -3,16 +3,19 @@
 ## Changes to commit:
 
 ### 1. Tawk.to Removal
+
 - Modified `/pages/_app.js` - Removed TawkTo import and component
 - Modified `/components/_App/TawkTo.js` - Marked for deletion
 
 ### 2. Google Tag Manager Implementation
+
 - Modified `/pages/_app.js` - Added GTM script
 - Modified `/pages/_document.js` - Added GTM noscript
 - Created `.env.local.example` - Environment variable documentation
 - Created `GTM_IMPLEMENTATION.md` - Implementation guide
 
 ### 3. Article Routing Fixes
+
 - Modified `/pages/[slug].jsx` - Added debugging, fixed error handling
 - Modified `/pages/blog/[slug].js` - Added default props
 - Modified `/lib/article-utils.js` - Added null checks
@@ -22,6 +25,7 @@
 - Created `/scripts/test-static-generation.js` - Testing script
 
 ### 4. Documentation
+
 - Created `ROUTING_FIX_SUMMARY.md`
 - Created `TAWKTO_REMOVAL_SUMMARY.md`
 - Created `GTM_IMPLEMENTATION.md`

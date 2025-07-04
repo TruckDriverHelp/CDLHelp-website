@@ -7,10 +7,10 @@ interface SearchFormProps {
   className?: string;
 }
 
-export const SearchForm: React.FC<SearchFormProps> = ({ 
-  onSearch, 
+export const SearchForm: React.FC<SearchFormProps> = ({
+  onSearch,
   placeholder,
-  className = '' 
+  className = '',
 }) => {
   const { t } = useTranslation('city-schools');
   const [query, setQuery] = useState('');
@@ -27,18 +27,22 @@ export const SearchForm: React.FC<SearchFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className={className}>
-      <div style={{
-        display: 'flex',
-        gap: '8px',
-        marginBottom: '20px',
-        maxWidth: '500px'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: '8px',
+          marginBottom: '20px',
+          maxWidth: '500px',
+        }}
+      >
         <div style={{ position: 'relative', flex: 1 }}>
           <input
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={placeholder || t('searchPlaceholder', 'Поиск школ по названию или городу...')}
+            onChange={e => setQuery(e.target.value)}
+            placeholder={
+              placeholder || t('searchPlaceholder', 'Поиск школ по названию или городу...')
+            }
             style={{
               width: '100%',
               padding: '12px 16px',
@@ -47,12 +51,12 @@ export const SearchForm: React.FC<SearchFormProps> = ({
               borderRadius: '8px',
               fontSize: '16px',
               outline: 'none',
-              transition: 'border-color 0.2s ease'
+              transition: 'border-color 0.2s ease',
             }}
-            onFocus={(e) => {
+            onFocus={e => {
               e.target.style.borderColor = '#007bff';
             }}
-            onBlur={(e) => {
+            onBlur={e => {
               e.target.style.borderColor = '#e9ecef';
             }}
           />
@@ -70,7 +74,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
                 fontSize: '18px',
                 cursor: 'pointer',
                 color: '#6c757d',
-                padding: '4px'
+                padding: '4px',
               }}
             >
               ✕
@@ -89,12 +93,12 @@ export const SearchForm: React.FC<SearchFormProps> = ({
             fontWeight: '500',
             cursor: 'pointer',
             transition: 'background-color 0.2s ease',
-            whiteSpace: 'nowrap'
+            whiteSpace: 'nowrap',
           }}
-          onMouseEnter={(e) => {
+          onMouseEnter={e => {
             e.currentTarget.style.backgroundColor = '#0056b3';
           }}
-          onMouseLeave={(e) => {
+          onMouseLeave={e => {
             e.currentTarget.style.backgroundColor = '#007bff';
           }}
         >
@@ -103,4 +107,4 @@ export const SearchForm: React.FC<SearchFormProps> = ({
       </div>
     </form>
   );
-}; 
+};

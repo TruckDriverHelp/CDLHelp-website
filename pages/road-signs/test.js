@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
@@ -22,9 +22,9 @@ const SignsTest = () => {
   const [showTranslated, setShowTranslated] = useState(false);
   const [optionPairs, setOptionPairs] = useState([]);
 
-  const seoData = useSEO({ 
-    customUrl: "https://www.cdlhelp.com/road-signs/test",
-    type: "website"
+  const seoData = useSEO({
+    customUrl: 'https://www.cdlhelp.com/road-signs/test',
+    type: 'website',
   });
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const SignsTest = () => {
       try {
         // Check if environment variables are available
         const strapiApiKey = process.env.STRAPI_API_KEY;
-        
+
         if (!strapiApiKey) {
           setSigns([]);
           setIsLoaded(true);
@@ -40,19 +40,19 @@ const SignsTest = () => {
         }
 
         const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`;
-        
+
         const response = await fetch(url, {
           headers: {
-            Authorization: `Bearer ${strapiApiKey}`
-          }
+            Authorization: `Bearer ${strapiApiKey}`,
+          },
         });
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        
+
         if (data.data && Array.isArray(data.data)) {
           setSigns(data.data);
         } else {
@@ -86,35 +86,34 @@ const SignsTest = () => {
       .slice(0, 3)
       .map(sign => ({
         original: sign.attributes.original_name,
-        translated: sign.attributes.translated_name
+        translated: sign.attributes.translated_name,
       }));
 
     // Add the correct answer
     const correctAnswer = {
       original: currentSign.attributes.original_name,
-      translated: currentSign.attributes.translated_name
+      translated: currentSign.attributes.translated_name,
     };
 
     // Combine and shuffle all options
-    const allOptionPairs = [...wrongAnswers, correctAnswer]
-      .sort(() => 0.5 - Math.random());
+    const allOptionPairs = [...wrongAnswers, correctAnswer].sort(() => 0.5 - Math.random());
 
     setOptionPairs(allOptionPairs);
     // Set initial options based on current translation state
-    setOptions(allOptionPairs.map(pair => showTranslated ? pair.translated : pair.original));
+    setOptions(allOptionPairs.map(pair => (showTranslated ? pair.translated : pair.original)));
   };
 
-  const handleAnswer = (selectedAnswer) => {
+  const handleAnswer = selectedAnswer => {
     const currentSign = signs[currentQuestionIndex];
-    const correctAnswer = showTranslated 
-      ? currentSign.attributes.translated_name 
+    const correctAnswer = showTranslated
+      ? currentSign.attributes.translated_name
       : currentSign.attributes.original_name;
-    
+
     const isAnswerCorrect = selectedAnswer === correctAnswer;
-    
+
     setIsCorrect(isAnswerCorrect);
     setShowFeedback(true);
-    
+
     if (isAnswerCorrect) {
       setScore(prev => prev + 1);
     }
@@ -131,7 +130,7 @@ const SignsTest = () => {
   const toggleTranslation = () => {
     setShowTranslated(!showTranslated);
     // Simply toggle between stored original and translated versions
-    setOptions(optionPairs.map(pair => !showTranslated ? pair.translated : pair.original));
+    setOptions(optionPairs.map(pair => (!showTranslated ? pair.translated : pair.original)));
   };
 
   // if (!isLoaded) {
@@ -185,7 +184,9 @@ const SignsTest = () => {
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
             <div className="text-center">
-              <h2>{t('errorLoadingCurrentSign', { defaultValue: 'Error loading current sign' })}</h2>
+              <h2>
+                {t('errorLoadingCurrentSign', { defaultValue: 'Error loading current sign' })}
+              </h2>
             </div>
           </div>
         </div>
@@ -202,48 +203,64 @@ const SignsTest = () => {
         <div className="container">
           <div className="text-center mb-4">
             <h2>{t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' })}</h2>
-            <p>{t('score', { defaultValue: 'Score' })}: {score} / {currentQuestionIndex + 1}</p>
+            <p>
+              {t('score', { defaultValue: 'Score' })}: {score} / {currentQuestionIndex + 1}
+            </p>
             {locale !== 'en' && (
-              <button 
-                onClick={toggleTranslation}
-                className="btn btn-primary mb-4"
-              >
-                {showTranslated ? t('showEnglish', { defaultValue: 'Show English' }) : t('showTranslation', { defaultValue: 'Show Translation' })}
+              <button onClick={toggleTranslation} className="btn btn-primary mb-4">
+                {showTranslated
+                  ? t('showEnglish', { defaultValue: 'Show English' })
+                  : t('showTranslation', { defaultValue: 'Show Translation' })}
               </button>
             )}
           </div>
 
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-8">
-              <div className="quiz-features-item text-center" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <div className="quiz-sign-image-container mb-4" style={{ 
-                  height: '200px', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+              <div
+                className="quiz-features-item text-center"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
                   justifyContent: 'center',
-                  borderRadius: '10px',
-                  padding: '20px',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                }}>
+                }}
+              >
+                <div
+                  className="quiz-sign-image-container mb-4"
+                  style={{
+                    height: '200px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '10px',
+                    padding: '20px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                  }}
+                >
                   {currentSign.attributes.Sign.data?.attributes.url && (
                     <img
                       src={`${process.env.NEXT_PUBLIC_STRAPI_URL}/${currentSign.attributes.Sign.data.attributes.url}`}
                       alt={currentSign.attributes.original_name}
-                      style={{ 
+                      style={{
                         maxWidth: '100%',
                         maxHeight: '100%',
-                        objectFit: 'contain'
+                        objectFit: 'contain',
                       }}
                     />
                   )}
                 </div>
-                
-                <div className="quiz-options-container" style={{ marginTop: '20px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+                <div
+                  className="quiz-options-container"
+                  style={{
+                    marginTop: '20px',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  }}
+                >
                   {options.map((option, index) => (
                     <button
                       key={index}
@@ -253,8 +270,20 @@ const SignsTest = () => {
                         width: '80%',
                         marginBottom: '10px',
                         padding: '15px',
-                        backgroundColor: showFeedback && option === (showTranslated ? currentSign.attributes.translated_name : currentSign.attributes.original_name) ? '#28a745' : 
-                                       showFeedback && option !== (showTranslated ? currentSign.attributes.translated_name : currentSign.attributes.original_name) ? '#dc3545' : '',
+                        backgroundColor:
+                          showFeedback &&
+                          option ===
+                            (showTranslated
+                              ? currentSign.attributes.translated_name
+                              : currentSign.attributes.original_name)
+                            ? '#28a745'
+                            : showFeedback &&
+                                option !==
+                                  (showTranslated
+                                    ? currentSign.attributes.translated_name
+                                    : currentSign.attributes.original_name)
+                              ? '#dc3545'
+                              : '',
                         border: '2px solid #4d2bac82',
                         transition: 'all 0.3s ease',
                         alignSelf: 'center',
@@ -266,14 +295,21 @@ const SignsTest = () => {
                 </div>
 
                 {showFeedback && (
-                  <div className={`quiz-feedback mt-3 ${isCorrect ? 'text-success' : 'text-danger'}`} style={{ 
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    padding: '10px',
-                    borderRadius: '5px',
-                    backgroundColor: isCorrect ? 'rgba(40, 167, 69, 0.1)' : 'rgba(220, 53, 69, 0.1)'
-                  }}>
-                    {isCorrect ? 'Correct!' : `Wrong! The correct answer is: ${showTranslated ? currentSign.attributes.translated_name : currentSign.attributes.original_name}`}
+                  <div
+                    className={`quiz-feedback mt-3 ${isCorrect ? 'text-success' : 'text-danger'}`}
+                    style={{
+                      fontSize: '1.2rem',
+                      fontWeight: 'bold',
+                      padding: '10px',
+                      borderRadius: '5px',
+                      backgroundColor: isCorrect
+                        ? 'rgba(40, 167, 69, 0.1)'
+                        : 'rgba(220, 53, 69, 0.1)',
+                    }}
+                  >
+                    {isCorrect
+                      ? 'Correct!'
+                      : `Wrong! The correct answer is: ${showTranslated ? currentSign.attributes.translated_name : currentSign.attributes.original_name}`}
                   </div>
                 )}
               </div>

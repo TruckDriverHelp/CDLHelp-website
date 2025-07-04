@@ -1,12 +1,12 @@
 {
-    "main": "Home",
-    "resources": "Resources",
-    "workForTruckers": "Jobs",
-    "cdlSchool": "CDL School",
-    "cdlSchools": "CDL Schools",
-    "companies": "Companies",
-    "contacts": "Contact",
-    "blog": "Blog",
-    "dotPhysicalLookup": "DOT Physical lookup",
-    "roadSignsTest": "Road Signs Test"
+  "main": "Home",
+  "resources": "Resources",
+  "workForTruckers": "Jobs",
+  "cdlSchool": "CDL School",
+  "cdlSchools": "CDL Schools",
+  "companies": "Companies",
+  "contacts": "Contact",
+  "blog": "Blog",
+  "dotPhysicalLookup": "DOT Physical lookup",
+  "roadSignsTest": "Road Signs Test"
 }

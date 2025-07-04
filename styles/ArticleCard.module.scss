@@ -5,7 +5,7 @@
   @include card;
   transition: all 0.3s ease;
   height: 100%;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -25,11 +25,11 @@
   width: 100%;
   overflow: hidden;
   border-radius: 8px 8px 0 0;
-  
+
   .coverImage {
     transition: transform 0.3s ease;
   }
-  
+
   .articleCard:hover & .coverImage {
     transform: scale(1.05);
   }
@@ -64,7 +64,7 @@
   margin-bottom: 0.75rem;
   line-height: 1.4;
   color: $text-primary;
-  
+
   @include multiline-ellipsis(2);
 }
 
@@ -74,7 +74,7 @@
   margin-bottom: 1rem;
   line-height: 1.6;
   flex: 1;
-  
+
   @include multiline-ellipsis(3);
 }
 
@@ -109,15 +109,15 @@
   .content {
     padding: 1rem;
   }
-  
+
   .title {
     font-size: 1.125rem;
   }
-  
+
   .description {
     font-size: 0.8125rem;
   }
-  
+
   .meta {
     font-size: 0.8125rem;
   }

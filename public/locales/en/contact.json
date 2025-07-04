@@ -1,23 +1,23 @@
 {
-    "methods": "Contact us via these methods",
-    "support": "Support",
-    "telegramGroup": "Telegram group",
+  "methods": "Contact us via these methods",
+  "support": "Support",
+  "telegramGroup": "Telegram group",
 
-    "error.allfieds": "Please fill all fields",
-    "error.validemail": "Please enter a valid email address",
-    "error.validnumber": "Please enter a valid number. Don't forget the + sign",
+  "error.allfieds": "Please fill all fields",
+  "error.validemail": "Please enter a valid email address",
+  "error.validnumber": "Please enter a valid number. Don't forget the + sign",
 
-    "title": "Feedback",
-    "heading": "To contact us, you can use the feedback form. Our team will contact you as soon as possible.",
+  "title": "Feedback",
+  "heading": "To contact us, you can use the feedback form. Our team will contact you as soon as possible.",
 
-    "placeholder.name": "Full name",
-    "placeholder.email": "Email",
-    "placeholder.phonenumber": "Phone number (optional)",
-    "placeholder.emailsubject": "Topic",
-    "placeholder.text": "Write a message...",
+  "placeholder.name": "Full name",
+  "placeholder.email": "Email",
+  "placeholder.phonenumber": "Phone number (optional)",
+  "placeholder.emailsubject": "Topic",
+  "placeholder.text": "Write a message...",
 
-    "send": "Send",
+  "send": "Send",
 
-    "sentTitle": "Thank you!",
-    "sentText": "Your message was sent. Thank you for your feedback"
+  "sentTitle": "Thank you!",
+  "sentText": "Your message was sent. Thank you for your feedback"
 }

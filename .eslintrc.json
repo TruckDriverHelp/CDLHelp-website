@@ -23,5 +23,13 @@
     "ecmaFeatures": {
       "jsx": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["pages/api/**/*.js", "pages/[slug].jsx", "pages/blog/[slug].js"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }

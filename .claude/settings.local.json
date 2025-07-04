@@ -45,7 +45,8 @@
       "Bash(fi)",
       "Bash(git rm:*)",
       "Bash(npx husky:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(npx prettier:*)"
     ],
     "deny": []
   }

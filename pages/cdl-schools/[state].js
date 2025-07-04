@@ -19,10 +19,10 @@ const StateCitiesPage = ({ cities, state, meta }) => {
   const { locale } = router;
   const stateFormatted = formatStateName(state);
 
-  const seoData = useSEO({ 
-    meta, 
+  const seoData = useSEO({
+    meta,
     customUrl: `https://www.cdlhelp.com/cdl-schools/${state}`,
-    type: "article" 
+    type: 'article',
   });
 
   const cardStyle = {
@@ -35,7 +35,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
   };
 
   const linkStyle = {
@@ -43,7 +43,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
     textAlign: 'center',
     color: '#1f2937',
     fontWeight: '600',
-    fontSize: '16px'
+    fontSize: '16px',
   };
 
   const countStyle = {
@@ -52,106 +52,125 @@ const StateCitiesPage = ({ cities, state, meta }) => {
     padding: '6px 12px',
     borderRadius: '20px',
     fontSize: '13px',
-    fontWeight: '600'
+    fontWeight: '600',
   };
 
   return (
     <>
       <SEOHead {...seoData} />
-      
+
       <Layout alternateLinks={{}} dir="ltr">
         <Navbar alternateLinks={{}} />
-        
+
         <PageBannerStyle1
-          pageTitle={t('citiesInState', { state: stateFormatted, defaultValue: `CDL Schools in ${stateFormatted}` })}
+          pageTitle={t('citiesInState', {
+            state: stateFormatted,
+            defaultValue: `CDL Schools in ${stateFormatted}`,
+          })}
           homePageUrl="/cdl-schools"
           homePageText={t('schoolsTitle', 'CDL Schools')}
           activePageText={stateFormatted}
         />
 
-        <div style={{ 
-          backgroundColor: '#f8fafc', 
-          minHeight: 'calc(100vh - 200px)',
-          paddingBottom: '100px'
-        }}>
+        <div
+          style={{
+            backgroundColor: '#f8fafc',
+            minHeight: 'calc(100vh - 200px)',
+            paddingBottom: '100px',
+          }}
+        >
           <div className="container">
-            <div style={{
-              textAlign: 'center',
-              marginTop: '40px',
-              marginBottom: '40px'
-            }}>
-              <h2 style={{
-                fontSize: '2rem',
-                fontWeight: '600',
-                color: '#1a1a1a',
-                marginBottom: '12px'
-              }}>
+            <div
+              style={{
+                textAlign: 'center',
+                marginTop: '40px',
+                marginBottom: '40px',
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: '2rem',
+                  fontWeight: '600',
+                  color: '#1a1a1a',
+                  marginBottom: '12px',
+                }}
+              >
                 {t('selectCity', { defaultValue: 'Select a City' })}
               </h2>
-              <p style={{
-                color: '#6b7280',
-                fontSize: '1rem'
-              }}>
-                {t('selectCityDescription', { state: stateFormatted, defaultValue: `Choose a city in ${stateFormatted} to view CDL schools` })}
+              <p
+                style={{
+                  color: '#6b7280',
+                  fontSize: '1rem',
+                }}
+              >
+                {t('selectCityDescription', {
+                  state: stateFormatted,
+                  defaultValue: `Choose a city in ${stateFormatted} to view CDL schools`,
+                })}
               </p>
             </div>
 
             {/* Cities Grid */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '16px',
-              maxWidth: '900px',
-              margin: '0 auto'
-            }}>
-              {cities.map((city) => (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '16px',
+                maxWidth: '900px',
+                margin: '0 auto',
+              }}
+            >
+              {cities.map(city => (
                 <Link key={city.slug} href={`/cdl-schools/${state}/${city.slug}`}>
-                  <div 
+                  <div
                     style={cardStyle}
-                    onMouseEnter={(e) => {
+                    onMouseEnter={e => {
                       e.currentTarget.style.transform = 'translateY(-2px)';
                       e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.12)';
                     }}
-                    onMouseLeave={(e) => {
+                    onMouseLeave={e => {
                       e.currentTarget.style.transform = 'translateY(0)';
                       e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
                     }}
                   >
-                    <span style={linkStyle}>
-                      {city.name}
-                    </span>
-                    {city.schoolCount && (
-                      <span style={countStyle}>
-                        {city.schoolCount}
-                      </span>
-                    )}
+                    <span style={linkStyle}>{city.name}</span>
+                    {city.schoolCount && <span style={countStyle}>{city.schoolCount}</span>}
                   </div>
                 </Link>
               ))}
             </div>
 
             {cities.length === 0 && (
-              <div style={{
-                textAlign: 'center',
-                padding: '60px 20px',
-                background: '#fff',
-                borderRadius: '16px',
-                margin: '40px auto',
-                maxWidth: '600px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-              }}>
-                <h3 style={{
-                  fontSize: '1.5rem',
-                  color: '#374151',
-                  marginBottom: '12px'
-                }}>
+              <div
+                style={{
+                  textAlign: 'center',
+                  padding: '60px 20px',
+                  background: '#fff',
+                  borderRadius: '16px',
+                  margin: '40px auto',
+                  maxWidth: '600px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: '1.5rem',
+                    color: '#374151',
+                    marginBottom: '12px',
+                  }}
+                >
                   {t('noCitiesTitle', { defaultValue: 'No Cities Found' })}
                 </h3>
-                <p style={{
-                  color: '#6b7280',
-                  fontSize: '1rem'
-                }}>
-                  {t('noCitiesText', { state: stateFormatted, defaultValue: `No cities with CDL schools are currently available in ${stateFormatted}.` })}
+                <p
+                  style={{
+                    color: '#6b7280',
+                    fontSize: '1rem',
+                  }}
+                >
+                  {t('noCitiesText', {
+                    state: stateFormatted,
+                    defaultValue: `No cities with CDL schools are currently available in ${stateFormatted}.`,
+                  })}
                 </p>
               </div>
             )}
@@ -177,7 +196,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
 export async function getStaticPaths() {
   try {
     // Получаем все штаты из новой API
-    const { fetchStatesWithCities } = await import("../../src/entities/School/api/schoolApi");
+    const { fetchStatesWithCities } = await import('../../src/entities/School/api/schoolApi');
     const states = await fetchStatesWithCities();
 
     const paths = states.flatMap(state => [
@@ -188,17 +207,17 @@ export async function getStaticPaths() {
       { params: { state: state.slug }, locale: 'ko' },
       { params: { state: state.slug }, locale: 'zh' },
       { params: { state: state.slug }, locale: 'tr' },
-      { params: { state: state.slug }, locale: 'pt' }
+      { params: { state: state.slug }, locale: 'pt' },
     ]);
 
     return {
       paths,
-      fallback: 'blocking'
+      fallback: 'blocking',
     };
   } catch (error) {
     return {
       paths: [],
-      fallback: 'blocking'
+      fallback: 'blocking',
     };
   }
 }
@@ -214,11 +233,11 @@ export async function getStaticProps({ params, locale }) {
 
   try {
     // Импортируем функцию динамически для server-side
-    const { fetchCitiesForState } = await import("../../src/entities/School/api/schoolApi");
-    
+    const { fetchCitiesForState } = await import('../../src/entities/School/api/schoolApi');
+
     const [meta, cities] = await Promise.all([
-      getMeta(locale || 'en', "general"),
-      fetchCitiesForState(formatStateName(state))
+      getMeta(locale || 'en', 'general'),
+      fetchCitiesForState(formatStateName(state)),
     ]);
 
     return {
@@ -231,14 +250,14 @@ export async function getStaticProps({ params, locale }) {
           'footer',
           'common',
           'city-schools',
-          'index'
+          'index',
         ])),
       },
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    const meta = await getMeta(locale || 'en', "general");
-    
+    const meta = await getMeta(locale || 'en', 'general');
+
     return {
       props: {
         cities: [],
@@ -249,7 +268,7 @@ export async function getStaticProps({ params, locale }) {
           'footer',
           'common',
           'city-schools',
-          'index'
+          'index',
         ])),
       },
       revalidate: 60,
@@ -257,4 +276,4 @@ export async function getStaticProps({ params, locale }) {
   }
 }
 
-export default StateCitiesPage; 
+export default StateCitiesPage;

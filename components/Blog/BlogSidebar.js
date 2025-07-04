@@ -1,18 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 
 const BlogSidebar = () => {
-	return (
-		<>
-			<div className="widget-area">
-				<div style={{ display: 'flex', justifyContent: 'center', cursor: 'pointer' }}>
-					<Link href="/">
-						<Image src="/images/cdl-app-banner.jpg" alt="user" width={300} height={500} />
-					</Link>
-
-				</div>
-				{/* <div className="widget widget_posts_thumb">
+  return (
+    <>
+      <div className="widget-area">
+        <div style={{ display: 'flex', justifyContent: 'center', cursor: 'pointer' }}>
+          <Link href="/">
+            <Image src="/images/cdl-app-banner.jpg" alt="user" width={300} height={500} />
+          </Link>
+        </div>
+        {/* <div className="widget widget_posts_thumb">
 					<h3 className="widget-title">Popular Posts</h3>
 
 					<article className="item">
@@ -87,9 +86,9 @@ const BlogSidebar = () => {
 						</div>
 					</article>
 				</div> */}
-			</div>
-		</>
-	)
-}
+      </div>
+    </>
+  );
+};
 
 export default BlogSidebar;

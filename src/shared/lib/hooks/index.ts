@@ -1,2 +1,2 @@
 export { useSchools } from './useSchools';
-export { useSEO } from './useSEO'; 
+export { useSEO } from './useSEO';

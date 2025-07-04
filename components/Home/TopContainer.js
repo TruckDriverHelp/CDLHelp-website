@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { DynamicQuiz } from '../_App/DynamicImports';
@@ -17,7 +17,7 @@ const TopContainer = () => {
               className="line"
               style={{
                 left: `${index * 25}%`,
-                animationDelay: `${index * 0.2}s`
+                animationDelay: `${index * 0.2}s`,
               }}
             />
           ))}
@@ -25,10 +25,14 @@ const TopContainer = () => {
         <div className="container-fluid" style={{ marginBottom: '4rem' }}>
           <div className="row align-items-center justify-content-center">
             <div className="col-lg-8 col-md-10" style={{ maxWidth: '800px' }}>
-              <div style={{marginTop: '40px'}}>
-              <h1 style={{ textAlign: 'center', fontSize: '1.6rem', marginBottom: '20px' }}>{t('title')}</h1>
+              <div style={{ marginTop: '40px' }}>
+                <h1 style={{ textAlign: 'center', fontSize: '1.6rem', marginBottom: '20px' }}>
+                  {t('title')}
+                </h1>
 
-              <p style={{ textAlign: 'center', margin: 0, marginBottom: '40px' }}>{t('description')}</p>
+                <p style={{ textAlign: 'center', margin: 0, marginBottom: '40px' }}>
+                  {t('description')}
+                </p>
               </div>
               <div>
                 <DynamicQuiz contained={true} />
@@ -42,4 +46,3 @@ const TopContainer = () => {
 };
 
 export default TopContainer;
-

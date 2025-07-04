@@ -23,11 +23,11 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
   const metaTitle = blogMeta?.meta?.title || title;
   const metaDescription = blogMeta?.meta?.description || description;
 
-  const handlePageChange = (page) => {
+  const handlePageChange = page => {
     setCurrentPage(page);
     router.push({
       pathname: '/blog',
-      query: { page }
+      query: { page },
     });
   };
 
@@ -45,16 +45,16 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
 
     if (startPage > 1) {
       pages.push(
-        <button
-          key={1}
-          className={styles.pageButton}
-          onClick={() => handlePageChange(1)}
-        >
+        <button key={1} className={styles.pageButton} onClick={() => handlePageChange(1)}>
           1
         </button>
       );
       if (startPage > 2) {
-        pages.push(<span key="dots1" className={styles.dots}>...</span>);
+        pages.push(
+          <span key="dots1" className={styles.dots}>
+            ...
+          </span>
+        );
       }
     }
 
@@ -73,7 +73,11 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
 
     if (endPage < pagination.pageCount) {
       if (endPage < pagination.pageCount - 1) {
-        pages.push(<span key="dots2" className={styles.dots}>...</span>);
+        pages.push(
+          <span key="dots2" className={styles.dots}>
+            ...
+          </span>
+        );
       }
       pages.push(
         <button
@@ -117,7 +121,7 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
         type="website"
         alternateLinks={alternateLinks}
       />
-      
+
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
         <div className={styles.container}>
@@ -129,7 +133,7 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
           {articles.length > 0 ? (
             <>
               <div className={styles.grid}>
-                {articles.map((article) => (
+                {articles.map(article => (
                   <ArticleCard key={article.id} article={article} />
                 ))}
               </div>
@@ -156,8 +160,8 @@ export async function getServerSideProps({ locale, query }) {
     const articlesUrl = `${baseUrl}/articles?locale=${locale}&filters[blog_post][$eq]=true&pagination[page]=${page}&pagination[pageSize]=${ARTICLES_PER_PAGE}&sort=publishedAt:desc&populate=*`;
     const articlesResponse = await fetch(articlesUrl, {
       headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
-      }
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+      },
     });
 
     if (!articlesResponse.ok) {
@@ -170,7 +174,7 @@ export async function getServerSideProps({ locale, query }) {
       total: 0,
       page: 1,
       pageSize: ARTICLES_PER_PAGE,
-      pageCount: 1
+      pageCount: 1,
     };
 
     // For now, we'll use null for blogMeta since the REST API might not have a blogPage endpoint
@@ -178,14 +182,14 @@ export async function getServerSideProps({ locale, query }) {
 
     // Generate alternate links for hreflang
     const alternateLinks = {
-      'en': '/blog',
-      'ru': '/ru/blog',
-      'uk': '/uk/blog',
-      'ar': '/ar/blog',
-      'ko': '/ko/blog',
-      'zh': '/zh/blog',
-      'tr': '/tr/blog',
-      'pt': '/pt/blog'
+      en: '/blog',
+      ru: '/ru/blog',
+      uk: '/uk/blog',
+      ar: '/ar/blog',
+      ko: '/ko/blog',
+      zh: '/zh/blog',
+      tr: '/tr/blog',
+      pt: '/pt/blog',
     };
 
     return {
@@ -194,12 +198,12 @@ export async function getServerSideProps({ locale, query }) {
         articles,
         pagination,
         blogMeta,
-        alternateLinks
-      }
+        alternateLinks,
+      },
     };
   } catch (error) {
     console.error('Error fetching blog data:', error);
-    
+
     return {
       props: {
         ...(await serverSideTranslations(locale, ['common', 'blog', 'navbar', 'footer'])),
@@ -208,20 +212,20 @@ export async function getServerSideProps({ locale, query }) {
           total: 0,
           page: 1,
           pageSize: ARTICLES_PER_PAGE,
-          pageCount: 1
+          pageCount: 1,
         },
         blogMeta: null,
         alternateLinks: {
-          'en': '/blog',
-          'ru': '/ru/blog',
-          'uk': '/uk/blog',
-          'ar': '/ar/blog',
-          'ko': '/ko/blog',
-          'zh': '/zh/blog',
-          'tr': '/tr/blog',
-          'pt': '/pt/blog'
-        }
-      }
+          en: '/blog',
+          ru: '/ru/blog',
+          uk: '/uk/blog',
+          ar: '/ar/blog',
+          ko: '/ko/blog',
+          zh: '/zh/blog',
+          tr: '/tr/blog',
+          pt: '/pt/blog',
+        },
+      },
     };
   }
 }

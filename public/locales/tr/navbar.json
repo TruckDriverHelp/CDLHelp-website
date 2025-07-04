@@ -1,12 +1,12 @@
 {
-    "main": "Ana Sayfa",
-    "resources": "Kaynaklar",
-    "workForTruckers": "İş İlanları",
-    "cdlSchool": "CDL Okulu",
-    "cdlSchools": "CDL Okulları",
-    "companies": "Şirketler",
-    "contacts": "İletişim",
-    "blog": "Blog",
-    "dotPhysicalLookup": "DOT Fizik Muayene Arama",
-    "roadSignsTest": "Trafik İşaretleri Testi"
+  "main": "Ana Sayfa",
+  "resources": "Kaynaklar",
+  "workForTruckers": "İş İlanları",
+  "cdlSchool": "CDL Okulu",
+  "cdlSchools": "CDL Okulları",
+  "companies": "Şirketler",
+  "contacts": "İletişim",
+  "blog": "Blog",
+  "dotPhysicalLookup": "DOT Fizik Muayene Arama",
+  "roadSignsTest": "Trafik İşaretleri Testi"
 }
