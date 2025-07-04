@@ -48,9 +48,19 @@
 
                     a {
                         color: var(--whiteColor);
+                        text-decoration: underline;
+                        text-decoration-color: rgba(255, 255, 255, 0.5);
+                        text-underline-offset: 2px;
+                        font-weight: 500;
 
-                        &:hover {
+                        &:hover, &:focus {
                             color: var(--mainColor);
+                            text-decoration-color: var(--mainColor);
+                        }
+                        
+                        &:focus {
+                            outline: 2px solid var(--mainColor);
+                            outline-offset: 2px;
                         }
                     }
                 }
