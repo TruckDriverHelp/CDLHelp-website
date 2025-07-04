@@ -16,7 +16,8 @@ const CookiesPolicy = ({ meta }) => {
         "@type": "WebPage",
         "name": meta.title,
         "description": meta.description,
-        "url": "https://www.cdlhelp.com/cookies-policy",
+        "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cookies-policy`,
+        "inLanguage": locale,
         "publisher": {
             "@type": "Organization",
             "name": "CDL Help",

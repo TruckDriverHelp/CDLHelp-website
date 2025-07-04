@@ -80,7 +80,7 @@ const DownloadPage = ({ meta, alternateLinks }) => {
         }
     ];
 
-    // Course/Application Schema
+    // Course/Application Schema with locale-specific content
     const applicationSchema = {
         "@context": "https://schema.org",
         "@type": "MobileApplication",
@@ -102,13 +102,15 @@ const DownloadPage = ({ meta, alternateLinks }) => {
             "@type": "Organization",
             "name": "CDL Help",
             "url": "https://www.cdlhelp.com"
-        }
+        },
+        "inLanguage": locale,
+        "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`
     };
 
     const courseSchema = {
         "@context": "https://schema.org",
         "@type": "Course",
-        "name": "CDL Practice Test",
+        "name": t('pageTitle'),
         "description": t('pageDescription'),
         "provider": {
             "@type": "Organization",
@@ -120,8 +122,9 @@ const DownloadPage = ({ meta, alternateLinks }) => {
         "hasCourseInstance": {
             "@type": "CourseInstance",
             "courseMode": "Online",
-            "inLanguage": ["en", "es", "ru", "uk", "ar", "ko", "zh", "tr", "pt"]
-        }
+            "inLanguage": locale
+        },
+        "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`
     };
 
     return (

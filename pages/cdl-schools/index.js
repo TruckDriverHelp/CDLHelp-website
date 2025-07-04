@@ -1,6 +1,7 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import Layout from "../../components/_App/Layout";
@@ -14,20 +15,24 @@ import getMeta from "../../lib/getMeta";
 
 const SchoolsPage = ({ meta, states }) => {
   const { t } = useTranslation(['city-schools', 'common']);
+  const router = useRouter();
+  const { locale } = router;
+  
   const seoData = useSEO({ 
     meta, 
-    customUrl: "https://www.cdlhelp.com/cdl-schools",
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-schools`,
     type: "article" 
   });
 
-  // ItemList Schema for CDL Schools
+  // ItemList Schema for CDL Schools with locale support
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": t('schoolsTitle', 'CDL Schools in USA'),
-    "description": "Directory of CDL truck driving schools across the United States",
-    "url": "https://www.cdlhelp.com/cdl-schools",
-    "numberOfItems": states.length
+    "description": t('pageDescription', 'Directory of CDL truck driving schools across the United States'),
+    "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-schools`,
+    "numberOfItems": states.length,
+    "inLanguage": locale
   };
 
   return (
