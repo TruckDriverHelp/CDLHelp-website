@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { StructuredData, organizationSchema, websiteSchema } from './StructuredData';
 
 export interface SEOHeadProps {
   title: string;
@@ -115,6 +116,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
           hrefLang={lang} 
         />
       ))}
+
+      {/* Organization and Website structured data (on homepage only) */}
+      {router.pathname === '/' && (
+        <>
+          <StructuredData data={organizationSchema} />
+          <StructuredData data={websiteSchema} />
+        </>
+      )}
 
       {/* Additional structured data for articles */}
       {type === 'article' && (

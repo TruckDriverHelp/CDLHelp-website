@@ -5,11 +5,32 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Footer from '../components/_App/Footer';
 import Navbar from '../components/_App/Navbar';
 import { useTranslation } from 'next-i18next';
-import { SEOHead } from '../src/shared/ui/SEO';
+import { SEOHead, StructuredData } from '../src/shared/ui/SEO';
 import getMeta from '../lib/getMeta';
 
 const Contact = ({ alternateLinks, meta }) => {
   const { t } = useTranslation('contact');
+  
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact CDL Help",
+    "description": t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.'),
+    "url": "https://www.cdlhelp.com/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "CDL Help",
+      "url": "https://www.cdlhelp.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-CDL-HELP",
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": ["English", "Spanish", "Russian", "Ukrainian", "Arabic", "Korean", "Chinese", "Turkish", "Portuguese"]
+      }
+    }
+  };
+  
   return (
     <>
       <SEOHead
@@ -17,6 +38,7 @@ const Contact = ({ alternateLinks, meta }) => {
         description={meta.description || t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.')}
         alternateLinks={alternateLinks}
       />
+      <StructuredData data={contactPageSchema} />
       <Navbar alternateLinks={alternateLinks} />
 
       <div className="page-title-area">
