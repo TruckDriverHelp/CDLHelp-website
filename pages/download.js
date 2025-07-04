@@ -6,7 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from "../components/_App/Layout";
 import Navbar from "../components/_App/Navbar";
 import Footer from "../components/_App/Footer";
-import { SEOHead } from '../src/shared/ui/SEO';
+import { SEOHead, StructuredData, courseSchema } from '../src/shared/ui/SEO';
 import { useSEO } from '../src/shared/lib/hooks/useSEO';
 import getMeta from '../lib/getMeta';
 import analytics from '../lib/analytics';
@@ -82,6 +82,7 @@ const DownloadPage = ({ meta, alternateLinks }) => {
     return (
         <>
             <SEOHead {...seoData} alternateLinks={alternateLinks} />
+            <StructuredData data={courseSchema} />
             
             <Layout>
                 <Navbar alternateLinks={alternateLinks} />
