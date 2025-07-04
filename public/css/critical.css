@@ -1,0 +1,246 @@
+/* Critical CSS for above-the-fold content */
+/* This should be inlined in production */
+
+/* CSS Variables */
+:root {
+  --fontSize: 16px;
+  --transition: 0.5s;
+  --mainColor: #5a5886;
+  --whiteColor: #ffffff;
+  --blackColor: #262a37;
+  --paragraphColor: #716c80;
+  --fontFamily: var(
+    --font-inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif
+  );
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  line-height: 1.6;
+  color: var(--blackColor);
+  background-color: var(--whiteColor);
+  overflow-x: hidden;
+}
+
+/* Critical typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--blackColor);
+}
+
+h1,
+.h1 {
+  font-size: 2.5rem;
+}
+h2,
+.h2 {
+  font-size: 2rem;
+}
+h3,
+.h3 {
+  font-size: 1.75rem;
+}
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--paragraphColor);
+}
+
+a {
+  color: var(--blackColor);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--mainColor);
+}
+
+/* Critical layout utilities */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Critical button styles */
+.btn,
+.default-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.default-btn {
+  background-color: var(--mainColor);
+  color: var(--whiteColor);
+}
+
+.default-btn:hover {
+  background-color: #4a4876;
+  transform: translateY(-2px);
+}
+
+/* Critical navbar styles */
+.navbar-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: var(--whiteColor);
+  transition: all 0.3s;
+}
+
+.main-navbar {
+  padding: 15px 0;
+}
+
+/* Prevent layout shift */
+.navbar {
+  min-height: 70px;
+}
+
+.main-banner-area {
+  padding-top: 100px;
+  min-height: 600px;
+}
+
+/* Critical display utilities */
+.d-none {
+  display: none !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+
+/* Critical text utilities */
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+/* Loading placeholder */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-style: none;
+}
