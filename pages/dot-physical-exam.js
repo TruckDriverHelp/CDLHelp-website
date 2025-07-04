@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { GoogleMap, LoadScript, AdvancedMarkerElement } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Container, Typography, TextField, Button, Box, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -121,7 +121,7 @@ export default function DotPhysicalExam() {
               zoom={12}
             >
               {searchResults.map((place) => (
-                <AdvancedMarkerElement
+                <Marker
                   key={place.place_id}
                   position={{
                     lat: place.geometry.location.lat,
