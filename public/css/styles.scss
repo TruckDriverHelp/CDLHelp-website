@@ -36,8 +36,8 @@ This files table contents are outlined below >>>>>
 
 /* Default CSS */
 
-/* Google Font Family url */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Google Font Family url - Removed for performance optimization */
+/* Font is now loaded via Next.js font optimization in _app.js */
 
 /* Global Variables */
 :root {
@@ -48,7 +48,16 @@ This files table contents are outlined below >>>>>
   --blackColor: #262a37;
   --gradientColor: linear-gradient(44.44deg, #5a5886 7.79%, #908eb494.18%);
   --paragraphColor: #716c80;
-  --fontFamily: 'Inter', sans-serif;
+  --fontFamily: var(
+    --font-inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif
+  );
   scroll-behavior: inherit;
 }
 

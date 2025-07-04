@@ -19,6 +19,16 @@ class MyDocument extends Document {
             href="/images/video/video-3-no-text.webp"
             type="image/webp"
           />
+          {/* Critical font-display CSS to prevent FOIT */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                body {
+                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                }
+              `,
+            }}
+          />
         </Head>
         <body>
           {/* Google Tag Manager (noscript) */}
