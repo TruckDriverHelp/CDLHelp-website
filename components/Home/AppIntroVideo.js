@@ -14,6 +14,26 @@ const AppIntroVideo = () => {
   //   setIsOpen(!isOpen);
   // };
 
+  // Common link style to prevent layout shifts
+  const linkStyle = {
+    border: 'none',
+    background: 'none',
+    color: '#5a5886',
+    padding: '12px 0px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    textDecoration: 'underline',
+    display: 'block',
+    minHeight: '44px',
+    lineHeight: '20px',
+  };
+
+  // List item style to prevent shifts
+  const listItemStyle = {
+    marginBottom: '8px',
+    minHeight: '44px',
+  };
+
   // Define URL slugs for each locale
   const articleSlugs = {
     howToBecome: {
@@ -70,11 +90,14 @@ const AppIntroVideo = () => {
 
   return (
     <>
-      <div id="truckdriverhelp" className="app-video-area pb-100">
+      <div id="truckdriverhelp" className="app-video-area pb-100" style={{ minHeight: '500px' }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">
-              <div className="app-intro-video-box">
+              <div
+                className="app-intro-video-box"
+                style={{ minHeight: '420px', position: 'relative' }}
+              >
                 <Image
                   src="/images/video/video-2.jpg"
                   alt="video-img"
@@ -90,65 +113,46 @@ const AppIntroVideo = () => {
             {
               <div className="col-lg-6 col-md-12">
                 <div className="app-intro-video-content">
-                  <span className="sub-title">{t('stepByStep')}</span>
-                  <h2>{t('howToGet')}</h2>
+                  <span
+                    className="sub-title"
+                    style={{ display: 'block', minHeight: '24px', lineHeight: '24px' }}
+                  >
+                    {t('stepByStep')}
+                  </span>
+                  <h2
+                    style={{
+                      minHeight: '50px',
+                      lineHeight: '1.4',
+                      fontSize: '36px',
+                      marginBottom: '15px',
+                    }}
+                  >
+                    {t('howToGet')}
+                  </h2>
 
-                  <ul className="article-links">
-                    <li>
+                  <ul
+                    className="article-links"
+                    style={{ minHeight: '300px', listStyle: 'none', padding: 0, margin: 0 }}
+                  >
+                    <li style={listItemStyle}>
                       <Link
                         href={`/${locale}/${articleSlugs.howToBecome[locale] || articleSlugs.howToBecome.en}`}
                       >
-                        <a
-                          style={{
-                            border: 'none',
-                            background: 'none',
-                            color: '#5a5886',
-                            padding: '12px 0px',
-                            cursor: 'pointer',
-                            fontSize: '16px',
-                            textDecoration: 'underline',
-                          }}
-                        >
-                          {t('videoTitles.howToBecome')}
-                        </a>
+                        <a style={linkStyle}>{t('videoTitles.howToBecome')}</a>
                       </Link>
                     </li>
-                    <li>
+                    <li style={listItemStyle}>
                       <Link
                         href={`/${locale}/${articleSlugs.howToPrepare[locale] || articleSlugs.howToPrepare.en}`}
                       >
-                        <a
-                          style={{
-                            border: 'none',
-                            background: 'none',
-                            color: '#5a5886',
-                            padding: '12px 0px',
-                            cursor: 'pointer',
-                            fontSize: '16px',
-                            textDecoration: 'underline',
-                          }}
-                        >
-                          {t('videoTitles.howToPrepare')}
-                        </a>
+                        <a style={linkStyle}>{t('videoTitles.howToPrepare')}</a>
                       </Link>
                     </li>
-                    <li>
+                    <li style={listItemStyle}>
                       <Link
                         href={`/${locale}/${articleSlugs.howToUseApp[locale] || articleSlugs.howToUseApp.en}`}
                       >
-                        <a
-                          style={{
-                            border: 'none',
-                            background: 'none',
-                            color: '#5a5886',
-                            padding: '12px 0px',
-                            cursor: 'pointer',
-                            fontSize: '16px',
-                            textDecoration: 'underline',
-                          }}
-                        >
-                          {t('videoTitles.howToUseApp')}
-                        </a>
+                        <a style={linkStyle}>{t('videoTitles.howToUseApp')}</a>
                       </Link>
                     </li>
                     {/* <li>
@@ -164,40 +168,16 @@ const AppIntroVideo = () => {
                                     textDecoration: "underline"
                                 }}></a>
                                         </li> */}
-                    <li>
+                    <li style={listItemStyle}>
                       <Link
                         href={`/${locale}/${articleSlugs.cdlSchools[locale] || articleSlugs.cdlSchools.en}`}
                       >
-                        <a
-                          style={{
-                            border: 'none',
-                            background: 'none',
-                            color: '#5a5886',
-                            padding: '12px 0px',
-                            cursor: 'pointer',
-                            fontSize: '16px',
-                            textDecoration: 'underline',
-                          }}
-                        >
-                          {t('cdlSchoolsInfo')}
-                        </a>
+                        <a style={linkStyle}>{t('cdlSchoolsInfo')}</a>
                       </Link>
                     </li>
-                    <li>
+                    <li style={listItemStyle}>
                       <Link href={`/${locale}/${articleSlugs.faq[locale] || articleSlugs.faq.en}`}>
-                        <a
-                          style={{
-                            border: 'none',
-                            background: 'none',
-                            color: '#5a5886',
-                            padding: '12px 0px',
-                            cursor: 'pointer',
-                            fontSize: '16px',
-                            textDecoration: 'underline',
-                          }}
-                        >
-                          {t('faq.title')}
-                        </a>
+                        <a style={linkStyle}>{t('faq.title')}</a>
                       </Link>
                     </li>
                   </ul>
