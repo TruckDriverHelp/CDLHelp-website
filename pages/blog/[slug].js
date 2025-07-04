@@ -15,7 +15,6 @@ import YouTubePlayer from '../../components/Common/YouTubePlayer';
 import { SEOHead } from '../../src/shared/ui/SEO';
 import { LinkRenderer } from '../../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../../lib/article-utils';
-import fetchArticles from '../../lib/fetchArticles';
 
 const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
   const { t } = useTranslation('article');
@@ -281,13 +280,13 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
 };
 
 export async function getStaticPaths() {
-  const locales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+  // const locales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
   const paths = [];
 
   try {
     // Fetch ALL articles and then filter by blog_page in the response
     const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate=localizations&pagination[limit]=1000`;
-    console.log('[getStaticPaths] Fetching articles from:', url);
+    // Fetch articles from Strapi
 
     const response = await fetch(url, {
       headers: {
@@ -298,11 +297,8 @@ export async function getStaticPaths() {
     if (response.ok) {
       const json = await response.json();
       const articles = json.data || [];
-      console.log(`[getStaticPaths] Found ${articles.length} total articles`);
-
       // Filter for blog_page = true
       const blogArticles = articles.filter(article => article.attributes.blog_page === true);
-      console.log(`[getStaticPaths] Found ${blogArticles.length} blog articles`);
 
       blogArticles.forEach(article => {
         const locale = article.attributes.locale;
@@ -338,16 +334,12 @@ export async function getStaticPaths() {
         }
       });
 
-      console.log(`[getStaticPaths] Generated ${paths.length} paths for blog articles`);
+      // Paths generated successfully
     } else {
-      console.error(
-        '[getStaticPaths] Failed to fetch articles:',
-        response.status,
-        response.statusText
-      );
+      // Failed to fetch articles
     }
   } catch (error) {
-    console.error('[getStaticPaths] Error fetching blog articles:', error);
+    // Error fetching blog articles
   }
 
   return {
@@ -360,7 +352,7 @@ export async function getStaticProps({ params, locale }) {
   const { slug } = params;
   const actualLocale = locale || 'en'; // Handle default locale
 
-  console.log(`[getStaticProps] Fetching blog article: slug=${slug}, locale=${actualLocale}`);
+  // Fetch blog article from Strapi
 
   const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
 
@@ -380,24 +372,16 @@ export async function getStaticProps({ params, locale }) {
     );
 
     const articles = articleResponse.data?.data?.articles?.data || [];
-    console.log(`[getStaticProps] Found ${articles.length} articles for slug=${slug}`);
-
     // Find the article that has blog_page = true
     const article = articles.find(a => {
-      console.log(
-        `[getStaticProps] Article ${a.attributes.slug}: blog_page=${a.attributes.blog_page}`
-      );
       return a.attributes.blog_page === true;
     });
 
     if (!article) {
-      console.log(`[getStaticProps] No blog article found for slug=${slug} with blog_page=true`);
       return {
         notFound: true,
       };
     }
-
-    console.log(`[getStaticProps] Found blog article: ${article.attributes.title}`);
 
     // Fetch alternate links
     let alternateLinks = {};
@@ -425,7 +409,7 @@ export async function getStaticProps({ params, locale }) {
         );
       }
     } catch (altError) {
-      console.error('[getStaticProps] Error fetching alternate links:', altError);
+      // Error fetching alternate links - use fallback
       // Generate fallback alternate links
       alternateLinks = generateArticleHreflangUrls(article.attributes, actualLocale, slug, true);
     }
@@ -441,13 +425,7 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    console.error(`[getStaticProps] Error fetching blog article for slug=${slug}:`, error.message);
-    if (error.response?.data) {
-      console.error(
-        '[getStaticProps] GraphQL errors:',
-        JSON.stringify(error.response.data, null, 2)
-      );
-    }
+    // Error fetching blog article
     return {
       notFound: true,
     };

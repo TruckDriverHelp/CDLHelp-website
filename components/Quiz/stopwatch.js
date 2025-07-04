@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import QuizContext from '../../store/quiz-context';
 import { useTranslation } from '../../lib/useTranslation';
 
@@ -17,7 +17,7 @@ const Stopwatch = ({ translation }) => {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [running]);
+  }, [running, setTime]);
 
   return (
     <div className="numbers">

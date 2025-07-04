@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 
 const Funfacts = () => {
   const { t } = useTranslation('index');
-  const { locale } = useRouter();
+  // const { locale } = useRouter();
   return (
     <>
       <div className="gradient-funfacts-area pt-100 pb-75">

@@ -67,7 +67,7 @@ const YouTubePlayer = ({ videoId }) => {
               modestbranding: 1,
             },
             events: {
-              onReady: event => {
+              onReady: () => {
                 if (!isMounted) return;
                 setIsLoading(false);
               },

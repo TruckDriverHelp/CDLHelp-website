@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   SchoolLocation,
   fetchSupabaseSchools,
@@ -24,7 +24,7 @@ export const useSchools = (options: UseSchoolsOptions = {}): UseSchoolsReturn =>
   const [loading, setLoading] = useState(autoFetch);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchSchools = async () => {
+  const fetchSchools = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -62,17 +62,17 @@ export const useSchools = (options: UseSchoolsOptions = {}): UseSchoolsReturn =>
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch schools';
       setError(errorMessage);
-      console.error('Error fetching schools:', err);
+      // Error fetching schools
     } finally {
       setLoading(false);
     }
-  };
+  }, [state]);
 
   useEffect(() => {
     if (autoFetch) {
       fetchSchools();
     }
-  }, [state, autoFetch]);
+  }, [state, autoFetch, fetchSchools]);
 
   return {
     schools,

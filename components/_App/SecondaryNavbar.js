@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
 const SecondaryNavbar = () => {
-  const { t } = useTranslation('navbar');
+  // const { t } = useTranslation('navbar');
   const { locale } = useRouter();
   const [isMobile, setIsMobile] = React.useState(false);
 

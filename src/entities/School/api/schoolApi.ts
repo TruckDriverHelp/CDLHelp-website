@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createClient } from '@supabase/supabase-js';
 import { SchoolLocation, SupabaseSchoolData } from '../model/types';
 const STRAPI_URL =
@@ -50,10 +49,9 @@ export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation
     );
 
     const { data } = await response.json();
-    console.log(data);
     return data?.schoolLocations?.data || [];
   } catch (error) {
-    console.error('Error fetching schools by state:', error);
+    // Error fetching schools by state
     throw new Error('Failed to fetch schools');
   }
 };
@@ -64,7 +62,7 @@ export const fetchSupabaseSchools = async (): Promise<SupabaseSchoolData[]> => {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
   if (!supabaseUrl || !supabaseKey) {
-    console.error('Supabase credentials are missing');
+    // Supabase credentials are missing
     return [];
   }
 
@@ -78,13 +76,13 @@ export const fetchSupabaseSchools = async (): Promise<SupabaseSchoolData[]> => {
       );
 
     if (error) {
-      console.error('Data fetch error:', error);
+      // Data fetch error
       throw new Error('Failed to fetch schools from Supabase');
     }
 
     return data || [];
   } catch (error) {
-    console.error('Error fetching Supabase schools:', error);
+    // Error fetching Supabase schools
     throw new Error('Failed to fetch schools from Supabase');
   }
 };
@@ -133,7 +131,7 @@ export const fetchAllSchools = async (): Promise<SchoolLocation[]> => {
     const { data } = await response.json();
     return data?.schoolLocations?.data || [];
   } catch (error) {
-    console.error('Error fetching all schools:', error);
+    // Error fetching all schools
     // Возвращаем пустой массив вместо выброса ошибки для graceful fallback
     return [];
   }
@@ -191,7 +189,7 @@ export const fetchStatesWithSchoolCounts = async (): Promise<
 
     return states.sort((a, b) => b.schoolCount - a.schoolCount); // Сортируем по количеству школ
   } catch (error) {
-    console.error('Error fetching states with school counts:', error);
+    // Error fetching states with school counts
     return [];
   }
 };
@@ -235,7 +233,7 @@ export async function fetchStatesWithCities() {
     const data = await response.json();
 
     if (data.errors) {
-      console.error('GraphQL errors:', data.errors);
+      // GraphQL errors found
       return [];
     }
 
@@ -268,7 +266,7 @@ export async function fetchStatesWithCities() {
 
     return Array.from(statesMap.values()).sort((a, b) => a.name.localeCompare(b.name));
   } catch (error) {
-    console.error('Error fetching states with cities:', error);
+    // Error fetching states with cities
     return [];
   }
 }
@@ -313,10 +311,9 @@ export async function fetchCitiesForState(state: string) {
     }
 
     const data = await response.json();
-    console.log(`Raw cities data for ${state}:`, data);
 
     if (data.errors) {
-      console.error('GraphQL errors:', data.errors);
+      // GraphQL errors found
       return [];
     }
 
@@ -330,7 +327,7 @@ export async function fetchCitiesForState(state: string) {
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
   } catch (error) {
-    console.error(`Error fetching cities for state ${state}:`, error);
+    // Error fetching cities for state
     return [];
   }
 }
@@ -398,7 +395,7 @@ export async function fetchSchoolsForCity(state: string, city: string) {
     const data = await response.json();
 
     if (data.errors) {
-      console.error('GraphQL errors:', data.errors);
+      // GraphQL errors found
       return [];
     }
 
@@ -445,7 +442,7 @@ export async function fetchSchoolsForCity(state: string, city: string) {
       )
     );
   } catch (error) {
-    console.error(`Error fetching schools for city ${city}, state ${state}:`, error);
+    // Error fetching schools for city
     return [];
   }
 }

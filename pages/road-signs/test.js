@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
@@ -11,7 +11,7 @@ import { useSEO } from '../../src/shared/lib/hooks/useSEO';
 
 const SignsTest = () => {
   const [signs, setSigns] = useState([]);
-  const { locale, asPath } = useRouter();
+  const { locale } = useRouter();
   const { t } = useTranslation(['common', 'navbar', 'footer']);
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -67,13 +67,7 @@ const SignsTest = () => {
     fetchData();
   }, [locale]);
 
-  useEffect(() => {
-    if (signs && signs.length > 0) {
-      generateOptions();
-    }
-  }, [currentQuestionIndex, signs]);
-
-  const generateOptions = () => {
+  const generateOptions = useCallback(() => {
     if (!signs || signs.length === 0) return;
 
     const currentSign = signs[currentQuestionIndex];
@@ -101,7 +95,13 @@ const SignsTest = () => {
     setOptionPairs(allOptionPairs);
     // Set initial options based on current translation state
     setOptions(allOptionPairs.map(pair => (showTranslated ? pair.translated : pair.original)));
-  };
+  }, [signs, currentQuestionIndex, showTranslated]);
+
+  useEffect(() => {
+    if (signs && signs.length > 0) {
+      generateOptions();
+    }
+  }, [currentQuestionIndex, signs, generateOptions]);
 
   const handleAnswer = selectedAnswer => {
     const currentSign = signs[currentQuestionIndex];

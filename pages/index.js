@@ -10,7 +10,6 @@ import { useTranslation } from 'next-i18next';
 import { DynamicFaqSection } from '../components/_App/DynamicImports';
 import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
-import Script from 'next/script';
 
 // Dynamically import non-critical components
 const TopContainer = dynamic(() => import('../components/Home/TopContainer'), {
@@ -19,12 +18,12 @@ const TopContainer = dynamic(() => import('../components/Home/TopContainer'), {
 });
 
 // Preload critical components
-const BestFeatures = dynamic(() => import('../components/Home/BestFeatures'), {
-  loading: () => (
-    <div style={{ minHeight: '200px', background: '#f5f5f5' }}>Loading features...</div>
-  ),
-  ssr: false,
-});
+// const BestFeatures = dynamic(() => import('../components/Home/BestFeatures'), {
+//   loading: () => (
+//     <div style={{ minHeight: '200px', background: '#f5f5f5' }}>Loading features...</div>
+//   ),
+//   ssr: false,
+// });
 
 // Lazy load non-critical components
 const AppIntroVideo = dynamic(() => import('../components/Home/AppIntroVideo'), {
@@ -48,7 +47,6 @@ const AppDownload = dynamic(() => import('../components/Home/AppDownload'), {
 
 const IndexPage = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
-  const router = useRouter();
   const { t } = useTranslation('index');
 
   // Organization Schema

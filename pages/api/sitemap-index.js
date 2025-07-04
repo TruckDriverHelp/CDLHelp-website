@@ -2,7 +2,7 @@
 // Following Google's best practices for large multilingual sites
 
 const SITE_URL = process.env.BASE_URL || 'https://www.cdlhelp.com';
-const LOCALES = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+// const LOCALES = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
 
 export default function handler(req, res) {
   res.setHeader('Content-Type', 'application/xml');

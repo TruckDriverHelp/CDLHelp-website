@@ -7,7 +7,7 @@ import consentManager from '../../lib/consent-manager';
 const CookieConsentBanner = () => {
   const { t } = useTranslation('cookie');
   const [showBanner, setShowBanner] = useState(false);
-  const { locale } = useRouter();
+  // const { locale } = useRouter();
 
   useEffect(() => {
     consentManager.init();

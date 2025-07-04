@@ -15,7 +15,7 @@ const languages = {
   pt: 'Português',
 };
 
-const Head = ({ translation }) => {
+const Head = () => {
   const { t } = useTranslation('index');
   const quizCtx = useContext(QuizContext);
   const router = useRouter();

@@ -10,9 +10,9 @@ const AppIntroVideo = () => {
   const { t } = useTranslation('index');
   const { locale } = useRouter();
   const [isOpen, setIsOpen] = React.useState(true);
-  const openModal = () => {
-    setIsOpen(!isOpen);
-  };
+  // const openModal = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   // Define URL slugs for each locale
   const articleSlugs = {

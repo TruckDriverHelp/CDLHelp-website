@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
@@ -37,6 +36,72 @@ export default function DotPhysicalExam() {
     setMap(map);
   }, []);
 
+  const searchNearbyLocations = useCallback(
+    async (lat, lng) => {
+      if (!map) return;
+
+      setIsLoading(true);
+      setError(null);
+      try {
+        const service = new window.google.maps.places.PlacesService(map);
+
+        const request = {
+          location: new window.google.maps.LatLng(lat, lng),
+          radius: '50000',
+          query: 'medical examiner dot physical',
+        };
+
+        const placesResult = await new Promise((resolve, reject) => {
+          service.textSearch(request, (results, status) => {
+            if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+              resolve(results);
+            } else {
+              reject(new Error(`Places search failed: ${status}`));
+            }
+          });
+        });
+
+        // Fetch detailed information for each place
+        const detailedResults = await Promise.all(
+          placesResult.map(
+            place =>
+              new Promise(resolve => {
+                service.getDetails(
+                  {
+                    placeId: place.place_id,
+                    fields: [
+                      'name',
+                      'formatted_address',
+                      'geometry',
+                      'rating',
+                      'user_ratings_total',
+                      'formatted_phone_number',
+                    ],
+                  },
+                  (result, status) => {
+                    if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+                      resolve(result);
+                    } else {
+                      resolve(place); // Fallback to original place data if details request fails
+                    }
+                  }
+                );
+              })
+          )
+        );
+
+        setSearchResults(detailedResults);
+      } catch (error) {
+        // Error searching locations
+        setError('An error occurred while searching. Please try again.');
+        setSearchResults([]);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [map]
+  );
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -48,75 +113,12 @@ export default function DotPhysicalExam() {
             await searchNearbyLocations(latitude, longitude);
           }
         },
-        error => {
-          console.log('Location permission denied or error:', error);
+        () => {
+          // Location permission denied or error
         }
       );
     }
-  }, [map]);
-
-  const searchNearbyLocations = async (lat, lng) => {
-    if (!map) return;
-
-    setIsLoading(true);
-    setError(null);
-    try {
-      const service = new window.google.maps.places.PlacesService(map);
-
-      const request = {
-        location: new window.google.maps.LatLng(lat, lng),
-        radius: '50000',
-        query: 'medical examiner dot physical',
-      };
-
-      const placesResult = await new Promise((resolve, reject) => {
-        service.textSearch(request, (results, status) => {
-          if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-            resolve(results);
-          } else {
-            reject(new Error(`Places search failed: ${status}`));
-          }
-        });
-      });
-
-      // Fetch detailed information for each place
-      const detailedResults = await Promise.all(
-        placesResult.map(
-          place =>
-            new Promise(resolve => {
-              service.getDetails(
-                {
-                  placeId: place.place_id,
-                  fields: [
-                    'name',
-                    'formatted_address',
-                    'geometry',
-                    'rating',
-                    'user_ratings_total',
-                    'formatted_phone_number',
-                  ],
-                },
-                (result, status) => {
-                  if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-                    resolve(result);
-                  } else {
-                    resolve(place); // Fallback to original place data if details request fails
-                  }
-                }
-              );
-            })
-        )
-      );
-
-      setSearchResults(detailedResults);
-    } catch (error) {
-      console.error('Error searching locations:', error);
-      setError('An error occurred while searching. Please try again.');
-      setSearchResults([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [map, searchNearbyLocations]);
 
   const handleSearch = async () => {
     if (!zipCode || !map) return;
@@ -145,7 +147,7 @@ export default function DotPhysicalExam() {
 
       await searchNearbyLocations(lat, lng);
     } catch (error) {
-      console.error('Error searching locations:', error);
+      // Error searching locations
       setError('An error occurred while searching. Please try again.');
       setSearchResults([]);
     } finally {
