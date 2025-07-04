@@ -1,13 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
 
-// Lazy load the quiz since it's below the fold
-const DynamicQuiz = dynamic(() => import('../_App/DynamicImports').then(mod => mod.DynamicQuiz), {
-  ssr: false,
-  loading: () => <div style={{ minHeight: '400px' }} />,
-});
+// Import the quiz component directly to avoid hydration issues
+import { DynamicQuiz } from '../_App/DynamicImports';
 
 const TopContainer = () => {
   const { t } = useTranslation('index');

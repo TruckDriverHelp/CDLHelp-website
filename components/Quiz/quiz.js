@@ -49,7 +49,8 @@ const Quiz = ({ translation, contained }) => {
     setSelected(false);
     setWrong([]);
     setDisabled(true);
-  }, [setSelected, setWrong, setDisabled]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentQuestionIndex]); // Only reset when question changes
 
   const currentQuestion = filteredQuestions[currentQuestionIndex];
   const correct = currentQuestion.answer;

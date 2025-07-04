@@ -12,7 +12,11 @@ export const DynamicQuiz = dynamic(
       return QuizWrapper;
     }),
   {
-    loading: () => <div>Loading quiz...</div>,
+    loading: () => (
+      <div style={{ minHeight: '400px', padding: '20px', textAlign: 'center' }}>
+        Loading quiz...
+      </div>
+    ),
     ssr: true, // Enable server-side rendering for the quiz to ensure translations work
   }
 );
