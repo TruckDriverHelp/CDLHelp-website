@@ -11,6 +11,13 @@ import { DynamicFaqSection } from '../components/_App/DynamicImports';
 import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
 import TopContainer from '../components/Home/TopContainer'; // Import directly for LCP performance
+import {
+  getLocalizedOrganizationName,
+  getLocalizedAlternateName,
+  getLocalizedDescription,
+  getLocalizedUrl,
+  getLocalizedSocialLinks,
+} from '../lib/schemaLocalization';
 
 // Preload critical components
 // const BestFeatures = dynamic(() => import('../components/Home/BestFeatures'), {
@@ -44,54 +51,41 @@ const IndexPage = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
   const { t } = useTranslation('index');
 
-  // Organization Schema
+  // Organization Schema with localization
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'CDL Help',
-    alternateName: 'Truck Driver Help',
-    url: 'https://www.cdlhelp.com',
+    name: getLocalizedOrganizationName(locale),
+    alternateName: getLocalizedAlternateName(locale),
+    url: getLocalizedUrl(locale),
     logo: 'https://www.cdlhelp.com/images/black-logo.png',
-    sameAs: [
-      'https://www.facebook.com/cdlhelp',
-      'https://twitter.com/cdlhelp',
-      'https://www.youtube.com/cdlhelp',
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+1-800-CDL-HELP',
-      contactType: 'customer service',
-      areaServed: 'US',
-      availableLanguage: [
-        'English',
-        'Spanish',
-        'Russian',
-        'Ukrainian',
-        'Arabic',
-        'Korean',
-        'Chinese',
-        'Turkish',
-        'Portuguese',
-      ],
-    },
+    sameAs: getLocalizedSocialLinks(locale),
   };
 
-  // WebSite Schema with locale-specific URL
+  // WebSite Schema with localization
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`,
-    name: 'CDL Help',
-    description: t('description'),
+    url: getLocalizedUrl(locale),
+    name: getLocalizedOrganizationName(locale),
+    description: getLocalizedDescription(locale, t),
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/search?q={search_term_string}`,
+        urlTemplate: `${getLocalizedUrl(locale)}/search?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
     inLanguage: locale,
+    publisher: {
+      '@type': 'Organization',
+      name: getLocalizedOrganizationName(locale),
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.cdlhelp.com/images/black-logo.png',
+      },
+    },
   };
 
   return (

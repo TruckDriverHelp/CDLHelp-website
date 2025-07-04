@@ -29,23 +29,7 @@ const Contact = ({ alternateLinks, meta }) => {
       '@type': 'Organization',
       name: 'CDL Help',
       url: 'https://www.cdlhelp.com',
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+1-800-CDL-HELP',
-        contactType: 'customer service',
-        areaServed: 'US',
-        availableLanguage: [
-          'English',
-          'Spanish',
-          'Russian',
-          'Ukrainian',
-          'Arabic',
-          'Korean',
-          'Chinese',
-          'Turkish',
-          'Portuguese',
-        ],
-      },
+      email: 'contact@cdlhelp.com',
     },
   };
 

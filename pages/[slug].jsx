@@ -15,6 +15,7 @@ import YouTubePlayer from '../components/Common/YouTubePlayer';
 import { SEOHead } from '../src/shared/ui/SEO';
 import { LinkRenderer } from '../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../lib/article-utils';
+import { getLocalizedOrganizationName, getLocalizedUrl } from '../lib/schemaLocalization';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
   const { t } = useTranslation('article');
@@ -133,17 +134,34 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `${JSON.stringify({
+            __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Article',
               headline: metaTags.title,
+              description: metaTags.description,
               image: metaImage,
+              inLanguage: locale,
+              datePublished: article.publishedAt,
+              dateModified: article.updatedAt || article.publishedAt,
+              mainEntityOfPage: {
+                '@type': 'WebPage',
+                '@id': getLocalizedUrl(locale, `/${slug}`),
+              },
               author: {
                 '@type': 'Organization',
-                name: 'CDL Help',
-                url: 'https://www.cdlhelp.com',
+                name: getLocalizedOrganizationName(locale),
+                url: getLocalizedUrl(locale),
               },
-            })}`,
+              publisher: {
+                '@type': 'Organization',
+                name: getLocalizedOrganizationName(locale),
+                url: getLocalizedUrl(locale),
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.cdlhelp.com/images/black-logo.png',
+                },
+              },
+            }),
           }}
         />
       </Head>

@@ -12,6 +12,7 @@ import { useSEO } from '../src/shared/lib/hooks/useSEO';
 import getMeta from '../lib/getMeta';
 import analytics from '../lib/analytics';
 import attribution from '../lib/attribution';
+import { getLocalizedOrganizationName, getLocalizedUrl } from '../lib/schemaLocalization';
 
 const DownloadPage = ({ alternateLinks }) => {
   const { t } = useTranslation('download');
@@ -80,11 +81,11 @@ const DownloadPage = ({ alternateLinks }) => {
     },
   ];
 
-  // Course/Application Schema with locale-specific content
+  // Mobile Application Schema with localization
   const applicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'MobileApplication',
-    name: 'CDL Help - CDL Practice Test',
+    name: `${getLocalizedOrganizationName(locale)} - CDL Practice Test`,
     description: t('heroDescription'),
     applicationCategory: 'EducationApplication',
     operatingSystem: 'Android, iOS',
@@ -100,13 +101,14 @@ const DownloadPage = ({ alternateLinks }) => {
     },
     provider: {
       '@type': 'Organization',
-      name: 'CDL Help',
-      url: 'https://www.cdlhelp.com',
+      name: getLocalizedOrganizationName(locale),
+      url: getLocalizedUrl(locale),
     },
     inLanguage: locale,
-    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`,
+    url: getLocalizedUrl(locale, '/download'),
   };
 
+  // Course Schema with localization (excluding 'teaches' property)
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
@@ -114,10 +116,11 @@ const DownloadPage = ({ alternateLinks }) => {
     description: t('pageDescription'),
     provider: {
       '@type': 'Organization',
-      name: 'CDL Help',
-      url: 'https://www.cdlhelp.com',
+      name: getLocalizedOrganizationName(locale),
+      url: getLocalizedUrl(locale),
     },
     educationalLevel: 'Professional Certification',
+    // 'teaches' property kept in English as requested
     teaches: [
       'CDL General Knowledge',
       'Air Brakes',
@@ -132,7 +135,8 @@ const DownloadPage = ({ alternateLinks }) => {
       courseMode: 'Online',
       inLanguage: locale,
     },
-    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/download`,
+    inLanguage: locale,
+    url: getLocalizedUrl(locale, '/download'),
   };
 
   return (

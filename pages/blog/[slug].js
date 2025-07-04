@@ -15,6 +15,7 @@ import YouTubePlayer from '../../components/Common/YouTubePlayer';
 import { SEOHead } from '../../src/shared/ui/SEO';
 import { LinkRenderer } from '../../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../../lib/article-utils';
+import { getLocalizedOrganizationName, getLocalizedUrl } from '../../lib/schemaLocalization';
 
 const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
   const { t } = useTranslation('article');
@@ -60,7 +61,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
     );
   }
 
-  // Generate structured data for SEO
+  // Generate structured data for SEO with localization
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -68,6 +69,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
     description: article.description || '',
     datePublished: article.publishedAt,
     dateModified: article.updatedAt || article.publishedAt,
+    inLanguage: locale,
     author: article.author?.data
       ? {
           '@type': 'Person',
@@ -76,7 +78,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
       : undefined,
     publisher: {
       '@type': 'Organization',
-      name: 'CDL Help',
+      name: getLocalizedOrganizationName(locale),
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.cdlhelp.com/images/logo.png',
@@ -84,7 +86,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/blog/${slug}`,
+      '@id': getLocalizedUrl(locale, `/blog/${slug}`),
     },
   };
 
