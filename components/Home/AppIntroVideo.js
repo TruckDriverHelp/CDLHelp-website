@@ -75,7 +75,15 @@ const AppIntroVideo = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">
               <div className="app-intro-video-box">
-                <Image src="/images/video/video-2.jpg" alt="video-img" width={635} height={420} />
+                <Image
+                  src="/images/video/video-2.jpg"
+                  alt="video-img"
+                  width={635}
+                  height={420}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAA8DASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQQDAAMAAAAAAAAAAAABAgMABAUREiExE0Gg/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAbEQABBAMAAAAAAAAAAAAAAAABAAIDEQQSIf/aAAwDAQACEQMRAD8AltbO1t0CRoFUAAAbNAUqhzk5Kbdf/9k="
+                />
               </div>
             </div>
 

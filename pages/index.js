@@ -10,12 +10,7 @@ import { useTranslation } from 'next-i18next';
 import { DynamicFaqSection } from '../components/_App/DynamicImports';
 import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
-
-// Dynamically import non-critical components
-const TopContainer = dynamic(() => import('../components/Home/TopContainer'), {
-  loading: () => <div style={{ minHeight: '400px', background: '#f5f5f5' }}>Loading...</div>,
-  ssr: true,
-});
+import TopContainer from '../components/Home/TopContainer'; // Import directly for LCP performance
 
 // Preload critical components
 // const BestFeatures = dynamic(() => import('../components/Home/BestFeatures'), {
@@ -111,12 +106,25 @@ const IndexPage = ({ meta, alternateLinks }) => {
       />
 
       <Head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* Preload critical assets - специфичные для главной страницы */}
         <link
           rel="preload"
           href="/images/video/video-3-no-text.webp"
           as="image"
           type="image/webp"
+        />
+
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZhrib2Bg-4.woff2"
+          crossOrigin="anonymous"
         />
 
         {/* Organization Schema */}
