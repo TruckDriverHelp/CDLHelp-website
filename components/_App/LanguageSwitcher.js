@@ -33,6 +33,7 @@ const LanguageSwitcher = ({ alternateLinks }) => {
         onChange={handleLocaleChange}
         className="language-switcher"
         aria-label="Select Language"
+        title="Select Language"
       >
         {Object.entries(languages).map(([locale, language]) => (
           <option key={locale} value={locale}>

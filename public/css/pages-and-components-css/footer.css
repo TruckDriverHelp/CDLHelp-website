@@ -45,10 +45,21 @@
 
 .footer-area.footer-style-two.bg-black .copyright-area p a {
   color: var(--whiteColor);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+  text-underline-offset: 2px;
+  font-weight: 500;
 }
 
-.footer-area.footer-style-two.bg-black .copyright-area p a:hover {
+.footer-area.footer-style-two.bg-black .copyright-area p a:hover,
+.footer-area.footer-style-two.bg-black .copyright-area p a:focus {
   color: var(--mainColor);
+  text-decoration-color: var(--mainColor);
+}
+
+.footer-area.footer-style-two.bg-black .copyright-area p a:focus {
+  outline: 2px solid var(--mainColor);
+  outline-offset: 2px;
 }
 
 .footer-content {

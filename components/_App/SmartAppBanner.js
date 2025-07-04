@@ -137,7 +137,7 @@ const SmartAppBanner = () => {
           <div
             style={{
               fontSize: '12px',
-              color: '#6c757d',
+              color: '#495057', // Improved contrast from #6c757d
             }}
           >
             {t('smartBannerText', 'Free - On the App Store')}
@@ -148,13 +148,13 @@ const SmartAppBanner = () => {
       <button
         onClick={handleInstall}
         style={{
-          backgroundColor: '#007AFF',
+          backgroundColor: '#0066CC', // Darker blue for better contrast with white text
           color: 'white',
           border: 'none',
           borderRadius: '20px',
           padding: '6px 20px',
           fontSize: '14px',
-          fontWeight: '500',
+          fontWeight: '600', // Slightly bolder for better readability
           cursor: 'pointer',
           whiteSpace: 'nowrap',
         }}

@@ -181,11 +181,11 @@ const Quiz = ({ title, id, name, translation, contained }) => {
             >
               <div className={styles.head}>
                 <span>
-                  <h4 style={{ textAlign: 'center', margin: '20px auto' }}>
+                  <h2 style={{ textAlign: 'center', margin: '20px auto', fontSize: '1.5rem' }}>
                     {translate
                       ? currentQuestion.question[router.locale]
                       : currentQuestion.question.en}
-                  </h4>
+                  </h2>
                 </span>
               </div>
               <Top translation={translation} />
@@ -196,7 +196,7 @@ const Quiz = ({ title, id, name, translation, contained }) => {
               />
               {selected && (
                 <div className={styles.explanation}>
-                  <h4>{t('explanation')}</h4>
+                  <h3 style={{ fontSize: '1.25rem' }}>{t('explanation')}</h3>
                   <p>
                     {translate
                       ? currentQuestion.explanation[router.locale]
