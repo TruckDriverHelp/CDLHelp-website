@@ -78,7 +78,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
       alternateLinksObj[link.hrefLang] = link.href;
     } else {
       // Log the issue for debugging
-      console.warn(`Invalid hreflang: locale ${link.hrefLang} has href ${link.href}`);
+      // Invalid hreflang - skip this link
     }
   });
 
@@ -240,7 +240,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                 }
 
                 if (!videoId) {
-                  console.error('Could not extract video ID from YouTube data:', block.YouTube);
+                  // Could not extract video ID from YouTube data
                   return <div key={index}>Error: Could not extract video ID from YouTube data</div>;
                 }
 
@@ -250,7 +250,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                   </div>
                 );
               } catch (error) {
-                console.error('Error processing YouTube block:', error);
+                // Error processing YouTube block
                 return <div key={index}>Error: Failed to load YouTube video</div>;
               }
             }
@@ -286,11 +286,8 @@ export async function getStaticProps({ params, locale }) {
   const actualLocale = locale || 'en';
   const variables = { slug, locale: actualLocale };
 
-  console.log(`[getStaticProps] Fetching article - slug: ${slug}, locale: ${actualLocale}`);
-
   try {
     const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
-    console.log(`[getStaticProps] GraphQL URL: ${graphqlUrl}`);
 
     const articleResponse = await axios.post(
       graphqlUrl,
@@ -302,85 +299,36 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    console.log(`[getStaticProps] Article response status: ${articleResponse.status}`);
-
-    // Log the full response for debugging
+    // Handle GraphQL errors silently
     if (articleResponse.data?.errors) {
-      console.error(
-        '[getStaticProps] GraphQL errors:',
-        JSON.stringify(articleResponse.data.errors, null, 2)
-      );
+      // GraphQL errors are handled by returning notFound
     }
 
     const articles = articleResponse.data?.data?.articles?.data || [];
-    console.log(`[getStaticProps] Found ${articles.length} articles for slug: ${slug}`);
 
     if (articles.length === 0) {
-      console.error(
-        `[getStaticProps] No articles found for slug: ${slug}, locale: ${actualLocale}`
-      );
-
-      // Try REST API as fallback for debugging
-      try {
-        const restUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?filters[slug][$eq]=${slug}&locale=${actualLocale}&populate=*`;
-        console.log(`[getStaticProps] Trying REST API: ${restUrl}`);
-
-        const restResponse = await axios.get(restUrl, {
-          headers: {
-            Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
-          },
-        });
-
-        console.log(
-          `[getStaticProps] REST API found ${restResponse.data?.data?.length || 0} articles`
-        );
-        if (restResponse.data?.data?.length > 0) {
-          console.log(
-            '[getStaticProps] REST API article:',
-            JSON.stringify(restResponse.data.data[0].attributes, null, 2)
-          );
-        }
-      } catch (restError) {
-        console.error('[getStaticProps] REST API error:', restError.message);
-      }
+      // REST API fallback removed - not needed in production
 
       return {
         notFound: true,
       };
     }
 
-    // Log all articles found
-    articles.forEach((art, index) => {
-      console.log(`[getStaticProps] Article ${index + 1}:`, {
-        id: art.id,
-        slug: art.attributes.slug,
-        locale: art.attributes.locale,
-        blog_page: art.attributes.blog_page,
-        blog_post: art.attributes.blog_post,
-        title: art.attributes.title,
-      });
-    });
+    // Process articles to find non-blog page
 
     // Find the article that is NOT a blog page
     const article = articles.find(a => a.attributes.blog_page !== true);
 
     if (!article) {
-      console.error(
-        `[getStaticProps] All ${articles.length} articles have blog_page=true, none suitable for regular page`
-      );
       return {
         notFound: true,
       };
     }
 
     const { attributes } = article;
-    console.log(
-      `[getStaticProps] Selected article: ${attributes.title} (blog_page: ${attributes.blog_page})`
-    );
 
     // If this is a blog post, return not found (it should be handled by /blog/[slug])
     if (attributes.blog_page === true) {
-      console.log('[getStaticProps] Article has blog_page=true, redirecting to blog page');
       return {
         notFound: true,
       };
@@ -437,7 +385,6 @@ export async function getStaticProps({ params, locale }) {
       },
     };
   } catch (error) {
-    console.error(`Error in getStaticProps for slug ${slug}:`, error);
     return {
       props: {
         slug,
@@ -456,12 +403,9 @@ export async function getStaticProps({ params, locale }) {
   }
 }
 
-export async function getStaticPaths({ locales }) {
-  console.log('[getStaticPaths] Starting to fetch articles for static paths');
-
+export async function getStaticPaths() {
   try {
     const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*&filters[blog_page][$ne]=true&pagination[limit]=1000`;
-    console.log('[getStaticPaths] Fetching from:', url);
 
     const { data } = await axios.get(url, {
       headers: {
@@ -470,18 +414,6 @@ export async function getStaticPaths({ locales }) {
     });
 
     const articles = data.data || [];
-    console.log(`[getStaticPaths] Found ${articles.length} non-blog articles`);
-
-    // Log first few articles for debugging
-    articles.slice(0, 3).forEach((article, i) => {
-      console.log(`[getStaticPaths] Article ${i + 1}:`, {
-        slug: article.attributes.slug,
-        locale: article.attributes.locale,
-        blog_page: article.attributes.blog_page,
-        blog_post: article.attributes.blog_post,
-        localizations: article.attributes.localizations?.data?.length || 0,
-      });
-    });
 
     const paths = [];
     articles.forEach(post => {
@@ -489,12 +421,8 @@ export async function getStaticPaths({ locales }) {
       // Next.js will handle the routing correctly when locale is undefined for default locale
       if (post.attributes.locale === 'en') {
         paths.push({ params: { slug: post.attributes.slug }, locale: undefined });
-        console.log(`[getStaticPaths] Added path: /${post.attributes.slug} (en)`);
       } else {
         paths.push({ params: { slug: post.attributes.slug }, locale: post.attributes.locale });
-        console.log(
-          `[getStaticPaths] Added path: /${post.attributes.locale}/${post.attributes.slug}`
-        );
       }
 
       // Add localizations
@@ -513,16 +441,13 @@ export async function getStaticPaths({ locales }) {
       }
     });
 
-    console.log(`[getStaticPaths] Generated ${paths.length} total paths`);
-
     return {
       paths,
       fallback: 'blocking', // Allow new pages to be generated on demand
     };
   } catch (error) {
-    console.error('[getStaticPaths] Error:', error.message);
     if (error.response) {
-      console.error('[getStaticPaths] Response data:', error.response.data);
+      // Error response data available in error.response.data
     }
     // Return empty paths but with blocking fallback
     return {
