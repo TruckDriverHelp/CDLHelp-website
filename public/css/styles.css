@@ -1344,6 +1344,7 @@ textarea.form-control {
 }
 
 .new-app-main-banner-wrap-area {
+  padding-top: 150px;
   background-color: #f6f9fb;
   position: relative;
   z-index: 1;
