@@ -29,13 +29,13 @@ const SmartAppBanner = () => {
     if (isIOS) {
       setPlatform('ios');
       setShowBanner(true);
-      
+
       // Track banner impression
       analytics.trackFeatureEngagement('smart_banner', 'impression', 'ios');
     } else if (isAndroid) {
       setPlatform('android');
       setShowBanner(true);
-      
+
       // Track banner impression
       analytics.trackFeatureEngagement('smart_banner', 'impression', 'android');
     }
@@ -57,14 +57,14 @@ const SmartAppBanner = () => {
     // Redirect with attribution
     attribution.redirect(platform, {
       source: 'smart_banner',
-      page: router.pathname
+      page: router.pathname,
     });
   };
 
   const handleDismiss = () => {
     setShowBanner(false);
     localStorage.setItem('smartBannerDismissed', 'true');
-    
+
     // Track dismissal
     analytics.trackFeatureEngagement('smart_banner', 'dismiss', platform);
   };
@@ -72,20 +72,23 @@ const SmartAppBanner = () => {
   if (!showBanner) return null;
 
   return (
-    <div className="smart-app-banner" style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: '#f8f9fa',
-      borderBottom: '1px solid #dee2e6',
-      padding: '10px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      zIndex: 9999,
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-    }}>
+    <div
+      className="smart-app-banner"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#f8f9fa',
+        borderBottom: '1px solid #dee2e6',
+        padding: '10px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        zIndex: 9999,
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      }}
+    >
       <button
         onClick={handleDismiss}
         style={{
@@ -94,19 +97,21 @@ const SmartAppBanner = () => {
           fontSize: '20px',
           color: '#6c757d',
           cursor: 'pointer',
-          padding: '5px'
+          padding: '5px',
         }}
         aria-label="Close"
       >
         ×
       </button>
 
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        flex: 1,
-        marginLeft: '10px'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          flex: 1,
+          marginLeft: '10px',
+        }}
+      >
         <img
           src="/images/cdlhelp-icon.png"
           alt="CDL Help"
@@ -114,23 +119,27 @@ const SmartAppBanner = () => {
             width: '40px',
             height: '40px',
             borderRadius: '8px',
-            marginRight: '12px'
+            marginRight: '12px',
           }}
         />
-        
+
         <div style={{ flex: 1 }}>
-          <div style={{
-            fontSize: '14px',
-            fontWeight: '600',
-            color: '#212529',
-            marginBottom: '2px'
-          }}>
+          <div
+            style={{
+              fontSize: '14px',
+              fontWeight: '600',
+              color: '#212529',
+              marginBottom: '2px',
+            }}
+          >
             CDL Help
           </div>
-          <div style={{
-            fontSize: '12px',
-            color: '#6c757d'
-          }}>
+          <div
+            style={{
+              fontSize: '12px',
+              color: '#6c757d',
+            }}
+          >
             {t('smartBannerText', 'Free - On the App Store')}
           </div>
         </div>
@@ -147,7 +156,7 @@ const SmartAppBanner = () => {
           fontSize: '14px',
           fontWeight: '500',
           cursor: 'pointer',
-          whiteSpace: 'nowrap'
+          whiteSpace: 'nowrap',
         }}
       >
         {t('smartBannerButton', 'VIEW')}

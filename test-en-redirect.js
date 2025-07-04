@@ -13,7 +13,7 @@ const urlsToTest = [
   'https://www.cdlhelp.com/en/how-to-become-a-truck-driver',
   'https://www.cdlhelp.com/en/how-to-use-cdl-help',
   'https://www.cdlhelp.com/en/cdl-schools/california',
-  'https://www.cdlhelp.com/en/pre-trip-inspection/tractor-front/1'
+  'https://www.cdlhelp.com/en/pre-trip-inspection/tractor-front/1',
 ];
 
 async function testRedirect(url) {
@@ -24,32 +24,36 @@ async function testRedirect(url) {
       path: parsedUrl.pathname,
       method: 'HEAD',
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; RedirectTest/1.0)'
-      }
+        'User-Agent': 'Mozilla/5.0 (compatible; RedirectTest/1.0)',
+      },
     };
 
-    https.request(options, (res) => {
-      const result = {
-        url,
-        statusCode: res.statusCode,
-        location: res.headers.location,
-        success: false
-      };
+    https
+      .request(options, res => {
+        const result = {
+          url,
+          statusCode: res.statusCode,
+          location: res.headers.location,
+          success: false,
+        };
 
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        const expectedLocation = url.replace('/en/', '/');
-        result.success = res.headers.location === expectedLocation.replace('https://www.cdlhelp.com', '');
-        result.expectedLocation = expectedLocation;
-      }
+        if (res.statusCode === 301 || res.statusCode === 302) {
+          const expectedLocation = url.replace('/en/', '/');
+          result.success =
+            res.headers.location === expectedLocation.replace('https://www.cdlhelp.com', '');
+          result.expectedLocation = expectedLocation;
+        }
 
-      resolve(result);
-    }).on('error', reject).end();
+        resolve(result);
+      })
+      .on('error', reject)
+      .end();
   });
 }
 
 async function runTests() {
   console.log('Testing /en/* URL redirects...\n');
-  
+
   for (const url of urlsToTest) {
     try {
       const result = await testRedirect(url);

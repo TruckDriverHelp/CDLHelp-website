@@ -1,12 +1,12 @@
 {
-    "main": "Головна",
-    "resources": "Ресурси",
-    "workForTruckers": "Робота для далекобійників",
-    "cdlSchool": "CDL школа",
-    "cdlSchools": "CDL Школи",
-    "companies": "Компанії",
-    "contacts": "Контакти",
-    "blog": "Блог",
-    "dotPhysicalLookup": "Пошук DOT медогляду",
-    "roadSignsTest": "Тест з дорожніх знаків"
+  "main": "Головна",
+  "resources": "Ресурси",
+  "workForTruckers": "Робота для далекобійників",
+  "cdlSchool": "CDL школа",
+  "cdlSchools": "CDL Школи",
+  "companies": "Компанії",
+  "contacts": "Контакти",
+  "blog": "Блог",
+  "dotPhysicalLookup": "Пошук DOT медогляду",
+  "roadSignsTest": "Тест з дорожніх знаків"
 }

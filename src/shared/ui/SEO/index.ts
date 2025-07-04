@@ -1,6 +1,6 @@
 export { SEOHead } from './SEOHead';
 export type { SEOHeadProps } from './SEOHead';
-export { 
+export {
   StructuredData,
   organizationSchema,
   websiteSchema,
@@ -8,5 +8,5 @@ export {
   generateFAQSchema,
   generateArticleSchema,
   generateSchoolSchema,
-  generateBreadcrumbSchema
-} from './StructuredData'; 
+  generateBreadcrumbSchema,
+} from './StructuredData';

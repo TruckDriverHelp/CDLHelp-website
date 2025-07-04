@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './YouTubePlayer.module.css';
 
 const YouTubePlayer = ({ videoId }) => {
@@ -18,10 +18,10 @@ const YouTubePlayer = ({ videoId }) => {
     if (!isClient) {
       return;
     }
-    
+
     let isMounted = true;
     let timeoutId;
-    
+
     // Set a timeout to use fallback if API doesn't load
     timeoutId = setTimeout(() => {
       if (isMounted && isLoading) {
@@ -29,7 +29,7 @@ const YouTubePlayer = ({ videoId }) => {
         setIsLoading(false);
       }
     }, 5000); // 5 second timeout
-    
+
     // Check if API is already loaded
     if (window.YT && window.YT.Player) {
       clearTimeout(timeoutId);
@@ -37,7 +37,7 @@ const YouTubePlayer = ({ videoId }) => {
     } else {
       // Load the IFrame Player API code asynchronously
       const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
+      tag.src = 'https://www.youtube.com/iframe_api';
       tag.async = true;
       const firstScriptTag = document.getElementsByTagName('script')[0];
       if (firstScriptTag) {
@@ -64,20 +64,20 @@ const YouTubePlayer = ({ videoId }) => {
               controls: 1,
               rel: 0,
               showinfo: 0,
-              modestbranding: 1
+              modestbranding: 1,
             },
             events: {
-              onReady: (event) => {
+              onReady: event => {
                 if (!isMounted) return;
                 setIsLoading(false);
               },
-              onError: (event) => {
+              onError: event => {
                 console.error('YouTubePlayer: Player error:', event);
                 if (!isMounted) return;
                 setUseFallback(true);
                 setIsLoading(false);
-              }
-            }
+              },
+            },
           });
         } catch (error) {
           console.error('YouTubePlayer: Error creating player:', error);
@@ -107,9 +107,7 @@ const YouTubePlayer = ({ videoId }) => {
   if (!isClient) {
     return (
       <div className={styles['youtube-player-wrapper']}>
-        <div className={styles['loading-placeholder']}>
-          Loading video...
-        </div>
+        <div className={styles['loading-placeholder']}>Loading video...</div>
       </div>
     );
   }
@@ -130,11 +128,7 @@ const YouTubePlayer = ({ videoId }) => {
 
   return (
     <div className={styles['youtube-player-wrapper']}>
-      {isLoading && (
-        <div className={styles['loading-placeholder']}>
-          Loading video...
-        </div>
-      )}
+      {isLoading && <div className={styles['loading-placeholder']}>Loading video...</div>}
       <div
         ref={containerRef}
         className={styles['youtube-player']}
@@ -144,4 +138,4 @@ const YouTubePlayer = ({ videoId }) => {
   );
 };
 
-export default YouTubePlayer; 
+export default YouTubePlayer;

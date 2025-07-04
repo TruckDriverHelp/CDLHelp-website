@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default () =>
+const FacebookPixel = () => (
   <>
     <script
       id="fb-pixel"
@@ -20,10 +20,15 @@ export default () =>
           `,
       }}
     />
-    <noscript dangerouslySetInnerHTML={{
-      __html: `<img height="1" width="1" style="display:none"
+    <noscript
+      dangerouslySetInnerHTML={{
+        __html: `<img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=2600309206821382&ev=PageView&noscript=1"
-      />` }}
+      />`,
+      }}
     />
     <meta name="facebook-domain-verification" content="i9vf84c1q1m8d0i0oqf1w5d5t0yl5w" />
   </>
+);
+
+export default FacebookPixel;

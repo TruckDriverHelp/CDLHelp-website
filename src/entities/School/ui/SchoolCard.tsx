@@ -5,20 +5,13 @@ import { SchoolCardProps } from '../model/types';
 import { formatPhoneNumber } from '../../../shared/lib/utils/formatters';
 
 const SchoolMap = dynamic(() => import('../../../shared/ui/Map/SchoolMap'), {
-    ssr: false,
+  ssr: false,
 });
 
 export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, className = '' }) => {
   const { t } = useTranslation('city-schools');
-  
-  const {
-    Address,
-    phone_number,
-    coords,
-    city,
-    state,
-    locations,
-  } = schoolLocation.attributes;
+
+  const { Address, phone_number, coords, city, state, locations } = schoolLocation.attributes;
 
   const lat = coords?.latitude;
   const lon = coords?.longitude;
@@ -26,7 +19,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
   const stateFormatted = state ? state.replace(/_/g, ' ') : '';
   const cityFormatted = city ? city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '';
   const phoneFormatted = formatPhoneNumber(phone_number);
-  
+
   // Получаем имя школы из массива locations
   const schoolName = locations?.data?.[0]?.attributes?.Name || 'CDL School';
 
@@ -43,14 +36,14 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     boxShadow: isHovered ? '0 12px 32px rgba(0,0,0,0.15)' : '0 4px 12px rgba(0,0,0,0.08)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'relative',
-    height: 'fit-content'
+    height: 'fit-content',
   };
 
   const mapStyle: React.CSSProperties = {
     width: '100%',
     height: '180px',
     borderRadius: '12px',
-    overflow: 'hidden'
+    overflow: 'hidden',
   };
 
   const placeholderStyle: React.CSSProperties = {
@@ -61,11 +54,11 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     alignItems: 'center',
     justifyContent: 'center',
     color: '#aaa',
-    borderRadius: '6px'
+    borderRadius: '6px',
   };
 
   const contentStyle: React.CSSProperties = {
-    flexGrow: 1
+    flexGrow: 1,
   };
 
   const headerStyle: React.CSSProperties = {
@@ -73,18 +66,18 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     fontSize: '18px',
     color: '#1a1a1a',
     fontWeight: 600,
-    lineHeight: '1.3'
+    lineHeight: '1.3',
   };
 
   const bodyStyle: React.CSSProperties = {
-    margin: 0
+    margin: 0,
   };
 
   const textStyle: React.CSSProperties = {
     margin: '8px 0',
     fontSize: '14px',
     color: '#6b7280',
-    lineHeight: '1.4'
+    lineHeight: '1.4',
   };
 
   const phoneStyle: React.CSSProperties = {
@@ -92,19 +85,19 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     fontSize: '16px',
     color: '#3c3d78',
     lineHeight: '1.4',
-    fontWeight: 500
+    fontWeight: 500,
   };
 
   return (
-    <div 
-      className={className} 
+    <div
+      className={className}
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div style={mapStyle}>
         {lat && lon ? (
-            <SchoolMap lat={parseFloat(String(lat))} lon={parseFloat(String(lon))} />
+          <SchoolMap lat={parseFloat(String(lat))} lon={parseFloat(String(lon))} />
         ) : (
           <div style={placeholderStyle}>
             <p>{t('mapNotAvailable')}</p>
@@ -113,18 +106,16 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
       </div>
       <div style={contentStyle}>
         <div style={bodyStyle}>
-            <p style={textStyle}>{cityFormatted}, {stateFormatted}</p>
-            {phoneFormatted && (
-              <a 
-                href={`tel:${phone_number}`} 
-                style={phoneStyle}
-                title="Call this number"
-              >
-                {phoneFormatted}
-              </a>
-            )}
+          <p style={textStyle}>
+            {cityFormatted}, {stateFormatted}
+          </p>
+          {phoneFormatted && (
+            <a href={`tel:${phone_number}`} style={phoneStyle} title="Call this number">
+              {phoneFormatted}
+            </a>
+          )}
         </div>
       </div>
     </div>
   );
-}; 
+};

@@ -18,28 +18,31 @@
 ### 2. Fixed Homepage (`/pages/index.js`)
 
 **Before:**
+
 ```javascript
 const alternateLinks = {
-    'en': '/',
-    'ar': '/ar/',  // ❌ Has trailing slash
-    'ru': '/ru/',  // ❌ Has trailing slash
-    // etc...
+  en: '/',
+  ar: '/ar/', // ❌ Has trailing slash
+  ru: '/ru/', // ❌ Has trailing slash
+  // etc...
 };
 ```
 
 **After:**
+
 ```javascript
 const alternateLinks = {
-    'en': '/',
-    'ar': '/ar',  // ✅ No trailing slash
-    'ru': '/ru',  // ✅ No trailing slash
-    // etc...
+  en: '/',
+  ar: '/ar', // ✅ No trailing slash
+  ru: '/ru', // ✅ No trailing slash
+  // etc...
 };
 ```
 
 ### 3. Fixed Other Pages
 
 Updated the following pages to remove trailing slashes:
+
 - `/pages/pre-trip-inspection/guide.js`
 - `/pages/contact.js`
 - `/pages/cdl-texas.js`
@@ -52,6 +55,7 @@ Added logic to remove trailing slashes from URLs (except homepage) to prevent 30
 ### 5. Created URL Utilities (`/lib/urlUtils.js`)
 
 Helper functions for consistent URL handling:
+
 - `removeTrailingSlash()` - Removes trailing slashes
 - `generateHreflangUrls()` - Generates proper hreflang URLs
 - `getCanonicalUrl()` - Creates canonical URLs
@@ -59,6 +63,7 @@ Helper functions for consistent URL handling:
 ## Expected Results
 
 After deployment, hreflang URLs will:
+
 1. **No longer have trailing slashes** (except homepage `/`)
 2. **Not cause 308 redirects**
 3. **Include x-default** for fallback
@@ -67,16 +72,17 @@ After deployment, hreflang URLs will:
 ## Example Output
 
 For the homepage, hreflang tags will now be:
+
 ```html
-<link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="x-default" />
-<link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="en" />
-<link rel="alternate" href="https://www.cdlhelp.com/ru" hrefLang="ru" />
-<link rel="alternate" href="https://www.cdlhelp.com/uk" hrefLang="uk" />
-<link rel="alternate" href="https://www.cdlhelp.com/ar" hrefLang="ar" />
-<link rel="alternate" href="https://www.cdlhelp.com/ko" hrefLang="ko" />
-<link rel="alternate" href="https://www.cdlhelp.com/zh" hrefLang="zh" />
-<link rel="alternate" href="https://www.cdlhelp.com/tr" hrefLang="tr" />
-<link rel="alternate" href="https://www.cdlhelp.com/pt" hrefLang="pt" />
+<link rel="alternate" href="https://www.cdlhelp.com/" hreflang="x-default" />
+<link rel="alternate" href="https://www.cdlhelp.com/" hreflang="en" />
+<link rel="alternate" href="https://www.cdlhelp.com/ru" hreflang="ru" />
+<link rel="alternate" href="https://www.cdlhelp.com/uk" hreflang="uk" />
+<link rel="alternate" href="https://www.cdlhelp.com/ar" hreflang="ar" />
+<link rel="alternate" href="https://www.cdlhelp.com/ko" hreflang="ko" />
+<link rel="alternate" href="https://www.cdlhelp.com/zh" hreflang="zh" />
+<link rel="alternate" href="https://www.cdlhelp.com/tr" hreflang="tr" />
+<link rel="alternate" href="https://www.cdlhelp.com/pt" hreflang="pt" />
 ```
 
 ## Verification Steps

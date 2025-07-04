@@ -20,4 +20,4 @@
   "noCitiesTitle": "Şehir Bulunamadı",
   "noCitiesText": "{{state}}'de şu anda CDL okulu olan şehir bulunmamaktadır.",
   "noSchoolsInCity": "{{city}}, {{state}}'de şu anda CDL okulu bulunmamaktadır."
-} 
+}

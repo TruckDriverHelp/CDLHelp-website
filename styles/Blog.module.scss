@@ -4,7 +4,7 @@
 .container {
   @include container;
   padding: 2rem 1rem;
-  
+
   @media (min-width: $tablet-breakpoint) {
     padding: 3rem 2rem;
   }
@@ -13,7 +13,7 @@
 .header {
   text-align: center;
   margin-bottom: 3rem;
-  
+
   @media (min-width: $tablet-breakpoint) {
     margin-bottom: 4rem;
   }
@@ -24,7 +24,7 @@
   font-weight: 700;
   color: $text-primary;
   margin-bottom: 1rem;
-  
+
   @media (min-width: $tablet-breakpoint) {
     font-size: 3rem;
   }
@@ -43,11 +43,11 @@
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 4rem;
-  
+
   @media (min-width: $mobile-breakpoint) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (min-width: $desktop-breakpoint) {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
@@ -57,7 +57,7 @@
 .noArticles {
   text-align: center;
   padding: 4rem 0;
-  
+
   p {
     font-size: 1.125rem;
     color: $text-secondary;
@@ -92,20 +92,20 @@
   background-color: white;
   transition: all 0.2s ease;
   cursor: pointer;
-  
+
   &:hover:not(:disabled) {
     background-color: $primary-color;
     color: white;
     border-color: $primary-color;
   }
-  
+
   &.active {
     background-color: $primary-color;
     color: white;
     border-color: $primary-color;
     cursor: default;
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -124,13 +124,13 @@
   background-color: white;
   transition: all 0.2s ease;
   cursor: pointer;
-  
+
   &:hover:not(:disabled) {
     background-color: $primary-color;
     color: white;
     border-color: $primary-color;
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;

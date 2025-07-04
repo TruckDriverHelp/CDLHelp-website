@@ -1,12 +1,12 @@
 .answers {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .answers div {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f8f7fc;
-    box-shadow: 0 0 10px 0 #9290bb6c;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f8f7fc;
+  box-shadow: 0 0 10px 0 #9290bb6c;
 }

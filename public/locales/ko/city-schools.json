@@ -20,4 +20,4 @@
   "noCitiesTitle": "도시를 찾을 수 없음",
   "noCitiesText": "현재 {{state}}에는 CDL 학교가 있는 도시가 없습니다.",
   "noSchoolsInCity": "현재 {{city}}, {{state}}에는 CDL 학교가 없습니다."
-} 
+}

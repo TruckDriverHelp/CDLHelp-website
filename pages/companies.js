@@ -18,34 +18,33 @@ const CompanyCard = ({ company }) => {
   const { t } = useTranslation('companies');
   const router = useRouter();
   const { locale } = router;
-  
-  const {
-    name,
-    slug,
-    pay_rate,
-    driver_type,
-    trailer_type,
-    truck_type,
-    company_locations
-  } = company.attributes;
+
+  const { name, slug, pay_rate, driver_type, trailer_type, truck_type, company_locations } =
+    company.attributes;
 
   const locations = company_locations?.data || [];
   const locationCount = locations.length;
   const firstLocation = locations[0]?.attributes;
 
-  const formatPayRate = (rate) => {
+  const formatPayRate = rate => {
     if (!rate) return null;
     return rate.replace('_', ' ').toLowerCase();
   };
 
   const getDriverTypes = () => {
     if (!driver_type || !Array.isArray(driver_type)) return [];
-    return driver_type.map(type => type.type).filter(Boolean).slice(0, 3);
+    return driver_type
+      .map(type => type.type)
+      .filter(Boolean)
+      .slice(0, 3);
   };
 
   const getTrailerTypes = () => {
     if (!trailer_type || !Array.isArray(trailer_type)) return [];
-    return trailer_type.map(type => type.type).filter(Boolean).slice(0, 2);
+    return trailer_type
+      .map(type => type.type)
+      .filter(Boolean)
+      .slice(0, 2);
   };
 
   return (
@@ -74,7 +73,9 @@ const CompanyCard = ({ company }) => {
               <span className="detail-label">{t('driverTypes')}:</span>
               <div className="tags">
                 {getDriverTypes().map((type, index) => (
-                  <span key={index} className="tag">{type}</span>
+                  <span key={index} className="tag">
+                    {type}
+                  </span>
                 ))}
               </div>
             </div>
@@ -85,7 +86,9 @@ const CompanyCard = ({ company }) => {
               <span className="detail-label">{t('trailerTypes')}:</span>
               <div className="tags">
                 {getTrailerTypes().map((type, index) => (
-                  <span key={index} className="tag">{type}</span>
+                  <span key={index} className="tag">
+                    {type}
+                  </span>
                 ))}
               </div>
             </div>
@@ -93,17 +96,19 @@ const CompanyCard = ({ company }) => {
 
           <div className="detail-row">
             <span className="detail-label">{t('locations')}:</span>
-            <span className="location-count">{locationCount} {locationCount === 1 ? t('location') : t('locations')}</span>
+            <span className="location-count">
+              {locationCount} {locationCount === 1 ? t('location') : t('locations')}
+            </span>
           </div>
         </div>
 
         <div className="company-card-footer">
           <button className="apply-btn">{t('viewDetails')}</button>
           {firstLocation?.phone_number && (
-            <a 
-              href={`tel:${firstLocation.phone_number}`} 
+            <a
+              href={`tel:${firstLocation.phone_number}`}
               className="phone-btn"
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               {t('callNow')}
             </a>
@@ -117,14 +122,14 @@ const CompanyCard = ({ company }) => {
           border-radius: 8px;
           padding: 20px;
           margin-bottom: 20px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
           border: 1px solid #e9ecef;
           cursor: pointer;
           transition: all 0.3s ease;
           position: relative;
         }
         .company-card:hover {
-          box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
           transform: translateY(-2px);
         }
         .company-card-header {
@@ -246,7 +251,8 @@ const CompanyCard = ({ company }) => {
             flex-direction: column;
             gap: 8px;
           }
-          .apply-btn, .phone-btn {
+          .apply-btn,
+          .phone-btn {
             width: 100%;
             text-align: center;
           }
@@ -260,30 +266,31 @@ const CompaniesPage = ({ companies }) => {
   const { t } = useTranslation(['companies', 'index']);
   const router = useRouter();
   const { locale } = router;
-  
+
   const pageTitle = t('pageTitle');
   const pageDescription = t('pageDescription');
   const showQuiz = locale === 'ru' || locale === 'uk';
 
   // ItemList Schema for Companies
   const companiesListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": pageTitle,
-    "description": pageDescription,
-    "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/companies`,
-    "inLanguage": locale,
-    "numberOfItems": companies.length,
-    "itemListElement": companies.slice(0, 10).map((company, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Organization",
-        "name": company.attributes.name,
-        "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/company/${company.attributes.slug}`,
-        "description": company.attributes.description || `${company.attributes.name} trucking company`
-      }
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: pageTitle,
+    description: pageDescription,
+    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/companies`,
+    inLanguage: locale,
+    numberOfItems: companies.length,
+    itemListElement: companies.slice(0, 10).map((company, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Organization',
+        name: company.attributes.name,
+        url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/company/${company.attributes.slug}`,
+        description:
+          company.attributes.description || `${company.attributes.name} trucking company`,
+      },
+    })),
   };
 
   return (
@@ -294,7 +301,7 @@ const CompaniesPage = ({ companies }) => {
         url="https://www.cdlhelp.com/companies"
         type="article"
       />
-      
+
       <Head>
         {/* Companies List Schema */}
         <script
@@ -302,7 +309,7 @@ const CompaniesPage = ({ companies }) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(companiesListSchema) }}
         />
       </Head>
-      
+
       <Layout>
         <Navbar />
         <PageBannerStyle1
@@ -335,15 +342,29 @@ const CompaniesPage = ({ companies }) => {
                 </div>
               )}
             </main>
-            
+
             {showQuiz && (
               <aside className="sidebar">
                 <div className="quiz-container">
-                  <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>{t('companies:tryPermitQuiz')}</h3>
+                  <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                    {t('companies:tryPermitQuiz')}
+                  </h3>
                   <DynamicQuiz contained={false} />
                 </div>
-                <div className="btn-box color-wrap" style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', gap: '15px' }}>
-                    <a href={`https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp${locale == 'en' ? '' : `&hl=${locale}`}`} target="_blank" rel="noopener noreferrer" style={{
+                <div
+                  className="btn-box color-wrap"
+                  style={{
+                    marginTop: '20px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '15px',
+                  }}
+                >
+                  <a
+                    href={`https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp${locale == 'en' ? '' : `&hl=${locale}`}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
                       background: 'black',
                       borderRadius: '8px',
                       color: 'white',
@@ -351,17 +372,22 @@ const CompaniesPage = ({ companies }) => {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '10px',
-                      textDecoration: 'none'
-                    }}>
-                        <Image
-                            src="/images/play-store.png"
-                            alt={t("index:androidApp")}
-                            width={27}
-                            height={30}
-                        />
-                        <span>{t("index:androidApp")}</span>
-                    </a>
-                    <a href={`https://apps.apple.com/${locale == 'en' ? 'us' : locale}/app/cdl-help/id6444388755`} target="_blank" rel="noopener noreferrer" style={{
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <Image
+                      src="/images/play-store.png"
+                      alt={t('index:androidApp')}
+                      width={27}
+                      height={30}
+                    />
+                    <span>{t('index:androidApp')}</span>
+                  </a>
+                  <a
+                    href={`https://apps.apple.com/${locale == 'en' ? 'us' : locale}/app/cdl-help/id6444388755`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
                       background: 'black',
                       borderRadius: '8px',
                       color: 'white',
@@ -369,16 +395,17 @@ const CompaniesPage = ({ companies }) => {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '10px',
-                      textDecoration: 'none'
-                    }}>
-                        <Image
-                            src="/images/apple-store.png"
-                            alt={t("index:iosApp")}
-                            width={34}
-                            height={35}
-                        />
-                        <span>{t("index:iosApp")}</span>
-                    </a>
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <Image
+                      src="/images/apple-store.png"
+                      alt={t('index:iosApp')}
+                      width={34}
+                      height={35}
+                    />
+                    <span>{t('index:iosApp')}</span>
+                  </a>
                 </div>
               </aside>
             )}
@@ -457,9 +484,12 @@ const CompaniesPage = ({ companies }) => {
 
 export async function getStaticProps({ locale }) {
   try {
-    const { data: companiesData } = await axios.get(`http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/companies?populate[company_locations]=*&sort=createdAt:desc`, {
-      headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` },
-    });
+    const { data: companiesData } = await axios.get(
+      `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/companies?populate[company_locations]=*&sort=createdAt:desc`,
+      {
+        headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` },
+      }
+    );
 
     const companies = companiesData.data || [];
 
@@ -469,20 +499,35 @@ export async function getStaticProps({ locale }) {
     return {
       props: {
         companies: shuffledCompanies,
-        ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer', 'common', 'companies', 'index'])),
+        ...(await serverSideTranslations(locale ?? 'en', [
+          'navbar',
+          'footer',
+          'common',
+          'companies',
+          'index',
+        ])),
       },
       revalidate: 300, // Revalidate every 5 minutes to get new random order
     };
   } catch (error) {
-    console.error('Error fetching companies:', error.response ? error.response.data : error.message);
+    console.error(
+      'Error fetching companies:',
+      error.response ? error.response.data : error.message
+    );
     return {
       props: {
         companies: [],
-        ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer', 'common', 'companies', 'index'])),
+        ...(await serverSideTranslations(locale ?? 'en', [
+          'navbar',
+          'footer',
+          'common',
+          'companies',
+          'index',
+        ])),
       },
       revalidate: 60,
     };
   }
 }
 
-export default CompaniesPage; 
+export default CompaniesPage;

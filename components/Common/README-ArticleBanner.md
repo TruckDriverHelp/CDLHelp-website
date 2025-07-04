@@ -28,32 +28,32 @@ import ArticleBanner from '../components/Common/ArticleBanner';
 
 // Simple banner with title and description
 <ArticleBanner
-    title="Ready to Get Started?"
-    description="Join thousands of users who have already improved their workflow."
-    buttonText="Start Free Trial"
-    buttonLink="/signup"
-/>
+  title="Ready to Get Started?"
+  description="Join thousands of users who have already improved their workflow."
+  buttonText="Start Free Trial"
+  buttonLink="/signup"
+/>;
 ```
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | string | - | Main heading text |
-| `subtitle` | string | - | Subtitle text (appears above title) |
-| `description` | string | - | Main description text |
-| `buttonText` | string | - | Button text |
-| `buttonLink` | string | - | Button link URL |
-| `buttonVariant` | string | 'primary' | Button style: 'primary', 'secondary', 'outline' |
-| `backgroundColor` | string | 'gradient' | Background style: 'gradient', 'solid', 'light', 'blue', 'purple', 'orange', 'green' |
-| `textColor` | string | 'white' | Text color: 'white', 'dark' |
-| `alignment` | string | 'center' | Content alignment: 'left', 'center', 'right' |
-| `padding` | string | 'medium' | Padding size: 'small', 'medium', 'large' |
-| `showIcon` | boolean | false | Whether to show an icon |
-| `icon` | ReactNode | null | Icon component to display |
-| `className` | string | '' | Additional CSS classes |
-| `children` | ReactNode | - | Custom content to render inside banner |
-| `onClick` | function | - | Click handler for the banner |
+| Prop              | Type      | Default    | Description                                                                         |
+| ----------------- | --------- | ---------- | ----------------------------------------------------------------------------------- |
+| `title`           | string    | -          | Main heading text                                                                   |
+| `subtitle`        | string    | -          | Subtitle text (appears above title)                                                 |
+| `description`     | string    | -          | Main description text                                                               |
+| `buttonText`      | string    | -          | Button text                                                                         |
+| `buttonLink`      | string    | -          | Button link URL                                                                     |
+| `buttonVariant`   | string    | 'primary'  | Button style: 'primary', 'secondary', 'outline'                                     |
+| `backgroundColor` | string    | 'gradient' | Background style: 'gradient', 'solid', 'light', 'blue', 'purple', 'orange', 'green' |
+| `textColor`       | string    | 'white'    | Text color: 'white', 'dark'                                                         |
+| `alignment`       | string    | 'center'   | Content alignment: 'left', 'center', 'right'                                        |
+| `padding`         | string    | 'medium'   | Padding size: 'small', 'medium', 'large'                                            |
+| `showIcon`        | boolean   | false      | Whether to show an icon                                                             |
+| `icon`            | ReactNode | null       | Icon component to display                                                           |
+| `className`       | string    | ''         | Additional CSS classes                                                              |
+| `children`        | ReactNode | -          | Custom content to render inside banner                                              |
+| `onClick`         | function  | -          | Click handler for the banner                                                        |
 
 ## Usage Examples
 
@@ -61,14 +61,14 @@ import ArticleBanner from '../components/Common/ArticleBanner';
 
 ```javascript
 <ArticleBanner
-    title="Ready to Get Started?"
-    subtitle="Take Action Now"
-    description="Join thousands of users who have already improved their workflow with our platform."
-    buttonText="Start Free Trial"
-    buttonLink="/signup"
-    backgroundColor="gradient"
-    alignment="center"
-    padding="large"
+  title="Ready to Get Started?"
+  subtitle="Take Action Now"
+  description="Join thousands of users who have already improved their workflow with our platform."
+  buttonText="Start Free Trial"
+  buttonLink="/signup"
+  backgroundColor="gradient"
+  alignment="center"
+  padding="large"
 />
 ```
 
@@ -76,13 +76,13 @@ import ArticleBanner from '../components/Common/ArticleBanner';
 
 ```javascript
 <ArticleBanner
-    title="Pro Tip"
-    subtitle="Expert Advice"
-    description="Did you know that using keyboard shortcuts can increase your productivity by up to 40%?"
-    backgroundColor="light"
-    textColor="dark"
-    alignment="left"
-    padding="medium"
+  title="Pro Tip"
+  subtitle="Expert Advice"
+  description="Did you know that using keyboard shortcuts can increase your productivity by up to 40%?"
+  backgroundColor="light"
+  textColor="dark"
+  alignment="left"
+  padding="medium"
 />
 ```
 
@@ -90,38 +90,38 @@ import ArticleBanner from '../components/Common/ArticleBanner';
 
 ```javascript
 const DownloadIcon = () => (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-    </svg>
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+  </svg>
 );
 
 <ArticleBanner
-    title="Download Our Mobile App"
-    subtitle="Available Now"
-    description="Get instant access to all features on the go."
-    buttonText="Download Now"
-    buttonLink="/download"
-    backgroundColor="blue"
-    showIcon={true}
-    icon={<DownloadIcon />}
-    alignment="center"
-    padding="medium"
-/>
+  title="Download Our Mobile App"
+  subtitle="Available Now"
+  description="Get instant access to all features on the go."
+  buttonText="Download Now"
+  buttonLink="/download"
+  backgroundColor="blue"
+  showIcon={true}
+  icon={<DownloadIcon />}
+  alignment="center"
+  padding="medium"
+/>;
 ```
 
 ### 4. Newsletter Signup
 
 ```javascript
 <ArticleBanner
-    title="Stay Updated"
-    subtitle="Newsletter"
-    description="Get the latest tips and insights delivered to your inbox."
-    buttonText="Subscribe"
-    buttonLink="/newsletter"
-    backgroundColor="purple"
-    buttonVariant="outline"
-    alignment="center"
-    padding="medium"
+  title="Stay Updated"
+  subtitle="Newsletter"
+  description="Get the latest tips and insights delivered to your inbox."
+  buttonText="Subscribe"
+  buttonLink="/newsletter"
+  backgroundColor="purple"
+  buttonVariant="outline"
+  alignment="center"
+  padding="medium"
 />
 ```
 
@@ -129,22 +129,18 @@ const DownloadIcon = () => (
 
 ```javascript
 <ArticleBanner
-    title="Custom Content Example"
-    backgroundColor="gradient"
-    alignment="center"
-    padding="medium"
+  title="Custom Content Example"
+  backgroundColor="gradient"
+  alignment="center"
+  padding="medium"
 >
-    <div className="text-white">
-        <p className="mb-4">This banner contains custom content.</p>
-        <div className="flex justify-center space-x-4">
-            <button className="bg-white text-gray-800 px-4 py-2 rounded-lg">
-                Option 1
-            </button>
-            <button className="border-2 border-white text-white px-4 py-2 rounded-lg">
-                Option 2
-            </button>
-        </div>
+  <div className="text-white">
+    <p className="mb-4">This banner contains custom content.</p>
+    <div className="flex justify-center space-x-4">
+      <button className="bg-white text-gray-800 px-4 py-2 rounded-lg">Option 1</button>
+      <button className="border-2 border-white text-white px-4 py-2 rounded-lg">Option 2</button>
     </div>
+  </div>
 </ArticleBanner>
 ```
 
@@ -185,6 +181,7 @@ The component uses CSS modules for styling. You can override styles by:
 ## Accessibility
 
 The component includes:
+
 - Semantic HTML structure
 - Proper heading hierarchy
 - Keyboard navigation support
@@ -202,4 +199,4 @@ The component includes:
 - Lightweight component with minimal dependencies
 - CSS animations are hardware-accelerated
 - No external dependencies beyond React and Next.js
-- Optimized for production builds 
+- Optimized for production builds

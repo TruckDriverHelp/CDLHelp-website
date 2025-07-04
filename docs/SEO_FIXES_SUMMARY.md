@@ -5,10 +5,12 @@
 ### 1. Duplicate Title Tags
 
 **Problem**: Multiple pages using the same title "CDL questions 2025 – CDL Help"
+
 - Homepage (`/`)
 - Download page (`/download`)
 
 **Solution**:
+
 - Updated `pages/index.js` to use fallback title from translations: `${t('title')} - CDL Help`
 - Download page already had unique title in translations: "Download CDL Help - Free CDL Practice Test App"
 - Both pages now have unique, descriptive titles
@@ -16,24 +18,29 @@
 ### 2. Hreflang Conflicts
 
 **Problem**: Mixed implementation of hreflang tags causing conflicts
+
 - Some pages using SEOHead component
 - Others using manual implementation with errors
 
 **Issues Found**:
+
 - Incorrect URLs with `/en/` prefix for English
 - Duplicate entries for x-default and en
 - Wrong URL paths in hreflang tags
 
 **Solution**:
+
 - Standardized on SEOHead component for all pages
 - Fixed contact.js to use SEOHead instead of manual implementation
 - Removed incorrect `/en/` prefixes
 - Proper x-default handling
 
 **Pages Updated**:
+
 - `/pages/contact.js` - Now uses SEOHead component
 
 **Pages Still Need Updating**:
+
 - `/pages/[slug].jsx`
 - `/pages/cdl-texas.js`
 - `/pages/pre-trip-inspection/guide.js`
@@ -41,9 +48,11 @@
 ### 3. Broken JavaScript Files
 
 **Problem**: Cloudflare email decode script returning 404
+
 - `/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js`
 
 **Solution**:
+
 - Removed hardcoded Cloudflare script tags from:
   - `/pages/privacy-policy.js`
   - `/pages/terms-conditions.js`
@@ -55,6 +64,7 @@
 **Problem**: Multiple URLs returning 404 errors
 
 **Solution**: Added comprehensive redirects in `next.config.js` for:
+
 - Old Russian URLs → New localized URLs
 - Both with and without trailing slashes
 - Created `llms.txt` file

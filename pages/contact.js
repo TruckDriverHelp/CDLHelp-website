@@ -14,36 +14,55 @@ const Contact = ({ alternateLinks, meta }) => {
   const { t } = useTranslation('contact');
   const router = useRouter();
   const { locale } = router;
-  
+
   const contactPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": t('pageTitle', 'Contact CDL Help'),
-    "description": t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.'),
-    "url": `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/contact`,
-    "inLanguage": locale,
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "CDL Help",
-      "url": "https://www.cdlhelp.com",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-800-CDL-HELP",
-        "contactType": "customer service",
-        "areaServed": "US",
-        "availableLanguage": ["English", "Spanish", "Russian", "Ukrainian", "Arabic", "Korean", "Chinese", "Turkish", "Portuguese"]
-      }
-    }
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: t('pageTitle', 'Contact CDL Help'),
+    description: t(
+      'pageDescription',
+      'Get in touch with CDL Help. We are here to help you with your CDL test preparation.'
+    ),
+    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/contact`,
+    inLanguage: locale,
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'CDL Help',
+      url: 'https://www.cdlhelp.com',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+1-800-CDL-HELP',
+        contactType: 'customer service',
+        areaServed: 'US',
+        availableLanguage: [
+          'English',
+          'Spanish',
+          'Russian',
+          'Ukrainian',
+          'Arabic',
+          'Korean',
+          'Chinese',
+          'Turkish',
+          'Portuguese',
+        ],
+      },
+    },
   };
-  
+
   return (
     <>
       <SEOHead
         title={meta.title || t('pageTitle', 'Contact Us - CDL Help')}
-        description={meta.description || t('pageDescription', 'Get in touch with CDL Help. We are here to help you with your CDL test preparation.')}
+        description={
+          meta.description ||
+          t(
+            'pageDescription',
+            'Get in touch with CDL Help. We are here to help you with your CDL test preparation.'
+          )
+        }
         alternateLinks={alternateLinks}
       />
-      
+
       <Head>
         {/* ContactPage Schema */}
         <script
@@ -51,7 +70,7 @@ const Contact = ({ alternateLinks, meta }) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
         />
       </Head>
-      
+
       <Navbar alternateLinks={alternateLinks} />
 
       <div className="page-title-area">
@@ -76,28 +95,23 @@ export default Contact;
 
 export async function getStaticProps({ locale }) {
   const alternateLinks = {
-    'en': '/contact',
-    'ar': '/ar/contact',
-    'ru': '/ru/contact',
-    'uk': '/uk/contact',
-    'zh': '/zh/contact',
-    'ko': '/ko/contact',
-    'tr': '/tr/contact',
-    'pt': '/pt/contact'
+    en: '/contact',
+    ar: '/ar/contact',
+    ru: '/ru/contact',
+    uk: '/uk/contact',
+    zh: '/zh/contact',
+    ko: '/ko/contact',
+    tr: '/tr/contact',
+    pt: '/pt/contact',
   };
 
-  const meta = await getMeta(locale, "contact");
+  const meta = await getMeta(locale, 'contact');
 
   return {
     props: {
       alternateLinks,
       meta,
-      ...(await serverSideTranslations(locale ?? 'en', [
-        'navbar',
-        'footer',
-        'cookie',
-        'contact',
-      ])),
+      ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer', 'cookie', 'contact'])),
     },
   };
 }

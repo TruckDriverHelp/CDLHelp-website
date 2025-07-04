@@ -50,4 +50,4 @@ export interface SchoolListProps {
   schools: SchoolLocation[];
   loading?: boolean;
   error?: string | null;
-} 
+}

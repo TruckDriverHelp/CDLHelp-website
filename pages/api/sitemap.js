@@ -24,7 +24,7 @@ const PAGE_PRIORITIES = {
   articles: 0.7,
   'pre-trip': 0.6,
   legal: 0.3,
-  default: 0.5
+  default: 0.5,
 };
 
 // Change frequencies based on content type
@@ -35,7 +35,7 @@ const CHANGE_FREQUENCIES = {
   articles: 'monthly',
   'pre-trip': 'yearly',
   legal: 'yearly',
-  default: 'monthly'
+  default: 'monthly',
 };
 
 async function fetchArticlesFromStrapi() {
@@ -45,7 +45,7 @@ async function fetchArticlesFromStrapi() {
       console.log('Strapi not configured, skipping article fetch');
       return [];
     }
-    
+
     const { data } = await axios.get(
       `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*`,
       {
@@ -54,26 +54,26 @@ async function fetchArticlesFromStrapi() {
         },
       }
     );
-    
+
     const articles = [];
     data.data.forEach(article => {
       // Add main article
       articles.push({
         slug: article.attributes.slug,
         locale: article.attributes.locale,
-        updatedAt: article.attributes.updatedAt
+        updatedAt: article.attributes.updatedAt,
       });
-      
+
       // Add localizations
       article.attributes.localizations?.data?.forEach(localization => {
         articles.push({
           slug: localization.attributes.slug,
           locale: localization.attributes.locale,
-          updatedAt: localization.attributes.updatedAt
+          updatedAt: localization.attributes.updatedAt,
         });
       });
     });
-    
+
     return articles;
   } catch (error) {
     console.error('Error fetching articles:', error);
@@ -89,26 +89,26 @@ function generateUrlEntry(path, locale, lastmod, priority, changefreq, alternate
     // For non-English pages, don't add trailing slash since Next.js is configured with trailingSlash: false
     loc = path === '' ? `${SITE_URL}/${locale}` : `${SITE_URL}/${locale}${path}`;
   }
-  
+
   let entry = `  <url>\n`;
   entry += `    <loc>${loc}</loc>\n`;
-  
+
   if (lastmod) {
     entry += `    <lastmod>${lastmod}</lastmod>\n`;
   }
-  
+
   entry += `    <changefreq>${changefreq}</changefreq>\n`;
   entry += `    <priority>${priority}</priority>\n`;
-  
+
   // Add hreflang alternatives
   if (alternates.length > 0) {
     alternates.forEach(alt => {
       entry += `    <xhtml:link rel="alternate" hreflang="${alt.lang}" href="${alt.href}"/>\n`;
     });
   }
-  
+
   entry += `  </url>\n`;
-  
+
   return entry;
 }
 
@@ -117,7 +117,8 @@ function getPageType(path) {
   if (path.includes('download')) return 'download';
   if (path.includes('cdl-schools')) return 'cdl-schools';
   if (path.includes('pre-trip')) return 'pre-trip';
-  if (path.includes('privacy') || path.includes('terms') || path.includes('cookies')) return 'legal';
+  if (path.includes('privacy') || path.includes('terms') || path.includes('cookies'))
+    return 'legal';
   return 'articles';
 }
 
@@ -125,18 +126,18 @@ export default async function handler(req, res) {
   // Always set XML headers first
   res.setHeader('Content-Type', 'application/xml; charset=utf-8');
   res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
-  
+
   try {
     // Check if required environment variables are set
     if (!process.env.STRAPI_HOST || !process.env.STRAPI_PORT || !process.env.STRAPI_API_KEY) {
       console.error('Missing required environment variables for Strapi connection');
       // Continue without articles if Strapi is not configured
     }
-    
+
     // Fetch dynamic content
     const articles = await fetchArticlesFromStrapi();
     const today = new Date().toISOString().split('T')[0];
-    
+
     // Static pages with their paths
     const staticPages = [
       { path: '/', lastmod: today },
@@ -152,13 +153,22 @@ export default async function handler(req, res) {
       { path: '/terms-conditions', lastmod: today },
       { path: '/cookies-policy', lastmod: today },
     ];
-    
+
     // State pages for CDL schools
-    const states = ['california', 'florida', 'illinois', 'new-york', 'ohio', 'pennsylvania', 'washington', 'wisconsin'];
+    const states = [
+      'california',
+      'florida',
+      'illinois',
+      'new-york',
+      'ohio',
+      'pennsylvania',
+      'washington',
+      'wisconsin',
+    ];
     states.forEach(state => {
       staticPages.push({ path: `/cdl-schools/${state}`, lastmod: today });
     });
-    
+
     // City pages
     const cities = [
       { state: 'california', cities: ['los-angeles', 'sacramento'] },
@@ -168,27 +178,27 @@ export default async function handler(req, res) {
       { state: 'ohio', cities: ['cincinnati', 'columbus'] },
       { state: 'pennsylvania', cities: ['philadelphia'] },
       { state: 'washington', cities: ['seattle'] },
-      { state: 'wisconsin', cities: ['milwaukee'] }
+      { state: 'wisconsin', cities: ['milwaukee'] },
     ];
-    
+
     cities.forEach(stateObj => {
       stateObj.cities.forEach(city => {
         staticPages.push({ path: `/cdl-schools/${stateObj.state}/${city}`, lastmod: today });
       });
     });
-    
+
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     sitemap += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
-    
+
     // Track generated URLs to avoid duplicates
     const generatedUrls = new Set();
-    
+
     // Generate entries for static pages
     for (const page of staticPages) {
       const pageType = getPageType(page.path);
       const priority = PAGE_PRIORITIES[pageType] || PAGE_PRIORITIES.default;
       const changefreq = CHANGE_FREQUENCIES[pageType] || CHANGE_FREQUENCIES.default;
-      
+
       // Skip home page for non-English locales to avoid /ru/ redirect
       if (page.path === '/' && LOCALES.length > 1) {
         // Only add the English home page
@@ -197,20 +207,13 @@ export default async function handler(req, res) {
           generatedUrls.add(urlKey);
           const alternates = LOCALES.map(locale => ({
             lang: locale,
-            href: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}`
+            href: locale === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${locale}`,
           }));
           alternates.push({
             lang: 'x-default',
-            href: `${SITE_URL}/`
+            href: `${SITE_URL}/`,
           });
-          sitemap += generateUrlEntry(
-            '/',
-            'en',
-            page.lastmod,
-            priority,
-            changefreq,
-            alternates
-          );
+          sitemap += generateUrlEntry('/', 'en', page.lastmod, priority, changefreq, alternates);
         }
         // Add non-English homepages separately
         LOCALES.filter(locale => locale !== 'en').forEach(locale => {
@@ -219,11 +222,11 @@ export default async function handler(req, res) {
             generatedUrls.add(urlKey);
             const homeAlternates = LOCALES.map(loc => ({
               lang: loc,
-              href: loc === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${loc}`
+              href: loc === 'en' ? `${SITE_URL}/` : `${SITE_URL}/${loc}`,
             }));
             homeAlternates.push({
               lang: 'x-default',
-              href: `${SITE_URL}/`
+              href: `${SITE_URL}/`,
             });
             sitemap += generateUrlEntry(
               '',
@@ -237,22 +240,23 @@ export default async function handler(req, res) {
         });
         continue;
       }
-      
+
       // Generate alternates for each locale
       const alternates = LOCALES.map(locale => ({
         lang: locale,
-        href: locale === 'en' ? `${SITE_URL}${page.path}` : `${SITE_URL}/${locale}${page.path}`
+        href: locale === 'en' ? `${SITE_URL}${page.path}` : `${SITE_URL}/${locale}${page.path}`,
       }));
-      
+
       // Add x-default
       alternates.push({
         lang: 'x-default',
-        href: `${SITE_URL}${page.path}`
+        href: `${SITE_URL}${page.path}`,
       });
-      
+
       // Generate URL entry for each locale
       LOCALES.forEach(locale => {
-        const urlKey = locale === 'en' ? `${SITE_URL}${page.path}` : `${SITE_URL}/${locale}${page.path}`;
+        const urlKey =
+          locale === 'en' ? `${SITE_URL}${page.path}` : `${SITE_URL}/${locale}${page.path}`;
         if (!generatedUrls.has(urlKey)) {
           generatedUrls.add(urlKey);
           sitemap += generateUrlEntry(
@@ -266,30 +270,33 @@ export default async function handler(req, res) {
         }
       });
     }
-    
+
     // Generate entries for articles if available
     if (articles && articles.length > 0) {
       for (const article of articles) {
         const articlePath = `/${article.slug}`;
         const lastmod = article.updatedAt ? article.updatedAt.split('T')[0] : today;
-        
+
         // Find all alternate versions
         const alternates = articles
           .filter(a => a.slug === article.slug || articles.some(alt => alt.slug === article.slug))
           .map(a => ({
             lang: a.locale,
-            href: a.locale === 'en' ? `${SITE_URL}/${a.slug}` : `${SITE_URL}/${a.locale}/${a.slug}`
+            href: a.locale === 'en' ? `${SITE_URL}/${a.slug}` : `${SITE_URL}/${a.locale}/${a.slug}`,
           }));
-        
+
         // Add x-default
         if (article.locale === 'en') {
           alternates.push({
             lang: 'x-default',
-            href: `${SITE_URL}/${article.slug}`
+            href: `${SITE_URL}/${article.slug}`,
           });
         }
-        
-        const urlKey = article.locale === 'en' ? `${SITE_URL}/${article.slug}` : `${SITE_URL}/${article.locale}/${article.slug}`;
+
+        const urlKey =
+          article.locale === 'en'
+            ? `${SITE_URL}/${article.slug}`
+            : `${SITE_URL}/${article.locale}/${article.slug}`;
         if (!generatedUrls.has(urlKey)) {
           generatedUrls.add(urlKey);
           sitemap += generateUrlEntry(
@@ -303,15 +310,15 @@ export default async function handler(req, res) {
         }
       }
     }
-    
+
     sitemap += `</urlset>`;
-    
+
     res.status(200).send(sitemap);
   } catch (error) {
     console.error('Error generating sitemap:', error);
     console.error('Error details:', error.message);
     console.error('Stack trace:', error.stack);
-    
+
     // Send a valid XML error response
     const errorXml = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Error generating sitemap: ${error.message} -->
@@ -323,7 +330,7 @@ export default async function handler(req, res) {
     <priority>1.0</priority>
   </url>
 </urlset>`;
-    
+
     res.status(500).send(errorXml);
   }
 }

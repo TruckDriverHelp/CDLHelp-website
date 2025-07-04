@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
-import axios from "axios";
-import Image from "next/image";
-import remarkGfm from "remark-gfm";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import axios from 'axios';
+import Image from 'next/image';
+import remarkGfm from 'remark-gfm';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ARTICLE_BY_SLUG_QUERY } from '../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
-import Layout from "../components/_App/Layout";
-import Navbar from "../components/_App/Navbar";
-import Footer from "../components/_App/Footer";
+import Layout from '../components/_App/Layout';
+import Navbar from '../components/_App/Navbar';
+import Footer from '../components/_App/Footer';
 import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
 import { SEOHead } from '../src/shared/ui/SEO';
@@ -17,62 +17,62 @@ import { LinkRenderer } from '../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../lib/article-utils';
 
 const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
-  const { t } = useTranslation("article");
-  const host = "http://" + process.env.STRAPI_HOST + ":" + process.env.STRAPI_PORT;
+  const { t } = useTranslation('article');
+  const host = 'http://' + process.env.STRAPI_HOST + ':' + process.env.STRAPI_PORT;
 
   // Helper function to extract YouTube video ID from various URL formats
-  const extractYouTubeVideoId = (url) => {
+  const extractYouTubeVideoId = url => {
     if (!url) return null;
-    
+
     // Handle youtu.be format
     if (url.includes('youtu.be/')) {
       return url.split('youtu.be/')[1]?.split('?')[0];
     }
-    
+
     // Handle youtube.com/watch format
     if (url.includes('youtube.com/watch')) {
       const urlParams = new URLSearchParams(url.split('?')[1]);
       return urlParams.get('v');
     }
-    
+
     // Handle youtube.com/embed format
     if (url.includes('youtube.com/embed/')) {
       return url.split('youtube.com/embed/')[1]?.split('?')[0];
     }
-    
+
     // Handle youtube.com/v format
     if (url.includes('youtube.com/v/')) {
       return url.split('youtube.com/v/')[1]?.split('?')[0];
     }
-    
+
     return null;
   };
 
   const metaTags = article?.meta_tag?.data?.attributes || {
     title: article?.title || 'CDL Help',
     description: article?.description || '',
-    image: { data: { attributes: { url: '' } } }
+    image: { data: { attributes: { url: '' } } },
   };
-  const metaImage = metaTags.image?.data?.attributes?.url ? 
-    host + metaTags.image.data.attributes.url : 
-    '';
+  const metaImage = metaTags.image?.data?.attributes?.url
+    ? host + metaTags.image.data.attributes.url
+    : '';
 
   // Convert alternateLinks array to object format for SEOHead
   const alternateLinksObj = {};
-  
+
   // Always ensure self-referencing hreflang is included first
   alternateLinksObj[locale] = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`;
-  
+
   // Process alternate links from Strapi
   alternateLinks.forEach(link => {
     // Skip if this is the current locale (we already added it above)
     if (link.hrefLang === locale) {
       return;
     }
-    
+
     // Validate that the href matches the expected pattern for the locale
     const expectedPrefix = link.hrefLang === 'en' ? '/' : `/${link.hrefLang}/`;
-    
+
     // Only add the link if it starts with the correct locale prefix
     if (link.href && link.href.startsWith(expectedPrefix)) {
       alternateLinksObj[link.hrefLang] = link.href;
@@ -81,11 +81,11 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
       console.warn(`Invalid hreflang: locale ${link.hrefLang} has href ${link.href}`);
     }
   });
-  
+
   // Generate fallback hreflang URLs if we have an article
   if (article) {
     const fallbackHreflangUrls = generateArticleHreflangUrls(article, locale, slug, false);
-    
+
     // Ensure we have all supported locales covered
     const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
     supportedLocales.forEach(loc => {
@@ -130,7 +130,6 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
         alternateLinks={alternateLinksObj}
       />
       <Head>
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -140,14 +139,13 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
               headline: metaTags.title,
               image: metaImage,
               author: {
-                "@type": "Organization",
-                name: "CDL Help",
-                url: "https://www.cdlhelp.com"
-              }
-            })}`
+                '@type': 'Organization',
+                name: 'CDL Help',
+                url: 'https://www.cdlhelp.com',
+              },
+            })}`,
           }}
         />
-
       </Head>
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
@@ -158,123 +156,130 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
           activePageText={article.title}
         />
         <div className="blog-details-area pb-75 col-11 col-md-6 mx-auto">
-            <p>{article.description}</p>
-            {article.blocks?.map((block, index) => {
-              if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-                return (
-                  <div key={index} id={block.idtag}>
-                    <ReactMarkdown 
-                      children={block.richtext} 
-                      remarkPlugins={[remarkGfm]}
-                      components={{
-                        a: LinkRenderer
-                      }}
+          <p>{article.description}</p>
+          {article.blocks?.map((block, index) => {
+            if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
+              return (
+                <div key={index} id={block.idtag}>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      a: LinkRenderer,
+                    }}
+                  >
+                    {block.richtext}
+                  </ReactMarkdown>
+                </div>
+              );
+            } else if (block.__typename === 'ComponentArticlePartsMedia') {
+              return (
+                <Image
+                  key={index}
+                  src={host + block.Media.data[0].attributes.url}
+                  alt={block.Media.data[0].attributes.alternativeText}
+                  width={block.Media.data[0].attributes.width}
+                  height={block.Media.data[0].attributes.height}
+                />
+              );
+            } else if (block.__typename === 'ComponentArticlePartsSlider') {
+              return (
+                <div key={index}>
+                  {block.Slider.data.map((file, index) => (
+                    <Image
+                      key={index}
+                      src={host + file.attributes.url}
+                      alt={file.attributes.alternativeText}
+                      width={file.attributes.width}
+                      height={file.attributes.height}
                     />
-                  </div>
-                );
-              }
-              else if (block.__typename === 'ComponentArticlePartsMedia') {
-                return (
-                  <Image
-                    key={index}
-                    src={host + block.Media.data[0].attributes.url}
-                    alt={block.Media.data[0].attributes.alternativeText}
-                    width={block.Media.data[0].attributes.width}
-                    height={block.Media.data[0].attributes.height}
-                  />
-                );
-              } else if (block.__typename === 'ComponentArticlePartsSlider') {
+                  ))}
+                </div>
+              );
+            } else if (block.__typename === 'ComponentArticlePartsQuote') {
+              return (
+                <blockquote key={index}>
+                  <p>{block.Quote}</p>
+                </blockquote>
+              );
+            } else if (block.__typename === 'ComponentArticlePartsYouTube') {
+              try {
+                let videoId = null;
+                let youtubeUrl = null;
+
+                // Try different possible data structures
+                if (block.YouTube) {
+                  try {
+                    const parsedYoutube = JSON.parse(block.YouTube);
+
+                    if (parsedYoutube.url) {
+                      youtubeUrl = parsedYoutube.url;
+                    } else if (parsedYoutube.embed_url) {
+                      youtubeUrl = parsedYoutube.embed_url;
+                    } else if (typeof parsedYoutube === 'string') {
+                      youtubeUrl = parsedYoutube;
+                    }
+                  } catch (parseError) {
+                    youtubeUrl = block.YouTube;
+                  }
+                }
+
+                // If we have a URL, extract video ID
+                if (youtubeUrl) {
+                  videoId = extractYouTubeVideoId(youtubeUrl);
+                }
+
+                // If still no video ID, try to extract from the raw data
+                if (!videoId && block.YouTube) {
+                  // Try to find a YouTube URL pattern in the raw data
+                  const urlMatch = block.YouTube.match(
+                    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/
+                  );
+                  if (urlMatch) {
+                    videoId = urlMatch[1];
+                  }
+                }
+
+                if (!videoId) {
+                  console.error('Could not extract video ID from YouTube data:', block.YouTube);
+                  return <div key={index}>Error: Could not extract video ID from YouTube data</div>;
+                }
+
                 return (
                   <div key={index}>
-                    {block.Slider.data.map((file, index) => (
-                      <Image
-                        key={index}
-                        src={host + file.attributes.url}
-                        alt={file.attributes.alternativeText}
-                        width={file.attributes.width}
-                        height={file.attributes.height}
-                      />
-                    ))}
+                    <YouTubePlayer videoId={videoId} />
                   </div>
                 );
-              } else if (block.__typename === 'ComponentArticlePartsQuote') {
-                return (
-                  <blockquote key={index}>
-                    <p>{block.Quote}</p>
-                  </blockquote>
-                );
-              } else if (block.__typename === 'ComponentArticlePartsYouTube') {
-                try {
-                  let videoId = null;
-                  let youtubeUrl = null;
-                  
-                  // Try different possible data structures
-                  if (block.YouTube) {
-                    try {
-                      const parsedYoutube = JSON.parse(block.YouTube);
-                      
-                      if (parsedYoutube.url) {
-                        youtubeUrl = parsedYoutube.url;
-                      } else if (parsedYoutube.embed_url) {
-                        youtubeUrl = parsedYoutube.embed_url;
-                      } else if (typeof parsedYoutube === 'string') {
-                        youtubeUrl = parsedYoutube;
-                      }
-                    } catch (parseError) {
-                      youtubeUrl = block.YouTube;
-                    }
-                  }
-                  
-                  // If we have a URL, extract video ID
-                  if (youtubeUrl) {
-                    videoId = extractYouTubeVideoId(youtubeUrl);
-                  }
-                  
-                  // If still no video ID, try to extract from the raw data
-                  if (!videoId && block.YouTube) {
-                    // Try to find a YouTube URL pattern in the raw data
-                    const urlMatch = block.YouTube.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
-                    if (urlMatch) {
-                      videoId = urlMatch[1];
-                    }
-                  }
-                  
-                  if (!videoId) {
-                    console.error('Could not extract video ID from YouTube data:', block.YouTube);
-                    return <div key={index}>Error: Could not extract video ID from YouTube data</div>;
-                  }
-                  
-                  return (
-                    <div key={index}>
-                      <YouTubePlayer videoId={videoId} />
-                    </div>
-                  );
-                } catch (error) {
-                  console.error('Error processing YouTube block:', error);
-                  return <div key={index}>Error: Failed to load YouTube video</div>;
-                }
+              } catch (error) {
+                console.error('Error processing YouTube block:', error);
+                return <div key={index}>Error: Failed to load YouTube video</div>;
               }
-              if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
-                return <div key={index}>
-                  <p>{t("relatedArticles")}</p>
+            }
+            if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
+              return (
+                <div key={index}>
+                  <p>{t('relatedArticles')}</p>
                   <ul>
                     {block.articles.data.map((articleData, i) => {
                       const article = articleData.attributes;
-                      const url = "/" + article.locale + "/" + article.slug + "/";
-                      return <li key={i}><a href={url}>{article.title}</a></li>
+                      const url = '/' + article.locale + '/' + article.slug + '/';
+                      return (
+                        <li key={i}>
+                          <a href={url}>{article.title}</a>
+                        </li>
+                      );
                     })}
                   </ul>
                 </div>
-              }
-              return null;
-            })}
-
-          </div>
+              );
+            }
+            return null;
+          })}
+        </div>
         <Footer />
       </Layout>
     </>
   );
-}
+};
 
 export async function getStaticProps({ params, locale }) {
   const { slug } = params;
@@ -286,51 +291,61 @@ export async function getStaticProps({ params, locale }) {
   try {
     const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
     console.log(`[getStaticProps] GraphQL URL: ${graphqlUrl}`);
-    
+
     const articleResponse = await axios.post(
       graphqlUrl,
       { query: ARTICLE_BY_SLUG_QUERY, variables },
       {
         headers: {
-          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
-        }
+          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+        },
       }
     );
 
     console.log(`[getStaticProps] Article response status: ${articleResponse.status}`);
-    
+
     // Log the full response for debugging
     if (articleResponse.data?.errors) {
-      console.error('[getStaticProps] GraphQL errors:', JSON.stringify(articleResponse.data.errors, null, 2));
+      console.error(
+        '[getStaticProps] GraphQL errors:',
+        JSON.stringify(articleResponse.data.errors, null, 2)
+      );
     }
-    
+
     const articles = articleResponse.data?.data?.articles?.data || [];
     console.log(`[getStaticProps] Found ${articles.length} articles for slug: ${slug}`);
-    
+
     if (articles.length === 0) {
-      console.error(`[getStaticProps] No articles found for slug: ${slug}, locale: ${actualLocale}`);
-      
+      console.error(
+        `[getStaticProps] No articles found for slug: ${slug}, locale: ${actualLocale}`
+      );
+
       // Try REST API as fallback for debugging
       try {
         const restUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?filters[slug][$eq]=${slug}&locale=${actualLocale}&populate=*`;
         console.log(`[getStaticProps] Trying REST API: ${restUrl}`);
-        
+
         const restResponse = await axios.get(restUrl, {
           headers: {
-            Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
-          }
+            Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+          },
         });
-        
-        console.log(`[getStaticProps] REST API found ${restResponse.data?.data?.length || 0} articles`);
+
+        console.log(
+          `[getStaticProps] REST API found ${restResponse.data?.data?.length || 0} articles`
+        );
         if (restResponse.data?.data?.length > 0) {
-          console.log('[getStaticProps] REST API article:', JSON.stringify(restResponse.data.data[0].attributes, null, 2));
+          console.log(
+            '[getStaticProps] REST API article:',
+            JSON.stringify(restResponse.data.data[0].attributes, null, 2)
+          );
         }
       } catch (restError) {
         console.error('[getStaticProps] REST API error:', restError.message);
       }
-      
+
       return {
-        notFound: true
+        notFound: true,
       };
     }
 
@@ -342,28 +357,32 @@ export async function getStaticProps({ params, locale }) {
         locale: art.attributes.locale,
         blog_page: art.attributes.blog_page,
         blog_post: art.attributes.blog_post,
-        title: art.attributes.title
+        title: art.attributes.title,
       });
     });
 
     // Find the article that is NOT a blog page
     const article = articles.find(a => a.attributes.blog_page !== true);
-    
+
     if (!article) {
-      console.error(`[getStaticProps] All ${articles.length} articles have blog_page=true, none suitable for regular page`);
+      console.error(
+        `[getStaticProps] All ${articles.length} articles have blog_page=true, none suitable for regular page`
+      );
       return {
-        notFound: true
+        notFound: true,
       };
     }
 
     const { attributes } = article;
-    console.log(`[getStaticProps] Selected article: ${attributes.title} (blog_page: ${attributes.blog_page})`);
-    
+    console.log(
+      `[getStaticProps] Selected article: ${attributes.title} (blog_page: ${attributes.blog_page})`
+    );
+
     // If this is a blog post, return not found (it should be handled by /blog/[slug])
     if (attributes.blog_page === true) {
       console.log('[getStaticProps] Article has blog_page=true, redirecting to blog page');
       return {
-        notFound: true
+        notFound: true,
       };
     }
 
@@ -372,30 +391,34 @@ export async function getStaticProps({ params, locale }) {
       { query: ALTERNATE_LINKS_QUERY, variables },
       {
         headers: {
-          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`
-        }
+          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+        },
       }
     );
 
-    const alternateLinksData = alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
-    
+    const alternateLinksData =
+      alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
+
     // Create a map to ensure we have unique entries per locale
     const alternateLinksMap = new Map();
-    
+
     // Add current article first
     alternateLinksMap.set(locale, {
       href: locale === 'en' ? `/${slug}` : `/${locale}/${slug}`,
       hrefLang: locale,
     });
-    
+
     // Add localizations
-    alternateLinksData.forEach((link) => {
+    alternateLinksData.forEach(link => {
       alternateLinksMap.set(link.attributes.locale, {
-        href: link.attributes.locale === 'en' ? `/${link.attributes.slug}` : `/${link.attributes.locale}/${link.attributes.slug}`,
+        href:
+          link.attributes.locale === 'en'
+            ? `/${link.attributes.slug}`
+            : `/${link.attributes.locale}/${link.attributes.slug}`,
         hrefLang: link.attributes.locale,
       });
     });
-    
+
     // Convert map to array
     const alternateLinks = Array.from(alternateLinksMap.values());
 
@@ -409,10 +432,10 @@ export async function getStaticProps({ params, locale }) {
           'navbar',
           'footer',
           'cookie',
-          'article'
+          'article',
         ])),
-      }
-    }
+      },
+    };
   } catch (error) {
     console.error(`Error in getStaticProps for slug ${slug}:`, error);
     return {
@@ -426,29 +449,29 @@ export async function getStaticProps({ params, locale }) {
           'navbar',
           'footer',
           'cookie',
-          'article'
+          'article',
         ])),
-      }
-    }
+      },
+    };
   }
 }
 
 export async function getStaticPaths({ locales }) {
   console.log('[getStaticPaths] Starting to fetch articles for static paths');
-  
+
   try {
     const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*&filters[blog_page][$ne]=true&pagination[limit]=1000`;
     console.log('[getStaticPaths] Fetching from:', url);
-    
+
     const { data } = await axios.get(url, {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
       },
     });
-    
+
     const articles = data.data || [];
     console.log(`[getStaticPaths] Found ${articles.length} non-blog articles`);
-    
+
     // Log first few articles for debugging
     articles.slice(0, 3).forEach((article, i) => {
       console.log(`[getStaticPaths] Article ${i + 1}:`, {
@@ -456,7 +479,7 @@ export async function getStaticPaths({ locales }) {
         locale: article.attributes.locale,
         blog_page: article.attributes.blog_page,
         blog_post: article.attributes.blog_post,
-        localizations: article.attributes.localizations?.data?.length || 0
+        localizations: article.attributes.localizations?.data?.length || 0,
       });
     });
 
@@ -469,9 +492,11 @@ export async function getStaticPaths({ locales }) {
         console.log(`[getStaticPaths] Added path: /${post.attributes.slug} (en)`);
       } else {
         paths.push({ params: { slug: post.attributes.slug }, locale: post.attributes.locale });
-        console.log(`[getStaticPaths] Added path: /${post.attributes.locale}/${post.attributes.slug}`);
+        console.log(
+          `[getStaticPaths] Added path: /${post.attributes.locale}/${post.attributes.slug}`
+        );
       }
-      
+
       // Add localizations
       if (post.attributes.localizations?.data) {
         post.attributes.localizations.data.forEach(locale => {
@@ -479,7 +504,10 @@ export async function getStaticPaths({ locales }) {
           if (locale.attributes.locale === 'en') {
             paths.push({ params: { slug: locale.attributes.slug }, locale: undefined });
           } else {
-            paths.push({ params: { slug: locale.attributes.slug }, locale: locale.attributes.locale });
+            paths.push({
+              params: { slug: locale.attributes.slug },
+              locale: locale.attributes.locale,
+            });
           }
         });
       }
@@ -490,7 +518,7 @@ export async function getStaticPaths({ locales }) {
     return {
       paths,
       fallback: 'blocking', // Allow new pages to be generated on demand
-    }
+    };
   } catch (error) {
     console.error('[getStaticPaths] Error:', error.message);
     if (error.response) {
@@ -500,7 +528,7 @@ export async function getStaticPaths({ locales }) {
     return {
       paths: [],
       fallback: 'blocking',
-    }
+    };
   }
 }
 

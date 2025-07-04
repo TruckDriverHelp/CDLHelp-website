@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { SchoolLocation, fetchSupabaseSchools, fetchSchoolsByState, SupabaseSchoolData } from '../../../entities/School';
+import {
+  SchoolLocation,
+  fetchSupabaseSchools,
+  fetchSchoolsByState,
+  SupabaseSchoolData,
+} from '../../../entities/School';
 
 interface UseSchoolsOptions {
   state?: string;
@@ -31,25 +36,27 @@ export const useSchools = (options: UseSchoolsOptions = {}): UseSchoolsReturn =>
       } else {
         // Получаем все школы из Supabase (legacy)
         const supabaseData = await fetchSupabaseSchools();
-        
+
         // Преобразуем Supabase данные в формат SchoolLocation
-        const transformedSchools: SchoolLocation[] = supabaseData.map((item: SupabaseSchoolData) => ({
-          id: item.id,
-          attributes: {
-            Address: item.locations?.address_street || '',
-            phone_number: item.phone_number || '',
-            city: item.locations?.address_city || '',
-            state: item.locations?.address_state || '',
-            location: {
-              data: {
-                attributes: {
-                  Name: item.schools?.school_name || 'CDL School'
-                }
-              }
-            }
-          }
-        }));
-        
+        const transformedSchools: SchoolLocation[] = supabaseData.map(
+          (item: SupabaseSchoolData) => ({
+            id: item.id,
+            attributes: {
+              Address: item.locations?.address_street || '',
+              phone_number: item.phone_number || '',
+              city: item.locations?.address_city || '',
+              state: item.locations?.address_state || '',
+              location: {
+                data: {
+                  attributes: {
+                    Name: item.schools?.school_name || 'CDL School',
+                  },
+                },
+              },
+            },
+          })
+        );
+
         setSchools(transformedSchools);
       }
     } catch (err) {
@@ -71,6 +78,6 @@ export const useSchools = (options: UseSchoolsOptions = {}): UseSchoolsReturn =>
     schools,
     loading,
     error,
-    refetch: fetchSchools
+    refetch: fetchSchools,
   };
-}; 
+};

@@ -46,14 +46,17 @@ Created `/public/llms.txt` file for LLM/AI crawlers with information about the w
 ## Remaining Issues to Investigate
 
 ### 1. Find Malformed Email Link
+
 Need to search for any dynamic link generation that might be creating `/ru/contact@cdlhelp.com`
 
 ### 2. Find Double URL Link
+
 The URL `/ru/www.CDLhelp.com/ru/cdl-shkola` suggests there's a link somewhere that includes the domain in the href
 
 ## Verification Steps
 
 After deployment:
+
 1. Test all redirect URLs to ensure they return 301/302 instead of 404
 2. Check that llms.txt is accessible at `/llms.txt`
 3. Monitor logs for any remaining 404 errors

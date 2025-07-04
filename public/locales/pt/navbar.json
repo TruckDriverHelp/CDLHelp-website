@@ -1,12 +1,12 @@
 {
-    "main": "Início",
-    "resources": "Recursos",
-    "workForTruckers": "Empregos",
-    "cdlSchool": "Escola CDL",
-    "cdlSchools": "Escolas CDL",
-    "companies": "Empresas",
-    "contacts": "Contato",
-    "blog": "Blog",
-    "dotPhysicalLookup": "Busca de Exame Físico DOT",
-    "roadSignsTest": "Teste de Sinais de Trânsito"
+  "main": "Início",
+  "resources": "Recursos",
+  "workForTruckers": "Empregos",
+  "cdlSchool": "Escola CDL",
+  "cdlSchools": "Escolas CDL",
+  "companies": "Empresas",
+  "contacts": "Contato",
+  "blog": "Blog",
+  "dotPhysicalLookup": "Busca de Exame Físico DOT",
+  "roadSignsTest": "Teste de Sinais de Trânsito"
 }
