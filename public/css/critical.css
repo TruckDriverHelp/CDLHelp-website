@@ -327,3 +327,67 @@ img {
 body {
   padding-top: 120px;
 }
+
+/* App Video Area - Prevent Layout Shifts */
+.app-video-area {
+  min-height: 500px;
+  padding-bottom: 100px;
+}
+
+.app-intro-video-box {
+  min-height: 420px;
+  position: relative;
+}
+
+.app-intro-video-content {
+  padding-left: 35px;
+}
+
+.app-intro-video-content .sub-title {
+  display: block;
+  min-height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+}
+
+.app-intro-video-content h2 {
+  min-height: 50px;
+  line-height: 1.4;
+  font-size: 36px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.app-intro-video-content .article-links {
+  min-height: 300px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-intro-video-content .article-links li {
+  margin-bottom: 8px;
+  min-height: 44px;
+}
+
+.app-intro-video-content .article-links a {
+  display: block;
+  min-height: 44px;
+  line-height: 20px;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #5a5886;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .app-intro-video-content {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  .app-intro-video-content h2 {
+    font-size: 28px;
+  }
+}
