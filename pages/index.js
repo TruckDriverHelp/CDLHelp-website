@@ -117,7 +117,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
           rel="preload"
           as="font"
           type="font/woff2"
-          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZhrib2Bg-4.woff2"
+          href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1pL7SUc.woff2"
           crossOrigin="anonymous"
         />
 
