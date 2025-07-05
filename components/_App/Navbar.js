@@ -267,6 +267,14 @@ const Navbar = ({ alternateLinks }) => {
     if (!menu === false) setResourcesOpen(false); // close dropdown when closing menu
   };
 
+  // Close mobile menu when a link is clicked
+  const closeMobileMenu = () => {
+    if (!menu) {
+      setMenu(true);
+      setResourcesOpen(false);
+    }
+  };
+
   React.useEffect(() => {
     const elementId = document.getElementById('navbar');
     if (!elementId) return;
@@ -332,7 +340,9 @@ const Navbar = ({ alternateLinks }) => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" activeClassName="active">
-                      <a className="nav-link">{getTranslation('main')}</a>
+                      <a className="nav-link" onClick={closeMobileMenu}>
+                        {getTranslation('main')}
+                      </a>
                     </Link>
                   </li>
 
@@ -341,20 +351,28 @@ const Navbar = ({ alternateLinks }) => {
                       {(articleList[locale] || articleList['en']).map((article, index) => (
                         <li className="nav-item" key={'article-' + index}>
                           <Link href={`/${article.slug}`} locale={locale}>
-                            <a className="nav-link">{article.title}</a>
+                            <a className="nav-link" onClick={closeMobileMenu}>
+                              {article.title}
+                            </a>
                           </Link>
                         </li>
                       ))}
                       {secondaryLinks[locale]?.map((link, index) => (
                         <li className="nav-item" key={'secondary-' + index}>
                           <Link href={`/${link.slug}`} locale={locale}>
-                            <a className="nav-link">{link.title}</a>
+                            <a className="nav-link" onClick={closeMobileMenu}>
+                              {link.title}
+                            </a>
                           </Link>
                         </li>
                       ))}
                       {locale === 'ru' && (
                         <li className="nav-item">
-                          <a className="nav-link" href="https://www.truckdriver.help/">
+                          <a
+                            className="nav-link"
+                            href="https://www.truckdriver.help/"
+                            onClick={closeMobileMenu}
+                          >
                             {getTranslation('workForTruckers')}
                           </a>
                         </li>
@@ -378,14 +396,18 @@ const Navbar = ({ alternateLinks }) => {
                           return (
                             <li key={index}>
                               <Link href={`/${article.slug}`} locale={locale}>
-                                <a>{article.title}</a>
+                                <a onClick={closeMobileMenu}>{article.title}</a>
                               </Link>
                             </li>
                           );
                         })}
                         {locale === 'ru' && (
                           <li className="nav-item">
-                            <a className="nav-link" href="https://www.truckdriver.help/">
+                            <a
+                              className="nav-link"
+                              href="https://www.truckdriver.help/"
+                              onClick={closeMobileMenu}
+                            >
                               {getTranslation('workForTruckers')}
                             </a>
                           </li>
@@ -396,24 +418,34 @@ const Navbar = ({ alternateLinks }) => {
 
                   <li className="nav-item">
                     <Link href="/cdl-schools" locale={locale}>
-                      <a className="nav-link">{getTranslation('cdlSchools')}</a>
+                      <a className="nav-link" onClick={closeMobileMenu}>
+                        {getTranslation('cdlSchools')}
+                      </a>
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link href="/blog" locale={locale}>
-                      <a className="nav-link">{getTranslation('blog')}</a>
+                      <a className="nav-link" onClick={closeMobileMenu}>
+                        {getTranslation('blog')}
+                      </a>
                     </Link>
                   </li>
                   {locale == 'ru' && (
                     <li className="nav-item">
-                      <a className="nav-link" href="https://www.dmvhelp.app/">
+                      <a
+                        className="nav-link"
+                        href="https://www.dmvhelp.app/"
+                        onClick={closeMobileMenu}
+                      >
                         DMV Help
                       </a>
                     </li>
                   )}
                   <li className="nav-item">
                     <Link href="/contact">
-                      <a className="nav-link">{getTranslation('contacts')}</a>
+                      <a className="nav-link" onClick={closeMobileMenu}>
+                        {getTranslation('contacts')}
+                      </a>
                     </Link>
                   </li>
                 </ul>

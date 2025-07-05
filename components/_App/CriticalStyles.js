@@ -18,6 +18,7 @@ const CriticalStyles = () => (
     body {
       margin: 0;
       padding: 0;
+      padding-top: 150px;
       font-family: var(
         --fontFamily,
         -apple-system,
