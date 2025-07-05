@@ -66,10 +66,10 @@ body {
   background-color: #f8fafc;
   margin: 0;
   padding: 0;
+  padding-top: 150px;
   color: var(--blackColor);
   font-size: var(--fontSize);
   font-family: var(--fontFamily);
-  padding-top: 120px; /* Increase this value to push content further down if needed */
 }
 
 .h1,
@@ -1344,7 +1344,6 @@ textarea.form-control {
 }
 
 .new-app-main-banner-wrap-area {
-  padding-top: 150px;
   background-color: #f6f9fb;
   position: relative;
   z-index: 1;
@@ -4595,7 +4594,7 @@ textarea.form-control {
 /* End Home Demo 7, 8 & 9 Style */
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
-  .new-app-main-banner-wrap-area {
+  body {
     padding-top: 50px;
   }
   body {
@@ -5286,7 +5285,7 @@ textarea.form-control {
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .new-app-main-banner-wrap-area {
+  body {
     padding-top: 50px;
   }
   .ptb-100 {

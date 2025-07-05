@@ -162,13 +162,13 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
 
 export async function getStaticPaths() {
   try {
-    // Получаем все штаты и их города
+    // Get all states and their cities
     const { fetchStatesWithCities } = await import('../../../src/entities/School/api/schoolApi');
     const states = await fetchStatesWithCities();
 
     const paths = [];
 
-    // Создаем пути для каждого города в каждом штате
+    // Create paths for each city in each state
     states.forEach(state => {
       state.cities.forEach(city => {
         // English without locale prefix
@@ -216,7 +216,7 @@ export async function getStaticProps({ params, locale }) {
   }
 
   try {
-    // Импортируем функцию динамически для server-side
+    // Import function dynamically for server-side
     const { fetchSchoolsForCity } = await import('../../../src/entities/School/api/schoolApi');
 
     const stateFormatted = formatStateName(state);

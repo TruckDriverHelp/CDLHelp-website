@@ -20,7 +20,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
   const cityFormatted = city ? city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '';
   const phoneFormatted = formatPhoneNumber(phone_number);
 
-  // Получаем имя школы из массива locations
+  // Get school name from locations array
   // const schoolName = locations?.data?.[0]?.attributes?.Name || 'CDL School';
 
   const [isHovered, setIsHovered] = React.useState(false);

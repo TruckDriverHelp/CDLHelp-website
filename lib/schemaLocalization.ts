@@ -2,11 +2,32 @@
  * Utility functions for localizing schema.org structured data
  */
 
+type Locale = 'en' | 'ru' | 'uk' | 'ar' | 'ko' | 'zh' | 'tr' | 'pt';
+
+interface LocalizedNames {
+  [key: string]: string;
+}
+
+interface FAQ {
+  name: string;
+  acceptedAnswer: {
+    '@type': string;
+    text: string;
+  };
+}
+
+interface Schema {
+  '@context'?: string;
+  '@type'?: string;
+  '@id'?: string;
+  [key: string]: any;
+}
+
 /**
  * Get localized organization name based on locale
  */
-export const getLocalizedOrganizationName = locale => {
-  const names = {
+export const getLocalizedOrganizationName = (locale: string): string => {
+  const names: LocalizedNames = {
     en: 'CDL Help',
     ru: 'CDL Help',
     uk: 'CDL Help',
@@ -22,8 +43,8 @@ export const getLocalizedOrganizationName = locale => {
 /**
  * Get localized alternate name
  */
-export const getLocalizedAlternateName = locale => {
-  const names = {
+export const getLocalizedAlternateName = (locale: string): string => {
+  const names: LocalizedNames = {
     en: 'Truck Driver Help',
     ru: 'Помощь Дальнобойщикам',
     uk: 'Допомога Далекобійникам',
@@ -39,13 +60,13 @@ export const getLocalizedAlternateName = locale => {
 /**
  * Get localized description
  */
-export const getLocalizedDescription = (locale, t) => {
+export const getLocalizedDescription = (locale: string, t?: any): string => {
   // Use translation function if available, otherwise use defaults
   if (t) {
     return t('description');
   }
 
-  const descriptions = {
+  const descriptions: LocalizedNames = {
     en: 'Master your CDL exam with instant feedback and detailed explanations for every question.',
     ru: 'Освойте экзамен CDL с мгновенной обратной связью и подробными объяснениями для каждого вопроса.',
     uk: "Опануйте іспит CDL з миттєвим зворотним зв'язком та детальними поясненнями для кожного питання.",
@@ -61,7 +82,7 @@ export const getLocalizedDescription = (locale, t) => {
 /**
  * Get localized FAQ questions and answers
  */
-export const getLocalizedFAQs = (locale, t) => {
+export const getLocalizedFAQs = (locale: string, t?: any): FAQ[] => {
   // Use translation if available
   if (t) {
     return [
@@ -111,7 +132,7 @@ export const getLocalizedFAQs = (locale, t) => {
 /**
  * Get locale-specific URL
  */
-export const getLocalizedUrl = (locale, path = '') => {
+export const getLocalizedUrl = (locale: string, path: string = ''): string => {
   const baseUrl = 'https://www.cdlhelp.com';
   const localePath = locale === 'en' ? '' : `/${locale}`;
   return `${baseUrl}${localePath}${path}`;
@@ -120,7 +141,7 @@ export const getLocalizedUrl = (locale, path = '') => {
 /**
  * Get social media links based on locale
  */
-export const getLocalizedSocialLinks = locale => {
+export const getLocalizedSocialLinks = (locale: string): string[] | null => {
   const baseLinks = [
     'https://www.facebook.com/cdlhelp',
     'https://twitter.com/cdlhelp',
@@ -143,7 +164,7 @@ export const getLocalizedSocialLinks = locale => {
 /**
  * Get available languages for schema
  */
-export const getAvailableLanguages = () => [
+export const getAvailableLanguages = (): string[] => [
   'English',
   'Spanish',
   'Russian',
@@ -159,7 +180,7 @@ export const getAvailableLanguages = () => [
  * Localize any schema object (generic function)
  * Excludes 'teaches' property from localization
  */
-export const localizeSchema = (schema, locale, t) => {
+export const localizeSchema = (schema: Schema, locale: string, t?: any): Schema => {
   const localizedSchema = { ...schema };
 
   // Skip localization for teaches property

@@ -30,14 +30,14 @@ export const useSchools = (options: UseSchoolsOptions = {}): UseSchoolsReturn =>
       setError(null);
 
       if (state) {
-        // Получаем школы по штату из Strapi
+        // Get schools by state from Strapi
         const data = await fetchSchoolsByState(state);
         setSchools(data);
       } else {
-        // Получаем все школы из Supabase (legacy)
+        // Get all schools from Supabase (legacy)
         const supabaseData = await fetchSupabaseSchools();
 
-        // Преобразуем Supabase данные в формат SchoolLocation
+        // Transform Supabase data to SchoolLocation format
         const transformedSchools: SchoolLocation[] = supabaseData.map(
           (item: SupabaseSchoolData) => ({
             id: item.id,
