@@ -1,0 +1,31 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "targets": {
+            "chrome": "90",
+            "firefox": "88",
+            "safari": "14",
+            "edge": "90"
+          },
+          "useBuiltIns": false,
+          "corejs": false,
+          "modules": false,
+          "exclude": [
+            "transform-typeof-symbol",
+            "transform-sticky-regex",
+            "transform-new-target",
+            "transform-modules-umd",
+            "transform-modules-systemjs",
+            "transform-modules-amd",
+            "transform-literals",
+            "transform-regenerator"
+          ]
+        }
+      }
+    ]
+  ],
+  "plugins": []
+}

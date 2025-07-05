@@ -8,7 +8,9 @@ const nextConfig = {
     legacyBrowsers: false,
     browsersListForSwc: true,
     optimizeCss: true,
+    disablePostcssPresetEnv: true,
   },
+  excludeDefaultMomentLocales: true,
   // Vercel doesn't support custom distDir with standalone output
   ...(process.env.VERCEL
     ? {}
@@ -185,7 +187,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev, isServer, webpack }) => {
     // Optimize bundle size
     if (!dev && !isServer) {
       // Disable automatic polyfilling of Node.js core modules
@@ -194,6 +196,24 @@ const nextConfig = {
         fs: false,
         path: false,
         crypto: false,
+        process: false,
+        buffer: false,
+        stream: false,
+      };
+
+      // Exclude polyfills for modern browsers
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /^(core-js|regenerator-runtime)/,
+          require.resolve('./lib/empty-module.js')
+        )
+      );
+
+      // Configure to skip polyfilling certain features
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'core-js': false,
+        'regenerator-runtime': false,
       };
 
       // Optimize chunks with more aggressive settings
