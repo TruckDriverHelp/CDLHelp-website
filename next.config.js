@@ -3,6 +3,12 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  swcMinify: true,
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+    optimizeCss: true,
+  },
   // Vercel doesn't support custom distDir with standalone output
   ...(process.env.VERCEL
     ? {}
@@ -182,6 +188,14 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     // Optimize bundle size
     if (!dev && !isServer) {
+      // Disable automatic polyfilling of Node.js core modules
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+      };
+
       // Optimize chunks with more aggressive settings
       config.optimization.splitChunks = {
         chunks: 'all',
@@ -191,6 +205,20 @@ const nextConfig = {
         maxAsyncRequests: 20, // Reduced from 30
         maxInitialRequests: 20, // Reduced from 30
         cacheGroups: {
+          polyfills: {
+            test: /[\\/]node_modules[\\/](core-js|@babel[\\/]runtime|regenerator-runtime)[\\/]/,
+            name: 'polyfills',
+            priority: 20,
+            reuseExistingChunk: true,
+            enforce: true,
+          },
+          swiper: {
+            test: /[\\/]node_modules[\\/](swiper|dom7|ssr-window)[\\/]/,
+            name: 'vendor.swiper',
+            priority: 10,
+            reuseExistingChunk: true,
+            enforce: true,
+          },
           defaultVendors: {
             test: /[\\/]node_modules[\\/]/,
             priority: -10,

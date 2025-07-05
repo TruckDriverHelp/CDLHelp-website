@@ -1,15 +1,19 @@
 import React from 'react';
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+// NOTE: Commented out to reduce bundle size - uncomment when component is needed
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import Swiper core and required modules
-import SwiperCore, { EffectCube, Pagination, Navigation } from 'swiper/core';
+// import SwiperCore, { EffectCube, Pagination, Navigation } from 'swiper/core';
 
 // install Swiper modules
-SwiperCore.use([EffectCube, Pagination, Navigation]);
+// SwiperCore.use([EffectCube, Pagination, Navigation]);
 
+// Component commented out to reduce bundle size - uncomment when needed
 const ClientFeedbackStyle2 = () => {
+  return null;
+  /* Original component code - uncomment when needed:
   return (
     <>
       <div className="feedback-area pt-100">
@@ -122,6 +126,7 @@ const ClientFeedbackStyle2 = () => {
       </div>
     </>
   );
+  */
 };
 
 export default ClientFeedbackStyle2;

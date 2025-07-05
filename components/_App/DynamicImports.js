@@ -41,9 +41,10 @@ export const DynamicMarkdown = dynamic(() => import('react-markdown'), {
   loading: () => <div>Loading content...</div>,
 });
 
-export const DynamicSwiper = dynamic(() => import('swiper/react'), {
-  loading: () => <div>Loading carousel...</div>,
-});
+// Commented out to reduce bundle size - uncomment when Swiper is needed
+// export const DynamicSwiper = dynamic(() => import('swiper/react'), {
+//   loading: () => <div>Loading carousel...</div>,
+// });
 
 export const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'), {
   ssr: false,

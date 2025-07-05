@@ -57,9 +57,10 @@ const MyApp = ({ Component, pageProps }) => {
     loadInterFont();
 
     // Load component styles on demand
-    if (router.pathname.includes('swiper') || router.pathname === '/') {
-      loadSwiperStyles();
-    }
+    // Commented out Swiper styles since components are not being used
+    // if (router.pathname.includes('swiper') || router.pathname === '/') {
+    //   loadSwiperStyles();
+    // }
     if (router.pathname.includes('modal')) {
       loadModalStyles();
     }

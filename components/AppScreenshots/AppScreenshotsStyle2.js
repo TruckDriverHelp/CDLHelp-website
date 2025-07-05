@@ -1,15 +1,19 @@
 import React from 'react';
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+// NOTE: Commented out to reduce bundle size - uncomment when component is needed
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import Swiper core and required modules
-import SwiperCore, { EffectCoverflow, Navigation } from 'swiper/core';
+// import SwiperCore, { EffectCoverflow, Navigation } from 'swiper/core';
 
 // install Swiper modules
-SwiperCore.use([EffectCoverflow, Navigation]);
+// SwiperCore.use([EffectCoverflow, Navigation]);
 
+// Component commented out to reduce bundle size - uncomment when needed
 const AppScreenshotsStyle2 = () => {
+  return null;
+  /* Original component code - uncomment when needed:
   return (
     <>
       <div className="screenshots-area pb-100">
@@ -63,6 +67,7 @@ const AppScreenshotsStyle2 = () => {
       </div>
     </>
   );
+  */
 };
 
 export default AppScreenshotsStyle2;
