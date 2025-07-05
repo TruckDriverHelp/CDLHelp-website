@@ -25,15 +25,14 @@ const LanguageSwitcher = ({ alternateLinks }) => {
   return (
     <div className="language-switcher-container">
       <label htmlFor="language-select" className="visually-hidden">
-        Select Language
+        Choose your preferred language
       </label>
       <select
         id="language-select"
         name="language"
         onChange={handleLocaleChange}
         className="language-switcher"
-        aria-label="Select Language"
-        title="Select Language"
+        title="Choose your preferred language"
       >
         {Object.entries(languages).map(([locale, language]) => (
           <option key={locale} value={locale}>
