@@ -46,7 +46,9 @@
       "Bash(git rm:*)",
       "Bash(npx husky:*)",
       "Bash(npm uninstall:*)",
-      "Bash(npx prettier:*)"
+      "Bash(npx prettier:*)",
+      "Bash(sed:*)",
+      "Bash(npx sass:*)"
     ],
     "deny": []
   }
