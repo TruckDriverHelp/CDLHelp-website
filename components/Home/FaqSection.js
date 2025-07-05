@@ -65,21 +65,21 @@ const FaqSection = () => {
                   //     )
                   // },
                   // {
-                  //     question: "Можно ли сдать экзамен на CDL на русском языке?",
+                  //     question: "Can I take the CDL exam in Russian?",
                   //     answer: (
                   //         <>
-                  //             <span>В некоторых штатах DMV официально указывает, что теоретический тест можно сдать на русском. Например:</span>
+                  //             <span>In some states, the DMV officially indicates that the written test can be taken in Russian. For example:</span>
                   //             <div>
                   //                 <ul>
-                  //                     <li>- Нью-Йорк (NY)</li>
-                  //                     <li>- Калифорния (CA)</li>
-                  //                     <li>- Висконсин (WI)</li>
-                  //                     <li>- Пенсильвания (PA)</li>
-                  //                     <li>- Вашингтон (WA)</li>
+                  //                     <li>- New York (NY)</li>
+                  //                     <li>- California (CA)</li>
+                  //                     <li>- Wisconsin (WI)</li>
+                  //                     <li>- Pennsylvania (PA)</li>
+                  //                     <li>- Washington (WA)</li>
                   //                 </ul>
                   //             </div>
                   //             <div className='faq-link' style={{margin: "15px 0"}}>
-                  //                 <a href="#">Читать далее...</a>
+                  //                 <a href="#">Read more...</a>
                   //             </div>
                   //         </>
                   //     )
