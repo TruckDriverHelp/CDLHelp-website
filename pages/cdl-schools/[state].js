@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
@@ -15,7 +14,7 @@ import getMeta from '../../lib/getMeta';
 
 const StateCitiesPage = ({ cities, state, meta }) => {
   const { t } = useTranslation(['city-schools', 'index']);
-  const router = useRouter();
+  // const router = useRouter();
   // const { locale } = router;
   const stateFormatted = formatStateName(state);
 
@@ -195,7 +194,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
 
 export async function getStaticPaths() {
   try {
-    // Получаем все штаты из новой API
+    // Get all states from new API
     const { fetchStatesWithCities } = await import('../../src/entities/School/api/schoolApi');
     const states = await fetchStatesWithCities();
 
@@ -232,7 +231,7 @@ export async function getStaticProps({ params, locale }) {
   }
 
   try {
-    // Импортируем функцию динамически для server-side
+    // Import function dynamically for server-side
     const { fetchCitiesForState } = await import('../../src/entities/School/api/schoolApi');
 
     const [meta, cities] = await Promise.all([

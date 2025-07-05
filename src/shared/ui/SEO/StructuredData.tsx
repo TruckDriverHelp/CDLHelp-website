@@ -6,7 +6,7 @@ import {
   getLocalizedUrl,
   getLocalizedSocialLinks,
   getAvailableLanguages,
-} from '../../../lib/schemaLocalization';
+} from '../../../../lib/schemaLocalization';
 
 interface BaseStructuredData {
   '@context': string;

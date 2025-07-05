@@ -104,7 +104,7 @@ const IndexPage = ({ meta, alternateLinks }) => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Preload critical assets - специфичные для главной страницы */}
+        {/* Preload critical assets - specific to homepage */}
         <link
           rel="preload"
           href="/images/video/video-3-no-text.webp"

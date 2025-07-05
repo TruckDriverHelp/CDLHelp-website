@@ -35,8 +35,9 @@ html {
 }
 
 body {
-  margin: 0;
   padding: 0;
+  padding-top: 150px;
+  margin: 0;
   font-family: var(--fontFamily);
   font-size: var(--fontSize);
   line-height: 1.6;
@@ -116,7 +117,7 @@ a:hover {
 }
 
 @media (min-width: 576px) {
-  .new-app-main-banner-wrap-area {
+  body {
     padding-top: 50px;
   }
   .container {
@@ -124,7 +125,7 @@ a:hover {
   }
 }
 @media (min-width: 768px) {
-  .new-app-main-banner-wrap-area {
+  body {
     padding-top: 50px;
   }
   .container {
@@ -135,7 +136,7 @@ a:hover {
   .container {
     max-width: 960px;
   }
-  .new-app-main-banner-wrap-area {
+  body {
     padding-top: 50px;
   }
 }
@@ -271,7 +272,6 @@ img {
 
 /* LCP Critical Styles for TopContainer */
 .new-app-main-banner-wrap-area {
-  padding-top: 150px;
   background-color: #f8fafc;
   position: relative;
   overflow: hidden;

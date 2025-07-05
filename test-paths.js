@@ -3,7 +3,7 @@ require('dotenv').config();
 
 async function testStaticPaths() {
   try {
-    console.log('🔍 Тестирование получения всех статей для генерации путей...');
+    console.log('🔍 Testing getting all articles for path generation...');
     console.log(
       `🔗 URL: http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*`
     );
@@ -17,25 +17,25 @@ async function testStaticPaths() {
       }
     );
 
-    console.log('\n✅ Ответ от Strapi:');
-    console.log('📊 Общее количество статей:', data.data.length);
+    console.log('\n✅ Response from Strapi:');
+    console.log('📊 Total articles count:', data.data.length);
 
     const paths = [];
     data.data.forEach(post => {
-      console.log(`\n📄 Статья: ${post.attributes.title || 'Без названия'}`);
-      console.log(`   🔗 Слаг: ${post.attributes.slug}`);
-      console.log(`   🌍 Локаль: ${post.attributes.locale}`);
-      console.log(`   📅 Опубликована: ${post.attributes.publishedAt}`);
+      console.log(`\n📄 Article: ${post.attributes.title || 'No title'}`);
+      console.log(`   🔗 Slug: ${post.attributes.slug}`);
+      console.log(`   🌍 Locale: ${post.attributes.locale}`);
+      console.log(`   📅 Published: ${post.attributes.publishedAt}`);
 
-      // Добавляем основную статью
+      // Add main article
       const mainPath = {
         params: { slug: post.attributes.slug },
         locale: post.attributes.locale,
       };
       paths.push(mainPath);
-      console.log(`   ➕ Добавлен путь: /${post.attributes.locale}/${post.attributes.slug}`);
+      console.log(`   ➕ Added path: /${post.attributes.locale}/${post.attributes.slug}`);
 
-      // Добавляем локализации
+      // Add localizations
       if (post.attributes.localizations && post.attributes.localizations.data) {
         post.attributes.localizations.data.forEach(locale => {
           const locPath = {
@@ -44,16 +44,16 @@ async function testStaticPaths() {
           };
           paths.push(locPath);
           console.log(
-            `   ➕ Добавлена локализация: /${locale.attributes.locale}/${locale.attributes.slug}`
+            `   ➕ Added localization: /${locale.attributes.locale}/${locale.attributes.slug}`
           );
         });
       }
     });
 
-    console.log('\n📊 Итоговая статистика:');
-    console.log(`🔗 Всего путей сгенерировано: ${paths.length}`);
+    console.log('\n📊 Final statistics:');
+    console.log(`🔗 Total paths generated: ${paths.length}`);
 
-    // Ищем нашу статью
+    // Search for our article
     const targetSlug = 'kak-aktivirovat-promokod';
     const targetLocale = 'ru';
     const foundPath = paths.find(
@@ -61,28 +61,28 @@ async function testStaticPaths() {
     );
 
     if (foundPath) {
-      console.log(`\n✅ Статья "${targetSlug}" найдена в путях!`);
-      console.log(`   🌍 Локаль: ${foundPath.locale}`);
-      console.log(`   🔗 Путь: /${foundPath.locale}/${foundPath.params.slug}`);
+      console.log(`\n✅ Article "${targetSlug}" found in paths!`);
+      console.log(`   🌍 Locale: ${foundPath.locale}`);
+      console.log(`   🔗 Path: /${foundPath.locale}/${foundPath.params.slug}`);
     } else {
-      console.log(`\n❌ Статья "${targetSlug}" НЕ найдена в путях!`);
-      console.log('🔍 Возможные причины:');
-      console.log('   - Статья не опубликована в Strapi');
-      console.log('   - Проблемы с локализацией');
-      console.log('   - Ошибка в логике генерации путей');
+      console.log(`\n❌ Article "${targetSlug}" NOT found in paths!`);
+      console.log('🔍 Possible reasons:');
+      console.log('   - Article not published in Strapi');
+      console.log('   - Localization issues');
+      console.log('   - Error in path generation logic');
     }
 
-    // Показываем несколько примеров путей
-    console.log('\n📝 Примеры сгенерированных путей:');
+    // Show some path examples
+    console.log('\n📝 Examples of generated paths:');
     paths.slice(0, 10).forEach((path, index) => {
       console.log(`   ${index + 1}. /${path.locale}/${path.params.slug}`);
     });
   } catch (error) {
-    console.error('\n❌ Ошибка при получении статей:');
-    console.error('🔴 Сообщение:', error.message);
+    console.error('\n❌ Error getting articles:');
+    console.error('🔴 Message:', error.message);
     if (error.response) {
-      console.error('📊 Статус:', error.response.status);
-      console.error('📝 Данные:', error.response.data);
+      console.error('📊 Status:', error.response.status);
+      console.error('📝 Data:', error.response.data);
     }
   }
 }

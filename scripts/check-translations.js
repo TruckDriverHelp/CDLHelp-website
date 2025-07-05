@@ -3,9 +3,9 @@ const path = require('path');
 
 const LOCALES_DIR = path.join(process.cwd(), 'public/locales');
 const SUPPORTED_LOCALES = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
-const BASE_LOCALE = 'en'; // Базовая локаль для сравнения
+const BASE_LOCALE = 'en'; // Base locale for comparison
 
-// Функция для получения всех ключей из объекта (включая вложенные)
+// Function to get all keys from object (including nested)
 function getAllKeys(obj, prefix = '') {
   let keys = [];
 
@@ -22,7 +22,7 @@ function getAllKeys(obj, prefix = '') {
   return keys;
 }
 
-// Функция для проверки существования ключа в объекте
+// Function to check if key exists in object
 function hasKey(obj, keyPath) {
   const keys = keyPath.split('.');
   let current = obj;
@@ -38,7 +38,7 @@ function hasKey(obj, keyPath) {
   return true;
 }
 
-// Функция для загрузки JSON файла
+// Function to load JSON file
 function loadTranslationFile(locale, filename) {
   const filePath = path.join(LOCALES_DIR, locale, filename);
 
@@ -50,80 +50,80 @@ function loadTranslationFile(locale, filename) {
     const content = fs.readFileSync(filePath, 'utf8');
     return JSON.parse(content);
   } catch (error) {
-    console.error(`❌ Ошибка парсинга ${filePath}: ${error.message}`);
+    console.error(`❌ Parsing error ${filePath}: ${error.message}`);
     return null;
   }
 }
 
-// Основная функция проверки
+// Main check function
 function checkTranslations() {
-  console.log('🔍 Проверка переводов...\n');
+  console.log('🔍 Checking translations...\n');
 
   let hasErrors = false;
   const baseLocaleDir = path.join(LOCALES_DIR, BASE_LOCALE);
 
   if (!fs.existsSync(baseLocaleDir)) {
-    console.error(`❌ Базовая локаль ${BASE_LOCALE} не найдена!`);
+    console.error(`❌ Base locale ${BASE_LOCALE} not found!`);
     process.exit(1);
   }
 
-  // Получаем список всех файлов переводов из базовой локали
+  // Get list of all translation files from base locale
   const translationFiles = fs.readdirSync(baseLocaleDir).filter(file => file.endsWith('.json'));
 
-  console.log(`📁 Найдено файлов переводов: ${translationFiles.length}`);
-  console.log(`🌍 Поддерживаемые локали: ${SUPPORTED_LOCALES.join(', ')}\n`);
+  console.log(`📁 Found translation files: ${translationFiles.length}`);
+  console.log(`🌍 Supported locales: ${SUPPORTED_LOCALES.join(', ')}\n`);
 
-  // Проверяем каждый файл перевода
+  // Check each translation file
   for (const filename of translationFiles) {
-    console.log(`📄 Проверка файла: ${filename}`);
+    console.log(`📄 Checking file: ${filename}`);
 
-    // Загружаем базовый файл
+    // Load base file
     const baseTranslations = loadTranslationFile(BASE_LOCALE, filename);
     if (!baseTranslations) {
-      console.error(`❌ Не удалось загрузить базовый файл ${filename}`);
+      console.error(`❌ Failed to load base file ${filename}`);
       hasErrors = true;
       continue;
     }
 
-    // Получаем все ключи из базового файла
+    // Get all keys from base file
     const baseKeys = getAllKeys(baseTranslations);
-    console.log(`   🔑 Ключей в базовом файле: ${baseKeys.length}`);
+    console.log(`   🔑 Keys in base file: ${baseKeys.length}`);
 
-    // Проверяем каждую локаль
+    // Check each locale
     for (const locale of SUPPORTED_LOCALES) {
       if (locale === BASE_LOCALE) continue;
 
       const translations = loadTranslationFile(locale, filename);
 
       if (!translations) {
-        console.error(`   ❌ ${locale}: файл ${filename} отсутствует`);
+        console.error(`   ❌ ${locale}: file ${filename} missing`);
         hasErrors = true;
         continue;
       }
 
-      // Проверяем отсутствующие ключи
+      // Check missing keys
       const missingKeys = baseKeys.filter(key => !hasKey(translations, key));
 
       if (missingKeys.length > 0) {
-        console.error(`   ❌ ${locale}: отсутствует ${missingKeys.length} ключей:`);
+        console.error(`   ❌ ${locale}: missing ${missingKeys.length} keys:`);
         missingKeys.forEach(key => console.error(`      - ${key}`));
         hasErrors = true;
       } else {
-        console.log(`   ✅ ${locale}: все ключи присутствуют`);
+        console.log(`   ✅ ${locale}: all keys present`);
       }
     }
 
     console.log('');
   }
 
-  // Проверяем лишние файлы в других локалях
-  console.log('🔍 Проверка лишних файлов...');
+  // Check extra files in other locales
+  console.log('🔍 Checking extra files...');
   for (const locale of SUPPORTED_LOCALES) {
     if (locale === BASE_LOCALE) continue;
 
     const localeDir = path.join(LOCALES_DIR, locale);
     if (!fs.existsSync(localeDir)) {
-      console.error(`❌ Папка локали ${locale} отсутствует`);
+      console.error(`❌ Locale folder ${locale} missing`);
       hasErrors = true;
       continue;
     }
@@ -132,21 +132,21 @@ function checkTranslations() {
 
     const extraFiles = localeFiles.filter(file => !translationFiles.includes(file));
     if (extraFiles.length > 0) {
-      console.warn(`⚠️  ${locale}: лишние файлы: ${extraFiles.join(', ')}`);
+      console.warn(`⚠️  ${locale}: extra files: ${extraFiles.join(', ')}`);
     }
   }
 
   console.log('\n' + '='.repeat(50));
 
   if (hasErrors) {
-    console.error('❌ Обнаружены ошибки в переводах!');
-    console.error('🚫 Сборка остановлена. Исправьте ошибки перед продолжением.');
+    console.error('❌ Errors found in translations!');
+    console.error('🚫 Build stopped. Fix errors before continuing.');
     process.exit(1);
   } else {
-    console.log('✅ Все переводы в порядке!');
-    console.log('🚀 Можно продолжать сборку.');
+    console.log('✅ All translations are in order!');
+    console.log('🚀 Ready to continue build.');
   }
 }
 
-// Запускаем проверку
+// Run check
 checkTranslations();

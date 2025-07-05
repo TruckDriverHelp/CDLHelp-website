@@ -4,7 +4,7 @@ const STRAPI_URL =
   'http://' + process.env.STRAPI_HOST + ':' + process.env.STRAPI_PORT || 'http://localhost:1337';
 const GRAPHQL_ENDPOINT = `${STRAPI_URL}/graphql`;
 
-// Strapi GraphQL API для школ
+// Strapi GraphQL API for schools
 export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation[]> => {
   try {
     const query = `
@@ -56,7 +56,7 @@ export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation
   }
 };
 
-// Supabase API для школ (legacy)
+// Supabase API for schools (legacy)
 export const fetchSupabaseSchools = async (): Promise<SupabaseSchoolData[]> => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -87,7 +87,7 @@ export const fetchSupabaseSchools = async (): Promise<SupabaseSchoolData[]> => {
   }
 };
 
-// Получение всех школ (GraphQL API)
+// Get all schools (GraphQL API)
 export const fetchAllSchools = async (): Promise<SchoolLocation[]> => {
   try {
     const query = `
@@ -132,12 +132,12 @@ export const fetchAllSchools = async (): Promise<SchoolLocation[]> => {
     return data?.schoolLocations?.data || [];
   } catch (error) {
     // Error fetching all schools
-    // Возвращаем пустой массив вместо выброса ошибки для graceful fallback
+    // Return empty array instead of throwing error for graceful fallback
     return [];
   }
 };
 
-// Получение уникальных штатов с количеством школ
+// Get unique states with school counts
 export const fetchStatesWithSchoolCounts = async (): Promise<
   Array<{ slug: string; name: string; schoolCount: number }>
 > => {
@@ -170,7 +170,7 @@ export const fetchStatesWithSchoolCounts = async (): Promise<
     const { data } = await response.json();
     const schoolLocations = data?.schoolLocations?.data || [];
 
-    // Группируем по штатам и считаем количество
+    // Group by states and count the number
     const stateMap = new Map<string, number>();
 
     schoolLocations.forEach((location: any) => {
@@ -180,14 +180,14 @@ export const fetchStatesWithSchoolCounts = async (): Promise<
       }
     });
 
-    // Преобразуем в нужный формат, используя оригинальные названия из Strapi
+    // Convert to required format using original names from Strapi
     const states = Array.from(stateMap.entries()).map(([state, count]) => ({
-      slug: state.toLowerCase().replace(/[_\s]+/g, '-'), // Заменяем подчеркивания и пробелы на дефисы
-      name: state.replace(/_/g, ' '), // Заменяем подчеркивания на пробелы для отображения
+      slug: state.toLowerCase().replace(/[_\s]+/g, '-'), // Replace underscores and spaces with dashes
+      name: state.replace(/_/g, ' '), // Replace underscores with spaces for display
       schoolCount: count,
     }));
 
-    return states.sort((a, b) => b.schoolCount - a.schoolCount); // Сортируем по количеству школ
+    return states.sort((a, b) => b.schoolCount - a.schoolCount); // Sort by number of schools
   } catch (error) {
     // Error fetching states with school counts
     return [];
