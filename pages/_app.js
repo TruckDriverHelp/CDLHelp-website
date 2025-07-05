@@ -33,7 +33,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
 import { getDirection } from 'lib/getDirection';
-import { useEffect, Suspense, lazy } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import { QuizContextProvider } from '../store/quiz-context';
 import nextI18NextConfig from '../next-i18next.config';
 import analytics from '../lib/analytics';
@@ -51,8 +51,10 @@ const AsyncStyles = lazy(() => import('../components/_App/AsyncStyles'));
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const dir = getDirection(router.locale);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     // Load Inter font asynchronously
     loadInterFont();
 
@@ -126,12 +128,12 @@ const MyApp = ({ Component, pageProps }) => {
       <Suspense fallback={<div>Loading...</div>}>
         <Layout dir={dir}>
           <AsyncStyles />
-          {consentManager.hasConsent('marketing') && (
+          {isClient && consentManager.hasConsent('marketing') && (
             <Suspense fallback={null}>
               <Pixel name="FACEBOOK_PIXEL_1" />
             </Suspense>
           )}
-          {!['/404', '/cookies-policy'].includes(router.pathname) && (
+          {isClient && !['/404', '/cookies-policy'].includes(router.pathname) && (
             <Suspense fallback={null}>
               <CookieConsentBanner />
             </Suspense>
@@ -142,7 +144,7 @@ const MyApp = ({ Component, pageProps }) => {
           <Component {...pageProps} />
 
           {/* Google Tag Manager - Load only with consent */}
-          {process.env.NEXT_PUBLIC_GTM_ID && consentManager.hasConsent('analytics') && (
+          {isClient && process.env.NEXT_PUBLIC_GTM_ID && consentManager.hasConsent('analytics') && (
             <>
               <Script
                 id="google-tag-manager"
@@ -170,7 +172,7 @@ const MyApp = ({ Component, pageProps }) => {
           )}
 
           {/* Analytics Scripts - Load only with consent */}
-          {consentManager.hasConsent('analytics') && (
+          {isClient && consentManager.hasConsent('analytics') && (
             <>
               <Script
                 strategy="afterInteractive"
