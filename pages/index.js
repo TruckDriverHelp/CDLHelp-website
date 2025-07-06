@@ -30,7 +30,7 @@ import {
 // Lazy load non-critical components
 const AppIntroVideo = dynamic(() => import('../components/Home/AppIntroVideo'), {
   loading: () => <div style={{ minHeight: '300px', background: '#f5f5f5' }}>Loading video...</div>,
-  ssr: false,
+  ssr: true,
 });
 
 const Funfacts = dynamic(() => import('../components/Home/Funfacts'), {
