@@ -195,6 +195,30 @@ const MyApp = ({ Component, pageProps }) => {
             </>
           )}
 
+          {/* Google Ads - Load only with marketing consent */}
+          {isClient &&
+            process.env.NEXT_PUBLIC_GOOGLE_ADS_ID &&
+            consentManager.hasConsent('marketing') && (
+              <>
+                <Script
+                  strategy="afterInteractive"
+                  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}`}
+                />
+                <Script
+                  id="google-ads"
+                  strategy="afterInteractive"
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');
+                  `,
+                  }}
+                />
+              </>
+            )}
+
           {/* Preload critical assets */}
           <link rel="preload" href="/css/main.css" as="style" />
           <link rel="preload" href="/css/bootstrap.min.css" as="style" />
