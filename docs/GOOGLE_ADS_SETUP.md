@@ -50,7 +50,28 @@ The integration tracks the following events:
 
 ## Consent Management
 
-Google Ads tracking only fires when users grant "marketing" consent through the cookie banner.
+Google Ads tracking respects user privacy through Google Consent Mode v2:
+
+### Consent Signals
+
+- **analytics_storage**: Controls Google Analytics cookies
+- **ad_storage**: Controls advertising cookies
+- **ad_user_data**: Controls sharing user data for ads measurement
+- **ad_personalization**: Controls remarketing and audience features
+
+### Default State
+
+All advertising and analytics consent is set to "denied" by default. When users interact with the cookie banner:
+
+- Accepting analytics enables: `analytics_storage`
+- Accepting marketing enables: `ad_storage`, `ad_user_data`, `ad_personalization`
+
+### Benefits of Consent Mode
+
+- **Behavioral Modeling**: Google can model conversions for users who don't consent
+- **Conversion Modeling**: Helps recover ~70% of ad-click-to-conversion journeys
+- **Privacy Compliance**: Meets GDPR and other privacy regulations
+- **Enhanced Measurement**: Better attribution even with limited consent
 
 ## Testing Your Setup
 
