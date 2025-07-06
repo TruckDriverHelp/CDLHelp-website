@@ -93,7 +93,7 @@ const DownloadPage = ({ alternateLinks }) => {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      ratingCount: '12500',
+      ratingCount: '2500',
     },
     provider: {
       '@type': 'Organization',
