@@ -55,12 +55,8 @@ const DownloadPage = ({ alternateLinks }) => {
       locale: locale,
     });
 
-    // Redirect with attribution
-    attribution.redirect(platform, {
-      source: 'download_page',
-      locale: locale,
-      deep_link_path: '/onboarding',
-    });
+    // Redirect to OneLink for both platforms
+    window.location.href = 'https://cdlhelp.onelink.me/mHbW/mgvvp96d';
   };
 
   const features = [

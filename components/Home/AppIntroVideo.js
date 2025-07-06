@@ -3,16 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { DynamicModalVideo } from '../_App/DynamicImports';
 
 const AppIntroVideo = () => {
-  // Popup Video
   const { t } = useTranslation('index');
   const { locale } = useRouter();
-  const [isOpen, setIsOpen] = React.useState(true);
-  // const openModal = () => {
-  //   setIsOpen(!isOpen);
-  // };
 
   // Common link style to prevent layout shifts
   const linkStyle = {
@@ -187,14 +181,6 @@ const AppIntroVideo = () => {
           </div>
         </div>
       </div>
-
-      {/* If you want to change the video need to update videoID */}
-      <DynamicModalVideo
-        channel="youtube"
-        isOpen={!isOpen}
-        videoId="Ll4yVz7yBlQ"
-        onClose={() => setIsOpen(!isOpen)}
-      />
     </>
   );
 };
