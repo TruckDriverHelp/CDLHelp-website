@@ -1,7 +1,8 @@
 {
-  "text": "We use cookies to enhance your experience on our website. By continuing to use our site, you agree to our use of cookies",
+  "text": "We use cookies to improve your experience. By continuing, you accept our use of cookies.",
   "accept": "Accept All",
   "customize": "Only Essential",
   "deny": "Reject All",
+  "reject_optional": "Reject Optional",
   "policy": "Read more about our Cookies Policy"
 }
