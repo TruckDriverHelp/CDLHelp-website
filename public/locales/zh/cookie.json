@@ -3,5 +3,6 @@
   "accept": "接受",
   "customize": "仅必要",
   "deny": "拒绝",
+  "reject_optional": "拒绝可选",
   "policy": "阅读更多关于我们的 Cookie 政策"
 }

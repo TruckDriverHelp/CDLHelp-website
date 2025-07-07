@@ -3,5 +3,6 @@
   "accept": "수락",
   "customize": "필수만",
   "deny": "거부",
+  "reject_optional": "선택 거부",
   "policy": "쿠키 정책에 대해 자세히 알아보기"
 }

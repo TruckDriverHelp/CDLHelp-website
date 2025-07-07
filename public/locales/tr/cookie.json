@@ -3,5 +3,6 @@
   "accept": "Kabul Et",
   "customize": "Sadece Gerekli",
   "deny": "Reddet",
+  "reject_optional": "İsteğe Bağlıları Reddet",
   "policy": "Çerez Politikamız hakkında daha fazla bilgi edinin"
 }
