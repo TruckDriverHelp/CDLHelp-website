@@ -1,7 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 import { SchoolLocation, SupabaseSchoolData } from '../model/types';
 const STRAPI_URL =
-  'http://' + process.env.STRAPI_HOST + ':' + process.env.STRAPI_PORT || 'http://localhost:1337';
+  process.env.STRAPI_HOST && process.env.STRAPI_PORT
+    ? `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}`
+    : 'http://localhost:1337';
 const GRAPHQL_ENDPOINT = `${STRAPI_URL}/graphql`;
 
 // Strapi GraphQL API for schools
@@ -414,6 +416,8 @@ export async function fetchSchoolById(schoolId: string): Promise<SchoolLocation 
  */
 export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | null> {
   console.log('[fetchSchoolBySlug] Looking for school with slug:', slug);
+  console.log('[fetchSchoolBySlug] GraphQL endpoint:', GRAPHQL_ENDPOINT);
+  console.log('[fetchSchoolBySlug] API Key exists:', !!process.env.STRAPI_API_KEY);
 
   const query = `
     query GetAllSchoolsForSlugMatch {
@@ -464,6 +468,7 @@ export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | 
   `;
 
   try {
+    console.log('[fetchSchoolBySlug] Making GraphQL request...');
     const response = await fetch(GRAPHQL_ENDPOINT, {
       method: 'POST',
       headers: {
@@ -474,6 +479,8 @@ export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | 
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('[fetchSchoolBySlug] GraphQL error response:', errorText);
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
