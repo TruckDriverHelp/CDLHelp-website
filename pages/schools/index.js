@@ -21,7 +21,7 @@ const SchoolsPage = ({ meta, states }) => {
 
   const seoData = useSEO({
     meta,
-    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-schools`,
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/schools`,
     type: 'article',
   });
 
@@ -29,12 +29,12 @@ const SchoolsPage = ({ meta, states }) => {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: t('schoolsTitle', 'CDL Schools in USA'),
+    name: t('schoolsTitle', 'Schools in USA'),
     description: t(
       'pageDescription',
       'Directory of CDL truck driving schools across the United States'
     ),
-    url: getLocalizedUrl(locale, '/cdl-schools'),
+    url: getLocalizedUrl(locale, '/schools'),
     numberOfItems: states.length,
     inLanguage: locale,
     publisher: {

@@ -333,6 +333,208 @@ export async function fetchCitiesForState(state: string) {
 }
 
 /**
+ * Fetch a single school by ID
+ */
+export async function fetchSchoolById(schoolId: string): Promise<SchoolLocation | null> {
+  const query = `
+    query GetSchoolById($id: ID!) {
+      schoolLocation(id: $id) {
+        data {
+          id
+          attributes {
+            Address
+            phone_number
+            coords
+            city
+            state
+            zip
+            createdAt
+            updatedAt
+            publishedAt
+            locations {
+              data {
+                id
+                attributes {
+                  Name
+                  description
+                  website
+                  email
+                  license_number
+                  operating_hours
+                  services_offered
+                  certifications
+                  languages_spoken
+                  payment_methods
+                  student_capacity
+                  fleet_size
+                  instructor_count
+                  success_rate
+                  average_completion_time
+                  tuition_cost
+                  financial_aid_available
+                  job_placement_assistance
+                  createdAt
+                  updatedAt
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        query,
+        variables: { id: schoolId },
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const { data } = await response.json();
+    return data?.schoolLocation?.data || null;
+  } catch (error) {
+    console.error('Error fetching school by ID:', error);
+    return null;
+  }
+}
+
+/**
+ * Fetch a school by its name/slug
+ */
+export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | null> {
+  console.log('[fetchSchoolBySlug] Looking for school with slug:', slug);
+
+  const query = `
+    query GetAllSchoolsForSlugMatch {
+      schoolLocations(pagination: { limit: 500 }) {
+        data {
+          id
+          attributes {
+            Address
+            phone_number
+            coords
+            city
+            state
+            zip
+            createdAt
+            updatedAt
+            publishedAt
+            locations {
+              data {
+                id
+                attributes {
+                  Name
+                  description
+                  website
+                  email
+                  license_number
+                  operating_hours
+                  services_offered
+                  certifications
+                  languages_spoken
+                  payment_methods
+                  student_capacity
+                  fleet_size
+                  instructor_count
+                  success_rate
+                  average_completion_time
+                  tuition_cost
+                  financial_aid_available
+                  job_placement_assistance
+                  createdAt
+                  updatedAt
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const { data } = await response.json();
+    const schools = data?.schoolLocations?.data || [];
+
+    console.log(`[fetchSchoolBySlug] Found ${schools.length} total schools`);
+
+    // Log first few schools for debugging
+    if (schools.length > 0) {
+      console.log('[fetchSchoolBySlug] First 5 schools:');
+      schools.slice(0, 5).forEach(school => {
+        const schoolName = school.attributes?.locations?.data?.[0]?.attributes?.Name;
+        const schoolSlug = schoolName
+          ? schoolName
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)/g, '')
+          : 'no-name';
+        console.log(`  - ${schoolName} => ${schoolSlug}`);
+      });
+    }
+
+    // Find school by matching slug
+    const matchingSchool = schools.find(school => {
+      const schoolName = school.attributes?.locations?.data?.[0]?.attributes?.Name;
+      if (!schoolName) return false;
+
+      // Create slug from school name and compare
+      const schoolSlug = schoolName
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+
+      // Debug logging for potential matches
+      if (schoolName.toLowerCase().includes(slug.split('-')[0])) {
+        console.log(
+          `[fetchSchoolBySlug] Potential match: "${schoolName}" => "${schoolSlug}" (looking for "${slug}")`
+        );
+      }
+
+      return schoolSlug === slug;
+    });
+
+    if (matchingSchool) {
+      console.log(
+        '[fetchSchoolBySlug] Found matching school:',
+        matchingSchool.attributes?.locations?.data?.[0]?.attributes?.Name
+      );
+    } else {
+      console.log('[fetchSchoolBySlug] No matching school found for slug:', slug);
+    }
+
+    return matchingSchool || null;
+  } catch (error) {
+    console.error('Error fetching school by slug:', error);
+    return null;
+  }
+}
+
+/**
  * Fetch schools for a specific city and state
  */
 export async function fetchSchoolsForCity(state: string, city: string) {

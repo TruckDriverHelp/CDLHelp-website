@@ -1,8 +1,9 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { SchoolCardProps } from '../model/types';
-import { formatPhoneNumber } from '../../../shared/lib/utils/formatters';
 
 const SchoolMap = dynamic(() => import('../../../shared/ui/Map/SchoolMap'), {
   ssr: false,
@@ -10,18 +11,28 @@ const SchoolMap = dynamic(() => import('../../../shared/ui/Map/SchoolMap'), {
 
 export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, className = '' }) => {
   const { t } = useTranslation('city-schools');
+  const router = useRouter();
+  const { locale } = router;
 
-  const { phone_number, coords, city, state, locations } = schoolLocation.attributes;
+  const { coords, city, state, locations } = schoolLocation.attributes;
 
   const lat = coords?.latitude;
   const lon = coords?.longitude;
 
   const stateFormatted = state ? state.replace(/_/g, ' ') : '';
   const cityFormatted = city ? city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '';
-  const phoneFormatted = formatPhoneNumber(phone_number);
 
   // Get school name from locations array
-  // const schoolName = locations?.data?.[0]?.attributes?.Name || 'CDL School';
+  const schoolName = locations?.data?.[0]?.attributes?.Name || 'CDL School';
+  const schoolId = locations?.data?.[0]?.id || schoolLocation.id;
+
+  // Create URL-friendly slug from school name
+  const schoolSlug = schoolName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+  const stateSlug = state.toLowerCase().replace(/_/g, '-');
+  const citySlug = city.toLowerCase();
 
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -61,13 +72,24 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     flexGrow: 1,
   };
 
-  // const headerStyle: React.CSSProperties = {
-  //   margin: 0,
-  //   fontSize: '18px',
-  //   color: '#1a1a1a',
-  //   fontWeight: 600,
-  //   lineHeight: '1.3',
-  // };
+  const headerStyle: React.CSSProperties = {
+    margin: 0,
+    fontSize: '18px',
+    color: '#1a1a1a',
+    fontWeight: 600,
+    lineHeight: '1.3',
+  };
+
+  const linkStyle: React.CSSProperties = {
+    textDecoration: 'none',
+    color: 'inherit',
+    transition: 'color 0.2s ease',
+  };
+
+  const linkHoverStyle: React.CSSProperties = {
+    ...linkStyle,
+    color: '#3c3d78',
+  };
 
   const bodyStyle: React.CSSProperties = {
     margin: 0,
@@ -78,14 +100,6 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
     fontSize: '14px',
     color: '#6b7280',
     lineHeight: '1.4',
-  };
-
-  const phoneStyle: React.CSSProperties = {
-    margin: '12px 0',
-    fontSize: '16px',
-    color: '#3c3d78',
-    lineHeight: '1.4',
-    fontWeight: 500,
   };
 
   return (
@@ -106,14 +120,14 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ schoolLocation, classNam
       </div>
       <div style={contentStyle}>
         <div style={bodyStyle}>
+          <Link href={`/schools/${schoolSlug}`} locale={locale} legacyBehavior>
+            <a style={isHovered ? linkHoverStyle : linkStyle} title={`View ${schoolName} details`}>
+              <h3 style={headerStyle}>{schoolName}</h3>
+            </a>
+          </Link>
           <p style={textStyle}>
             {cityFormatted}, {stateFormatted}
           </p>
-          {phoneFormatted && (
-            <a href={`tel:${phone_number}`} style={phoneStyle} title="Call this number">
-              {phoneFormatted}
-            </a>
-          )}
         </div>
       </div>
     </div>

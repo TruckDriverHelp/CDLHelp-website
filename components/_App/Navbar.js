@@ -417,7 +417,7 @@ const Navbar = ({ alternateLinks }) => {
                   )}
 
                   <li className="nav-item">
-                    <Link href="/cdl-schools" locale={locale}>
+                    <Link href="/schools" locale={locale}>
                       <a className="nav-link" onClick={closeMobileMenu}>
                         {getTranslation('cdlSchools')}
                       </a>

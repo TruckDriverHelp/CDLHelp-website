@@ -89,7 +89,7 @@ export const StateSelector: React.FC<StateSelectorProps> = ({ states, className 
         }}
       >
         {states.map(state => (
-          <Link key={state.slug} href={`/cdl-schools/${state.slug}`}>
+          <Link key={state.slug} href={`/schools/${state.slug}`}>
             <div
               style={cardStyle}
               onMouseEnter={e => {

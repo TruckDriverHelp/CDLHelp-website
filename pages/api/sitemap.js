@@ -20,7 +20,7 @@ const LOCALES = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
 const PAGE_PRIORITIES = {
   home: 1.0,
   download: 0.9,
-  'cdl-schools': 0.8,
+  schools: 0.8,
   articles: 0.7,
   'pre-trip': 0.6,
   legal: 0.3,
@@ -31,7 +31,7 @@ const PAGE_PRIORITIES = {
 const CHANGE_FREQUENCIES = {
   home: 'daily',
   download: 'weekly',
-  'cdl-schools': 'monthly',
+  schools: 'monthly',
   articles: 'monthly',
   'pre-trip': 'yearly',
   legal: 'yearly',
@@ -115,7 +115,7 @@ function generateUrlEntry(path, locale, lastmod, priority, changefreq, alternate
 function getPageType(path) {
   if (path === '/' || path === '') return 'home';
   if (path.includes('download')) return 'download';
-  if (path.includes('cdl-schools')) return 'cdl-schools';
+  if (path.includes('schools')) return 'schools';
   if (path.includes('pre-trip')) return 'pre-trip';
   if (path.includes('privacy') || path.includes('terms') || path.includes('cookies'))
     return 'legal';
@@ -166,7 +166,7 @@ export default async function handler(req, res) {
       'wisconsin',
     ];
     states.forEach(state => {
-      staticPages.push({ path: `/cdl-schools/${state}`, lastmod: today });
+      staticPages.push({ path: `/schools/${state}`, lastmod: today });
     });
 
     // City pages
@@ -183,7 +183,7 @@ export default async function handler(req, res) {
 
     cities.forEach(stateObj => {
       stateObj.cities.forEach(city => {
-        staticPages.push({ path: `/cdl-schools/${stateObj.state}/${city}`, lastmod: today });
+        staticPages.push({ path: `/schools/${stateObj.state}/${city}`, lastmod: today });
       });
     });
 

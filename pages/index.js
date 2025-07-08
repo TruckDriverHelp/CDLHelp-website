@@ -37,7 +37,7 @@ const Funfacts = dynamic(() => import('../components/Home/Funfacts'), {
   loading: () => (
     <div style={{ minHeight: '150px', background: '#f5f5f5' }}>Loading fun facts...</div>
   ),
-  ssr: false,
+  ssr: true,
 });
 
 const AppDownload = dynamic(() => import('../components/Home/AppDownload'), {
