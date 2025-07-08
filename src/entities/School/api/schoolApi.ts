@@ -431,33 +431,11 @@ export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | 
             city
             state
             zip
-            createdAt
-            updatedAt
-            publishedAt
             locations {
               data {
                 id
                 attributes {
                   Name
-                  description
-                  website
-                  email
-                  license_number
-                  operating_hours
-                  services_offered
-                  certifications
-                  languages_spoken
-                  payment_methods
-                  student_capacity
-                  fleet_size
-                  instructor_count
-                  success_rate
-                  average_completion_time
-                  tuition_cost
-                  financial_aid_available
-                  job_placement_assistance
-                  createdAt
-                  updatedAt
                 }
               }
             }
@@ -530,6 +508,67 @@ export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | 
         '[fetchSchoolBySlug] Found matching school:',
         matchingSchool.attributes?.locations?.data?.[0]?.attributes?.Name
       );
+
+      // Now fetch the full school details
+      const schoolId = matchingSchool.attributes?.locations?.data?.[0]?.id;
+      if (schoolId) {
+        try {
+          const detailQuery = `
+            query GetSchoolDetails($schoolId: ID!) {
+              school(id: $schoolId) {
+                data {
+                  id
+                  attributes {
+                    Name
+                    description
+                    website
+                    email
+                    license_number
+                    operating_hours
+                    services_offered
+                    certifications
+                    languages_spoken
+                    payment_methods
+                    student_capacity
+                    fleet_size
+                    instructor_count
+                    success_rate
+                    average_completion_time
+                    tuition_cost
+                    financial_aid_available
+                    job_placement_assistance
+                  }
+                }
+              }
+            }
+          `;
+
+          const detailResponse = await fetch(GRAPHQL_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+            },
+            body: JSON.stringify({
+              query: detailQuery,
+              variables: { schoolId },
+            }),
+          });
+
+          if (detailResponse.ok) {
+            const { data: detailData } = await detailResponse.json();
+            if (detailData?.school?.data) {
+              // Merge the detailed school data into the location data
+              matchingSchool.attributes.locations.data[0].attributes = {
+                ...matchingSchool.attributes.locations.data[0].attributes,
+                ...detailData.school.data.attributes,
+              };
+            }
+          }
+        } catch (error) {
+          console.error('[fetchSchoolBySlug] Error fetching school details:', error);
+        }
+      }
     } else {
       console.log('[fetchSchoolBySlug] No matching school found for slug:', slug);
     }
