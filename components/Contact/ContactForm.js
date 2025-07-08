@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useTranslation } from 'next-i18next';
+import analytics from '../../lib/analytics';
 
 const alertContent = t => {
   Swal.fire({
@@ -57,11 +58,22 @@ const ContactForm = () => {
     try {
       const url = `/api/contact`;
       const payload = { name, email, number, subject, text };
+
+      // Track contact form submission attempt
+      analytics.trackContactFormSubmit(subject);
+
       await axios.post(url, payload);
       setContact(INITIAL_STATE);
+
+      // Track successful submission
+      analytics.trackContactFormSuccess(subject);
+
       alertContent(t);
     } catch (error) {
       console.error(error);
+
+      // Track failed submission
+      analytics.trackContactFormError(error.message || 'Unknown error');
     }
   };
 
