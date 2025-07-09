@@ -455,7 +455,7 @@ const SchoolProfilePage = ({ school, meta }) => {
         <Navbar alternateLinks={{}} />
 
         <PageBannerStyle1
-          pageTitle={schoolName}
+          pageTitle={`${schoolName} - CDL Training`}
           homePageUrl="/schools"
           homePageText={t('schoolsTitle', 'CDL Schools')}
           activePageText={schoolName}
@@ -874,10 +874,159 @@ const SchoolsRoutePage = ({ pageType, ...props }) => {
 };
 
 export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  };
+  console.log('[getStaticPaths] Generating paths for school pages...');
+
+  try {
+    const paths = [];
+
+    // List of known state slugs
+    const stateSlugsList = [
+      'alabama',
+      'alaska',
+      'arizona',
+      'arkansas',
+      'california',
+      'colorado',
+      'connecticut',
+      'delaware',
+      'florida',
+      'georgia',
+      'hawaii',
+      'idaho',
+      'illinois',
+      'indiana',
+      'iowa',
+      'kansas',
+      'kentucky',
+      'louisiana',
+      'maine',
+      'maryland',
+      'massachusetts',
+      'michigan',
+      'minnesota',
+      'mississippi',
+      'missouri',
+      'montana',
+      'nebraska',
+      'nevada',
+      'new-hampshire',
+      'new-jersey',
+      'new-mexico',
+      'new-york',
+      'north-carolina',
+      'north-dakota',
+      'ohio',
+      'oklahoma',
+      'oregon',
+      'pennsylvania',
+      'rhode-island',
+      'south-carolina',
+      'south-dakota',
+      'tennessee',
+      'texas',
+      'utah',
+      'vermont',
+      'virginia',
+      'washington',
+      'west-virginia',
+      'wisconsin',
+      'wyoming',
+      'district-of-columbia',
+    ];
+
+    // Priority states with more schools (generate all pages for these)
+    const priorityStates = ['california', 'texas', 'florida', 'new-york', 'illinois'];
+
+    // Available locales - prioritize English
+    const locales = ['en'];
+    const additionalLocales = ['ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+
+    // 1. Generate all state paths for English
+    for (const state of stateSlugsList) {
+      paths.push({
+        params: { params: [state] },
+        locale: 'en',
+      });
+    }
+
+    // 2. Generate state paths for other locales only for priority states
+    for (const state of priorityStates) {
+      for (const locale of additionalLocales) {
+        paths.push({
+          params: { params: [state] },
+          locale,
+        });
+      }
+    }
+
+    // 3. Pre-generate city and school pages only for priority states in English
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        const { fetchCitiesForState, fetchSchoolsForCity } = await import(
+          '../../src/entities/School/api/schoolApi'
+        );
+
+        const { formatStateName } = await import('../../src/shared/lib/utils/formatters');
+
+        for (const stateSlug of priorityStates) {
+          try {
+            const cities = await fetchCitiesForState(formatStateName(stateSlug));
+
+            // Generate city paths
+            for (const city of cities.slice(0, 10)) {
+              // Limit to top 10 cities per state
+              paths.push({
+                params: { params: [stateSlug, city.slug] },
+                locale: 'en',
+              });
+
+              // Generate school paths for top cities
+              try {
+                const schools = await fetchSchoolsForCity(formatStateName(stateSlug), city.name);
+
+                for (const school of schools.slice(0, 5)) {
+                  // Limit to top 5 schools per city
+                  const schoolName = school.locations?.data?.[0]?.attributes?.Name;
+                  if (schoolName) {
+                    const schoolSlug = schoolName
+                      .toLowerCase()
+                      .replace(/[^a-z0-9]+/g, '-')
+                      .replace(/(^-|-$)/g, '');
+
+                    paths.push({
+                      params: { params: [schoolSlug] },
+                      locale: 'en',
+                    });
+                  }
+                }
+              } catch (error) {
+                console.error(`[getStaticPaths] Error fetching schools for ${city.name}:`, error);
+              }
+            }
+          } catch (error) {
+            console.error(`[getStaticPaths] Error fetching cities for ${stateSlug}:`, error);
+          }
+        }
+      } catch (error) {
+        console.error('[getStaticPaths] Error importing API functions:', error);
+      }
+    }
+
+    console.log(`[getStaticPaths] Generated ${paths.length} static paths`);
+
+    return {
+      paths,
+      fallback: 'blocking', // Generate remaining pages on-demand
+    };
+  } catch (error) {
+    console.error('[getStaticPaths] Error generating paths:', error);
+
+    // Return minimal paths with blocking fallback
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
 }
 
 export async function getStaticProps({ params, locale }) {
@@ -1050,7 +1199,7 @@ export async function getStaticProps({ params, locale }) {
   try {
     const { fetchSchoolBySlug } = await import('../../src/entities/School/api/schoolApi');
 
-    const [meta, school] = await Promise.all([
+    const [baseMeta, school] = await Promise.all([
       getMeta(locale || 'en', 'general'),
       fetchSchoolBySlug(slug),
     ]);
@@ -1067,6 +1216,19 @@ export async function getStaticProps({ params, locale }) {
       name: school.locations?.data?.[0]?.attributes?.Name,
       coords: school.attributes?.coords,
     });
+
+    // Customize meta for school profile
+    const schoolName = school.locations?.data?.[0]?.attributes?.Name || 'CDL School';
+    const cityFormatted = school.attributes?.city
+      ? school.attributes.city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+      : '';
+    const stateFormatted = school.attributes?.state ? formatStateName(school.attributes.state) : '';
+
+    const meta = {
+      ...baseMeta,
+      title: `${schoolName} - CDL Training`,
+      description: `${schoolName} is a CDL training school in ${cityFormatted}, ${stateFormatted}. Get information about their commercial driver's license programs, schedules, and contact details.`,
+    };
 
     return {
       props: {
