@@ -403,7 +403,8 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
   const cityFormatted = city ? city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '';
 
   const schoolData = school?.locations?.data?.[0]?.attributes || {};
-  const schoolName = schoolData.Name || 'CDL School';
+  const schoolName =
+    schoolData.Name || school?.attributes?.locations?.data?.[0]?.attributes?.Name || 'CDL School';
 
   // Extract location data - this is the school_location data
   const locationData = school?.attributes || {};
@@ -1542,7 +1543,10 @@ export async function getStaticProps({ params, locale }) {
     });
 
     // Customize meta for school profile
-    const schoolName = school.locations?.data?.[0]?.attributes?.Name || 'CDL School';
+    const schoolName =
+      school.locations?.data?.[0]?.attributes?.Name ||
+      school.attributes?.locations?.data?.[0]?.attributes?.Name ||
+      'CDL School';
     const cityFormatted = school.attributes?.city
       ? school.attributes.city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
       : '';

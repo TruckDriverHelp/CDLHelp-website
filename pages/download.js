@@ -168,7 +168,7 @@ const DownloadPage = ({ alternateLinks }) => {
                   {/* Download Buttons */}
                   <div className="download-buttons d-flex flex-column flex-sm-row gap-3">
                     <a
-                      href="#"
+                      href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp"
                       onClick={e => {
                         e.preventDefault();
                         handleDownloadClick('android');
@@ -202,7 +202,7 @@ const DownloadPage = ({ alternateLinks }) => {
                     </a>
 
                     <a
-                      href="#"
+                      href="https://apps.apple.com/us/app/cdl-help/id6444388755"
                       onClick={e => {
                         e.preventDefault();
                         handleDownloadClick('ios');
