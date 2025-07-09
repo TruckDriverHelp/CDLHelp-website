@@ -376,7 +376,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
 };
 
 // Component for School Profile page
-const SchoolProfilePage = ({ school, meta }) => {
+const SchoolProfilePage = ({ school, otherSchools, meta }) => {
   const { t } = useTranslation(['school-profile', 'index']);
   const router = useRouter();
   const { locale } = router;
@@ -805,67 +805,107 @@ const SchoolProfilePage = ({ school, meta }) => {
                   >
                     {t('whatIsTaught', 'What is Taught at CDL Schools')}
                   </h2>
-                  <p style={{ color: '#6b7280', lineHeight: '1.8', marginBottom: '16px' }}>
-                    {t(
-                      'cdlCurriculumParagraph1',
-                      "CDL schools provide comprehensive training to prepare students for their Commercial Driver's License exam. The curriculum is designed to ensure students gain the knowledge, skills, and confidence needed to safely operate commercial vehicles. Training is delivered through a combination of classroom instruction, hands-on practice, and real-world driving experience."
-                    )}
-                  </p>
                   <p style={{ color: '#6b7280', lineHeight: '1.8' }}>
                     {t(
-                      'cdlCurriculumParagraph2',
-                      'The curriculum covers essential topics including pre-trip vehicle inspection procedures, basic vehicle control and maneuvering, on-road driving skills and safety, federal and state regulations, Hours of Service (HOS) rules, cargo handling and documentation, trip planning and navigation, and hazardous materials handling for those seeking HazMat endorsement. Schools typically offer flexible scheduling to accommodate working students, with programs ranging from a few weeks to several months depending on the intensity and type of CDL license being pursued.'
+                      'cdlCurriculumParagraph',
+                      "CDL schools provide comprehensive training to prepare students for their Commercial Driver's License exam. The curriculum covers essential topics including pre-trip vehicle inspection procedures, basic vehicle control and maneuvering, on-road driving skills and safety, federal and state regulations, Hours of Service (HOS) rules, cargo handling and documentation, trip planning and navigation, and hazardous materials handling for those seeking HazMat endorsement. Training is delivered through a combination of classroom instruction, hands-on practice, and real-world driving experience, with programs typically ranging from a few weeks to several months."
                     )}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Call to Action - Now inside the main container */}
-            <div
-              style={{
-                marginTop: '40px',
-                padding: '32px',
-                backgroundColor: '#f9fafb',
-                borderRadius: '12px',
-                textAlign: 'center',
-              }}
-            >
-              <h3
+            {/* Other Schools in Same State */}
+            {otherSchools && otherSchools.length > 0 && (
+              <div
                 style={{
-                  fontSize: '1.125rem',
-                  marginBottom: '16px',
-                  color: '#1a1a1a',
+                  marginTop: '40px',
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                  padding: '40px',
                 }}
               >
-                {t('interested', 'Interested in this school?')}
-              </h3>
-              <p style={{ color: '#6b7280', marginBottom: '20px' }}>
-                {t(
-                  'contactDirectly',
-                  'Contact them directly to learn more about their CDL training programs.'
-                )}
-              </p>
-              {phone_number && (
-                <a
-                  href={`tel:${phone_number}`}
+                <h2
                   style={{
-                    display: 'inline-block',
-                    padding: '12px 32px',
-                    backgroundColor: '#3c3d78',
-                    color: '#fff',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
+                    fontSize: '1.5rem',
+                    marginBottom: '20px',
+                    color: '#1a1a1a',
                     fontWeight: '600',
-                    transition: 'background-color 0.2s ease',
                   }}
-                  onMouseEnter={e => (e.target.style.backgroundColor = '#2d2e5f')}
-                  onMouseLeave={e => (e.target.style.backgroundColor = '#3c3d78')}
                 >
-                  {t('callNow', 'Call Now')}
-                </a>
-              )}
-            </div>
+                  {t('otherSchoolsInState', `Other CDL Schools in ${stateFormatted}`)}
+                </h2>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '20px',
+                  }}
+                >
+                  {otherSchools.map(otherSchool => {
+                    const otherSchoolName =
+                      otherSchool.locations?.data?.[0]?.attributes?.Name || 'CDL School';
+                    const otherCity = otherSchool.attributes?.city || '';
+                    const otherCityFormatted = otherCity
+                      .replace(/-/g, ' ')
+                      .replace(/\b\w/g, l => l.toUpperCase());
+                    const otherSchoolSlug = otherSchoolName
+                      .toLowerCase()
+                      .replace(/[^a-z0-9]+/g, '-')
+                      .replace(/(^-|-$)/g, '');
+
+                    return (
+                      <Link
+                        key={otherSchool.id}
+                        href={`/schools/${otherSchoolSlug}`}
+                        locale={locale}
+                        legacyBehavior
+                      >
+                        <a
+                          style={{
+                            display: 'block',
+                            padding: '24px',
+                            backgroundColor: '#f9fafb',
+                            border: '1px solid #e5e7eb',
+                            borderRadius: '12px',
+                            textDecoration: 'none',
+                            transition: 'all 0.3s ease',
+                          }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.borderColor = '#3c3d78';
+                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.borderColor = '#e5e7eb';
+                            e.currentTarget.style.boxShadow = 'none';
+                          }}
+                        >
+                          <h3
+                            style={{
+                              color: '#1a1a1a',
+                              fontSize: '1.125rem',
+                              marginBottom: '8px',
+                              fontWeight: '600',
+                            }}
+                          >
+                            {otherSchoolName}
+                          </h3>
+                          <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                            {otherCityFormatted}, {stateFormatted}
+                          </p>
+                          {otherSchool.attributes?.phone_number && (
+                            <p style={{ color: '#3c3d78', fontSize: '0.875rem', marginTop: '8px' }}>
+                              {formatPhoneNumber(otherSchool.attributes.phone_number)}
+                            </p>
+                          )}
+                        </a>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* Helpful Resources Section - Now in separate container */}
             <div
@@ -1479,7 +1519,9 @@ export async function getStaticProps({ params, locale }) {
   console.log('[Schools Route] Detected as school profile:', slug);
 
   try {
-    const { fetchSchoolBySlug } = await import('../../src/entities/School/api/schoolApi');
+    const { fetchSchoolBySlug, fetchSchoolsByState } = await import(
+      '../../src/entities/School/api/schoolApi'
+    );
 
     const [baseMeta, school] = await Promise.all([
       getMeta(locale || 'en', 'general'),
@@ -1506,6 +1548,24 @@ export async function getStaticProps({ params, locale }) {
       : '';
     const stateFormatted = school.attributes?.state ? formatStateName(school.attributes.state) : '';
 
+    // Fetch other schools from the same state
+    let otherSchools = [];
+    if (school.attributes?.state) {
+      try {
+        const allSchoolsInState = await fetchSchoolsByState(stateFormatted);
+        // Filter out the current school and get up to 3 random schools
+        const filteredSchools = allSchoolsInState.filter(s => s.id !== school.id);
+        if (filteredSchools.length > 0) {
+          // Shuffle and take up to 3
+          const shuffled = filteredSchools.sort(() => 0.5 - Math.random());
+          otherSchools = shuffled.slice(0, 3);
+        }
+      } catch (error) {
+        console.error('[Schools Route] Error fetching other schools:', error);
+        // Continue without other schools
+      }
+    }
+
     const meta = {
       ...baseMeta,
       title: `${schoolName} - CDL Training`,
@@ -1516,6 +1576,7 @@ export async function getStaticProps({ params, locale }) {
       props: {
         pageType: 'school',
         school,
+        otherSchools,
         meta,
         ...(await serverSideTranslations(locale || 'en', [
           'navbar',
