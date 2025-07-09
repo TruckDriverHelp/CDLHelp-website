@@ -455,7 +455,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
         <Navbar alternateLinks={{}} />
 
         <PageBannerStyle1
-          pageTitle={`${schoolName} - CDL Training`}
+          pageTitle={`${schoolName} - ${t('cdlSchool', 'CDL School')}`}
           homePageUrl="/schools"
           homePageText={t('schoolsTitle', 'CDL Schools')}
           activePageText={schoolName}
@@ -1566,9 +1566,19 @@ export async function getStaticProps({ params, locale }) {
       }
     }
 
+    // Get localized "CDL School" text
+    const cdlSchoolText =
+      {
+        en: 'CDL School',
+        ru: 'CDL школа',
+        uk: 'CDL школа',
+        ar: 'مدرسة CDL',
+        ko: 'CDL 학교',
+      }[locale] || 'CDL School';
+
     const meta = {
       ...baseMeta,
-      title: `${schoolName} - CDL Training`,
+      title: `${schoolName} - ${cdlSchoolText}`,
       description: `${schoolName} is a CDL training school in ${cityFormatted}, ${stateFormatted}. Get information about their commercial driver's license programs, schedules, and contact details.`,
     };
 

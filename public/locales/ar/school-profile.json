@@ -49,5 +49,6 @@
   "ownCdlSchool": "هل تملك مدرسة CDL؟",
   "addSchoolInvite": "إذا كنت تملك أو تدير مدرسة تدريب CDL وترغب في إضافة أو تحديث معلومات مدرستك على منصتنا، نود أن نسمع منك.",
   "contactUs": "اتصل بنا",
-  "otherSchoolsInState": "مدارس CDL أخرى في {{state}}"
+  "otherSchoolsInState": "مدارس CDL أخرى في {{state}}",
+  "cdlSchool": "مدرسة CDL"
 }
