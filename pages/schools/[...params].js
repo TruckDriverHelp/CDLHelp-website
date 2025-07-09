@@ -834,7 +834,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                     fontWeight: '600',
                   }}
                 >
-                  {t('otherSchoolsInState', `Other CDL Schools in ${stateFormatted}`)}
+                  {t('otherSchoolsInState', { state: stateFormatted })}
                 </h2>
                 <div
                   style={{
