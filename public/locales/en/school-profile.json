@@ -49,5 +49,6 @@
   "ownCdlSchool": "Own a CDL School?",
   "addSchoolInvite": "If you own or manage a CDL training school and would like to add or update your school's information on our platform, we'd love to hear from you.",
   "contactUs": "Contact Us",
-  "otherSchoolsInState": "Other CDL Schools in {{state}}"
+  "otherSchoolsInState": "Other CDL Schools in {{state}}",
+  "cdlSchool": "CDL School"
 }

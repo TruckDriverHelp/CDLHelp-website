@@ -49,5 +49,6 @@
   "ownCdlSchool": "CDL 학교를 운영하시나요?",
   "addSchoolInvite": "CDL 교육 학교를 소유하거나 관리하고 있으며 저희 플랫폼에 학교 정보를 추가하거나 업데이트하고 싶으시다면, 연락 주시기 바랍니다.",
   "contactUs": "문의하기",
-  "otherSchoolsInState": "{{state}}의 다른 CDL 학교"
+  "otherSchoolsInState": "{{state}}의 다른 CDL 학교",
+  "cdlSchool": "CDL 학교"
 }
