@@ -793,51 +793,328 @@ const SchoolProfilePage = ({ school, meta }) => {
                   </div>
                 )}
 
-                {/* Call to Action */}
-                <div
-                  style={{
-                    marginTop: '40px',
-                    padding: '32px',
-                    backgroundColor: '#f9fafb',
-                    borderRadius: '12px',
-                    textAlign: 'center',
-                  }}
-                >
-                  <h3
+                {/* What is Taught at CDL Schools */}
+                <div style={{ marginTop: '40px' }}>
+                  <h2
                     style={{
-                      fontSize: '1.125rem',
-                      marginBottom: '16px',
+                      fontSize: '1.5rem',
+                      marginBottom: '20px',
                       color: '#1a1a1a',
+                      fontWeight: '600',
                     }}
                   >
-                    {t('interested', 'Interested in this school?')}
-                  </h3>
-                  <p style={{ color: '#6b7280', marginBottom: '20px' }}>
+                    {t('whatIsTaught', 'What is Taught at CDL Schools')}
+                  </h2>
+                  <p style={{ color: '#6b7280', lineHeight: '1.8', marginBottom: '16px' }}>
                     {t(
-                      'contactDirectly',
-                      'Contact them directly to learn more about their CDL training programs.'
+                      'cdlCurriculumParagraph1',
+                      "CDL schools provide comprehensive training to prepare students for their Commercial Driver's License exam. The curriculum is designed to ensure students gain the knowledge, skills, and confidence needed to safely operate commercial vehicles. Training is delivered through a combination of classroom instruction, hands-on practice, and real-world driving experience."
                     )}
                   </p>
-                  {phone_number && (
-                    <a
-                      href={`tel:${phone_number}`}
-                      style={{
-                        display: 'inline-block',
-                        padding: '12px 32px',
-                        backgroundColor: '#3c3d78',
-                        color: '#fff',
-                        borderRadius: '8px',
-                        textDecoration: 'none',
-                        fontWeight: '600',
-                        transition: 'background-color 0.2s ease',
-                      }}
-                      onMouseEnter={e => (e.target.style.backgroundColor = '#2d2e5f')}
-                      onMouseLeave={e => (e.target.style.backgroundColor = '#3c3d78')}
-                    >
-                      {t('callNow', 'Call Now')}
-                    </a>
-                  )}
+                  <p style={{ color: '#6b7280', lineHeight: '1.8' }}>
+                    {t(
+                      'cdlCurriculumParagraph2',
+                      'The curriculum covers essential topics including pre-trip vehicle inspection procedures, basic vehicle control and maneuvering, on-road driving skills and safety, federal and state regulations, Hours of Service (HOS) rules, cargo handling and documentation, trip planning and navigation, and hazardous materials handling for those seeking HazMat endorsement. Schools typically offer flexible scheduling to accommodate working students, with programs ranging from a few weeks to several months depending on the intensity and type of CDL license being pursued.'
+                    )}
+                  </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Call to Action - Now inside the main container */}
+            <div
+              style={{
+                marginTop: '40px',
+                padding: '32px',
+                backgroundColor: '#f9fafb',
+                borderRadius: '12px',
+                textAlign: 'center',
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: '1.125rem',
+                  marginBottom: '16px',
+                  color: '#1a1a1a',
+                }}
+              >
+                {t('interested', 'Interested in this school?')}
+              </h3>
+              <p style={{ color: '#6b7280', marginBottom: '20px' }}>
+                {t(
+                  'contactDirectly',
+                  'Contact them directly to learn more about their CDL training programs.'
+                )}
+              </p>
+              {phone_number && (
+                <a
+                  href={`tel:${phone_number}`}
+                  style={{
+                    display: 'inline-block',
+                    padding: '12px 32px',
+                    backgroundColor: '#3c3d78',
+                    color: '#fff',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    transition: 'background-color 0.2s ease',
+                  }}
+                  onMouseEnter={e => (e.target.style.backgroundColor = '#2d2e5f')}
+                  onMouseLeave={e => (e.target.style.backgroundColor = '#3c3d78')}
+                >
+                  {t('callNow', 'Call Now')}
+                </a>
+              )}
+            </div>
+
+            {/* Helpful Resources Section - Now in separate container */}
+            <div
+              style={{
+                marginTop: '40px',
+                backgroundColor: '#fff',
+                borderRadius: '16px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                padding: '40px',
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: '1.5rem',
+                  marginBottom: '20px',
+                  color: '#1a1a1a',
+                  fontWeight: '600',
+                }}
+              >
+                {t('helpfulResources', 'Helpful Resources')}
+              </h2>
+              <div
+                className="resources-grid"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(4, 1fr)',
+                  gap: '20px',
+                }}
+              >
+                {/* Pre-trip Inspection Card */}
+                <Link href="/pre-trip-inspection" locale={locale} legacyBehavior>
+                  <a
+                    style={{
+                      display: 'block',
+                      padding: '24px',
+                      backgroundColor: '#fff',
+                      border: '2px solid #e5e7eb',
+                      borderRadius: '12px',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.borderColor = '#3c3d78';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.borderColor = '#e5e7eb';
+                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                      <i
+                        className="ri-truck-line"
+                        style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
+                      ></i>
+                      <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
+                        {t('preTrip', 'Pre-Trip Inspection')}
+                      </h3>
+                    </div>
+                    <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
+                      {t(
+                        'preTripDesc',
+                        'Learn the complete pre-trip inspection process required for your CDL test'
+                      )}
+                    </p>
+                  </a>
+                </Link>
+
+                {/* English for Truck Drivers Card */}
+                <Link href="/articles/english-for-truck-drivers" locale={locale} legacyBehavior>
+                  <a
+                    style={{
+                      display: 'block',
+                      padding: '24px',
+                      backgroundColor: '#fff',
+                      border: '2px solid #e5e7eb',
+                      borderRadius: '12px',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.borderColor = '#3c3d78';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.borderColor = '#e5e7eb';
+                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                      <i
+                        className="ri-translate"
+                        style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
+                      ></i>
+                      <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
+                        {t('englishForDrivers', 'English for Truck Drivers')}
+                      </h3>
+                    </div>
+                    <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
+                      {t(
+                        'englishDesc',
+                        'Essential English vocabulary and phrases for professional truck drivers'
+                      )}
+                    </p>
+                  </a>
+                </Link>
+
+                {/* CDL Curriculum Card */}
+                <Link
+                  href={
+                    locale === 'en'
+                      ? '/articles/what-is-taught-in-cdl-schools'
+                      : `/${locale}/articles/chto-prepodayut-v-shkolakh-cdl`
+                  }
+                  locale={locale}
+                  legacyBehavior
+                >
+                  <a
+                    style={{
+                      display: 'block',
+                      padding: '24px',
+                      backgroundColor: '#fff',
+                      border: '2px solid #e5e7eb',
+                      borderRadius: '12px',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.borderColor = '#3c3d78';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.borderColor = '#e5e7eb';
+                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                      <i
+                        className="ri-book-2-line"
+                        style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
+                      ></i>
+                      <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
+                        {t('cdlCurriculumTitle', 'CDL School Curriculum')}
+                      </h3>
+                    </div>
+                    <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
+                      {t(
+                        'curriculumDesc',
+                        "Detailed overview of what you'll learn in CDL training programs"
+                      )}
+                    </p>
+                  </a>
+                </Link>
+
+                {/* CDL Jobs Card */}
+                <Link href="/jobs" locale={locale} legacyBehavior>
+                  <a
+                    style={{
+                      display: 'block',
+                      padding: '24px',
+                      backgroundColor: '#fff',
+                      border: '2px solid #e5e7eb',
+                      borderRadius: '12px',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.borderColor = '#3c3d78';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.borderColor = '#e5e7eb';
+                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                      <i
+                        className="ri-briefcase-line"
+                        style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
+                      ></i>
+                      <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
+                        {t('cdlJobs', 'CDL Jobs')}
+                      </h3>
+                    </div>
+                    <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
+                      {t('jobsDesc', 'Find truck driving jobs and career opportunities near you')}
+                    </p>
+                  </a>
+                </Link>
+              </div>
+            </div>
+
+            {/* Add Your School Section - Now in separate container */}
+            <div
+              style={{
+                marginTop: '40px',
+                backgroundColor: '#fff',
+                borderRadius: '16px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                padding: '40px',
+              }}
+            >
+              <div
+                style={{
+                  padding: '32px',
+                  backgroundColor: '#f0f9ff',
+                  borderRadius: '12px',
+                  border: '1px solid #bae6fd',
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: '1.25rem',
+                    marginBottom: '16px',
+                    color: '#0c4a6e',
+                    fontWeight: '600',
+                  }}
+                >
+                  {t('ownCdlSchool', 'Own a CDL School?')}
+                </h3>
+                <p style={{ color: '#075985', marginBottom: '20px', lineHeight: '1.6' }}>
+                  {t(
+                    'addSchoolInvite',
+                    "If you own or manage a CDL training school and would like to add or update your school's information on our platform, we'd love to hear from you."
+                  )}
+                </p>
+                <Link href="/contact" locale={locale} legacyBehavior>
+                  <a
+                    style={{
+                      display: 'inline-block',
+                      padding: '10px 24px',
+                      backgroundColor: '#0284c7',
+                      color: '#fff',
+                      borderRadius: '8px',
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '0.95rem',
+                      transition: 'background-color 0.2s ease',
+                    }}
+                    onMouseEnter={e => (e.target.style.backgroundColor = '#0369a1')}
+                    onMouseLeave={e => (e.target.style.backgroundColor = '#0284c7')}
+                  >
+                    {t('contactUs', 'Contact Us')}
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -852,6 +1129,14 @@ const SchoolProfilePage = ({ school, meta }) => {
             grid-template-columns: 1fr !important;
             gap: 16px !important;
             padding: 0 10px !important;
+          }
+          .resources-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .resources-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
       `}</style>
