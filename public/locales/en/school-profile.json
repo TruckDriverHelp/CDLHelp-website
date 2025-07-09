@@ -28,8 +28,7 @@
   "paymentMethods": "Payment Methods",
   "licenseNumber": "License Number",
   "whatIsTaught": "What is Taught at CDL Schools",
-  "cdlCurriculumParagraph1": "CDL schools provide comprehensive training to prepare students for their Commercial Driver's License exam. The training programs are designed to ensure students develop the knowledge, skills, and confidence needed to safely operate commercial vehicles. Students learn through a combination of classroom instruction, hands-on practice, and real-world driving experience.",
-  "cdlCurriculumParagraph2": "The curriculum covers essential topics including pre-trip vehicle inspection procedures, basic vehicle control and maneuvering, on-road driving skills and safety practices, federal and state regulations, Hours of Service (HOS) rules, cargo handling and documentation, trip planning and navigation, and hazardous materials handling for those pursuing HazMat endorsements. Schools typically offer flexible scheduling options to accommodate working students, with programs ranging from a few weeks to several months depending on the intensity and type of CDL license being pursued.",
+  "cdlCurriculumParagraph": "CDL schools provide comprehensive training to prepare students for their Commercial Driver's License exam. The curriculum covers essential topics including pre-trip vehicle inspection procedures, basic vehicle control and maneuvering, on-road driving skills and safety, federal and state regulations, Hours of Service (HOS) rules, cargo handling and documentation, trip planning and navigation, and hazardous materials handling for those seeking HazMat endorsement. Training is delivered through a combination of classroom instruction, hands-on practice, and real-world driving experience, with programs typically ranging from a few weeks to several months.",
   "curriculumItem1": "Pre-trip vehicle inspection procedures",
   "curriculumItem2": "Basic vehicle control and maneuvering",
   "curriculumItem3": "On-road driving skills and safety",
@@ -49,5 +48,6 @@
   "jobsDesc": "Find truck driving jobs and career opportunities near you",
   "ownCdlSchool": "Own a CDL School?",
   "addSchoolInvite": "If you own or manage a CDL training school and would like to add or update your school's information on our platform, we'd love to hear from you.",
-  "contactUs": "Contact Us"
+  "contactUs": "Contact Us",
+  "otherSchoolsInState": "Other CDL Schools in {{state}}"
 }
