@@ -39,9 +39,9 @@ console.log('================================\n');
 const testPaths = [
   '/',
   '/download',
-  '/cdl-schools',
+  '/schools',
   '/ru/download',
-  '/ar/cdl-schools',
+  '/ar/schools',
   '/contact/', // with trailing slash
   '/ru/contact/', // with trailing slash
 ];

@@ -91,7 +91,7 @@ const TestHreflangPage = () => {
             <button onClick={() => router.push('/test-hreflang')}>English Version</button>
             <button onClick={() => router.push('/ru/test-hreflang')}>Russian Version</button>
             <button onClick={() => router.push('/download')}>Download Page</button>
-            <button onClick={() => router.push('/cdl-schools')}>CDL Schools</button>
+            <button onClick={() => router.push('/schools')}>CDL Schools</button>
           </div>
         </div>
 

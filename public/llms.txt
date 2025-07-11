@@ -18,7 +18,7 @@ CDL Help is a comprehensive platform designed to help aspiring truck drivers pre
 
 - Homepage: General information and quick test access
 - /download: Mobile app download page
-- /cdl-schools: Directory of CDL training schools by state
+- /schools: Directory of CDL training schools by state
 - /pre-trip-inspection/guide: Pre-trip inspection study guide
 - /road-signs/test: Road signs practice test
 - /contact: Contact information and support
