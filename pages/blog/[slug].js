@@ -285,7 +285,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                                                 }}
                                               >
                                                 <i
-                                                  className={`${container.container_icon}`}
+                                                  className={`ri-${container.container_icon}`}
                                                   style={{ fontSize: '1.25rem' }}
                                                 ></i>
                                               </div>
@@ -349,7 +349,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                                               <div className="d-flex align-items-center">
                                                 {container.container_sidenote_icon && (
                                                   <i
-                                                    className={`${container.container_sidenote_icon} me-2`}
+                                                    className={`ri-${container.container_sidenote_icon} me-2`}
                                                     style={{
                                                       fontSize: '0.875rem',
                                                       color: '#9CA3AF',
@@ -547,13 +547,15 @@ export async function getStaticPaths() {
   try {
     const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
 
-    // Query to get all blog articles with their localizations
+    // Query to get all articles that should be in /blog/[slug]
+    // These are articles where blog_page is true
     const query = gql`
       query getAllBlogArticles {
-        articles(filters: { blog_post: { eq: true } }, pagination: { limit: 1000 }) {
+        articles(filters: { blog_page: { eq: true } }, pagination: { limit: 1000 }) {
           slug
           locale
           blog_post
+          blog_page
           localizations {
             slug
             locale
@@ -646,8 +648,9 @@ export async function getStaticProps({ params, locale }) {
 
     const articles = articleResponse.data?.data?.articles || [];
 
-    // Find article that IS a blog post
-    const article = articles.find(a => a.blog_post === true);
+    // Find article that should be in /blog section
+    // Articles should be in /blog/[slug] ONLY if blog_page is true
+    const article = articles.find(a => a.blog_page === true);
 
     if (!article) {
       return {
