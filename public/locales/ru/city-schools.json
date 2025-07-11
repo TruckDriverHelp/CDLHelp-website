@@ -19,5 +19,6 @@
   "schoolsInCity": "CDL Школы в {{city}}, {{state}}",
   "noCitiesTitle": "Города не найдены",
   "noCitiesText": "В настоящее время в {{state}} нет городов с CDL школами.",
-  "noSchoolsInCity": "В настоящее время в {{city}}, {{state}} нет CDL школ."
+  "noSchoolsInCity": "В настоящее время в {{city}}, {{state}} нет CDL школ.",
+  "noStatesAvailable": "Штаты временно недоступны"
 }

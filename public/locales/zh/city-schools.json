@@ -19,5 +19,6 @@
   "schoolsInCity": "{{city}}, {{state}}的CDL学校",
   "noCitiesTitle": "未找到城市",
   "noCitiesText": "{{state}}目前没有有CDL学校的城市。",
-  "noSchoolsInCity": "{{city}}, {{state}}目前没有CDL学校。"
+  "noSchoolsInCity": "{{city}}, {{state}}目前没有CDL学校。",
+  "noStatesAvailable": "州暂时不可用"
 }
