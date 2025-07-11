@@ -345,7 +345,8 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
 
                               <div className="d-flex justify-content-between align-items-center flex-wrap">
                                 {container.container_button_text && (
-                                  <button
+                                  <a
+                                    href={container.container_button_link || '#'}
                                     className="btn"
                                     style={{
                                       backgroundColor: style.buttonBg,
@@ -356,6 +357,8 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                                       fontWeight: '600',
                                       fontSize: '0.875rem',
                                       transition: 'all 0.2s ease-in-out',
+                                      textDecoration: 'none',
+                                      display: 'inline-block',
                                     }}
                                     onMouseOver={e => {
                                       e.target.style.backgroundColor = style.buttonHover;
@@ -369,7 +372,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                                     }}
                                   >
                                     {container.container_button_text}
-                                  </button>
+                                  </a>
                                 )}
 
                                 {container.container_sidenote && (
