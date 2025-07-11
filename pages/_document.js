@@ -53,6 +53,60 @@ class MyDocument extends Document {
           <link rel="preload" href="/css/bootstrap.min.css" as="style" />
           <link rel="preload" href="/css/styles.css" as="style" />
           <link rel="preload" href="/css/main.css" as="style" />
+
+          {/* Yandex.Metrika counter - loads only with analytics consent */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                // Initialize Yandex.Metrica only when consent is granted
+                function initYandexMetrica() {
+                  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                  m[i].l=1*new Date();
+                  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+                  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+                  ym(103287856, "init", {
+                       clickmap:true,
+                       trackLinks:true,
+                       accurateTrackBounce:true,
+                       webvisor:true
+                  });
+                }
+
+                // Check for consent on load
+                if (typeof window !== 'undefined') {
+                  window.addEventListener('load', function() {
+                    // Check if user has already consented
+                    const consentCookie = document.cookie.split('; ').find(row => row.startsWith('cookieConsent='));
+                    if (consentCookie) {
+                      const consentValue = consentCookie.split('=')[1];
+                      if (consentValue && consentValue !== 'rejected') {
+                        try {
+                          const consent = JSON.parse(decodeURIComponent(consentValue));
+                          if (consent.analytics) {
+                            initYandexMetrica();
+                          }
+                        } catch (e) {
+                          // Legacy format - 'accepted' means all consents
+                          if (consentValue === 'accepted') {
+                            initYandexMetrica();
+                          }
+                        }
+                      }
+                    }
+                  });
+
+                  // Listen for consent changes
+                  window.addEventListener('consentChanged', function(event) {
+                    if (event.detail && event.detail.analytics && !window.ym) {
+                      initYandexMetrica();
+                    }
+                  });
+                }
+              `,
+            }}
+          />
         </Head>
         <body>
           {/* Google Tag Manager (noscript) */}
@@ -66,6 +120,7 @@ class MyDocument extends Document {
               />
             </noscript>
           )}
+          {/* Yandex.Metrika noscript removed - requires consent which can't be checked without JavaScript */}
           <Main />
           <NextScript />
         </body>

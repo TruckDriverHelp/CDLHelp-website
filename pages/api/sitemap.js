@@ -143,7 +143,7 @@ export default async function handler(req, res) {
       { path: '/', lastmod: today },
       { path: '/download', lastmod: today },
       { path: '/contact', lastmod: today },
-      { path: '/cdl-schools', lastmod: today },
+      { path: '/schools', lastmod: today },
       { path: '/companies', lastmod: today },
       { path: '/cdl-texas', lastmod: today },
       { path: '/dot-physical-exam/search', lastmod: today },

@@ -12,7 +12,7 @@ const urlsToTest = [
   'https://www.cdlhelp.com/en/frequently-asked-questions',
   'https://www.cdlhelp.com/en/how-to-become-a-truck-driver',
   'https://www.cdlhelp.com/en/how-to-use-cdl-help',
-  'https://www.cdlhelp.com/en/cdl-schools/california',
+  'https://www.cdlhelp.com/en/schools/california',
   'https://www.cdlhelp.com/en/pre-trip-inspection/tractor-front/1',
 ];
 

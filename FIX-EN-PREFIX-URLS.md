@@ -34,7 +34,7 @@ if (post.attributes.locale === 'en') {
 }
 ```
 
-### 2. `/pages/cdl-schools/[state].js`
+### 2. `/pages/schools/[state].js`
 
 Updated state pages to not generate `/en/` paths:
 
@@ -46,7 +46,7 @@ Updated state pages to not generate `/en/` paths:
 { params: { state: state.slug }, locale: undefined }
 ```
 
-### 3. `/pages/cdl-schools/[state]/[city].js`
+### 3. `/pages/schools/[state]/[city].js`
 
 Modified city pages generation:
 
