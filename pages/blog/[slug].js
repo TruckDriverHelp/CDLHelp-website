@@ -558,14 +558,9 @@ export async function getStaticProps({ params, locale }) {
   const { slug } = params;
   const actualLocale = locale || 'en'; // Handle default locale
 
-  console.log('\n=== BLOG ARTICLE FETCH DEBUG ===');
-  console.log('Slug:', slug);
-  console.log('Locale:', actualLocale);
-
   // Fetch blog article from Strapi
 
   const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
-  console.log('GraphQL URL:', url);
 
   try {
     // Fetch the article
@@ -573,7 +568,7 @@ export async function getStaticProps({ params, locale }) {
       url,
       {
         query: ARTICLE_BY_SLUG_QUERY,
-        variables: { slug }, // Remove locale from variables
+        variables: { slug, locale: actualLocale },
       },
       {
         headers: {
@@ -582,35 +577,16 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    console.log('GraphQL Response Status:', articleResponse.status);
-    console.log('GraphQL Response Data:', JSON.stringify(articleResponse.data, null, 2));
-
     if (articleResponse.data?.errors) {
-      console.error('GraphQL Errors:', JSON.stringify(articleResponse.data.errors, null, 2));
+      // Handle GraphQL errors
     }
 
     const articles = articleResponse.data?.data?.articles || [];
-    console.log('Articles found:', articles.length);
-    console.log('Articles data:', JSON.stringify(articles, null, 2));
-
-    // Process articles to find blog page
-    console.log('\n--- Processing blog articles ---');
-    articles.forEach((a, i) => {
-      console.log(`Article ${i}:`, {
-        slug: a.slug,
-        blog_page: a.blog_page,
-        blog_post: a.blog_post,
-        locale: a.locale,
-        title: a.title,
-      });
-    });
 
     // Find article that IS a blog post
     const article = articles.find(a => a.blog_post === true);
-    console.log('Found blog article:', article ? 'Yes' : 'No');
 
     if (!article) {
-      console.log('No blog articles found with slug:', slug);
       return {
         notFound: true,
       };
@@ -623,7 +599,7 @@ export async function getStaticProps({ params, locale }) {
         url,
         {
           query: ALTERNATE_LINKS_QUERY,
-          variables: { slug }, // Remove locale from variables
+          variables: { slug },
         },
         {
           headers: {
@@ -647,14 +623,6 @@ export async function getStaticProps({ params, locale }) {
       alternateLinks = generateArticleHreflangUrls(article, actualLocale, slug, true);
     }
 
-    console.log('Blog article found successfully:', {
-      documentId: article.documentId,
-      title: article.title,
-      slug: article.slug,
-      blog_page: article.blog_page,
-      blog_post: article.blog_post,
-    });
-
     return {
       props: {
         ...(await serverSideTranslations(actualLocale, ['common', 'navbar', 'footer', 'article'])),
@@ -666,15 +634,6 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    console.error('\n=== BLOG ARTICLE FETCH ERROR ===');
-    console.error('Error Type:', error.name);
-    console.error('Error Message:', error.message);
-    if (error.response) {
-      console.error('Response Status:', error.response.status);
-      console.error('Response Data:', JSON.stringify(error.response.data, null, 2));
-    }
-    console.error('Full Error:', error);
-
     // Error fetching blog article
     return {
       notFound: true,
