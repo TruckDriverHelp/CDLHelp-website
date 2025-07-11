@@ -314,7 +314,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                                     }}
                                   >
                                     <i
-                                      className={`${container.container_icon}`}
+                                      className={`ri-${container.container_icon}`}
                                       style={{ fontSize: '1.25rem' }}
                                     ></i>
                                   </div>
@@ -376,7 +376,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                                   <div className="d-flex align-items-center">
                                     {container.container_sidenote_icon && (
                                       <i
-                                        className={`${container.container_sidenote_icon} me-2`}
+                                        className={`ri-${container.container_sidenote_icon} me-2`}
                                         style={{ fontSize: '0.875rem', color: '#9CA3AF' }}
                                       ></i>
                                     )}
@@ -579,19 +579,11 @@ export async function getStaticProps({ params, locale }) {
       };
     }
 
-    // Process articles to find non-blog post
-
-    // Find the article that is NOT a blog post (for regular pages)
-    const article = articles.find(a => a.blog_post !== true);
+    // Process articles to find those with blog_page: false
+    // Articles should be in root/[slug] only if blog_page is false
+    const article = articles.find(a => a.blog_page !== true);
 
     if (!article) {
-      return {
-        notFound: true,
-      };
-    }
-
-    // If this is a blog post, return not found (it should be handled by /blog/[slug])
-    if (article.blog_post === true) {
       return {
         notFound: true,
       };
@@ -676,13 +668,18 @@ export async function getStaticPaths() {
   try {
     const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
 
-    // Query to get all non-blog articles with their localizations
+    // Query to get all articles that should be in root/[slug]
+    // These are articles where blog_page is false/null
     const query = gql`
       query getAllArticles {
-        articles(filters: { blog_post: { ne: true } }, pagination: { limit: 1000 }) {
+        articles(
+          filters: { or: [{ blog_page: { eq: false } }, { blog_page: { null: true } }] }
+          pagination: { limit: 1000 }
+        ) {
           slug
           locale
           blog_post
+          blog_page
           localizations {
             slug
             locale
