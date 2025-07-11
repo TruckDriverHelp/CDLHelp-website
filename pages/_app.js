@@ -2,6 +2,7 @@
 import '/public/css/bootstrap.min.css'; // Keep Bootstrap as it's critical for layout
 import '/public/css/styles.css';
 import '/public/css/main.css';
+import '/public/css/fixes.css'; // CSS fixes for warnings
 
 // Component-specific CSS - loaded with components
 
@@ -33,7 +34,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
 import { getDirection } from 'lib/getDirection';
-import { useEffect, useState, Suspense, lazy } from 'react';
+import { useEffect, useState, Suspense, lazy, startTransition } from 'react';
 import { QuizContextProvider } from '../store/quiz-context';
 import nextI18NextConfig from '../next-i18next.config';
 import analytics from '../lib/analytics';
@@ -54,7 +55,9 @@ const MyApp = ({ Component, pageProps }) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    startTransition(() => {
+      setIsClient(true);
+    });
     // Load Inter font asynchronously
     loadInterFont();
 
