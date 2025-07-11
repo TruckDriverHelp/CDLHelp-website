@@ -201,8 +201,6 @@ export async function getServerSideProps({ locale, query }) {
       },
     };
   } catch (error) {
-    console.error('Error fetching blog data:', error);
-
     return {
       props: {
         ...(await serverSideTranslations(locale, ['common', 'blog', 'navbar', 'footer'])),

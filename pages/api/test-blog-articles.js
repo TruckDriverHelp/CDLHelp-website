@@ -85,7 +85,6 @@ export default async function handler(req, res) {
       },
     });
   } catch (error) {
-    console.error('Test blog articles error:', error);
     return res.status(500).json({
       error: 'Failed to test blog articles',
       message: error.message,

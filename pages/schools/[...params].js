@@ -17,21 +17,17 @@ import getMeta from '../../lib/getMeta';
 
 const SchoolMap = dynamic(
   () => {
-    console.log('[Dynamic Import] Loading SchoolMap component...');
     return import('../../src/shared/ui/Map/SchoolMap')
       .then(module => {
-        console.log('[Dynamic Import] SchoolMap loaded successfully');
         return module;
       })
       .catch(error => {
-        console.error('[Dynamic Import] Failed to load SchoolMap:', error);
         throw error;
       });
   },
   {
     ssr: false,
     loading: () => {
-      console.log('[SchoolMap] Loading component...');
       return (
         <div
           style={{
@@ -383,20 +379,10 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
 
   // Client-side debug logging
   React.useEffect(() => {
-    console.log('[SchoolProfile CLIENT] Component mounted with data:', {
-      school,
-      attributes: school?.attributes,
-      locations: school?.locations,
-      coords: school?.attributes?.coords,
-    });
+    // Debug logging removed
   }, [school]);
 
-  // Debug logging
-  console.log('[SchoolProfile] Rendering with school data:', {
-    school,
-    attributes: school?.attributes,
-    locations: school?.locations,
-  });
+  // Debug logging removed
 
   const { state, city } = school?.attributes || {};
   const stateFormatted = state ? formatStateName(state) : '';
@@ -413,24 +399,12 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
   // Also check if coordinates might be in the school data itself
   const schoolCoords = schoolData?.coords;
 
-  console.log('[SchoolProfile] Location data sources:', {
-    locationData,
-    schoolLocationCoords: coords,
-    schoolDataCoords: schoolCoords,
-    schoolLocations: school?.attributes?.school_locations,
-  });
+  // Debug logging removed
 
   const lat = coords?.latitude || schoolCoords?.latitude;
   const lon = coords?.longitude || schoolCoords?.longitude;
 
-  console.log('[SchoolProfile] Coordinates:', {
-    coords,
-    lat,
-    lon,
-    latType: typeof lat,
-    lonType: typeof lon,
-    hasCoords: !!(lat && lon),
-  });
+  // Debug logging removed
 
   const seoData = useSEO({
     meta,
@@ -532,21 +506,9 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                 }}
               >
                 {(() => {
-                  console.log('[SchoolProfile] Map render check:', {
-                    lat,
-                    lon,
-                    condition: !!(lat && lon),
-                    parsedLat: lat ? parseFloat(String(lat)) : null,
-                    parsedLon: lon ? parseFloat(String(lon)) : null,
-                  });
-
                   if (lat && lon) {
                     const parsedLat = parseFloat(String(lat));
                     const parsedLon = parseFloat(String(lon));
-                    console.log('[SchoolProfile] Rendering SchoolMap with:', {
-                      parsedLat,
-                      parsedLon,
-                    });
 
                     // Add key to force re-render on coordinate change
                     return (
@@ -557,7 +519,6 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                       />
                     );
                   } else {
-                    console.log('[SchoolProfile] Not rendering map - missing coordinates');
                     return (
                       <div
                         style={{
@@ -1200,8 +1161,6 @@ const SchoolsRoutePage = ({ pageType, ...props }) => {
 };
 
 export async function getStaticPaths() {
-  console.log('[getStaticPaths] Generating paths for school pages...');
-
   try {
     const paths = [];
 
@@ -1322,28 +1281,18 @@ export async function getStaticPaths() {
                     }
                   }
                 }
-              } catch (error) {
-                console.error(`[getStaticPaths] Error fetching schools for ${city.name}:`, error);
-              }
+              } catch (error) {}
             }
-          } catch (error) {
-            console.error(`[getStaticPaths] Error fetching cities for ${stateSlug}:`, error);
-          }
+          } catch (error) {}
         }
-      } catch (error) {
-        console.error('[getStaticPaths] Error importing API functions:', error);
-      }
+      } catch (error) {}
     }
-
-    console.log(`[getStaticPaths] Generated ${paths.length} static paths`);
 
     return {
       paths,
       fallback: 'blocking', // Generate remaining pages on-demand
     };
   } catch (error) {
-    console.error('[getStaticPaths] Error generating paths:', error);
-
     // Return minimal paths with blocking fallback
     return {
       paths: [],
@@ -1354,8 +1303,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, locale }) {
   const { params: routeParams } = params || {};
-
-  console.log('[Schools Route] Processing params:', routeParams);
 
   if (!routeParams || routeParams.length === 0) {
     return {
@@ -1369,7 +1316,6 @@ export async function getStaticProps({ params, locale }) {
   if (routeParams.length === 2) {
     // This is a city page: /schools/[state]/[city]
     const [state, city] = routeParams;
-    console.log('[Schools Route] Detected as city page:', { state, city });
 
     try {
       const { fetchSchoolsForCity } = await import('../../src/entities/School/api/schoolApi');
@@ -1400,7 +1346,6 @@ export async function getStaticProps({ params, locale }) {
         revalidate: 300,
       };
     } catch (error) {
-      console.error('[Schools Route] Error fetching city data:', error);
       return {
         notFound: true,
       };
@@ -1467,8 +1412,6 @@ export async function getStaticProps({ params, locale }) {
 
   // Check if it's a state
   if (stateSlugsList.includes(slug)) {
-    console.log('[Schools Route] Detected as state:', slug);
-
     try {
       const { fetchCitiesForState } = await import('../../src/entities/School/api/schoolApi');
 
@@ -1494,7 +1437,6 @@ export async function getStaticProps({ params, locale }) {
         revalidate: 300,
       };
     } catch (error) {
-      console.error('[Schools Route] Error fetching state data:', error);
       const meta = await getMeta(locale || 'en', 'general');
 
       return {
@@ -1517,7 +1459,6 @@ export async function getStaticProps({ params, locale }) {
   }
 
   // Otherwise, treat it as a school profile
-  console.log('[Schools Route] Detected as school profile:', slug);
 
   try {
     const { fetchSchoolBySlug, fetchSchoolsByState } = await import(
@@ -1530,17 +1471,12 @@ export async function getStaticProps({ params, locale }) {
     ]);
 
     if (!school) {
-      console.log('[Schools Route] School not found for slug:', slug);
       return {
         notFound: true,
       };
     }
 
-    console.log('[Schools Route] Found school:', {
-      id: school.id,
-      name: school.locations?.data?.[0]?.attributes?.Name,
-      coords: school.attributes?.coords,
-    });
+    // Debug logging removed
 
     // Customize meta for school profile
     const schoolName =
@@ -1565,7 +1501,6 @@ export async function getStaticProps({ params, locale }) {
           otherSchools = shuffled.slice(0, 3);
         }
       } catch (error) {
-        console.error('[Schools Route] Error fetching other schools:', error);
         // Continue without other schools
       }
     }
@@ -1603,7 +1538,6 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300,
     };
   } catch (error) {
-    console.error('[Schools Route] Error fetching school:', error);
     return {
       notFound: true,
     };

@@ -12,24 +12,16 @@ export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation
     const query = `
       query GetSchoolLocationsByState($state: String!) {
         schoolLocations(filters: { state: { eq: $state } }) {
-          data {
-            id
-            attributes {
-              Address
-              phone_number
-              coords
-              city
-              state
-              zip
-              locations {
-                data {
-                  id
-                  attributes {
-                    Name
-                  }
-                }
-              }
-            }
+          documentId
+          Address
+          phone_number
+          coords
+          city
+          state
+          zip
+          locations {
+            documentId
+            Name
           }
         }
       }
@@ -51,7 +43,29 @@ export const fetchSchoolsByState = async (state: string): Promise<SchoolLocation
     );
 
     const { data } = await response.json();
-    return data?.schoolLocations?.data || [];
+    const schoolLocations = data?.schoolLocations || [];
+
+    // Transform to match expected structure
+    return schoolLocations.map(location => ({
+      id: location.documentId,
+      attributes: {
+        Address: location.Address,
+        phone_number: location.phone_number,
+        coords: location.coords,
+        city: location.city,
+        state: location.state,
+        zip: location.zip,
+        locations: {
+          data:
+            location.locations?.map(loc => ({
+              id: loc.documentId,
+              attributes: {
+                Name: loc.Name,
+              },
+            })) || [],
+        },
+      },
+    }));
   } catch (error) {
     // Error fetching schools by state
     throw new Error('Failed to fetch schools');
@@ -95,24 +109,16 @@ export const fetchAllSchools = async (): Promise<SchoolLocation[]> => {
     const query = `
       query GetAllSchoolLocations {
         schoolLocations(pagination: { limit: 100 }) {
-          data {
-            id
-            attributes {
-              Address
-              phone_number
-              coords
-              city
-              state
-              zip
-              locations {
-                data {
-                  id
-                  attributes {
-                    Name
-                  }
-                }
-              }
-            }
+          documentId
+          Address
+          phone_number
+          coords
+          city
+          state
+          zip
+          locations {
+            documentId
+            Name
           }
         }
       }
@@ -131,7 +137,29 @@ export const fetchAllSchools = async (): Promise<SchoolLocation[]> => {
     );
 
     const { data } = await response.json();
-    return data?.schoolLocations?.data || [];
+    const schoolLocations = data?.schoolLocations || [];
+
+    // Transform to match expected structure
+    return schoolLocations.map(location => ({
+      id: location.documentId,
+      attributes: {
+        Address: location.Address,
+        phone_number: location.phone_number,
+        coords: location.coords,
+        city: location.city,
+        state: location.state,
+        zip: location.zip,
+        locations: {
+          data:
+            location.locations?.map(loc => ({
+              id: loc.documentId,
+              attributes: {
+                Name: loc.Name,
+              },
+            })) || [],
+        },
+      },
+    }));
   } catch (error) {
     // Error fetching all schools
     // Return empty array instead of throwing error for graceful fallback
@@ -147,12 +175,8 @@ export const fetchStatesWithSchoolCounts = async (): Promise<
     const query = `
       query GetStatesWithCounts {
         schoolLocations(pagination: { limit: 100 }) {
-          data {
-            attributes {
-              state
-              city
-            }
-          }
+          state
+          city
         }
       }
     `;
@@ -170,13 +194,13 @@ export const fetchStatesWithSchoolCounts = async (): Promise<
     );
 
     const { data } = await response.json();
-    const schoolLocations = data?.schoolLocations?.data || [];
+    const schoolLocations = data?.schoolLocations || [];
 
     // Group by states and count the number
     const stateMap = new Map<string, number>();
 
     schoolLocations.forEach((location: any) => {
-      const state = location.attributes.state;
+      const state = location.state;
       if (state) {
         stateMap.set(state, (stateMap.get(state) || 0) + 1);
       }
@@ -200,20 +224,15 @@ export const fetchStatesWithSchoolCounts = async (): Promise<
  * Fetch all states with their cities and school counts
  */
 export async function fetchStatesWithCities() {
+  // Strapi v5 query using documentId
   const query = `
     query {
       schoolCities(pagination: { limit: 100 }) {
-        data {
-          id
-          attributes {
-            city
-            state
-            schools {
-              data {
-                id
-              }
-            }
-          }
+        documentId
+        city
+        state
+        schools {
+          documentId
         }
       }
     }
@@ -224,6 +243,7 @@ export async function fetchStatesWithCities() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
       },
       body: JSON.stringify({ query }),
     });
@@ -235,18 +255,17 @@ export async function fetchStatesWithCities() {
     const data = await response.json();
 
     if (data.errors) {
-      // GraphQL errors found
       return [];
     }
 
-    const schoolCities = data.data?.schoolCities?.data || [];
+    const schoolCities = data.data?.schoolCities || [];
 
-    // Group cities by state and calculate school counts
+    // Group cities by state for v5 structure
     const statesMap = new Map();
 
     schoolCities.forEach(cityData => {
-      const { city, state, schools } = cityData.attributes;
-      const schoolCount = schools.data.length;
+      const { city, state, schools } = cityData;
+      const schoolCount = schools?.length || 0;
 
       if (!statesMap.has(state)) {
         statesMap.set(state, {
@@ -266,9 +285,9 @@ export async function fetchStatesWithCities() {
       stateData.schoolCount += schoolCount;
     });
 
-    return Array.from(statesMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+    const result = Array.from(statesMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+    return result;
   } catch (error) {
-    // Error fetching states with cities
     return [];
   }
 }
@@ -283,17 +302,11 @@ export async function fetchCitiesForState(state: string) {
         filters: { state: { eq: "${state}" } }
         pagination: { limit: 100 }
       ) {
-        data {
-          id
-          attributes {
-            city
-            state
-            schools {
-              data {
-                id
-              }
-            }
-          }
+        documentId
+        city
+        state
+        schools {
+          documentId
         }
       }
     }
@@ -304,6 +317,7 @@ export async function fetchCitiesForState(state: string) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
       },
       body: JSON.stringify({ query }),
     });
@@ -319,13 +333,13 @@ export async function fetchCitiesForState(state: string) {
       return [];
     }
 
-    const schoolCities = data.data?.schoolCities?.data || [];
+    const schoolCities = data.data?.schoolCities || [];
 
     return schoolCities
       .map(cityData => ({
-        name: cityData.attributes.city,
-        slug: cityData.attributes.city.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-'),
-        schoolCount: cityData.attributes.schools.data.length,
+        name: cityData.city,
+        slug: cityData.city.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-'),
+        schoolCount: cityData.schools?.length || 0,
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
   } catch (error) {
@@ -341,46 +355,38 @@ export async function fetchSchoolById(schoolId: string): Promise<SchoolLocation 
   const query = `
     query GetSchoolById($id: ID!) {
       schoolLocation(id: $id) {
-        data {
-          id
-          attributes {
-            Address
-            phone_number
-            coords
-            city
-            state
-            zip
-            createdAt
-            updatedAt
-            publishedAt
-            locations {
-              data {
-                id
-                attributes {
-                  Name
-                  description
-                  website
-                  email
-                  license_number
-                  operating_hours
-                  services_offered
-                  certifications
-                  languages_spoken
-                  payment_methods
-                  student_capacity
-                  fleet_size
-                  instructor_count
-                  success_rate
-                  average_completion_time
-                  tuition_cost
-                  financial_aid_available
-                  job_placement_assistance
-                  createdAt
-                  updatedAt
-                }
-              }
-            }
-          }
+        documentId
+        Address
+        phone_number
+        coords
+        city
+        state
+        zip
+        createdAt
+        updatedAt
+        publishedAt
+        locations {
+          documentId
+          Name
+          description
+          website
+          email
+          license_number
+          operating_hours
+          services_offered
+          certifications
+          languages_spoken
+          payment_methods
+          student_capacity
+          fleet_size
+          instructor_count
+          success_rate
+          average_completion_time
+          tuition_cost
+          financial_aid_available
+          job_placement_assistance
+          createdAt
+          updatedAt
         }
       }
     }
@@ -404,9 +410,54 @@ export async function fetchSchoolById(schoolId: string): Promise<SchoolLocation 
     }
 
     const { data } = await response.json();
-    return data?.schoolLocation?.data || null;
+    const location = data?.schoolLocation;
+
+    if (!location) return null;
+
+    // Transform to match expected structure
+    return {
+      id: location.documentId,
+      attributes: {
+        Address: location.Address,
+        phone_number: location.phone_number,
+        coords: location.coords,
+        city: location.city,
+        state: location.state,
+        zip: location.zip,
+        createdAt: location.createdAt,
+        updatedAt: location.updatedAt,
+        publishedAt: location.publishedAt,
+        locations: {
+          data:
+            location.locations?.map(loc => ({
+              id: loc.documentId,
+              attributes: {
+                Name: loc.Name,
+                description: loc.description,
+                website: loc.website,
+                email: loc.email,
+                license_number: loc.license_number,
+                operating_hours: loc.operating_hours,
+                services_offered: loc.services_offered,
+                certifications: loc.certifications,
+                languages_spoken: loc.languages_spoken,
+                payment_methods: loc.payment_methods,
+                student_capacity: loc.student_capacity,
+                fleet_size: loc.fleet_size,
+                instructor_count: loc.instructor_count,
+                success_rate: loc.success_rate,
+                average_completion_time: loc.average_completion_time,
+                tuition_cost: loc.tuition_cost,
+                financial_aid_available: loc.financial_aid_available,
+                job_placement_assistance: loc.job_placement_assistance,
+                createdAt: loc.createdAt,
+                updatedAt: loc.updatedAt,
+              },
+            })) || [],
+        },
+      },
+    };
   } catch (error) {
-    console.error('Error fetching school by ID:', error);
     return null;
   }
 }
@@ -415,38 +466,25 @@ export async function fetchSchoolById(schoolId: string): Promise<SchoolLocation 
  * Fetch a school by its name/slug
  */
 export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | null> {
-  console.log('[fetchSchoolBySlug] Looking for school with slug:', slug);
-  console.log('[fetchSchoolBySlug] GraphQL endpoint:', GRAPHQL_ENDPOINT);
-  console.log('[fetchSchoolBySlug] API Key exists:', !!process.env.STRAPI_API_KEY);
-
   const query = `
     query GetAllSchoolsForSlugMatch {
       schoolLocations(pagination: { limit: 500 }) {
-        data {
-          id
-          attributes {
-            Address
-            phone_number
-            coords
-            city
-            state
-            zip
-            locations {
-              data {
-                id
-                attributes {
-                  Name
-                }
-              }
-            }
-          }
+        documentId
+        Address
+        phone_number
+        coords
+        city
+        state
+        zip
+        locations {
+          documentId
+          Name
         }
       }
     }
   `;
 
   try {
-    console.log('[fetchSchoolBySlug] Making GraphQL request...');
     const response = await fetch(GRAPHQL_ENDPOINT, {
       method: 'POST',
       headers: {
@@ -457,34 +495,15 @@ export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | 
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('[fetchSchoolBySlug] GraphQL error response:', errorText);
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const { data } = await response.json();
-    const schools = data?.schoolLocations?.data || [];
-
-    console.log(`[fetchSchoolBySlug] Found ${schools.length} total schools`);
-
-    // Log first few schools for debugging
-    if (schools.length > 0) {
-      console.log('[fetchSchoolBySlug] First 5 schools:');
-      schools.slice(0, 5).forEach(school => {
-        const schoolName = school.attributes?.locations?.data?.[0]?.attributes?.Name;
-        const schoolSlug = schoolName
-          ? schoolName
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/(^-|-$)/g, '')
-          : 'no-name';
-        console.log(`  - ${schoolName} => ${schoolSlug}`);
-      });
-    }
+    const schools = data?.schoolLocations || [];
 
     // Find school by matching slug
     const matchingSchool = schools.find(school => {
-      const schoolName = school.attributes?.locations?.data?.[0]?.attributes?.Name;
+      const schoolName = school.locations?.[0]?.Name;
       if (!schoolName) return false;
 
       // Create slug from school name and compare
@@ -493,89 +512,36 @@ export async function fetchSchoolBySlug(slug: string): Promise<SchoolLocation | 
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
 
-      // Debug logging for potential matches
-      if (schoolName.toLowerCase().includes(slug.split('-')[0])) {
-        console.log(
-          `[fetchSchoolBySlug] Potential match: "${schoolName}" => "${schoolSlug}" (looking for "${slug}")`
-        );
-      }
-
       return schoolSlug === slug;
     });
 
     if (matchingSchool) {
-      console.log(
-        '[fetchSchoolBySlug] Found matching school:',
-        matchingSchool.attributes?.locations?.data?.[0]?.attributes?.Name
-      );
-
-      // Now fetch the full school details
-      const schoolId = matchingSchool.attributes?.locations?.data?.[0]?.id;
-      if (schoolId) {
-        try {
-          const detailQuery = `
-            query GetSchoolDetails($schoolId: ID!) {
-              school(id: $schoolId) {
-                data {
-                  id
-                  attributes {
-                    Name
-                    description
-                    website
-                    email
-                    license_number
-                    operating_hours
-                    services_offered
-                    certifications
-                    languages_spoken
-                    payment_methods
-                    student_capacity
-                    fleet_size
-                    instructor_count
-                    success_rate
-                    average_completion_time
-                    tuition_cost
-                    financial_aid_available
-                    job_placement_assistance
-                  }
-                }
-              }
-            }
-          `;
-
-          const detailResponse = await fetch(GRAPHQL_ENDPOINT, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
-            },
-            body: JSON.stringify({
-              query: detailQuery,
-              variables: { schoolId },
-            }),
-          });
-
-          if (detailResponse.ok) {
-            const { data: detailData } = await detailResponse.json();
-            if (detailData?.school?.data) {
-              // Merge the detailed school data into the location data
-              matchingSchool.attributes.locations.data[0].attributes = {
-                ...matchingSchool.attributes.locations.data[0].attributes,
-                ...detailData.school.data.attributes,
-              };
-            }
-          }
-        } catch (error) {
-          console.error('[fetchSchoolBySlug] Error fetching school details:', error);
-        }
-      }
+      // Transform to match expected structure
+      return {
+        id: matchingSchool.documentId,
+        attributes: {
+          Address: matchingSchool.Address,
+          phone_number: matchingSchool.phone_number,
+          coords: matchingSchool.coords,
+          city: matchingSchool.city,
+          state: matchingSchool.state,
+          zip: matchingSchool.zip,
+          locations: {
+            data:
+              matchingSchool.locations?.map(loc => ({
+                id: loc.documentId,
+                attributes: {
+                  Name: loc.Name,
+                },
+              })) || [],
+          },
+        },
+      };
     } else {
-      console.log('[fetchSchoolBySlug] No matching school found for slug:', slug);
     }
 
-    return matchingSchool || null;
+    return null;
   } catch (error) {
-    console.error('Error fetching school by slug:', error);
     return null;
   }
 }
@@ -595,32 +561,20 @@ export async function fetchSchoolsForCity(state: string, city: string) {
         }
         pagination: { limit: 100 }
       ) {
-        data {
-          id
-          attributes {
+        documentId
+        city
+        state
+        schools {
+          documentId
+          Name
+          school_locations {
+            documentId
+            Address
+            phone_number
             city
             state
-            schools {
-              data {
-                id
-                attributes {
-                  Name
-                  school_locations {
-                    data {
-                      id
-                      attributes {
-                        Address
-                        phone_number
-                        city
-                        state
-                        zip
-                        coords
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            zip
+            coords
           }
         }
       }
@@ -632,6 +586,7 @@ export async function fetchSchoolsForCity(state: string, city: string) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
       },
       body: JSON.stringify({ query }),
     });
@@ -647,28 +602,28 @@ export async function fetchSchoolsForCity(state: string, city: string) {
       return [];
     }
 
-    const schoolCities = data.data?.schoolCities?.data || [];
+    const schoolCities = data.data?.schoolCities || [];
 
     // Extract all school locations from all matching city records
     const allSchoolLocations = [];
     schoolCities.forEach(cityData => {
-      cityData.attributes.schools.data.forEach(school => {
-        school.attributes.school_locations.data.forEach(location => {
+      cityData.schools?.forEach(school => {
+        school.school_locations?.forEach(location => {
           allSchoolLocations.push({
-            id: location.id,
+            id: location.documentId,
             attributes: {
-              Address: location.attributes.Address,
-              phone_number: location.attributes.phone_number,
-              city: location.attributes.city,
-              state: location.attributes.state,
-              zip: location.attributes.zip,
-              coords: location.attributes.coords,
+              Address: location.Address,
+              phone_number: location.phone_number,
+              city: location.city,
+              state: location.state,
+              zip: location.zip,
+              coords: location.coords,
               locations: {
                 data: [
                   {
-                    id: school.id,
+                    id: school.documentId,
                     attributes: {
-                      Name: school.attributes.Name,
+                      Name: school.Name,
                     },
                   },
                 ],

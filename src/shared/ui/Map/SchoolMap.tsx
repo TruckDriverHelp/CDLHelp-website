@@ -11,16 +11,11 @@ interface SchoolMapProps {
 }
 
 const SchoolMap: React.FC<SchoolMapProps> = ({ lat, lon }) => {
-  console.log('[SchoolMap] Component rendering with:', { lat, lon });
-
   // Add client-side effect to confirm component is mounted
-  React.useEffect(() => {
-    console.log('[SchoolMap] Component mounted in DOM with coordinates:', { lat, lon });
-  }, [lat, lon]);
+  React.useEffect(() => {}, [lat, lon]);
 
   // Validate coordinates
   if (!lat || !lon || isNaN(lat) || isNaN(lon)) {
-    console.error('[SchoolMap] Invalid coordinates:', { lat, lon });
     return (
       <div
         style={{
@@ -41,7 +36,6 @@ const SchoolMap: React.FC<SchoolMapProps> = ({ lat, lon }) => {
   }
 
   const position = [lat, lon];
-  console.log('[SchoolMap] Position array:', position);
 
   return (
     <MapContainer

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
 import Footer from '../../components/_App/Footer';
@@ -30,31 +31,36 @@ const SignsTest = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Check if environment variables are available
-        const strapiApiKey = process.env.STRAPI_API_KEY;
-
-        if (!strapiApiKey) {
-          setSigns([]);
-          setIsLoaded(true);
-          return;
-        }
-
-        const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/dmv-road-signs?populate=*&locale=${locale}&pagination[limit]=100`;
-
-        const response = await fetch(url, {
-          headers: {
-            Authorization: `Bearer ${strapiApiKey}`,
-          },
-        });
+        // Use our API route that handles authentication server-side
+        const response = await fetch(`/api/road-signs?locale=${locale}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
+        const result = await response.json();
 
-        if (data.data && Array.isArray(data.data)) {
-          setSigns(data.data);
+        if (result.data && Array.isArray(result.data)) {
+          // Transform Strapi v5 flat structure to match expected format
+          const transformedSigns = result.data.map(sign => ({
+            id: sign.documentId,
+            attributes: {
+              original_name: sign.original_name,
+              translated_name: sign.translated_name || sign.original_name, // Fallback to original if no translation
+              Sign: {
+                data: sign.Sign
+                  ? {
+                      attributes: {
+                        url: sign.Sign.url,
+                        alternativeText: sign.Sign.alternativeText,
+                      },
+                    }
+                  : null,
+              },
+            },
+          }));
+
+          setSigns(transformedSigns);
         } else {
           setSigns([]);
         }
@@ -239,15 +245,18 @@ const SignsTest = () => {
                   }}
                 >
                   {currentSign.attributes.Sign.data?.attributes.url && (
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}/${currentSign.attributes.Sign.data.attributes.url}`}
-                      alt={currentSign.attributes.original_name}
-                      style={{
-                        maxWidth: '100%',
-                        maxHeight: '100%',
-                        objectFit: 'contain',
-                      }}
-                    />
+                    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                      <Image
+                        src={
+                          currentSign.attributes.Sign.data.attributes.url.startsWith('http')
+                            ? currentSign.attributes.Sign.data.attributes.url
+                            : `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://146.190.47.164:1337'}${currentSign.attributes.Sign.data.attributes.url}`
+                        }
+                        alt={currentSign.attributes.original_name}
+                        fill
+                        style={{ objectFit: 'contain' }}
+                      />
+                    </div>
                   )}
                 </div>
 

@@ -70,8 +70,6 @@ const ContactForm = () => {
 
       alertContent(t);
     } catch (error) {
-      console.error(error);
-
       // Track failed submission
       analytics.trackContactFormError(error.message || 'Unknown error');
     }

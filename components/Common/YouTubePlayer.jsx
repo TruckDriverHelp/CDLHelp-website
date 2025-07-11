@@ -71,8 +71,7 @@ const YouTubePlayer = ({ videoId }) => {
                 if (!isMounted) return;
                 setIsLoading(false);
               },
-              onError: event => {
-                console.error('YouTubePlayer: Player error:', event);
+              onError: () => {
                 if (!isMounted) return;
                 setUseFallback(true);
                 setIsLoading(false);
@@ -80,7 +79,6 @@ const YouTubePlayer = ({ videoId }) => {
             },
           });
         } catch (error) {
-          console.error('YouTubePlayer: Error creating player:', error);
           setUseFallback(true);
           setIsLoading(false);
         }

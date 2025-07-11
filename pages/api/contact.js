@@ -29,7 +29,6 @@ const handler = async (req, res) => {
     await mailer.sendMail(data);
     res.status(200).send('Email send successfully');
   } catch (error) {
-    console.error(error);
     res.status(500).send('Error proccessing charge');
   }
 };

@@ -75,7 +75,6 @@ export default function DotPhysicalExam() {
         }
       }
     } catch (error) {
-      console.error('Error searching locations:', error);
     } finally {
       setIsLoading(false);
     }

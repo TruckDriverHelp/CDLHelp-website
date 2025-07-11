@@ -15,7 +15,6 @@ const Pixel = ({ name }) => {
   const PixelComponent = pixelComponents[name];
 
   if (!PixelComponent) {
-    console.warn(`Pixel component ${name} not found`);
     return null;
   }
 
