@@ -137,137 +137,229 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                       </p>
                     </div>
 
-                    {article.blocks?.map((section, index) => {
-                      if (section.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-                        return (
-                          <div key={index} className="rich-text-content">
-                            <ReactMarkdown
-                              remarkPlugins={[remarkGfm]}
-                              components={{
-                                a: LinkRenderer,
-                                h1: ({ children }) => <h1 className="mt-4 mb-3">{children}</h1>,
-                                h2: ({ children }) => <h2 className="mt-4 mb-3">{children}</h2>,
-                                h3: ({ children }) => <h3 className="mt-3 mb-2">{children}</h3>,
-                                p: ({ children }) => <p className="mb-3">{children}</p>,
-                                ul: ({ children }) => <ul className="mb-3">{children}</ul>,
-                                ol: ({ children }) => <ol className="mb-3">{children}</ol>,
-                                blockquote: ({ children }) => (
-                                  <blockquote className="blockquote border-start border-4 ps-3 my-3">
-                                    {children}
-                                  </blockquote>
-                                ),
-                              }}
-                            >
-                              {section.richtext}
-                            </ReactMarkdown>
-                          </div>
-                        );
-                      } else if (section.__typename === 'ComponentArticlePartsMedia') {
-                        return (
-                          <div key={index} className="article-media my-4">
-                            {section.Media?.data?.map((media, mediaIndex) => (
-                              <div key={mediaIndex} className="mb-3">
-                                <Image
-                                  src={
-                                    media.attributes.url.startsWith('http')
-                                      ? media.attributes.url
-                                      : `${host}${media.attributes.url}`
+                    {(() => {
+                      // Extract Container blocks and RichTextMarkdown blocks
+                      const containerBlocks =
+                        article.blocks?.filter(
+                          block => block.__typename === 'ComponentArticlePartsContainer'
+                        ) || [];
+
+                      // Process blocks with container injection logic
+                      let paragraphCounter = 0;
+                      const containersToInject = {};
+
+                      // Map containers to their insertion points
+                      containerBlocks.forEach(container => {
+                        const afterParagraph = container.container_after_paragraph;
+                        if (!containersToInject[afterParagraph]) {
+                          containersToInject[afterParagraph] = [];
+                        }
+                        containersToInject[afterParagraph].push(container);
+                      });
+
+                      return article.blocks?.map((section, index) => {
+                        if (section.__typename === 'ComponentArticlePartsRichTextMarkdown') {
+                          // Split the markdown content into paragraphs
+                          const lines = section.richtext.split('\n');
+                          const processedContent = [];
+                          let currentContent = '';
+
+                          lines.forEach((line, lineIndex) => {
+                            currentContent += (lineIndex > 0 ? '\n' : '') + line;
+
+                            // Check if this line ends a paragraph (empty line after content or last line)
+                            const isEndOfParagraph =
+                              (line.trim() &&
+                                lineIndex < lines.length - 1 &&
+                                lines[lineIndex + 1].trim() === '') ||
+                              (line.trim() && lineIndex === lines.length - 1);
+
+                            if (isEndOfParagraph) {
+                              paragraphCounter++;
+                              processedContent.push(
+                                <ReactMarkdown
+                                  key={`p-${index}-${paragraphCounter}`}
+                                  remarkPlugins={[remarkGfm]}
+                                  components={{
+                                    a: LinkRenderer,
+                                    h1: ({ children }) => <h1 className="mt-4 mb-3">{children}</h1>,
+                                    h2: ({ children }) => <h2 className="mt-4 mb-3">{children}</h2>,
+                                    h3: ({ children }) => <h3 className="mt-3 mb-2">{children}</h3>,
+                                    p: ({ children }) => <p className="mb-3">{children}</p>,
+                                    ul: ({ children }) => <ul className="mb-3">{children}</ul>,
+                                    ol: ({ children }) => <ol className="mb-3">{children}</ol>,
+                                    blockquote: ({ children }) => (
+                                      <blockquote className="blockquote border-start border-4 ps-3 my-3">
+                                        {children}
+                                      </blockquote>
+                                    ),
+                                  }}
+                                >
+                                  {currentContent}
+                                </ReactMarkdown>
+                              );
+
+                              // Check if we need to inject containers after this paragraph
+                              if (containersToInject[paragraphCounter]) {
+                                containersToInject[paragraphCounter].forEach(
+                                  (container, cIndex) => {
+                                    processedContent.push(
+                                      <div
+                                        key={`container-${paragraphCounter}-${cIndex}`}
+                                        className="article-container my-4 p-4 rounded"
+                                        style={{
+                                          backgroundColor: container.container_color || '#f8f9fa',
+                                          border: '1px solid rgba(0,0,0,0.125)',
+                                        }}
+                                      >
+                                        {container.container_title && (
+                                          <h4 className="mb-3">{container.container_title}</h4>
+                                        )}
+                                      </div>
+                                    );
                                   }
-                                  alt={
-                                    media.attributes.alternativeText || `Image ${mediaIndex + 1}`
-                                  }
-                                  width={media.attributes.width || 800}
-                                  height={media.attributes.height || 600}
-                                  layout="responsive"
-                                  objectFit="contain"
-                                />
-                                {media.attributes.caption && (
-                                  <p className="text-center text-muted mt-2">
-                                    {media.attributes.caption}
-                                  </p>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      } else if (section.__typename === 'ComponentArticlePartsSlider') {
-                        return (
-                          <div key={index} className="article-slider my-4">
-                            {/* Implement slider component here if needed */}
-                            <div className="row">
-                              {section.Slider?.data?.map((media, mediaIndex) => (
-                                <div key={mediaIndex} className="col-md-6 mb-3">
-                                  <Image
-                                    src={
-                                      media.attributes.url.startsWith('http')
-                                        ? media.attributes.url
-                                        : `${host}${media.attributes.url}`
-                                    }
-                                    alt={
-                                      media.attributes.alternativeText || `Slide ${mediaIndex + 1}`
-                                    }
-                                    width={600}
-                                    height={400}
-                                    layout="responsive"
-                                    objectFit="cover"
-                                  />
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      } else if (section.__typename === 'ComponentArticlePartsQuote') {
-                        return (
-                          <div key={index} className="article-quote my-4">
-                            <blockquote className="blockquote bg-light p-4 border-start border-4 border-primary">
-                              <p className="mb-2">{section.Quote}</p>
-                            </blockquote>
-                          </div>
-                        );
-                      } else if (section.__typename === 'ComponentArticlePartsYouTube') {
-                        const videoId = extractYouTubeVideoId(section.YouTube);
-                        if (videoId) {
+                                );
+                              }
+
+                              currentContent = '';
+                            }
+                          });
+
+                          // Handle any remaining content
+                          if (currentContent.trim()) {
+                            processedContent.push(
+                              <ReactMarkdown
+                                key={`p-${index}-final`}
+                                remarkPlugins={[remarkGfm]}
+                                components={{
+                                  a: LinkRenderer,
+                                  h1: ({ children }) => <h1 className="mt-4 mb-3">{children}</h1>,
+                                  h2: ({ children }) => <h2 className="mt-4 mb-3">{children}</h2>,
+                                  h3: ({ children }) => <h3 className="mt-3 mb-2">{children}</h3>,
+                                  p: ({ children }) => <p className="mb-3">{children}</p>,
+                                  ul: ({ children }) => <ul className="mb-3">{children}</ul>,
+                                  ol: ({ children }) => <ol className="mb-3">{children}</ol>,
+                                  blockquote: ({ children }) => (
+                                    <blockquote className="blockquote border-start border-4 ps-3 my-3">
+                                      {children}
+                                    </blockquote>
+                                  ),
+                                }}
+                              >
+                                {currentContent}
+                              </ReactMarkdown>
+                            );
+                          }
+
                           return (
-                            <div key={index} className="article-youtube my-4">
-                              <YouTubePlayer videoId={videoId} title="YouTube Video" />
+                            <div key={index} className="rich-text-content">
+                              {processedContent}
                             </div>
                           );
-                        }
-                      } else if (
-                        section.__typename === 'ComponentArticlePartsRelatedArticles' &&
-                        section.articles?.data?.length > 0
-                      ) {
-                        return (
-                          <div key={index} className="related-articles my-5">
-                            <h3 className="mb-4">{t('relatedArticles')}</h3>
-                            <div className="row">
-                              {section.articles.data.map(relatedArticle => (
-                                <div key={relatedArticle.id} className="col-md-6 mb-3">
-                                  <div className="card h-100">
-                                    <div className="card-body">
-                                      <h5 className="card-title">
-                                        <a
-                                          href={`${locale === 'en' ? '' : `/${locale}`}/${relatedArticle.attributes.blog_page ? 'blog/' : ''}${relatedArticle.attributes.slug}`}
-                                          className="text-decoration-none"
-                                        >
-                                          {relatedArticle.attributes.title}
-                                        </a>
-                                      </h5>
-                                      {relatedArticle.attributes.description && (
-                                        <p className="card-text text-muted">
-                                          {relatedArticle.attributes.description}
-                                        </p>
-                                      )}
-                                    </div>
-                                  </div>
+                        } else if (section.__typename === 'ComponentArticlePartsMedia') {
+                          return (
+                            <div key={index} className="article-media my-4">
+                              {section.Media?.map((media, mediaIndex) => (
+                                <div key={mediaIndex} className="mb-3">
+                                  <Image
+                                    src={
+                                      media.url.startsWith('http')
+                                        ? media.url
+                                        : `${host}${media.url}`
+                                    }
+                                    alt={media.alternativeText || `Image ${mediaIndex + 1}`}
+                                    width={media.width || 800}
+                                    height={media.height || 600}
+                                    layout="responsive"
+                                    objectFit="contain"
+                                  />
+                                  {media.caption && (
+                                    <p className="text-center text-muted mt-2">{media.caption}</p>
+                                  )}
                                 </div>
                               ))}
                             </div>
-                          </div>
-                        );
-                      }
-                      return null;
-                    })}
+                          );
+                        } else if (section.__typename === 'ComponentArticlePartsSlider') {
+                          return (
+                            <div key={index} className="article-slider my-4">
+                              {/* Implement slider component here if needed */}
+                              <div className="row">
+                                {section.Slider?.map((media, mediaIndex) => (
+                                  <div key={mediaIndex} className="col-md-6 mb-3">
+                                    <Image
+                                      src={
+                                        media.url.startsWith('http')
+                                          ? media.url
+                                          : `${host}${media.url}`
+                                      }
+                                      alt={media.alternativeText || `Slide ${mediaIndex + 1}`}
+                                      width={600}
+                                      height={400}
+                                      layout="responsive"
+                                      objectFit="cover"
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        } else if (section.__typename === 'ComponentArticlePartsQuote') {
+                          return (
+                            <div key={index} className="article-quote my-4">
+                              <blockquote className="blockquote bg-light p-4 border-start border-4 border-primary">
+                                <p className="mb-2">{section.Quote}</p>
+                              </blockquote>
+                            </div>
+                          );
+                        } else if (section.__typename === 'ComponentArticlePartsYouTube') {
+                          const videoId = extractYouTubeVideoId(section.YouTube);
+                          if (videoId) {
+                            return (
+                              <div key={index} className="article-youtube my-4">
+                                <YouTubePlayer videoId={videoId} title="YouTube Video" />
+                              </div>
+                            );
+                          }
+                        } else if (
+                          section.__typename === 'ComponentArticlePartsRelatedArticles' &&
+                          section.articles?.data?.length > 0
+                        ) {
+                          return (
+                            <div key={index} className="related-articles my-5">
+                              <h3 className="mb-4">{t('relatedArticles')}</h3>
+                              <div className="row">
+                                {section.articles?.map(relatedArticle => (
+                                  <div key={relatedArticle.documentId} className="col-md-6 mb-3">
+                                    <div className="card h-100">
+                                      <div className="card-body">
+                                        <h5 className="card-title">
+                                          <a
+                                            href={`${locale === 'en' ? '' : `/${locale}`}/${relatedArticle.blog_page ? 'blog/' : ''}${relatedArticle.slug}`}
+                                            className="text-decoration-none"
+                                          >
+                                            {relatedArticle.title}
+                                          </a>
+                                        </h5>
+                                        {relatedArticle.description && (
+                                          <p className="card-text text-muted">
+                                            {relatedArticle.description}
+                                          </p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        } else if (section.__typename === 'ComponentArticlePartsContainer') {
+                          // Container blocks are handled within RichTextMarkdown sections
+                          return null;
+                        }
+                        return null;
+                      });
+                    })()}
                   </div>
                 </div>
               </div>
@@ -364,7 +456,7 @@ export async function getStaticProps({ params, locale }) {
       url,
       {
         query: ARTICLE_BY_SLUG_QUERY,
-        variables: { slug, locale: actualLocale },
+        variables: { slug }, // Remove locale from variables
       },
       {
         headers: {
@@ -373,11 +465,10 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    const articles = articleResponse.data?.data?.articles?.data || [];
-    // Find the article that has blog_page = true
-    const article = articles.find(a => {
-      return a.attributes.blog_page === true;
-    });
+    const articles = articleResponse.data?.data?.articles || [];
+
+    // Since we can't filter by blog_page, just take the first article
+    const article = articles[0];
 
     if (!article) {
       return {
@@ -392,7 +483,7 @@ export async function getStaticProps({ params, locale }) {
         url,
         {
           query: ALTERNATE_LINKS_QUERY,
-          variables: { slug, locale: actualLocale },
+          variables: { slug }, // Remove locale from variables
         },
         {
           headers: {
@@ -401,10 +492,10 @@ export async function getStaticProps({ params, locale }) {
         }
       );
 
-      if (alternateLinksResponse.data?.data?.articles?.data?.[0]) {
-        const alternateArticle = alternateLinksResponse.data.data.articles.data[0];
+      if (alternateLinksResponse.data?.data?.articles?.[0]) {
+        const alternateArticle = alternateLinksResponse.data.data.articles[0];
         alternateLinks = generateArticleHreflangUrls(
-          alternateArticle.attributes,
+          alternateArticle,
           actualLocale,
           slug,
           true // This is a blog post
@@ -413,14 +504,14 @@ export async function getStaticProps({ params, locale }) {
     } catch (altError) {
       // Error fetching alternate links - use fallback
       // Generate fallback alternate links
-      alternateLinks = generateArticleHreflangUrls(article.attributes, actualLocale, slug, true);
+      alternateLinks = generateArticleHreflangUrls(article, actualLocale, slug, true);
     }
 
     return {
       props: {
         ...(await serverSideTranslations(actualLocale, ['common', 'navbar', 'footer', 'article'])),
         slug,
-        article: article.attributes,
+        article: article,
         locale: actualLocale,
         alternateLinks,
       },

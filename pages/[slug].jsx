@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import axios from 'axios';
@@ -49,13 +50,15 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
     return null;
   };
 
-  const metaTags = article?.meta_tag?.data?.attributes || {
+  const metaTags = article?.meta_tag || {
     title: article?.title || 'CDL Help',
     description: article?.description || '',
-    image: { data: { attributes: { url: '' } } },
+    image: null,
   };
-  const metaImage = metaTags.image?.data?.attributes?.url
-    ? host + metaTags.image.data.attributes.url
+  const metaImage = metaTags.image?.url
+    ? metaTags.image.url.startsWith('http')
+      ? metaTags.image.url
+      : host + metaTags.image.url
     : '';
 
   // Convert alternateLinks array to object format for SEOHead
@@ -175,123 +178,213 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
         />
         <div className="blog-details-area pb-75 col-11 col-md-6 mx-auto">
           <p>{article.description}</p>
-          {article.blocks?.map((block, index) => {
-            if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
-              return (
-                <div key={index} id={block.idtag}>
-                  <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
-                    components={{
-                      a: LinkRenderer,
-                    }}
-                  >
-                    {block.richtext}
-                  </ReactMarkdown>
-                </div>
-              );
-            } else if (block.__typename === 'ComponentArticlePartsMedia') {
-              return (
-                <Image
-                  key={index}
-                  src={host + block.Media.data[0].attributes.url}
-                  alt={block.Media.data[0].attributes.alternativeText}
-                  width={block.Media.data[0].attributes.width}
-                  height={block.Media.data[0].attributes.height}
-                />
-              );
-            } else if (block.__typename === 'ComponentArticlePartsSlider') {
-              return (
-                <div key={index}>
-                  {block.Slider.data.map((file, index) => (
-                    <Image
-                      key={index}
-                      src={host + file.attributes.url}
-                      alt={file.attributes.alternativeText}
-                      width={file.attributes.width}
-                      height={file.attributes.height}
-                    />
-                  ))}
-                </div>
-              );
-            } else if (block.__typename === 'ComponentArticlePartsQuote') {
-              return (
-                <blockquote key={index}>
-                  <p>{block.Quote}</p>
-                </blockquote>
-              );
-            } else if (block.__typename === 'ComponentArticlePartsYouTube') {
-              try {
-                let videoId = null;
-                let youtubeUrl = null;
+          {(() => {
+            // Extract Container blocks and RichTextMarkdown blocks
+            const containerBlocks =
+              article.blocks?.filter(
+                block => block.__typename === 'ComponentArticlePartsContainer'
+              ) || [];
 
-                // Try different possible data structures
-                if (block.YouTube) {
-                  try {
-                    const parsedYoutube = JSON.parse(block.YouTube);
+            // Process blocks with container injection logic
+            let paragraphCounter = 0;
+            const containersToInject = {};
 
-                    if (parsedYoutube.url) {
-                      youtubeUrl = parsedYoutube.url;
-                    } else if (parsedYoutube.embed_url) {
-                      youtubeUrl = parsedYoutube.embed_url;
-                    } else if (typeof parsedYoutube === 'string') {
-                      youtubeUrl = parsedYoutube;
+            // Map containers to their insertion points
+            containerBlocks.forEach(container => {
+              const afterParagraph = container.container_after_paragraph;
+              if (!containersToInject[afterParagraph]) {
+                containersToInject[afterParagraph] = [];
+              }
+              containersToInject[afterParagraph].push(container);
+            });
+
+            return article.blocks?.map((block, index) => {
+              if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
+                // Split the markdown content into paragraphs
+                const lines = block.richtext.split('\n');
+                const processedContent = [];
+                let currentContent = '';
+
+                lines.forEach((line, lineIndex) => {
+                  currentContent += (lineIndex > 0 ? '\n' : '') + line;
+
+                  // Check if this line ends a paragraph (empty line after content or last line)
+                  const isEndOfParagraph =
+                    (line.trim() &&
+                      lineIndex < lines.length - 1 &&
+                      lines[lineIndex + 1].trim() === '') ||
+                    (line.trim() && lineIndex === lines.length - 1);
+
+                  if (isEndOfParagraph) {
+                    paragraphCounter++;
+                    processedContent.push(
+                      <div key={`p-${index}-${paragraphCounter}`} id={block.idtag}>
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            a: LinkRenderer,
+                          }}
+                        >
+                          {currentContent}
+                        </ReactMarkdown>
+                      </div>
+                    );
+
+                    // Check if we need to inject containers after this paragraph
+                    if (containersToInject[paragraphCounter]) {
+                      containersToInject[paragraphCounter].forEach((container, cIndex) => {
+                        processedContent.push(
+                          <div
+                            key={`container-${paragraphCounter}-${cIndex}`}
+                            className="article-container my-4 p-4 rounded"
+                            style={{
+                              backgroundColor: container.container_color || '#f8f9fa',
+                              border: '1px solid rgba(0,0,0,0.125)',
+                            }}
+                          >
+                            {container.container_title && (
+                              <h4 className="mb-3">{container.container_title}</h4>
+                            )}
+                          </div>
+                        );
+                      });
                     }
-                  } catch (parseError) {
-                    youtubeUrl = block.YouTube;
+
+                    currentContent = '';
                   }
-                }
+                });
 
-                // If we have a URL, extract video ID
-                if (youtubeUrl) {
-                  videoId = extractYouTubeVideoId(youtubeUrl);
-                }
-
-                // If still no video ID, try to extract from the raw data
-                if (!videoId && block.YouTube) {
-                  // Try to find a YouTube URL pattern in the raw data
-                  const urlMatch = block.YouTube.match(
-                    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/
+                // Handle any remaining content
+                if (currentContent.trim()) {
+                  processedContent.push(
+                    <div key={`p-${index}-final`} id={block.idtag}>
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          a: LinkRenderer,
+                        }}
+                      >
+                        {currentContent}
+                      </ReactMarkdown>
+                    </div>
                   );
-                  if (urlMatch) {
-                    videoId = urlMatch[1];
-                  }
                 }
 
-                if (!videoId) {
-                  // Could not extract video ID from YouTube data
-                  return <div key={index}>Error: Could not extract video ID from YouTube data</div>;
-                }
-
+                return <React.Fragment key={index}>{processedContent}</React.Fragment>;
+              } else if (block.__typename === 'ComponentArticlePartsMedia') {
                 return (
                   <div key={index}>
-                    <YouTubePlayer videoId={videoId} />
+                    {block.Media?.map((media, mediaIndex) => (
+                      <Image
+                        key={mediaIndex}
+                        src={media.url.startsWith('http') ? media.url : host + media.url}
+                        alt={media.alternativeText || ''}
+                        width={media.width || 800}
+                        height={media.height || 600}
+                      />
+                    ))}
                   </div>
                 );
-              } catch (error) {
-                // Error processing YouTube block
-                return <div key={index}>Error: Failed to load YouTube video</div>;
+              } else if (block.__typename === 'ComponentArticlePartsSlider') {
+                return (
+                  <div key={index}>
+                    {block.Slider?.map((file, fileIndex) => (
+                      <Image
+                        key={fileIndex}
+                        src={file.url.startsWith('http') ? file.url : host + file.url}
+                        alt={file.alternativeText || ''}
+                        width={file.width || 800}
+                        height={file.height || 600}
+                      />
+                    ))}
+                  </div>
+                );
+              } else if (block.__typename === 'ComponentArticlePartsQuote') {
+                return (
+                  <blockquote key={index}>
+                    <p>{block.Quote}</p>
+                  </blockquote>
+                );
+              } else if (block.__typename === 'ComponentArticlePartsYouTube') {
+                try {
+                  let videoId = null;
+                  let youtubeUrl = null;
+
+                  // Try different possible data structures
+                  if (block.YouTube) {
+                    try {
+                      const parsedYoutube = JSON.parse(block.YouTube);
+
+                      if (parsedYoutube.url) {
+                        youtubeUrl = parsedYoutube.url;
+                      } else if (parsedYoutube.embed_url) {
+                        youtubeUrl = parsedYoutube.embed_url;
+                      } else if (typeof parsedYoutube === 'string') {
+                        youtubeUrl = parsedYoutube;
+                      }
+                    } catch (parseError) {
+                      youtubeUrl = block.YouTube;
+                    }
+                  }
+
+                  // If we have a URL, extract video ID
+                  if (youtubeUrl) {
+                    videoId = extractYouTubeVideoId(youtubeUrl);
+                  }
+
+                  // If still no video ID, try to extract from the raw data
+                  if (!videoId && block.YouTube) {
+                    // Try to find a YouTube URL pattern in the raw data
+                    const urlMatch = block.YouTube.match(
+                      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/
+                    );
+                    if (urlMatch) {
+                      videoId = urlMatch[1];
+                    }
+                  }
+
+                  if (!videoId) {
+                    // Could not extract video ID from YouTube data
+                    return (
+                      <div key={index}>Error: Could not extract video ID from YouTube data</div>
+                    );
+                  }
+
+                  return (
+                    <div key={index}>
+                      <YouTubePlayer videoId={videoId} />
+                    </div>
+                  );
+                } catch (error) {
+                  // Error processing YouTube block
+                  return <div key={index}>Error: Failed to load YouTube video</div>;
+                }
               }
-            }
-            if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
-              return (
-                <div key={index}>
-                  <p>{t('relatedArticles')}</p>
-                  <ul>
-                    {block.articles.data.map((articleData, i) => {
-                      const article = articleData.attributes;
-                      const url = '/' + article.locale + '/' + article.slug + '/';
-                      return (
-                        <li key={i}>
-                          <a href={url}>{article.title}</a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              );
-            }
-            return null;
-          })}
+              if (block.__typename === 'ComponentArticlePartsRelatedArticles') {
+                return (
+                  <div key={index}>
+                    <p>{t('relatedArticles')}</p>
+                    <ul>
+                      {block.articles?.map((article, i) => {
+                        const url = article.blog_page
+                          ? `${locale === 'en' ? '' : `/${locale}`}/blog/${article.slug}`
+                          : `${locale === 'en' ? '' : `/${locale}`}/${article.slug}`;
+                        return (
+                          <li key={i}>
+                            <a href={url}>{article.title}</a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              } else if (block.__typename === 'ComponentArticlePartsContainer') {
+                // Container blocks are handled within RichTextMarkdown sections
+                return null;
+              }
+              return null;
+            });
+          })()}
         </div>
         <Footer />
       </Layout>
@@ -302,7 +395,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
 export async function getStaticProps({ params, locale }) {
   const { slug } = params;
   const actualLocale = locale || 'en';
-  const variables = { slug, locale: actualLocale };
+  const variables = { slug }; // Remove locale from variables
 
   try {
     const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
@@ -322,7 +415,7 @@ export async function getStaticProps({ params, locale }) {
       // GraphQL errors are handled by returning notFound
     }
 
-    const articles = articleResponse.data?.data?.articles?.data || [];
+    const articles = articleResponse.data?.data?.articles || [];
 
     if (articles.length === 0) {
       // REST API fallback removed - not needed in production
@@ -335,7 +428,7 @@ export async function getStaticProps({ params, locale }) {
     // Process articles to find non-blog page
 
     // Find the article that is NOT a blog page
-    const article = articles.find(a => a.attributes.blog_page !== true);
+    const article = articles.find(a => a.blog_page !== true);
 
     if (!article) {
       return {
@@ -343,10 +436,8 @@ export async function getStaticProps({ params, locale }) {
       };
     }
 
-    const { attributes } = article;
-
     // If this is a blog post, return not found (it should be handled by /blog/[slug])
-    if (attributes.blog_page === true) {
+    if (article.blog_page === true) {
       return {
         notFound: true,
       };
@@ -362,37 +453,43 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    const alternateLinksData =
-      alternateLinksResponse.data.data.articles.data[0].attributes.localizations.data;
+    const alternateArticles = alternateLinksResponse.data?.data?.articles || [];
+    const alternateArticle = alternateArticles[0];
 
-    // Create a map to ensure we have unique entries per locale
-    const alternateLinksMap = new Map();
+    let alternateLinks = [];
 
-    // Add current article first
-    alternateLinksMap.set(locale, {
-      href: locale === 'en' ? `/${slug}` : `/${locale}/${slug}`,
-      hrefLang: locale,
-    });
+    if (alternateArticle) {
+      // Create a map to ensure we have unique entries per locale
+      const alternateLinksMap = new Map();
 
-    // Add localizations
-    alternateLinksData.forEach(link => {
-      alternateLinksMap.set(link.attributes.locale, {
+      // Add current article first
+      alternateLinksMap.set(alternateArticle.locale || actualLocale, {
         href:
-          link.attributes.locale === 'en'
-            ? `/${link.attributes.slug}`
-            : `/${link.attributes.locale}/${link.attributes.slug}`,
-        hrefLang: link.attributes.locale,
+          (alternateArticle.locale || actualLocale) === 'en'
+            ? `/${slug}`
+            : `/${alternateArticle.locale || actualLocale}/${slug}`,
+        hrefLang: alternateArticle.locale || actualLocale,
       });
-    });
 
-    // Convert map to array
-    const alternateLinks = Array.from(alternateLinksMap.values());
+      // Add localizations
+      if (alternateArticle.localizations) {
+        alternateArticle.localizations.forEach(link => {
+          alternateLinksMap.set(link.locale, {
+            href: link.locale === 'en' ? `/${link.slug}` : `/${link.locale}/${link.slug}`,
+            hrefLang: link.locale,
+          });
+        });
+      }
+
+      // Convert map to array
+      alternateLinks = Array.from(alternateLinksMap.values());
+    }
 
     return {
       props: {
         slug,
-        article: attributes,
-        locale: locale,
+        article: article,
+        locale: actualLocale,
         alternateLinks,
         ...(await serverSideTranslations(locale ?? 'en', [
           'navbar',
