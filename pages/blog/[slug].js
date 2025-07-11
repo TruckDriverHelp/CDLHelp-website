@@ -138,11 +138,8 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                     </div>
 
                     {(() => {
-                      // Extract Container blocks and RichTextMarkdown blocks
-                      const containerBlocks =
-                        article.blocks?.filter(
-                          block => block.__typename === 'ComponentArticlePartsContainer'
-                        ) || [];
+                      // Extract containers from the separate container field
+                      const containerBlocks = article.container || [];
 
                       // Process blocks with container injection logic
                       let paragraphCounter = 0;
@@ -203,18 +200,136 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                               if (containersToInject[paragraphCounter]) {
                                 containersToInject[paragraphCounter].forEach(
                                   (container, cIndex) => {
+                                    // Define gradient styles based on color
+                                    const colorStyles = {
+                                      blue: {
+                                        background:
+                                          'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                      },
+                                      green: {
+                                        background:
+                                          'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
+                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                      },
+                                      yellow: {
+                                        background:
+                                          'linear-gradient(135deg, #f6d55c 0%, #ed8936 100%)',
+                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                      },
+                                      red: {
+                                        background:
+                                          'linear-gradient(135deg, #fc5c7d 0%, #eb3349 100%)',
+                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                      },
+                                      purple: {
+                                        background:
+                                          'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+                                        iconBg: 'rgba(255, 255, 255, 0.3)',
+                                      },
+                                      default: {
+                                        background:
+                                          'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+                                        iconBg: 'rgba(0, 0, 0, 0.1)',
+                                      },
+                                    };
+
+                                    const style =
+                                      colorStyles[container.container_color] || colorStyles.default;
+
                                     processedContent.push(
                                       <div
                                         key={`container-${paragraphCounter}-${cIndex}`}
-                                        className="article-container my-4 p-4 rounded"
+                                        className="article-container my-5 p-5 shadow-lg"
                                         style={{
-                                          backgroundColor: container.container_color || '#f8f9fa',
-                                          border: '1px solid rgba(0,0,0,0.125)',
+                                          background: style.background,
+                                          borderRadius: '20px',
+                                          color:
+                                            container.container_color &&
+                                            container.container_color !== 'default'
+                                              ? 'white'
+                                              : '#333',
+                                          position: 'relative',
+                                          overflow: 'hidden',
                                         }}
                                       >
-                                        {container.container_title && (
-                                          <h4 className="mb-3">{container.container_title}</h4>
+                                        <div className="d-flex align-items-start mb-3">
+                                          {container.container_icon && (
+                                            <div
+                                              className="me-3 d-flex align-items-center justify-content-center"
+                                              style={{
+                                                width: '50px',
+                                                height: '50px',
+                                                backgroundColor: style.iconBg,
+                                                borderRadius: '12px',
+                                                flexShrink: 0,
+                                              }}
+                                            >
+                                              <i className={`${container.container_icon} fs-4`}></i>
+                                            </div>
+                                          )}
+                                          {container.container_title && (
+                                            <h4 className="mb-0 fw-bold">
+                                              {container.container_title}
+                                            </h4>
+                                          )}
+                                        </div>
+
+                                        {container.container_text && (
+                                          <p
+                                            className="mb-4"
+                                            style={{ fontSize: '1.1rem', lineHeight: '1.6' }}
+                                          >
+                                            {container.container_text}
+                                          </p>
                                         )}
+
+                                        <div className="d-flex justify-content-between align-items-end flex-wrap">
+                                          {container.container_button_text && (
+                                            <button
+                                              className="btn btn-lg me-3 mb-2"
+                                              style={{
+                                                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                                border: '2px solid rgba(255, 255, 255, 0.5)',
+                                                color:
+                                                  container.container_color &&
+                                                  container.container_color !== 'default'
+                                                    ? 'white'
+                                                    : '#333',
+                                                borderRadius: '10px',
+                                                padding: '10px 25px',
+                                                fontWeight: '600',
+                                                backdropFilter: 'blur(10px)',
+                                              }}
+                                              onMouseOver={e => {
+                                                e.target.style.backgroundColor =
+                                                  'rgba(255, 255, 255, 0.4)';
+                                                e.target.style.transform = 'translateY(-2px)';
+                                              }}
+                                              onMouseOut={e => {
+                                                e.target.style.backgroundColor =
+                                                  'rgba(255, 255, 255, 0.3)';
+                                                e.target.style.transform = 'translateY(0)';
+                                              }}
+                                            >
+                                              {container.container_button_text}
+                                            </button>
+                                          )}
+
+                                          {container.container_sidenote && (
+                                            <div className="d-flex align-items-center mb-2">
+                                              {container.container_sidenote_icon && (
+                                                <i
+                                                  className={`${container.container_sidenote_icon} me-2`}
+                                                  style={{ fontSize: '0.9rem' }}
+                                                ></i>
+                                              )}
+                                              <small style={{ fontSize: '0.95rem', opacity: 0.9 }}>
+                                                {container.container_sidenote}
+                                              </small>
+                                            </div>
+                                          )}
+                                        </div>
                                       </div>
                                     );
                                   }
@@ -353,9 +468,6 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                               </div>
                             </div>
                           );
-                        } else if (section.__typename === 'ComponentArticlePartsContainer') {
-                          // Container blocks are handled within RichTextMarkdown sections
-                          return null;
                         }
                         return null;
                       });
@@ -392,7 +504,7 @@ export async function getStaticPaths() {
       const json = await response.json();
       const articles = json.data || [];
       // Filter for blog_page = true
-      const blogArticles = articles.filter(article => article.attributes.blog_page === true);
+      const blogArticles = articles.filter(article => article.attributes.blog_post === true);
 
       blogArticles.forEach(article => {
         const locale = article.attributes.locale;
@@ -446,9 +558,14 @@ export async function getStaticProps({ params, locale }) {
   const { slug } = params;
   const actualLocale = locale || 'en'; // Handle default locale
 
+  console.log('\n=== BLOG ARTICLE FETCH DEBUG ===');
+  console.log('Slug:', slug);
+  console.log('Locale:', actualLocale);
+
   // Fetch blog article from Strapi
 
   const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
+  console.log('GraphQL URL:', url);
 
   try {
     // Fetch the article
@@ -465,12 +582,35 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    const articles = articleResponse.data?.data?.articles || [];
+    console.log('GraphQL Response Status:', articleResponse.status);
+    console.log('GraphQL Response Data:', JSON.stringify(articleResponse.data, null, 2));
 
-    // Since we can't filter by blog_page, just take the first article
-    const article = articles[0];
+    if (articleResponse.data?.errors) {
+      console.error('GraphQL Errors:', JSON.stringify(articleResponse.data.errors, null, 2));
+    }
+
+    const articles = articleResponse.data?.data?.articles || [];
+    console.log('Articles found:', articles.length);
+    console.log('Articles data:', JSON.stringify(articles, null, 2));
+
+    // Process articles to find blog page
+    console.log('\n--- Processing blog articles ---');
+    articles.forEach((a, i) => {
+      console.log(`Article ${i}:`, {
+        slug: a.slug,
+        blog_page: a.blog_page,
+        blog_post: a.blog_post,
+        locale: a.locale,
+        title: a.title,
+      });
+    });
+
+    // Find article that IS a blog post
+    const article = articles.find(a => a.blog_post === true);
+    console.log('Found blog article:', article ? 'Yes' : 'No');
 
     if (!article) {
+      console.log('No blog articles found with slug:', slug);
       return {
         notFound: true,
       };
@@ -507,6 +647,14 @@ export async function getStaticProps({ params, locale }) {
       alternateLinks = generateArticleHreflangUrls(article, actualLocale, slug, true);
     }
 
+    console.log('Blog article found successfully:', {
+      documentId: article.documentId,
+      title: article.title,
+      slug: article.slug,
+      blog_page: article.blog_page,
+      blog_post: article.blog_post,
+    });
+
     return {
       props: {
         ...(await serverSideTranslations(actualLocale, ['common', 'navbar', 'footer', 'article'])),
@@ -518,6 +666,15 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
+    console.error('\n=== BLOG ARTICLE FETCH ERROR ===');
+    console.error('Error Type:', error.name);
+    console.error('Error Message:', error.message);
+    if (error.response) {
+      console.error('Response Status:', error.response.status);
+      console.error('Response Data:', JSON.stringify(error.response.data, null, 2));
+    }
+    console.error('Full Error:', error);
+
     // Error fetching blog article
     return {
       notFound: true,
