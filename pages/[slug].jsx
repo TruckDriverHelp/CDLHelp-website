@@ -492,16 +492,10 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
 export async function getStaticProps({ params, locale }) {
   const { slug } = params;
   const actualLocale = locale || 'en';
-  const variables = { slug }; // Remove locale from variables
-
-  console.log('\n=== ARTICLE FETCH DEBUG ===');
-  console.log('Slug:', slug);
-  console.log('Locale:', actualLocale);
-  console.log('Variables:', JSON.stringify(variables));
+  const variables = { slug, locale: actualLocale };
 
   try {
     const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
-    console.log('GraphQL URL:', graphqlUrl);
 
     const articleResponse = await axios.post(
       graphqlUrl,
@@ -513,21 +507,14 @@ export async function getStaticProps({ params, locale }) {
       }
     );
 
-    console.log('GraphQL Response Status:', articleResponse.status);
-    console.log('GraphQL Response Data:', JSON.stringify(articleResponse.data, null, 2));
-
     // Handle GraphQL errors
     if (articleResponse.data?.errors) {
-      console.error('GraphQL Errors:', JSON.stringify(articleResponse.data.errors, null, 2));
       // GraphQL errors are handled by returning notFound
     }
 
     const articles = articleResponse.data?.data?.articles || [];
-    console.log('Articles found:', articles.length);
-    console.log('Articles data:', JSON.stringify(articles, null, 2));
 
     if (articles.length === 0) {
-      console.log('No articles found with slug:', slug);
       // REST API fallback removed - not needed in production
 
       return {
@@ -536,23 +523,11 @@ export async function getStaticProps({ params, locale }) {
     }
 
     // Process articles to find non-blog post
-    console.log('\n--- Processing articles ---');
-    articles.forEach((a, i) => {
-      console.log(`Article ${i}:`, {
-        slug: a.slug,
-        blog_page: a.blog_page,
-        blog_post: a.blog_post,
-        locale: a.locale,
-        title: a.title,
-      });
-    });
 
     // Find the article that is NOT a blog post (for regular pages)
     const article = articles.find(a => a.blog_post !== true);
-    console.log('Found non-blog-post article:', article ? 'Yes' : 'No');
 
     if (!article) {
-      console.log('All articles are blog posts, returning notFound');
       return {
         notFound: true,
       };
@@ -560,7 +535,6 @@ export async function getStaticProps({ params, locale }) {
 
     // If this is a blog post, return not found (it should be handled by /blog/[slug])
     if (article.blog_post === true) {
-      console.log('Article is a blog post, should be accessed via /blog/[slug]');
       return {
         notFound: true,
       };
@@ -568,7 +542,7 @@ export async function getStaticProps({ params, locale }) {
 
     const alternateLinksResponse = await axios.post(
       graphqlUrl,
-      { query: ALTERNATE_LINKS_QUERY, variables },
+      { query: ALTERNATE_LINKS_QUERY, variables: { slug } },
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
@@ -608,12 +582,6 @@ export async function getStaticProps({ params, locale }) {
       alternateLinks = Array.from(alternateLinksMap.values());
     }
 
-    console.log('Article found successfully:', {
-      documentId: article.documentId,
-      title: article.title,
-      slug: article.slug,
-    });
-
     return {
       props: {
         slug,
@@ -629,15 +597,6 @@ export async function getStaticProps({ params, locale }) {
       },
     };
   } catch (error) {
-    console.error('\n=== ARTICLE FETCH ERROR ===');
-    console.error('Error Type:', error.name);
-    console.error('Error Message:', error.message);
-    if (error.response) {
-      console.error('Response Status:', error.response.status);
-      console.error('Response Data:', JSON.stringify(error.response.data, null, 2));
-    }
-    console.error('Full Error:', error);
-
     return {
       props: {
         slug,
