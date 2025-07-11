@@ -201,37 +201,43 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                               if (containersToInject[paragraphCounter]) {
                                 containersToInject[paragraphCounter].forEach(
                                   (container, cIndex) => {
-                                    // Define gradient styles based on color
+                                    // Define color styles for the new design
                                     const colorStyles = {
                                       blue: {
-                                        background:
-                                          'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                        accentColor: '#3B82F6',
+                                        iconBg: '#3B82F6',
+                                        buttonBg: '#3B82F6',
+                                        buttonHover: '#2563EB',
                                       },
                                       green: {
-                                        background:
-                                          'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
-                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                        accentColor: '#10B981',
+                                        iconBg: '#10B981',
+                                        buttonBg: '#10B981',
+                                        buttonHover: '#059669',
                                       },
                                       yellow: {
-                                        background:
-                                          'linear-gradient(135deg, #f6d55c 0%, #ed8936 100%)',
-                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                        accentColor: '#F59E0B',
+                                        iconBg: '#F59E0B',
+                                        buttonBg: '#F59E0B',
+                                        buttonHover: '#D97706',
                                       },
                                       red: {
-                                        background:
-                                          'linear-gradient(135deg, #fc5c7d 0%, #eb3349 100%)',
-                                        iconBg: 'rgba(255, 255, 255, 0.2)',
+                                        accentColor: '#EF4444',
+                                        iconBg: '#EF4444',
+                                        buttonBg: '#EF4444',
+                                        buttonHover: '#DC2626',
                                       },
                                       purple: {
-                                        background:
-                                          'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-                                        iconBg: 'rgba(255, 255, 255, 0.3)',
+                                        accentColor: '#8B5CF6',
+                                        iconBg: '#8B5CF6',
+                                        buttonBg: '#8B5CF6',
+                                        buttonHover: '#7C3AED',
                                       },
                                       default: {
-                                        background:
-                                          'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-                                        iconBg: 'rgba(0, 0, 0, 0.1)',
+                                        accentColor: '#6B7280',
+                                        iconBg: '#6B7280',
+                                        buttonBg: '#6B7280',
+                                        buttonHover: '#4B5563',
                                       },
                                     };
 
@@ -241,95 +247,123 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                                     processedContent.push(
                                       <div
                                         key={`container-${paragraphCounter}-${cIndex}`}
-                                        className="article-container my-5 p-5 shadow-lg"
+                                        className="article-container my-5"
                                         style={{
-                                          background: style.background,
-                                          borderRadius: '20px',
-                                          color:
-                                            container.container_color &&
-                                            container.container_color !== 'default'
-                                              ? 'white'
-                                              : '#333',
+                                          background: '#FFFFFF',
+                                          borderRadius: '12px',
+                                          boxShadow:
+                                            '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                                          border: '1px solid #E5E7EB',
                                           position: 'relative',
                                           overflow: 'hidden',
                                         }}
                                       >
-                                        <div className="d-flex align-items-start mb-3">
-                                          {container.container_icon && (
-                                            <div
-                                              className="me-3 d-flex align-items-center justify-content-center"
-                                              style={{
-                                                width: '50px',
-                                                height: '50px',
-                                                backgroundColor: style.iconBg,
-                                                borderRadius: '12px',
-                                                flexShrink: 0,
-                                              }}
-                                            >
-                                              <i className={`${container.container_icon} fs-4`}></i>
-                                            </div>
-                                          )}
-                                          {container.container_title && (
-                                            <h4 className="mb-0 fw-bold">
-                                              {container.container_title}
-                                            </h4>
-                                          )}
-                                        </div>
+                                        {/* Left accent bar */}
+                                        <div
+                                          style={{
+                                            position: 'absolute',
+                                            left: 0,
+                                            top: 0,
+                                            bottom: 0,
+                                            width: '4px',
+                                            backgroundColor: style.accentColor,
+                                          }}
+                                        />
 
-                                        {container.container_text && (
-                                          <p
-                                            className="mb-4"
-                                            style={{ fontSize: '1.1rem', lineHeight: '1.6' }}
-                                          >
-                                            {container.container_text}
-                                          </p>
-                                        )}
-
-                                        <div className="d-flex justify-content-between align-items-end flex-wrap">
-                                          {container.container_button_text && (
-                                            <button
-                                              className="btn btn-lg me-3 mb-2"
-                                              style={{
-                                                backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                                                border: '2px solid rgba(255, 255, 255, 0.5)',
-                                                color:
-                                                  container.container_color &&
-                                                  container.container_color !== 'default'
-                                                    ? 'white'
-                                                    : '#333',
-                                                borderRadius: '10px',
-                                                padding: '10px 25px',
-                                                fontWeight: '600',
-                                                backdropFilter: 'blur(10px)',
-                                              }}
-                                              onMouseOver={e => {
-                                                e.target.style.backgroundColor =
-                                                  'rgba(255, 255, 255, 0.4)';
-                                                e.target.style.transform = 'translateY(-2px)';
-                                              }}
-                                              onMouseOut={e => {
-                                                e.target.style.backgroundColor =
-                                                  'rgba(255, 255, 255, 0.3)';
-                                                e.target.style.transform = 'translateY(0)';
-                                              }}
-                                            >
-                                              {container.container_button_text}
-                                            </button>
-                                          )}
-
-                                          {container.container_sidenote && (
-                                            <div className="d-flex align-items-center mb-2">
-                                              {container.container_sidenote_icon && (
+                                        <div className="p-5">
+                                          <div className="d-flex align-items-start mb-4">
+                                            {container.container_icon && (
+                                              <div
+                                                className="me-4 d-flex align-items-center justify-content-center"
+                                                style={{
+                                                  width: '48px',
+                                                  height: '48px',
+                                                  backgroundColor: style.iconBg,
+                                                  borderRadius: '50%',
+                                                  flexShrink: 0,
+                                                  color: 'white',
+                                                }}
+                                              >
                                                 <i
-                                                  className={`${container.container_sidenote_icon} me-2`}
-                                                  style={{ fontSize: '0.9rem' }}
+                                                  className={`${container.container_icon}`}
+                                                  style={{ fontSize: '1.25rem' }}
                                                 ></i>
+                                              </div>
+                                            )}
+                                            <div className="flex-grow-1">
+                                              {container.container_title && (
+                                                <h4
+                                                  className="mb-2 fw-bold"
+                                                  style={{ color: '#1F2937', fontSize: '1.25rem' }}
+                                                >
+                                                  {container.container_title}
+                                                </h4>
                                               )}
-                                              <small style={{ fontSize: '0.95rem', opacity: 0.9 }}>
-                                                {container.container_sidenote}
-                                              </small>
+                                              {container.container_text && (
+                                                <p
+                                                  className="mb-0"
+                                                  style={{
+                                                    color: '#6B7280',
+                                                    fontSize: '1rem',
+                                                    lineHeight: '1.6',
+                                                  }}
+                                                >
+                                                  {container.container_text}
+                                                </p>
+                                              )}
                                             </div>
-                                          )}
+                                          </div>
+
+                                          <div className="d-flex justify-content-between align-items-center flex-wrap">
+                                            {container.container_button_text && (
+                                              <button
+                                                className="btn"
+                                                style={{
+                                                  backgroundColor: style.buttonBg,
+                                                  border: 'none',
+                                                  color: 'white',
+                                                  borderRadius: '8px',
+                                                  padding: '10px 20px',
+                                                  fontWeight: '600',
+                                                  fontSize: '0.875rem',
+                                                  transition: 'all 0.2s ease-in-out',
+                                                }}
+                                                onMouseOver={e => {
+                                                  e.target.style.backgroundColor =
+                                                    style.buttonHover;
+                                                  e.target.style.transform = 'translateY(-1px)';
+                                                  e.target.style.boxShadow =
+                                                    '0 4px 8px rgba(0, 0, 0, 0.15)';
+                                                }}
+                                                onMouseOut={e => {
+                                                  e.target.style.backgroundColor = style.buttonBg;
+                                                  e.target.style.transform = 'translateY(0)';
+                                                  e.target.style.boxShadow = 'none';
+                                                }}
+                                              >
+                                                {container.container_button_text}
+                                              </button>
+                                            )}
+
+                                            {container.container_sidenote && (
+                                              <div className="d-flex align-items-center">
+                                                {container.container_sidenote_icon && (
+                                                  <i
+                                                    className={`${container.container_sidenote_icon} me-2`}
+                                                    style={{
+                                                      fontSize: '0.875rem',
+                                                      color: '#9CA3AF',
+                                                    }}
+                                                  ></i>
+                                                )}
+                                                <small
+                                                  style={{ fontSize: '0.875rem', color: '#9CA3AF' }}
+                                                >
+                                                  {container.container_sidenote}
+                                                </small>
+                                              </div>
+                                            )}
+                                          </div>
                                         </div>
                                       </div>
                                     );
@@ -429,7 +463,28 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                             </div>
                           );
                         } else if (section.__typename === 'ComponentArticlePartsYouTube') {
-                          const videoId = extractYouTubeVideoId(section.YouTube);
+                          let videoId = null;
+
+                          // Handle different YouTube data structures
+                          if (section.YouTube) {
+                            if (typeof section.YouTube === 'object' && section.YouTube !== null) {
+                              // Strapi v5 structure
+                              if (section.YouTube.url) {
+                                videoId = extractYouTubeVideoId(section.YouTube.url);
+                              } else if (section.YouTube.rawData && section.YouTube.rawData.html) {
+                                // Extract from embed HTML
+                                const embedMatch = section.YouTube.rawData.html.match(
+                                  /src="[^"]*embed\/([a-zA-Z0-9_-]+)/
+                                );
+                                if (embedMatch) {
+                                  videoId = embedMatch[1];
+                                }
+                              }
+                            } else if (typeof section.YouTube === 'string') {
+                              // Strapi v3/v4 or plain URL
+                              videoId = extractYouTubeVideoId(section.YouTube);
+                            }
+                          }
                           if (videoId) {
                             return (
                               <div key={index} className="article-youtube my-4">
