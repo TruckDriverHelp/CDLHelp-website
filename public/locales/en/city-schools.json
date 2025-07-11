@@ -19,5 +19,6 @@
   "schoolsInCity": "CDL Schools in {{city}}, {{state}}",
   "noCitiesTitle": "No Cities Found",
   "noCitiesText": "No cities with CDL schools are currently available in {{state}}.",
-  "noSchoolsInCity": "No CDL schools are currently available in {{city}}, {{state}}."
+  "noSchoolsInCity": "No CDL schools are currently available in {{city}}, {{state}}.",
+  "noStatesAvailable": "States are temporarily unavailable"
 }

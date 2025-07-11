@@ -17,7 +17,6 @@ const LanguageSwitcher = ({ alternateLinks }) => {
       const link = alternateLinks.find(link => link.hrefLang === locale);
       window.location.replace(link.href);
     } catch (error) {
-      console.error(error);
       window.location.replace(`/${locale}`);
     }
   };

@@ -18,7 +18,6 @@ const criticalCSS = (() => {
       .replace(/;}+/g, '}')
       .trim();
   } catch (e) {
-    console.error('Failed to load critical CSS:', e);
     return '';
   }
 })();

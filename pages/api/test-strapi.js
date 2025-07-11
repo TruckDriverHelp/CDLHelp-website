@@ -47,7 +47,6 @@ export default async function handler(req, res) {
       url: url,
     });
   } catch (error) {
-    console.error('Strapi test error:', error);
     return res.status(500).json({
       error: 'Failed to connect to Strapi',
       message: error.message,

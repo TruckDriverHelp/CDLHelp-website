@@ -116,8 +116,6 @@ export async function getStaticProps({ locale }) {
       revalidate: 300, // Revalidate every 5 minutes
     };
   } catch (error) {
-    console.error('Error in getStaticProps:', error);
-
     // Fallback to mock data in case of error
     const meta = await getMeta(locale || 'en', 'general');
 

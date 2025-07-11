@@ -9,6 +9,9 @@ const ArticleCard = ({ article }) => {
   const router = useRouter();
   const { locale } = router;
 
+  // Handle both REST API (nested) and GraphQL v5 (flat) structures
+  const articleData = article.attributes || article;
+
   const {
     slug,
     title,
@@ -17,15 +20,17 @@ const ArticleCard = ({ article }) => {
     cover,
     categories,
     author,
-  } = article.attributes;
+    blog_page,
+  } = articleData;
 
-  const coverUrl = cover?.data?.attributes?.url;
-  const coverAlt = cover?.data?.attributes?.alternativeText || title;
-  const authorName = author?.data?.attributes?.name;
-  const authorAvatar = author?.data?.attributes?.avatar?.data?.attributes?.url;
+  const coverUrl = cover?.data?.attributes?.url || cover?.url;
+  const coverAlt = cover?.data?.attributes?.alternativeText || cover?.alternativeText || title;
+  const authorName = author?.data?.attributes?.name || author?.name;
+  const authorAvatar =
+    author?.data?.attributes?.avatar?.data?.attributes?.url || author?.avatar?.url;
 
   // Check if this is a blog post
-  const isBlogPost = article.attributes.blog_page === true;
+  const isBlogPost = blog_page === true;
   const articleUrl =
     locale === 'en'
       ? `${isBlogPost ? '/blog' : ''}/${slug}`
@@ -58,7 +63,7 @@ const ArticleCard = ({ article }) => {
               <div className={styles.categories}>
                 {categories.data.map(category => (
                   <span key={category.id} className={styles.category}>
-                    {category.attributes.name}
+                    {category.attributes?.name || category.name}
                   </span>
                 ))}
               </div>
