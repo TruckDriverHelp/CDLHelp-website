@@ -251,18 +251,17 @@ const SignsTest = () => {
                   }}
                 >
                   {currentSign.attributes.Sign.data?.attributes.url && (
-                    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                      <Image
-                        src={
-                          currentSign.attributes.Sign.data.attributes.url.startsWith('http')
-                            ? currentSign.attributes.Sign.data.attributes.url
-                            : `${getStrapiHost()}${currentSign.attributes.Sign.data.attributes.url}`
-                        }
-                        alt={currentSign.attributes.original_name}
-                        fill
-                        style={{ objectFit: 'contain' }}
-                      />
-                    </div>
+                    <Image
+                      src={
+                        currentSign.attributes.Sign.data.attributes.url.startsWith('http')
+                          ? currentSign.attributes.Sign.data.attributes.url
+                          : `${getStrapiHost()}${currentSign.attributes.Sign.data.attributes.url}`
+                      }
+                      alt={currentSign.attributes.original_name}
+                      width={200}
+                      height={200}
+                      style={{ objectFit: 'contain', maxWidth: '100%', height: 'auto' }}
+                    />
                   )}
                 </div>
 
