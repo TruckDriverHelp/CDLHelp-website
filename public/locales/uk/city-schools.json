@@ -19,5 +19,6 @@
   "schoolsInCity": "CDL Школи в {{city}}, {{state}}",
   "noCitiesTitle": "Міста не знайдені",
   "noCitiesText": "Наразі в {{state}} немає міст з CDL школами.",
-  "noSchoolsInCity": "Наразі в {{city}}, {{state}} немає CDL шкіл."
+  "noSchoolsInCity": "Наразі в {{city}}, {{state}} немає CDL шкіл.",
+  "noStatesAvailable": "Штати тимчасово недоступні"
 }

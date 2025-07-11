@@ -19,5 +19,6 @@
   "schoolsInCity": "مدارس CDL في {{city}}، {{state}}",
   "noCitiesTitle": "لم يتم العثور على مدن",
   "noCitiesText": "لا توجد مدن بها مدارس CDL متاحة حالياً في {{state}}.",
-  "noSchoolsInCity": "لا توجد مدارس CDL متاحة حالياً في {{city}}، {{state}}."
+  "noSchoolsInCity": "لا توجد مدارس CDL متاحة حالياً في {{city}}، {{state}}.",
+  "noStatesAvailable": "الولايات غير متاحة مؤقتاً"
 }
