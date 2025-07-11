@@ -305,17 +305,18 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
                                   <div
                                     className="me-4 d-flex align-items-center justify-content-center"
                                     style={{
-                                      width: '48px',
-                                      height: '48px',
+                                      width: '64px',
+                                      height: '64px',
                                       backgroundColor: style.iconBg,
                                       borderRadius: '50%',
                                       flexShrink: 0,
                                       color: 'white',
+                                      marginTop: '-4px', // Align with the top of the title text
                                     }}
                                   >
                                     <i
                                       className={`ri-${container.container_icon}`}
-                                      style={{ fontSize: '1.25rem' }}
+                                      style={{ fontSize: '1.75rem' }}
                                     ></i>
                                   </div>
                                 )}
