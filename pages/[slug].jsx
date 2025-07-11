@@ -6,6 +6,7 @@ import Image from 'next/image';
 import remarkGfm from 'remark-gfm';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { gql } from 'graphql-request';
 import { ARTICLE_BY_SLUG_QUERY } from '../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from '../components/_App/Layout';
@@ -617,37 +618,63 @@ export async function getStaticProps({ params, locale }) {
 
 export async function getStaticPaths() {
   try {
-    const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate[localizations]=*&filters[blog_post][$ne]=true&pagination[limit]=1000`;
+    const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
 
-    const { data } = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
-      },
-    });
+    // Query to get all non-blog articles with their localizations
+    const query = gql`
+      query getAllArticles {
+        articles(filters: { blog_post: { ne: true } }, pagination: { limit: 1000 }) {
+          slug
+          locale
+          blog_post
+          localizations {
+            slug
+            locale
+          }
+        }
+      }
+    `;
 
-    const articles = data.data || [];
+    const response = await axios.post(
+      graphqlUrl,
+      { query },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+        },
+      }
+    );
 
+    const articles = response.data?.data?.articles || [];
     const paths = [];
-    articles.forEach(post => {
-      // For English articles, we only want to generate paths without the /en/ prefix
-      // Next.js will handle the routing correctly when locale is undefined for default locale
-      if (post.attributes.locale === 'en') {
-        paths.push({ params: { slug: post.attributes.slug }, locale: undefined });
-      } else {
-        paths.push({ params: { slug: post.attributes.slug }, locale: post.attributes.locale });
+    const processedSlugs = new Set(); // Track processed slug+locale combinations
+
+    articles.forEach(article => {
+      // Create unique key for tracking
+      const key = `${article.locale}-${article.slug}`;
+
+      if (!processedSlugs.has(key)) {
+        processedSlugs.add(key);
+
+        if (article.locale === 'en') {
+          paths.push({ params: { slug: article.slug }, locale: undefined });
+        } else {
+          paths.push({ params: { slug: article.slug }, locale: article.locale });
+        }
       }
 
       // Add localizations
-      if (post.attributes.localizations?.data) {
-        post.attributes.localizations.data.forEach(locale => {
-          // Same logic for localizations
-          if (locale.attributes.locale === 'en') {
-            paths.push({ params: { slug: locale.attributes.slug }, locale: undefined });
-          } else {
-            paths.push({
-              params: { slug: locale.attributes.slug },
-              locale: locale.attributes.locale,
-            });
+      if (article.localizations) {
+        article.localizations.forEach(loc => {
+          const locKey = `${loc.locale}-${loc.slug}`;
+          if (!processedSlugs.has(locKey)) {
+            processedSlugs.add(locKey);
+
+            if (loc.locale === 'en') {
+              paths.push({ params: { slug: loc.slug }, locale: undefined });
+            } else {
+              paths.push({ params: { slug: loc.slug }, locale: loc.locale });
+            }
           }
         });
       }
@@ -658,9 +685,6 @@ export async function getStaticPaths() {
       fallback: 'blocking', // Allow new pages to be generated on demand
     };
   } catch (error) {
-    if (error.response) {
-      // Error response data available in error.response.data
-    }
     // Return empty paths but with blocking fallback
     return {
       paths: [],

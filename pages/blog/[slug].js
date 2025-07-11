@@ -5,6 +5,7 @@ import Image from 'next/image';
 import remarkGfm from 'remark-gfm';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { gql } from 'graphql-request';
 import { ARTICLE_BY_SLUG_QUERY } from '../../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../../lib/graphql/alternateLinks';
 import Layout from '../../components/_App/Layout';
@@ -486,64 +487,71 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
 };
 
 export async function getStaticPaths() {
-  // const locales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
   const paths = [];
 
   try {
-    // Fetch ALL articles and then filter by blog_page in the response
-    const url = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api/articles?populate=localizations&pagination[limit]=1000`;
-    // Fetch articles from Strapi
+    const graphqlUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/graphql`;
 
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
-      },
+    // Query to get all blog articles with their localizations
+    const query = gql`
+      query getAllBlogArticles {
+        articles(filters: { blog_post: { eq: true } }, pagination: { limit: 1000 }) {
+          slug
+          locale
+          blog_post
+          localizations {
+            slug
+            locale
+          }
+        }
+      }
+    `;
+
+    const response = await axios.post(
+      graphqlUrl,
+      { query },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+        },
+      }
+    );
+
+    const articles = response.data?.data?.articles || [];
+    const processedSlugs = new Set(); // Track processed slug+locale combinations
+
+    articles.forEach(article => {
+      // Create unique key for tracking
+      const key = `${article.locale}-${article.slug}`;
+
+      if (!processedSlugs.has(key)) {
+        processedSlugs.add(key);
+
+        if (article.locale === 'en') {
+          paths.push({ params: { slug: article.slug }, locale: undefined });
+        } else {
+          paths.push({ params: { slug: article.slug }, locale: article.locale });
+        }
+      }
+
+      // Add localizations
+      if (article.localizations) {
+        article.localizations.forEach(loc => {
+          const locKey = `${loc.locale}-${loc.slug}`;
+          if (!processedSlugs.has(locKey)) {
+            processedSlugs.add(locKey);
+
+            if (loc.locale === 'en') {
+              paths.push({ params: { slug: loc.slug }, locale: undefined });
+            } else {
+              paths.push({ params: { slug: loc.slug }, locale: loc.locale });
+            }
+          }
+        });
+      }
     });
 
-    if (response.ok) {
-      const json = await response.json();
-      const articles = json.data || [];
-      // Filter for blog_page = true
-      const blogArticles = articles.filter(article => article.attributes.blog_post === true);
-
-      blogArticles.forEach(article => {
-        const locale = article.attributes.locale;
-
-        // For English, we need to handle it specially
-        if (locale === 'en') {
-          paths.push({
-            params: { slug: article.attributes.slug },
-            locale: undefined, // This makes it use the default locale
-          });
-        } else {
-          paths.push({
-            params: { slug: article.attributes.slug },
-            locale: locale,
-          });
-        }
-
-        // Also add paths for localizations
-        if (article.attributes.localizations?.data) {
-          article.attributes.localizations.data.forEach(loc => {
-            if (loc.attributes.locale === 'en') {
-              paths.push({
-                params: { slug: loc.attributes.slug },
-                locale: undefined,
-              });
-            } else {
-              paths.push({
-                params: { slug: loc.attributes.slug },
-                locale: loc.attributes.locale,
-              });
-            }
-          });
-        }
-      });
-
-      // Paths generated successfully
-    } else {
-      // Failed to fetch articles
-    }
+    // Paths generated successfully
   } catch (error) {
     // Error fetching blog articles
   }

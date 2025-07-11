@@ -1,0 +1,9 @@
+/* Fix for autoprefixer warning about deprecated color-adjust property */
+@media print {
+  *,
+  *::before,
+  *::after {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}
