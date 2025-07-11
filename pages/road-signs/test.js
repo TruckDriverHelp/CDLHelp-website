@@ -23,6 +23,12 @@ const SignsTest = () => {
   const [showTranslated, setShowTranslated] = useState(false);
   const [optionPairs, setOptionPairs] = useState([]);
 
+  // Helper function to get the Strapi host URL
+  const getStrapiHost = () => {
+    // In production, we use the internal IP directly
+    return 'http://146.190.47.164:1337';
+  };
+
   const seoData = useSEO({
     customUrl: 'https://www.cdlhelp.com/road-signs/test',
     type: 'website',
@@ -250,7 +256,7 @@ const SignsTest = () => {
                         src={
                           currentSign.attributes.Sign.data.attributes.url.startsWith('http')
                             ? currentSign.attributes.Sign.data.attributes.url
-                            : `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://146.190.47.164:1337'}${currentSign.attributes.Sign.data.attributes.url}`
+                            : `${getStrapiHost()}${currentSign.attributes.Sign.data.attributes.url}`
                         }
                         alt={currentSign.attributes.original_name}
                         fill
@@ -278,7 +284,7 @@ const SignsTest = () => {
                       style={{
                         width: '80%',
                         marginBottom: '10px',
-                        padding: '15px',
+                        padding: '15px 20px',
                         backgroundColor:
                           showFeedback &&
                           option ===
@@ -296,6 +302,12 @@ const SignsTest = () => {
                         border: '2px solid #4d2bac82',
                         transition: 'all 0.3s ease',
                         alignSelf: 'center',
+                        whiteSpace: 'normal',
+                        wordWrap: 'break-word',
+                        textAlign: 'center',
+                        minHeight: 'auto',
+                        height: 'auto',
+                        lineHeight: '1.5',
                       }}
                     >
                       {option}
@@ -309,11 +321,14 @@ const SignsTest = () => {
                     style={{
                       fontSize: '1.2rem',
                       fontWeight: 'bold',
-                      padding: '10px',
+                      padding: '15px 20px',
                       borderRadius: '5px',
                       backgroundColor: isCorrect
                         ? 'rgba(40, 167, 69, 0.1)'
                         : 'rgba(220, 53, 69, 0.1)',
+                      wordWrap: 'break-word',
+                      textAlign: 'center',
+                      width: '80%',
                     }}
                   >
                     {isCorrect
