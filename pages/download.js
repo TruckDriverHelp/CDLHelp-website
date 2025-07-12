@@ -48,15 +48,43 @@ const DownloadPage = ({ alternateLinks }) => {
     });
   }, [locale, t]);
 
-  const handleDownloadClick = platform => {
-    // Track download intent with enhanced analytics
-    analytics.trackDownloadIntent(platform, 'download_page', {
-      button_location: 'hero',
-      locale: locale,
-    });
+  const handleDownloadClick = (platform, e) => {
+    // Don't prevent default if JavaScript fails - let the link work normally
+    try {
+      // Track download intent with enhanced analytics
+      if (analytics && analytics.trackDownloadIntent) {
+        analytics.trackDownloadIntent(platform, 'download_page', {
+          button_location: 'hero',
+          locale: locale,
+        });
+      }
+    } catch (error) {
+      console.error('Analytics tracking error:', error);
+      // Don't block the navigation if analytics fails
+    }
 
-    // Redirect to OneLink for both platforms
-    window.location.href = 'https://cdlhelp.onelink.me/mHbW/mgvvp96d';
+    // For modern browsers that support analytics, do a small delay
+    // For others, the default link behavior will work
+    if (e && analytics && analytics.trackDownloadIntent) {
+      e.preventDefault();
+
+      // Determine the correct URL based on platform
+      let targetUrl;
+      if (platform === 'ios') {
+        targetUrl = 'https://apps.apple.com/us/app/cdl-help/id6444388755';
+      } else if (platform === 'android') {
+        targetUrl = 'https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp';
+      } else {
+        // Fallback to OneLink for universal redirect
+        targetUrl = 'https://cdlhelp.onelink.me/mHbW/mgvvp96d';
+      }
+
+      // Redirect to app store after a small delay
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 100); // Small delay to ensure analytics tracking fires
+    }
+    // If no preventDefault, the href will naturally navigate
   };
 
   const features = [
@@ -170,11 +198,12 @@ const DownloadPage = ({ alternateLinks }) => {
                     <a
                       href="https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp"
                       onClick={e => {
-                        e.preventDefault();
-                        handleDownloadClick('android');
+                        handleDownloadClick('android', e);
                       }}
                       className="btn-download-primary d-flex align-items-center justify-content-center"
                       aria-label={t('downloadAndroid')}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <div
                         className="d-flex align-items-center justify-content-center me-3"
@@ -204,11 +233,12 @@ const DownloadPage = ({ alternateLinks }) => {
                     <a
                       href="https://apps.apple.com/us/app/cdl-help/id6444388755"
                       onClick={e => {
-                        e.preventDefault();
-                        handleDownloadClick('ios');
+                        handleDownloadClick('ios', e);
                       }}
                       className="btn-download-primary d-flex align-items-center justify-content-center"
                       aria-label={t('downloadIOS')}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <div
                         className="d-flex align-items-center justify-content-center me-3"
@@ -309,6 +339,11 @@ const DownloadPage = ({ alternateLinks }) => {
           line-height: 1.2;
         }
 
+        .download-buttons {
+          position: relative;
+          z-index: 10;
+        }
+
         .btn-download-primary {
           background-color: #000;
           color: #fff;
@@ -321,6 +356,9 @@ const DownloadPage = ({ alternateLinks }) => {
           min-height: 60px;
           overflow: visible;
           position: relative;
+          z-index: 10;
+          cursor: pointer;
+          display: inline-flex !important;
         }
 
         .btn-download-primary:hover {
