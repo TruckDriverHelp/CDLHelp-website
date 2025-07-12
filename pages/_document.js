@@ -35,6 +35,10 @@ class MyDocument extends Document {
       <Html lang={locale}>
         <Head>
           <link rel="icon" href="/images/favicon.ico" />
+          <meta
+            name="apple-itunes-app"
+            content="app-id=6444388755, app-argument=https://cdlhelp.onelink.me/"
+          />
           <link
             rel="preload"
             as="image"
@@ -73,16 +77,6 @@ class MyDocument extends Document {
                   });
                 }
 
-                // Initialize Smartlook only when consent is granted
-                function initSmartlook() {
-                  window.smartlook||(function(d) {
-                    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-                    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-                    c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
-                    })(document);
-                    smartlook('init', '${process.env.NEXT_PUBLIC_SMARTLOOK_PROJECT_KEY}', { region: 'eu' });
-                }
-
                 // Check for consent on load
                 if (typeof window !== 'undefined') {
                   window.addEventListener('load', function() {
@@ -95,13 +89,11 @@ class MyDocument extends Document {
                           const consent = JSON.parse(decodeURIComponent(consentValue));
                           if (consent.analytics) {
                             initYandexMetrica();
-                            initSmartlook();
                           }
                         } catch (e) {
                           // Legacy format - 'accepted' means all consents
                           if (consentValue === 'accepted') {
                             initYandexMetrica();
-                            initSmartlook();
                           }
                         }
                       }
@@ -113,9 +105,6 @@ class MyDocument extends Document {
                     if (event.detail && event.detail.analytics) {
                       if (!window.ym) {
                         initYandexMetrica();
-                      }
-                      if (!window.smartlook) {
-                        initSmartlook();
                       }
                     }
                   });
