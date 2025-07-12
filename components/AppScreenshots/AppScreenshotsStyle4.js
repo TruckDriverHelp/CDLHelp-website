@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from 'next/link';
+// Unused imports removed - React and Link not needed in newer versions
 
 // Import Swiper React components
 // NOTE: Commented out to reduce bundle size - uncomment when component is needed

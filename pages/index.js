@@ -112,6 +112,9 @@ const IndexPage = ({ meta, alternateLinks }) => {
           type="image/webp"
         />
 
+        {/* Preconnect to Google Fonts */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* Preload critical fonts */}
         <link
           rel="preload"

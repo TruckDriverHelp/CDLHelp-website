@@ -89,7 +89,7 @@
   "env": {
     "targets": {
       "chrome": "90",
-      "firefox": "88", 
+      "firefox": "88",
       "safari": "14",
       "edge": "90"
     },

@@ -7,13 +7,14 @@ import '/public/css/fixes.css'; // CSS fixes for warnings
 // Component-specific CSS - loaded with components
 
 // Dynamically import CSS for components that aren't always used
-const loadSwiperStyles = () => {
-  import('../node_modules/swiper/swiper.min.css');
-  import('../node_modules/swiper/components/effect-cube/effect-cube.min.css');
-  import('../node_modules/swiper/components/effect-coverflow/effect-coverflow.min.css');
-  import('../node_modules/swiper/components/pagination/pagination.min.css');
-  import('../node_modules/swiper/components/navigation/navigation.min.css');
-};
+// Note: These styles are imported on-demand when Swiper components are used
+// const loadSwiperStyles = () => {
+//   import('../node_modules/swiper/swiper.min.css');
+//   import('../node_modules/swiper/components/effect-cube/effect-cube.min.css');
+//   import('../node_modules/swiper/components/effect-coverflow/effect-coverflow.min.css');
+//   import('../node_modules/swiper/components/pagination/pagination.min.css');
+//   import('../node_modules/swiper/components/navigation/navigation.min.css');
+// };
 
 const loadModalStyles = () => {
   import('../node_modules/react-modal-video/css/modal-video.min.css');
@@ -38,6 +39,8 @@ import { useEffect, useState, Suspense, lazy, startTransition } from 'react';
 import { QuizContextProvider } from '../store/quiz-context';
 import nextI18NextConfig from '../next-i18next.config';
 import analytics from '../lib/analytics';
+import enhancedAnalytics from '../lib/analytics-enhanced';
+import sessionContinuity from '../lib/session-continuity';
 import consentManager from '../lib/consent-manager';
 import { loadInterFont } from '../lib/fontLoader';
 
@@ -82,9 +85,18 @@ const MyApp = ({ Component, pageProps }) => {
     // Initialize consent manager
     consentManager.init();
 
-    // Initialize unified analytics only if consent given
+    // Initialize enhanced analytics with unified identity and session continuity
     if (consentManager.hasConsent('analytics')) {
-      analytics.init();
+      enhancedAnalytics.init().then(() => {
+        // Initialize session continuity after analytics
+        sessionContinuity.init();
+
+        // Check for session restoration from mobile app
+        sessionContinuity.restoreSessionFromApp();
+
+        // Initialize legacy analytics for backward compatibility
+        analytics.init();
+      });
     }
 
     // Register service worker
@@ -112,8 +124,8 @@ const MyApp = ({ Component, pageProps }) => {
           });
         }
 
-        // Enhanced unified tracking
-        analytics.trackPageView(url, document.title);
+        // Enhanced unified tracking with session continuity
+        enhancedAnalytics.trackPageView(url, document.title);
       }
     };
 

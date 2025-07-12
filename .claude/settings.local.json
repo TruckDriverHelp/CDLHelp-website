@@ -48,7 +48,10 @@
       "Bash(npm uninstall:*)",
       "Bash(npx prettier:*)",
       "Bash(sed:*)",
-      "Bash(npx sass:*)"
+      "Bash(npx sass:*)",
+      "Bash(PGPASSWORD=TruckDr1ver12358! psql:*)",
+      "Bash(npm install:*)",
+      "Bash(git restore:*)"
     ],
     "deny": []
   }

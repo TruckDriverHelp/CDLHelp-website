@@ -1,4 +1,4 @@
-import React from 'react';
+// React import removed - not needed in newer versions
 
 // Import Swiper React components
 // NOTE: Commented out to reduce bundle size - uncomment when component is needed
