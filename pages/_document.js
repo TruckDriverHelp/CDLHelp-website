@@ -37,7 +37,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/images/favicon.ico" />
           <meta
             name="apple-itunes-app"
-            content="app-id=6444388755, app-argument=https://cdlhelp.onelink.me/"
+            content="app-id=6444388755, app-argument=https://cdlhelp.onelink.me/mHbW/mgvvp96d"
           />
           <link
             rel="preload"
