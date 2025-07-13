@@ -101,19 +101,27 @@ const SignsTest = () => {
       translated: currentSign.attributes.translated_name,
     };
 
-    // Combine and shuffle all options
+    // Combine and shuffle all options ONCE per question
     const allOptionPairs = [...wrongAnswers, correctAnswer].sort(() => 0.5 - Math.random());
 
     setOptionPairs(allOptionPairs);
     // Set initial options based on current translation state
     setOptions(allOptionPairs.map(pair => (showTranslated ? pair.translated : pair.original)));
-  }, [signs, currentQuestionIndex, showTranslated]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signs, currentQuestionIndex]);
 
   useEffect(() => {
     if (signs && signs.length > 0) {
       generateOptions();
     }
   }, [currentQuestionIndex, signs, generateOptions]);
+
+  // Update options when translation is toggled, without reshuffling
+  useEffect(() => {
+    if (optionPairs.length > 0) {
+      setOptions(optionPairs.map(pair => (showTranslated ? pair.translated : pair.original)));
+    }
+  }, [showTranslated, optionPairs]);
 
   const handleAnswer = selectedAnswer => {
     const currentSign = signs[currentQuestionIndex];
@@ -141,8 +149,7 @@ const SignsTest = () => {
 
   const toggleTranslation = () => {
     setShowTranslated(!showTranslated);
-    // Simply toggle between stored original and translated versions
-    setOptions(optionPairs.map(pair => (!showTranslated ? pair.translated : pair.original)));
+    // Options will be updated automatically by the useEffect
   };
 
   // if (!isLoaded) {
