@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import consentManager from '../../lib/consent-manager';
 import styles from '../../styles/CookieConsent.module.css';
 
 const CookieConsentBanner = () => {
-  const { t } = useTranslation('cookie');
+  const { t, ready } = useTranslation('cookie');
   const [showBanner, setShowBanner] = useState(false);
-  // const { locale } = useRouter();
+  const [isTranslationReady, setIsTranslationReady] = useState(false);
 
   useEffect(() => {
     consentManager.init();
@@ -20,6 +19,13 @@ const CookieConsentBanner = () => {
       setShowBanner(false);
     }
   }, []);
+
+  useEffect(() => {
+    // Wait for translations to be ready before showing the banner
+    if (ready) {
+      setIsTranslationReady(true);
+    }
+  }, [ready]);
 
   const handleAccept = () => {
     setShowBanner(false);
@@ -44,28 +50,44 @@ const CookieConsentBanner = () => {
     window.location.reload();
   };
 
-  if (!showBanner) {
+  // Don't show banner if it shouldn't be shown or if translations aren't ready
+  if (!showBanner || !isTranslationReady) {
     return null;
   }
 
+  // Helper function to get translation with fallback
+  const getTranslation = (key, fallback) => {
+    const translation = t(key);
+    // If translation is the same as key, it means it's not loaded yet
+    if (translation === key || !translation) {
+      return fallback;
+    }
+    return translation;
+  };
+
   return (
     <div className={styles.cookieBanner}>
-      <p className={styles.cookieText}>{t('text')}</p>
+      <p className={styles.cookieText}>
+        {getTranslation(
+          'text',
+          'We use cookies to improve your experience. By continuing, you accept our use of cookies.'
+        )}
+      </p>
       <p className={styles.cookiePolicy}>
         <Link href="/cookies-policy">
-          <a>{t('policy')}</a>
+          <a>{getTranslation('policy', 'Read more about our Cookies Policy')}</a>
         </Link>
       </p>
 
       <div className={styles.buttonContainer}>
         <button onClick={handleAccept} className={styles.cookieButtonAccept}>
-          {t('accept') || 'Accept All'}
+          {getTranslation('accept', 'Accept All')}
         </button>
         <button onClick={handleCustomize} className={styles.cookieButtonCustomize}>
-          {t('customize') || 'Only Essential'}
+          {getTranslation('customize', 'Only Essential')}
         </button>
         <button onClick={handleReject} className={styles.cookieButtonReject}>
-          {t('deny') || 'Reject All'}
+          {getTranslation('deny', 'Reject All')}
         </button>
       </div>
     </div>

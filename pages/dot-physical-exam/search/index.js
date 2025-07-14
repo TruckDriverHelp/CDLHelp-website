@@ -323,7 +323,7 @@ export default function DotPhysicalExam() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'navbar', 'footer'])),
+      ...(await serverSideTranslations(locale, ['common', 'navbar', 'footer', 'cookie'])),
     },
   };
 }
