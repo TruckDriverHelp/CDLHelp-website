@@ -356,13 +356,13 @@ export async function getStaticProps({ locale }) {
   try {
     return {
       props: {
-        ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer'])),
+        ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer', 'cookie'])),
       },
     };
   } catch (error) {
     return {
       props: {
-        ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer'])),
+        ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer', 'cookie'])),
       },
     };
   }

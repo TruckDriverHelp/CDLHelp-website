@@ -92,7 +92,13 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       alternateLinks: alternateLinks,
-      ...(await serverSideTranslations(locale, ['pre-trip', 'navbar', 'footer', 'common'])),
+      ...(await serverSideTranslations(locale, [
+        'pre-trip',
+        'navbar',
+        'footer',
+        'common',
+        'cookie',
+      ])),
       sections,
     },
   };

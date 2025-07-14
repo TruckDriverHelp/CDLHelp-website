@@ -47,10 +47,12 @@ import { loadInterFont } from '../lib/fontLoader';
 // Lazy load non-critical components
 const Layout = lazy(() => import('../components/_App/Layout'));
 const Pixel = lazy(() => import('../components/Pixel'));
-const CookieConsentBanner = lazy(() => import('../components/_App/CookieConsentBanner.js'));
 const SmartAppBanner = lazy(() => import('../components/_App/SmartAppBanner'));
 const CriticalStyles = lazy(() => import('../components/_App/CriticalStyles'));
 const AsyncStyles = lazy(() => import('../components/_App/AsyncStyles'));
+
+// Import cookie banner directly (not lazy) for better i18n reliability
+import CookieConsentBanner from '../components/_App/CookieConsentBanner';
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -149,9 +151,7 @@ const MyApp = ({ Component, pageProps }) => {
             </Suspense>
           )}
           {isClient && !['/404', '/cookies-policy'].includes(router.pathname) && (
-            <Suspense fallback={null}>
-              <CookieConsentBanner />
-            </Suspense>
+            <CookieConsentBanner />
           )}
           <Suspense fallback={null}>
             <SmartAppBanner />
