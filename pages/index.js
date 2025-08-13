@@ -19,14 +19,6 @@ import {
   getLocalizedSocialLinks,
 } from '../lib/schemaLocalization';
 
-// Preload critical components
-// const BestFeatures = dynamic(() => import('../components/Home/BestFeatures'), {
-//   loading: () => (
-//     <div style={{ minHeight: '200px', background: '#f5f5f5' }}>Loading features...</div>
-//   ),
-//   ssr: false,
-// });
-
 // Lazy load non-critical components
 const AppIntroVideo = dynamic(() => import('../components/Home/AppIntroVideo'), {
   loading: () => <div style={{ minHeight: '300px', background: '#f5f5f5' }}>Loading video...</div>,
