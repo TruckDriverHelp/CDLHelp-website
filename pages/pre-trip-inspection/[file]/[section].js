@@ -112,7 +112,7 @@ export default function PreTripSection({
 
 export async function getStaticPaths({ locales }) {
   const preTripDir = path.join(process.cwd(), 'data/pre-trip');
-  const files = fs.readdirSync(preTripDir);
+  const files = fs.readdirSync(preTripDir).filter(file => file.endsWith('.json'));
 
   const paths = [];
 
@@ -144,7 +144,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({ params, locale }) {
   const preTripDir = path.join(process.cwd(), 'data/pre-trip');
-  const files = fs.readdirSync(preTripDir);
+  const files = fs.readdirSync(preTripDir).filter(file => file.endsWith('.json'));
   const totalFiles = files.length;
 
   // Find the file that matches the slug

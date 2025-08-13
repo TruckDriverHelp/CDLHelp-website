@@ -62,7 +62,7 @@ export default function PreTripGuide({ sections, alternateLinks }) {
 
 export async function getStaticProps({ locale }) {
   const preTripDir = path.join(process.cwd(), 'data/pre-trip');
-  const files = fs.readdirSync(preTripDir);
+  const files = fs.readdirSync(preTripDir).filter(file => file.endsWith('.json'));
   const alternateLinks = {
     en: '/pre-trip-inspection/guide',
     ar: '/ar/pre-trip-inspection/guide',
