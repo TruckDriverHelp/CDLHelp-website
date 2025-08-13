@@ -251,11 +251,12 @@ const Navbar = ({ alternateLinks }) => {
     setMounted(true);
   }, []);
 
-  // Close dropdown when resizing to desktop
+  // Close dropdown and reset menu when resizing to desktop
   React.useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 991) {
         setResourcesOpen(false);
+        setMenu(true); // Reset menu to collapsed state on desktop
       }
     };
     window.addEventListener('resize', handleResize);
