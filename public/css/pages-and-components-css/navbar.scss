@@ -1030,6 +1030,19 @@ body {
   }
 }
 
+/* Fix navbar collapse behavior for desktop */
+@media only screen and (min-width: 992px) {
+  .navbar-area {
+    .navbar-collapse {
+      display: block !important;
+    }
+    
+    .navbar-toggler {
+      display: none !important;
+    }
+  }
+}
+
 /* Fix navbar collapse behavior for tablets and mobile */
 @media only screen and (max-width: 991px) {
   .navbar-area {
