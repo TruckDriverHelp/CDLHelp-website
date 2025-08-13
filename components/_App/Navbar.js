@@ -246,21 +246,39 @@ const Navbar = ({ alternateLinks }) => {
   const [menu, setMenu] = React.useState(true);
   const [mounted, setMounted] = React.useState(false);
   const [resourcesOpen, setResourcesOpen] = React.useState(false);
+  const [windowWidth, setWindowWidth] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
 
   React.useEffect(() => {
     setMounted(true);
+    // Set initial window width after mount
+    setWindowWidth(window.innerWidth);
   }, []);
 
   // Close dropdown and reset menu when resizing to desktop
   React.useEffect(() => {
+    let resizeTimer;
     const handleResize = () => {
-      if (window.innerWidth > 991) {
-        setResourcesOpen(false);
-        setMenu(true); // Reset menu to collapsed state on desktop
-      }
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const newWidth = window.innerWidth;
+        setWindowWidth(newWidth);
+        if (newWidth > 991) {
+          setResourcesOpen(false);
+          setMenu(true); // Reset menu to collapsed state on desktop
+        }
+      }, 100); // Debounce resize events
     };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    // Call immediately to set correct initial state
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimer);
+    };
   }, []);
 
   const toggleNavbar = () => {
@@ -308,7 +326,7 @@ const Navbar = ({ alternateLinks }) => {
   };
 
   // Helper to detect mobile
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 991;
+  const isMobile = windowWidth <= 991;
 
   return (
     <>
