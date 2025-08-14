@@ -43,6 +43,7 @@ import enhancedAnalytics from '../lib/analytics-enhanced';
 import sessionContinuity from '../lib/session-continuity';
 import consentManager from '../lib/consent-manager';
 import { loadInterFont } from '../lib/fontLoader';
+import { validatePublicEnvVars } from '../lib/env-validation';
 
 // Lazy load non-critical components
 const Layout = lazy(() => import('../components/_App/Layout'));
@@ -65,6 +66,11 @@ const MyApp = ({ Component, pageProps }) => {
     });
     // Load Inter font asynchronously
     loadInterFont();
+
+    // Validate environment variables in development
+    if (process.env.NODE_ENV === 'development') {
+      validatePublicEnvVars();
+    }
 
     // Load component styles on demand
     // Commented out Swiper styles since components are not being used
