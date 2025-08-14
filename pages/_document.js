@@ -52,6 +52,65 @@ class MyDocument extends Document {
             }}
           />
 
+          {/* Google Consent Mode v2 - Initialize before any tracking scripts */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                // Initialize dataLayer and gtag function
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                
+                // Set default consent state - must happen before GTM/gtag loads
+                // Default to denied for all consent types
+                gtag('consent', 'default', {
+                  'ad_storage': 'denied',
+                  'ad_user_data': 'denied',
+                  'ad_personalization': 'denied',
+                  'analytics_storage': 'denied',
+                  'functionality_storage': 'granted',
+                  'personalization_storage': 'denied',
+                  'security_storage': 'granted',
+                  'wait_for_update': 500
+                });
+                
+                // Region-specific defaults for stricter privacy laws
+                gtag('consent', 'default', {
+                  'ad_storage': 'denied',
+                  'ad_user_data': 'denied',
+                  'ad_personalization': 'denied',
+                  'analytics_storage': 'denied',
+                  'region': ['EU', 'UK', 'CA', 'CH', 'EEA', 'GB']
+                });
+                
+                // Detect user region for consent defaults
+                // Using timezone as fallback if no geo headers available
+                function detectRegion() {
+                  // Check CloudFlare or similar geo headers first
+                  const cfCountry = document.querySelector('meta[name="cf-country"]')?.content;
+                  if (cfCountry) return cfCountry;
+                  
+                  // Fallback to timezone detection
+                  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                  const euTimezones = ['Europe/', 'GB', 'UK'];
+                  if (euTimezones.some(zone => tz.includes(zone))) {
+                    return 'EU';
+                  }
+                  return 'US';
+                }
+                
+                // Set debug flag from environment or query param
+                if (typeof window !== 'undefined') {
+                  const urlParams = new URLSearchParams(window.location.search);
+                  if (urlParams.get('analytics_debug') === 'true' || 
+                      '${process.env.NEXT_PUBLIC_ANALYTICS_DEBUG}' === 'true') {
+                    window.__ANALYTICS_DEBUG__ = true;
+                    console.log('[Consent Mode v2] Initialized with default consent states');
+                  }
+                }
+              `,
+            }}
+          />
+
           {/* Preload key resources */}
           <link rel="preload" href="/css/bootstrap.min.css" as="style" />
           <link rel="preload" href="/css/styles.css" as="style" />
