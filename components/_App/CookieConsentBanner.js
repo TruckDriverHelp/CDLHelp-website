@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import consentManager from '../../lib/consent-manager';
 import styles from '../../styles/CookieConsent.module.css';
 
+const ConsentPreferencesModal = lazy(() => import('./ConsentPreferencesModal'));
+
 const CookieConsentBanner = () => {
   const { t, ready } = useTranslation('cookie');
   const [showBanner, setShowBanner] = useState(false);
   const [isTranslationReady, setIsTranslationReady] = useState(false);
+  const [showPreferences, setShowPreferences] = useState(false);
 
   useEffect(() => {
     consentManager.init();
@@ -18,6 +21,13 @@ const CookieConsentBanner = () => {
     } else {
       setShowBanner(false);
     }
+
+    // Check if consent mode v2 is enabled
+    const isV2Enabled =
+      process.env.NEXT_PUBLIC_CONSENT_MODE_V2_ENABLED === 'true' ||
+      Math.random() < parseFloat(process.env.NEXT_PUBLIC_CONSENT_MODE_V2_ROLLOUT || '0');
+
+    window.__CONSENT_MODE_V2_ENABLED__ = isV2Enabled;
   }, []);
 
   useEffect(() => {
@@ -40,12 +50,19 @@ const CookieConsentBanner = () => {
   };
 
   const handleCustomize = () => {
-    // For now, we'll implement simple accept/reject
-    // Could expand to show checkboxes for different consent types
+    // If Consent Mode v2 is enabled, show preferences modal
+    if (window.__CONSENT_MODE_V2_ENABLED__) {
+      setShowPreferences(true);
+      return;
+    }
+
+    // Legacy behavior - only essential cookies
     setShowBanner(false);
     consentManager.setConsent({
       analytics: true,
       marketing: false,
+      preferences: false,
+      necessary: true,
     });
     window.location.reload();
   };
@@ -77,6 +94,10 @@ const CookieConsentBanner = () => {
         <Link href="/cookies-policy">
           <a>{getTranslation('policy', 'Read more about our Cookies Policy')}</a>
         </Link>
+        {' | '}
+        <Link href="/privacy-policy">
+          <a>{getTranslation('privacy', 'Privacy Policy')}</a>
+        </Link>
       </p>
 
       <div className={styles.buttonContainer}>
@@ -84,12 +105,31 @@ const CookieConsentBanner = () => {
           {getTranslation('accept', 'Accept All')}
         </button>
         <button onClick={handleCustomize} className={styles.cookieButtonCustomize}>
-          {getTranslation('customize', 'Only Essential')}
+          {getTranslation(
+            'customize',
+            window.__CONSENT_MODE_V2_ENABLED__ ? 'Preferences' : 'Only Essential'
+          )}
         </button>
         <button onClick={handleReject} className={styles.cookieButtonReject}>
           {getTranslation('deny', 'Reject All')}
         </button>
       </div>
+
+      {/* Consent Preferences Modal */}
+      {showPreferences && (
+        <Suspense fallback={null}>
+          <ConsentPreferencesModal
+            isOpen={showPreferences}
+            onClose={() => setShowPreferences(false)}
+            onSave={preferences => {
+              setShowBanner(false);
+              setShowPreferences(false);
+              consentManager.setConsent(preferences);
+              window.location.reload();
+            }}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };
