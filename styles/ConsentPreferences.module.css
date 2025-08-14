@@ -1,0 +1,266 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  padding: 24px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: #f5f5f5;
+}
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.consentCategories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.category {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.categoryInfo {
+  flex: 1;
+}
+
+.categoryInfo h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.categoryInfo p {
+  margin: 0 0 8px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.vendorDetails {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.vendorDetails summary {
+  cursor: pointer;
+  color: #3062d4;
+  font-weight: 500;
+}
+
+.vendorDetails ul {
+  margin: 8px 0 0 20px;
+  padding: 0;
+  color: #666;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle input:checked + .slider {
+  background-color: #3062d4;
+}
+
+.toggle input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.alwaysOn {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.modalFooter {
+  padding: 24px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modalFooter button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.rejectAllButton {
+  background: white;
+  color: #666;
+  border: 1px solid #e5e5e5;
+}
+
+.rejectAllButton:hover {
+  background: #f5f5f5;
+}
+
+.saveButton {
+  background: white;
+  color: #3062d4;
+  border: 1px solid #3062d4;
+}
+
+.saveButton:hover {
+  background: #f0f5ff;
+}
+
+.acceptAllButton {
+  background: #3062d4;
+  color: white;
+}
+
+.acceptAllButton:hover {
+  background: #2451c3;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .modalOverlay {
+    padding: 0;
+  }
+
+  .modalContent {
+    max-height: 100vh;
+    height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .modalHeader {
+    padding: 16px;
+  }
+
+  .modalBody {
+    padding: 16px;
+  }
+
+  .modalFooter {
+    padding: 16px;
+    flex-direction: column;
+  }
+
+  .modalFooter button {
+    width: 100%;
+  }
+
+  .categoryHeader {
+    flex-direction: column;
+  }
+
+  .toggle {
+    align-self: flex-end;
+  }
+}
