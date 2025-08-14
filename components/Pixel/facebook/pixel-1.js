@@ -2,7 +2,10 @@ import React from 'react';
 import Script from 'next/script';
 
 const FacebookPixel = () => {
-  const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || '2600309206821382';
+  const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
+
+  // Don't render if pixel ID is not configured
+  if (!pixelId) return null;
 
   return (
     <>
