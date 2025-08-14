@@ -186,7 +186,7 @@ const MyApp = ({ Component, pageProps }) => {
             </>
           )}
 
-          {/* Google Consent Mode v2 and Analytics Scripts */}
+          {/* Google Analytics Scripts - Consent Mode already initialized in _document.js */}
           {isClient && process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
             <>
               <Script
@@ -194,30 +194,17 @@ const MyApp = ({ Component, pageProps }) => {
                 src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
               />
               <Script
-                id="google-analytics-consent"
+                id="google-analytics-config"
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{
                   __html: `
-									window.dataLayer = window.dataLayer || [];
-									function gtag(){dataLayer.push(arguments);}
-									gtag('js', new Date());
-									
-									// Set default consent states
-									gtag('consent', 'default', {
-										'analytics_storage': 'denied',
-										'ad_storage': 'denied',
-										'ad_user_data': 'denied',
-										'ad_personalization': 'denied',
-										'functionality_storage': 'granted',
-										'personalization_storage': 'granted',
-										'security_storage': 'granted',
-										'wait_for_update': 500
-									});
-									
-									// Configure Google Analytics
-									gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-										page_path: window.location.pathname,
-									});
+									// Configure Google Analytics after consent defaults are set
+									if (typeof gtag === 'function') {
+										gtag('js', new Date());
+										gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+											page_path: window.location.pathname,
+										});
+									}
 								`,
                 }}
               />
