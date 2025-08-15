@@ -32,7 +32,10 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   images: {
-    domains: process.env.STRAPI_HOST ? [process.env.STRAPI_HOST] : [],
+    domains:
+      process.env.STRAPI_HOST && typeof process.env.STRAPI_HOST === 'string'
+        ? [process.env.STRAPI_HOST]
+        : ['146.190.47.164'], // fallback domain
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ['image/webp'],
