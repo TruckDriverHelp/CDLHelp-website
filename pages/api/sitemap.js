@@ -42,7 +42,6 @@ async function fetchArticlesFromStrapi() {
   try {
     // Skip if Strapi is not configured
     if (!process.env.STRAPI_HOST || !process.env.STRAPI_PORT || !process.env.STRAPI_API_KEY) {
-      console.log('Strapi not configured, skipping article fetch');
       return [];
     }
 
@@ -76,7 +75,9 @@ async function fetchArticlesFromStrapi() {
 
     return articles;
   } catch (error) {
-    console.error('Error fetching articles:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error fetching articles:', error);
+    }
     return [];
   }
 }
@@ -130,7 +131,9 @@ export default async function handler(req, res) {
   try {
     // Check if required environment variables are set
     if (!process.env.STRAPI_HOST || !process.env.STRAPI_PORT || !process.env.STRAPI_API_KEY) {
-      console.error('Missing required environment variables for Strapi connection');
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Missing required environment variables for Strapi connection');
+      }
       // Continue without articles if Strapi is not configured
     }
 
@@ -315,9 +318,15 @@ export default async function handler(req, res) {
 
     res.status(200).send(sitemap);
   } catch (error) {
-    console.error('Error generating sitemap:', error);
-    console.error('Error details:', error.message);
-    console.error('Stack trace:', error.stack);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error generating sitemap:', error);
+    }
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error details:', error.message);
+    }
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Stack trace:', error.stack);
+    }
 
     // Send a valid XML error response
     const errorXml = `<?xml version="1.0" encoding="UTF-8"?>

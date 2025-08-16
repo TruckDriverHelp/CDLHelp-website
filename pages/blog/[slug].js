@@ -701,12 +701,16 @@ export async function getStaticProps({ params, locale }) {
         locale: actualLocale,
         alternateLinks,
       },
-      revalidate: 300, // Revalidate every 5 minutes
+      revalidate: 3600, // Revalidate every hour for blog articles
     };
   } catch (error) {
     // Error fetching blog article
+    if (process.env.NODE_ENV === 'development') {
+      console.error(`[ISR] Error fetching blog article ${slug}:`, error.message);
+    }
     return {
       notFound: true,
+      revalidate: 60, // Try again after 1 minute for 404s
     };
   }
 }

@@ -66,7 +66,6 @@ export default function HreflangValidator() {
 
       // Log validation results
       if (issues.length > 0) {
-        console.warn('🔍 Hreflang validation issues:', issues);
         console.warn(
           'Found hreflang tags:',
           Array.from(hreflangTags).map(tag => ({
@@ -75,8 +74,6 @@ export default function HreflangValidator() {
           }))
         );
       } else {
-        console.log('✅ Hreflang tags validated successfully');
-        console.log('Found', hreflangTags.length, 'hreflang tags including x-default');
       }
     }
   }, [router.asPath]);

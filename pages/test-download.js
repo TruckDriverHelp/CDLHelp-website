@@ -65,7 +65,6 @@ const TestDownloadPage = () => {
         <div>
           <button
             onClick={() => {
-              console.log('Button clicked - redirecting to Play Store');
               window.location.href =
                 'https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp';
             }}
@@ -83,7 +82,6 @@ const TestDownloadPage = () => {
           </button>
           <button
             onClick={() => {
-              console.log('Button clicked - redirecting to App Store');
               window.location.href = 'https://apps.apple.com/us/app/cdl-help/id6444388755';
             }}
             style={{

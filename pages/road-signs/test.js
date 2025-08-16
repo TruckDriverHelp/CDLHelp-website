@@ -8,6 +8,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { SEOHead } from '../../src/shared/ui/SEO';
 import { useSEO } from '../../src/shared/lib/hooks/useSEO';
+import QuizSchema from '../../components/Schema/QuizSchema';
 // import { Grid } from "react-loader-spinner";
 
 const SignsTest = () => {
@@ -217,6 +218,19 @@ const SignsTest = () => {
   return (
     <Layout>
       <SEOHead {...seoData} />
+      <QuizSchema
+        title={t('roadSignsQuiz', { defaultValue: 'CDL Road Signs Practice Test' })}
+        description={t('roadSignsQuizDescription', {
+          defaultValue:
+            'Test your knowledge of road signs required for the CDL exam. Practice identifying and understanding traffic signs, warning signs, and regulatory signs.',
+        })}
+        questionCount={signs.length || 50}
+        locale={locale}
+        url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/road-signs/test`}
+        timeRequired="PT30M"
+        quizType="Road Signs"
+        passingScore={80}
+      />
       <Navbar />
       <div className="features-area ptb-100 bg-F7F7FF">
         <div className="container">
@@ -358,12 +372,14 @@ export async function getStaticProps({ locale }) {
       props: {
         ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer', 'cookie'])),
       },
+      revalidate: 7200, // Revalidate every 2 hours for quiz pages
     };
   } catch (error) {
     return {
       props: {
         ...(await serverSideTranslations(locale ?? 'en', ['common', 'navbar', 'footer', 'cookie'])),
       },
+      revalidate: 300, // Try again after 5 minutes on error
     };
   }
 }

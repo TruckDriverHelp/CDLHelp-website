@@ -316,11 +316,13 @@ export async function getStaticPaths() {
     );
 
     if (!response.ok) {
-      console.error(
-        'REST API request failed for static paths:',
-        response.status,
-        response.statusText
-      );
+      if (process.env.NODE_ENV === 'development') {
+        console.error(
+          'REST API request failed for static paths:',
+          response.status,
+          response.statusText
+        );
+      }
       return {
         paths: [],
         fallback: 'blocking',
@@ -331,7 +333,9 @@ export async function getStaticPaths() {
 
     // Check if response has the expected structure
     if (!responseData || !responseData.data) {
-      console.error('Invalid response structure for static paths:', responseData);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Invalid response structure for static paths:', responseData);
+      }
       return {
         paths: [],
         fallback: 'blocking',
@@ -358,8 +362,12 @@ export async function getStaticPaths() {
       fallback: 'blocking',
     };
   } catch (error) {
-    console.error('Error fetching school locations for static paths:', error);
-    console.error('Full error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error fetching school locations for static paths:', error);
+    }
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Full error:', error);
+    }
     return {
       paths: [],
       fallback: 'blocking',
@@ -383,17 +391,21 @@ export async function getStaticProps({ params, locale }) {
     );
 
     if (!response.ok) {
-      console.error(
-        `REST API request failed for ${originalState}:`,
-        response.status,
-        response.statusText
-      );
+      if (process.env.NODE_ENV === 'development') {
+        console.error(
+          `REST API request failed for ${originalState}:`,
+          response.status,
+          response.statusText
+        );
+      }
       return { notFound: true };
     }
 
     const responseData = await response.json();
     if (!responseData || !responseData.data) {
-      console.error(`Invalid response structure for ${originalState}:`, responseData);
+      if (process.env.NODE_ENV === 'development') {
+        console.error(`Invalid response structure for ${originalState}:`, responseData);
+      }
       return { notFound: true };
     }
 
@@ -429,7 +441,9 @@ export async function getStaticProps({ params, locale }) {
       revalidate: 1,
     };
   } catch (error) {
-    console.error(`Error fetching and processing data for ${originalState}:`, error.message);
+    if (process.env.NODE_ENV === 'development') {
+      console.error(`Error fetching and processing data for ${originalState}:`, error.message);
+    }
     return { notFound: true };
   }
 }

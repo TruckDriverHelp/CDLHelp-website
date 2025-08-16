@@ -8,11 +8,8 @@ export default async function handler(req, res) {
   try {
     const baseUrl = `http://${process.env.STRAPI_HOST}:${process.env.STRAPI_PORT}/api`;
 
-    console.log(`[Debug API] Testing article: slug=${slug}, locale=${locale}`);
-
     // Test 1: Fetch with locale
     const localeUrl = `${baseUrl}/articles?filters[slug][$eq]=${slug}&locale=${locale}&populate=*`;
-    console.log('[Debug API] Test 1 - With locale:', localeUrl);
 
     const localeResponse = await fetch(localeUrl, {
       headers: {
@@ -21,11 +18,9 @@ export default async function handler(req, res) {
     });
 
     const localeData = await localeResponse.json();
-    console.log(`[Debug API] Test 1 result: ${localeData.data?.length || 0} articles`);
 
     // Test 2: Fetch without locale (all locales)
     const allUrl = `${baseUrl}/articles?filters[slug][$eq]=${slug}&populate=*`;
-    console.log('[Debug API] Test 2 - All locales:', allUrl);
 
     const allResponse = await fetch(allUrl, {
       headers: {
@@ -34,11 +29,9 @@ export default async function handler(req, res) {
     });
 
     const allData = await allResponse.json();
-    console.log(`[Debug API] Test 2 result: ${allData.data?.length || 0} articles`);
 
     // Test 3: Check blog_page filter
     const blogFilterUrl = `${baseUrl}/articles?filters[slug][$eq]=${slug}&filters[blog_page][$ne]=true&populate=*`;
-    console.log('[Debug API] Test 3 - Blog filter:', blogFilterUrl);
 
     const blogFilterResponse = await fetch(blogFilterUrl, {
       headers: {
@@ -47,7 +40,6 @@ export default async function handler(req, res) {
     });
 
     const blogFilterData = await blogFilterResponse.json();
-    console.log(`[Debug API] Test 3 result: ${blogFilterData.data?.length || 0} articles`);
 
     const articles = allData.data || [];
 
@@ -182,7 +174,9 @@ export default async function handler(req, res) {
       },
     });
   } catch (error) {
-    console.error('Debug article error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Debug article error:', error);
+    }
     return res.status(500).json({
       error: 'Failed to debug article',
       message: error.message,

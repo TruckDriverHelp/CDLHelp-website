@@ -9,6 +9,9 @@ const nextConfig = {
     browsersListForSwc: true,
     optimizeCss: true,
     disablePostcssPresetEnv: true,
+    // ISR and caching configuration
+    isrMemoryCacheSize: 50, // MB - in-memory cache for ISR pages
+    isrFlushToDisk: true, // Persist ISR cache to disk
   },
   excludeDefaultMomentLocales: true,
   // Vercel doesn't support custom distDir with standalone output
@@ -36,12 +39,11 @@ const nextConfig = {
       process.env.STRAPI_HOST && typeof process.env.STRAPI_HOST === 'string'
         ? [process.env.STRAPI_HOST]
         : ['146.190.47.164'], // fallback domain
-    deviceSizes: [640, 750, 828, 1080, 1200],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    formats: ['image/webp'],
-    minimumCacheTTL: 60,
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year cache
+    dangerouslyAllowSVG: false,
   },
   env: {
     STRAPI_API_KEY: process.env.STRAPI_API_KEY,
@@ -182,6 +184,90 @@ const nextConfig = {
           {
             key: 'Content-Type',
             value: 'application/xml',
+          },
+        ],
+      },
+      // General performance headers
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+        ],
+      },
+      // Static assets with long cache
+      {
+        source: '/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Images with moderate cache
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=2592000, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      // ISR pages with stale-while-revalidate
+      {
+        source: '/(.*)',
+        has: [
+          {
+            type: 'header',
+            key: 'x-nextjs-cache',
+            value: '(?:HIT|STALE)',
+          },
+        ],
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=60, stale-while-revalidate=3600',
+          },
+        ],
+      },
+      // Font files
+      {
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // CSS files
+      {
+        source: '/css/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=2592000, stale-while-revalidate=86400',
           },
         ],
       },

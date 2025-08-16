@@ -89,7 +89,9 @@ export const FunnelVisualizationDashboard = ({ className = '' }) => {
       const journeyResult = await journeyResponse.json();
       setJourneyData(journeyResult.analysis);
     } catch (error) {
-      console.error('Error loading dashboard data:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error loading dashboard data:', error);
+      }
     } finally {
       setLoading(false);
     }
@@ -106,7 +108,9 @@ export const FunnelVisualizationDashboard = ({ className = '' }) => {
       const result = await response.json();
       setRealTimeData(result.metrics);
     } catch (error) {
-      console.error('Error loading real-time data:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error loading real-time data:', error);
+      }
     }
   };
 
