@@ -16,6 +16,19 @@ export interface SEOHeadProps {
   canonical?: string;
 }
 
+// Mapping of simple locale codes to proper hreflang locale codes
+// URLs still use simple codes (/ru/), but hreflang uses proper codes (ru-RU)
+const HREFLANG_LOCALE_MAP: Record<string, string> = {
+  en: 'en-US',
+  ru: 'ru-RU',
+  uk: 'uk-UA',
+  ar: 'ar-SA',
+  ko: 'ko-KR',
+  zh: 'zh-CN',
+  tr: 'tr-TR',
+  pt: 'pt-BR',
+};
+
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
@@ -96,7 +109,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:locale" content={currentLocale} />
+      <meta property="og:locale" content={HREFLANG_LOCALE_MAP[currentLocale] || currentLocale} />
       <meta property="og:site_name" content={siteName} />
 
       {/* Twitter Meta Tags */}
@@ -105,14 +118,19 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {/* Alternate Language Links */}
+      {/* Alternate Language Links - URLs use simple codes (/ru/) but hreflang uses proper codes (ru-RU) */}
       <link
         rel="alternate"
         href={`${baseUrl}${finalAlternateLinks['en'] || '/'}`}
         hrefLang="x-default"
       />
       {Object.entries(finalAlternateLinks).map(([lang, path]) => (
-        <link key={lang} rel="alternate" href={`${baseUrl}${path}`} hrefLang={lang} />
+        <link
+          key={lang}
+          rel="alternate"
+          href={`${baseUrl}${path}`}
+          hrefLang={HREFLANG_LOCALE_MAP[lang] || lang}
+        />
       ))}
 
       {/* Organization and Website structured data (on homepage only) */}

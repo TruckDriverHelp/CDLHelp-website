@@ -54,6 +54,7 @@ const AsyncStyles = lazy(() => import('../components/_App/AsyncStyles'));
 
 // Import cookie banner directly (not lazy) for better i18n reliability
 import CookieConsentBanner from '../components/_App/CookieConsentBanner';
+import HreflangValidator from '../components/SEO/HreflangValidator';
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -150,6 +151,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
         <Layout dir={dir}>
+          {process.env.NODE_ENV === 'development' && <HreflangValidator />}
           <AsyncStyles />
           {isClient && consentManager.hasConsent('marketing') && (
             <Suspense fallback={null}>
