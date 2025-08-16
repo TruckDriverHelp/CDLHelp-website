@@ -39,12 +39,25 @@ class MyDocument extends Document {
             name="apple-itunes-app"
             content="app-id=6444388755, app-argument=https://cdlhelp.onelink.me/mHbW/mgvvp96d"
           />
+
+          {/* DNS prefetch and preconnect for faster third-party resources */}
+          <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+          <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+
+          {/* Preload critical resources with high priority */}
           <link
             rel="preload"
             as="image"
             href="/images/video/video-3-no-text.webp"
             type="image/webp"
+            fetchpriority="high"
           />
+
+          {/* Inter font loads asynchronously via fontLoader */}
           {/* Inline critical CSS for faster first paint */}
           <style
             dangerouslySetInnerHTML={{
@@ -104,7 +117,6 @@ class MyDocument extends Document {
                   if (urlParams.get('analytics_debug') === 'true' || 
                       '${process.env.NEXT_PUBLIC_ANALYTICS_DEBUG}' === 'true') {
                     window.__ANALYTICS_DEBUG__ = true;
-                    console.log('[Consent Mode v2] Initialized with default consent states');
                   }
                 }
               `,

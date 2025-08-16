@@ -1,0 +1,132 @@
+/* CLS Prevention Styles - Reserve space for dynamic content */
+
+/* Reserve space for images before they load */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.image-container.hero {
+  aspect-ratio: 16/9;
+  min-height: 400px;
+}
+
+.image-container.thumbnail {
+  aspect-ratio: 4/3;
+  min-height: 200px;
+}
+
+.image-container.square {
+  aspect-ratio: 1/1;
+  min-height: 150px;
+}
+
+/* Reserve space for ads */
+.ad-container {
+  min-height: 250px;
+  aspect-ratio: 300/250;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-container::before {
+  content: 'Advertisement';
+  color: #999;
+  font-size: 12px;
+}
+
+/* Reserve space for embedded content */
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Prevent font loading shifts */
+.font-preload {
+  font-display: optional;
+}
+
+/* Skeleton loading states */
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Reserve space for navigation */
+nav {
+  min-height: var(--nav-height, 70px);
+}
+
+/* Reserve space for common components */
+.accordion-item {
+  min-height: 50px;
+}
+
+.tab-content {
+  min-height: 200px;
+}
+
+.modal-video {
+  aspect-ratio: 16/9;
+}
+
+/* Prevent layout shift from lazy loaded components */
+.lazy-component {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fixed dimensions for icons and buttons */
+.btn {
+  min-height: 38px;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Prevent shifts from dynamic text */
+.dynamic-text {
+  min-height: 1.5em;
+}
+
+/* Reserve space for form elements */
+input,
+textarea,
+select {
+  min-height: 38px;
+}
+
+/* Prevent shift from error messages */
+.error-message,
+.validation-message {
+  min-height: 20px;
+  font-size: 14px;
+}

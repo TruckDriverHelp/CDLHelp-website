@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   try {
     // Check if article exists at all (without locale filter)
     const allUrl = `${baseUrl}/api/articles?filters[slug][$eq]=${slug}&populate=*`;
-    console.log('Checking all locales:', allUrl);
+
     const allResponse = await fetch(allUrl, { headers });
     const allData = await allResponse.json();
 
@@ -73,7 +73,9 @@ export default async function handler(req, res) {
         : 'Article not found in Strapi',
     });
   } catch (error) {
-    console.error('Check article error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Check article error:', error);
+    }
     return res.status(500).json({
       error: 'Failed to check article',
       message: error.message,

@@ -22,7 +22,9 @@ export const PersonalizedQuizRecommendations = ({ limit = 5, className = '' }) =
         setRecommendations(data);
       } catch (err) {
         setError(err.message);
-        console.error('Error loading quiz recommendations:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading quiz recommendations:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -120,7 +122,9 @@ export const PersonalizedLearningPath = ({ className = '' }) => {
         const data = await personalizationAPI.getLearningPathRecommendation();
         setLearningPath(data);
       } catch (err) {
-        console.error('Error loading learning path:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading learning path:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -213,7 +217,9 @@ export const PersonalizedFeaturePromotions = ({ className = '' }) => {
         const data = await personalizationAPI.getFeaturePromotions();
         setPromotions(data);
       } catch (err) {
-        console.error('Error loading feature promotions:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading feature promotions:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -311,7 +317,9 @@ export const PersonalizedPricing = ({ className = '' }) => {
         const data = await personalizationAPI.getPersonalizedPricing();
         setPricing(data);
       } catch (err) {
-        console.error('Error loading personalized pricing:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading personalized pricing:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -399,7 +407,9 @@ export const AdaptiveQuizDifficulty = ({ quizCategory, onDifficultySelect, class
         const data = await personalizationAPI.getQuizDifficultyRecommendation(quizCategory);
         setRecommendation(data);
       } catch (err) {
-        console.error('Error loading quiz difficulty recommendation:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading quiz difficulty recommendation:', err);
+        }
       } finally {
         setLoading(false);
       }
@@ -497,7 +507,9 @@ export const PersonalizedDashboard = ({ className = '' }) => {
         const data = await personalizationAPI.getComprehensivePersonalization();
         setPersonalization(data);
       } catch (err) {
-        console.error('Error loading comprehensive personalization:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading comprehensive personalization:', err);
+        }
       } finally {
         setLoading(false);
       }

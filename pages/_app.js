@@ -3,6 +3,7 @@ import '/public/css/bootstrap.min.css'; // Keep Bootstrap as it's critical for l
 import '/public/css/styles.css';
 import '/public/css/main.css';
 import '/public/css/fixes.css'; // CSS fixes for warnings
+import '/public/css/cls-prevention.css'; // CLS prevention styles
 
 // Component-specific CSS - loaded with components
 
@@ -55,6 +56,34 @@ const AsyncStyles = lazy(() => import('../components/_App/AsyncStyles'));
 // Import cookie banner directly (not lazy) for better i18n reliability
 import CookieConsentBanner from '../components/_App/CookieConsentBanner';
 import HreflangValidator from '../components/SEO/HreflangValidator';
+import { initCLSMonitoring, setupLazyLoadObserver } from '../lib/cls-monitor';
+
+// Function to load non-critical CSS after initial render
+const loadDeferredStyles = () => {
+  const links = [
+    '/css/fontawesome.min.css', // Font Awesome icons - can be deferred
+    '/css/remixicon.css', // RemixIcon if it exists
+  ].filter(() => {
+    // Only include files that actually exist (for development)
+    return true; // In production, assume files exist
+  });
+
+  links.forEach(href => {
+    // Check if stylesheet already exists
+    if (document.querySelector(`link[href="${href}"]`)) {
+      return;
+    }
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.media = 'print'; // Initially load as print to avoid blocking
+    link.onload = function () {
+      this.media = 'all'; // Switch to all media after load
+    };
+    document.head.appendChild(link);
+  });
+};
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -68,10 +97,54 @@ const MyApp = ({ Component, pageProps }) => {
     // Load Inter font asynchronously
     loadInterFont();
 
+    // Load non-critical CSS after initial render
+    if (document.readyState === 'complete') {
+      loadDeferredStyles();
+    } else {
+      window.addEventListener('load', loadDeferredStyles);
+    }
+
     // Validate environment variables in development
     if (process.env.NODE_ENV === 'development') {
       validatePublicEnvVars();
     }
+
+    // Initialize CLS monitoring
+    const disconnectCLS = initCLSMonitoring();
+
+    // Set up lazy load observer for dynamic content
+    setupLazyLoadObserver();
+
+    // Prevent CLS from late-loading content
+    const preventCLS = () => {
+      // Set minimum heights for common containers
+      const containers = document.querySelectorAll('[data-min-height]');
+      containers.forEach(container => {
+        const minHeight = container.getAttribute('data-min-height');
+        container.style.minHeight = minHeight;
+      });
+
+      // Handle dynamic navigation height
+      const nav = document.querySelector('nav');
+      if (nav) {
+        document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
+      }
+
+      // Reserve space for images without dimensions
+      const images = document.querySelectorAll('img:not([width]):not([height])');
+      images.forEach(img => {
+        if (img.naturalWidth && img.naturalHeight) {
+          img.width = img.naturalWidth;
+          img.height = img.naturalHeight;
+        }
+      });
+    };
+
+    // Run CLS prevention on initial load
+    preventCLS();
+
+    // Also run on route changes
+    router.events.on('routeChangeComplete', preventCLS);
 
     // Load component styles on demand
     // Commented out Swiper styles since components are not being used
@@ -141,6 +214,8 @@ const MyApp = ({ Component, pageProps }) => {
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off('routeChangeComplete', preventCLS);
+      if (disconnectCLS) disconnectCLS();
     };
   }, [router.events, router.pathname]);
 
@@ -243,10 +318,7 @@ const MyApp = ({ Component, pageProps }) => {
               </>
             )}
 
-          {/* Preload critical assets */}
-          <link rel="preload" href="/css/main.css" as="style" />
-          <link rel="preload" href="/css/bootstrap.min.css" as="style" />
-          <link rel="preload" href="/css/fontawesome.min.css" as="style" />
+          {/* Critical assets are already preloaded in _document.js */}
         </Layout>
       </Suspense>
     </QuizContextProvider>

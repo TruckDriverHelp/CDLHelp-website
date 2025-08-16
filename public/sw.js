@@ -32,9 +32,29 @@ self.addEventListener('activate', event => {
 
 // Fetch event - serve from cache, fall back to network
 self.addEventListener('fetch', event => {
+  // Only handle GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // Skip chrome-extension and other non-http(s) protocols
+  if (!event.request.url.startsWith('http')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+      return (
+        response ||
+        fetch(event.request).catch(error => {
+          // Silently fail for fetch errors (offline, etc)
+          // Return a basic offline response if available
+          if (event.request.destination === 'document') {
+            // Could return an offline page here if cached
+          }
+          return new Response('', { status: 503, statusText: 'Service Unavailable' });
+        })
+      );
     })
   );
 });

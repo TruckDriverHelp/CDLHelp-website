@@ -11,6 +11,8 @@ import { DynamicFaqSection } from '../components/_App/DynamicImports';
 import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
 import TopContainer from '../components/Home/TopContainer'; // Import directly for LCP performance
+import CourseSchema from '../components/Schema/CourseSchema';
+import FAQSchema, { defaultCDLFAQs } from '../components/Schema/FAQSchema';
 import {
   getLocalizedOrganizationName,
   getLocalizedAlternateName,
@@ -129,6 +131,29 @@ const IndexPage = ({ meta, alternateLinks }) => {
         />
       </Head>
 
+      {/* Course Schema for CDL Training */}
+      <CourseSchema
+        title={t('cdl_practice_test_title') || 'CDL Practice Test & Study Guide'}
+        description={
+          t('cdl_practice_test_description') ||
+          'Comprehensive CDL training course with practice tests for General Knowledge, Air Brakes, Hazmat, and all endorsements. Pass your CDL exam on the first try.'
+        }
+        locale={locale}
+        url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
+        duration="PT20H"
+        skillLevel="Beginner"
+        aggregateRating={{ ratingValue: 4.8, reviewCount: 15000 }}
+        courseCode="CDL-COMPLETE"
+        educationalCredentialAwarded="CDL Test Preparation Certificate"
+      />
+
+      {/* FAQ Schema */}
+      <FAQSchema
+        questions={defaultCDLFAQs}
+        locale={locale}
+        url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
+      />
+
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
         <TopContainer />
@@ -164,5 +189,6 @@ export async function getStaticProps({ locale }) {
       alternateLinks: alternateLinks,
       ...(await serverSideTranslations(locale ?? 'en', ['index', 'navbar', 'footer', 'cookie'])),
     },
+    revalidate: 900, // Revalidate every 15 minutes for homepage
   };
 }

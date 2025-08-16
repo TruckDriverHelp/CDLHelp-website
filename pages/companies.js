@@ -507,10 +507,12 @@ export async function getStaticProps({ locale }) {
       revalidate: 300, // Revalidate every 5 minutes to get new random order
     };
   } catch (error) {
-    console.error(
-      'Error fetching companies:',
-      error.response ? error.response.data : error.message
-    );
+    if (process.env.NODE_ENV === 'development') {
+      console.error(
+        'Error fetching companies:',
+        error.response ? error.response.data : error.message
+      );
+    }
     return {
       props: {
         companies: [],

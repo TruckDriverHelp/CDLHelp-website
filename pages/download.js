@@ -59,7 +59,9 @@ const DownloadPage = ({ alternateLinks }) => {
         });
       }
     } catch (error) {
-      console.error('Analytics tracking error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Analytics tracking error:', error);
+      }
       // Don't block the navigation if analytics fails
     }
 
