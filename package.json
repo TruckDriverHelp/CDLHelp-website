@@ -9,6 +9,7 @@
     "build:force": "next build",
     "check:translations": "node scripts/check-translations.js",
     "fix:translations": "node scripts/fix-translations.js",
+    "validate:seo": "node scripts/validate-seo.js",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
