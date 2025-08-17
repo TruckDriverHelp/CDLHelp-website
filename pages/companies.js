@@ -320,7 +320,7 @@ const CompaniesPage = ({ companies }) => {
           <div className="companies-layout">
             <main className="main-content">
               <div className="companies-header">
-                <h1>{t('companiesTitle')}</h1>
+                <h2>{t('companiesTitle')}</h2>
                 <p className="companies-subtitle">
                   {t('companiesSubtitle', { count: companies.length })}
                 </p>
@@ -334,7 +334,7 @@ const CompaniesPage = ({ companies }) => {
 
               {companies.length === 0 && (
                 <div className="no-companies">
-                  <h3>{t('noCompaniesTitle')}</h3>
+                  <h2>{t('noCompaniesTitle')}</h2>
                   <p>{t('noCompaniesText')}</p>
                 </div>
               )}
@@ -343,9 +343,9 @@ const CompaniesPage = ({ companies }) => {
             {showQuiz && (
               <aside className="sidebar">
                 <div className="quiz-container">
-                  <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                  <h2 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '1.5rem' }}>
                     {t('companies:tryPermitQuiz')}
-                  </h3>
+                  </h2>
                   <DynamicQuiz contained={false} />
                 </div>
                 <div
@@ -432,7 +432,7 @@ const CompaniesPage = ({ companies }) => {
         .companies-header {
           margin-bottom: 30px;
         }
-        .companies-header h1 {
+        .companies-header h2 {
           margin: 0 0 10px 0;
           font-size: 32px;
           color: #333;
@@ -452,7 +452,7 @@ const CompaniesPage = ({ companies }) => {
           background: #f8f9fa;
           border-radius: 8px;
         }
-        .no-companies h3 {
+        .no-companies h2 {
           margin: 0 0 15px 0;
           color: #333;
           font-size: 24px;
@@ -470,7 +470,7 @@ const CompaniesPage = ({ companies }) => {
             width: 100%;
             margin-bottom: 2rem;
           }
-          .companies-header h1 {
+          .companies-header h2 {
             font-size: 28px;
           }
         }
