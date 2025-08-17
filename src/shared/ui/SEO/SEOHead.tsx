@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { StructuredData, organizationSchema, websiteSchema } from './StructuredData';
+import { MetaOptimizer } from '../../../../lib/meta-optimizer';
 
 export interface SEOHeadProps {
   title: string;
@@ -14,6 +15,13 @@ export interface SEOHeadProps {
   alternateLinks?: Record<string, string>;
   noindex?: boolean;
   canonical?: string;
+  keywords?: string[];
+  article?: {
+    publishedAt?: string;
+    updatedAt?: string;
+    author?: string;
+    tags?: string[];
+  };
 }
 
 // Mapping of simple locale codes to proper hreflang locale codes
@@ -40,6 +48,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   alternateLinks = {},
   noindex = false,
   canonical,
+  keywords = [],
+  article,
 }) => {
   const router = useRouter();
   const currentLocale = locale || router.locale || 'en';
@@ -48,6 +58,30 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const cleanPath = router.asPath.split('?')[0].split('#')[0];
   const fullUrl = url || `${baseUrl}${cleanPath}`;
   const canonicalUrl = canonical || fullUrl;
+
+  // Initialize meta optimizer
+  const optimizer = new MetaOptimizer(currentLocale);
+
+  // Optimize meta content
+  const optimizedTitle = optimizer.optimizeTitle(title, { keywords });
+  const optimizedDescription = optimizer.optimizeDescription(description, { keywords });
+
+  // Generate Open Graph tags
+  const ogTags = optimizer.generateOpenGraph({
+    title,
+    description,
+    image: image.startsWith('http') ? image : `${baseUrl}${image}`,
+    url: fullUrl,
+    type,
+    locale: currentLocale,
+  });
+
+  // Generate Twitter Card tags
+  const twitterTags = optimizer.generateTwitterCard({
+    title,
+    description,
+    image: image.startsWith('http') ? image : `${baseUrl}${image}`,
+  });
 
   // Generate proper alternate links based on current path
   const currentPath = router.asPath;
@@ -88,9 +122,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
   return (
     <Head>
-      {/* Basic Meta Tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      {/* Basic Meta Tags - Optimized */}
+      <title>{optimizedTitle}</title>
+      <meta name="description" content={optimizedDescription} />
+      {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
 
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -99,24 +134,35 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Google / Search Engine Tags */}
-      <meta itemProp="name" content={title} />
-      <meta itemProp="description" content={description} />
-      <meta itemProp="image" content={image} />
+      <meta itemProp="name" content={optimizedTitle} />
+      <meta itemProp="description" content={optimizedDescription} />
+      <meta itemProp="image" content={image.startsWith('http') ? image : `${baseUrl}${image}`} />
 
-      {/* Facebook / Open Graph Meta Tags */}
-      <meta property="og:url" content={fullUrl} />
-      <meta property="og:type" content={type} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:locale" content={HREFLANG_LOCALE_MAP[currentLocale] || currentLocale} />
-      <meta property="og:site_name" content={siteName} />
+      {/* Facebook / Open Graph Meta Tags - Optimized */}
+      {Object.entries(ogTags).map(([key, value]) => (
+        <meta key={key} property={key} content={value as string} />
+      ))}
 
-      {/* Twitter Meta Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      {/* Twitter Meta Tags - Optimized */}
+      {Object.entries(twitterTags).map(([key, value]) => (
+        <meta key={key} name={key} content={value as string} />
+      ))}
+
+      {/* Article specific meta */}
+      {article && type === 'article' && (
+        <>
+          {article.publishedAt && (
+            <meta property="article:published_time" content={article.publishedAt} />
+          )}
+          {article.updatedAt && (
+            <meta property="article:modified_time" content={article.updatedAt} />
+          )}
+          {article.author && <meta property="article:author" content={article.author} />}
+          {article.tags?.map(tag => (
+            <meta key={tag} property="article:tag" content={tag} />
+          ))}
+        </>
+      )}
 
       {/* Alternate Language Links - URLs use simple codes (/ru/) but hreflang uses proper codes (ru-RU) */}
       <link

@@ -45,6 +45,14 @@ const IndexPage = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
   const { t } = useTranslation('index');
 
+  // Get localized OG image
+  const getOGImage = () => {
+    if (locale && locale !== 'en') {
+      return `/images/og/og-default-${locale}.jpg`;
+    }
+    return '/images/og/og-default.jpg';
+  };
+
   // Organization Schema with localization
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -89,8 +97,17 @@ const IndexPage = ({ meta, alternateLinks }) => {
         description={locale === 'en' ? t('description') : meta.description || t('description')}
         url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
         canonical={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
+        image={getOGImage()}
         type="website"
         alternateLinks={alternateLinks}
+        keywords={[
+          'CDL practice test',
+          'CDL permit test',
+          'CDL study guide',
+          'commercial drivers license',
+          'CDL exam',
+          'CDL app',
+        ]}
       />
 
       <Head>
