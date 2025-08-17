@@ -169,6 +169,9 @@ const SignsTest = () => {
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
             <div className="text-center">
+              <h1 style={{ fontSize: '2rem' }}>
+                {t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' })}
+              </h1>
               <h2>{t('loading', { defaultValue: 'Loading...' })}</h2>
             </div>
           </div>
@@ -186,6 +189,9 @@ const SignsTest = () => {
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
             <div className="text-center">
+              <h1 style={{ fontSize: '2rem' }}>
+                {t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' })}
+              </h1>
               <h2>{t('noSignsAvailable', { defaultValue: 'No signs available' })}</h2>
             </div>
           </div>
@@ -204,6 +210,9 @@ const SignsTest = () => {
         <div className="features-area ptb-100 bg-F7F7FF">
           <div className="container">
             <div className="text-center">
+              <h1 style={{ fontSize: '2rem' }}>
+                {t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' })}
+              </h1>
               <h2>
                 {t('errorLoadingCurrentSign', { defaultValue: 'Error loading current sign' })}
               </h2>
@@ -235,7 +244,9 @@ const SignsTest = () => {
       <div className="features-area ptb-100 bg-F7F7FF">
         <div className="container">
           <div className="text-center mb-4">
-            <h2>{t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' })}</h2>
+            <h1 style={{ fontSize: '2rem' }}>
+              {t('roadSignsQuiz', { defaultValue: 'Road Signs Quiz' })}
+            </h1>
             <p>
               {t('score', { defaultValue: 'Score' })}: {score} / {currentQuestionIndex + 1}
             </p>

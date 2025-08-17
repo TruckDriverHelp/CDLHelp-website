@@ -282,6 +282,7 @@ const DownloadPage = ({ alternateLinks }) => {
 
                   {/* Stats */}
                   <div className="download-stats mt-5">
+                    <h2 className="visually-hidden">App Statistics</h2>
                     <div className="row g-4">
                       <div className="col-4">
                         <h3 className="mb-0">50K+</h3>
@@ -329,7 +330,7 @@ const DownloadPage = ({ alternateLinks }) => {
                 <div key={index} className="col-lg-4 col-md-6">
                   <div className="download-feature-card h-100">
                     <div className="feature-icon">{feature.icon}</div>
-                    <h4>{feature.title}</h4>
+                    <h3 style={{ fontSize: '1.25rem' }}>{feature.title}</h3>
                     <p>{feature.description}</p>
                   </div>
                 </div>
@@ -406,9 +407,21 @@ const DownloadPage = ({ alternateLinks }) => {
           margin-bottom: 20px;
         }
 
-        .download-feature-card h4 {
+        .download-feature-card h3 {
           color: #2c3e50;
           margin-bottom: 15px;
+        }
+
+        .visually-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
         }
 
         @media (max-width: 768px) {

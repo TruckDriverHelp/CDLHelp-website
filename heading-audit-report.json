@@ -1,0 +1,292 @@
+{
+  "timestamp": "2025-08-17T02:28:47.391Z",
+  "baseUrl": "http://localhost:3000",
+  "summary": {
+    "totalPages": 10,
+    "averageScore": 95,
+    "totalErrors": 1,
+    "totalWarnings": 8,
+    "pagesWithoutH1": 1,
+    "pagesWithMultipleH1": 0
+  },
+  "results": [
+    {
+      "url": "http://localhost:3000",
+      "headingCount": 8,
+      "h1Count": 1,
+      "h2Count": 4,
+      "h3Count": 3,
+      "deepestLevel": 3,
+      "issues": [
+        {
+          "type": "info",
+          "message": "ℹ️  7 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        },
+        {
+          "type": "warning",
+          "message": "⚠️  2 headings in ALL CAPS (use CSS for styling)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 98,
+      "hierarchy": [
+        "H1: Free CDL Practice Test & Study Guide | CDL Help Ap...",
+        "  H2: What might start a fire in a vehicle?",
+        "  H2: How to get CDL",
+        "    H3: 1200+",
+        "    H3: 6",
+        "    H3: 3000+",
+        "  H2: Download CDL Help - CDL tests with translation",
+        "  H2: Frequently Asked Questions"
+      ]
+    },
+    {
+      "url": "http://localhost:3000/download",
+      "headingCount": 9,
+      "h1Count": 1,
+      "h2Count": 2,
+      "h3Count": 6,
+      "deepestLevel": 3,
+      "issues": [
+        {
+          "type": "info",
+          "message": "ℹ️  8 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        },
+        {
+          "type": "warning",
+          "message": "⚠️  2 headings in ALL CAPS (use CSS for styling)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 98,
+      "hierarchy": [
+        "H1: Get CDL Help on Your Phone",
+        "  H2: App Statistics",
+        "    H3: 50K+",
+        "    H3: 4.8★",
+        "    H3: 8",
+        "  H2: Why Choose CDL Help?",
+        "    H3: Multilingual Support",
+        "    H3: 1000+ Questions",
+        "    H3: Real Exam Experience"
+      ]
+    },
+    {
+      "url": "http://localhost:3000/schools",
+      "headingCount": 2,
+      "h1Count": 1,
+      "h2Count": 1,
+      "h3Count": 0,
+      "deepestLevel": 2,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "⚠️  H1 too short (18 chars) - may lack context",
+          "seoImpact": "medium"
+        },
+        {
+          "type": "info",
+          "message": "ℹ️  1 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 95,
+      "hierarchy": ["H1: CDL Schools in USA", "  H2: Select State"]
+    },
+    {
+      "url": "http://localhost:3000/companies",
+      "headingCount": 3,
+      "h1Count": 1,
+      "h2Count": 2,
+      "h3Count": 0,
+      "deepestLevel": 2,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "⚠️  H1 too short (18 chars) - may lack context",
+          "seoImpact": "medium"
+        },
+        {
+          "type": "info",
+          "message": "ℹ️  2 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 95,
+      "hierarchy": [
+        "H1: Trucking Companies",
+        "  H2: Trucking Companies",
+        "  H2: No Companies Found"
+      ]
+    },
+    {
+      "url": "http://localhost:3000/contact",
+      "headingCount": 5,
+      "h1Count": 1,
+      "h2Count": 2,
+      "h3Count": 2,
+      "deepestLevel": 3,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "⚠️  H1 too short (7 chars) - may lack context",
+          "seoImpact": "medium"
+        },
+        {
+          "type": "info",
+          "message": "ℹ️  4 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 95,
+      "hierarchy": [
+        "H1: Support",
+        "  H2: Feedback",
+        "  H2: Contact us via these methods",
+        "    H3: contact@cdlhelp.com",
+        "    H3: Telegram group"
+      ]
+    },
+    {
+      "url": "http://localhost:3000/road-signs/test",
+      "headingCount": 1,
+      "h1Count": 0,
+      "h2Count": 1,
+      "h3Count": 0,
+      "deepestLevel": 2,
+      "issues": [
+        {
+          "type": "error",
+          "message": "❌ No H1 tag found - every page must have exactly one H1",
+          "seoImpact": "high"
+        },
+        {
+          "type": "info",
+          "message": "ℹ️  1 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 80,
+      "hierarchy": ["  H2: Loading..."]
+    },
+    {
+      "url": "http://localhost:3000/faq",
+      "headingCount": 23,
+      "h1Count": 1,
+      "h2Count": 0,
+      "h3Count": 3,
+      "deepestLevel": 4,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "⚠️  Skipped heading levels found (1 instances)",
+          "details": ["   - H1 → H4: \"Теоретические тесты (CDL-пермит / CLP)...\""],
+          "seoImpact": "medium"
+        },
+        {
+          "type": "info",
+          "message": "ℹ️  3 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 95,
+      "hierarchy": [
+        "H1: Часто задаваемые вопросы",
+        "      H4: Теоретические тесты (CDL-пермит / CLP)",
+        "      H4: Приложение CDL Help: как работает и что делать, ес...",
+        "      H4: CDL-школа: сколько стоит и где учиться",
+        "    H3: Теоретическая часть: как сдать экзамен на CDL-перм...",
+        "      H4: Вопрос 1: В каких штатах можно сдать экзамены в DM...",
+        "      H4: Вопрос 2: Сколько вопросов на экзамене?",
+        "      H4: Вопрос 3: Сколько ошибок можно сделать?",
+        "      H4: Вопрос 4: Сколько раз можно пересдавать теоретичес...",
+        "      H4: Вопрос 5: Можно ли сдавать экзамен в другом штате?",
+        "      H4: Вопрос 6: Можно ли сдать экзамен без знания англий...",
+        "    H3: Приложение CDL Help: как работает и что делать, ес...",
+        "      H4: Как получить доступ ко всем тестам? Приложение пла...",
+        "      H4: Сколько вопросов в приложении и чем отличается вер...",
+        "      H4: Вы точно добавили все возможные вопросы?",
+        "      H4: Нет звука в приложении?",
+        "      H4: Платёж не проходит. Что делать?",
+        "      H4: Я оплатил подписку, но не получил доступ. Что дела...",
+        "      H4: Как отменить подписку?",
+        "    H3: CDL-школа: сколько стоит и где учиться"
+      ]
+    },
+    {
+      "url": "http://localhost:3000/blog",
+      "headingCount": 8,
+      "h1Count": 1,
+      "h2Count": 7,
+      "h3Count": 0,
+      "deepestLevel": 2,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "⚠️  H1 too short (13 chars) - may lack context",
+          "seoImpact": "medium"
+        },
+        {
+          "type": "info",
+          "message": "ℹ️  7 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 95,
+      "hierarchy": [
+        "H1: CDL Help Blog",
+        "  H2: Essential CDL Endorsements Guide: Which Additional...",
+        "  H2: Manual vs Automatic Transmission in CDL Training: ...",
+        "  H2: Entry-Level Driver Training (ELDT) Requirements: W...",
+        "  H2: How to get CDL",
+        "  H2: How to get a CDL Permit",
+        "  H2: How Much Do U.S. Truck Drivers Make in 2025? Avera...",
+        "  H2: How to use the CDL Help App"
+      ]
+    },
+    {
+      "url": "http://localhost:3000/cdl-texas",
+      "headingCount": 1,
+      "h1Count": 1,
+      "h2Count": 0,
+      "h3Count": 0,
+      "deepestLevel": 1,
+      "issues": [],
+      "score": 100,
+      "hierarchy": ["H1: Texas CVO Knowledge test"]
+    },
+    {
+      "url": "http://localhost:3000/ru",
+      "headingCount": 8,
+      "h1Count": 1,
+      "h2Count": 4,
+      "h3Count": 3,
+      "deepestLevel": 3,
+      "issues": [
+        {
+          "type": "info",
+          "message": "ℹ️  7 H2/H3 headings without IDs (no anchor links)",
+          "seoImpact": "low"
+        },
+        {
+          "type": "warning",
+          "message": "⚠️  2 headings in ALL CAPS (use CSS for styling)",
+          "seoImpact": "low"
+        }
+      ],
+      "score": 98,
+      "hierarchy": [
+        "H1: Подготовительные CDL тесты на русском языке",
+        "  H2: What might start a fire in a vehicle?",
+        "  H2: Как получить CDL",
+        "    H3: 1200+",
+        "    H3: 6",
+        "    H3: 3000+",
+        "  H2: Скачайте CDL Help – тесты CDL с переводом",
+        "  H2: Часто задаваемые вопросы"
+      ]
+    }
+  ]
+}

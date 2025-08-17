@@ -1,0 +1,367 @@
+/**
+ * Semantic Heading Styles for CDL Help
+ * Ensures consistent heading hierarchy and visual design
+ */
+
+/* Base heading styles with proper hierarchy */
+h1,
+.heading-style-h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--blackColor, #262a37);
+}
+
+h2,
+.heading-style-h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--blackColor, #262a37);
+}
+
+h3,
+.heading-style-h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--blackColor, #262a37);
+}
+
+h4,
+.heading-style-h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--blackColor, #262a37);
+}
+
+h5,
+.heading-style-h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--blackColor, #262a37);
+}
+
+h6,
+.heading-style-h6 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--blackColor, #262a37);
+}
+
+/* Remove top margin for first heading in content areas */
+article h1:first-child,
+article h2:first-child,
+article h3:first-child,
+section h2:first-child,
+section h3:first-child,
+.content h1:first-child,
+.content h2:first-child,
+.content h3:first-child {
+  margin-top: 0;
+}
+
+/* Page title specific styles */
+.page-title {
+  font-size: 2.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--mainColor, #5a5886) 0%, #9290bb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--paragraphColor, #716c80);
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+/* Section title styles */
+.section-title {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--mainColor, #5a5886);
+  border-radius: 2px;
+}
+
+/* Centered section titles */
+.section-title.text-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Subsection title styles */
+.subsection-title {
+  color: var(--blackColor, #262a37);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Anchor links for headings */
+h2[id],
+h3[id],
+h4[id] {
+  position: relative;
+}
+
+.heading-anchor {
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mainColor, #5a5886);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 0.875em;
+  padding: 0.25rem;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: var(--blackColor, #262a37);
+}
+
+/* Accessibility: Target highlighting for anchor links */
+h1[id]:target,
+h2[id]:target,
+h3[id]:target,
+h4[id]:target,
+h5[id]:target,
+h6[id]:target {
+  scroll-margin-top: 80px; /* Account for fixed header */
+  animation: highlight 2s ease-out;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #fef3c7;
+    box-shadow: 0 0 0 4px #fef3c7;
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+/* Mobile responsive heading sizes */
+@media (max-width: 768px) {
+  h1,
+  .heading-style-h1,
+  .page-title {
+    font-size: 2rem;
+  }
+
+  h2,
+  .heading-style-h2 {
+    font-size: 1.75rem;
+  }
+
+  h3,
+  .heading-style-h3 {
+    font-size: 1.5rem;
+  }
+
+  h4,
+  .heading-style-h4 {
+    font-size: 1.25rem;
+  }
+
+  h5,
+  .heading-style-h5 {
+    font-size: 1.125rem;
+  }
+
+  h6,
+  .heading-style-h6 {
+    font-size: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+  }
+
+  /* Hide anchor links on mobile */
+  .heading-anchor {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .heading-anchor {
+    display: none;
+  }
+}
+
+/* Heading with icon support */
+.heading-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heading-with-icon .heading-icon {
+  flex-shrink: 0;
+  width: 1.5em;
+  height: 1.5em;
+  color: var(--mainColor, #5a5886);
+}
+
+/* FAQ/Accordion heading styles */
+.faq-heading,
+.accordion-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 1rem 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Table of contents heading styles */
+.toc-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--borderColor, #e5e7eb);
+}
+
+/* Card heading styles */
+.card-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Hero section heading */
+.hero-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 2.25rem;
+  }
+}
+
+/* Utility classes for heading alignment */
+.heading-left {
+  text-align: left;
+}
+
+.heading-center {
+  text-align: center;
+}
+
+.heading-right {
+  text-align: right;
+}
+
+/* Heading with underline decoration */
+.heading-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mainColor, #5a5886), transparent);
+  border-radius: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heading-style-h1,
+  .heading-style-h2,
+  .heading-style-h3,
+  .heading-style-h4,
+  .heading-style-h5,
+  .heading-style-h6 {
+    color: #f3f4f6;
+  }
+
+  .page-subtitle {
+    color: #9ca3af;
+  }
+
+  .heading-anchor {
+    color: #9290bb;
+  }
+
+  .heading-anchor:hover {
+    color: #f3f4f6;
+  }
+
+  @keyframes highlight {
+    0% {
+      background-color: rgba(254, 243, 199, 0.2);
+      box-shadow: 0 0 0 4px rgba(254, 243, 199, 0.2);
+    }
+    100% {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}
