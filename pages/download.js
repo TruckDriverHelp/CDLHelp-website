@@ -167,7 +167,19 @@ const DownloadPage = ({ alternateLinks }) => {
 
   return (
     <>
-      <SEOHead {...seoData} alternateLinks={alternateLinks} />
+      <SEOHead
+        {...seoData}
+        image="/images/og/og-download.jpg"
+        alternateLinks={alternateLinks}
+        keywords={[
+          'CDL app download',
+          'CDL practice test app',
+          'CDL study app',
+          'CDL mobile app',
+          'iOS CDL app',
+          'Android CDL app',
+        ]}
+      />
 
       <Head>
         {/* Mobile Application Schema */}
