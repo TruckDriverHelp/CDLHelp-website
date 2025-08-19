@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
+import LocalizedLink from '../Common/LocalizedLink';
 const FaqSection = () => {
   const { t } = useTranslation('index');
   const { locale } = useRouter();
@@ -90,9 +90,9 @@ const FaqSection = () => {
                       <>
                         <span>{t('faq.questionsCountAnswer')}</span>
                         <div className="faq-link" style={{ margin: '15px 0' }}>
-                          <Link href={`/${locale}/${faqSlugs[locale]}`}>
+                          <LocalizedLink href={`/${faqSlugs[locale]}`}>
                             <a>{t('faq.readMore')}</a>
-                          </Link>
+                          </LocalizedLink>
                         </div>
                       </>
                     ),
@@ -105,9 +105,9 @@ const FaqSection = () => {
                           <span>{t('faq.mistakesAnswer')}</span>
                         </div>
                         <div className="faq-link" style={{ margin: '15px 0' }}>
-                          <Link href={`/${locale}/${faqSlugs[locale]}`}>
+                          <LocalizedLink href={`/${faqSlugs[locale]}`}>
                             <a>{t('faq.readMore')}</a>
-                          </Link>
+                          </LocalizedLink>
                         </div>
                       </>
                     ),
@@ -164,9 +164,9 @@ const FaqSection = () => {
                     textDecoration: 'underline',
                   }}
                 >
-                  <Link href={`/${locale}/${faqSlugs[locale]}`}>
+                  <LocalizedLink href={`/${faqSlugs[locale]}`}>
                     <a>{t('faq.title')}</a>
-                  </Link>
+                  </LocalizedLink>
                 </div>
               </div>
             </div>

@@ -1470,7 +1470,8 @@ export async function getStaticProps({ params, locale }) {
       fetchSchoolBySlug(slug),
     ]);
 
-    if (!school) {
+    if (!school || !school.attributes) {
+      console.error(`School not found for slug: ${slug}`);
       return {
         notFound: true,
       };

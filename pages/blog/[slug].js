@@ -8,6 +8,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { gql } from 'graphql-request';
 import { ARTICLE_BY_SLUG_QUERY } from '../../lib/graphql/articleBySlug';
 import { ALTERNATE_LINKS_QUERY } from '../../lib/graphql/alternateLinks';
+import { validateAndFixUrl } from '../../lib/url-validator';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
 import Footer from '../../components/_App/Footer';
@@ -510,7 +511,10 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
                                       <div className="card-body">
                                         <h5 className="card-title">
                                           <a
-                                            href={`${locale === 'en' ? '' : `/${locale}`}/${relatedArticle.blog_page ? 'blog/' : ''}${relatedArticle.slug}`}
+                                            href={validateAndFixUrl(
+                                              `/${relatedArticle.blog_page ? 'blog/' : ''}${relatedArticle.slug}`,
+                                              locale
+                                            )}
                                             className="text-decoration-none"
                                           >
                                             {relatedArticle.title}

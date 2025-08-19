@@ -1,4 +1,10 @@
 import { NextResponse } from 'next/server';
+import {
+  hasDuplicateLocale,
+  fixDuplicateLocalePath,
+  hasSelfReference,
+  fixSelfReferencingPath,
+} from './lib/url-validator';
 
 const PUBLIC_FILE = /\.(.*)$/;
 
@@ -9,6 +15,20 @@ export async function middleware(req) {
   // Skip middleware for Next.js internals and API routes
   if (pathname.startsWith('/_next') || pathname.includes('/api/') || PUBLIC_FILE.test(pathname)) {
     return;
+  }
+
+  // Fix duplicate locale paths first
+  if (hasDuplicateLocale(pathname)) {
+    const fixedPath = fixDuplicateLocalePath(pathname);
+    url.pathname = fixedPath;
+    return NextResponse.redirect(url, 301);
+  }
+
+  // Fix self-referencing paths
+  if (hasSelfReference(pathname)) {
+    const fixedPath = fixSelfReferencingPath(pathname);
+    url.pathname = fixedPath;
+    return NextResponse.redirect(url, 301);
   }
 
   // Handle /en/* URLs - redirect to root path without /en/
