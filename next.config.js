@@ -174,6 +174,50 @@ const nextConfig = {
         permanent: true,
         locale: false,
       },
+      // Fix self-referencing paths
+      {
+        source: '/contact/contact',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy/privacy-policy',
+        destination: '/privacy-policy',
+        permanent: true,
+      },
+      {
+        source: '/terms-conditions/terms-conditions',
+        destination: '/terms-conditions',
+        permanent: true,
+      },
+      {
+        source: '/about/about',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/download/download',
+        destination: '/download',
+        permanent: true,
+      },
+      {
+        source: '/blog/blog',
+        destination: '/blog',
+        permanent: true,
+      },
+      // Fix duplicate paths in any segment (generic pattern)
+      {
+        source: '/:path/:duplicate',
+        destination: '/:path',
+        permanent: true,
+        has: [
+          {
+            type: 'query',
+            key: 'path',
+            value: '(?!api|_next).*',
+          },
+        ],
+      },
     ];
   },
   async headers() {

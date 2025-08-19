@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import LocalizedLink from '../Common/LocalizedLink';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -129,25 +129,25 @@ const AppIntroVideo = () => {
                     style={{ minHeight: '300px', listStyle: 'none', padding: 0, margin: 0 }}
                   >
                     <li style={listItemStyle}>
-                      <Link
-                        href={`/${locale}/${articleSlugs.howToBecome[locale] || articleSlugs.howToBecome.en}`}
+                      <LocalizedLink
+                        href={`/${articleSlugs.howToBecome[locale] || articleSlugs.howToBecome.en}`}
                       >
                         <a style={linkStyle}>{t('videoTitles.howToBecome')}</a>
-                      </Link>
+                      </LocalizedLink>
                     </li>
                     <li style={listItemStyle}>
-                      <Link
-                        href={`/${locale}/${articleSlugs.howToPrepare[locale] || articleSlugs.howToPrepare.en}`}
+                      <LocalizedLink
+                        href={`/${articleSlugs.howToPrepare[locale] || articleSlugs.howToPrepare.en}`}
                       >
                         <a style={linkStyle}>{t('videoTitles.howToPrepare')}</a>
-                      </Link>
+                      </LocalizedLink>
                     </li>
                     <li style={listItemStyle}>
-                      <Link
-                        href={`/${locale}/${articleSlugs.howToUseApp[locale] || articleSlugs.howToUseApp.en}`}
+                      <LocalizedLink
+                        href={`/${articleSlugs.howToUseApp[locale] || articleSlugs.howToUseApp.en}`}
                       >
                         <a style={linkStyle}>{t('videoTitles.howToUseApp')}</a>
-                      </Link>
+                      </LocalizedLink>
                     </li>
                     {/* <li>
                                             <a href={`/${locale}/what-is-eldt/`} >
@@ -163,16 +163,16 @@ const AppIntroVideo = () => {
                                 }}></a>
                                         </li> */}
                     <li style={listItemStyle}>
-                      <Link
-                        href={`/${locale}/${articleSlugs.cdlSchools[locale] || articleSlugs.cdlSchools.en}`}
+                      <LocalizedLink
+                        href={`/${articleSlugs.cdlSchools[locale] || articleSlugs.cdlSchools.en}`}
                       >
                         <a style={linkStyle}>{t('cdlSchoolsInfo')}</a>
-                      </Link>
+                      </LocalizedLink>
                     </li>
                     <li style={listItemStyle}>
-                      <Link href={`/${locale}/${articleSlugs.faq[locale] || articleSlugs.faq.en}`}>
+                      <LocalizedLink href={`/${articleSlugs.faq[locale] || articleSlugs.faq.en}`}>
                         <a style={linkStyle}>{t('faq.title')}</a>
-                      </Link>
+                      </LocalizedLink>
                     </li>
                   </ul>
                 </div>
