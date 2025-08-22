@@ -53,6 +53,7 @@
       "Bash(npm install:*)",
       "Bash(git restore:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }
