@@ -14,6 +14,7 @@
     "monitor:cls": "node scripts/monitor-cls.js",
     "monitor:isr": "node scripts/monitor-isr.js",
     "validate:schema": "node scripts/validate-schema.js",
+    "validate:schemas": "node scripts/validate-schemas.js",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

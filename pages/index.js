@@ -11,8 +11,9 @@ import { DynamicFaqSection } from '../components/_App/DynamicImports';
 import { SEOHead } from '../src/shared/ui/SEO';
 import dynamic from 'next/dynamic';
 import TopContainer from '../components/Home/TopContainer'; // Import directly for LCP performance
-import CourseSchema from '../components/Schema/CourseSchema';
-import FAQSchema, { defaultCDLFAQs } from '../components/Schema/FAQSchema';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
+import { defaultCDLFAQs } from '../components/Schema/FAQSchema';
 import {
   getLocalizedOrganizationName,
   getLocalizedAlternateName,
@@ -53,42 +54,40 @@ const IndexPage = ({ meta, alternateLinks }) => {
     return '/images/og/og-default.jpg';
   };
 
-  // Organization Schema with localization
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: getLocalizedOrganizationName(locale),
-    alternateName: getLocalizedAlternateName(locale),
-    url: getLocalizedUrl(locale),
-    logo: 'https://www.cdlhelp.com/images/black-logo.png',
-    sameAs: getLocalizedSocialLinks(locale),
-  };
-
-  // WebSite Schema with localization
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    url: getLocalizedUrl(locale),
-    name: getLocalizedOrganizationName(locale),
-    description: getLocalizedDescription(locale, t),
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${getLocalizedUrl(locale)}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
-    inLanguage: locale,
-    publisher: {
-      '@type': 'Organization',
-      name: getLocalizedOrganizationName(locale),
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.cdlhelp.com/images/black-logo.png',
-      },
-    },
-  };
+  // Build all schemas using the centralized SchemaBuilder
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: getLocalizedDescription(locale, t),
+    })
+    .addWebsite({
+      description: getLocalizedDescription(locale, t),
+    })
+    .addBreadcrumb([{ name: t('home'), url: '/' }])
+    .addCourse({
+      name: t('cdl_practice_test', 'CDL Practice Test'),
+      description: t(
+        'course_description',
+        "Free CDL practice tests to help you pass your Commercial Driver's License exam"
+      ),
+      aggregateRating: { ratingValue: 4.8, reviewCount: 15000 },
+      educationalCredentialAwarded: 'CDL Permit Certificate',
+      totalHistoricalEnrollment: 500000,
+      learningOutcome: [
+        'Pass CDL General Knowledge test',
+        'Master Air Brakes examination',
+        'Complete Hazmat certification',
+        'Achieve CDL permit',
+      ],
+    })
+    .addFAQ({
+      questions: defaultCDLFAQs.map(faq => ({
+        question: faq.question,
+        answer: faq.answer,
+        dateCreated: '2024-01-01T00:00:00Z',
+        author: 'CDL Help Team',
+      })),
+    })
+    .build();
 
   return (
     <>
@@ -135,41 +134,13 @@ const IndexPage = ({ meta, alternateLinks }) => {
           crossOrigin="anonymous"
         />
 
-        {/* Organization Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-
-        {/* WebSite Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
+        {/* All schemas handled by StructuredData component */}
       </Head>
 
-      {/* Course Schema for CDL Training */}
-      <CourseSchema
-        title={t('cdl_practice_test_title') || 'CDL Practice Test & Study Guide'}
-        description={
-          t('cdl_practice_test_description') ||
-          'Comprehensive CDL training course with practice tests for General Knowledge, Air Brakes, Hazmat, and all endorsements. Pass your CDL exam on the first try.'
-        }
-        locale={locale}
-        url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
-        duration="PT20H"
-        skillLevel="Beginner"
-        aggregateRating={{ ratingValue: 4.8, reviewCount: 15000 }}
-        courseCode="CDL-COMPLETE"
-        educationalCredentialAwarded="CDL Test Preparation Certificate"
-      />
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
-      {/* FAQ Schema */}
-      <FAQSchema
-        questions={defaultCDLFAQs}
-        locale={locale}
-        url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}`}
-      />
+      {/* All schemas are now handled by the centralized StructuredData component above */}
 
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
