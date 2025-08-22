@@ -11,6 +11,8 @@ import Navbar from '../../components/_App/Navbar';
 import Footer from '../../components/_App/Footer';
 import PageBannerStyle1 from '../../components/Common/PageBannerStyle1';
 import { DynamicQuiz } from '../../components/_App/DynamicImports';
+import { SchemaBuilder } from '../../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../../src/shared/ui/SEO/StructuredData';
 
 const SchoolMap = dynamic(() => import('../../components/Common/SchoolMap'), {
   ssr: false,
@@ -171,12 +173,84 @@ const StateSchoolsPage = ({ schools, state }) => {
 
   const showQuiz = locale === 'ru' || locale === 'uk';
 
+  // Build comprehensive schemas for state schools page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking school directory',
+    })
+    .addWebsite({
+      description: `Find CDL schools in ${stateFormatted}`,
+    })
+    .addBreadcrumb([
+      { name: t('home', 'Home'), url: '/' },
+      { name: t('schools', 'CDL Schools'), url: '/schools' },
+      { name: `${stateFormatted} CDL Schools`, url: `/school/${state}` },
+    ])
+    .addWebPage({
+      name: pageTitle,
+      description: pageDescription,
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/school/${state}`,
+      datePublished: '2023-01-01',
+      dateModified: new Date().toISOString(),
+    })
+    .addItemList({
+      name: `CDL Schools in ${stateFormatted}`,
+      description: `Complete list of CDL truck driving schools in ${stateFormatted}`,
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/school/${state}`,
+      numberOfItems: schools.reduce((count, school) => count + school.locations.length, 0),
+      itemListElement: schools.flatMap((school, schoolIndex) =>
+        school.locations.map((location, locationIndex) => ({
+          '@type': 'ListItem',
+          position: schoolIndex * 10 + locationIndex + 1,
+          name: school.attributes.name,
+          item: {
+            '@type': 'EducationalOrganization',
+            '@id': `#school-${school.id || schoolIndex}-${location.id || locationIndex}`,
+            name: school.attributes.name,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: location.attributes.Address,
+              addressLocality: location.attributes.city,
+              addressRegion: location.attributes.state?.replace(/_/g, ' '),
+              addressCountry: 'US',
+            },
+            telephone: location.attributes.phone_number,
+            geo: location.attributes.coords
+              ? {
+                  '@type': 'GeoCoordinates',
+                  latitude: location.attributes.coords.latitude,
+                  longitude: location.attributes.coords.longitude,
+                }
+              : undefined,
+          },
+        }))
+      ),
+    })
+    .addCourse({
+      name: `CDL Training in ${stateFormatted}`,
+      description: `Commercial Driver's License training programs available in ${stateFormatted}`,
+      teaches: [
+        'CDL Class A License',
+        'CDL Class B License',
+        'Pre-Trip Inspection',
+        'Backing and Parking',
+        'Road Driving',
+      ],
+      educationalLevel: 'Professional Certification',
+      educationalCredentialAwarded: 'Commercial Driver License',
+    })
+    .build();
+
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
+
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
+
       <Layout>
         <Navbar />
         <PageBannerStyle1

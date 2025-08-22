@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { SEOHead } from '../src/shared/ui/SEO/SEOHead';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 import Layout from '../components/_App/Layout';
 import Navbar from '../components/_App/Navbar';
 import Footer from '../components/_App/Footer';
@@ -29,6 +31,54 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
       query: { page },
     });
   };
+
+  // Build comprehensive schemas for blog listing page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking blog',
+    })
+    .addWebsite({
+      description: 'CDL Help Blog - Trucking news, tips, and career advice',
+    })
+    .addBreadcrumb([
+      { name: t('home', 'Home'), url: '/' },
+      { name: t('blog', 'Blog'), url: '/blog' },
+    ])
+    .addWebPage({
+      name: metaTitle || 'CDL Help Blog',
+      description:
+        metaDescription || 'Latest trucking news, CDL tips, and career advice for truck drivers',
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/blog${currentPage > 1 ? `?page=${currentPage}` : ''}`,
+      datePublished: '2023-01-01',
+      dateModified: new Date().toISOString(),
+    })
+    .addItemList({
+      name: 'CDL Help Blog Articles',
+      description: 'Latest blog posts about trucking, CDL exams, and driver careers',
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/blog`,
+      numberOfItems: pagination.total || articles.length,
+      itemListElement: articles.map((article, index) => ({
+        '@type': 'ListItem',
+        position: (currentPage - 1) * ARTICLES_PER_PAGE + index + 1,
+        name: article.title || article.attributes?.title,
+        url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/blog/${article.slug || article.attributes?.slug}`,
+        item: {
+          '@type': 'BlogPosting',
+          headline: article.title || article.attributes?.title,
+          description: article.description || article.attributes?.description,
+          datePublished: article.publishedAt || article.attributes?.publishedAt,
+          author: {
+            '@type': 'Person',
+            name: article.author?.data?.attributes?.name || 'CDL Help Editorial Team',
+          },
+          image:
+            article.image?.url ||
+            article.attributes?.image?.data?.attributes?.url ||
+            'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg',
+        },
+      })),
+    })
+    .build();
 
   const renderPagination = () => {
     if (pagination.pageCount <= 1) return null;
@@ -120,6 +170,9 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
         type="website"
         alternateLinks={alternateLinks}
       />
+
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
