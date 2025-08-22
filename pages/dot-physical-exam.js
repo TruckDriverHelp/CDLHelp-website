@@ -3,6 +3,9 @@ import Head from 'next/head';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Container, Typography, TextField, Button, Box, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
+import { useRouter } from 'next/router';
 
 const containerStyle = {
   width: '100%',
@@ -19,6 +22,8 @@ export default function DotPhysicalExam() {
   const [searchResults, setSearchResults] = useState([]);
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const locale = router.locale || 'en';
 
   const handleSearch = async () => {
     if (!zipCode) return;
@@ -80,6 +85,84 @@ export default function DotPhysicalExam() {
     }
   };
 
+  // Build comprehensive schemas for DOT physical exam page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - DOT physical exam locations and resources',
+    })
+    .addWebsite({
+      description: 'Find DOT physical exam locations for CDL drivers',
+    })
+    .addBreadcrumb([
+      { name: 'Home', url: '/' },
+      { name: 'DOT Physical Exam', url: '/dot-physical-exam' },
+    ])
+    .addArticle({
+      title: 'DOT Physical Exam Locations',
+      description:
+        'Find certified medical examiners for DOT physical exams near you. Complete guide to DOT physical requirements for CDL drivers.',
+      content:
+        'The DOT physical exam is required for all commercial drivers. Use our tool to find certified medical examiners in your area.',
+      author: 'CDL Help Editorial Team',
+      datePublished: '2023-01-01',
+      dateModified: new Date().toISOString(),
+      image: 'https://www.cdlhelp.com/images/dot-physical-og.jpg',
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/dot-physical-exam`,
+      keywords: [
+        'DOT physical',
+        'CDL medical exam',
+        'medical examiner',
+        'DOT medical card',
+        'CDL health requirements',
+      ],
+      articleSection: 'CDL Requirements',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', 'h2', '.exam-info'],
+        xpath: ['/html/head/title', '/html/head/meta[@name="description"]/@content'],
+      },
+    })
+    .addFAQ({
+      questions: [
+        {
+          question: 'What is a DOT physical exam?',
+          answer:
+            'A DOT physical exam is a medical examination required by the Federal Motor Carrier Safety Administration (FMCSA) for commercial drivers to ensure they are physically qualified to safely operate a commercial vehicle.',
+        },
+        {
+          question: 'How often do I need a DOT physical?',
+          answer:
+            'Most drivers need a DOT physical every 2 years. However, if you have certain medical conditions, you may need more frequent exams.',
+        },
+        {
+          question: 'What should I bring to my DOT physical?',
+          answer:
+            'Bring your driver license, list of medications, glasses or contacts if you wear them, hearing aids if applicable, and any medical records related to ongoing conditions.',
+        },
+        {
+          question: 'How much does a DOT physical cost?',
+          answer:
+            'DOT physical exams typically cost between $50-$150, depending on your location and the provider.',
+        },
+        {
+          question: 'Can I fail a DOT physical?',
+          answer:
+            'Yes, you can be disqualified if you have certain medical conditions that make it unsafe for you to operate a commercial vehicle.',
+        },
+      ],
+    })
+    .addLocalBusiness({
+      '@type': 'MedicalBusiness',
+      name: 'DOT Physical Exam Centers',
+      description: 'Network of certified medical examiners for DOT physicals',
+      areaServed: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      priceRange: '$50-$150',
+    })
+    .build();
+
   return (
     <>
       <Head>
@@ -89,6 +172,9 @@ export default function DotPhysicalExam() {
           content="Find DOT physical exam locations near you. Enter your zip code to locate certified medical examiners in your area."
         />
       </Head>
+
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Typography variant="h2" component="h1" gutterBottom>

@@ -11,8 +11,71 @@ import Navbar from '../components/_App/Navbar';
 import Footer from '../components/_App/Footer';
 import getMeta from '../lib/getMeta';
 import { SEOHead } from '../src/shared/ui/SEO';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 
 const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
+  // Build comprehensive schemas for Texas CDL page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and Texas CDL resources',
+    })
+    .addWebsite({
+      description: 'Texas CDL information and CVO knowledge test preparation',
+    })
+    .addBreadcrumb([
+      { name: 'Home', url: '/' },
+      { name: 'Texas CDL', url: '/cdl-texas' },
+    ])
+    .addArticle({
+      title: meta.title || 'Texas CDL CVO Knowledge Test',
+      description:
+        meta.description ||
+        'Complete guide to Texas Commercial Vehicle Operation (CVO) knowledge test preparation',
+      content: text,
+      author: 'CDL Help Editorial Team',
+      datePublished: '2023-01-01',
+      dateModified: new Date().toISOString(),
+      image: 'https://www.cdlhelp.com/images/texas-cdl-og.jpg',
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-texas`,
+      keywords: [
+        'Texas CDL',
+        'CVO test',
+        'Commercial Vehicle Operation',
+        'Texas trucking',
+        'CDL exam',
+      ],
+      articleSection: 'State CDL Guides',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.article-content', 'h1', 'h2', '.cvo-card'],
+        xpath: ['/html/head/title', '/html/head/meta[@name="description"]/@content'],
+      },
+      inLanguage: locale,
+    })
+    .addFAQ({
+      questions: cards.slice(0, 10).map(card => ({
+        question: card.questionEn || card.questionLang || 'Question',
+        answer: card.answerEn || card.answerLang || 'Answer',
+      })),
+    })
+    .addCourse({
+      name: 'Texas CVO Knowledge Test Preparation',
+      description:
+        'Comprehensive preparation for Texas Commercial Vehicle Operation knowledge test',
+      teaches: [
+        'Texas CDL regulations',
+        'Commercial vehicle operation',
+        'Texas traffic laws',
+        'Safety regulations',
+        'Weight and size limits',
+        'Hazardous materials',
+      ],
+      educationalLevel: 'Professional Certification',
+      educationalCredentialAwarded: 'Texas CDL License',
+    })
+    .build();
+
   return (
     <>
       <SEOHead
@@ -21,6 +84,10 @@ const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
         alternateLinks={alternateLinks}
         url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-texas`}
       />
+
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
+
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
 
