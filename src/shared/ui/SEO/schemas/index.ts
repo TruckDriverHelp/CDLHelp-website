@@ -13,6 +13,8 @@ import {
   generateItemListSchema,
   generateWebPageSchema,
   generateSchoolSchema,
+  generateSoftwareApplicationSchema,
+  generateMobileApplicationSchema,
 } from '../StructuredData';
 import { SchemaValidator } from '../validators/schemaValidator';
 import type {
@@ -31,6 +33,8 @@ import type {
   ItemListConfig,
   WebPageConfig,
   SchoolConfig,
+  SoftwareApplicationConfig,
+  MobileApplicationConfig,
 } from '../types/schema.types';
 
 /**
@@ -190,6 +194,24 @@ export class SchemaBuilder {
   }
 
   /**
+   * Add SoftwareApplication schema
+   */
+  addSoftwareApplication(config: SoftwareApplicationConfig): SchemaBuilder {
+    const schema = generateSoftwareApplicationSchema(config);
+    this.schemas.push(schema);
+    return this;
+  }
+
+  /**
+   * Add MobileApplication schema
+   */
+  addMobileApplication(config: MobileApplicationConfig): SchemaBuilder {
+    const schema = generateMobileApplicationSchema(config);
+    this.schemas.push(schema);
+    return this;
+  }
+
+  /**
    * Add a custom schema
    */
   addCustom(schema: BaseStructuredData): SchemaBuilder {
@@ -251,6 +273,8 @@ export {
   generateItemListSchema,
   generateWebPageSchema,
   generateSchoolSchema,
+  generateSoftwareApplicationSchema,
+  generateMobileApplicationSchema,
 } from '../StructuredData';
 
 // Export types
@@ -270,4 +294,6 @@ export type {
   ItemListConfig,
   WebPageConfig,
   SchoolConfig,
+  SoftwareApplicationConfig,
+  MobileApplicationConfig,
 } from '../types/schema.types';

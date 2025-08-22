@@ -330,3 +330,29 @@ export interface EventConfig {
   eventStatus?: string;
   eventAttendanceMode?: string;
 }
+
+export interface SoftwareApplicationConfig {
+  name: string;
+  description?: string;
+  operatingSystem?: string;
+  applicationCategory?: string;
+  aggregateRating?: AggregateRating;
+  offers?: Offer;
+  downloadUrl?: string;
+  fileSize?: string;
+  softwareVersion?: string;
+  softwareRequirements?: string;
+  screenshot?: string | ImageObject | (string | ImageObject)[];
+  author?: Person | OrganizationConfig;
+  datePublished?: string;
+  dateModified?: string;
+  permissions?: string | string[];
+  countriesSupported?: string | string[];
+  contentRating?: string;
+}
+
+export interface MobileApplicationConfig extends SoftwareApplicationConfig {
+  operatingSystem: 'iOS' | 'Android' | 'Windows Phone';
+  applicationCategory: string;
+  installUrl?: string;
+}

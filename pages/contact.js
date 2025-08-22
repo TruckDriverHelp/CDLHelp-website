@@ -7,7 +7,8 @@ import Navbar from '../components/_App/Navbar';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { SEOHead } from '../src/shared/ui/SEO';
-import Head from 'next/head';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 import getMeta from '../lib/getMeta';
 
 const Contact = ({ alternateLinks, meta }) => {
@@ -15,23 +16,63 @@ const Contact = ({ alternateLinks, meta }) => {
   const router = useRouter();
   const { locale } = router;
 
-  const contactPageSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    name: t('pageTitle', 'Contact CDL Help'),
-    description: t(
-      'pageDescription',
-      'Get in touch with CDL Help. We are here to help you with your CDL test preparation.'
-    ),
-    url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/contact`,
-    inLanguage: locale,
-    mainEntity: {
-      '@type': 'Organization',
-      name: 'CDL Help',
-      url: 'https://www.cdlhelp.com',
-      email: 'contact@cdlhelp.com',
-    },
-  };
+  // Build comprehensive schemas for contact page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking resources',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: 'support@cdlhelp.com',
+        availableLanguage: [
+          'English',
+          'Russian',
+          'Ukrainian',
+          'Arabic',
+          'Korean',
+          'Chinese',
+          'Turkish',
+          'Portuguese',
+        ],
+      },
+    })
+    .addWebsite({
+      description: 'Contact CDL Help for support and assistance',
+    })
+    .addBreadcrumb([
+      { name: t('home', 'Home'), url: '/' },
+      { name: t('contact', 'Contact'), url: '/contact' },
+    ])
+    .addContactPage({
+      name: t('pageTitle', 'Contact CDL Help'),
+      description: t(
+        'pageDescription',
+        'Get in touch with CDL Help. We are here to help you with your CDL test preparation and answer any questions.'
+      ),
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/contact`,
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'CDL Help',
+        url: 'https://www.cdlhelp.com',
+        email: 'support@cdlhelp.com',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: 'support@cdlhelp.com',
+          availableLanguage: [
+            'English',
+            'Russian',
+            'Ukrainian',
+            'Arabic',
+            'Korean',
+            'Chinese',
+            'Turkish',
+            'Portuguese',
+          ],
+        },
+      },
+    })
+    .build();
 
   return (
     <>
@@ -47,13 +88,8 @@ const Contact = ({ alternateLinks, meta }) => {
         alternateLinks={alternateLinks}
       />
 
-      <Head>
-        {/* ContactPage Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
-        />
-      </Head>
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
       <Navbar alternateLinks={alternateLinks} />
 

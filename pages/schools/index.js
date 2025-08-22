@@ -2,7 +2,6 @@ import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
@@ -10,6 +9,8 @@ import Footer from '../../components/_App/Footer';
 import PageBannerStyle1 from '../../components/Common/PageBannerStyle1';
 import { StateSelector } from '../../src/widgets/StateSelector';
 import { SEOHead } from '../../src/shared/ui/SEO';
+import { SchemaBuilder } from '../../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../../src/shared/ui/SEO/StructuredData';
 import { useSEO } from '../../src/shared/lib/hooks/useSEO';
 import getMeta from '../../lib/getMeta';
 import { getLocalizedOrganizationName, getLocalizedUrl } from '../../lib/schemaLocalization';
@@ -25,40 +26,70 @@ const SchoolsPage = ({ meta, states }) => {
     type: 'article',
   });
 
-  // ItemList Schema for CDL Schools with localization
-  const itemListSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: t('schoolsTitle', 'Schools in USA'),
-    description: t(
-      'pageDescription',
-      'Directory of CDL truck driving schools across the United States'
-    ),
-    url: getLocalizedUrl(locale, '/schools'),
-    numberOfItems: states.length,
-    inLanguage: locale,
-    publisher: {
-      '@type': 'Organization',
-      name: getLocalizedOrganizationName(locale),
-      url: getLocalizedUrl(locale),
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.cdlhelp.com/images/black-logo.png',
-      },
-    },
-  };
+  // Build comprehensive schemas for schools directory page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking school directory',
+    })
+    .addWebsite({
+      description: 'Find CDL truck driving schools near you',
+    })
+    .addBreadcrumb([
+      { name: t('common:home', 'Home'), url: '/' },
+      { name: t('schoolsTitle', 'CDL Schools'), url: '/schools' },
+    ])
+    .addWebPage({
+      name: t('schoolsTitle', 'CDL Schools in USA'),
+      description: t(
+        'pageDescription',
+        'Directory of CDL truck driving schools across the United States. Find certified trucking schools near you.'
+      ),
+      url: getLocalizedUrl(locale, '/schools'),
+      datePublished: '2023-01-01',
+      dateModified: new Date().toISOString(),
+    })
+    .addItemList({
+      name: t('schoolsTitle', 'CDL Schools Directory'),
+      description: t(
+        'pageDescription',
+        'Complete list of CDL truck driving schools organized by state'
+      ),
+      url: getLocalizedUrl(locale, '/schools'),
+      numberOfItems: states.length,
+      itemListElement: states.slice(0, 10).map((state, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: `CDL Schools in ${state.name}`,
+        url: `${getLocalizedUrl(locale, '/schools')}/${state.slug}`,
+        item: {
+          '@type': 'WebPage',
+          name: `CDL Schools in ${state.name}`,
+          url: `${getLocalizedUrl(locale, '/schools')}/${state.slug}`,
+        },
+      })),
+    })
+    .addCourse({
+      name: 'CDL Training Programs',
+      description: 'Professional truck driver training programs available across the United States',
+      teaches: [
+        'CDL Class A License',
+        'CDL Class B License',
+        'Pre-Trip Inspection',
+        'Backing and Parking',
+        'Road Driving',
+        'Safety Regulations',
+      ],
+      educationalLevel: 'Professional Certification',
+      educationalCredentialAwarded: 'Commercial Driver License (CDL)',
+    })
+    .build();
 
   return (
     <>
       <SEOHead {...seoData} />
 
-      <Head>
-        {/* ItemList Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-        />
-      </Head>
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
       <Layout alternateLinks={{}} dir="ltr">
         <Navbar alternateLinks={{}} />

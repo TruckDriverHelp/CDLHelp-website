@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import PageBannerStyle1 from '../../components/Common/PageBannerStyle1';
 import axios from 'axios';
 import Image from 'next/image';
@@ -15,6 +14,8 @@ import Footer from '../../components/_App/Footer';
 import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../../components/Common/YouTubePlayer';
 import { SEOHead } from '../../src/shared/ui/SEO';
+import { SchemaBuilder } from '../../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../../src/shared/ui/SEO/StructuredData';
 import { LinkRenderer } from '../../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../../lib/article-utils';
 import { getLocalizedOrganizationName, getLocalizedUrl } from '../../lib/schemaLocalization';
@@ -63,54 +64,93 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
     );
   }
 
-  // Generate structured data for SEO with localization
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: article.title,
-    description: article.description || '',
-    datePublished: article.publishedAt,
-    dateModified: article.updatedAt || article.publishedAt,
-    inLanguage: locale,
-    author: article.author?.data
-      ? {
-          '@type': 'Person',
-          name: article.author.data.attributes.name,
-        }
-      : undefined,
-    publisher: {
-      '@type': 'Organization',
-      name: getLocalizedOrganizationName(locale),
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.cdlhelp.com/images/logo.png',
+  // Extract meta tags with fallbacks
+  const metaTags = article?.meta_tag ||
+    article?.meta || {
+      title: article?.title || 'CDL Help Blog',
+      description: article?.description || '',
+      image: null,
+    };
+
+  const metaImage = metaTags.image?.url
+    ? metaTags.image.url.startsWith('http')
+      ? metaTags.image.url
+      : host + metaTags.image.url
+    : 'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg';
+
+  // Count words in content for schema
+  const wordCount =
+    article.content?.split(' ').length ||
+    article.blocks?.reduce((count, block) => {
+      if (block.__typename === 'ComponentArticlePartsRichTextMarkdown') {
+        return count + (block.richtext?.split(' ').length || 0);
+      }
+      return count;
+    }, 0) ||
+    0;
+
+  // Build comprehensive schemas for blog post with BlogPosting and speakable
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking career resources',
+    })
+    .addWebsite({
+      description: 'CDL blog with trucking tips, news, and career advice',
+    })
+    .addBreadcrumb([
+      { name: t('home', 'Home'), url: '/' },
+      { name: t('blog', 'Blog'), url: '/blog' },
+      { name: article.title || metaTags.title, url: `/blog/${slug}` },
+    ])
+    .addBlogPosting({
+      title: metaTags.title || article.title,
+      description: metaTags.description || article.description,
+      content: article.content || article.blocks?.map(b => b.richtext || '').join(' '),
+      author: article.author?.data?.attributes?.name || 'CDL Help Editorial Team',
+      datePublished: article.publishedAt,
+      dateModified: article.updatedAt || article.publishedAt,
+      image: metaImage,
+      url: `https://www.cdlhelp.com${locale === 'en' ? `/blog/${slug}` : `/${locale}/blog/${slug}`}`,
+      keywords: article.tags || article.keywords || [],
+      wordCount: wordCount,
+      blogSection: article.category || 'Trucking News',
+      articleSection: article.category || 'Trucking',
+      articleBody: article.content || article.blocks?.map(b => b.richtext || '').join(' '),
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.article-content', '.blog-details-desc', 'h1', 'h2', '.article-meta'],
+        xpath: ['/html/head/title', '/html/head/meta[@name="description"]/@content'],
       },
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': getLocalizedUrl(locale, `/blog/${slug}`),
-    },
-  };
+      video: article.video_url
+        ? {
+            '@type': 'VideoObject',
+            name: article.title,
+            description: article.description,
+            embedUrl: article.video_url,
+            uploadDate: article.publishedAt,
+          }
+        : undefined,
+      commentCount: article.commentCount || 0,
+      discussionUrl: `https://www.cdlhelp.com${locale === 'en' ? `/blog/${slug}` : `/${locale}/blog/${slug}`}#comments`,
+      inLanguage: locale,
+    })
+    .build();
 
   return (
     <>
       <SEOHead
-        title={article.meta?.title || article.title}
-        description={article.meta?.description || article.description || ''}
+        title={metaTags.title || article.title}
+        description={metaTags.description || article.description || ''}
         url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/blog/${slug}`}
         canonical={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/blog/${slug}`}
         type="article"
         alternateLinks={alternateLinks}
+        image={metaImage}
+        keywords={article.tags || article.keywords || []}
       />
 
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-      </Head>
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
       <Layout>
         <Navbar alternateLinks={alternateLinks} />

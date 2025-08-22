@@ -7,8 +7,9 @@ import Footer from '../../components/_App/Footer';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { SEOHead } from '../../src/shared/ui/SEO';
+import { SchemaBuilder } from '../../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../../src/shared/ui/SEO/StructuredData';
 import { useSEO } from '../../src/shared/lib/hooks/useSEO';
-import QuizSchema from '../../components/Schema/QuizSchema';
 // import { Grid } from "react-loader-spinner";
 
 const SignsTest = () => {
@@ -34,6 +35,57 @@ const SignsTest = () => {
     customUrl: 'https://www.cdlhelp.com/road-signs/test',
     type: 'website',
   });
+
+  // Build comprehensive schemas for quiz page
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and road signs quiz',
+    })
+    .addWebsite({
+      description: 'Practice CDL road signs test online',
+    })
+    .addBreadcrumb([
+      { name: t('common:home', 'Home'), url: '/' },
+      { name: t('roadSigns', 'Road Signs'), url: '/road-signs' },
+      { name: t('roadSignsQuiz', 'Road Signs Test'), url: '/road-signs/test' },
+    ])
+    .addQuiz({
+      name: t('roadSignsQuiz', 'CDL Road Signs Practice Test'),
+      description: t(
+        'roadSignsQuizDescription',
+        'Test your knowledge of road signs required for the CDL exam. Practice identifying and understanding traffic signs, warning signs, and regulatory signs.'
+      ),
+      url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/road-signs/test`,
+      questionCount: signs.length || 50,
+      quizType: 'Road Signs',
+      educationalLevel: 'Beginner',
+      timeRequired: 'PT30M',
+      passingScore: 80,
+      questions: signs.slice(0, 3).map(sign => ({
+        question: `What does this road sign mean?`,
+        correctAnswer: sign?.attributes?.original_name || '',
+        options: [
+          sign?.attributes?.original_name || '',
+          'Other option 1',
+          'Other option 2',
+          'Other option 3',
+        ],
+      })),
+    })
+    .addCourse({
+      name: 'CDL Road Signs Training',
+      description: 'Complete road signs training for CDL exam preparation',
+      teaches: [
+        'Warning Signs',
+        'Regulatory Signs',
+        'Guide Signs',
+        'Construction Signs',
+        'Railroad Signs',
+        'School Zone Signs',
+      ],
+      educationalLevel: 'Professional Certification',
+    })
+    .build();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -227,19 +279,10 @@ const SignsTest = () => {
   return (
     <Layout>
       <SEOHead {...seoData} />
-      <QuizSchema
-        title={t('roadSignsQuiz', { defaultValue: 'CDL Road Signs Practice Test' })}
-        description={t('roadSignsQuizDescription', {
-          defaultValue:
-            'Test your knowledge of road signs required for the CDL exam. Practice identifying and understanding traffic signs, warning signs, and regulatory signs.',
-        })}
-        questionCount={signs.length || 50}
-        locale={locale}
-        url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/road-signs/test`}
-        timeRequired="PT30M"
-        quizType="Road Signs"
-        passingScore={80}
-      />
+
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
+
       <Navbar />
       <div className="features-area ptb-100 bg-F7F7FF">
         <div className="container">

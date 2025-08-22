@@ -51,7 +51,8 @@
       "Bash(npx sass:*)",
       "Bash(PGPASSWORD=TruckDr1ver12358! psql:*)",
       "Bash(npm install:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "WebSearch"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
