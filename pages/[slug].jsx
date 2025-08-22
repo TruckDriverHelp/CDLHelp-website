@@ -15,6 +15,8 @@ import Footer from '../components/_App/Footer';
 import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
 import { SEOHead } from '../src/shared/ui/SEO';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 import { LinkRenderer } from '../lib/markdown-utils';
 import { generateArticleHreflangUrls } from '../lib/article-utils';
 import { getLocalizedOrganizationName, getLocalizedUrl } from '../lib/schemaLocalization';
@@ -123,6 +125,50 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
     );
   }
 
+  // Build comprehensive schemas for article page with speakable
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking resources',
+    })
+    .addWebsite({
+      description: 'CDL practice tests and trucking career resources',
+    })
+    .addBreadcrumb([
+      { name: t('home'), url: '/' },
+      { name: t('articles', 'Articles'), url: '/articles' },
+      { name: article.title || metaTags.title, url: `/${slug}` },
+    ])
+    .addArticle({
+      title: metaTags.title || article.title,
+      description: metaTags.description || article.description,
+      content: article.content,
+      author: article.author?.data?.attributes?.name || 'CDL Help Editorial Team',
+      datePublished: article.publishedAt,
+      dateModified: article.updatedAt || article.publishedAt,
+      image: metaImage || 'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg',
+      url: `https://www.cdlhelp.com${locale === 'en' ? `/${slug}` : `/${locale}/${slug}`}`,
+      keywords: article.tags || [],
+      wordCount: article.wordCount || article.content?.split(' ').length || 0,
+      articleSection: article.category || 'CDL Education',
+      articleBody: article.content,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.article-content', 'h1', 'h2', '.article-summary'],
+        xpath: ['/html/head/title', '/html/head/meta[@name="description"]/@content'],
+      },
+      video: article.video_url
+        ? {
+            '@type': 'VideoObject',
+            name: article.title,
+            description: article.description,
+            embedUrl: article.video_url,
+            uploadDate: article.publishedAt,
+          }
+        : undefined,
+      inLanguage: locale,
+    })
+    .build();
+
   return (
     <>
       <SEOHead
@@ -134,41 +180,8 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
         locale={locale}
         alternateLinks={alternateLinksObj}
       />
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: metaTags.title,
-              description: metaTags.description,
-              image: metaImage,
-              inLanguage: locale,
-              datePublished: article.publishedAt,
-              dateModified: article.updatedAt || article.publishedAt,
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': getLocalizedUrl(locale, `/${slug}`),
-              },
-              author: {
-                '@type': 'Organization',
-                name: getLocalizedOrganizationName(locale),
-                url: getLocalizedUrl(locale),
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: getLocalizedOrganizationName(locale),
-                url: getLocalizedUrl(locale),
-                logo: {
-                  '@type': 'ImageObject',
-                  url: 'https://www.cdlhelp.com/images/black-logo.png',
-                },
-              },
-            }),
-          }}
-        />
-      </Head>
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
         <PageBannerStyle1

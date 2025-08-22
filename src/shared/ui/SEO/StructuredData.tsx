@@ -23,6 +23,8 @@ import type {
   ItemListConfig,
   WebPageConfig,
   SchoolConfig,
+  SoftwareApplicationConfig,
+  MobileApplicationConfig,
   ImageObject,
   Person,
 } from './types/schema.types';
@@ -365,6 +367,85 @@ export const generateSchoolSchema = (school: SchoolConfig): BaseStructuredData =
       worstRating: school.aggregateRating.worstRating || 1,
     };
   }
+
+  return schema;
+};
+
+// SoftwareApplication schema generator
+export const generateSoftwareApplicationSchema = (
+  config: SoftwareApplicationConfig
+): BaseStructuredData => {
+  const schema: any = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${config.downloadUrl || '#software'}#app`,
+    name: config.name,
+    description: config.description,
+  };
+
+  if (config.operatingSystem) schema.operatingSystem = config.operatingSystem;
+  if (config.applicationCategory) schema.applicationCategory = config.applicationCategory;
+  if (config.aggregateRating) {
+    schema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: config.aggregateRating.ratingValue,
+      reviewCount: config.aggregateRating.reviewCount,
+      bestRating: config.aggregateRating.bestRating || 5,
+      worstRating: config.aggregateRating.worstRating || 1,
+    };
+  }
+  if (config.offers) schema.offers = config.offers;
+  if (config.downloadUrl) schema.downloadUrl = config.downloadUrl;
+  if (config.fileSize) schema.fileSize = config.fileSize;
+  if (config.softwareVersion) schema.softwareVersion = config.softwareVersion;
+  if (config.softwareRequirements) schema.softwareRequirements = config.softwareRequirements;
+  if (config.screenshot) schema.screenshot = config.screenshot;
+  if (config.author) schema.author = config.author;
+  if (config.datePublished) schema.datePublished = config.datePublished;
+  if (config.dateModified) schema.dateModified = config.dateModified;
+  if (config.permissions) schema.permissions = config.permissions;
+  if (config.countriesSupported) schema.countriesSupported = config.countriesSupported;
+  if (config.contentRating) schema.contentRating = config.contentRating;
+
+  return schema;
+};
+
+// MobileApplication schema generator
+export const generateMobileApplicationSchema = (
+  config: MobileApplicationConfig
+): BaseStructuredData => {
+  const schema: any = {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    '@id': `${config.downloadUrl || '#mobile'}#app`,
+    name: config.name,
+    description: config.description,
+    operatingSystem: config.operatingSystem,
+    applicationCategory: config.applicationCategory,
+  };
+
+  if (config.aggregateRating) {
+    schema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: config.aggregateRating.ratingValue,
+      reviewCount: config.aggregateRating.reviewCount,
+      bestRating: config.aggregateRating.bestRating || 5,
+      worstRating: config.aggregateRating.worstRating || 1,
+    };
+  }
+  if (config.offers) schema.offers = config.offers;
+  if (config.downloadUrl) schema.downloadUrl = config.downloadUrl;
+  if (config.installUrl) schema.installUrl = config.installUrl;
+  if (config.fileSize) schema.fileSize = config.fileSize;
+  if (config.softwareVersion) schema.softwareVersion = config.softwareVersion;
+  if (config.softwareRequirements) schema.softwareRequirements = config.softwareRequirements;
+  if (config.screenshot) schema.screenshot = config.screenshot;
+  if (config.author) schema.author = config.author;
+  if (config.datePublished) schema.datePublished = config.datePublished;
+  if (config.dateModified) schema.dateModified = config.dateModified;
+  if (config.permissions) schema.permissions = config.permissions;
+  if (config.countriesSupported) schema.countriesSupported = config.countriesSupported;
+  if (config.contentRating) schema.contentRating = config.contentRating;
 
   return schema;
 };

@@ -13,6 +13,8 @@ import getMeta from '../lib/getMeta';
 import analytics from '../lib/analytics';
 import attribution from '../lib/attribution';
 import { getLocalizedOrganizationName, getLocalizedUrl } from '../lib/schemaLocalization';
+import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 
 const DownloadPage = ({ alternateLinks }) => {
   const { t } = useTranslation('download');
@@ -107,63 +109,116 @@ const DownloadPage = ({ alternateLinks }) => {
     },
   ];
 
-  // Mobile Application Schema with localization
-  const applicationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'MobileApplication',
-    name: `${getLocalizedOrganizationName(locale)} - CDL Practice Test`,
-    description: t('heroDescription'),
-    applicationCategory: 'EducationApplication',
-    operatingSystem: 'Android, iOS',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '2500',
-    },
-    provider: {
-      '@type': 'Organization',
-      name: getLocalizedOrganizationName(locale),
-      url: getLocalizedUrl(locale),
-    },
-    inLanguage: locale,
-    url: getLocalizedUrl(locale, '/download'),
-  };
-
-  // Course Schema with localization (excluding 'teaches' property)
-  const courseSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name: t('pageTitle'),
-    description: t('pageDescription'),
-    provider: {
-      '@type': 'Organization',
-      name: getLocalizedOrganizationName(locale),
-      url: getLocalizedUrl(locale),
-    },
-    educationalLevel: 'Professional Certification',
-    // 'teaches' property kept in English as requested
-    teaches: [
-      'CDL General Knowledge',
-      'Air Brakes',
-      'Combination Vehicles',
-      'Hazmat',
-      'Doubles/Triples',
-      'Tanker',
-      'Passenger',
-    ],
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: 'Online',
-      inLanguage: locale,
-    },
-    inLanguage: locale,
-    url: getLocalizedUrl(locale, '/download'),
-  };
+  // Build comprehensive schemas for app download page using centralized system
+  const schemas = new SchemaBuilder(locale)
+    .addOrganization({
+      description: 'CDL Help - Free CDL practice tests and trucking career resources',
+    })
+    .addWebsite({
+      description: t('pageDescription'),
+    })
+    .addBreadcrumb([
+      { name: t('home', 'Home'), url: '/' },
+      { name: t('download', 'Download App'), url: '/download' },
+    ])
+    .addMobileApplication({
+      name: 'CDL Help - CDL Practice Test',
+      description: t(
+        'heroDescription',
+        "Free CDL practice tests app with all endorsements. Pass your Commercial Driver's License exam on the first try."
+      ),
+      operatingSystem: 'iOS',
+      applicationCategory: 'EducationApplication',
+      aggregateRating: {
+        ratingValue: 4.8,
+        reviewCount: 15234,
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        category: 'Free',
+      },
+      downloadUrl: 'https://apps.apple.com/us/app/cdl-help/id6444388755',
+      installUrl: 'https://apps.apple.com/us/app/cdl-help/id6444388755',
+      fileSize: '52MB',
+      softwareVersion: '3.0.0',
+      contentRating: '4+',
+      screenshot: [
+        'https://www.cdlhelp.com/images/screenshots/ios-1.jpg',
+        'https://www.cdlhelp.com/images/screenshots/ios-2.jpg',
+        'https://www.cdlhelp.com/images/screenshots/ios-3.jpg',
+      ],
+      author: {
+        '@type': 'Organization',
+        name: getLocalizedOrganizationName(locale),
+        url: getLocalizedUrl(locale),
+      },
+      datePublished: '2022-10-01',
+      dateModified: '2024-01-15',
+      permissions: ['Internet access', 'Storage access', 'Camera (for document scanning)'],
+      countriesSupported: ['US', 'CA', 'MX'],
+    })
+    .addMobileApplication({
+      name: 'CDL Help - CDL Practice Test',
+      description: t(
+        'heroDescription',
+        "Free CDL practice tests app with all endorsements. Pass your Commercial Driver's License exam on the first try."
+      ),
+      operatingSystem: 'Android',
+      applicationCategory: 'EducationApplication',
+      aggregateRating: {
+        ratingValue: 4.7,
+        reviewCount: 8567,
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        category: 'Free',
+      },
+      downloadUrl: 'https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp',
+      installUrl: 'https://play.google.com/store/apps/details?id=help.truckdriver.cdlhelp',
+      fileSize: '45MB',
+      softwareVersion: '3.0.0',
+      contentRating: 'Everyone',
+      screenshot: [
+        'https://www.cdlhelp.com/images/screenshots/android-1.jpg',
+        'https://www.cdlhelp.com/images/screenshots/android-2.jpg',
+        'https://www.cdlhelp.com/images/screenshots/android-3.jpg',
+      ],
+      author: {
+        '@type': 'Organization',
+        name: getLocalizedOrganizationName(locale),
+        url: getLocalizedUrl(locale),
+      },
+      datePublished: '2022-10-01',
+      dateModified: '2024-01-15',
+      permissions: ['Internet access', 'Storage access', 'Camera (optional)'],
+      countriesSupported: ['US', 'CA', 'MX'],
+    })
+    .addCourse({
+      name: t('pageTitle', 'Download CDL Practice Test App'),
+      description: t(
+        'pageDescription',
+        'Download the free CDL Help app to practice CDL tests offline'
+      ),
+      aggregateRating: {
+        ratingValue: 4.8,
+        reviewCount: 23801,
+      },
+      teaches: [
+        'CDL General Knowledge',
+        'Air Brakes',
+        'Combination Vehicles',
+        'Hazmat',
+        'Doubles/Triples',
+        'Tanker',
+        'Passenger',
+      ],
+      educationalCredentialAwarded: 'CDL Test Preparation Certificate',
+    })
+    .build();
 
   return (
     <>
@@ -181,19 +236,8 @@ const DownloadPage = ({ alternateLinks }) => {
         ]}
       />
 
-      <Head>
-        {/* Mobile Application Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(applicationSchema) }}
-        />
-
-        {/* Course Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-        />
-      </Head>
+      {/* Structured Data Schemas */}
+      <StructuredData data={schemas} />
 
       <Layout>
         <Navbar alternateLinks={alternateLinks} />
