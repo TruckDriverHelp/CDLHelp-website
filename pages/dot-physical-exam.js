@@ -151,15 +151,10 @@ export default function DotPhysicalExam() {
         },
       ],
     })
-    .addLocalBusiness({
-      '@type': 'MedicalBusiness',
+    .addOrganization({
+      type: 'MedicalBusiness',
       name: 'DOT Physical Exam Centers',
       description: 'Network of certified medical examiners for DOT physicals',
-      areaServed: {
-        '@type': 'Country',
-        name: 'United States',
-      },
-      priceRange: '$50-$150',
     })
     .build();
 
