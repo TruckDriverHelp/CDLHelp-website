@@ -51,7 +51,7 @@ export const generateOrganizationSchema = (
   locale = 'en',
   config?: Partial<OrganizationConfig>
 ): BaseStructuredData => {
-  const baseSchema = {
+  const baseSchema: any = {
     '@context': 'https://schema.org',
     '@type': config?.type || 'Organization',
     '@id': `${getLocalizedUrl(locale)}#organization`,
