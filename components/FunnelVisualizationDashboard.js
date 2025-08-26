@@ -18,6 +18,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
+import apiClient from '../services/api-client';
 
 // Register Chart.js components
 ChartJS.register(
@@ -61,33 +62,24 @@ export const FunnelVisualizationDashboard = ({ className = '' }) => {
       const startDate = new Date();
       startDate.setDate(endDate.getDate() - parseInt(timeRange.replace('d', '')));
 
-      // Load funnel performance data
-      const funnelResponse = await fetch('/api/v2/analytics/funnel/performance', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          start_date: startDate.toISOString(),
-          end_date: endDate.toISOString(),
-          platform: selectedPlatform === 'all' ? null : selectedPlatform,
-        }),
+      // Load funnel performance data - using new API client and endpoints
+      const funnelData = await apiClient.post('/api/analytics/funnel/performance', {
+        start_date: startDate.toISOString(),
+        end_date: endDate.toISOString(),
+        platform: selectedPlatform === 'all' ? null : selectedPlatform,
       });
+      
+      // Data is already parsed by API client
+      setFunnelData(funnelData?.analysis || funnelData);
 
-      const funnelResult = await funnelResponse.json();
-      setFunnelData(funnelResult.analysis);
-
-      // Load cross-platform journey data
-      const journeyResponse = await fetch('/api/v2/analytics/funnel/cross-platform-journeys', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          start_date: startDate.toISOString(),
-          end_date: endDate.toISOString(),
-          min_touchpoints: 2,
-        }),
+      // Load cross-platform journey data - using new endpoint
+      const journeyData = await apiClient.post('/api/analytics/funnel/cross-platform-journeys', {
+        start_date: startDate.toISOString(),
+        end_date: endDate.toISOString(),
+        min_touchpoints: 2,
       });
-
-      const journeyResult = await journeyResponse.json();
-      setJourneyData(journeyResult.analysis);
+      
+      setJourneyData(journeyData?.analysis || journeyData);
     } catch (error) {
       if (process.env.NODE_ENV === 'development') {
         console.error('Error loading dashboard data:', error);
@@ -99,14 +91,12 @@ export const FunnelVisualizationDashboard = ({ className = '' }) => {
 
   const loadRealTimeData = async () => {
     try {
-      const response = await fetch('/api/v2/analytics/funnel/real-time-metrics', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ hours_back: 1 }),
+      // Using new API client and endpoint
+      const metricsData = await apiClient.post('/api/analytics/funnel/real-time-metrics', {
+        hours_back: 1,
       });
-
-      const result = await response.json();
-      setRealTimeData(result.metrics);
+      
+      setRealTimeData(metricsData?.metrics || metricsData);
     } catch (error) {
       if (process.env.NODE_ENV === 'development') {
         console.error('Error loading real-time data:', error);

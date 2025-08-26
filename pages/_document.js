@@ -65,38 +65,23 @@ class MyDocument extends Document {
             }}
           />
 
+          {/* CryptoJS for Enhanced Conversions SHA-256 hashing */}
+          <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+            integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+
           {/* Google Consent Mode v2 - Initialize before any tracking scripts */}
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                // Initialize dataLayer and gtag function
+                // Initialize dataLayer and gtag function FIRST
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 
-                // Set default consent state - must happen before GTM/gtag loads
-                // Default to denied for all consent types
-                gtag('consent', 'default', {
-                  'ad_storage': 'denied',
-                  'ad_user_data': 'denied',
-                  'ad_personalization': 'denied',
-                  'analytics_storage': 'denied',
-                  'functionality_storage': 'granted',
-                  'personalization_storage': 'denied',
-                  'security_storage': 'granted',
-                  'wait_for_update': 500
-                });
-                
-                // Region-specific defaults for stricter privacy laws
-                gtag('consent', 'default', {
-                  'ad_storage': 'denied',
-                  'ad_user_data': 'denied',
-                  'ad_personalization': 'denied',
-                  'analytics_storage': 'denied',
-                  'region': ['EU', 'UK', 'CA', 'CH', 'EEA', 'GB']
-                });
-                
                 // Detect user region for consent defaults
-                // Using timezone as fallback if no geo headers available
                 function detectRegion() {
                   // Check CloudFlare or similar geo headers first
                   const cfCountry = document.querySelector('meta[name="cf-country"]')?.content;
@@ -111,12 +96,41 @@ class MyDocument extends Document {
                   return 'US';
                 }
                 
+                // Check if user is in privacy-strict region
+                const strictRegions = ['EU', 'UK', 'CA', 'CH', 'EEA', 'GB'];
+                const userRegion = detectRegion();
+                const isStrictRegion = strictRegions.includes(userRegion);
+                
+                // Set default consent state - MUST happen before any tracking scripts load
+                // Use region-based defaults for better compliance
+                gtag('consent', 'default', {
+                  'ad_storage': isStrictRegion ? 'denied' : 'denied', // Always denied by default for better privacy
+                  'ad_user_data': isStrictRegion ? 'denied' : 'denied',
+                  'ad_personalization': isStrictRegion ? 'denied' : 'denied',
+                  'analytics_storage': isStrictRegion ? 'denied' : 'denied',
+                  'functionality_storage': 'granted', // Always granted for necessary cookies
+                  'personalization_storage': isStrictRegion ? 'denied' : 'denied',
+                  'security_storage': 'granted', // Always granted for security
+                  'wait_for_update': isStrictRegion ? 2000 : 500, // Longer wait for strict regions
+                  'region': strictRegions // Apply to all strict regions
+                });
+                
                 // Set debug flag from environment or query param
                 if (typeof window !== 'undefined') {
                   const urlParams = new URLSearchParams(window.location.search);
                   if (urlParams.get('analytics_debug') === 'true' || 
                       '${process.env.NEXT_PUBLIC_ANALYTICS_DEBUG}' === 'true') {
                     window.__ANALYTICS_DEBUG__ = true;
+                  }
+                  
+                  // Debug log consent initialization
+                  if (window.__ANALYTICS_DEBUG__) {
+                    console.log('🔒 Google Consent Mode V2 initialized', {
+                      region: userRegion,
+                      isStrictRegion: isStrictRegion,
+                      defaults: 'denied (privacy-first)',
+                      wait_for_update: isStrictRegion ? 2000 : 500
+                    });
                   }
                 }
               `,

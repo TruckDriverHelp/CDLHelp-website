@@ -230,7 +230,7 @@ const MyApp = ({ Component, pageProps }) => {
           <AsyncStyles />
           {isClient && consentManager.hasConsent('marketing') && (
             <Suspense fallback={null}>
-              <Pixel name="FACEBOOK_PIXEL_1" />
+              <Pixel name="FACEBOOK_PIXEL_ADVANCED" />
             </Suspense>
           )}
           {isClient && !['/404', '/cookies-policy'].includes(router.pathname) && (
@@ -311,7 +311,11 @@ const MyApp = ({ Component, pageProps }) => {
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');
+                    
+                    // Enable Enhanced Conversions
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}', {
+                      'allow_enhanced_conversions': true
+                    });
                   `,
                   }}
                 />

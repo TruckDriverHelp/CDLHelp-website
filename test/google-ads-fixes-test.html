@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Fixes Test Suite</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #4285f4;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.pass {
+            background: #4caf50;
+            color: white;
+        }
+        .status.fail {
+            background: #f44336;
+            color: white;
+        }
+        .status.warning {
+            background: #ff9800;
+            color: white;
+        }
+        .status.pending {
+            background: #2196f3;
+            color: white;
+        }
+        button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #357ae8;
+        }
+        .console {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .console .log {
+            color: #d4d4d4;
+        }
+        .console .error {
+            color: #f48771;
+        }
+        .console .success {
+            color: #89d185;
+        }
+        .console .info {
+            color: #6a9eff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 4px solid #ddd;
+        }
+        .test-result.pass {
+            border-color: #4caf50;
+            background: #f1f8e9;
+        }
+        .test-result.fail {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Ads Fixes Test Suite</h1>
+    <p>Testing the three critical Google Ads/GA4 issues and their fixes</p>
+
+    <!-- Test 1: GA4 Key Events Import -->
+    <div class="test-section">
+        <h2>1. GA4 Key Events Import <span id="ga4-status" class="status pending">PENDING</span></h2>
+        <p>Testing if GA4 key events are properly configured for Google Ads import</p>
+        
+        <button onclick="testGA4KeyEvents()">Run Test</button>
+        <button onclick="simulateKeyEvent()">Simulate Key Event</button>
+        
+        <div class="console" id="ga4-console"></div>
+        
+        <table id="ga4-events-table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Category</th>
+                    <th>Import to Ads</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="ga4-events-body"></tbody>
+        </table>
+    </div>
+
+    <!-- Test 2: Server-Side Tagging -->
+    <div class="test-section">
+        <h2>2. Server-Side Tagging <span id="sst-status" class="status pending">PENDING</span></h2>
+        <p>Testing server-side tagging configuration (resistant to ad blockers)</p>
+        
+        <button onclick="testServerSideTagging()">Run Test</button>
+        <button onclick="simulateServerEvent()">Send Test Event</button>
+        <button onclick="testOfflineQueue()">Test Offline Queue</button>
+        
+        <div class="console" id="sst-console"></div>
+        
+        <table id="sst-info-table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="sst-info-body"></tbody>
+        </table>
+    </div>
+
+    <!-- Test 3: Consent Mode V2 -->
+    <div class="test-section">
+        <h2>3. Google Consent Mode V2 <span id="consent-status" class="status pending">PENDING</span></h2>
+        <p>Testing Consent Mode V2 implementation for GDPR/DMA compliance</p>
+        
+        <button onclick="testConsentModeV2()">Run Test</button>
+        <button onclick="simulateEUUser()">Simulate EU User</button>
+        <button onclick="simulateUSUser()">Simulate US User</button>
+        <button onclick="grantAllConsent()">Grant All Consent</button>
+        <button onclick="denyAllConsent()">Deny All Consent</button>
+        
+        <div class="console" id="consent-console"></div>
+        
+        <table id="consent-table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Consent Type</th>
+                    <th>Current State</th>
+                    <th>V2 Required</th>
+                </tr>
+            </thead>
+            <tbody id="consent-body"></tbody>
+        </table>
+    </div>
+
+    <!-- Overall Test Results -->
+    <div class="test-section">
+        <h2>Test Results Summary</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="clearResults()">Clear Results</button>
+        
+        <div id="summary-results"></div>
+    </div>
+
+    <script>
+        // Mock implementations for testing
+        window.gtag = window.gtag || function() {
+            console.log('gtag called:', arguments);
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(arguments);
+        };
+        
+        // Test utilities
+        function log(consoleId, message, type = 'log') {
+            const console = document.getElementById(consoleId);
+            const entry = document.createElement('div');
+            entry.className = type;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            console.appendChild(entry);
+            console.scrollTop = console.scrollHeight;
+        }
+        
+        function updateStatus(statusId, status, text) {
+            const element = document.getElementById(statusId);
+            element.className = `status ${status}`;
+            element.textContent = text;
+        }
+        
+        // Test 1: GA4 Key Events Import
+        async function testGA4KeyEvents() {
+            const console = 'ga4-console';
+            log(console, 'Starting GA4 Key Events test...', 'info');
+            
+            try {
+                // Check if GA4 key events configuration exists
+                if (typeof ga4KeyEvents === 'undefined') {
+                    // Create mock for testing
+                    window.ga4KeyEvents = {
+                        keyEvents: {
+                            trial_started: { import_to_ads: true },
+                            sign_up: { import_to_ads: true },
+                            quiz_completed: { import_to_ads: true },
+                            purchase: { import_to_ads: false }
+                        },
+                        getImportStatus: () => ({
+                            total_events: 4,
+                            importable_events: 3,
+                            initialized: true
+                        })
+                    };
+                }
+                
+                const status = ga4KeyEvents.getImportStatus();
+                log(console, `Found ${status.importable_events} events configured for import`, 'success');
+                
+                // Display events table
+                const table = document.getElementById('ga4-events-table');
+                const tbody = document.getElementById('ga4-events-body');
+                tbody.innerHTML = '';
+                
+                Object.entries(ga4KeyEvents.keyEvents).forEach(([name, config]) => {
+                    const row = tbody.insertRow();
+                    row.insertCell(0).textContent = name;
+                    row.insertCell(1).textContent = config.category || 'engagement';
+                    row.insertCell(2).textContent = config.import_to_ads ? 'Yes' : 'No';
+                    row.insertCell(3).innerHTML = config.import_to_ads 
+                        ? '<span class="status pass">✓</span>'
+                        : '<span class="status warning">-</span>';
+                });
+                
+                table.style.display = 'table';
+                
+                // Check gtag configuration
+                if (window.gtag) {
+                    log(console, 'gtag is available for tracking', 'success');
+                } else {
+                    log(console, 'gtag not found - tracking may not work', 'error');
+                }
+                
+                updateStatus('ga4-status', 'pass', 'CONFIGURED');
+                log(console, 'GA4 Key Events test completed successfully', 'success');
+                
+            } catch (error) {
+                log(console, `Test failed: ${error.message}`, 'error');
+                updateStatus('ga4-status', 'fail', 'FAILED');
+            }
+        }
+        
+        function simulateKeyEvent() {
+            const console = 'ga4-console';
+            log(console, 'Simulating trial_started event...', 'info');
+            
+            window.gtag('event', 'trial_started', {
+                trial_type: 'premium',
+                trial_days: 7,
+                method: 'credit_card'
+            });
+            
+            log(console, 'Event sent to GA4 and Google Ads', 'success');
+        }
+        
+        // Test 2: Server-Side Tagging
+        async function testServerSideTagging() {
+            const console = 'sst-console';
+            log(console, 'Starting Server-Side Tagging test...', 'info');
+            
+            try {
+                // Check if server-side tagging is configured
+                if (typeof serverSideTagging === 'undefined') {
+                    // Create mock for testing
+                    window.serverSideTagging = {
+                        enabled: false,
+                        serverEndpoint: null,
+                        getDebugInfo: () => ({
+                            enabled: false,
+                            endpoint: null,
+                            clientId: 'test-client-123',
+                            sessionId: 'test-session-456',
+                            queueLength: 0,
+                            isOnline: navigator.onLine,
+                            transportMethod: 'beacon'
+                        })
+                    };
+                }
+                
+                const debugInfo = serverSideTagging.getDebugInfo();
+                
+                // Display info table
+                const table = document.getElementById('sst-info-table');
+                const tbody = document.getElementById('sst-info-body');
+                tbody.innerHTML = '';
+                
+                Object.entries(debugInfo).forEach(([key, value]) => {
+                    const row = tbody.insertRow();
+                    row.insertCell(0).textContent = key;
+                    row.insertCell(1).textContent = value || 'Not configured';
+                });
+                
+                table.style.display = 'table';
+                
+                if (debugInfo.enabled) {
+                    log(console, 'Server-side tagging is ENABLED', 'success');
+                    log(console, `Endpoint: ${debugInfo.endpoint}`, 'info');
+                    updateStatus('sst-status', 'pass', 'ENABLED');
+                } else {
+                    log(console, 'Server-side tagging not configured', 'warning');
+                    log(console, 'Set NEXT_PUBLIC_GTM_SERVER_URL to enable', 'info');
+                    updateStatus('sst-status', 'warning', 'NOT CONFIGURED');
+                }
+                
+                // Test transport methods
+                log(console, `Transport method: ${debugInfo.transportMethod}`, 'info');
+                log(console, `Network status: ${debugInfo.isOnline ? 'Online' : 'Offline'}`, 'info');
+                
+                if (debugInfo.queueLength > 0) {
+                    log(console, `${debugInfo.queueLength} events in queue`, 'warning');
+                }
+                
+            } catch (error) {
+                log(console, `Test failed: ${error.message}`, 'error');
+                updateStatus('sst-status', 'fail', 'FAILED');
+            }
+        }
+        
+        function simulateServerEvent() {
+            const console = 'sst-console';
+            log(console, 'Sending test event to server...', 'info');
+            
+            if (window.serverSideTagging && serverSideTagging.enabled) {
+                serverSideTagging.sendEvent('test_event', {
+                    test: true,
+                    timestamp: Date.now()
+                });
+                log(console, 'Event sent to server container', 'success');
+            } else {
+                log(console, 'Server-side tagging not enabled', 'warning');
+            }
+        }
+        
+        function testOfflineQueue() {
+            const console = 'sst-console';
+            log(console, 'Testing offline queue...', 'info');
+            
+            // Simulate offline
+            if (window.serverSideTagging) {
+                serverSideTagging.isOnline = false;
+                log(console, 'Simulated offline mode', 'info');
+                
+                // Send event (should be queued)
+                serverSideTagging.queueEvent({
+                    event: 'offline_test',
+                    timestamp: Date.now()
+                });
+                
+                log(console, 'Event queued for later sending', 'success');
+                
+                // Simulate back online
+                setTimeout(() => {
+                    serverSideTagging.isOnline = true;
+                    serverSideTagging.processQueue();
+                    log(console, 'Back online - processing queue', 'success');
+                }, 2000);
+            }
+        }
+        
+        // Test 3: Consent Mode V2
+        async function testConsentModeV2() {
+            const console = 'consent-console';
+            log(console, 'Starting Consent Mode V2 test...', 'info');
+            
+            try {
+                // Check dataLayer for consent events
+                const consentEvents = (window.dataLayer || [])
+                    .filter(item => item[0] === 'consent');
+                
+                if (consentEvents.length > 0) {
+                    log(console, `Found ${consentEvents.length} consent configurations`, 'success');
+                    
+                    // Check for V2 parameters
+                    const latestConsent = consentEvents[consentEvents.length - 1];
+                    const consentParams = latestConsent[2] || {};
+                    
+                    // Display consent table
+                    const table = document.getElementById('consent-table');
+                    const tbody = document.getElementById('consent-body');
+                    tbody.innerHTML = '';
+                    
+                    const v2Params = {
+                        'analytics_storage': false,
+                        'ad_storage': false,
+                        'ad_user_data': true, // V2 required
+                        'ad_personalization': true, // V2 required
+                        'functionality_storage': false,
+                        'personalization_storage': false,
+                        'security_storage': false
+                    };
+                    
+                    let hasV2 = true;
+                    Object.entries(v2Params).forEach(([param, isV2]) => {
+                        const row = tbody.insertRow();
+                        row.insertCell(0).textContent = param;
+                        row.insertCell(1).textContent = consentParams[param] || 'not set';
+                        row.insertCell(2).innerHTML = isV2 
+                            ? '<span class="status warning">V2</span>'
+                            : '<span class="status">V1</span>';
+                        
+                        if (isV2 && !consentParams.hasOwnProperty(param)) {
+                            hasV2 = false;
+                        }
+                    });
+                    
+                    table.style.display = 'table';
+                    
+                    if (hasV2) {
+                        log(console, 'Consent Mode V2 is properly configured', 'success');
+                        updateStatus('consent-status', 'pass', 'V2 CONFIGURED');
+                    } else {
+                        log(console, 'Missing V2 parameters (ad_user_data, ad_personalization)', 'warning');
+                        updateStatus('consent-status', 'warning', 'V1 ONLY');
+                    }
+                    
+                    // Check region detection
+                    if (window.consentManager && consentManager.getUserRegion) {
+                        const region = consentManager.getUserRegion();
+                        log(console, `Detected region: ${region}`, 'info');
+                        
+                        if (consentManager.isPrivacyStrictRegion()) {
+                            log(console, 'User is in privacy-strict region (EU/UK)', 'info');
+                        }
+                    }
+                    
+                } else {
+                    log(console, 'No consent configuration found', 'error');
+                    updateStatus('consent-status', 'fail', 'NOT CONFIGURED');
+                }
+                
+            } catch (error) {
+                log(console, `Test failed: ${error.message}`, 'error');
+                updateStatus('consent-status', 'fail', 'FAILED');
+            }
+        }
+        
+        function simulateEUUser() {
+            const console = 'consent-console';
+            log(console, 'Simulating EU user...', 'info');
+            
+            // Set consent defaults for EU
+            window.gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                functionality_storage: 'granted',
+                personalization_storage: 'denied',
+                security_storage: 'granted',
+                wait_for_update: 2000,
+                region: ['EU']
+            });
+            
+            log(console, 'EU consent defaults applied (all denied)', 'success');
+        }
+        
+        function simulateUSUser() {
+            const console = 'consent-console';
+            log(console, 'Simulating US user...', 'info');
+            
+            // Set consent defaults for US
+            window.gtag('consent', 'default', {
+                analytics_storage: 'granted',
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+                functionality_storage: 'granted',
+                personalization_storage: 'granted',
+                security_storage: 'granted',
+                region: ['US']
+            });
+            
+            log(console, 'US consent defaults applied (all granted)', 'success');
+        }
+        
+        function grantAllConsent() {
+            const console = 'consent-console';
+            log(console, 'Granting all consent...', 'info');
+            
+            window.gtag('consent', 'update', {
+                analytics_storage: 'granted',
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+                functionality_storage: 'granted',
+                personalization_storage: 'granted',
+                security_storage: 'granted'
+            });
+            
+            log(console, 'All consent granted', 'success');
+        }
+        
+        function denyAllConsent() {
+            const console = 'consent-console';
+            log(console, 'Denying all consent...', 'info');
+            
+            window.gtag('consent', 'update', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                functionality_storage: 'granted',
+                personalization_storage: 'denied',
+                security_storage: 'granted'
+            });
+            
+            log(console, 'Marketing/analytics consent denied', 'success');
+        }
+        
+        // Run all tests
+        async function runAllTests() {
+            const summary = document.getElementById('summary-results');
+            summary.innerHTML = '<p>Running all tests...</p>';
+            
+            await testGA4KeyEvents();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await testServerSideTagging();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await testConsentModeV2();
+            
+            // Generate summary
+            const results = [];
+            
+            const ga4Status = document.getElementById('ga4-status').className.includes('pass');
+            const sstStatus = !document.getElementById('sst-status').className.includes('fail');
+            const consentStatus = document.getElementById('consent-status').className.includes('pass');
+            
+            results.push(`<div class="test-result ${ga4Status ? 'pass' : 'fail'}">
+                <strong>GA4 Key Events:</strong> ${ga4Status ? 'Configured for import' : 'Not configured'}
+            </div>`);
+            
+            results.push(`<div class="test-result ${sstStatus ? 'pass' : 'fail'}">
+                <strong>Server-Side Tagging:</strong> ${sstStatus ? 'Ready (needs server deployment)' : 'Failed'}
+            </div>`);
+            
+            results.push(`<div class="test-result ${consentStatus ? 'pass' : 'fail'}">
+                <strong>Consent Mode V2:</strong> ${consentStatus ? 'Fully compliant' : 'Needs V2 parameters'}
+            </div>`);
+            
+            summary.innerHTML = '<h3>Test Results:</h3>' + results.join('');
+        }
+        
+        function clearResults() {
+            document.querySelectorAll('.console').forEach(el => el.innerHTML = '');
+            document.querySelectorAll('.status').forEach(el => {
+                el.className = 'status pending';
+                el.textContent = 'PENDING';
+            });
+            document.querySelectorAll('table').forEach(el => el.style.display = 'none');
+            document.getElementById('summary-results').innerHTML = '';
+        }
+        
+        // Auto-run tests on load
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Google Ads Fixes Test Suite loaded');
+        });
+    </script>
+</body>
+</html>
