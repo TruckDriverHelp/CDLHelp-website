@@ -67,6 +67,7 @@ class MyDocument extends Document {
 
           {/* CryptoJS for Enhanced Conversions SHA-256 hashing */}
           <script 
+            async
             src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
             integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
             crossOrigin="anonymous"

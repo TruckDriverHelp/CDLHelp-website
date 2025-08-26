@@ -200,6 +200,9 @@ const FacebookPixelAdvanced = () => {
   };
 
   useEffect(() => {
+    // Don't initialize if pixel ID is not configured
+    if (!pixelId) return;
+
     // Initialize Advanced Matching when component mounts
     const initAdvancedMatching = async () => {
       if (typeof window !== 'undefined' && window.fbq) {
@@ -209,11 +212,6 @@ const FacebookPixelAdvanced = () => {
         // Re-initialize pixel with Advanced Matching
         window.fbq('init', pixelId, advancedMatching);
         
-        // Log for debugging (remove in production)
-        if (process.env.NODE_ENV === 'development') {
-          console.log('[FB Pixel] Advanced Matching initialized with fields:', Object.keys(advancedMatching));
-        }
-        
         // Track PageView with Advanced Matching active
         window.fbq('track', 'PageView');
       }
@@ -221,7 +219,10 @@ const FacebookPixelAdvanced = () => {
 
     // Delay initialization to ensure user data is available
     setTimeout(initAdvancedMatching, 100);
-  }, [pixelId]);
+  }, [pixelId, buildAdvancedMatching]);
+
+  // Don't render if pixel ID is not configured
+  if (!pixelId) return null;
 
   return (
     <>
