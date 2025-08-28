@@ -71,7 +71,7 @@ const PrivacyPolicy = ({ meta }) => {
           <div className="container">
             <div className="privacy-policy-content">
               <h1>Privacy Policy</h1>
-              <p>Last updated: September 19, 2024</p>
+              <p>Last updated: December 28, 2024</p>
               <p>
                 This Privacy Policy describes Our policies and procedures on the collection, use and
                 disclosure of Your information when You use the Service and tells You about Your
@@ -254,10 +254,25 @@ const PrivacyPolicy = ({ meta }) => {
                   <p>First name and last name</p>
                 </li>
                 <li>
+                  <p>Phone number</p>
+                </li>
+                <li>
+                  <p>Date of birth</p>
+                </li>
+                <li>
                   <p>Address, State, Province, ZIP/Postal code, City</p>
                 </li>
                 <li>
                   <p>Usage Data</p>
+                </li>
+                <li>
+                  <p>Learning progress and quiz scores</p>
+                </li>
+                <li>
+                  <p>Study time and activity patterns</p>
+                </li>
+                <li>
+                  <p>Subscription and purchase history</p>
                 </li>
               </ul>
               <h4>Usage Data</h4>
@@ -273,11 +288,14 @@ const PrivacyPolicy = ({ meta }) => {
                 information automatically, including, but not limited to, the type of mobile device
                 You use, Your mobile device unique ID, the IP address of Your mobile device, Your
                 mobile operating system, the type of mobile Internet browser You use, unique device
-                identifiers and other diagnostic data.
+                identifiers, push notification tokens, timezone information, language preferences,
+                last activity dates, session recordings, and other diagnostic data.
               </p>
               <p>
                 We may also collect information that Your browser sends whenever You visit our
-                Service or when You access the Service by or through a mobile device.
+                Service or when You access the Service by or through a mobile device. This includes
+                device identifiers such as AppsFlyer ID, Amplitude device ID, advertising
+                identifiers, and other attribution data.
               </p>
               <h4>Information from Third-Party Social Media Services</h4>
               <p>
@@ -311,6 +329,13 @@ const PrivacyPolicy = ({ meta }) => {
               </p>
               <ul>
                 <li>Information regarding your location</li>
+                <li>Push notification preferences and tokens</li>
+                <li>Session recordings of Your app usage (via Smartlook)</li>
+                <li>Behavioral analytics data including feature usage patterns</li>
+                <li>Learning behavior and engagement metrics</li>
+                <li>Attribution data for marketing campaigns</li>
+                <li>Device timezone and language settings</li>
+                <li>Inactivity tracking for re-engagement purposes</li>
               </ul>
               <p>
                 We use this information to provide features of Our Service, to improve and customize
@@ -319,7 +344,8 @@ const PrivacyPolicy = ({ meta }) => {
               </p>
               <p>
                 You can enable or disable access to this information at any time, through Your
-                Device settings.
+                Device settings or through our unified consent management system within the
+                Application.
               </p>
               <h3>Use of Your Personal Data</h3>
               <p>The Company may use Personal Data for the following purposes:</p>
@@ -587,7 +613,94 @@ const PrivacyPolicy = ({ meta }) => {
                     </a>
                   </p>
                 </li>
+                <li>
+                  <p>
+                    <strong>Amplitude</strong>
+                  </p>
+                  <p>
+                    Amplitude is a behavioral analytics platform that helps us understand how You
+                    interact with our Service. Amplitude collects information about Your actions,
+                    feature usage, and learning patterns to help Us improve the Service.
+                  </p>
+                  <p>
+                    For more information on the privacy practices of Amplitude, please visit the
+                    Amplitude Privacy Policy:{' '}
+                    <a
+                      href="https://amplitude.com/privacy"
+                      rel="external nofollow noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://amplitude.com/privacy
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>AppsFlyer</strong>
+                  </p>
+                  <p>
+                    AppsFlyer is a mobile attribution and marketing analytics platform. We use
+                    AppsFlyer to understand how users discover and interact with our Service,
+                    measure marketing campaign effectiveness, and provide You with personalized
+                    experiences.
+                  </p>
+                  <p>
+                    For more information on the privacy practices of AppsFlyer, please visit the
+                    AppsFlyer Privacy Policy:{' '}
+                    <a
+                      href="https://www.appsflyer.com/legal/privacy-policy/"
+                      rel="external nofollow noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://www.appsflyer.com/legal/privacy-policy/
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Smartlook</strong>
+                  </p>
+                  <p>
+                    Smartlook is a qualitative analytics solution that records users&apos; sessions.
+                    By recording sessions, Smartlook helps Us understand how users actually interact
+                    with our Service, identify usability issues, and improve user experience.
+                    Session recordings may include screens viewed, taps, swipes, and other
+                    interactions within the Application.
+                  </p>
+                  <p>
+                    You may opt-out of Smartlook session recording through our consent management
+                    system within the Application. For more information on the privacy practices of
+                    Smartlook, please visit the Smartlook Privacy Policy:{' '}
+                    <a
+                      href="https://www.smartlook.com/privacy-policy/"
+                      rel="external nofollow noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://www.smartlook.com/privacy-policy/
+                    </a>
+                  </p>
+                </li>
               </ul>
+              <h3>Push Notifications</h3>
+              <p>
+                We may send You push notifications through our mobile Application to provide You
+                with updates, reminders, and promotional messages. These include:
+              </p>
+              <ul>
+                <li>Study reminders and learning tips</li>
+                <li>
+                  Monthly re-engagement notifications if You haven&apos;t used the Service for 30
+                  days
+                </li>
+                <li>Updates about new features and content</li>
+                <li>Promotional offers and subscription information</li>
+              </ul>
+              <p>
+                You can opt-out of receiving push notifications by adjusting Your mobile device
+                settings or through the notification preferences in our Application. Our monthly
+                re-engagement system tracks Your last activity date to send relevant reminders,
+                helping You stay consistent with Your learning goals.
+              </p>
               <h3>Email Marketing</h3>
               <p>
                 We may use Your Personal Data to contact You with newsletters, marketing or
@@ -677,7 +790,100 @@ const PrivacyPolicy = ({ meta }) => {
                     </a>
                   </p>
                 </li>
+                <li>
+                  <p>
+                    <strong>RevenueCat</strong>
+                  </p>
+                  <p>
+                    RevenueCat is a subscription management platform that helps Us manage in-app
+                    purchases and subscriptions. RevenueCat processes subscription data, purchase
+                    events, and revenue information to provide subscription analytics and
+                    management.
+                  </p>
+                  <p>
+                    Their Privacy Policy can be viewed at{' '}
+                    <a
+                      href="https://www.revenuecat.com/privacy"
+                      rel="external nofollow noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://www.revenuecat.com/privacy
+                    </a>
+                  </p>
+                </li>
               </ul>
+              <h3>Authentication Services</h3>
+              <p>
+                We use third-party authentication services to manage user accounts and provide
+                secure access to our Service.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    <strong>Auth0</strong>
+                  </p>
+                  <p>
+                    Auth0 is an authentication and authorization platform that provides secure
+                    identity management for our Service. Auth0 processes Your login credentials,
+                    manages authentication tokens, and helps protect Your account from unauthorized
+                    access.
+                  </p>
+                  <p>
+                    For more information on the privacy practices of Auth0, please visit the Auth0
+                    Privacy Policy:{' '}
+                    <a
+                      href="https://auth0.com/privacy"
+                      rel="external nofollow noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://auth0.com/privacy
+                    </a>
+                  </p>
+                </li>
+              </ul>
+              <h3>Data Processing and Cross-Platform Tracking</h3>
+              <p>
+                We implement cross-platform tracking to provide You with a consistent and
+                personalized experience across all our services. This includes:
+              </p>
+              <ul>
+                <li>
+                  <strong>Unified User Identification:</strong> We synchronize Your user ID across
+                  multiple analytics and marketing platforms to understand Your complete journey
+                  with our Service.
+                </li>
+                <li>
+                  <strong>Server-Side Processing:</strong> Some of Your data is processed on our
+                  servers to enhance security and provide advanced features. This includes hashing
+                  sensitive information before sharing with third parties.
+                </li>
+                <li>
+                  <strong>Behavioral Analytics:</strong> We analyze Your learning patterns,
+                  engagement metrics, and feature usage to improve our Service and provide
+                  personalized recommendations.
+                </li>
+                <li>
+                  <strong>Predictive Analytics:</strong> We may use machine learning to predict user
+                  preferences and optimize Your experience based on aggregated user data.
+                </li>
+              </ul>
+              <h3>Consent Management</h3>
+              <p>
+                We provide a comprehensive consent management system that allows You to control how
+                Your data is collected and used. Through our unified consent service, You can:
+              </p>
+              <ul>
+                <li>Manage consent for analytics and performance tracking</li>
+                <li>Control marketing and advertising preferences</li>
+                <li>Opt-out of session recording</li>
+                <li>Configure push notification preferences</li>
+                <li>Manage cookie preferences on our website</li>
+              </ul>
+              <p>
+                For iOS users, we comply with Apple&apos;s App Tracking Transparency (ATT)
+                framework, requesting Your permission before tracking Your activity across apps and
+                websites owned by other companies.
+              </p>
               <h3>Behavioral Remarketing</h3>
               <p>
                 The Company uses remarketing services to advertise to You after You accessed or
@@ -957,6 +1163,13 @@ const PrivacyPolicy = ({ meta }) => {
                 by contacting Us. Please note that we may ask You to verify Your identity before
                 responding to such requests. If You make a request, We will try our best to respond
                 to You as soon as possible.
+              </p>
+              <p>
+                Through our unified consent management system within the Application, You can easily
+                manage Your preferences for different types of data processing including analytics
+                tracking, session recording, marketing communications, and behavioral profiling. You
+                have the right to withdraw consent for any specific data processing activity at any
+                time.
               </p>
               <p>
                 You have the right to complain to a Data Protection Authority about Our collection
@@ -1662,6 +1875,12 @@ const PrivacyPolicy = ({ meta }) => {
                 Data, please contact Us. If We become aware that We have collected Personal Data
                 from anyone under the age of 13 without verification of parental consent, We take
                 steps to remove that information from Our servers.
+              </p>
+              <p>
+                Session recording and behavioral analytics features are not used for users under the
+                age of 18. We implement age verification processes to ensure that advanced tracking
+                features, including Smartlook session recordings and detailed behavioral analytics,
+                are disabled for minors.
               </p>
               <p>
                 If We need to rely on consent as a legal basis for processing Your information and
