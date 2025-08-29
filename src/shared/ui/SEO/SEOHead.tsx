@@ -150,15 +150,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Alternate Language Links - Only render if we have valid alternate links */}
       {shouldAddHreflang && Object.keys(finalAlternateLinks).length > 0 && (
         <>
-          {/* x-default should point to English version when available */}
-          {finalAlternateLinks['en'] && (
-            <link
-              rel="alternate"
-              href={`${baseUrl}${finalAlternateLinks['en']}`}
-              hrefLang="x-default"
-            />
-          )}
           {/* Add hreflang for each available translation */}
+          {/* Note: We're not using x-default to avoid "multiple entries" warnings in SEO tools */}
+          {/* The en-US version serves as the default for English speakers */}
           {Object.entries(finalAlternateLinks).map(([lang, path]) => (
             <link
               key={lang}
