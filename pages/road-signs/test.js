@@ -33,6 +33,13 @@ const SignsTest = () => {
   };
 
   const seoData = useSEO({
+    meta: {
+      title: t('roadSignsTestTitle', 'CDL Road Signs Practice Test - Free Online Quiz | CDL Help'),
+      description: t(
+        'roadSignsTestDescription',
+        'Practice CDL road signs test online. Master traffic signs, warning signs, and regulatory signs required for your Commercial Driver License exam.'
+      ),
+    },
     customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/road-signs/test`,
     type: 'website',
   });

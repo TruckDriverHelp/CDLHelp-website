@@ -14,7 +14,12 @@ const TermsConditions = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
 
   const seoData = useSEO({
-    meta,
+    meta: {
+      title: meta?.title || 'Terms & Conditions - Service Agreement & Legal Terms | CDL Help',
+      description:
+        meta?.description ||
+        'CDL Help terms and conditions of service. Read our user agreement, legal terms, disclaimers, and service policies for using our CDL practice test platform.',
+    },
     customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/terms-conditions`,
     type: 'website',
   });

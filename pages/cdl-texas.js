@@ -79,8 +79,11 @@ const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
   return (
     <>
       <SEOHead
-        title={meta.title}
-        description={meta.description}
+        title={meta.title || 'Texas CDL Practice Test - Free CVO Knowledge Exam Questions 2025'}
+        description={
+          meta.description ||
+          'Free Texas CDL practice test with real CVO knowledge exam questions. Prepare for your Commercial Driver License test with hundreds of Texas-specific questions and answers.'
+        }
         alternateLinks={alternateLinks}
         url={`https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-texas`}
       />

@@ -14,7 +14,12 @@ const PrivacyPolicy = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
 
   const seoData = useSEO({
-    meta,
+    meta: {
+      title: meta?.title || 'Privacy Policy - Data Protection & User Privacy | CDL Help',
+      description:
+        meta?.description ||
+        'CDL Help privacy policy. Learn how we protect your personal information, handle data collection, and ensure your privacy while using our CDL practice test app and services.',
+    },
     customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/privacy-policy`,
     type: 'website',
   });

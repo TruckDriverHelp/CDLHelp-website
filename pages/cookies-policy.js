@@ -14,7 +14,12 @@ const CookiesPolicy = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
 
   const seoData = useSEO({
-    meta,
+    meta: {
+      title: meta?.title || 'Cookie Policy - Website Cookies & Tracking Information | CDL Help',
+      description:
+        meta?.description ||
+        'CDL Help cookie policy. Learn about the cookies we use, how we track website usage, and how to manage your cookie preferences for optimal browsing experience.',
+    },
     customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cookies-policy`,
     type: 'website',
   });
