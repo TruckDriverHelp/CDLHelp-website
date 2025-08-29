@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -383,10 +384,107 @@ const DownloadPage = ({ alternateLinks }) => {
           </div>
         </section>
 
+        {/* Related Resources Section */}
+        <section className="related-resources-area ptb-100">
+          <div className="container">
+            <div className="section-title text-center">
+              <h2 className="mb-3">{t('helpfulResources', 'Helpful Resources')}</h2>
+              <p className="lead">
+                {t(
+                  'helpfulResourcesDesc',
+                  'Explore more resources to help you prepare for your CDL exam'
+                )}
+              </p>
+            </div>
+
+            <div className="row g-4 mt-5">
+              <div className="col-lg-3 col-md-6">
+                <Link href="/cdl-texas" locale={locale} legacyBehavior>
+                  <a className="resource-card h-100 d-block text-decoration-none">
+                    <div className="p-4 bg-white rounded shadow-sm h-100">
+                      <div className="text-center mb-3">
+                        <span style={{ fontSize: '2rem' }}>📝</span>
+                      </div>
+                      <h4 className="h5 mb-2">{t('cdlPracticeTest', 'CDL Practice Test')}</h4>
+                      <p className="text-muted small mb-0">
+                        {t('cdlPracticeTestDesc', 'Take our free CDL practice test online')}
+                      </p>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+
+              <div className="col-lg-3 col-md-6">
+                <Link href="/schools" locale={locale} legacyBehavior>
+                  <a className="resource-card h-100 d-block text-decoration-none">
+                    <div className="p-4 bg-white rounded shadow-sm h-100">
+                      <div className="text-center mb-3">
+                        <span style={{ fontSize: '2rem' }}>🏫</span>
+                      </div>
+                      <h4 className="h5 mb-2">{t('cdlSchools', 'CDL Schools')}</h4>
+                      <p className="text-muted small mb-0">
+                        {t('cdlSchoolsDesc', 'Find CDL training schools near you')}
+                      </p>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+
+              <div className="col-lg-3 col-md-6">
+                <Link href="/pre-trip-inspection/guide" locale={locale} legacyBehavior>
+                  <a className="resource-card h-100 d-block text-decoration-none">
+                    <div className="p-4 bg-white rounded shadow-sm h-100">
+                      <div className="text-center mb-3">
+                        <span style={{ fontSize: '2rem' }}>🚛</span>
+                      </div>
+                      <h4 className="h5 mb-2">{t('preTripInspection', 'Pre-Trip Inspection')}</h4>
+                      <p className="text-muted small mb-0">
+                        {t(
+                          'preTripInspectionDesc',
+                          'Learn the complete pre-trip inspection process'
+                        )}
+                      </p>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+
+              <div className="col-lg-3 col-md-6">
+                <Link href="/blog" locale={locale} legacyBehavior>
+                  <a className="resource-card h-100 d-block text-decoration-none">
+                    <div className="p-4 bg-white rounded shadow-sm h-100">
+                      <div className="text-center mb-3">
+                        <span style={{ fontSize: '2rem' }}>📚</span>
+                      </div>
+                      <h4 className="h5 mb-2">{t('cdlBlog', 'CDL Blog')}</h4>
+                      <p className="text-muted small mb-0">
+                        {t('cdlBlogDesc', 'Tips and guides for CDL drivers')}
+                      </p>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </Layout>
 
       <style jsx>{`
+        .resource-card:hover .p-4 {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .resource-card .p-4 {
+          transition: all 0.3s ease;
+        }
+
+        .resource-card h4 {
+          color: #2c3e50;
+        }
+
         .download-hero-area {
           background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
           position: relative;
