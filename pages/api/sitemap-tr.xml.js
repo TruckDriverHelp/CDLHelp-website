@@ -96,7 +96,7 @@ export default async function handler(req, res) {
       { state: 'california', cities: ['los-angeles', 'sacramento'] },
       { state: 'florida', cities: ['jacksonville', 'miami', 'orlando'] },
       { state: 'illinois', cities: ['chicago'] },
-      { state: 'new-york', cities: ['new-york'] },
+      // { state: 'new-york', cities: ['new-york'] }, // Removed: this page redirects and doesn't exist
       { state: 'ohio', cities: ['cincinnati', 'columbus'] },
       { state: 'pennsylvania', cities: ['philadelphia'] },
       { state: 'washington', cities: ['seattle'] },

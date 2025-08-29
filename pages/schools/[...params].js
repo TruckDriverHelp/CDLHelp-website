@@ -470,7 +470,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
   });
 
   // Generate proper hreflang URLs for school profile pages
-  const alternateLinks = generateHreflangUrls(`/schools/${schoolSlug}`, locale);
+  const alternateLinks = generateHreflangUrls(`/schools/${state}/${city}/${schoolSlug}`, locale);
 
   const formatPhoneNumber = phone => {
     if (!phone) return '';

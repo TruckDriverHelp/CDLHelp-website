@@ -53,7 +53,10 @@
       "Bash(npm install:*)",
       "Bash(git restore:*)",
       "WebSearch",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(do)",
+      "Bash(if [[ \"$file\" != *\"ru.xml.js\" ]])",
+      "Bash(then)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
