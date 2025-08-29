@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import getMeta from '../lib/getMeta';
@@ -7,9 +6,18 @@ import { useRouter } from 'next/router';
 import Navbar from '../components/_App/Navbar';
 import Footer from '../components/_App/Footer';
 import Layout from '../components/_App/Layout';
+import { SEOHead } from '../src/shared/ui/SEO';
+import { useSEO } from '../src/shared/lib/hooks/useSEO';
+import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 
-const CookiesPolicy = ({ meta }) => {
+const CookiesPolicy = ({ meta, alternateLinks }) => {
   const { locale } = useRouter();
+
+  const seoData = useSEO({
+    meta,
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cookies-policy`,
+    type: 'website',
+  });
 
   const pageSchema = {
     '@context': 'https://schema.org',
@@ -27,36 +35,8 @@ const CookiesPolicy = ({ meta }) => {
 
   return (
     <>
-      <Head>
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.description} />
-
-        {/* Google / Search Engine Tags */}
-        <meta itemProp="name" content={meta.title} />
-        <meta itemProp="description" content={meta.description} />
-        <meta itemProp="image" content={'/images/truckdriverhelp-og.jpg'} />
-
-        {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://www.cdlhelp.com" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.description} />
-        <meta property="og:image" content={'/images/truckdriverhelp-og.jpg'} />
-        <meta property="og:locale" content={locale} />
-        <meta property="og:site_name" content="CDL Help" />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={'/images/truckdriverhelp-og.jpg'} />
-
-        {/* JSON-LD structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
-        />
-      </Head>
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
+      <StructuredData data={pageSchema} />
       <Layout>
         <Navbar />
         <PageBannerStyle1
@@ -313,9 +293,21 @@ export default CookiesPolicy;
 export async function getStaticProps({ locale }) {
   const meta = await getMeta(locale, 'general');
 
+  const alternateLinks = {
+    en: '/cookies-policy',
+    ar: '/ar/cookies-policy',
+    ru: '/ru/cookies-policy',
+    uk: '/uk/cookies-policy',
+    ko: '/ko/cookies-policy',
+    zh: '/zh/cookies-policy',
+    tr: '/tr/cookies-policy',
+    pt: '/pt/cookies-policy',
+  };
+
   return {
     props: {
       meta: meta,
+      alternateLinks,
       ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer', 'cookie'])),
     },
   };

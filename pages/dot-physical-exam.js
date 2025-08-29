@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import Head from 'next/head';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Container, Typography, TextField, Button, Box, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
 import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
 import { useRouter } from 'next/router';
+import { SEOHead } from '../src/shared/ui/SEO';
+import { useSEO } from '../src/shared/lib/hooks/useSEO';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import getMeta from '../lib/getMeta';
 
 const containerStyle = {
   width: '100%',
@@ -17,13 +20,23 @@ const defaultCenter = {
   lng: -98.5795,
 };
 
-export default function DotPhysicalExam() {
+export default function DotPhysicalExam({ meta, alternateLinks }) {
   const [zipCode, setZipCode] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const locale = router.locale || 'en';
+
+  const seoData = useSEO({
+    meta: meta || {
+      title: 'DOT Physical Exam Locations | CDL Help',
+      description:
+        'Find DOT physical exam locations near you. Enter your zip code to locate certified medical examiners in your area.',
+    },
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/dot-physical-exam`,
+    type: 'website',
+  });
 
   const handleSearch = async () => {
     if (!zipCode) return;
@@ -160,15 +173,7 @@ export default function DotPhysicalExam() {
 
   return (
     <>
-      <Head>
-        <title>DOT Physical Exam Locations | CDL Help</title>
-        <meta
-          name="description"
-          content="Find DOT physical exam locations near you. Enter your zip code to locate certified medical examiners in your area."
-        />
-      </Head>
-
-      {/* Structured Data Schemas */}
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
       <StructuredData data={schemas} />
 
       <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -233,4 +238,27 @@ export default function DotPhysicalExam() {
       </Container>
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  const meta = await getMeta(locale, 'general');
+
+  const alternateLinks = {
+    en: '/dot-physical-exam',
+    ar: '/ar/dot-physical-exam',
+    ru: '/ru/dot-physical-exam',
+    uk: '/uk/dot-physical-exam',
+    ko: '/ko/dot-physical-exam',
+    zh: '/zh/dot-physical-exam',
+    tr: '/tr/dot-physical-exam',
+    pt: '/pt/dot-physical-exam',
+  };
+
+  return {
+    props: {
+      meta: meta,
+      alternateLinks,
+      ...(await serverSideTranslations(locale ?? 'en', ['navbar', 'footer', 'cookie'])),
+    },
+  };
 }

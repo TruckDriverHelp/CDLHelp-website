@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
@@ -8,6 +7,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import Layout from '../../../components/_App/Layout';
 import Navbar from '../../../components/_App/Navbar';
 import Footer from '../../../components/_App/Footer';
+import { SEOHead } from '../../../src/shared/ui/SEO';
+import { useSEO } from '../../../src/shared/lib/hooks/useSEO';
+import { useRouter } from 'next/router';
+import getMeta from '../../../lib/getMeta';
 
 const containerStyle = {
   width: '100%',
@@ -21,8 +24,19 @@ const defaultCenter = {
 
 const libraries = ['places'];
 
-export default function DotPhysicalExam() {
+export default function DotPhysicalExam({ meta, alternateLinks }) {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const { locale } = router;
+
+  const seoData = useSEO({
+    meta: meta || {
+      title: t('dotPhysicalExam.title'),
+      description: t('dotPhysicalExam.description'),
+    },
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/dot-physical-exam/search`,
+    type: 'website',
+  });
   const [zipCode, setZipCode] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [mapCenter, setMapCenter] = useState(defaultCenter);
@@ -171,11 +185,7 @@ export default function DotPhysicalExam() {
 
   return (
     <Layout>
-      <Head>
-        <title>{`${t('dotPhysicalExam.title')} | CDL Help`}</title>
-        <meta name="description" content={t('dotPhysicalExam.description')} />
-      </Head>
-
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
       <Navbar />
 
       <Container maxWidth="lg" sx={{ py: 4, paddingTop: '80px' }}>
@@ -321,8 +331,23 @@ export default function DotPhysicalExam() {
 }
 
 export async function getStaticProps({ locale }) {
+  const meta = await getMeta(locale, 'general');
+
+  const alternateLinks = {
+    en: '/dot-physical-exam/search',
+    ar: '/ar/dot-physical-exam/search',
+    ru: '/ru/dot-physical-exam/search',
+    uk: '/uk/dot-physical-exam/search',
+    ko: '/ko/dot-physical-exam/search',
+    zh: '/zh/dot-physical-exam/search',
+    tr: '/tr/dot-physical-exam/search',
+    pt: '/pt/dot-physical-exam/search',
+  };
+
   return {
     props: {
+      meta: meta,
+      alternateLinks,
       ...(await serverSideTranslations(locale, ['common', 'navbar', 'footer', 'cookie'])),
     },
   };
