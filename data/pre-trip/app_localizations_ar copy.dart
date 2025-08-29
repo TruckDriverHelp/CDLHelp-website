@@ -12,19 +12,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutTheApp => 'عن التطبيق';
 
   @override
-  String get accessToAllTests => 'الحصول على إمكانية الوصول إلى جميع الاختبارات';
+  String get accessToAllTests =>
+      'الحصول على إمكانية الوصول إلى جميع الاختبارات';
 
   @override
-  String get activeSubscriptionRestorePromp => 'إذا كان لديك اشتراك نشط بالفعل، فانقر فوق الزر \"استعادة\"';
+  String get activeSubscriptionRestorePromp =>
+      'إذا كان لديك اشتراك نشط بالفعل، فانقر فوق الزر \"استعادة\"';
 
   @override
   String get additionalTests => 'الاختبارات الإضافية';
 
   @override
-  String get agreeToReceiveEmailsCallsCheckbox => 'أوافق على تلقي رسائل البريد الإلكتروني والمكالمات الهاتفية المتعلقة بمنصة TruckDriver.help للبحث عن الوظائف';
+  String get agreeToReceiveEmailsCallsCheckbox =>
+      'أوافق على تلقي رسائل البريد الإلكتروني والمكالمات الهاتفية المتعلقة بمنصة TruckDriver.help للبحث عن الوظائف';
 
   @override
-  String get airBrakesExam => 'يختبر الاختبار معرفة العمل مع الفرامل الهوائية وصيانتها';
+  String get airBrakesExam =>
+      'يختبر الاختبار معرفة العمل مع الفرامل الهوائية وصيانتها';
 
   @override
   String get answerLabel => 'الإجابة ';
@@ -36,43 +40,51 @@ class AppLocalizationsAr extends AppLocalizations {
   String get application => 'التطبيق';
 
   @override
-  String get appRatingRequest => 'إذا أعجبك التطبيق ووجدته مفيدًا، فسنكون ممتنين لتقييمك بخمس نجوم ومراجعتك، فرأيك مهم جدًا بالنسبة لنا';
+  String get appRatingRequest =>
+      'إذا أعجبك التطبيق ووجدته مفيدًا، فسنكون ممتنين لتقييمك بخمس نجوم ومراجعتك، فرأيك مهم جدًا بالنسبة لنا';
 
   @override
   String get audioTrackNotWorkingIssue => 'المسار الصوتي لا يعمل';
 
   @override
-  String get autoRenewalAtTermEndInfo => 'عند انتهاء صلاحيته، يتم تجديده تلقائيًا';
+  String get autoRenewalAtTermEndInfo =>
+      'عند انتهاء صلاحيته، يتم تجديده تلقائيًا';
 
   @override
   String get betaTestingWarning => 'في طور الانتهاء';
 
   @override
-  String get californiaAdditionalTestInfo => 'في المقالة حول كاليفورنيا، يمكنك بسهولة أن تطلب ذلك ثم تأخذ اختبارًا إضافيًا. لمزيد من المعلومات على موقعنا';
+  String get californiaAdditionalTestInfo =>
+      'في المقالة حول كاليفورنيا، يمكنك بسهولة أن تطلب ذلك ثم تأخذ اختبارًا إضافيًا. لمزيد من المعلومات على موقعنا';
 
   @override
   String get cancelButtonLabel => 'إلغاء';
 
   @override
-  String get canDrivingExamsBeTakenInRussianQuery => 'هل من الممكن إجراء امتحانات القيادة باللغة العربية؟';
+  String get canDrivingExamsBeTakenInRussianQuery =>
+      'هل من الممكن إجراء امتحانات القيادة باللغة العربية؟';
 
   @override
-  String get canTakeExamWithoutEnglishKnowledge => 'هل يمكنني إجراء الامتحان دون معرفة اللغة الإنجليزية؟';
+  String get canTakeExamWithoutEnglishKnowledge =>
+      'هل يمكنني إجراء الامتحان دون معرفة اللغة الإنجليزية؟';
 
   @override
   String get cdlTests => 'اختبارات CDL';
 
   @override
-  String get cdlTestStudyTipsLabel => 'نصائح لدراسة اختبارات رخصة القيادة التجارية';
+  String get cdlTestStudyTipsLabel =>
+      'نصائح لدراسة اختبارات رخصة القيادة التجارية';
 
   @override
-  String get cdlTestsWithTranslationPrep => 'ستمنحك اختبارات CDL مع الترجمة الفرصة للتحضير للامتحان مع مساعدتك على تعلم اللغة الإنجليزية';
+  String get cdlTestsWithTranslationPrep =>
+      'ستمنحك اختبارات CDL مع الترجمة الفرصة للتحضير للامتحان مع مساعدتك على تعلم اللغة الإنجليزية';
 
   @override
   String get companyNameInput => 'اسم الشركة';
 
   @override
-  String get confirmTestCompletionPrompt => 'هل أنت متأكد أنك تريد الانتهاء دون إكمال الاختبار؟';
+  String get confirmTestCompletionPrompt =>
+      'هل أنت متأكد أنك تريد الانتهاء دون إكمال الاختبار؟';
 
   @override
   String get contactPersonNameInput => 'اسم الشخص الذي يمكن الاتصال به';
@@ -96,25 +108,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get detailsOnWebsiteLink => 'التفاصيل على الموقع';
 
   @override
-  String get developedByTruckDriverHelpLabel => 'تم التطوير بواسطة TruckDriver.help LLC';
+  String get developedByTruckDriverHelpLabel =>
+      'تم التطوير بواسطة TruckDriver.help LLC';
 
   @override
-  String get dmvTheoryTestInfo => 'يجب عليك إجراء الاختبارات النظرية في مكتب إدارة المركبات الآلية المحلي (DMV). ستساعدك المقالات الموجودة على الموقع الإلكتروني في التعرف على تطبيق إعداد الاختبار والمعلومات حول إجراء الاختبارات في ولايات مختلفة';
+  String get dmvTheoryTestInfo =>
+      'يجب عليك إجراء الاختبارات النظرية في مكتب إدارة المركبات الآلية المحلي (DMV). ستساعدك المقالات الموجودة على الموقع الإلكتروني في التعرف على تطبيق إعداد الاختبار والمعلومات حول إجراء الاختبارات في ولايات مختلفة';
 
   @override
-  String get doTestsCoverAllQuestionsQuery => 'هل اختباراتك تغطي كافة الأسئلة المحتملة؟';
+  String get doTestsCoverAllQuestionsQuery =>
+      'هل اختباراتك تغطي كافة الأسئلة المحتملة؟';
 
   @override
   String get driversLicenseTests => 'اختبارات رخصة القيادة';
 
   @override
-  String get drivingCombinationsVehicleExam => 'يختبر الاختبار معرفة التعامل مع الشاحنات والمقطورات ذات الرافعات';
+  String get drivingCombinationsVehicleExam =>
+      'يختبر الاختبار معرفة التعامل مع الشاحنات والمقطورات ذات الرافعات';
 
   @override
-  String get drivingDoubleTripleTrailersSkillsTest => 'يختبر الاختبار مهارات التعامل مع المقطورات المزدوجة والثلاثية';
+  String get drivingDoubleTripleTrailersSkillsTest =>
+      'يختبر الاختبار مهارات التعامل مع المقطورات المزدوجة والثلاثية';
 
   @override
-  String get drivingTestKnowledge => 'يختبر الاختبار معرفة قواعد القيادة والأنظمة والسلامة';
+  String get drivingTestKnowledge =>
+      'يختبر الاختبار معرفة قواعد القيادة والأنظمة والسلامة';
 
   @override
   String get emailAddressInput => 'بريد الإلكتروني';
@@ -123,7 +141,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get errorRequestFailedMessage => 'خطأ! فشل في إرسال الطلب!';
 
   @override
-  String get examSafetyRulesHazardousGoods => 'امتحان معرفة قواعد السلامة في نقل المواد الخطرة';
+  String get examSafetyRulesHazardousGoods =>
+      'امتحان معرفة قواعد السلامة في نقل المواد الخطرة';
 
   @override
   String get explanationLabel => 'الشرح';
@@ -141,13 +160,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get feedbackSent => 'لقد تم تقديم المراجعة بنجاح';
 
   @override
-  String get finalStepCDLSchoolTraining => 'الخطوة الأخيرة للحصول على رخصة القيادة التجارية (CDL) هي التدريب في مدرسة رخصة القيادة التجارية (‏CDL)، حيث ستتعلم مهارات القيادة وتحصل على تعليمات كاملة لاختبار القيادة. في دليل المساعدة للحصول على رخصة القيادة التجارية ‏(CDL)، ستجد قائمة بالمدارس في ولايات ومدن مختلفة في الولايات المتحدة الأمريكية';
+  String get finalStepCDLSchoolTraining =>
+      'الخطوة الأخيرة للحصول على رخصة القيادة التجارية (CDL) هي التدريب في مدرسة رخصة القيادة التجارية (‏CDL)، حيث ستتعلم مهارات القيادة وتحصل على تعليمات كاملة لاختبار القيادة. في دليل المساعدة للحصول على رخصة القيادة التجارية ‏(CDL)، ستجد قائمة بالمدارس في ولايات ومدن مختلفة في الولايات المتحدة الأمريكية';
 
   @override
   String get findCDLSchool => 'البحث عن المدرسة';
 
   @override
-  String get findDriversForYourCompanyCallToAction => 'هل لديك شركة نقل خاصة بك وترغب في العثور على سائقين؟ اترك بيانات الاتصال الخاصة بك وسنتواصل معك';
+  String get findDriversForYourCompanyCallToAction =>
+      'هل لديك شركة نقل خاصة بك وترغب في العثور على سائقين؟ اترك بيانات الاتصال الخاصة بك وسنتواصل معك';
 
   @override
   String get findMedicalExpert => 'ابحث عن خبير طبي';
@@ -162,7 +183,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get finishTestQuestionLabel => 'ترغب في إكمال الاختبار؟';
 
   @override
-  String get finishTestText => 'هل أنت متأكد أنك تريد الانتهاء دون إكمال الاختبار؟';
+  String get finishTestText =>
+      'هل أنت متأكد أنك تريد الانتهاء دون إكمال الاختبار؟';
 
   @override
   String get finishTestTitle => 'ترغب في إكمال الاختبار؟';
@@ -183,7 +205,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get help => 'مساعدة';
 
   @override
-  String get howToAccessAllTestsAppPaidQuery => 'كيف يمكنني الوصول إلى جميع الاختبارات؟ هل التطبيق مدفوع؟';
+  String get howToAccessAllTestsAppPaidQuery =>
+      'كيف يمكنني الوصول إلى جميع الاختبارات؟ هل التطبيق مدفوع؟';
 
   @override
   String get howToCancelSubscriptionQuery => 'كيف ألغي الاشتراك؟';
@@ -222,10 +245,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get leaveFeedbackOption => 'اترك التعليق ';
 
   @override
-  String get leaveReviewMessageAppStore => 'هل ترغب في ترك تعليق في متجر التطبيقات؟ رأيك مهم جدًا بالنسبة لنا!';
+  String get leaveReviewMessageAppStore =>
+      'هل ترغب في ترك تعليق في متجر التطبيقات؟ رأيك مهم جدًا بالنسبة لنا!';
 
   @override
-  String get leaveReviewMessagePlayStore => 'هل ترغب في ترك تعليق في متجر التطبيقات؟ رأيك مهم جدًا بالنسبة لنا!';
+  String get leaveReviewMessagePlayStore =>
+      'هل ترغب في ترك تعليق في متجر التطبيقات؟ رأيك مهم جدًا بالنسبة لنا!';
 
   @override
   String get leaveReviewTitle => 'اترك التعليق';
@@ -264,7 +289,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noButtonLabel => 'لا';
 
   @override
-  String get numberOfAllowedErrorsOnExamInfo => 'كم عدد الأخطاء مسموحة في الامتحان؟';
+  String get numberOfAllowedErrorsOnExamInfo =>
+      'كم عدد الأخطاء مسموحة في الامتحان؟';
 
   @override
   String get numberOfQuestionsInApp => 'كم عدد الاسئلة في التطبيق؟';
@@ -276,7 +302,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get numberOfQuestionsOnExamInfo => 'كم عدد الاسئلة في الامتحان؟';
 
   @override
-  String get paidSubscriptionAccessIssueQuery => 'لقد دفعت ثمن الاشتراك ولكن لم أتمكن من الوصول إليه. ماذا يجب أن أفعل؟';
+  String get paidSubscriptionAccessIssueQuery =>
+      'لقد دفعت ثمن الاشتراك ولكن لم أتمكن من الوصول إليه. ماذا يجب أن أفعل؟';
 
   @override
   String get passedInMinutes => 'دقائق';
@@ -294,19 +321,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get passingTime => 'وقت التقديم:';
 
   @override
-  String get pathToCDLStartsWithDOTExam => 'يبدأ الطريق للحصول على رخصة القيادة التجارية (CDL) بفحص طبي من قِبر وزارة النقل (DOT). يمكنك العثور على فاحص طبي معتمد عن طريق إدخال الرمز البريدي (ZIP) الخاص بك على موقع إدارة سلامة شركات النقل الفيدرالية (FMCSA)';
+  String get pathToCDLStartsWithDOTExam =>
+      'يبدأ الطريق للحصول على رخصة القيادة التجارية (CDL) بفحص طبي من قِبر وزارة النقل (DOT). يمكنك العثور على فاحص طبي معتمد عن طريق إدخال الرمز البريدي (ZIP) الخاص بك على موقع إدارة سلامة شركات النقل الفيدرالية (FMCSA)';
 
   @override
   String get phoneNumberInput => 'رقم الهاتف';
 
   @override
-  String get platformForDriversAndCompaniesDescription => 'منصة للسائقين والشركات في قطاع النقل بالشاحنات';
+  String get platformForDriversAndCompaniesDescription =>
+      'منصة للسائقين والشركات في قطاع النقل بالشاحنات';
 
   @override
   String get studyModeSetting => 'نمط الدراسة';
 
   @override
-  String get premiumSubscriptionFullAccessInfo => 'توفر الاشتراكات المميزة إمكانية الوصول الكامل إلى جميع الاختبارات';
+  String get premiumSubscriptionFullAccessInfo =>
+      'توفر الاشتراكات المميزة إمكانية الوصول الكامل إلى جميع الاختبارات';
 
   @override
   String get premiumSubscriptionLabel => 'الإشتراك المميز';
@@ -318,7 +348,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get previousQuestion => 'سابق';
 
   @override
-  String get problemsFeedbackRequest => 'هل تواجهت أي مشاكل مع التطبيق؟ ملاحظاتك مهمة جدًا بالنسبة لنا';
+  String get problemsFeedbackRequest =>
+      'هل تواجهت أي مشاكل مع التطبيق؟ ملاحظاتك مهمة جدًا بالنسبة لنا';
 
   @override
   String get questionLabel => 'الاسئلة';
@@ -351,16 +382,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get roadSignsTestLabel => 'انتقل إلى الموقع';
 
   @override
-  String get russianCdlSchoolsInStatesLabel => 'مدارس CDL باللغة العربية في نيو يورك';
+  String get russianCdlSchoolsInStatesLabel =>
+      'مدارس CDL باللغة العربية في نيو يورك';
 
   @override
   String get russianSpeakingCdlSchoolsLabel => 'مدارس CDL باللغة العربية';
 
   @override
-  String get safetyRulesTestForTankers => 'يختبر الاختبار معرفة قواعد السلامة لاستخدام الخزانات';
+  String get safetyRulesTestForTankers =>
+      'يختبر الاختبار معرفة قواعد السلامة لاستخدام الخزانات';
 
   @override
-  String get selectStateForVersionAdviceDropdown => 'حدد الولاية لرؤية النصائح حول اختيار الإصدار';
+  String get selectStateForVersionAdviceDropdown =>
+      'حدد الولاية لرؤية النصائح حول اختيار الإصدار';
 
   @override
   String get selectTestOption => 'اختر الاختبار';
@@ -384,7 +418,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get state => 'الولاية';
 
   @override
-  String get statesWithRussianDmvExamsInfo => 'في اية ولاية يمكنك اجراء اختبار DMV باللغة العربية ؟';
+  String get statesWithRussianDmvExamsInfo =>
+      'في اية ولاية يمكنك اجراء اختبار DMV باللغة العربية ؟';
 
   @override
   String get submitButtonLabel => 'إرسال';
@@ -405,7 +440,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get supportServiceLabel => 'خدمة الدعم';
 
   @override
-  String get teamWorkingOnPlatformAnnouncement => 'يعمل فريقنا على تطوير منصة للإعلانات';
+  String get teamWorkingOnPlatformAnnouncement =>
+      'يعمل فريقنا على تطوير منصة للإعلانات';
 
   @override
   String get telegramGroup => 'مجموعة تليجرام';
@@ -423,7 +459,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get testTranslation => 'الترجمة';
 
   @override
-  String get texasAdditionalTestInfo => 'في ولاية تكساس، قد يطلبون منك إجراء اختبار إضافي';
+  String get texasAdditionalTestInfo =>
+      'في ولاية تكساس، قد يطلبون منك إجراء اختبار إضافي';
 
   @override
   String get text => 'نص';
@@ -432,7 +469,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get thankYouForReview => 'شكرا للتعليق';
 
   @override
-  String get threeStepsToCDL => 'ثلاث خطوات على الطريق إلى الحصول على رخصة القيادة التجارية';
+  String get threeStepsToCDL =>
+      'ثلاث خطوات على الطريق إلى الحصول على رخصة القيادة التجارية';
 
   @override
   String get translationToggle => 'الترجمة:';
@@ -474,7 +512,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get generalTests => 'الاختيارات الأساسية';
 
   @override
-  String get shareText => 'قم بتنزيل تطبيق CDL Help للتحضير لاختبارات DMV! https://www.cdlhelp.com/ar';
+  String get shareText =>
+      'قم بتنزيل تطبيق CDL Help للتحضير لاختبارات DMV! http://localhost:3001/ar';
 
   @override
   String get restore => 'استعادة';
@@ -517,10 +556,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل الدخول';
 
   @override
-  String get errorMessage1 => 'تم إلغاء عملية المصادقة. إذا غيرت رأيك، يرجى المحاولة مرة أخرى';
+  String get errorMessage1 =>
+      'تم إلغاء عملية المصادقة. إذا غيرت رأيك، يرجى المحاولة مرة أخرى';
 
   @override
-  String get errorMessage2 => 'حدث خطأ أثناء المصادقة. يرجى التحقق من اتصال الشبكة لديك والمحاولة مرة أخرى. إذا استمرت المشكلة، فاتصل بالدعم';
+  String get errorMessage2 =>
+      'حدث خطأ أثناء المصادقة. يرجى التحقق من اتصال الشبكة لديك والمحاولة مرة أخرى. إذا استمرت المشكلة، فاتصل بالدعم';
 
   @override
   String get testNo => 'اختبار:';
@@ -544,7 +585,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmReset => 'تأكيد إعادة التعيين';
 
   @override
-  String get sureToResetPreferences => 'هل أنت متأكد أنك تريد إعادة تعيين الإعدادات؟';
+  String get sureToResetPreferences =>
+      'هل أنت متأكد أنك تريد إعادة تعيين الإعدادات؟';
 
   @override
   String get cancel => 'إلغاء';
@@ -592,10 +634,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fullText => 'يوصى به لإعداد أكثر شمولاً';
 
   @override
-  String get changeVersionAnyTime => 'بإمكانك تغيير النمط في الإعدادات في اي وقت';
+  String get changeVersionAnyTime =>
+      'بإمكانك تغيير النمط في الإعدادات في اي وقت';
 
   @override
-  String get appOffersTwoOptions => 'يقدم التطبيق نسختين من الاختبارات - نسخة مختصرة ونسخة كاملة';
+  String get appOffersTwoOptions =>
+      'يقدم التطبيق نسختين من الاختبارات - نسخة مختصرة ونسخة كاملة';
 
   @override
   String get moreAboutTests => 'المزيد عن طرق التدريب على الموقع';
@@ -613,22 +657,26 @@ class AppLocalizationsAr extends AppLocalizations {
   String get needJobHelp => 'هل تحتاج إلى مساعدة في العثور على وظيفة؟';
 
   @override
-  String get needHelpFindingJob => 'إنشاء حساب على نظام TruckDriver.help سيؤدي تلقائيًا إلى إنشاء ملف تعريف عام للبحث عن وظيفة';
+  String get needHelpFindingJob =>
+      'إنشاء حساب على نظام TruckDriver.help سيؤدي تلقائيًا إلى إنشاء ملف تعريف عام للبحث عن وظيفة';
 
   @override
   String get createDriverProfile => 'إنشاء ملف تعريف السائق';
 
   @override
-  String get byClickingYes => 'بالنقر على \"نعم\" فإنك توافق على الشروط والأحكام';
+  String get byClickingYes =>
+      'بالنقر على \"نعم\" فإنك توافق على الشروط والأحكام';
 
   @override
-  String get thisWillHelpUsMatch => 'سيساعدنا هذا في العثور على أصحاب عمل محتملين لك';
+  String get thisWillHelpUsMatch =>
+      'سيساعدنا هذا في العثور على أصحاب عمل محتملين لك';
 
   @override
   String get jobProfile => 'الملف الوظيفي';
 
   @override
-  String get jobProfileAlreadyFilled => 'لقد قمت بالفعل بملء ملفك الوظيفي. يمكنك تحديثه في أي وقت.';
+  String get jobProfileAlreadyFilled =>
+      'لقد قمت بالفعل بملء ملفك الوظيفي. يمكنك تحديثه في أي وقت.';
 
   @override
   String get accountDetails => 'تفاصيل الحساب';
@@ -655,7 +703,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmDeletion => 'تأكيد الحذف';
 
   @override
-  String get sureDeletion => 'هل أنت متأكد أنك تريد حذف البيانات المتعلقة بتجربة العمل هذه؟';
+  String get sureDeletion =>
+      'هل أنت متأكد أنك تريد حذف البيانات المتعلقة بتجربة العمل هذه؟';
 
   @override
   String get editDrivingExperience => 'تعديل تجربة القيادة';
@@ -664,13 +713,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get drivingOutsideUSA => 'تجربة قيادة شاحنة خارج الولايات المتحدة';
 
   @override
-  String get drivingOutsideUSASubtext => 'قم بتحديد هذا المربع إذا كانت لديك خبرة في قيادة الشاحنات خارج الولايات المتحدة';
+  String get drivingOutsideUSASubtext =>
+      'قم بتحديد هذا المربع إذا كانت لديك خبرة في قيادة الشاحنات خارج الولايات المتحدة';
 
   @override
   String get workOutOfState => 'هل تخطط للعمل خارج ولايتك؟';
 
   @override
-  String get workOutOfStateSubtext => 'قم بتحديد هذا المربع إذا كنت تفكر في العمل خارج ولايتك';
+  String get workOutOfStateSubtext =>
+      'قم بتحديد هذا المربع إذا كنت تفكر في العمل خارج ولايتك';
 
   @override
   String get daysAtHome => 'أيام الإجازة';
@@ -697,16 +748,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get drivingExperience => 'خبرة القيادة';
 
   @override
-  String get drivingExperienceSubtext => 'لم تقم بملء النموذج بعد. يجب على المستخدمين الذين يبحثون عن وظيفة CDL ملء النموذج الذي يشير إلى خبرتهم في القيادة. يرجى ملء النموذج لبدء البحث عن الوظيفة';
+  String get drivingExperienceSubtext =>
+      'لم تقم بملء النموذج بعد. يجب على المستخدمين الذين يبحثون عن وظيفة CDL ملء النموذج الذي يشير إلى خبرتهم في القيادة. يرجى ملء النموذج لبدء البحث عن الوظيفة';
 
   @override
   String get submit => 'إرسال';
 
   @override
-  String get submitSubtext1 => 'بعد الضغط على زر \"إرسال\"، سيتم إعادة توجيهك إلى نموذج لملء ملفك الشخصي في العمل';
+  String get submitSubtext1 =>
+      'بعد الضغط على زر \"إرسال\"، سيتم إعادة توجيهك إلى نموذج لملء ملفك الشخصي في العمل';
 
   @override
-  String get submitSubtext2 => 'سيساعدنا هذا في العثور على أصحاب عمل محتملين لك';
+  String get submitSubtext2 =>
+      'سيساعدنا هذا في العثور على أصحاب عمل محتملين لك';
 
   @override
   String get editJobExperience => 'إجراء تغييرات على تجربة العمل';
@@ -769,7 +823,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get accountDeletionRequestFailure => 'فشل في إرسال طلب حذف الحساب';
 
   @override
-  String get accountRestoreRequestSuccess => 'تم إرسال طلب استعادة الحساب بنجاح';
+  String get accountRestoreRequestSuccess =>
+      'تم إرسال طلب استعادة الحساب بنجاح';
 
   @override
   String get accountRestoreRequestFailure => 'فشل في إرسال طلب استرداد الحساب';
@@ -778,7 +833,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cancelSubscriptionTitle => 'لن يؤدي حذف الحساب إلى إلغاء اشتراكك';
 
   @override
-  String get cancelSubscriptionText => 'لإلغاء الاشتراك، انقر على زر \"معرفة المزيد\"';
+  String get cancelSubscriptionText =>
+      'لإلغاء الاشتراك، انقر على زر \"معرفة المزيد\"';
 
   @override
   String get close => 'إغلاق';
@@ -835,22 +891,26 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectLanguage => 'اختر اللغة';
 
   @override
-  String get wouldLikeToSetUpAccount => 'هل تريد تسجيل حساب في نظام TruckDriver.help؟';
+  String get wouldLikeToSetUpAccount =>
+      'هل تريد تسجيل حساب في نظام TruckDriver.help؟';
 
   @override
-  String get wouldLikeToSetUpAccountSubtext => 'يمكن للمستخدمين المسجلين الوصول إلى الميزات التالية:';
+  String get wouldLikeToSetUpAccountSubtext =>
+      'يمكن للمستخدمين المسجلين الوصول إلى الميزات التالية:';
 
   @override
   String get progressSave => 'حفظ التقدم';
 
   @override
-  String get restoreTestText => 'إذا قمت بإغلاق الاختبار دون الانتهاء منه، سيتم حفظ تقدمك، وفي المرة التالية التي تقوم فيها بتسجيل الدخول، يمكنك المتابعة من حيث توقفت';
+  String get restoreTestText =>
+      'إذا قمت بإغلاق الاختبار دون الانتهاء منه، سيتم حفظ تقدمك، وفي المرة التالية التي تقوم فيها بتسجيل الدخول، يمكنك المتابعة من حيث توقفت';
 
   @override
   String get savedQuestions => 'أسئلة مختارة';
 
   @override
-  String get saveQuestionText => 'إذا واجهت سؤالاً صعبًا أثناء إجراء الاختبار، فسيكون لديك خيار حفظه والعودة إليه لاحقًا';
+  String get saveQuestionText =>
+      'إذا واجهت سؤالاً صعبًا أثناء إجراء الاختبار، فسيكون لديك خيار حفظه والعودة إليه لاحقًا';
 
   @override
   String get byClickingYesShort => 'بالنقر على \"نعم\" فإنك توافق على شروطنا';
@@ -862,10 +922,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get doYouHaveCDLXP => 'هل لديك خبرة في عمل CDL؟';
 
   @override
-  String get doYouHaveCDLXPSubtext => 'هل لديك خبرة في قيادة الشاحنات خارج الولايات المتحدة؟';
+  String get doYouHaveCDLXPSubtext =>
+      'هل لديك خبرة في قيادة الشاحنات خارج الولايات المتحدة؟';
 
   @override
-  String get selectCDLDate => 'يرجى تحديد التاريخ الذي تلقيت فيه رخصة القيادة التجارية الخاصة بك';
+  String get selectCDLDate =>
+      'يرجى تحديد التاريخ الذي تلقيت فيه رخصة القيادة التجارية الخاصة بك';
 
   @override
   String get addAnotherJob => 'اضافة خبرة العمل الأخرى';
@@ -874,7 +936,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get recentJobExperience => 'الرجاء إدخال معلومات حول مكان عملك الأخير';
 
   @override
-  String get whenDidYouGetCDL => 'متى حصلت على رخصة القيادة التجارية (CDL) الخاصة بك؟';
+  String get whenDidYouGetCDL =>
+      'متى حصلت على رخصة القيادة التجارية (CDL) الخاصة بك؟';
 
   @override
   String get dateStartedThisJob => 'الرجاء تحديد تاريخ البدء';
@@ -886,25 +949,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get submitError => 'فشل في إرسال معلوماتك. خطأ:';
 
   @override
-  String get submitNetworkError => 'حدث خطأ في الشبكة. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى';
+  String get submitNetworkError =>
+      'حدث خطأ في الشبكة. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى';
 
   @override
-  String get daysAtHomeAlt => 'كم عدد أيام الإجازة في الشهر الذي ترغب في الحصول عليه؟';
+  String get daysAtHomeAlt =>
+      'كم عدد أيام الإجازة في الشهر الذي ترغب في الحصول عليه؟';
 
   @override
-  String get emailVerificationSentSuccess => 'لقد تم إرسال رسالة التحقق إلى بريدك الإلكتروني!';
+  String get emailVerificationSentSuccess =>
+      'لقد تم إرسال رسالة التحقق إلى بريدك الإلكتروني!';
 
   @override
-  String get emailVerificationSentFailure => 'فشل في إرسال رسالة التحقق إلى البريد الإلكتروني';
+  String get emailVerificationSentFailure =>
+      'فشل في إرسال رسالة التحقق إلى البريد الإلكتروني';
 
   @override
   String get emailVerificationSkip => 'تخطي التحقق من البريد الإلكتروني';
 
   @override
-  String get emailVerificationSkipText => 'إذا تخطيت التحقق من البريد الإلكتروني، فلن تتمكن من الوصول إلى البحث عن الوظائف وبعض ميزات التطبيق. هل تريد إنهاء التحقق من البريد الإلكتروني؟';
+  String get emailVerificationSkipText =>
+      'إذا تخطيت التحقق من البريد الإلكتروني، فلن تتمكن من الوصول إلى البحث عن الوظائف وبعض ميزات التطبيق. هل تريد إنهاء التحقق من البريد الإلكتروني؟';
 
   @override
-  String get emailVerificationText => 'قم بتأكيد حسابك بالضغط على الرابط الموجود في البريد الإلكتروني الذي أرسلناه إليك';
+  String get emailVerificationText =>
+      'قم بتأكيد حسابك بالضغط على الرابط الموجود في البريد الإلكتروني الذي أرسلناه إليك';
 
   @override
   String get emailVerificationLater => 'انقر هنا للتحقق لاحقًا';
@@ -913,7 +982,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emailVerificaionResend => 'إرسال مرة أخرى';
 
   @override
-  String get emailVerificationWait => 'بعد النقر على الرابط الذي تتلقاه في البريد الإلكتروني، قد يستغرق التأكيد ما يصل إلى 60 ثانية. يرجى الانتظار';
+  String get emailVerificationWait =>
+      'بعد النقر على الرابط الذي تتلقاه في البريد الإلكتروني، قد يستغرق التأكيد ما يصل إلى 60 ثانية. يرجى الانتظار';
 
   @override
   String get profileCreateSuccess => 'تم تسجيل الملف الشخصي!';
@@ -940,7 +1010,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subscribe => 'اشتراك';
 
   @override
-  String get subscribeToNews => 'أوافق على تلقي التحديثات والعروض الترويجية من TruckDriver.help والشركات التابعة لها';
+  String get subscribeToNews =>
+      'أوافق على تلقي التحديثات والعروض الترويجية من TruckDriver.help والشركات التابعة لها';
 
   @override
   String get agreeToTerms => 'أوافق على الشروط والأحكام';
@@ -952,13 +1023,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get materialVersion => 'إصدار جديد';
 
   @override
-  String get thankYouApplicationConsiderationMessage => 'شكرا لك! سوف نتأكد من مراجعة تعليقاتك';
+  String get thankYouApplicationConsiderationMessage =>
+      'شكرا لك! سوف نتأكد من مراجعة تعليقاتك';
 
   @override
-  String get errorApplicationSubmissionFailedMessage => 'خطأ! لم يتم تقديم الطلب';
+  String get errorApplicationSubmissionFailedMessage =>
+      'خطأ! لم يتم تقديم الطلب';
 
   @override
-  String get pleaseDescribeErrorFoundLabel => 'يرجى تقديم تفاصيل حول الخطأ الذي وجدته:';
+  String get pleaseDescribeErrorFoundLabel =>
+      'يرجى تقديم تفاصيل حول الخطأ الذي وجدته:';
 
   @override
   String get fieldCannotBeEmptyMessage => 'لا يمكن ترك هذا الحقل فارغا';
@@ -973,7 +1047,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resetPreferences => 'إعادة تعيين التفضيلات';
 
   @override
-  String get byClickingCreateDriverProfile => 'بالنقر فوق \"إنشاء ملف تعريف السائق\" فإنك توافق على';
+  String get byClickingCreateDriverProfile =>
+      'بالنقر فوق \"إنشاء ملف تعريف السائق\" فإنك توافق على';
 
   @override
   String get fillAllFields => 'الرجاء ملء جميع الحقول';
@@ -985,13 +1060,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectAState => 'اختر الولاية';
 
   @override
-  String get googleTranslateEnabled => 'تم تمكين Google translate\nقد لا تكون الترجمات دقيقة تمامًا\nقم بتمكين إصدار CDL Help للحصول على ترجمات دقيقة';
+  String get googleTranslateEnabled =>
+      'تم تمكين Google translate\nقد لا تكون الترجمات دقيقة تمامًا\nقم بتمكين إصدار CDL Help للحصول على ترجمات دقيقة';
 
   @override
   String get emailRequestFailure => 'فشل في إرسال طلب البريد الإلكتروني';
 
   @override
-  String get rateAppMessage => 'إذا أعجبك هذا التطبيق، فيرجى تخصيص القليل من وقتك لتقييمه! فهو يساعدنا حقًا ولن يستغرق منك أكثر من دقيقة واحدة.';
+  String get rateAppMessage =>
+      'إذا أعجبك هذا التطبيق، فيرجى تخصيص القليل من وقتك لتقييمه! فهو يساعدنا حقًا ولن يستغرق منك أكثر من دقيقة واحدة.';
 
   @override
   String get noThanksButton => 'لا، شكراً';
@@ -1006,7 +1083,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get googleTranslateWarning => 'تحذير من Google Translate';
 
   @override
-  String get googleTranslateSwitchMessage => 'أنت تقوم بالتبديل إلى Google Translate. يرجى ملاحظة أن الترجمات قد لا تكون دقيقة تمامًا.';
+  String get googleTranslateSwitchMessage =>
+      'أنت تقوم بالتبديل إلى Google Translate. يرجى ملاحظة أن الترجمات قد لا تكون دقيقة تمامًا.';
 
   @override
   String get googleTranslateLabel => 'ترجمة Google';
@@ -1050,7 +1128,8 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get examDateUpdateFailed => 'فشل تحديث تاريخ الامتحان. يرجى المحاولة مرة أخرى.';
+  String get examDateUpdateFailed =>
+      'فشل تحديث تاريخ الامتحان. يرجى المحاولة مرة أخرى.';
 
   @override
   String get greetingWelcomeTitle => 'مرحبا بك في CDL Help';
@@ -1068,7 +1147,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createDriverProfileButton => 'إنشاء ملف تعريف السائق ';
 
   @override
-  String get jobProfileExists => 'لقد قمت بالفعل بملء ملفك الوظيفي. يمكنك تحديثه في أي وقت.';
+  String get jobProfileExists =>
+      'لقد قمت بالفعل بملء ملفك الوظيفي. يمكنك تحديثه في أي وقت.';
 
   @override
   String attemptingToDeleteExperience(Object id) {
@@ -1104,13 +1184,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get couldNotOpenStoreLink => 'لم يتم فتح رابط المتجر';
 
   @override
-  String get fillFormToSearchSchool => 'يرجى ملء النموذج لبدء البحث عن مدرسة CDL';
+  String get fillFormToSearchSchool =>
+      'يرجى ملء النموذج لبدء البحث عن مدرسة CDL';
 
   @override
   String get searchSchools => 'بحث عن العمل';
 
   @override
-  String get noSchoolRequestsFound => 'لم يتم العثور على طلبات المدارس.\nابدأ البحث عن مدارس CDL!';
+  String get noSchoolRequestsFound =>
+      'لم يتم العثور على طلبات المدارس.\nابدأ البحث عن مدارس CDL!';
 
   @override
   String get pleaseEnterCity => 'يرجى ادخال المدينة';
@@ -1188,7 +1270,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterPromoCode => 'أدخل الرمز الترويجي';
 
   @override
-  String get promoCodeDescription => 'أدخل رمز العرض الترويجي الذي تلقيته من مدرسة CDL للحصول على خصم على اشتراكك';
+  String get promoCodeDescription =>
+      'أدخل رمز العرض الترويجي الذي تلقيته من مدرسة CDL للحصول على خصم على اشتراكك';
 
   @override
   String get promoCode => 'الرمز الترويجي';
@@ -1206,7 +1289,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidPromoCode => 'رمز ترويجي غير صالح';
 
   @override
-  String get errorApplyingPromoCode => 'خطأ في تطبيق رمز العرض الترويجي. الرجاء المحاولة مرة أخرى';
+  String get errorApplyingPromoCode =>
+      'خطأ في تطبيق رمز العرض الترويجي. الرجاء المحاولة مرة أخرى';
 
   @override
   String get doYouHavePromoCode => 'لدي رمز ترويجي!';
@@ -1221,7 +1305,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fillForm => 'يرجى ملء النموذج لبدء البحث عن مدارس CDL';
 
   @override
-  String get noSchoolsFound => 'لم يتم العثور على مدارس. حاول تغيير تفضيلات الموقع.';
+  String get noSchoolsFound =>
+      'لم يتم العثور على مدارس. حاول تغيير تفضيلات الموقع.';
 
   @override
   String get cdlSchoolsScreenTitle => 'مدارس CDL في ولايتك';
@@ -1254,22 +1339,26 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enableTranslation => 'تفعيل الترجمة';
 
   @override
-  String get enableTranslationDescription => 'هل تريد تفعيل الترجمة التلقائية للمحتوى؟';
+  String get enableTranslationDescription =>
+      'هل تريد تفعيل الترجمة التلقائية للمحتوى؟';
 
   @override
   String get roadSignsUrl => 'https://www.dmvhelp.app/ar/alamat-at-tariq/';
 
   @override
-  String get tooManyFeedbackAttempts => 'لقد أرسلت الكثير من الملاحظات. يرجى المحاولة مرة أخرى لاحقاً';
+  String get tooManyFeedbackAttempts =>
+      'لقد أرسلت الكثير من الملاحظات. يرجى المحاولة مرة أخرى لاحقاً';
 
   @override
-  String get pleaseWaitBeforeNextFeedback => 'يرجى الانتظار قبل إرسال الملاحظات التالية';
+  String get pleaseWaitBeforeNextFeedback =>
+      'يرجى الانتظار قبل إرسال الملاحظات التالية';
 
   @override
   String get removeQuestion => 'إزالة السؤال';
 
   @override
-  String get removeQuestionConfirmation => 'هل أنت متأكد أنك تريد إزالة هذا السؤال من أسئلتك المحفوظة؟';
+  String get removeQuestionConfirmation =>
+      'هل أنت متأكد أنك تريد إزالة هذا السؤال من أسئلتك المحفوظة؟';
 
   @override
   String get remove => 'إزالة';
@@ -1278,7 +1367,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emailRequestSuccess => 'Report sent successfully';
 
   @override
-  String get wantFeedbackQuestion => 'Would you like to receive feedback about this report?';
+  String get wantFeedbackQuestion =>
+      'Would you like to receive feedback about this report?';
 
   @override
   String get invalidEmailMessage => 'Please enter a valid email address';
@@ -1287,10 +1377,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reportFeedbackTitle => 'Report Submitted';
 
   @override
-  String get reportFeedbackMessage => 'Thank you for your report. We process a high number of support tickets. We normally respond to report feedbacks within a week.';
+  String get reportFeedbackMessage =>
+      'Thank you for your report. We process a high number of support tickets. We normally respond to report feedbacks within a week.';
 
   @override
-  String get fullAccessRequired => 'هذه الميزة تحتاج إلى الوصول الكامل إلى التطبيق';
+  String get fullAccessRequired =>
+      'هذه الميزة تحتاج إلى الوصول الكامل إلى التطبيق';
 
   @override
   String get updateAvailable => 'تحديث متاح';
@@ -1299,7 +1391,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get updateRequired => 'تحديث مطلوب';
 
   @override
-  String get updateMessage => 'تحديث جديد متاح! قم بتنزيل الإصدار الجديد للحصول على وظائف جديدة';
+  String get updateMessage =>
+      'تحديث جديد متاح! قم بتنزيل الإصدار الجديد للحصول على وظائف جديدة';
 
   @override
   String get forceUpdateMessage => 'مطلوب تحديث التطبيق للمتابعة.';
@@ -1323,5 +1416,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get findingSchoolsForYou => 'لا يوجد مدارس CDL في ولايتك. نحن نعمل على إضافتهم';
+  String get findingSchoolsForYou =>
+      'لا يوجد مدارس CDL في ولايتك. نحن نعمل على إضافتهم';
 }

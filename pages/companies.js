@@ -292,12 +292,7 @@ const CompaniesPage = ({ companies }) => {
 
   return (
     <>
-      <SEOHead
-        title={pageTitle}
-        description={pageDescription}
-        url="https://www.cdlhelp.com/companies"
-        type="article"
-      />
+      <SEOHead title={pageTitle} description={pageDescription} type="article" />
 
       <Head>
         {/* Companies List Schema */}

@@ -35,7 +35,7 @@ export default function PreTripGuide({ sections, alternateLinks }) {
       name: metaTitle || 'CDL Pre-Trip Inspection Guide',
       description:
         metaDescription || 'Complete guide to performing CDL pre-trip vehicle inspection',
-      image: 'https://www.cdlhelp.com/images/pre-trip-inspection.jpg',
+      image: 'http://localhost:3001/images/pre-trip-inspection.jpg',
       totalTime: 'PT30M',
       estimatedCost: {
         '@type': 'MonetaryAmount',

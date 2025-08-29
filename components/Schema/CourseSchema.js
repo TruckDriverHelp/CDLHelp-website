@@ -29,7 +29,7 @@ export default function CourseSchema({
       url: 'https://www.cdlhelp.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.cdlhelp.com/images/logo.png',
+        url: 'http://localhost:3001/images/logo.png',
         width: 600,
         height: 60,
       },

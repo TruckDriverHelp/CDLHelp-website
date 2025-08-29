@@ -30,10 +30,10 @@ for (const [urlLocale, hreflangValue] of Object.entries(EXPECTED_MAPPING)) {
 
 console.log('\n📝 Expected HTML output example:');
 console.log('-'.repeat(50));
-console.log(`<link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="x-default" />`);
-console.log(`<link rel="alternate" href="https://www.cdlhelp.com/" hrefLang="en-US" />`);
-console.log(`<link rel="alternate" href="https://www.cdlhelp.com/ru" hrefLang="ru-RU" />`);
-console.log(`<link rel="alternate" href="https://www.cdlhelp.com/uk" hrefLang="uk-UA" />`);
+console.log(`<link rel="alternate" href="http://localhost:3001/" hrefLang="x-default" />`);
+console.log(`<link rel="alternate" href="http://localhost:3001/" hrefLang="en-US" />`);
+console.log(`<link rel="alternate" href="http://localhost:3001/ru" hrefLang="ru-RU" />`);
+console.log(`<link rel="alternate" href="http://localhost:3001/uk" hrefLang="uk-UA" />`);
 console.log('... and so on for all locales');
 
 console.log('\n✅ Key Points:');

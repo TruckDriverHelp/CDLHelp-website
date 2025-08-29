@@ -3,6 +3,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { StructuredData, organizationSchema, websiteSchema } from './StructuredData';
 import { MetaOptimizer } from '../../../../lib/meta-optimizer';
+import {
+  generateHreflangUrls,
+  shouldHaveHreflang,
+  HREFLANG_LOCALE_MAP,
+} from '../../../../lib/hreflang-config';
 
 export interface SEOHeadProps {
   title: string;
@@ -24,18 +29,7 @@ export interface SEOHeadProps {
   };
 }
 
-// Mapping of simple locale codes to proper hreflang locale codes
-// URLs still use simple codes (/ru/), but hreflang uses proper codes (ru-RU)
-const HREFLANG_LOCALE_MAP: Record<string, string> = {
-  en: 'en-US',
-  ru: 'ru-RU',
-  uk: 'uk-UA',
-  ar: 'ar-SA',
-  ko: 'ko-KR',
-  zh: 'zh-CN',
-  tr: 'tr-TR',
-  pt: 'pt-BR',
-};
+// HREFLANG_LOCALE_MAP is now imported from hreflang-config.js
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
@@ -87,37 +81,26 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const currentPath = router.asPath;
   const pathWithoutLocale = currentPath.replace(/^\/(ru|uk|ar|ko|zh|tr|pt)(\/|$)/, '/');
 
-  // Generate alternate links for all supported languages
-  const supportedLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
-  const generatedAlternateLinks: Record<string, string> = {};
+  // Check if this page should have hreflang tags
+  const shouldAddHreflang = shouldHaveHreflang(pathWithoutLocale);
 
-  supportedLocales.forEach(lang => {
-    if (lang === 'en') {
-      // English URLs don't have locale prefix
-      generatedAlternateLinks[lang] = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+  // Generate appropriate alternate links
+  let finalAlternateLinks: Record<string, string> = {};
+
+  if (shouldAddHreflang) {
+    // If explicit alternateLinks are provided, use them
+    if (Object.keys(alternateLinks).length > 0) {
+      finalAlternateLinks = alternateLinks;
+
+      // Ensure self-referencing hreflang is included
+      if (!finalAlternateLinks[currentLocale]) {
+        finalAlternateLinks[currentLocale] =
+          currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`;
+      }
     } else {
-      // Other languages have locale prefix
-      generatedAlternateLinks[lang] =
-        pathWithoutLocale === '/' ? `/${lang}` : `/${lang}${pathWithoutLocale}`;
+      // Generate hreflang URLs based on actual available translations
+      finalAlternateLinks = generateHreflangUrls(pathWithoutLocale, currentLocale);
     }
-  });
-
-  // Use provided alternateLinks but ensure current locale is included
-  const finalAlternateLinks =
-    Object.keys(alternateLinks).length > 0
-      ? {
-          ...alternateLinks,
-          // Ensure self-referencing hreflang
-          [currentLocale]:
-            alternateLinks[currentLocale] ||
-            (currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`),
-        }
-      : generatedAlternateLinks;
-
-  // Always ensure self-referencing hreflang is present
-  if (!finalAlternateLinks[currentLocale]) {
-    finalAlternateLinks[currentLocale] =
-      currentLocale === 'en' ? pathWithoutLocale : `/${currentLocale}${pathWithoutLocale}`;
   }
 
   return (
@@ -164,20 +147,28 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         </>
       )}
 
-      {/* Alternate Language Links - URLs use simple codes (/ru/) but hreflang uses proper codes (ru-RU) */}
-      <link
-        rel="alternate"
-        href={`${baseUrl}${finalAlternateLinks['en'] || '/'}`}
-        hrefLang="x-default"
-      />
-      {Object.entries(finalAlternateLinks).map(([lang, path]) => (
-        <link
-          key={lang}
-          rel="alternate"
-          href={`${baseUrl}${path}`}
-          hrefLang={HREFLANG_LOCALE_MAP[lang] || lang}
-        />
-      ))}
+      {/* Alternate Language Links - Only render if we have valid alternate links */}
+      {shouldAddHreflang && Object.keys(finalAlternateLinks).length > 0 && (
+        <>
+          {/* x-default should point to English version when available */}
+          {finalAlternateLinks['en'] && (
+            <link
+              rel="alternate"
+              href={`${baseUrl}${finalAlternateLinks['en']}`}
+              hrefLang="x-default"
+            />
+          )}
+          {/* Add hreflang for each available translation */}
+          {Object.entries(finalAlternateLinks).map(([lang, path]) => (
+            <link
+              key={lang}
+              rel="alternate"
+              href={`${baseUrl}${path}`}
+              hrefLang={HREFLANG_LOCALE_MAP[lang] || lang}
+            />
+          ))}
+        </>
+      )}
 
       {/* Organization and Website structured data (on homepage only) */}
       {router.pathname === '/' && (

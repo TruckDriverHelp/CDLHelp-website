@@ -145,9 +145,9 @@ const DownloadPage = ({ alternateLinks }) => {
       softwareVersion: '3.0.0',
       contentRating: '4+',
       screenshot: [
-        'https://www.cdlhelp.com/images/screenshots/ios-1.jpg',
-        'https://www.cdlhelp.com/images/screenshots/ios-2.jpg',
-        'https://www.cdlhelp.com/images/screenshots/ios-3.jpg',
+        'http://localhost:3001/images/screenshots/ios-1.jpg',
+        'http://localhost:3001/images/screenshots/ios-2.jpg',
+        'http://localhost:3001/images/screenshots/ios-3.jpg',
       ],
       author: {
         '@type': 'Organization',
@@ -183,9 +183,9 @@ const DownloadPage = ({ alternateLinks }) => {
       softwareVersion: '3.0.0',
       contentRating: 'Everyone',
       screenshot: [
-        'https://www.cdlhelp.com/images/screenshots/android-1.jpg',
-        'https://www.cdlhelp.com/images/screenshots/android-2.jpg',
-        'https://www.cdlhelp.com/images/screenshots/android-3.jpg',
+        'http://localhost:3001/images/screenshots/android-1.jpg',
+        'http://localhost:3001/images/screenshots/android-2.jpg',
+        'http://localhost:3001/images/screenshots/android-3.jpg',
       ],
       author: {
         '@type': 'Organization',

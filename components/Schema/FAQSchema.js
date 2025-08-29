@@ -11,14 +11,14 @@ export default function FAQSchema({ questions = [], locale = 'en', url }) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    '@id': url || 'https://www.cdlhelp.com/faq',
-    url: url || 'https://www.cdlhelp.com/faq',
+    '@id': url || 'http://localhost:3001/faq',
+    url: url || 'http://localhost:3001/faq',
     name: 'CDL Help Frequently Asked Questions',
     description: 'Common questions about CDL tests, preparation, and the CDL Help app',
     inLanguage: locale === 'en' ? 'en-US' : `${locale}-${locale.toUpperCase()}`,
     mainEntity: questions.map((item, index) => ({
       '@type': 'Question',
-      '@id': `${url || 'https://www.cdlhelp.com/faq'}#question${index + 1}`,
+      '@id': `${url || 'http://localhost:3001/faq'}#question${index + 1}`,
       name: item.question,
       position: index + 1,
       answerCount: 1,
@@ -47,7 +47,7 @@ export default function FAQSchema({ questions = [], locale = 'en', url }) {
       name: 'CDL Help',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.cdlhelp.com/images/logo.png',
+        url: 'http://localhost:3001/images/logo.png',
         width: 600,
         height: 60,
       },

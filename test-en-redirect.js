@@ -9,11 +9,11 @@ const https = require('https');
 const { URL } = require('url');
 
 const urlsToTest = [
-  'https://www.cdlhelp.com/en/frequently-asked-questions',
-  'https://www.cdlhelp.com/en/how-to-become-a-truck-driver',
-  'https://www.cdlhelp.com/en/how-to-use-cdl-help',
-  'https://www.cdlhelp.com/en/schools/california',
-  'https://www.cdlhelp.com/en/pre-trip-inspection/tractor-front/1',
+  'http://localhost:3001/en/frequently-asked-questions',
+  'http://localhost:3001/en/how-to-become-a-truck-driver',
+  'http://localhost:3001/en/how-to-use-cdl-help',
+  'http://localhost:3001/en/schools/california',
+  'http://localhost:3001/en/pre-trip-inspection/tractor-front/1',
 ];
 
 async function testRedirect(url) {

@@ -40,4 +40,4 @@ This website is built with:
 
 ## Privacy
 
-We respect user privacy. Please refer to our privacy policy at https://www.cdlhelp.com/privacy-policy for details on data handling.
+We respect user privacy. Please refer to our privacy policy at http://localhost:3001/privacy-policy for details on data handling.

@@ -36,7 +36,7 @@ const CDLtexas = ({ text, cards, locale, alternateLinks, meta }) => {
       author: 'CDL Help Editorial Team',
       datePublished: '2023-01-01',
       dateModified: new Date().toISOString(),
-      image: 'https://www.cdlhelp.com/images/texas-cdl-og.jpg',
+      image: 'http://localhost:3001/images/texas-cdl-og.jpg',
       url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/cdl-texas`,
       keywords: [
         'Texas CDL',

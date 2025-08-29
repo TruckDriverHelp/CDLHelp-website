@@ -4,11 +4,11 @@ const path = require('path');
 
 const urls = [
   'https://www.cdlhelp.com',
-  'https://www.cdlhelp.com/download',
-  'https://www.cdlhelp.com/schools',
-  'https://www.cdlhelp.com/ru',
-  'https://www.cdlhelp.com/uk',
-  'https://www.cdlhelp.com/ar',
+  'http://localhost:3001/download',
+  'http://localhost:3001/schools',
+  'http://localhost:3001/ru',
+  'http://localhost:3001/uk',
+  'http://localhost:3001/ar',
 ];
 
 /**

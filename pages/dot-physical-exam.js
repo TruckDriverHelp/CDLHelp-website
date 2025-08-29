@@ -106,7 +106,7 @@ export default function DotPhysicalExam() {
       author: 'CDL Help Editorial Team',
       datePublished: '2023-01-01',
       dateModified: new Date().toISOString(),
-      image: 'https://www.cdlhelp.com/images/dot-physical-og.jpg',
+      image: 'http://localhost:3001/images/dot-physical-og.jpg',
       url: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/dot-physical-exam`,
       keywords: [
         'DOT physical',

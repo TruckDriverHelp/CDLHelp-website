@@ -145,7 +145,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
       author: article.author?.data?.attributes?.name || 'CDL Help Editorial Team',
       datePublished: article.publishedAt,
       dateModified: article.updatedAt || article.publishedAt,
-      image: metaImage || 'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg',
+      image: metaImage || 'http://localhost:3001/images/truckdriverhelp-og.jpg',
       url: `https://www.cdlhelp.com${locale === 'en' ? `/${slug}` : `/${locale}/${slug}`}`,
       keywords: article.tags || [],
       wordCount: article.wordCount || article.content?.split(' ').length || 0,

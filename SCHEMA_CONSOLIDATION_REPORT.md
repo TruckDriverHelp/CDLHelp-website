@@ -61,7 +61,7 @@ The CDL Help website currently has **significant duplication** in Schema.org imp
   name: getLocalizedOrganizationName(locale),
   alternateName: getLocalizedAlternateName(locale),
   url: getLocalizedUrl(locale),
-  logo: 'https://www.cdlhelp.com/images/black-logo.png',
+  logo: 'http://localhost:3001/images/black-logo.png',
   sameAs: getLocalizedSocialLinks(locale)
 }
 
@@ -70,7 +70,7 @@ The CDL Help website currently has **significant duplication** in Schema.org imp
   name: getLocalizedOrganizationName(locale),
   alternateName: getLocalizedAlternateName(locale),
   url: getLocalizedUrl(locale),
-  logo: 'https://www.cdlhelp.com/images/black-logo.png',
+  logo: 'http://localhost:3001/images/black-logo.png',
   sameAs: getLocalizedSocialLinks(locale)
   // Missing: contactPoint, address, foundingDate
 }
@@ -82,7 +82,7 @@ The CDL Help website currently has **significant duplication** in Schema.org imp
   url: 'https://www.cdlhelp.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.cdlhelp.com/images/logo.png', // Different logo!
+    url: 'http://localhost:3001/images/logo.png', // Different logo!
     width: 600,
     height: 60
   },

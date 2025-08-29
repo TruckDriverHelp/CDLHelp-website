@@ -14,6 +14,7 @@ import { SchoolList } from '../../src/widgets/SchoolList';
 import { SEOHead } from '../../src/shared/ui/SEO';
 import { useSEO } from '../../src/shared/lib/hooks/useSEO';
 import getMeta from '../../lib/getMeta';
+import { generateHreflangUrls } from '../../lib/hreflang-config';
 
 const SchoolMap = dynamic(
   () => {
@@ -56,16 +57,18 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
 
   const seoData = useSEO({
     meta,
-    customUrl: `https://www.cdlhelp.com/schools/${state}/${city}`,
     type: 'article',
   });
 
+  // Generate proper hreflang URLs for school city pages
+  const alternateLinks = generateHreflangUrls(`/schools/${state}/${city}`, locale);
+
   return (
     <>
-      <SEOHead {...seoData} />
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
 
-      <Layout alternateLinks={{}} dir="ltr">
-        <Navbar alternateLinks={{}} />
+      <Layout dir="ltr">
+        <Navbar />
 
         <PageBannerStyle1
           pageTitle={t('schoolsInCity', {
@@ -199,7 +202,6 @@ const StateCitiesPage = ({ cities, state, meta }) => {
 
   const seoData = useSEO({
     meta,
-    customUrl: `https://www.cdlhelp.com/schools/${state}`,
     type: 'article',
   });
 
@@ -235,10 +237,10 @@ const StateCitiesPage = ({ cities, state, meta }) => {
 
   return (
     <>
-      <SEOHead {...seoData} />
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
 
-      <Layout alternateLinks={{}} dir="ltr">
-        <Navbar alternateLinks={{}} />
+      <Layout dir="ltr">
+        <Navbar />
 
         <PageBannerStyle1
           pageTitle={t('citiesInState', {
@@ -408,7 +410,6 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
 
   const seoData = useSEO({
     meta,
-    customUrl: `https://www.cdlhelp.com/schools/${router.query.params?.[0]}`,
     type: 'article',
   });
 
@@ -424,10 +425,10 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
 
   return (
     <>
-      <SEOHead {...seoData} />
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
 
-      <Layout alternateLinks={{}} dir="ltr">
-        <Navbar alternateLinks={{}} />
+      <Layout dir="ltr">
+        <Navbar />
 
         <PageBannerStyle1
           pageTitle={`${schoolName} - ${t('cdlSchool', 'CDL School')}`}

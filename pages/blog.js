@@ -74,7 +74,7 @@ const Blog = ({ articles, pagination, blogMeta, alternateLinks }) => {
           image:
             article.image?.url ||
             article.attributes?.image?.data?.attributes?.url ||
-            'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg',
+            'http://localhost:3001/images/truckdriverhelp-og.jpg',
         },
       })),
     })

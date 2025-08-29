@@ -60,7 +60,7 @@ export const generateOrganizationSchema = (
     url: config?.url || getLocalizedUrl(locale),
     logo: config?.logo || {
       '@type': 'ImageObject',
-      url: 'https://www.cdlhelp.com/images/black-logo.png',
+      url: 'http://localhost:3001/images/black-logo.png',
       width: 600,
       height: 60,
     },
@@ -122,7 +122,7 @@ export const generateWebsiteSchema = (locale = 'en', description?: string): Base
       name: getLocalizedOrganizationName(locale),
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.cdlhelp.com/images/black-logo.png',
+        url: 'http://localhost:3001/images/black-logo.png',
       },
     },
   };
@@ -261,7 +261,7 @@ export const generateArticleSchema = (locale = 'en', config: ArticleConfig): Bas
         : config.author || { '@type': 'Person', name: 'CDL Help Editorial Team' },
     datePublished: config.datePublished || new Date().toISOString(),
     dateModified: config.dateModified || config.datePublished || new Date().toISOString(),
-    image: config.image || 'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg',
+    image: config.image || 'http://localhost:3001/images/truckdriverhelp-og.jpg',
     url: config.url,
     inLanguage: config.inLanguage || locale,
     mainEntityOfPage: {

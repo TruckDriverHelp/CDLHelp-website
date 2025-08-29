@@ -76,7 +76,7 @@ const BlogPostDetailView = ({ slug, article, locale, alternateLinks = {} }) => {
     ? metaTags.image.url.startsWith('http')
       ? metaTags.image.url
       : host + metaTags.image.url
-    : 'https://www.cdlhelp.com/images/truckdriverhelp-og.jpg';
+    : 'http://localhost:3001/images/truckdriverhelp-og.jpg';
 
   // Count words in content for schema
   const wordCount =

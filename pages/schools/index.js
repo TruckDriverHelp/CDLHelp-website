@@ -14,6 +14,7 @@ import { StructuredData } from '../../src/shared/ui/SEO/StructuredData';
 import { useSEO } from '../../src/shared/lib/hooks/useSEO';
 import getMeta from '../../lib/getMeta';
 import { getLocalizedOrganizationName, getLocalizedUrl } from '../../lib/schemaLocalization';
+import { generateHreflangUrls } from '../../lib/hreflang-config';
 
 const SchoolsPage = ({ meta, states }) => {
   const { t } = useTranslation(['city-schools', 'common']);
@@ -25,6 +26,9 @@ const SchoolsPage = ({ meta, states }) => {
     customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/schools`,
     type: 'article',
   });
+
+  // Generate proper hreflang URLs for schools index
+  const alternateLinks = generateHreflangUrls('/schools', locale || 'en');
 
   // Build comprehensive schemas for schools directory page
   const schemas = new SchemaBuilder(locale)
@@ -86,13 +90,13 @@ const SchoolsPage = ({ meta, states }) => {
 
   return (
     <>
-      <SEOHead {...seoData} />
+      <SEOHead {...seoData} alternateLinks={alternateLinks} />
 
       {/* Structured Data Schemas */}
       <StructuredData data={schemas} />
 
-      <Layout alternateLinks={{}} dir="ltr">
-        <Navbar alternateLinks={{}} />
+      <Layout dir="ltr">
+        <Navbar />
 
         <PageBannerStyle1
           pageTitle={t('schoolsTitle', 'CDL Schools in USA')}
