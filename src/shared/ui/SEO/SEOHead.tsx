@@ -50,7 +50,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const baseUrl = 'https://www.cdlhelp.com';
   // Remove query parameters from the path for canonical URL
   const cleanPath = router.asPath.split('?')[0].split('#')[0];
-  const fullUrl = url || `${baseUrl}${cleanPath}`;
+  // Ensure the canonical URL includes the locale for non-English pages
+  const localizedPath =
+    currentLocale === 'en'
+      ? cleanPath
+      : cleanPath.startsWith(`/${currentLocale}`)
+        ? cleanPath
+        : `/${currentLocale}${cleanPath}`;
+  const fullUrl = url || `${baseUrl}${localizedPath}`;
   const canonicalUrl = canonical || fullUrl;
 
   // Initialize meta optimizer
