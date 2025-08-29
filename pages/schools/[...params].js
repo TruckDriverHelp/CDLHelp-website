@@ -72,6 +72,7 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
       title: pageTitle,
       description: pageDescription,
     },
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/schools/${state}/${city}`,
     type: 'article',
   });
 
@@ -237,6 +238,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
       title: pageTitle,
       description: pageDescription,
     },
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/schools/${state}`,
     type: 'article',
   });
 
@@ -451,20 +453,23 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
   const pageTitle = `${schoolName} - ${cdlSchoolText}`;
   const pageDescription = `${schoolName} is a CDL training school in ${cityFormatted}, ${stateFormatted}. Get information about their commercial driver's license programs, schedules, and contact details.`;
 
+  // Generate school slug for URL
+  const schoolSlug = schoolName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
   const seoData = useSEO({
     meta: {
       ...meta,
       title: pageTitle,
       description: pageDescription,
     },
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/schools/${state}/${city}/${schoolSlug}`,
     type: 'article',
   });
 
   // Generate proper hreflang URLs for school profile pages
-  const schoolSlug = schoolName
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
   const alternateLinks = generateHreflangUrls(`/schools/${schoolSlug}`, locale);
 
   const formatPhoneNumber = phone => {

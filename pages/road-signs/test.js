@@ -32,6 +32,7 @@ const SignsTest = () => {
   };
 
   const seoData = useSEO({
+    customUrl: `https://www.cdlhelp.com${locale === 'en' ? '' : `/${locale}`}/road-signs/test`,
     type: 'website',
   });
 
