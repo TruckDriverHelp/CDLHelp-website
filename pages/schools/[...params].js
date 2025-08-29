@@ -55,8 +55,23 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
   const stateFormatted = formatStateName(state);
   const cityFormatted = city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
+  // Generate proper title and description for city schools page
+  const pageTitle = t('schoolsInCity', {
+    city: cityFormatted,
+    state: stateFormatted,
+    defaultValue: `CDL Schools in ${cityFormatted}, ${stateFormatted}`,
+  });
+  const pageDescription = t('description', {
+    state: stateFormatted,
+    defaultValue: `Find Commercial Driver's License (CDL) training schools in ${cityFormatted}, ${stateFormatted}. Get information on truck driving schools near you.`,
+  });
+
   const seoData = useSEO({
-    meta,
+    meta: {
+      ...meta,
+      title: pageTitle,
+      description: pageDescription,
+    },
     type: 'article',
   });
 
@@ -198,12 +213,31 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
 // Component for State page (showing cities)
 const StateCitiesPage = ({ cities, state, meta }) => {
   const { t } = useTranslation(['city-schools', 'index']);
+  const router = useRouter();
+  const { locale } = router;
   const stateFormatted = formatStateName(state);
 
+  // Generate proper title and description for state page
+  const pageTitle = t('citiesInState', {
+    state: stateFormatted,
+    defaultValue: `CDL Schools in ${stateFormatted}`,
+  });
+  const pageDescription = t('selectCityDescription', {
+    state: stateFormatted,
+    defaultValue: `Choose a city in ${stateFormatted} to view CDL schools`,
+  });
+
   const seoData = useSEO({
-    meta,
+    meta: {
+      ...meta,
+      title: pageTitle,
+      description: pageDescription,
+    },
     type: 'article',
   });
+
+  // Generate proper hreflang URLs for school state pages
+  const alternateLinks = generateHreflangUrls(`/schools/${state}`, locale);
 
   const cardStyle = {
     backgroundColor: '#fff',
@@ -408,10 +442,26 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
 
   // Debug logging removed
 
+  // Generate proper title and description for school profile
+  const cdlSchoolText = t('cdlSchool', 'CDL School');
+  const pageTitle = `${schoolName} - ${cdlSchoolText}`;
+  const pageDescription = `${schoolName} is a CDL training school in ${cityFormatted}, ${stateFormatted}. Get information about their commercial driver's license programs, schedules, and contact details.`;
+
   const seoData = useSEO({
-    meta,
+    meta: {
+      ...meta,
+      title: pageTitle,
+      description: pageDescription,
+    },
     type: 'article',
   });
+
+  // Generate proper hreflang URLs for school profile pages
+  const schoolSlug = schoolName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+  const alternateLinks = generateHreflangUrls(`/schools/${schoolSlug}`, locale);
 
   const formatPhoneNumber = phone => {
     if (!phone) return '';
