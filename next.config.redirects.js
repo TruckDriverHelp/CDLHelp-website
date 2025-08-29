@@ -129,5 +129,17 @@ module.exports = async () => {
     });
   });
 
+  // Redirect New York City pages that don't exist
+  // These are causing hreflang non-200 errors
+  const allLocales = ['', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
+  allLocales.forEach(locale => {
+    const prefix = locale ? `/${locale}` : '';
+    redirects.push({
+      source: `${prefix}/schools/new-york/new-york`,
+      destination: `${prefix}/schools/new-york`,
+      permanent: false, // Temporary redirect until city page is created
+    });
+  });
+
   return redirects;
 };

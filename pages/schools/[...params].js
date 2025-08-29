@@ -76,7 +76,11 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
   });
 
   // Generate proper hreflang URLs for school city pages
-  const alternateLinks = generateHreflangUrls(`/schools/${state}/${city}`, locale);
+  // Special case: Don't generate hreflang for new-york/new-york as this page doesn't exist
+  const alternateLinks =
+    state === 'new-york' && city === 'new-york'
+      ? {}
+      : generateHreflangUrls(`/schools/${state}/${city}`, locale);
 
   return (
     <>
