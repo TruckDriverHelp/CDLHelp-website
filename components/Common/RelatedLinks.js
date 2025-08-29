@@ -40,7 +40,67 @@ const RelatedLinks = ({ currentPage = '' }) => {
       ];
     }
 
-    // For test/practice pages
+    // For companies pages
+    if (currentPage.includes('companies')) {
+      return [
+        {
+          href: '/schools',
+          icon: '🏫',
+          title: t('navbar:schools', 'CDL Schools'),
+          desc: t('common:schoolsDesc', 'Find CDL training schools'),
+        },
+        {
+          href: '/cdl-texas',
+          icon: '📝',
+          title: t('navbar:practiceTest', 'Practice Test'),
+          desc: t('common:practiceTestDesc', 'Prepare for your CDL exam'),
+        },
+        {
+          href: '/how-to-get-cdl',
+          icon: '📋',
+          title: t('navbar:howToGetCDL', 'How to Get CDL'),
+          desc: t('common:howToGetCDLDesc', 'Step-by-step CDL guide'),
+        },
+        {
+          href: '/download',
+          icon: '📱',
+          title: t('navbar:downloadApp', 'Mobile App'),
+          desc: t('common:downloadDesc', 'Practice on the go'),
+        },
+      ];
+    }
+
+    // For DOT physical exam pages
+    if (currentPage.includes('dot-physical-exam')) {
+      return [
+        {
+          href: '/how-to-get-cdl',
+          icon: '📋',
+          title: t('navbar:howToGetCDL', 'How to Get CDL'),
+          desc: t('common:howToGetCDLDesc', 'CDL requirements guide'),
+        },
+        {
+          href: '/schools',
+          icon: '🏫',
+          title: t('navbar:schools', 'CDL Schools'),
+          desc: t('common:schoolsDesc', 'Find training schools'),
+        },
+        {
+          href: '/cdl-texas',
+          icon: '📝',
+          title: t('navbar:practiceTest', 'Practice Test'),
+          desc: t('common:practiceTestDesc', 'CDL practice exams'),
+        },
+        {
+          href: '/blog',
+          icon: '📚',
+          title: t('navbar:blog', 'Blog'),
+          desc: t('common:blogDesc', 'CDL tips and resources'),
+        },
+      ];
+    }
+
+    // For test/practice pages including road-signs
     if (currentPage.includes('cdl-texas') || currentPage.includes('road-signs')) {
       return [
         {
@@ -66,6 +126,40 @@ const RelatedLinks = ({ currentPage = '' }) => {
           icon: '📚',
           title: t('navbar:blog', 'Blog'),
           desc: t('common:blogDesc', 'Tips for passing your CDL test'),
+        },
+      ];
+    }
+
+    // For how-to and guide pages
+    if (
+      currentPage.includes('how-to') ||
+      currentPage.includes('guide') ||
+      currentPage.includes('article')
+    ) {
+      return [
+        {
+          href: '/cdl-texas',
+          icon: '📝',
+          title: t('navbar:practiceTest', 'Practice Test'),
+          desc: t('common:practiceTestDesc', 'Free CDL practice tests'),
+        },
+        {
+          href: '/schools',
+          icon: '🏫',
+          title: t('navbar:schools', 'CDL Schools'),
+          desc: t('common:schoolsDesc', 'Find CDL schools'),
+        },
+        {
+          href: '/companies',
+          icon: '🏢',
+          title: t('navbar:companies', 'Companies'),
+          desc: t('common:companiesDesc', 'Trucking companies hiring'),
+        },
+        {
+          href: '/download',
+          icon: '📱',
+          title: t('navbar:downloadApp', 'Mobile App'),
+          desc: t('common:downloadDesc', 'CDL practice app'),
         },
       ];
     }

@@ -9,6 +9,7 @@ import { SEOHead } from '../src/shared/ui/SEO';
 import { useSEO } from '../src/shared/lib/hooks/useSEO';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import getMeta from '../lib/getMeta';
+import RelatedLinks from '../components/Common/RelatedLinks';
 
 const containerStyle = {
   width: '100%',
@@ -236,6 +237,7 @@ export default function DotPhysicalExam({ meta, alternateLinks }) {
           </Paper>
         )}
       </Container>
+      <RelatedLinks currentPage="dot-physical-exam" />
     </>
   );
 }

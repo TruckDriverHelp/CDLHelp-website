@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Layout from '../../components/_App/Layout';
 import Navbar from '../../components/_App/Navbar';
 import Footer from '../../components/_App/Footer';
+import RelatedLinks from '../../components/Common/RelatedLinks';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { SEOHead } from '../../src/shared/ui/SEO';
@@ -415,6 +416,7 @@ const SignsTest = () => {
           </div>
         </div>
       </div>
+      <RelatedLinks currentPage="road-signs" />
       <Footer />
     </Layout>
   );

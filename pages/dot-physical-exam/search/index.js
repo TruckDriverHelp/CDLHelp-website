@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Layout from '../../../components/_App/Layout';
 import Navbar from '../../../components/_App/Navbar';
 import Footer from '../../../components/_App/Footer';
+import RelatedLinks from '../../../components/Common/RelatedLinks';
 import { SEOHead } from '../../../src/shared/ui/SEO';
 import { useSEO } from '../../../src/shared/lib/hooks/useSEO';
 import { useRouter } from 'next/router';
@@ -325,6 +326,7 @@ export default function DotPhysicalExam({ meta, alternateLinks }) {
         )}
       </Container>
 
+      <RelatedLinks currentPage="dot-physical-exam" />
       <Footer />
     </Layout>
   );

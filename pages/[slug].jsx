@@ -12,6 +12,7 @@ import { ALTERNATE_LINKS_QUERY } from '../lib/graphql/alternateLinks';
 import Layout from '../components/_App/Layout';
 import Navbar from '../components/_App/Navbar';
 import Footer from '../components/_App/Footer';
+import RelatedLinks from '../components/Common/RelatedLinks';
 import ReactMarkdown from 'react-markdown';
 import YouTubePlayer from '../components/Common/YouTubePlayer';
 import { SEOHead } from '../src/shared/ui/SEO';
@@ -557,6 +558,7 @@ const PostDetailView = ({ slug, article, locale, alternateLinks = [] }) => {
             });
           })()}
         </div>
+        <RelatedLinks currentPage={slug.includes('how-to') ? 'how-to' : 'article'} />
         <Footer />
       </Layout>
     </>

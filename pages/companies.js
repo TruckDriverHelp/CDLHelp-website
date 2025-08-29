@@ -13,6 +13,7 @@ import Navbar from '../components/_App/Navbar';
 import Footer from '../components/_App/Footer';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import { DynamicQuiz } from '../components/_App/DynamicImports';
+import RelatedLinks from '../components/Common/RelatedLinks';
 
 const CompanyCard = ({ company }) => {
   const { t } = useTranslation('companies');
@@ -404,6 +405,7 @@ const CompaniesPage = ({ companies }) => {
           </div>
         </div>
 
+        <RelatedLinks currentPage="companies" />
         <Footer />
       </Layout>
       <style jsx>{`
