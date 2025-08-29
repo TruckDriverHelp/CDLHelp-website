@@ -237,21 +237,77 @@ const nextConfig = {
           },
         ],
       },
-      // General performance headers
+      // Security headers for all pages
       {
-        source: '/:path*',
+        source: '/(.*)',
         headers: [
+          // Referrer-Policy - Controls referrer information sent with requests
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
           },
+          // Content Security Policy - Prevents XSS and other injection attacks
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://cdnjs.cloudflare.com https://maps.googleapis.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com data:",
+              "img-src 'self' data: blob: https: http:",
+              "media-src 'self' data: blob:",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://maps.googleapis.com https://places.googleapis.com wss: https://146.190.47.164:1337 http://146.190.47.164:1337",
+              "worker-src 'self' blob:",
+              "child-src 'self'",
+              "manifest-src 'self'",
+              'upgrade-insecure-requests',
+            ].join('; '),
+          },
+          // Strict Transport Security - Enforces HTTPS
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
+          },
+          // X-Content-Type-Options - Prevents MIME sniffing
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
+          // X-Frame-Options - Prevents clickjacking
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
+            value: 'DENY',
+          },
+          // X-XSS-Protection - Enables XSS filtering
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          // Permissions Policy - Controls browser features
+          {
+            key: 'Permissions-Policy',
+            value: [
+              'camera=()',
+              'microphone=()',
+              'geolocation=(self)',
+              'interest-cohort=()',
+              'payment=(self)',
+              'usb=()',
+              'magnetometer=()',
+              'accelerometer=()',
+              'gyroscope=()',
+              'fullscreen=(self)',
+              'display-capture=()',
+            ].join(', '),
+          },
+          // DNS prefetch control
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
           },
         ],
       },
