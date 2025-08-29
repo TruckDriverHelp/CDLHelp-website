@@ -67,7 +67,8 @@ const nextConfig = {
     ];
   },
   async redirects() {
-    // Get the 404 fix redirects
+    // Get the 404 fix redirects from external configuration
+    // This includes redirects for Russian articles, pre-trip sections, school states, and NYC pages
     const seoFixRedirects = await generateRedirects();
 
     return [
