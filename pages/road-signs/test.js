@@ -292,6 +292,165 @@ const SignsTest = () => {
       <StructuredData data={schemas} />
 
       <Navbar />
+
+      {/* Educational Content Section */}
+      <div className="road-signs-info-area ptb-50 bg-white">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 mx-auto">
+              <div className="info-content text-center mb-4">
+                <h2 className="mb-4">
+                  Master CDL Road Signs for Your Commercial Driver&apos;s License
+                </h2>
+                <p className="lead mb-4">
+                  Understanding road signs is crucial for CDL drivers. Our interactive road signs
+                  quiz helps you learn and memorize the traffic signs you&apos;ll encounter on your
+                  CDL permit test and during your commercial driving career.
+                </p>
+              </div>
+
+              <div className="row">
+                <div className="col-md-4 mb-4">
+                  <div className="info-card text-center p-4">
+                    <div className="icon mb-3">
+                      <i
+                        className="ri-road-map-line"
+                        style={{ fontSize: '3rem', color: '#007bff' }}
+                      ></i>
+                    </div>
+                    <h4>Warning Signs</h4>
+                    <p>
+                      Learn to identify construction zones, curves, intersections, and hazardous
+                      conditions ahead.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4 mb-4">
+                  <div className="info-card text-center p-4">
+                    <div className="icon mb-3">
+                      <i
+                        className="ri-stop-circle-line"
+                        style={{ fontSize: '3rem', color: '#dc3545' }}
+                      ></i>
+                    </div>
+                    <h4>Regulatory Signs</h4>
+                    <p>
+                      Master stop signs, yield signs, speed limits, and traffic control regulations.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4 mb-4">
+                  <div className="info-card text-center p-4">
+                    <div className="icon mb-3">
+                      <i
+                        className="ri-direction-line"
+                        style={{ fontSize: '3rem', color: '#28a745' }}
+                      ></i>
+                    </div>
+                    <h4>Guide Signs</h4>
+                    <p>Navigate with highway markers, exit signs, and directional information.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="study-tips mb-4">
+                <h3 className="text-center mb-3">Road Signs Study Tips for CDL Drivers</h3>
+                <div className="row">
+                  <div className="col-md-6">
+                    <ul className="tips-list">
+                      <li>
+                        <strong>Shape Recognition:</strong> Learn sign shapes - octagons mean stop,
+                        triangles mean yield, diamonds warn of hazards
+                      </li>
+                      <li>
+                        <strong>Color Meanings:</strong> Red for prohibition, yellow for caution,
+                        green for guidance, blue for services
+                      </li>
+                      <li>
+                        <strong>Symbol Understanding:</strong> Many signs use universal symbols that
+                        transcend language barriers
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="col-md-6">
+                    <ul className="tips-list">
+                      <li>
+                        <strong>Commercial Specific:</strong> Pay special attention to weight
+                        limits, height restrictions, and truck route signs
+                      </li>
+                      <li>
+                        <strong>Construction Zones:</strong> Orange signs indicate temporary
+                        conditions and reduced speed zones
+                      </li>
+                      <li>
+                        <strong>Regular Practice:</strong> Take our quiz regularly to reinforce your
+                        knowledge and improve recognition speed
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="importance-section mb-4">
+                <h3 className="text-center mb-3">Why Road Signs Matter for CDL Drivers</h3>
+                <p className="text-center mb-3">
+                  As a commercial driver, you&apos;ll encounter thousands of road signs during your
+                  career. Understanding these signs is essential for:
+                </p>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="importance-item mb-3">
+                      <h5>Safety Compliance</h5>
+                      <p>
+                        Following sign instructions prevents accidents and keeps you and other
+                        motorists safe on the road.
+                      </p>
+                    </div>
+                    <div className="importance-item mb-3">
+                      <h5>Legal Requirements</h5>
+                      <p>
+                        Ignoring traffic signs can result in citations, fines, and points on your
+                        CDL.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="importance-item mb-3">
+                      <h5>Route Planning</h5>
+                      <p>
+                        Signs help you navigate efficiently and avoid restricted areas for
+                        commercial vehicles.
+                      </p>
+                    </div>
+                    <div className="importance-item mb-3">
+                      <h5>CDL Testing</h5>
+                      <p>
+                        Road signs questions are a significant portion of the CDL general knowledge
+                        test.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="test-info text-center">
+                <h3 className="mb-3">How This Quiz Works</h3>
+                <p className="mb-3">
+                  Our interactive road signs quiz presents you with actual road sign images and
+                  multiple-choice answers. Each question is designed to test your knowledge of sign
+                  meanings, appropriate responses, and safety implications.
+                </p>
+                <p className="mb-4">
+                  The quiz adapts to your language preference and provides immediate feedback to
+                  help you learn from any mistakes. Use this tool to supplement your CDL manual
+                  study and improve your chances of passing the permit test on your first attempt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="features-area ptb-100 bg-F7F7FF">
         <div className="container">
           <div className="text-center mb-4">
@@ -425,6 +584,50 @@ const SignsTest = () => {
       </div>
       <RelatedLinks currentPage="road-signs" />
       <Footer />
+
+      <style jsx>{`
+        .info-card {
+          background: #f8f9fa;
+          border-radius: 10px;
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+          border: 1px solid #e9ecef;
+        }
+        .info-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        .tips-list {
+          list-style: none;
+          padding-left: 0;
+        }
+        .tips-list li {
+          padding: 8px 0;
+          border-bottom: 1px solid #e9ecef;
+        }
+        .tips-list li:last-child {
+          border-bottom: none;
+        }
+        .importance-item h5 {
+          color: #333;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        .importance-item p {
+          color: #666;
+          line-height: 1.6;
+        }
+        .road-signs-info-area {
+          border-bottom: 1px solid #e9ecef;
+        }
+        .lead {
+          font-size: 1.25rem;
+          font-weight: 300;
+          line-height: 1.6;
+          color: #666;
+        }
+      `}</style>
     </Layout>
   );
 };

@@ -1,11 +1,13 @@
 import React from 'react';
 import ContactForm from '../components/Contact/ContactForm';
 import ContactInfo from '../components/Contact/ContactInfo';
+import ContactIntro from '../components/Contact/ContactIntro';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Footer from '../components/_App/Footer';
 import Navbar from '../components/_App/Navbar';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { SEOHead } from '../src/shared/ui/SEO';
 import { SchemaBuilder } from '../src/shared/ui/SEO/schemas';
 import { StructuredData } from '../src/shared/ui/SEO/StructuredData';
@@ -100,10 +102,11 @@ const Contact = ({ alternateLinks, meta }) => {
           </div>
         </div>
         <div className="banner-shape1">
-          <img src="/images/shape/shape9.png" alt="image" />
+          <Image src="/images/shape/shape9.png" alt="image" width={100} height={100} />
         </div>
       </div>
 
+      <ContactIntro />
       <ContactForm />
       <ContactInfo />
       <Footer />

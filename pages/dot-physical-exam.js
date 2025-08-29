@@ -182,6 +182,174 @@ export default function DotPhysicalExam({ meta, alternateLinks }) {
           Find DOT Physical Exam Locations
         </Typography>
 
+        {/* Comprehensive Information Section */}
+        <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
+          <Typography variant="h3" component="h2" gutterBottom>
+            Complete Guide to DOT Physical Exams for CDL Drivers
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            The Department of Transportation (DOT) physical exam is a mandatory medical examination
+            required by the Federal Motor Carrier Safety Administration (FMCSA) for all commercial
+            drivers. This comprehensive health assessment ensures that CDL drivers are physically
+            and mentally capable of safely operating commercial vehicles on public roads.
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            Whether you&apos;re a new CDL driver or renewing your medical certificate, understanding
+            the DOT physical requirements and finding qualified medical examiners in your area is
+            crucial for maintaining your commercial driving privileges. Our location finder tool
+            helps you locate certified medical examiners near you who are authorized to perform DOT
+            physical exams.
+          </Typography>
+
+          <Typography variant="h4" component="h3" sx={{ mt: 3, mb: 2 }}>
+            What to Expect During Your DOT Physical
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            A typical DOT physical exam includes several components designed to evaluate your
+            overall health and fitness for commercial driving:
+          </Typography>
+
+          <Box component="ul" sx={{ pl: 4, mb: 3 }}>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Vision Test:</strong> You must have 20/40 vision or better in each eye (with
+              or without correction) and at least 70-degree peripheral vision in both eyes.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Hearing Test:</strong> You must be able to perceive a forced whisper at 5 feet
+              or less, or pass an audiometric test.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Blood Pressure Check:</strong> Your blood pressure must be below 140/90.
+              Higher readings may require additional monitoring or treatment.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Urinalysis:</strong> Tests for protein, blood, and sugar to screen for
+              underlying health conditions.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Physical Examination:</strong> Assessment of your heart, lungs, abdomen,
+              spine, and extremities to ensure proper function.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Medical History Review:</strong> Discussion of your medical history, current
+              medications, and any ongoing health conditions.
+            </Typography>
+          </Box>
+
+          <Typography variant="h4" component="h3" sx={{ mt: 3, mb: 2 }}>
+            Medical Conditions That May Affect Your DOT Physical
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            Several medical conditions can impact your ability to pass a DOT physical. Some
+            conditions are automatically disqualifying, while others may require additional
+            documentation or treatment:
+          </Typography>
+
+          <Box component="ul" sx={{ pl: 4, mb: 3 }}>
+            <Typography component="li" variant="body1">
+              Diabetes (especially insulin-dependent)
+            </Typography>
+            <Typography component="li" variant="body1">
+              Sleep apnea
+            </Typography>
+            <Typography component="li" variant="body1">
+              High blood pressure
+            </Typography>
+            <Typography component="li" variant="body1">
+              Heart disease
+            </Typography>
+            <Typography component="li" variant="body1">
+              Epilepsy or seizure disorders
+            </Typography>
+            <Typography component="li" variant="body1">
+              Mental health conditions
+            </Typography>
+            <Typography component="li" variant="body1">
+              Vision or hearing impairments
+            </Typography>
+            <Typography component="li" variant="body1">
+              Substance abuse history
+            </Typography>
+          </Box>
+
+          <Typography variant="h4" component="h3" sx={{ mt: 3, mb: 2 }}>
+            Preparing for Your DOT Physical Exam
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            Proper preparation can help ensure you pass your DOT physical on the first try:
+          </Typography>
+
+          <Box component="ol" sx={{ pl: 4, mb: 3 }}>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Gather Required Documents:</strong> Bring your current driver&apos;s license,
+              a list of all medications, and any medical records related to ongoing conditions.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Get a Good Night&apos;s Sleep:</strong> Being well-rested can help ensure
+              accurate blood pressure readings and better overall performance.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Bring Corrective Lenses:</strong> If you wear glasses or contacts, bring them
+              to your exam and have a backup pair available.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Manage Your Health:</strong> If you have ongoing medical conditions, ensure
+              they are well-controlled before your exam.
+            </Typography>
+            <Typography component="li" variant="body1" paragraph>
+              <strong>Stay Hydrated:</strong> Drink plenty of water before your exam to help with
+              the urinalysis portion.
+            </Typography>
+          </Box>
+
+          <Typography variant="h4" component="h3" sx={{ mt: 3, mb: 2 }}>
+            DOT Physical Certification Periods
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            The length of your DOT medical certificate depends on your health status:
+          </Typography>
+
+          <Box component="ul" sx={{ pl: 4, mb: 3 }}>
+            <Typography component="li" variant="body1">
+              <strong>2 Years:</strong> Standard certification for drivers in good health
+            </Typography>
+            <Typography component="li" variant="body1">
+              <strong>1 Year:</strong> For drivers with certain controlled conditions like
+              hypertension
+            </Typography>
+            <Typography component="li" variant="body1">
+              <strong>3-6 Months:</strong> For drivers with conditions requiring frequent monitoring
+            </Typography>
+            <Typography component="li" variant="body1">
+              <strong>Temporary:</strong> Short-term certificates while awaiting additional medical
+              documentation
+            </Typography>
+          </Box>
+
+          <Typography variant="h4" component="h3" sx={{ mt: 3, mb: 2 }}>
+            Finding the Right Medical Examiner
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            Only certified medical examiners listed on the FMCSA National Registry can perform DOT
+            physical exams. Our search tool below helps you find qualified examiners in your area.
+            When choosing an examiner, consider factors such as location, availability, cost, and
+            reviews from other drivers.
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            The cost of a DOT physical typically ranges from $50 to $150, depending on your location
+            and the specific examiner. Some employers may cover the cost of your DOT physical, so be
+            sure to check with your company&apos;s HR department.
+          </Typography>
+        </Paper>
+
         <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
           <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
             <TextField

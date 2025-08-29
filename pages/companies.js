@@ -14,6 +14,7 @@ import Footer from '../components/_App/Footer';
 import PageBannerStyle1 from '../components/Common/PageBannerStyle1';
 import { DynamicQuiz } from '../components/_App/DynamicImports';
 import RelatedLinks from '../components/Common/RelatedLinks';
+import CompaniesIntro from '../components/Companies/CompaniesIntro';
 
 const CompanyCard = ({ company }) => {
   const { t } = useTranslation('companies');
@@ -311,6 +312,8 @@ const CompaniesPage = ({ companies }) => {
           homePageText={t('homePageText')}
           activePageText={t('companiesTitle')}
         />
+
+        <CompaniesIntro />
 
         <div className="container pb-100">
           <div className="companies-layout">
