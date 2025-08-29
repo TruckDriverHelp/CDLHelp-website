@@ -1,4 +1,5 @@
 const path = require('path');
+const generateRedirects = require('./next.config.redirects');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -66,7 +67,11 @@ const nextConfig = {
     ];
   },
   async redirects() {
+    // Get the 404 fix redirects
+    const seoFixRedirects = await generateRedirects();
+
     return [
+      ...seoFixRedirects,
       // Fix incorrect /en/ prefix for English URLs
       {
         source: '/en/:path*',
