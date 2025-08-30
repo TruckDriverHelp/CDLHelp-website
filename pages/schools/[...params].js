@@ -155,12 +155,68 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
               </nav>
             </div>
 
-            {/* City Overview SEO Content */}
+            {/* Schools Grid */}
+            <div
+              className="schools-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '24px',
+                padding: '20px 0',
+                maxWidth: '1400px',
+                margin: '0 auto',
+              }}
+            >
+              {schools.map(schoolLocation => (
+                <div key={schoolLocation.id}>
+                  <SchoolList schools={[schoolLocation]} loading={false} error={null} />
+                </div>
+              ))}
+            </div>
+
+            {schools.length === 0 && (
+              <div
+                style={{
+                  textAlign: 'center',
+                  padding: '60px 20px',
+                  background: '#fff',
+                  borderRadius: '16px',
+                  margin: '40px auto',
+                  maxWidth: '600px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: '1.5rem',
+                    color: '#374151',
+                    marginBottom: '12px',
+                  }}
+                >
+                  {t('noSchoolsTitle', 'No Schools Found')}
+                </h3>
+                <p
+                  style={{
+                    color: '#6b7280',
+                    fontSize: '1rem',
+                  }}
+                >
+                  {t('noSchoolsInCity', {
+                    city: cityFormatted,
+                    state: stateFormatted,
+                    defaultValue: `No CDL schools are currently available in ${cityFormatted}, ${stateFormatted}.`,
+                  })}
+                </p>
+              </div>
+            )}
+
+            {/* City Overview SEO Content - Moved after schools */}
             <div
               style={{
                 backgroundColor: '#fff',
                 borderRadius: '16px',
                 padding: '40px',
+                marginTop: '40px',
                 marginBottom: '40px',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
               }}
@@ -242,61 +298,6 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
                 })}
               </p>
             </div>
-
-            {/* Schools Grid */}
-            <div
-              className="schools-grid"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                gap: '24px',
-                padding: '20px 0',
-                maxWidth: '1400px',
-                margin: '0 auto',
-              }}
-            >
-              {schools.map(schoolLocation => (
-                <div key={schoolLocation.id}>
-                  <SchoolList schools={[schoolLocation]} loading={false} error={null} />
-                </div>
-              ))}
-            </div>
-
-            {schools.length === 0 && (
-              <div
-                style={{
-                  textAlign: 'center',
-                  padding: '60px 20px',
-                  background: '#fff',
-                  borderRadius: '16px',
-                  margin: '40px auto',
-                  maxWidth: '600px',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: '1.5rem',
-                    color: '#374151',
-                    marginBottom: '12px',
-                  }}
-                >
-                  {t('noSchoolsTitle', 'No Schools Found')}
-                </h3>
-                <p
-                  style={{
-                    color: '#6b7280',
-                    fontSize: '1rem',
-                  }}
-                >
-                  {t('noSchoolsInCity', {
-                    city: cityFormatted,
-                    state: stateFormatted,
-                    defaultValue: `No CDL schools are currently available in ${cityFormatted}, ${stateFormatted}.`,
-                  })}
-                </p>
-              </div>
-            )}
           </div>
         </div>
 
