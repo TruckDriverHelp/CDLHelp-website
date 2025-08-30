@@ -46,7 +46,7 @@ module.exports = async () => {
     redirects.push({
       source: `/pre-trip-inspection/${section}`,
       destination: `/pre-trip-inspection/guide`,
-      permanent: false, // Use temporary redirect for English as these might be valid later
+      permanent: true, // Changed to permanent - these pages don't exist and redirect to guide
     });
   });
 
@@ -109,7 +109,7 @@ module.exports = async () => {
     redirects.push({
       source: `/school/${state}`,
       destination: '/schools',
-      permanent: false, // Temporary redirect - these pages should work when Strapi is accessible
+      permanent: true, // Changed to permanent - these old URLs should use /schools/[state] pattern
     });
   });
 
@@ -137,7 +137,7 @@ module.exports = async () => {
     redirects.push({
       source: `${prefix}/schools/new-york/new-york`,
       destination: `${prefix}/schools/new-york`,
-      permanent: false, // Temporary redirect until city page is created
+      permanent: true, // Changed to permanent - NYC doesn't have a separate schools page
     });
   });
 
