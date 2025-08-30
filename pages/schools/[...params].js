@@ -1279,8 +1279,8 @@ export async function getStaticPaths() {
       'district-of-columbia',
     ];
 
-    // Pre-generate only for these locales
-    const targetLocales = ['en', 'ru', 'uk'];
+    // Pre-generate for all supported locales
+    const targetLocales = ['en', 'ru', 'uk', 'ar', 'ko', 'zh', 'tr', 'pt'];
 
     // 1. Generate all state paths for target locales
     for (const state of stateSlugsList) {
@@ -1292,60 +1292,39 @@ export async function getStaticPaths() {
       }
     }
 
-    // 2. Pre-generate city and school pages for all states in target locales
+    // 2. Pre-generate city pages for priority states only
+    // This reduces build time while still providing good coverage
     if (process.env.NODE_ENV === 'production') {
       try {
-        const { fetchCitiesForState, fetchSchoolsForCity } = await import(
-          '../../src/entities/School/api/schoolApi'
-        );
+        const { fetchCitiesForState } = await import('../../src/entities/School/api/schoolApi');
 
         const { formatStateName } = await import('../../src/shared/lib/utils/formatters');
 
-        // Priority states to generate more cities/schools
-        const priorityStates = ['california', 'texas', 'florida', 'new-york', 'illinois'];
+        // Only pre-generate city pages for priority states
+        // Other states will be generated on-demand with fallback: 'blocking'
+        const priorityStates = ['florida', 'ohio', 'illinois'];
+        const priorityCities = {
+          florida: ['miami', 'orlando', 'jacksonville'],
+          ohio: ['columbus', 'cincinnati', 'cleveland'],
+          illinois: ['chicago', 'springfield', 'rockford'],
+        };
 
-        for (const stateSlug of stateSlugsList) {
-          try {
-            const cities = await fetchCitiesForState(formatStateName(stateSlug));
+        for (const stateSlug of priorityStates) {
+          const citiesToGenerate = priorityCities[stateSlug] || [];
 
-            // Determine how many cities to generate based on priority
-            const cityLimit = priorityStates.includes(stateSlug) ? 20 : 5;
-            const schoolLimit = priorityStates.includes(stateSlug) ? 10 : 3;
-
-            // Generate city paths
-            for (const city of cities.slice(0, cityLimit)) {
-              for (const locale of targetLocales) {
-                paths.push({
-                  params: { params: [stateSlug, city.slug] },
-                  locale,
-                });
-              }
-
-              // Generate school paths for cities
-              try {
-                const schools = await fetchSchoolsForCity(formatStateName(stateSlug), city.name);
-
-                for (const school of schools.slice(0, schoolLimit)) {
-                  const schoolName = school.locations?.data?.[0]?.attributes?.Name;
-                  if (schoolName) {
-                    const schoolSlug = schoolName
-                      .toLowerCase()
-                      .replace(/[^a-z0-9]+/g, '-')
-                      .replace(/(^-|-$)/g, '');
-
-                    for (const locale of targetLocales) {
-                      paths.push({
-                        params: { params: [schoolSlug] },
-                        locale,
-                      });
-                    }
-                  }
-                }
-              } catch (error) {}
+          // Generate city paths for all locales
+          for (const citySlug of citiesToGenerate) {
+            for (const locale of targetLocales) {
+              paths.push({
+                params: { params: [stateSlug, citySlug] },
+                locale,
+              });
             }
-          } catch (error) {}
+          }
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error('Error generating priority city paths:', error);
+      }
     }
 
     return {
