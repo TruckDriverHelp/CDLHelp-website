@@ -76,12 +76,25 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
     type: 'article',
   });
 
+  // List of city pages that actually exist
+  const existingCityPages = {
+    florida: ['miami', 'orlando', 'jacksonville'],
+    ohio: ['columbus', 'cincinnati', 'cleveland'],
+    illinois: ['chicago', 'springfield', 'rockford'],
+    california: ['san-diego', 'san-francisco'],
+    texas: ['austin', 'san-antonio'],
+    'new-york': ['buffalo', 'rochester'],
+    pennsylvania: ['pittsburgh', 'harrisburg'],
+    washington: ['spokane', 'tacoma'],
+    wisconsin: ['madison', 'green-bay'],
+  };
+
   // Generate proper hreflang URLs for school city pages
-  // Special case: Don't generate hreflang for new-york/new-york as this page doesn't exist
-  const alternateLinks =
-    state === 'new-york' && city === 'new-york'
-      ? {}
-      : generateHreflangUrls(`/schools/${state}/${city}`, locale);
+  // Only generate if the city actually exists
+  const cityExists = existingCityPages[state]?.includes(city);
+  const alternateLinks = cityExists
+    ? generateHreflangUrls(`/schools/${state}/${city}`, locale)
+    : {};
 
   return (
     <>
@@ -242,8 +255,28 @@ const StateCitiesPage = ({ cities, state, meta }) => {
     type: 'article',
   });
 
+  // List of states that actually have school data
+  const statesWithSchools = [
+    'florida',
+    'ohio',
+    'illinois',
+    'california',
+    'texas',
+    'new-york',
+    'pennsylvania',
+    'washington',
+    'wisconsin',
+    'georgia',
+    'michigan',
+    'arizona',
+    'colorado',
+    'missouri',
+  ];
+
   // Generate proper hreflang URLs for school state pages
-  const alternateLinks = generateHreflangUrls(`/schools/${state}`, locale);
+  // Only generate if the state has schools
+  const stateHasSchools = statesWithSchools.includes(state);
+  const alternateLinks = stateHasSchools ? generateHreflangUrls(`/schools/${state}`, locale) : {};
 
   const cardStyle = {
     backgroundColor: '#fff',
