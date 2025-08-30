@@ -1,5 +1,5 @@
 {
-  "pageTitle": "CDL Schools in  {{state}}",
+  "pageTitle": "{{state}} CDL Schools & Training Programs - Find Truck Driving Schools",
   "description": "Find Commercial Driver's License (CDL) training schools in  {{state}}. Get information on truck driving schools near you.",
   "homePageText": "CDL Schools",
   "allSchoolTypes": "All School Types",
@@ -15,8 +15,8 @@
   "schoolsTitle": "CDL Training Schools Directory - Find Truck Driving Schools Near You",
   "selectCity": "Select a City",
   "selectCityDescription": "Choose a city in {{state}} to view CDL schools",
-  "citiesInState": "CDL Schools in {{state}}",
-  "schoolsInCity": "CDL Schools in {{city}}, {{state}}",
+  "citiesInState": "{{state}} CDL Schools - Commercial Driving Training by City",
+  "schoolsInCity": "{{city}}, {{state}} CDL Schools - Truck Driving Training & Classes",
   "noCitiesTitle": "No Cities Found",
   "noCitiesText": "No cities with CDL schools are currently available in {{state}}.",
   "noSchoolsInCity": "No CDL schools are currently available in {{city}}, {{state}}.",

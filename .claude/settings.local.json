@@ -56,7 +56,13 @@
       "Bash(git config:*)",
       "Bash(do)",
       "Bash(if [[ \"$file\" != *\"ru.xml.js\" ]])",
-      "Bash(then)"
+      "Bash(then)",
+      "WebFetch(domain:www.cdlhelp.com)",
+      "WebFetch(domain:www.cdlhelp.com)",
+      "WebFetch(domain:www.cdlhelp.com)",
+      "WebFetch(domain:www.cdlhelp.com)",
+      "WebFetch(domain:www.cdlhelp.com)",
+      "Bash(do basename \"$file\" .json)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
