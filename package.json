@@ -115,5 +115,8 @@
     "not dead",
     "not op_mini all",
     "not IE 11"
-  ]
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  }
 }
