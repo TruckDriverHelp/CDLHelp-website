@@ -155,6 +155,94 @@ const CitySchoolsPage = ({ schools, state, city, meta }) => {
               </nav>
             </div>
 
+            {/* City Overview SEO Content */}
+            <div
+              style={{
+                backgroundColor: '#fff',
+                borderRadius: '16px',
+                padding: '40px',
+                marginBottom: '40px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: '1.75rem',
+                  fontWeight: '600',
+                  color: '#1a1a1a',
+                  marginBottom: '20px',
+                }}
+              >
+                {t('cityOverviewTitle', {
+                  city: cityFormatted,
+                  state: stateFormatted,
+                  defaultValue: `CDL Schools in ${cityFormatted}, ${stateFormatted}`,
+                })}
+              </h2>
+              <p
+                style={{
+                  color: '#4b5563',
+                  fontSize: '1.125rem',
+                  lineHeight: '1.8',
+                  marginBottom: '20px',
+                }}
+              >
+                {t('cityOverviewText', {
+                  city: cityFormatted,
+                  defaultValue: `Find the best commercial driving schools in ${cityFormatted} and start your trucking career today. ${cityFormatted} CDL schools provide comprehensive training programs designed to prepare you for the CDL exam and a successful career in commercial driving. With experienced instructors and state-of-the-art training facilities, you'll gain the skills and confidence needed to excel in the trucking industry.`,
+                })}
+              </p>
+
+              <h3
+                style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '600',
+                  color: '#1a1a1a',
+                  marginTop: '30px',
+                  marginBottom: '15px',
+                }}
+              >
+                {t('trainingProgramsTitle', { defaultValue: 'Available CDL Training Programs' })}
+              </h3>
+              <p
+                style={{
+                  color: '#4b5563',
+                  fontSize: '1.125rem',
+                  lineHeight: '1.8',
+                  marginBottom: '20px',
+                }}
+              >
+                {t('trainingProgramsText', {
+                  location: cityFormatted,
+                  defaultValue: `CDL schools in ${cityFormatted} typically offer several training options to meet different career goals. Class A CDL programs prepare you to drive tractor-trailers and other large commercial vehicles. Class B CDL training qualifies you for straight trucks, buses, and delivery vehicles. Many schools also offer endorsement training for hazmat, tanker, doubles/triples, and passenger vehicles.`,
+                })}
+              </p>
+
+              <h3
+                style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '600',
+                  color: '#1a1a1a',
+                  marginTop: '30px',
+                  marginBottom: '15px',
+                }}
+              >
+                {t('costAndFinancingTitle', { defaultValue: 'CDL School Costs and Financial Aid' })}
+              </h3>
+              <p
+                style={{
+                  color: '#4b5563',
+                  fontSize: '1.125rem',
+                  lineHeight: '1.8',
+                }}
+              >
+                {t('costAndFinancingText', {
+                  defaultValue:
+                    'CDL training costs vary by program length and type, typically ranging from $3,000 to $7,000. Many schools offer financial aid options including payment plans, workforce development grants, VA benefits for veterans, and company-sponsored training programs where employers cover tuition in exchange for a driving commitment.',
+                })}
+              </p>
+            </div>
+
             {/* Schools Grid */}
             <div
               className="schools-grid"
@@ -391,6 +479,155 @@ const StateCitiesPage = ({ cities, state, meta }) => {
                   </div>
                 </Link>
               ))}
+            </div>
+
+            {/* Enhanced SEO Content Sections */}
+            <div style={{ marginTop: '60px' }}>
+              {/* State Overview */}
+              <div
+                style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  padding: '40px',
+                  marginBottom: '30px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: '1.75rem',
+                    fontWeight: '600',
+                    color: '#1a1a1a',
+                    marginBottom: '20px',
+                  }}
+                >
+                  {t('stateOverviewTitle', {
+                    state: stateFormatted,
+                    defaultValue: `CDL Training in ${stateFormatted}`,
+                  })}
+                </h2>
+                <p
+                  style={{
+                    color: '#4b5563',
+                    fontSize: '1.125rem',
+                    lineHeight: '1.8',
+                    marginBottom: '20px',
+                  }}
+                >
+                  {t('stateOverviewText', {
+                    state: stateFormatted,
+                    defaultValue: `${stateFormatted} offers numerous opportunities for aspiring commercial truck drivers. With a growing transportation industry and strategic location for freight distribution, obtaining your CDL in ${stateFormatted} opens doors to a rewarding career. Our comprehensive directory helps you find accredited CDL schools that offer Class A and Class B licenses, endorsement training, and job placement assistance.`,
+                  })}
+                </p>
+              </div>
+
+              {/* Why Choose This State */}
+              <div
+                style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  padding: '40px',
+                  marginBottom: '30px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: '1.75rem',
+                    fontWeight: '600',
+                    color: '#1a1a1a',
+                    marginBottom: '20px',
+                  }}
+                >
+                  {t('whyChooseStateTitle', {
+                    state: stateFormatted,
+                    defaultValue: `Why Choose ${stateFormatted} for CDL Training?`,
+                  })}
+                </h2>
+                <p
+                  style={{
+                    color: '#4b5563',
+                    fontSize: '1.125rem',
+                    lineHeight: '1.8',
+                  }}
+                >
+                  {t('whyChooseStateText', {
+                    state: stateFormatted,
+                    defaultValue: `${stateFormatted} is home to some of the nation's top CDL training programs. The state's robust trucking industry means high demand for qualified drivers, competitive salaries, and excellent job security. Local CDL schools offer flexible scheduling options including weekend and evening classes, financial aid opportunities, and hands-on training with modern equipment.`,
+                  })}
+                </p>
+              </div>
+
+              {/* Training Programs */}
+              <div
+                style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  padding: '40px',
+                  marginBottom: '30px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: '1.75rem',
+                    fontWeight: '600',
+                    color: '#1a1a1a',
+                    marginBottom: '20px',
+                  }}
+                >
+                  {t('trainingProgramsTitle', { defaultValue: 'Available CDL Training Programs' })}
+                </h2>
+                <p
+                  style={{
+                    color: '#4b5563',
+                    fontSize: '1.125rem',
+                    lineHeight: '1.8',
+                  }}
+                >
+                  {t('trainingProgramsText', {
+                    location: stateFormatted,
+                    defaultValue: `CDL schools in ${stateFormatted} typically offer several training options to meet different career goals. Class A CDL programs prepare you to drive tractor-trailers and other large commercial vehicles. Class B CDL training qualifies you for straight trucks, buses, and delivery vehicles. Many schools also offer endorsement training for hazmat, tanker, doubles/triples, and passenger vehicles.`,
+                  })}
+                </p>
+              </div>
+
+              {/* CDL Requirements */}
+              <div
+                style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  padding: '40px',
+                  marginBottom: '30px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: '1.75rem',
+                    fontWeight: '600',
+                    color: '#1a1a1a',
+                    marginBottom: '20px',
+                  }}
+                >
+                  {t('requirementsTitle', {
+                    state: stateFormatted,
+                    defaultValue: `CDL Requirements in ${stateFormatted}`,
+                  })}
+                </h2>
+                <p
+                  style={{
+                    color: '#4b5563',
+                    fontSize: '1.125rem',
+                    lineHeight: '1.8',
+                  }}
+                >
+                  {t('requirementsText', {
+                    state: stateFormatted,
+                    defaultValue: `To obtain a CDL in ${stateFormatted}, you must be at least 18 years old for intrastate driving or 21 for interstate commerce, hold a valid driver's license, pass a DOT physical examination, and successfully complete written knowledge tests and skills tests. Most CDL schools help students navigate these requirements and prepare thoroughly for all examinations.`,
+                  })}
+                </p>
+              </div>
             </div>
 
             {cities.length === 0 && (
@@ -961,6 +1198,128 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                 </div>
               </div>
             )}
+
+            {/* FAQ Section */}
+            <div
+              style={{
+                marginTop: '40px',
+                backgroundColor: '#fff',
+                borderRadius: '16px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                padding: '40px',
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: '1.5rem',
+                  marginBottom: '30px',
+                  color: '#1a1a1a',
+                  fontWeight: '600',
+                }}
+              >
+                {t('faqTitle', 'Frequently Asked Questions')}
+              </h2>
+
+              <div style={{ marginBottom: '30px' }}>
+                <h3
+                  style={{
+                    fontSize: '1.25rem',
+                    color: '#374151',
+                    marginBottom: '12px',
+                    fontWeight: '600',
+                  }}
+                >
+                  {t('faqHowLong', 'How long does CDL training take?')}
+                </h3>
+                <p
+                  style={{
+                    color: '#6b7280',
+                    fontSize: '1.0625rem',
+                    lineHeight: '1.7',
+                  }}
+                >
+                  {t(
+                    'faqHowLongAnswer',
+                    'Most full-time CDL programs take 3-7 weeks to complete, while part-time programs may take 8-12 weeks. The duration depends on the license class and any additional endorsements.'
+                  )}
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '30px' }}>
+                <h3
+                  style={{
+                    fontSize: '1.25rem',
+                    color: '#374151',
+                    marginBottom: '12px',
+                    fontWeight: '600',
+                  }}
+                >
+                  {t('faqCanIWork', 'Can I work while attending CDL school?')}
+                </h3>
+                <p
+                  style={{
+                    color: '#6b7280',
+                    fontSize: '1.0625rem',
+                    lineHeight: '1.7',
+                  }}
+                >
+                  {t(
+                    'faqCanIWorkAnswer',
+                    'Yes, many CDL schools offer flexible scheduling with evening and weekend classes to accommodate working students. Part-time programs are specifically designed for those maintaining employment during training.'
+                  )}
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '30px' }}>
+                <h3
+                  style={{
+                    fontSize: '1.25rem',
+                    color: '#374151',
+                    marginBottom: '12px',
+                    fontWeight: '600',
+                  }}
+                >
+                  {t('faqJobGuarantee', 'Do CDL schools guarantee job placement?')}
+                </h3>
+                <p
+                  style={{
+                    color: '#6b7280',
+                    fontSize: '1.0625rem',
+                    lineHeight: '1.7',
+                  }}
+                >
+                  {t(
+                    'faqJobGuaranteeAnswer',
+                    'While most reputable CDL schools offer job placement assistance and maintain industry connections, job placement is typically not guaranteed. However, the high demand for CDL drivers means qualified graduates usually find employment quickly.'
+                  )}
+                </p>
+              </div>
+
+              <div>
+                <h3
+                  style={{
+                    fontSize: '1.25rem',
+                    color: '#374151',
+                    marginBottom: '12px',
+                    fontWeight: '600',
+                  }}
+                >
+                  {t('faqWhatToExpect', 'What should I expect during CDL training?')}
+                </h3>
+                <p
+                  style={{
+                    color: '#6b7280',
+                    fontSize: '1.0625rem',
+                    lineHeight: '1.7',
+                  }}
+                >
+                  {t(
+                    'faqWhatToExpectAnswer',
+                    "CDL training includes classroom instruction covering regulations and safety, pre-trip inspection training, backing and maneuvering practice, and on-road driving experience. You'll learn to operate commercial vehicles safely while preparing for the CDL knowledge and skills tests."
+                  )}
+                </p>
+              </div>
+            </div>
 
             {/* Helpful Resources Section - Now in separate container */}
             <div
