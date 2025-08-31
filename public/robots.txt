@@ -85,8 +85,9 @@ Allow: /api/sitemap-news.xml
 Host: https://www.cdlhelp.com
 
 # Sitemaps
-Sitemap: http://localhost:3001/api/sitemap-index.xml
-Sitemap: http://localhost:3001/api/sitemap-news.xml
+Sitemap: https://www.cdlhelp.com/sitemap-comprehensive.xml
+Sitemap: https://www.cdlhelp.com/api/sitemap-index.xml
+Sitemap: https://www.cdlhelp.com/api/sitemap-news.xml
 
 # Crawl delay for responsible crawling
 Crawl-delay: 1
