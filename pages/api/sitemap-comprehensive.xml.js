@@ -5,8 +5,8 @@
 
 export default function handler(req, res) {
   try {
-    // Import the generator
-    const ComprehensiveSitemapGenerator = require('../../lib/sitemap/comprehensive-generator');
+    // Import the fixed generator
+    const ComprehensiveSitemapGenerator = require('../../lib/sitemap/comprehensive-generator-fixed');
 
     // Initialize generator with configuration
     const generator = new ComprehensiveSitemapGenerator({
