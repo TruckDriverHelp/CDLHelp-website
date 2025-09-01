@@ -85,7 +85,7 @@ Allow: /api/sitemap-news.xml
 Host: https://www.cdlhelp.com
 
 # Sitemaps
-Sitemap: https://www.cdlhelp.com/sitemap-comprehensive.xml
+Sitemap: https://www.cdlhelp.com/api/sitemap-comprehensive.xml
 Sitemap: https://www.cdlhelp.com/api/sitemap-index.xml
 Sitemap: https://www.cdlhelp.com/api/sitemap-news.xml
 
