@@ -7,7 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const ComprehensiveSitemapGenerator = require('../lib/sitemap/comprehensive-generator');
+const ComprehensiveSitemapGenerator = require('../lib/sitemap/comprehensive-generator-actual');
 
 async function generateSitemap() {
   console.log('🚀 Generating comprehensive sitemap for CDL Help...\n');
