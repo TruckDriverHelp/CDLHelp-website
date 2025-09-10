@@ -37,42 +37,5 @@
   "intro.beforeContact": "Перш ніж зв'язатися з нами",
   "intro.beforeContactText": "Щоб допомогти нам ефективніше допомогти вам, спочатку ознайомтеся з часто задаваними питаннями та довідковими ресурсами. На багато поширених питань можна миттєво отримати відповіді в нашій детальній довідковій документації.",
   "intro.prepareInfo": "При зверненні до служби підтримки вкажіть відповідну інформацію, таку як тип пристрою, версія додатка (якщо застосовно) та детальний опис будь-яких проблем, з якими ви стикаєтеся. Скріншоти можуть бути особливо корисними при технічних проблемах.",
-  "intro.privacyNotice": "Ваша конфіденційність важлива для нас. Всі комунікації обробляються конфіденційно та відповідно до нашої політики конфіденційності. Ми ніколи не будемо передавати вашу особисту інформацію третім особам без вашої згоди.",
-  "error": {
-    "allfieds": null,
-    "validemail": null,
-    "validnumber": null
-  },
-  "placeholder": {
-    "name": null,
-    "email": null,
-    "phonenumber": null,
-    "emailsubject": null,
-    "text": null
-  },
-  "intro": {
-    "title": null,
-    "paragraph1": null,
-    "paragraph2": null,
-    "supportHours": null,
-    "responseTime": null,
-    "feature1": null,
-    "feature2": null,
-    "feature3": null,
-    "feature4": null,
-    "commonQuestions": null,
-    "questionsIntro": null,
-    "topic1": null,
-    "topic2": null,
-    "topic3": null,
-    "topic4": null,
-    "topic5": null,
-    "topic6": null,
-    "topic7": null,
-    "topic8": null,
-    "beforeContact": null,
-    "beforeContactText": null,
-    "prepareInfo": null,
-    "privacyNotice": null
-  }
+  "intro.privacyNotice": "Ваша конфіденційність важлива для нас. Всі комунікації обробляються конфіденційно та відповідно до нашої політики конфіденційності. Ми ніколи не будемо передавати вашу особисту інформацію третім особам без вашої згоди."
 }

@@ -37,42 +37,5 @@
   "intro.beforeContact": "Прежде чем связаться с нами",
   "intro.beforeContactText": "Чтобы помочь нам более эффективно помочь вам, сначала ознакомьтесь с часто задаваемыми вопросами и справочными ресурсами. На многие распространенные вопросы можно мгновенно получить ответы в нашей подробной справочной документации.",
   "intro.prepareInfo": "При обращении в службу поддержки укажите соответствующую информацию, такую как тип устройства, версия приложения (если применимо) и подробное описание любых проблем, с которыми вы сталкиваетесь. Скриншоты могут быть особенно полезны при технических проблемах.",
-  "intro.privacyNotice": "Ваша конфиденциальность важна для нас. Все коммуникации обрабатываются конфиденциально и в соответствии с нашей политикой конфиденциальности. Мы никогда не будем передавать вашу личную информацию третьим лицам без вашего согласия.",
-  "error": {
-    "allfieds": null,
-    "validemail": null,
-    "validnumber": null
-  },
-  "placeholder": {
-    "name": null,
-    "email": null,
-    "phonenumber": null,
-    "emailsubject": null,
-    "text": null
-  },
-  "intro": {
-    "title": null,
-    "paragraph1": null,
-    "paragraph2": null,
-    "supportHours": null,
-    "responseTime": null,
-    "feature1": null,
-    "feature2": null,
-    "feature3": null,
-    "feature4": null,
-    "commonQuestions": null,
-    "questionsIntro": null,
-    "topic1": null,
-    "topic2": null,
-    "topic3": null,
-    "topic4": null,
-    "topic5": null,
-    "topic6": null,
-    "topic7": null,
-    "topic8": null,
-    "beforeContact": null,
-    "beforeContactText": null,
-    "prepareInfo": null,
-    "privacyNotice": null
-  }
+  "intro.privacyNotice": "Ваша конфиденциальность важна для нас. Все коммуникации обрабатываются конфиденциально и в соответствии с нашей политикой конфиденциальности. Мы никогда не будем передавать вашу личную информацию третьим лицам без вашего согласия."
 }

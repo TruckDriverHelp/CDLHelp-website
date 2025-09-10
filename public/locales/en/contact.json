@@ -2,25 +2,19 @@
   "methods": "Contact us via these methods",
   "support": "Support",
   "telegramGroup": "Telegram group",
-
   "error.allfieds": "Please fill all fields",
   "error.validemail": "Please enter a valid email address",
   "error.validnumber": "Please enter a valid number. Don't forget the + sign",
-
   "title": "Feedback",
   "heading": "To contact us, you can use the feedback form. Our team will contact you as soon as possible.",
-
   "placeholder.name": "Full name",
   "placeholder.email": "Email",
   "placeholder.phonenumber": "Phone number (optional)",
   "placeholder.emailsubject": "Topic",
   "placeholder.text": "Write a message...",
-
   "send": "Send",
-
   "sentTitle": "Thank you!",
   "sentText": "Your message was sent. Thank you for your feedback",
-
   "intro.title": "Get Help with Your CDL Journey",
   "intro.paragraph1": "At CDL Help, we understand that preparing for your Commercial Driver's License exam can be challenging. That's why our dedicated support team is here to assist you every step of the way. Whether you have questions about our practice tests, need technical support with our mobile app, or want guidance on CDL requirements in your state, we're ready to help.",
   "intro.paragraph2": "Our support team consists of experienced professionals who are knowledgeable about CDL regulations, testing procedures, and the trucking industry. We're committed to providing you with accurate, timely, and helpful responses to ensure your success in obtaining your CDL.",
