@@ -15,6 +15,7 @@ function getAllKeys(obj, prefix = '') {
     if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
       keys = keys.concat(getAllKeys(obj[key], fullKey));
     } else {
+      // If key contains dots, it's already a dot-notation key
       keys.push(fullKey);
     }
   }
@@ -24,6 +25,12 @@ function getAllKeys(obj, prefix = '') {
 
 // Function to check if key exists in object
 function hasKey(obj, keyPath) {
+  // First, check if the key exists as a literal dot-notation string key
+  if (keyPath in obj) {
+    return true;
+  }
+
+  // If not found as literal key, try nested path
   const keys = keyPath.split('.');
   let current = obj;
 

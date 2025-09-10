@@ -63,7 +63,11 @@
       "WebFetch(domain:www.cdlhelp.com)",
       "WebFetch(domain:www.cdlhelp.com)",
       "Bash(do basename \"$file\" .json)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(do echo \"Cleaning $file\")",
+      "Bash(do echo \"Fixing $file\")",
+      "Bash(git checkout:*)",
+      "Bash(do echo \"Checking $dir\")"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
