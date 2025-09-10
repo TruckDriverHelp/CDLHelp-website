@@ -62,7 +62,8 @@
       "WebFetch(domain:www.cdlhelp.com)",
       "WebFetch(domain:www.cdlhelp.com)",
       "WebFetch(domain:www.cdlhelp.com)",
-      "Bash(do basename \"$file\" .json)"
+      "Bash(do basename \"$file\" .json)",
+      "Bash(touch:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

@@ -140,16 +140,29 @@ const SignsTest = () => {
     fetchData();
   }, [locale]);
 
+  // Seeded pseudo-random number generator for consistent shuffling
+  const seededRandom = seed => {
+    let x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  };
+
   const generateOptions = useCallback(() => {
     if (!signs || signs.length === 0) return;
 
     const currentSign = signs[currentQuestionIndex];
     if (!currentSign || !currentSign.attributes) return;
 
+    // Use question index as seed for consistent shuffling
+    const seed = currentQuestionIndex + 12345;
+
     // Get 3 random wrong answers with both original and translated versions
     const wrongAnswers = signs
       .filter(sign => sign.id !== currentSign.id)
-      .sort(() => 0.5 - Math.random())
+      .sort((a, b) => {
+        const seedA = parseInt(a.id?.replace(/\D/g, '') || '0') + seed;
+        const seedB = parseInt(b.id?.replace(/\D/g, '') || '0') + seed;
+        return seededRandom(seedA) - seededRandom(seedB);
+      })
       .slice(0, 3)
       .map(sign => ({
         original: sign.attributes.original_name,
@@ -162,8 +175,12 @@ const SignsTest = () => {
       translated: currentSign.attributes.translated_name,
     };
 
-    // Combine and shuffle all options ONCE per question
-    const allOptionPairs = [...wrongAnswers, correctAnswer].sort(() => 0.5 - Math.random());
+    // Combine and shuffle all options ONCE per question using seeded random
+    const allOptionPairs = [...wrongAnswers, correctAnswer].sort((a, b) => {
+      const seedA = (a.original?.charCodeAt(0) || 0) + seed;
+      const seedB = (b.original?.charCodeAt(0) || 0) + seed;
+      return seededRandom(seedA) - seededRandom(seedB);
+    });
 
     setOptionPairs(allOptionPairs);
     // Set initial options based on current translation state
@@ -293,164 +310,7 @@ const SignsTest = () => {
 
       <Navbar />
 
-      {/* Educational Content Section */}
-      <div className="road-signs-info-area ptb-50 bg-white">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 mx-auto">
-              <div className="info-content text-center mb-4">
-                <h2 className="mb-4">
-                  Master CDL Road Signs for Your Commercial Driver&apos;s License
-                </h2>
-                <p className="lead mb-4">
-                  Understanding road signs is crucial for CDL drivers. Our interactive road signs
-                  quiz helps you learn and memorize the traffic signs you&apos;ll encounter on your
-                  CDL permit test and during your commercial driving career.
-                </p>
-              </div>
-
-              <div className="row">
-                <div className="col-md-4 mb-4">
-                  <div className="info-card text-center p-4">
-                    <div className="icon mb-3">
-                      <i
-                        className="ri-road-map-line"
-                        style={{ fontSize: '3rem', color: '#007bff' }}
-                      ></i>
-                    </div>
-                    <h4>Warning Signs</h4>
-                    <p>
-                      Learn to identify construction zones, curves, intersections, and hazardous
-                      conditions ahead.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                  <div className="info-card text-center p-4">
-                    <div className="icon mb-3">
-                      <i
-                        className="ri-stop-circle-line"
-                        style={{ fontSize: '3rem', color: '#dc3545' }}
-                      ></i>
-                    </div>
-                    <h4>Regulatory Signs</h4>
-                    <p>
-                      Master stop signs, yield signs, speed limits, and traffic control regulations.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-md-4 mb-4">
-                  <div className="info-card text-center p-4">
-                    <div className="icon mb-3">
-                      <i
-                        className="ri-direction-line"
-                        style={{ fontSize: '3rem', color: '#28a745' }}
-                      ></i>
-                    </div>
-                    <h4>Guide Signs</h4>
-                    <p>Navigate with highway markers, exit signs, and directional information.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="study-tips mb-4">
-                <h3 className="text-center mb-3">Road Signs Study Tips for CDL Drivers</h3>
-                <div className="row">
-                  <div className="col-md-6">
-                    <ul className="tips-list">
-                      <li>
-                        <strong>Shape Recognition:</strong> Learn sign shapes - octagons mean stop,
-                        triangles mean yield, diamonds warn of hazards
-                      </li>
-                      <li>
-                        <strong>Color Meanings:</strong> Red for prohibition, yellow for caution,
-                        green for guidance, blue for services
-                      </li>
-                      <li>
-                        <strong>Symbol Understanding:</strong> Many signs use universal symbols that
-                        transcend language barriers
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-md-6">
-                    <ul className="tips-list">
-                      <li>
-                        <strong>Commercial Specific:</strong> Pay special attention to weight
-                        limits, height restrictions, and truck route signs
-                      </li>
-                      <li>
-                        <strong>Construction Zones:</strong> Orange signs indicate temporary
-                        conditions and reduced speed zones
-                      </li>
-                      <li>
-                        <strong>Regular Practice:</strong> Take our quiz regularly to reinforce your
-                        knowledge and improve recognition speed
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="importance-section mb-4">
-                <h3 className="text-center mb-3">Why Road Signs Matter for CDL Drivers</h3>
-                <p className="text-center mb-3">
-                  As a commercial driver, you&apos;ll encounter thousands of road signs during your
-                  career. Understanding these signs is essential for:
-                </p>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="importance-item mb-3">
-                      <h5>Safety Compliance</h5>
-                      <p>
-                        Following sign instructions prevents accidents and keeps you and other
-                        motorists safe on the road.
-                      </p>
-                    </div>
-                    <div className="importance-item mb-3">
-                      <h5>Legal Requirements</h5>
-                      <p>
-                        Ignoring traffic signs can result in citations, fines, and points on your
-                        CDL.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="importance-item mb-3">
-                      <h5>Route Planning</h5>
-                      <p>
-                        Signs help you navigate efficiently and avoid restricted areas for
-                        commercial vehicles.
-                      </p>
-                    </div>
-                    <div className="importance-item mb-3">
-                      <h5>CDL Testing</h5>
-                      <p>
-                        Road signs questions are a significant portion of the CDL general knowledge
-                        test.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="test-info text-center">
-                <h3 className="mb-3">How This Quiz Works</h3>
-                <p className="mb-3">
-                  Our interactive road signs quiz presents you with actual road sign images and
-                  multiple-choice answers. Each question is designed to test your knowledge of sign
-                  meanings, appropriate responses, and safety implications.
-                </p>
-                <p className="mb-4">
-                  The quiz adapts to your language preference and provides immediate feedback to
-                  help you learn from any mistakes. Use this tool to supplement your CDL manual
-                  study and improve your chances of passing the permit test on your first attempt.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {/* Quiz Section */}
       <div className="features-area ptb-100 bg-F7F7FF">
         <div className="container">
           <div className="text-center mb-4">
@@ -573,10 +433,318 @@ const SignsTest = () => {
                     }}
                   >
                     {isCorrect
-                      ? 'Correct!'
-                      : `Wrong! The correct answer is: ${showTranslated ? currentSign.attributes.translated_name : currentSign.attributes.original_name}`}
+                      ? t('correct', 'Correct!')
+                      : `${t('wrong', 'Wrong!')} ${t('correctAnswerIs', 'The correct answer is')}: ${showTranslated ? currentSign.attributes.translated_name : currentSign.attributes.original_name}`}
                   </div>
                 )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Educational Content Section */}
+      <div className="road-signs-info-area ptb-50 bg-white">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 mx-auto">
+              <div className="info-content text-center mb-4">
+                <h2 className="mb-4">
+                  {t(
+                    'masterCDLRoadSigns',
+                    "Master CDL Road Signs for Your Commercial Driver's License"
+                  )}
+                </h2>
+                <p className="lead mb-4">
+                  {t(
+                    'understandingRoadSigns',
+                    "Understanding road signs is crucial for CDL drivers. Our interactive road signs quiz helps you learn and memorize the traffic signs you'll encounter on your CDL permit test and during your commercial driving career."
+                  )}
+                </p>
+              </div>
+
+              <div className="row">
+                <div className="col-md-4 mb-4">
+                  <div
+                    className="info-card text-center p-4"
+                    style={{
+                      minHeight: '280px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div
+                      className="icon"
+                      style={{
+                        marginBottom: '1rem',
+                        width: '100%',
+                        height: '60px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <i
+                        className="ri-road-map-line"
+                        style={{
+                          fontSize: '3rem',
+                          color: '#007bff',
+                          margin: '0 auto',
+                          display: 'block',
+                          textAlign: 'center',
+                        }}
+                      ></i>
+                    </div>
+                    <h4
+                      style={{
+                        marginTop: '0',
+                        marginBottom: '1rem',
+                        width: '100%',
+                        textAlign: 'center',
+                      }}
+                    >
+                      {t('warningSigns', 'Warning Signs')}
+                    </h4>
+                    <p style={{ marginTop: '0', width: '100%', textAlign: 'center' }}>
+                      {t(
+                        'warningSignsDesc',
+                        'Learn to identify construction zones, curves, intersections, and hazardous conditions ahead.'
+                      )}
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4 mb-4">
+                  <div
+                    className="info-card text-center p-4"
+                    style={{
+                      minHeight: '280px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div
+                      className="icon"
+                      style={{
+                        marginBottom: '1rem',
+                        width: '100%',
+                        height: '60px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <i
+                        className="ri-stop-circle-line"
+                        style={{
+                          fontSize: '3rem',
+                          color: '#dc3545',
+                          margin: '0 auto',
+                          display: 'block',
+                          textAlign: 'center',
+                        }}
+                      ></i>
+                    </div>
+                    <h4
+                      style={{
+                        marginTop: '0',
+                        marginBottom: '1rem',
+                        width: '100%',
+                        textAlign: 'center',
+                      }}
+                    >
+                      {t('regulatorySigns', 'Regulatory Signs')}
+                    </h4>
+                    <p style={{ marginTop: '0', width: '100%', textAlign: 'center' }}>
+                      {t(
+                        'regulatorySignsDesc',
+                        'Master stop signs, yield signs, speed limits, and traffic control regulations.'
+                      )}
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4 mb-4">
+                  <div
+                    className="info-card text-center p-4"
+                    style={{
+                      minHeight: '280px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div
+                      className="icon"
+                      style={{
+                        marginBottom: '1rem',
+                        width: '100%',
+                        height: '60px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <i
+                        className="ri-direction-line"
+                        style={{
+                          fontSize: '3rem',
+                          color: '#28a745',
+                          margin: '0 auto',
+                          display: 'block',
+                          textAlign: 'center',
+                        }}
+                      ></i>
+                    </div>
+                    <h4
+                      style={{
+                        marginTop: '0',
+                        marginBottom: '1rem',
+                        width: '100%',
+                        textAlign: 'center',
+                      }}
+                    >
+                      {t('guideSigns', 'Guide Signs')}
+                    </h4>
+                    <p style={{ marginTop: '0', width: '100%', textAlign: 'center' }}>
+                      {t(
+                        'guideSignsDesc',
+                        'Navigate with highway markers, exit signs, and directional information.'
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="study-tips mb-4">
+                <h3 className="text-center mb-3">
+                  {t('roadSignsStudyTips', 'Road Signs Study Tips for CDL Drivers')}
+                </h3>
+                <div className="row">
+                  <div className="col-md-6">
+                    <ul className="tips-list">
+                      <li>
+                        <strong>{t('shapeRecognition', 'Shape Recognition')}:</strong>{' '}
+                        {t(
+                          'shapeRecognitionDesc',
+                          'Learn sign shapes - octagons mean stop, triangles mean yield, diamonds warn of hazards'
+                        )}
+                      </li>
+                      <li>
+                        <strong>{t('colorMeanings', 'Color Meanings')}:</strong>{' '}
+                        {t(
+                          'colorMeaningsDesc',
+                          'Red for prohibition, yellow for caution, green for guidance, blue for services'
+                        )}
+                      </li>
+                      <li>
+                        <strong>{t('symbolUnderstanding', 'Symbol Understanding')}:</strong>{' '}
+                        {t(
+                          'symbolUnderstandingDesc',
+                          'Many signs use universal symbols that transcend language barriers'
+                        )}
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="col-md-6">
+                    <ul className="tips-list">
+                      <li>
+                        <strong>{t('commercialSpecific', 'Commercial Specific')}:</strong>{' '}
+                        {t(
+                          'commercialSpecificDesc',
+                          'Pay special attention to weight limits, height restrictions, and truck route signs'
+                        )}
+                      </li>
+                      <li>
+                        <strong>{t('constructionZones', 'Construction Zones')}:</strong>{' '}
+                        {t(
+                          'constructionZonesDesc',
+                          'Orange signs indicate temporary conditions and reduced speed zones'
+                        )}
+                      </li>
+                      <li>
+                        <strong>{t('regularPractice', 'Regular Practice')}:</strong>{' '}
+                        {t(
+                          'regularPracticeDesc',
+                          'Take our quiz regularly to reinforce your knowledge and improve recognition speed'
+                        )}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="importance-section mb-4">
+                <h3 className="text-center mb-3">
+                  {t('whyRoadSignsMatter', 'Why Road Signs Matter for CDL Drivers')}
+                </h3>
+                <p className="text-center mb-3">
+                  {t(
+                    'whyRoadSignsMatterDesc',
+                    "As a commercial driver, you'll encounter thousands of road signs during your career. Understanding these signs is essential for:"
+                  )}
+                </p>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="importance-item mb-3">
+                      <h5>{t('safetyCompliance', 'Safety Compliance')}</h5>
+                      <p>
+                        {t(
+                          'safetyComplianceDesc',
+                          'Following sign instructions prevents accidents and keeps you and other motorists safe on the road.'
+                        )}
+                      </p>
+                    </div>
+                    <div className="importance-item mb-3">
+                      <h5>{t('legalRequirements', 'Legal Requirements')}</h5>
+                      <p>
+                        {t(
+                          'legalRequirementsDesc',
+                          'Ignoring traffic signs can result in citations, fines, and points on your CDL.'
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="importance-item mb-3">
+                      <h5>{t('routePlanning', 'Route Planning')}</h5>
+                      <p>
+                        {t(
+                          'routePlanningDesc',
+                          'Signs help you navigate efficiently and avoid restricted areas for commercial vehicles.'
+                        )}
+                      </p>
+                    </div>
+                    <div className="importance-item mb-3">
+                      <h5>{t('cdlTesting', 'CDL Testing')}</h5>
+                      <p>
+                        {t(
+                          'cdlTestingDesc',
+                          'Road signs questions are a significant portion of the CDL general knowledge test.'
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="test-info text-center">
+                <h3 className="mb-3">{t('howThisQuizWorks', 'How This Quiz Works')}</h3>
+                <p className="mb-3">
+                  {t(
+                    'howThisQuizWorksDesc1',
+                    'Our interactive road signs quiz presents you with actual road sign images and multiple-choice answers. Each question is designed to test your knowledge of sign meanings, appropriate responses, and safety implications.'
+                  )}
+                </p>
+                <p className="mb-4">
+                  {t(
+                    'howThisQuizWorksDesc2',
+                    'The quiz adapts to your language preference and provides immediate feedback to help you learn from any mistakes. Use this tool to supplement your CDL manual study and improve your chances of passing the permit test on your first attempt.'
+                  )}
+                </p>
               </div>
             </div>
           </div>

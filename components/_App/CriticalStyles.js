@@ -107,24 +107,49 @@ const CriticalStyles = () => (
     /* Critical button styles */
     .default-btn {
       display: inline-block;
-      padding: 12px 30px;
-      font-size: 16px;
-      font-weight: 500;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
       text-align: center;
       white-space: nowrap;
       vertical-align: middle;
       cursor: pointer;
       user-select: none;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      transition: all 0.3s;
-      background-color: #5a5886;
+      border: none;
+      border-radius: 50px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(135deg, #4a4876 0%, #6b689a 100%);
       color: #fff;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .default-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #6b689a 0%, #4a4876 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
     }
 
     .default-btn:hover {
-      background-color: #4a4876;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(74, 72, 118, 0.3);
+    }
+
+    .default-btn:hover::before {
+      opacity: 1;
+    }
+
+    .default-btn:active {
+      transform: translateY(0) scale(1);
     }
 
     /* Critical utilities */

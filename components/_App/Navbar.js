@@ -246,9 +246,7 @@ const Navbar = ({ alternateLinks }) => {
   const [menu, setMenu] = React.useState(true);
   const [mounted, setMounted] = React.useState(false);
   const [resourcesOpen, setResourcesOpen] = React.useState(false);
-  const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== 'undefined' ? window.innerWidth : 1200
-  );
+  const [windowWidth, setWindowWidth] = React.useState(1200);
 
   React.useEffect(() => {
     setMounted(true);

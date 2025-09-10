@@ -259,10 +259,11 @@ const nextConfig = {
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
-              "frame-ancestors 'none'",
+              "frame-ancestors 'self'",
+              "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com",
               "connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://maps.googleapis.com https://places.googleapis.com wss: https://146.190.47.164:1337 http://146.190.47.164:1337",
               "worker-src 'self' blob:",
-              "child-src 'self'",
+              "child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com",
               "manifest-src 'self'",
               'upgrade-insecure-requests',
             ].join('; '),
@@ -277,10 +278,10 @@ const nextConfig = {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
-          // X-Frame-Options - Prevents clickjacking
+          // X-Frame-Options - Allows same-origin iframes while preventing clickjacking
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'SAMEORIGIN',
           },
           // X-XSS-Protection - Enables XSS filtering
           {

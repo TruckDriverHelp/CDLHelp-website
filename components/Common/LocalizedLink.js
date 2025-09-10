@@ -9,22 +9,31 @@ import consentManager from '../../lib/consent-manager';
  * Prevents duplicate locale paths and other URL issues
  * Now includes cross-domain consent passthrough
  */
-export default function LocalizedLink({ href, locale, children, enableConsentPassthrough = false, ...props }) {
+export default function LocalizedLink({
+  href,
+  locale,
+  children,
+  enableConsentPassthrough = false,
+  ...props
+}) {
   const router = useRouter();
   const currentLocale = locale || router.locale || 'en';
 
   // If href is an external URL or mobile app link, add consent parameters if enabled
   if (
     typeof href === 'string' &&
-    (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//') || href.startsWith('cdlhelp://'))
+    (href.startsWith('http://') ||
+      href.startsWith('https://') ||
+      href.startsWith('//') ||
+      href.startsWith('cdlhelp://'))
   ) {
     let finalHref = href;
-    
+
     // Add consent parameters for external URLs and app deep links if consent passthrough is enabled
     if (enableConsentPassthrough) {
       finalHref = addConsentParametersToUrl(href);
     }
-    
+
     return (
       <Link href={finalHref} {...props}>
         {children}
@@ -71,12 +80,12 @@ function addConsentParametersToUrl(url) {
       return url; // No consent data to pass
     }
 
-    const urlObj = new URL(url, typeof window !== 'undefined' ? window.location.origin : 'https://www.cdlhelp.com');
-    
+    const urlObj = new URL(url, 'https://www.cdlhelp.com');
+
     // Add consent parameters
     urlObj.searchParams.set('consent_sync', '1');
     urlObj.searchParams.set('consent_timestamp', Date.now().toString());
-    
+
     // Add individual consent types
     if (consent.analytics !== undefined) {
       urlObj.searchParams.set('consent_analytics', consent.analytics ? '1' : '0');
@@ -93,7 +102,7 @@ function addConsentParametersToUrl(url) {
 
     // Add consent mode version for compatibility
     urlObj.searchParams.set('consent_mode_version', 'v2');
-    
+
     // Add source for debugging
     urlObj.searchParams.set('consent_source', 'website');
 

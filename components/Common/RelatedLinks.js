@@ -1,12 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 
 const RelatedLinks = ({ currentPage = '' }) => {
   const { t } = useTranslation(['common', 'navbar', 'footer']);
-  const router = useRouter();
-  const { locale } = router;
 
   // Define different link sets based on page type
   const getLinksByPageType = () => {
@@ -138,28 +135,22 @@ const RelatedLinks = ({ currentPage = '' }) => {
     ) {
       return [
         {
-          href: '/cdl-texas',
-          icon: '📝',
-          title: t('navbar:practiceTest', 'Practice Test'),
-          desc: t('common:practiceTestDesc', 'Free CDL practice tests'),
+          href: '/pre-trip-inspection/guide',
+          icon: '🚛',
+          title: t('navbar:preTripInspection', 'Pre-Trip Inspection'),
+          desc: t('common:preTripDesc', 'Learn the complete pre-trip inspection process'),
         },
         {
           href: '/schools',
           icon: '🏫',
-          title: t('navbar:schools', 'CDL Schools'),
-          desc: t('common:schoolsDesc', 'Find CDL schools'),
-        },
-        {
-          href: '/companies',
-          icon: '🏢',
-          title: t('navbar:companies', 'Companies'),
-          desc: t('common:companiesDesc', 'Trucking companies hiring'),
+          title: t('navbar:cdlSchools', 'CDL Schools'),
+          desc: t('common:schoolsDesc', 'Find CDL training schools near you'),
         },
         {
           href: '/download',
           icon: '📱',
-          title: t('navbar:downloadApp', 'Mobile App'),
-          desc: t('common:downloadDesc', 'CDL practice app'),
+          title: t('common:mobileApp', 'Mobile App'),
+          desc: t('common:downloadDesc', 'Practice CDL tests on your phone'),
         },
       ];
     }
@@ -205,10 +196,10 @@ const RelatedLinks = ({ currentPage = '' }) => {
           </p>
         </div>
 
-        <div className="row g-4 mt-5">
+        <div className="row g-4 mt-5 justify-content-center">
           {links.map((link, index) => (
-            <div key={index} className="col-lg-3 col-md-6">
-              <Link href={link.href} locale={locale} legacyBehavior>
+            <div key={index} className="col-lg-4 col-md-6">
+              <Link href={link.href} legacyBehavior>
                 <a className="related-link-card h-100 d-block text-decoration-none">
                   <div className="p-4 bg-white rounded shadow-sm h-100">
                     <div className="text-center mb-3">

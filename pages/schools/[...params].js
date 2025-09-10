@@ -686,7 +686,7 @@ const StateCitiesPage = ({ cities, state, meta }) => {
 
 // Component for School Profile page
 const SchoolProfilePage = ({ school, otherSchools, meta }) => {
-  const { t } = useTranslation(['school-profile', 'index']);
+  const { t } = useTranslation(['school-profile', 'city-schools', 'index']);
   const router = useRouter();
   const { locale } = router;
 
@@ -1218,7 +1218,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                   fontWeight: '600',
                 }}
               >
-                {t('faqTitle', 'Frequently Asked Questions')}
+                {t('city-schools:faqTitle', 'Frequently Asked Questions')}
               </h2>
 
               <div style={{ marginBottom: '30px' }}>
@@ -1230,7 +1230,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                     fontWeight: '600',
                   }}
                 >
-                  {t('faqHowLong', 'How long does CDL training take?')}
+                  {t('city-schools:faqHowLong', 'How long does CDL training take?')}
                 </h3>
                 <p
                   style={{
@@ -1240,7 +1240,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                   }}
                 >
                   {t(
-                    'faqHowLongAnswer',
+                    'city-schools:faqHowLongAnswer',
                     'Most full-time CDL programs take 3-7 weeks to complete, while part-time programs may take 8-12 weeks. The duration depends on the license class and any additional endorsements.'
                   )}
                 </p>
@@ -1255,7 +1255,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                     fontWeight: '600',
                   }}
                 >
-                  {t('faqCanIWork', 'Can I work while attending CDL school?')}
+                  {t('city-schools:faqCanIWork', 'Can I work while attending CDL school?')}
                 </h3>
                 <p
                   style={{
@@ -1265,33 +1265,8 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                   }}
                 >
                   {t(
-                    'faqCanIWorkAnswer',
+                    'city-schools:faqCanIWorkAnswer',
                     'Yes, many CDL schools offer flexible scheduling with evening and weekend classes to accommodate working students. Part-time programs are specifically designed for those maintaining employment during training.'
-                  )}
-                </p>
-              </div>
-
-              <div style={{ marginBottom: '30px' }}>
-                <h3
-                  style={{
-                    fontSize: '1.25rem',
-                    color: '#374151',
-                    marginBottom: '12px',
-                    fontWeight: '600',
-                  }}
-                >
-                  {t('faqJobGuarantee', 'Do CDL schools guarantee job placement?')}
-                </h3>
-                <p
-                  style={{
-                    color: '#6b7280',
-                    fontSize: '1.0625rem',
-                    lineHeight: '1.7',
-                  }}
-                >
-                  {t(
-                    'faqJobGuaranteeAnswer',
-                    'While most reputable CDL schools offer job placement assistance and maintain industry connections, job placement is typically not guaranteed. However, the high demand for CDL drivers means qualified graduates usually find employment quickly.'
                   )}
                 </p>
               </div>
@@ -1305,7 +1280,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                     fontWeight: '600',
                   }}
                 >
-                  {t('faqWhatToExpect', 'What should I expect during CDL training?')}
+                  {t('city-schools:faqWhatToExpect', 'What should I expect during CDL training?')}
                 </h3>
                 <p
                   style={{
@@ -1315,7 +1290,7 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                   }}
                 >
                   {t(
-                    'faqWhatToExpectAnswer',
+                    'city-schools:faqWhatToExpectAnswer',
                     "CDL training includes classroom instruction covering regulations and safety, pre-trip inspection training, backing and maneuvering practice, and on-road driving experience. You'll learn to operate commercial vehicles safely while preparing for the CDL knowledge and skills tests."
                   )}
                 </p>
@@ -1346,12 +1321,20 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                 className="resources-grid"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(4, 1fr)',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
                   gap: '20px',
                 }}
               >
                 {/* Pre-trip Inspection Card */}
-                <Link href="/pre-trip-inspection" locale={locale} legacyBehavior>
+                <Link
+                  href={
+                    locale === 'en'
+                      ? '/pre-trip-inspection/guide'
+                      : `/${locale}/pre-trip-inspection/guide`
+                  }
+                  locale={locale}
+                  legacyBehavior
+                >
                   <a
                     style={{
                       display: 'block',
@@ -1391,51 +1374,66 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                 </Link>
 
                 {/* English for Truck Drivers Card */}
-                <Link href="/articles/english-for-truck-drivers" locale={locale} legacyBehavior>
-                  <a
-                    style={{
-                      display: 'block',
-                      padding: '24px',
-                      backgroundColor: '#fff',
-                      border: '2px solid #e5e7eb',
-                      borderRadius: '12px',
-                      textDecoration: 'none',
-                      transition: 'all 0.3s ease',
-                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = '#3c3d78';
-                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.borderColor = '#e5e7eb';
-                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                      <i
-                        className="ri-translate"
-                        style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
-                      ></i>
-                      <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
-                        {t('englishForDrivers', 'English for Truck Drivers')}
-                      </h3>
-                    </div>
-                    <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
-                      {t(
-                        'englishDesc',
-                        'Essential English vocabulary and phrases for professional truck drivers'
-                      )}
-                    </p>
-                  </a>
-                </Link>
+                <a
+                  href="http://english.cdlhelp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'block',
+                    padding: '24px',
+                    backgroundColor: '#fff',
+                    border: '2px solid #e5e7eb',
+                    borderRadius: '12px',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = '#3c3d78';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = '#e5e7eb';
+                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                    <i
+                      className="ri-translate"
+                      style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
+                    ></i>
+                    <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
+                      {t('englishForDrivers', 'English for Truck Drivers')}
+                    </h3>
+                  </div>
+                  <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
+                    {t(
+                      'englishDesc',
+                      'Essential English vocabulary and phrases for professional truck drivers'
+                    )}
+                  </p>
+                </a>
 
                 {/* CDL Curriculum Card */}
                 <Link
                   href={
                     locale === 'en'
-                      ? '/articles/what-is-taught-in-cdl-schools'
-                      : `/${locale}/articles/chto-prepodayut-v-shkolakh-cdl`
+                      ? '/what-is-taught-in-cdl-schools'
+                      : locale === 'ru'
+                        ? '/ru/o-cdl-shkolakh'
+                        : locale === 'uk'
+                          ? '/uk/choho-navchayut-u-shkolakh-cdl'
+                          : locale === 'ar'
+                            ? '/ar/ma-yatimmu-tadrisuh-fi-madaris-cdl'
+                            : locale === 'ko'
+                              ? '/ko/cdl-haggyoeseoneun-mueos-eul-galeuchimniga'
+                              : locale === 'zh'
+                                ? '/zh/guanyu-cdl-xuexiao'
+                                : locale === 'tr'
+                                  ? '/tr/cdl-okul'
+                                  : locale === 'pt'
+                                    ? '/pt/sobre-as-escolas'
+                                    : `/${locale}/what-is-taught-in-cdl-schools`
                   }
                   locale={locale}
                   legacyBehavior
@@ -1474,43 +1472,6 @@ const SchoolProfilePage = ({ school, otherSchools, meta }) => {
                         'curriculumDesc',
                         "Detailed overview of what you'll learn in CDL training programs"
                       )}
-                    </p>
-                  </a>
-                </Link>
-
-                {/* CDL Jobs Card */}
-                <Link href="/jobs" locale={locale} legacyBehavior>
-                  <a
-                    style={{
-                      display: 'block',
-                      padding: '24px',
-                      backgroundColor: '#fff',
-                      border: '2px solid #e5e7eb',
-                      borderRadius: '12px',
-                      textDecoration: 'none',
-                      transition: 'all 0.3s ease',
-                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = '#3c3d78';
-                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(60,61,120,0.15)';
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.borderColor = '#e5e7eb';
-                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                      <i
-                        className="ri-briefcase-line"
-                        style={{ fontSize: '24px', color: '#3c3d78', marginRight: '12px' }}
-                      ></i>
-                      <h3 style={{ color: '#1a1a1a', fontSize: '1.125rem', margin: 0 }}>
-                        {t('cdlJobs', 'CDL Jobs')}
-                      </h3>
-                    </div>
-                    <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>
-                      {t('jobsDesc', 'Find truck driving jobs and career opportunities near you')}
                     </p>
                   </a>
                 </Link>
@@ -1965,6 +1926,7 @@ export async function getStaticProps({ params, locale }) {
           'footer',
           'common',
           'school-profile',
+          'city-schools',
           'index',
         ])),
       },

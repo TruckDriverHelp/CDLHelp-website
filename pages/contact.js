@@ -106,9 +106,9 @@ const Contact = ({ alternateLinks, meta }) => {
         </div>
       </div>
 
-      <ContactIntro />
-      <ContactForm />
       <ContactInfo />
+      <ContactForm />
+      <ContactIntro />
       <Footer />
     </>
   );

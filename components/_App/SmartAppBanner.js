@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import analytics from '../../lib/analytics';
 import attribution from '../../lib/attribution';
 
-const SmartAppBanner = () => {
+// Client-only component that handles localStorage and navigator
+const SmartAppBannerClient = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const [showBanner, setShowBanner] = useState(false);
   const [platform, setPlatform] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check if should show banner
-    if (typeof window === 'undefined') return;
+    setMounted(true);
 
     // Don't show if already dismissed
     const dismissed = localStorage.getItem('smartBannerDismissed');
@@ -46,6 +48,14 @@ const SmartAppBanner = () => {
       meta.name = 'apple-itunes-app';
       meta.content = `app-id=6444388755, app-argument=${window.location.href}`;
       document.head.appendChild(meta);
+
+      // Cleanup function to remove the meta tag
+      return () => {
+        const metaTag = document.querySelector('meta[name="apple-itunes-app"]');
+        if (metaTag) {
+          metaTag.remove();
+        }
+      };
     }
   }, []);
 
@@ -69,7 +79,8 @@ const SmartAppBanner = () => {
     analytics.trackFeatureEngagement('smart_banner', 'dismiss', platform);
   };
 
-  if (!showBanner) return null;
+  // Don't render anything until mounted to avoid hydration mismatch
+  if (!mounted || !showBanner) return null;
 
   return (
     <div
@@ -180,5 +191,10 @@ const SmartAppBanner = () => {
     </div>
   );
 };
+
+// Export as a dynamic component with SSR disabled to prevent hydration issues
+const SmartAppBanner = dynamic(() => Promise.resolve(SmartAppBannerClient), {
+  ssr: false,
+});
 
 export default SmartAppBanner;

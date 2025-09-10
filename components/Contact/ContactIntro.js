@@ -5,8 +5,8 @@ const ContactIntro = () => {
   const { t } = useTranslation('contact');
 
   return (
-    <div className="contact-intro-area pt-100 pb-50">
-      <div className="container">
+    <div className="contact-intro-area pt-100">
+      <div className="container pb-100">
         <div className="row">
           <div className="col-lg-8 mx-auto">
             <div className="contact-intro-content">

@@ -77,7 +77,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <div className="contact-area pt-100">
+      <div className="contact-area">
         <div className="container">
           <div className="section-title">
             <h2>{t('title')}</h2>

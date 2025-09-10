@@ -4,9 +4,12 @@
   "workForTruckers": "Jobs",
   "cdlSchool": "CDL School",
   "cdlSchools": "CDL Schools",
+  "schools": "CDL Schools",
   "companies": "Companies",
   "contacts": "Contact",
   "blog": "Blog",
   "dotPhysicalLookup": "DOT Physical lookup",
-  "roadSignsTest": "Road Signs Test"
+  "roadSignsTest": "Road Signs Test",
+  "preTripInspection": "Pre-Trip Inspection",
+  "downloadApp": "Mobile App"
 }

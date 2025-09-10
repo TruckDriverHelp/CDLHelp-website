@@ -64,6 +64,20 @@
   margin-bottom: 0;
 }
 
+.contact-info-inner .single-contact-info-box .icon-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.contact-info-inner .single-contact-info-box .icon-link:hover {
+  transform: scale(1.1);
+}
+
+.contact-info-inner .single-contact-info-box .icon-link:hover .icon {
+  background: linear-gradient(135deg, #4a4876 0%, #6b689a 100%);
+}
+
 .contact-form {
   max-width: 950px;
   text-align: center;

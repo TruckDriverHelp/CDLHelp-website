@@ -9,7 +9,7 @@ const ContactInfo = () => {
 
   return (
     <>
-      <div className="contact-info-area pb-100">
+      <div className="contact-info-area">
         <div className="container">
           <div className="contact-info-inner">
             <h2 className="text-black font-bold">{t('methods')}</h2>
@@ -17,9 +17,11 @@ const ContactInfo = () => {
             <div className="row justify-content-center">
               <div className="col-lg-4 col-md-6 col-sm-6">
                 <div className="single-contact-info-box">
-                  <div className="icon">
-                    <i className="ri-mail-line"></i>
-                  </div>
+                  <a href="mailto:contact@cdlhelp.com" className="icon-link">
+                    <div className="icon">
+                      <i className="ri-mail-line"></i>
+                    </div>
+                  </a>
                   <h3>
                     <a href="mailto:contact@cdlhelp.com">contact@cdlhelp.com</a>
                   </h3>
@@ -29,9 +31,11 @@ const ContactInfo = () => {
               {['ru', 'uk'].includes(locale) && (
                 <div className="col-lg-4 col-md-6 col-sm-6">
                   <div className="single-contact-info-box">
-                    <div className="icon">
-                      <i className="ri-telegram-line"></i>
-                    </div>
+                    <a href="https://www.t.me/tdhsupport" className="icon-link">
+                      <div className="icon">
+                        <i className="ri-telegram-line"></i>
+                      </div>
+                    </a>
                     <h3>
                       <a href="https://www.t.me/tdhsupport">{t('support')}</a>
                     </h3>
@@ -41,9 +45,11 @@ const ContactInfo = () => {
 
               <div className="col-lg-4 col-md-6 col-sm-6">
                 <div className="single-contact-info-box">
-                  <div className="icon">
-                    <i className="ri-telegram-line"></i>
-                  </div>
+                  <a href="https://t.me/TruckDriverGroup/13900/13904" className="icon-link">
+                    <div className="icon">
+                      <i className="ri-telegram-line"></i>
+                    </div>
+                  </a>
                   <h3>
                     <a href="https://t.me/TruckDriverGroup/13900/13904">{t('telegramGroup')}</a>
                   </h3>
