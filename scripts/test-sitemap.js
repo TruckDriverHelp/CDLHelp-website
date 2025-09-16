@@ -47,6 +47,16 @@ const TESTS = [
     url: '/sitemap.xml',
     expectedContent: ['<sitemapindex', '</sitemapindex>'],
   },
+  {
+    name: 'Rewritten Static Sitemap URL (English)',
+    url: '/sitemap-static-en.xml',
+    expectedContent: ['<urlset', '</urlset>', '<url>', '<loc>'],
+  },
+  {
+    name: 'Rewritten Blog Sitemap URL',
+    url: '/sitemap-blog.xml',
+    expectedContent: ['<urlset', '</urlset>', '<url>', '<loc>'],
+  },
 ];
 
 // Color codes for console output
