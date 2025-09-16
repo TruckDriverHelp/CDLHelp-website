@@ -1,0 +1,312 @@
+{
+  "staticPages": {
+    "/test-download": {
+      "file": "test-download.js",
+      "path": "/test-download",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": false,
+      "hasGetServerSideProps": false
+    },
+    "/terms-conditions": {
+      "file": "terms-conditions.js",
+      "path": "/terms-conditions",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/privacy-policy": {
+      "file": "privacy-policy.js",
+      "path": "/privacy-policy",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/": {
+      "file": "index.js",
+      "path": "/",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/download": {
+      "file": "download.js",
+      "path": "/download",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/dot-physical-exam": {
+      "file": "dot-physical-exam.js",
+      "path": "/dot-physical-exam",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/cookies-policy": {
+      "file": "cookies-policy.js",
+      "path": "/cookies-policy",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/contact": {
+      "file": "contact.js",
+      "path": "/contact",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/cdl-texas": {
+      "file": "cdl-texas.js",
+      "path": "/cdl-texas",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/blog": {
+      "file": "blog.js",
+      "path": "/blog",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": false,
+      "hasGetServerSideProps": true
+    },
+    "/404": {
+      "file": "404.js",
+      "path": "/404",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/road-signs/test": {
+      "file": "road-signs/test.js",
+      "path": "/road-signs/test",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/pre-trip-inspection/guide": {
+      "file": "pre-trip-inspection/guide.js",
+      "path": "/pre-trip-inspection/guide",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/schools": {
+      "file": "schools/index.js",
+      "path": "/schools",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    },
+    "/dot-physical-exam/search": {
+      "file": "dot-physical-exam/search/index.js",
+      "path": "/dot-physical-exam/search",
+      "availableLocales": ["en", "ru", "uk", "ar", "ko", "zh", "tr", "pt"],
+      "hasGetStaticProps": true,
+      "hasGetServerSideProps": false
+    }
+  },
+  "dynamicRoutes": {
+    "/schools/[...params]": {
+      "file": "schools/[...params].js",
+      "pattern": "/schools/[...params]",
+      "parameters": [
+        {
+          "name": "params",
+          "isCatchAll": true,
+          "isOptional": false
+        }
+      ],
+      "isOptional": false,
+      "isCatchAll": true,
+      "requiresData": true
+    },
+    "/en/[...slug]": {
+      "file": "en/[...slug].js",
+      "pattern": "/en/[...slug]",
+      "parameters": [
+        {
+          "name": "slug",
+          "isCatchAll": true,
+          "isOptional": false
+        }
+      ],
+      "isOptional": false,
+      "isCatchAll": true,
+      "requiresData": true
+    }
+  },
+  "apiRoutes": [],
+  "localeAvailability": {
+    "/test-download": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/terms-conditions": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/privacy-policy": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/download": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/dot-physical-exam": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/cookies-policy": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/contact": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/cdl-texas": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/blog": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/404": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/road-signs/test": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/pre-trip-inspection/guide": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/schools": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    },
+    "/dot-physical-exam/search": {
+      "en": true,
+      "ru": true,
+      "uk": true,
+      "ar": true,
+      "ko": true,
+      "zh": true,
+      "tr": true,
+      "pt": true
+    }
+  },
+  "strapiContent": {
+    "blogs": {
+      "route": "/blog/[slug]",
+      "estimatedCount": "dynamic",
+      "requiresAPI": true,
+      "localized": true
+    },
+    "schools": [],
+    "companies": []
+  },
+  "totalPages": 120,
+  "issues": [],
+  "summary": {
+    "staticPages": 15,
+    "dynamicRoutes": 2,
+    "apiRoutes": 0,
+    "totalEstimatedPages": 120,
+    "localesSupported": 8,
+    "issuesFound": 0
+  }
+}

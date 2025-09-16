@@ -85,9 +85,9 @@ Instead of linking to redirecting URLs, update links to point directly to final 
 - ❌ Don't: Link to `/school/california`
 - ✅ Do: Link to `/schools/california`
 
-### 2. Sitemap Updates
+### 2. Internal Link Updates
 
-Ensure sitemaps only include final destination URLs, not redirecting ones:
+Ensure all internal links point to final destination URLs, not redirecting ones:
 
 - Remove `/school/*` URLs
 - Remove individual pre-trip section URLs

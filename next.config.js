@@ -61,8 +61,8 @@ const nextConfig = {
         destination: '/api/sitemap',
       },
       {
-        source: '/sitemap-index.xml',
-        destination: '/api/sitemap-index.xml',
+        source: '/sitemap-:type.xml',
+        destination: '/api/sitemap/:type',
       },
     ];
   },

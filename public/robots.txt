@@ -73,21 +73,13 @@ Disallow: /api/test-strapi
 Disallow: /admin/
 Disallow: /build/
 
-# Allow sitemap endpoints
-Allow: /sitemap.xml
-Allow: /api/sitemap
-Allow: /api/sitemap-index.xml
-Allow: /api/sitemap-images.xml
-Allow: /api/sitemap-videos.xml
-Allow: /api/sitemap-news.xml
 
 # Host
 Host: https://www.cdlhelp.com
 
 # Sitemaps
-Sitemap: https://www.cdlhelp.com/api/sitemap-comprehensive.xml
-Sitemap: https://www.cdlhelp.com/api/sitemap-index.xml
-Sitemap: https://www.cdlhelp.com/api/sitemap-news.xml
+Sitemap: https://www.cdlhelp.com/sitemap.xml
+
 
 # Crawl delay for responsible crawling
 Crawl-delay: 1

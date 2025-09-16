@@ -53,7 +53,6 @@ This is the Next.js website repository for CDL Help's web presence.
 ### Important Files
 
 - `next.config.js` - Next.js configuration
-- `sitemap.xml` - SEO sitemap
 - Various locale files for internationalization
 
 ## Development Guidelines
